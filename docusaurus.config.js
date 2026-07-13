@@ -11,11 +11,12 @@ const config = {
     v4: true,
   },
 
-  // TODO: podmień na docelową domenę (np. https://pocaduchy.pl) przed deployem
-  url: 'https://pocaduchy.pl',
-  baseUrl: '/',
+  // GitHub Pages. Po zakupie domeny pocaduchy.pl: url → 'https://pocaduchy.pl',
+  // baseUrl → '/' i plik static/CNAME z domeną.
+  url: 'https://lukaszcecelon.github.io',
+  baseUrl: '/pocaduchy-site/',
 
-  organizationName: 'pocaduchy',
+  organizationName: 'LukaszCecelon',
   projectName: 'pocaduchy-site',
 
   onBrokenLinks: 'throw',
@@ -26,6 +27,33 @@ const config = {
       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5245798413568501',
       async: true,
       crossorigin: 'anonymous',
+    },
+  ],
+
+  plugins: [
+    // Google Consent Mode v2: przed załadowaniem skryptów reklamowych
+    // deklarujemy brak zgód (RODO-safe default). Właściwy baner zgód to
+    // CMP Google włączany w panelu AdSense (Privacy & messaging) — po
+    // uzyskaniu zgody użytkownika sam zaktualizuje te sygnały.
+    function consentModeDefaults() {
+      return {
+        name: 'consent-mode-defaults',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML:
+                  "window.dataLayer=window.dataLayer||[];" +
+                  "function gtag(){dataLayer.push(arguments);}" +
+                  "gtag('consent','default',{ad_storage:'denied'," +
+                  "ad_user_data:'denied',ad_personalization:'denied'," +
+                  "analytics_storage:'denied',wait_for_update:500});",
+              },
+            ],
+          };
+        },
+      };
     },
   ],
 
