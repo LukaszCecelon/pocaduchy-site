@@ -20,6 +20,15 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // Google AdSense — ładowany na każdej stronie (weryfikacja + auto ads).
+  scripts: [
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5245798413568501',
+      async: true,
+      crossorigin: 'anonymous',
+    },
+  ],
+
   i18n: {
     defaultLocale: 'pl',
     locales: ['pl'],
