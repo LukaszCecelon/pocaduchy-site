@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './social.module.css';
+import episodesData from '../data/episodes.json';
 
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 // Kanały bez href renderują się jako nieklikalne karty "wkrótce".
@@ -30,7 +31,18 @@ const CHANNELS = [
   },
 ];
 
-const PREVIEW_EPISODES = Array.from({ length: 6 }, (_, i) => 6 - i);
+// Ostatnie 3 pełne odcinki z automatycznie generowanego episodes.json
+const PREVIEW_EPISODES = episodesData.episodes
+  .filter((e) => !e.isShort)
+  .slice(0, 3);
+
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+}
 
 export default function Social() {
   return (
@@ -86,20 +98,22 @@ export default function Social() {
           </Link>
         </div>
         <div className={styles.epGrid}>
-          {PREVIEW_EPISODES.map((n) => (
+          {PREVIEW_EPISODES.map((ep) => (
             <a
-              key={n}
-              href={YOUTUBE_URL}
+              key={ep.id}
+              href={ep.url}
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.epCard} pc-cut-card`}>
               <div className={styles.epThumb}>
-                <span className={styles.epThumbLabel}>MINIATURA</span>
-                <div className={styles.playIcon} />
+                <img src={ep.thumbnail} alt="" loading="lazy" />
+                <div className={styles.playBadge}>
+                  <div className={styles.playIcon} />
+                </div>
               </div>
               <div className={styles.epMeta}>
-                <span className={styles.epNumber}>ODCINEK {n}</span>
-                <span className={styles.epTitle}>Wstaw tytuł odcinka</span>
+                <span className={styles.epNumber}>{formatDate(ep.published)}</span>
+                <span className={styles.epTitle}>{ep.title}</span>
               </div>
             </a>
           ))}
