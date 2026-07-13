@@ -40,68 +40,70 @@ const BOLT_HOLES = Array.from({length: 6}, (_, i) => {
   return {x: +(118 * Math.cos(a)).toFixed(1), y: +(118 * Math.sin(a)).toFixed(1)};
 });
 
-// Animowany "rysunek techniczny" w tle hero: linie środkowe i okrąg podziałowy
-// pojawiają się pierwsze, zarys zębatki kreśli się jak pod ręką kreślarza
-// (stroke-dashoffset), na końcu wchodzi wymiarowanie i tabliczka rysunkowa,
-// a cała zębatka rusza w powolny obrót.
-function Blueprint() {
+// Trójwymiarowa zębatka w tle hero, stylizowana na widok z okna CAD.
+// Bryła to stos warstw SVG rozsuniętych w osi Z (translateZ) wewnątrz sceny
+// z perspektywą — warstwy "drukują się" po kolei jak na drukarce 3D
+// (stroke-dashoffset), potem cała bryła rusza w powolny obrót i delikatnie
+// przechyla się za kursorem.
+const GEAR_LAYERS = 7;
+const LAYER_STEP = 9; // rozsunięcie warstw w px — łączna "grubość" bryły
+
+function GearLayer({z, edge, delay}) {
   return (
-    <div className={styles.blueprintWrap} data-parallax aria-hidden="true">
-      <svg viewBox="0 0 900 640" preserveAspectRatio="xMidYMid meet" focusable="false">
-        <g transform="translate(560,300)">
-          {/* Linie środkowe (kreska-kropka, jak w CAD) */}
-          <line className={`${styles.bpDashDot} ${styles.bpFade}`} x1="-268" y1="0" x2="268" y2="0" style={{'--del': '0.2s'}} />
-          <line className={`${styles.bpDashDot} ${styles.bpFade}`} x1="0" y1="-268" x2="0" y2="268" style={{'--del': '0.3s'}} />
-          {/* Okrąg podziałowy */}
-          <circle className={`${styles.bpDashDot} ${styles.bpFade}`} r="192" style={{'--del': '0.5s'}} />
+    <svg
+      className={`${styles.gearLayer} ${edge ? styles.gearLayerEdge : styles.gearLayerMid}`}
+      viewBox="-260 -260 520 520"
+      style={{transform: `translateZ(${z}px)`, '--del': `${delay}s`}}
+      focusable="false">
+      <path className={styles.g3Path} d={GEAR_PATH} pathLength="1" />
+      <circle className={styles.g3Path} r="54" pathLength="1" />
+      <rect className={styles.g3Path} x="-12" y="-68" width="24" height="16" pathLength="1" />
+      {BOLT_HOLES.map((h, i) => (
+        <circle key={i} className={styles.g3Path} cx={h.x} cy={h.y} r="16" pathLength="1" />
+      ))}
+    </svg>
+  );
+}
 
-          {/* Obracająca się część rysunku */}
-          <g className={styles.gearSpin}>
-            <path className={styles.bpDraw} d={GEAR_PATH} pathLength="1" style={{'--del': '0.6s', '--dur': '1.9s'}} />
-            <circle className={styles.bpDraw} r="54" pathLength="1" style={{'--del': '1.25s', '--dur': '0.8s'}} />
-            {/* Rowek wpustowy */}
-            <rect className={styles.bpDraw} x="-12" y="-68" width="24" height="16" pathLength="1" style={{'--del': '1.6s', '--dur': '0.5s'}} />
-            {BOLT_HOLES.map((h, i) => (
-              <circle
-                key={i}
-                className={styles.bpDraw}
-                cx={h.x}
-                cy={h.y}
-                r="16"
-                pathLength="1"
-                style={{'--del': `${(1.4 + i * 0.11).toFixed(2)}s`, '--dur': '0.45s'}}
-              />
+function Cad3dViewport() {
+  const layers = Array.from({length: GEAR_LAYERS}, (_, i) => ({
+    z: (i - (GEAR_LAYERS - 1) / 2) * LAYER_STEP,
+    edge: i === 0 || i === GEAR_LAYERS - 1,
+    delay: +(0.25 + i * 0.22).toFixed(2),
+  }));
+
+  return (
+    <div className={styles.viewport} aria-hidden="true">
+      <div className={styles.scene}>
+        <div className={styles.tilt} data-tilt>
+          <div className={styles.gearSpin3d}>
+            {layers.map((l) => (
+              <GearLayer key={l.z} z={l.z} edge={l.edge} delay={l.delay} />
             ))}
-          </g>
+          </div>
+        </div>
+      </div>
 
-          {/* Wymiar średnicy zewnętrznej */}
-          <g className={styles.bpFade} style={{'--del': '2.5s'}}>
-            <line className={styles.bpLine} x1="-208" y1="18" x2="-208" y2="268" />
-            <line className={styles.bpLine} x1="208" y1="18" x2="208" y2="268" />
-            <line className={styles.bpLine} x1="-208" y1="256" x2="208" y2="256" />
-            <path className={styles.bpArrow} d="M -208,256 l 15,-4.5 l 0,9 Z" />
-            <path className={styles.bpArrow} d="M 208,256 l -15,-4.5 l 0,9 Z" />
-            <text className={styles.bpText} x="0" y="244" textAnchor="middle">Ø 416</text>
-          </g>
-
-          {/* Odnośnik do otworów montażowych */}
-          <g className={styles.bpFade} style={{'--del': '2.75s'}}>
-            <line className={styles.bpLine} x1="116" y1="-67" x2="196" y2="-146" />
-            <line className={styles.bpLine} x1="196" y1="-146" x2="304" y2="-146" />
-            <text className={styles.bpText} x="200" y="-154">6 × Ø 32</text>
-          </g>
-        </g>
-
-        {/* Tabliczka rysunkowa */}
-        <g className={styles.bpFade} style={{'--del': '3s'}} transform="translate(662,548)">
-          <rect className={styles.bpLine} x="0" y="0" width="218" height="72" />
-          <line className={styles.bpLine} x1="0" y1="24" x2="218" y2="24" />
-          <line className={styles.bpLine} x1="0" y1="48" x2="218" y2="48" />
-          <text className={styles.bpTextSmall} x="10" y="17">POCADUCHY · WARSZTAT</text>
-          <text className={styles.bpTextSmall} x="10" y="41">RYS. PC-001 · KOŁO ZĘBATE</text>
-          <text className={styles.bpTextSmall} x="10" y="65">SKALA 1:2 · ARKUSZ 1/1</text>
-        </g>
+      {/* Triada osi jak w oknie CAD */}
+      <svg
+        className={`${styles.triad} ${styles.bpFade}`}
+        viewBox="0 0 96 96"
+        style={{'--del': '2.4s'}}
+        focusable="false">
+        <line x1="48" y1="56" x2="48" y2="14" />
+        <line x1="48" y1="56" x2="12" y2="78" />
+        <line x1="48" y1="56" x2="84" y2="78" />
+        <text x="48" y="10" textAnchor="middle">Z</text>
+        <text x="4" y="90">X</text>
+        <text x="80" y="90">Y</text>
       </svg>
+
+      {/* Tabliczka jak w rogu okna CAD */}
+      <div className={`${styles.titleBlock} ${styles.bpFade}`} style={{'--del': '2.8s'}}>
+        <span>POCADUCHY · WARSZTAT</span>
+        <span>MODEL PC-001 · KOŁO ZĘBATE</span>
+        <span>WIDOK 3D · OBRÓT AUTO</span>
+      </div>
     </div>
   );
 }
@@ -144,8 +146,8 @@ function useRevealOnScroll() {
   return containerRef;
 }
 
-// Subtelna paralaksa rysunku technicznego za kursorem — tylko gdy użytkownik
-// nie prosi o ograniczenie ruchu.
+// Subtelne przechylanie bryły 3D za kursorem (rotateX/rotateY na scenie) —
+// tylko gdy użytkownik nie prosi o ograniczenie ruchu.
 function useHeroParallax() {
   const heroRef = useRef(null);
 
@@ -155,19 +157,19 @@ function useHeroParallax() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return undefined;
     }
-    const wrap = hero.querySelector('[data-parallax]');
+    const wrap = hero.querySelector('[data-tilt]');
     if (!wrap) return undefined;
 
     const onMove = (e) => {
       const r = hero.getBoundingClientRect();
       const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
       const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
-      wrap.style.setProperty('--mx', `${(-nx * 14).toFixed(1)}px`);
-      wrap.style.setProperty('--my', `${(-ny * 10).toFixed(1)}px`);
+      wrap.style.setProperty('--tx', `${(nx * 7).toFixed(2)}deg`);
+      wrap.style.setProperty('--ty', `${(-ny * 6).toFixed(2)}deg`);
     };
     const onLeave = () => {
-      wrap.style.setProperty('--mx', '0px');
-      wrap.style.setProperty('--my', '0px');
+      wrap.style.setProperty('--tx', '0deg');
+      wrap.style.setProperty('--ty', '0deg');
     };
 
     hero.addEventListener('mousemove', onMove);
@@ -185,7 +187,7 @@ function Hero() {
   const heroRef = useHeroParallax();
   return (
     <div className={styles.hero} ref={heroRef}>
-      <Blueprint />
+      <Cad3dViewport />
       <div className={styles.heroGrid}>
         <div className={`${styles.heroCopy} ${styles.rise}`}>
           <div className={styles.eyebrow}>
@@ -217,8 +219,11 @@ function Hero() {
           </p>
         </div>
         <div className={`${styles.heroLogoWrap} ${styles.riseDelayed}`}>
-          <div className={`${styles.heroLogoFrame} pc-cut`}>
-            <img src={useBaseUrl('/img/pocaduchy-logo.png')} alt="poCADuchy" />
+          <div className={styles.heroBadgeOrbit}>
+            <span className={styles.orbitRing} />
+            <div className={styles.heroBadge}>
+              <img src={useBaseUrl('/img/pocaduchy-logo.png')} alt="poCADuchy" />
+            </div>
           </div>
         </div>
       </div>
