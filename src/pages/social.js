@@ -4,11 +4,8 @@ import Link from '@docusaurus/Link';
 import styles from './social.module.css';
 
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
-// TODO: podmień na realne linki, gdy konta powstaną / zostaną potwierdzone
-const LINKEDIN_URL = '#';
-const INSTAGRAM_URL = '#';
-const TIKTOK_URL = '#';
-
+// Kanały bez href renderują się jako nieklikalne karty "wkrótce".
+// Gdy konto powstanie — wystarczy dopisać href, reszta zadzieje się sama.
 const CHANNELS = [
   {
     name: 'YOUTUBE',
@@ -20,19 +17,16 @@ const CHANNELS = [
     name: 'LINKEDIN',
     body: 'Zawodowa strona projektowania — realizacje i wnioski z pracy inżynierskiej.',
     cta: 'Obserwuj →',
-    href: LINKEDIN_URL,
   },
   {
     name: 'INSTAGRAM',
     body: 'Kulisy pracowni i krótkie ujęcia z bieżących projektów.',
     cta: 'Obserwuj →',
-    href: INSTAGRAM_URL,
   },
   {
     name: 'TIKTOK',
     body: 'Krótkie, szybkie wstawki z warsztatu — bez lania wody.',
     cta: 'Obserwuj →',
-    href: TIKTOK_URL,
   },
 ];
 
@@ -55,18 +49,28 @@ export default function Social() {
         </div>
 
         <div className={styles.channelGrid}>
-          {CHANNELS.map((c) => (
-            <a
-              key={c.name}
-              href={c.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.channelCard} pc-cut-card`}>
-              <span className={styles.channelName}>{c.name}</span>
-              <p className={styles.channelBody}>{c.body}</p>
-              <span className={styles.channelCta}>{c.cta}</span>
-            </a>
-          ))}
+          {CHANNELS.map((c) =>
+            c.href ? (
+              <a
+                key={c.name}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.channelCard} pc-cut-card`}>
+                <span className={styles.channelName}>{c.name}</span>
+                <p className={styles.channelBody}>{c.body}</p>
+                <span className={styles.channelCta}>{c.cta}</span>
+              </a>
+            ) : (
+              <div
+                key={c.name}
+                className={`${styles.channelCard} ${styles.channelCardSoon} pc-cut-card`}>
+                <span className={styles.channelNameSoon}>{c.name}</span>
+                <p className={styles.channelBody}>{c.body}</p>
+                <span className={styles.soonTag}>Wkrótce</span>
+              </div>
+            ),
+          )}
         </div>
 
         <div className={styles.sectionHead}>

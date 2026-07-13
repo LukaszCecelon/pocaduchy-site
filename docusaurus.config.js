@@ -47,6 +47,9 @@ const config = {
     ({
       colorMode: {
         defaultMode: 'light',
+        // Strona jest zaprojektowana tylko na jasny motyw — przełącznik
+        // wyłączony, dopóki nie powstanie pełny dark theme.
+        disableSwitch: true,
         respectPrefersColorScheme: false,
       },
       navbar: {

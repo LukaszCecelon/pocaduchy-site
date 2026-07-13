@@ -2,7 +2,9 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import styles from './uslugi.module.css';
 
-const CONTACT_EMAIL = 'kontakt@pocaduchy.pl'; // TODO: podmień na docelowy adres
+// Tymczasowo prywatna skrzynka — podmienić na kontakt@pocaduchy.pl,
+// gdy domena i poczta zostaną skonfigurowane.
+const CONTACT_EMAIL = 'RA-Engineering@outlook.com';
 
 const SERVICES = [
   {
