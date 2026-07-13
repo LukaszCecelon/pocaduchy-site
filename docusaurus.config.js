@@ -11,10 +11,10 @@ const config = {
     v4: true,
   },
 
-  // GitHub Pages. Po zakupie domeny pocaduchy.pl: url → 'https://pocaduchy.pl',
-  // baseUrl → '/' i plik static/CNAME z domeną.
-  url: 'https://lukaszcecelon.github.io',
-  baseUrl: '/pocaduchy-site/',
+  // Własna domena (custom domain GitHub Pages) — plik static/CNAME
+  // wskazuje ją Pages'om, serwowanie odbywa się z korzenia.
+  url: 'https://pocaduchy.pl',
+  baseUrl: '/',
 
   organizationName: 'LukaszCecelon',
   projectName: 'pocaduchy-site',
