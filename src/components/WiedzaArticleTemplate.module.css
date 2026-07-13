@@ -1,0 +1,96 @@
+.wrap {
+  padding: 40px 32px 96px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin-bottom: 28px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--pc-text-faint);
+}
+.breadcrumb span {
+  color: var(--pc-navy);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 56px;
+  align-items: start;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  text-transform: uppercase;
+  background: #f1f1f5;
+  padding: 4px 8px;
+  margin-bottom: 18px;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 38px;
+  color: var(--pc-navy);
+  margin: 0 0 24px;
+}
+.lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #8a8daa;
+  margin: 0 0 24px;
+  font-style: italic;
+}
+.placeholder {
+  border: 1px dashed #c7cad9;
+  background: #f8f8fa;
+  padding: 40px 28px;
+  text-align: center;
+  margin: 0 0 28px;
+}
+.placeholderLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  text-transform: uppercase;
+}
+
+.sidebar {
+  position: sticky;
+  top: 84px;
+  background: #ffffff;
+  border: 1px solid var(--pc-border);
+  padding: 22px 20px;
+}
+.sidebarLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.sidebarNote {
+  font-size: 13.5px;
+  color: #8a8daa;
+  font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+}

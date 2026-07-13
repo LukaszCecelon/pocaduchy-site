@@ -1,0 +1,140 @@
+.wrap {
+  padding: 40px 32px 96px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin-bottom: 28px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--pc-text-faint);
+}
+.breadcrumb span {
+  color: var(--pc-navy);
+}
+
+.intro {
+  margin-bottom: 44px;
+  max-width: 640px;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--pc-navy);
+  margin: 0 0 12px;
+}
+.lead {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #565a78;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--pc-border);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.card:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--pc-rust);
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardN {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-rust);
+  font-weight: 500;
+}
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  text-transform: uppercase;
+  background: #f1f1f5;
+  padding: 4px 8px;
+}
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--pc-navy);
+  margin: 0;
+  line-height: 1.25;
+}
+.cardBody {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--pc-text-muted);
+  margin: 0;
+}
+
+/* Kalkulatory — puste sloty */
+.slot {
+  background: #f8f8fa;
+  border: 1px dashed #c7cad9;
+  padding: 28px 26px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.slotPlus {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: #c7cad9;
+}
+.slotLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--pc-text-faint);
+}
+.footnote {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin: 20px 0 0;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 28px;
+  }
+}
