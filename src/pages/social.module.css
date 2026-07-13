@@ -82,6 +82,34 @@
   margin-top: 4px;
 }
 
+/* Kanał jeszcze niepodłączony — karta nieklikalna, stonowana */
+.channelCardSoon {
+  background: #f8f8fa;
+  border-style: dashed;
+  border-color: #c7cad9;
+}
+.channelCardSoon:hover {
+  border-color: #c7cad9;
+}
+.channelNameSoon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  font-weight: 500;
+}
+.soonTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--pc-text-faint);
+  text-transform: uppercase;
+  background: #ededf2;
+  padding: 4px 8px;
+  width: fit-content;
+  margin-top: 4px;
+}
+
 .sectionHead {
   display: flex;
   align-items: flex-end;
