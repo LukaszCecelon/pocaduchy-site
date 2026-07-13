@@ -1,0 +1,90 @@
+/**
+ * poCADuchy — global brand tokens
+ * Colors extracted directly from the channel logo file.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --pc-navy: #2b2f4c;
+  --pc-navy-soft: #4a4e6b;
+  --pc-rust: #96453b;
+  --pc-rust-hover: #7a372f;
+  --pc-bg: #fcfcfd;
+  --pc-border: #e4e4e9;
+  --pc-text-muted: #6b6e88;
+  --pc-text-faint: #9a9db5;
+
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Infima overrides so the default Docusaurus chrome (navbar, footer,
+     buttons, links) matches the brand instead of the default green. */
+  --ifm-color-primary: #96453b;
+  --ifm-color-primary-dark: #873e35;
+  --ifm-color-primary-darker: #7f3b32;
+  --ifm-color-primary-darkest: #693129;
+  --ifm-color-primary-light: #a54c41;
+  --ifm-color-primary-lighter: #ad5045;
+  --ifm-color-primary-lightest: #bc5c50;
+
+  --ifm-font-family-base: var(--font-body);
+  --ifm-heading-font-family: var(--font-display);
+  --ifm-navbar-background-color: rgba(252, 252, 253, 0.92);
+  --ifm-background-color: var(--pc-bg);
+  --ifm-footer-background-color: var(--pc-navy);
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-background-color: #14162a;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.navbar__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.navbar__title {
+  color: var(--pc-navy);
+}
+
+.navbar__logo img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar__item.navbar__cta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pc-bg) !important;
+  background: var(--pc-rust);
+  padding: 9px 18px;
+  margin-left: 8px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.navbar__item.navbar__cta:hover {
+  background: var(--pc-rust-hover);
+}
+
+/* Angular "cut corner" signature from the brand's clip-path buttons,
+   reused as a utility class across pages. */
+.pc-cut {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+.pc-cut-card {
+  clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
+}
