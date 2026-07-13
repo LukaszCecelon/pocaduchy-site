@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "fetch:episodes": "node scripts/fetch-episodes.mjs",
+    "prestart": "node scripts/fetch-episodes.mjs",
+    "prebuild": "node scripts/fetch-episodes.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
