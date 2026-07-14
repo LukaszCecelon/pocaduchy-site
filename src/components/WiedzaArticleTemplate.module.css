@@ -24,17 +24,6 @@
   align-items: start;
 }
 
-.badge {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--pc-text-faint);
-  text-transform: uppercase;
-  background: #f1f1f5;
-  padding: 4px 8px;
-  margin-bottom: 18px;
-}
 .title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -45,23 +34,8 @@
 .lead {
   font-size: 16px;
   line-height: 1.7;
-  color: #8a8daa;
+  color: var(--pc-text-muted);
   margin: 0 0 24px;
-  font-style: italic;
-}
-.placeholder {
-  border: 1px dashed #c7cad9;
-  background: #f8f8fa;
-  padding: 40px 28px;
-  text-align: center;
-  margin: 0 0 28px;
-}
-.placeholderLabel {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: var(--pc-text-faint);
-  text-transform: uppercase;
 }
 
 .sidebar {
@@ -82,8 +56,10 @@
 }
 .sidebarNote {
   font-size: 13.5px;
-  color: #8a8daa;
-  font-style: italic;
+  color: var(--pc-rust);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  display: inline-block;
 }
 
 @media (max-width: 800px) {

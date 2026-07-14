@@ -1,0 +1,31 @@
+{
+  "services": [
+    {
+      "title": "Projektowanie",
+      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D — od koncepcji po dokumentację warsztatową.",
+      "items": [
+        "Modelowanie 3D i złożenia",
+        "Dokumentacja wykonawcza",
+        "Dobór materiałów i tolerancji"
+      ]
+    },
+    {
+      "title": "Druk 3D",
+      "body": "Wydruki prototypów i elementów funkcjonalnych — sprawdzenie geometrii i montażu przed produkcją seryjną.",
+      "items": [
+        "Prototypy funkcjonalne",
+        "Elementy jednostkowe",
+        "Dobór technologii i materiału"
+      ]
+    },
+    {
+      "title": "Konsultacje i audyty",
+      "body": "Przegląd dokumentacji i rozwiązań konstrukcyjnych dla biur projektowych — spojrzenie inżyniera z doświadczeniem warsztatowym.",
+      "items": [
+        "Przegląd rysunków i modeli 3D",
+        "Audyt pod kątem wykonalności",
+        "Konsultacje projektowe"
+      ]
+    }
+  ]
+}

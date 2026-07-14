@@ -1,0 +1,18 @@
+{
+  "title": "Stal konstrukcyjna S235 — podstawowe własności",
+  "description": "Najczęściej stosowana stal konstrukcyjna w budowie maszyn — kluczowe parametry do szybkiego sprawdzenia.",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "S235 to podstawowa, najtańsza stal konstrukcyjna ogólnego przeznaczenia — dobry wybór, gdy nie ma podwyższonych wymagań wytrzymałościowych, a liczy się dostępność i cena."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Parametr | Wartość |\n|---|---|\n| Granica plastyczności Re | ≥ 235 MPa |\n| Wytrzymałość na rozciąganie Rm | 360–510 MPa |\n| Wydłużenie A5 | ≥ 26% |\n| Moduł Younga E | ≈ 210 GPa |"
+    },
+    {
+      "type": "tekst",
+      "body": "Do zastosowań z wyższymi obciążeniami warto rozważyć S355 — przy podobnej cenie daje wyraźnie wyższą granicę plastyczności."
+    }
+  ]
+}

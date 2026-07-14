@@ -1,0 +1,151 @@
+# Panel CMS (Decap CMS) — poCADuchy
+#
+# Tryb lokalny: uruchamiany razem z `npx decap-server` (patrz Edytuj-Strone.bat
+# w katalogu głównym repo). Zapisuje pliki bezpośrednio na dysku w content/ —
+# żeby opublikować zmiany na żywo, trzeba jeszcze uruchomić Publikuj-Zmiany.bat
+# (git add + commit + push).
+#
+# `backend` poniżej jest wymagane przez Decap CMS, ale w trybie lokalnym
+# nieużywane — logowanie przez prawdziwy GitHub (OAuth) nie jest tu
+# skonfigurowane, więc panel na żywej domenie (pocaduchy.pl/admin) nie
+# zaloguje się. To celowe: edycja ma się odbywać lokalnie, na komputerze.
+
+backend:
+  name: github
+  repo: LukaszCecelon/pocaduchy-site
+  branch: main
+
+local_backend: true
+
+media_folder: static/img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: wiedza_wzory
+    label: "Wiedza — Wzory i tabele"
+    folder: content/wiedza/wzory
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.title}}"
+    fields: &article_fields
+      - {label: Tytuł, name: title, widget: string}
+      - {label: "Opis (widoczny na liście i w Google)", name: description, widget: string, required: false}
+      - label: Treść
+        name: blocks
+        widget: list
+        label_singular: "blok"
+        types: &block_types
+          - label: "Tekst"
+            name: tekst
+            widget: object
+            summary: "Tekst: {{fields.body}}"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: tekst}
+              - {label: Treść (Markdown — **pogrubienie**, listy itd.), name: body, widget: markdown}
+          - label: "Obraz"
+            name: obraz
+            widget: object
+            summary: "Obraz: {{fields.podpis}}"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: obraz}
+              - {label: Zdjęcie, name: src, widget: image}
+              - {label: Podpis, name: podpis, widget: string, required: false}
+              - label: Wyrównanie na stronie
+                name: wyrownanie
+                widget: select
+                default: srodek
+                options:
+                  - {label: "Na środku", value: srodek}
+                  - {label: "Do lewej (tekst opływa z prawej)", value: lewo}
+                  - {label: "Do prawej (tekst opływa z lewej)", value: prawo}
+                  - {label: "Pełna szerokość", value: pelna-szerokosc}
+          - label: "Galeria zdjęć"
+            name: galeria
+            widget: object
+            summary: "Galeria ({{fields.zdjecia}} zdjęć)"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: galeria}
+              - label: Zdjęcia
+                name: zdjecia
+                widget: list
+                field: {label: Zdjęcie, name: image, widget: image}
+          - label: "Tabela"
+            name: tabela
+            widget: object
+            summary: "Tabela"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: tabela}
+              - label: "Tabela (składnia Markdown)"
+                name: markdown
+                widget: text
+                hint: "Przykład:\n| Kolumna 1 | Kolumna 2 |\n|---|---|\n| wartość | wartość |"
+          - label: "Wzór matematyczny"
+            name: wzor
+            widget: object
+            summary: "Wzór: {{fields.latex}}"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: wzor}
+              - label: "Wzór (składnia LaTeX)"
+                name: latex
+                widget: string
+                hint: 'Np. "E = mc^2" albo "\sigma = \frac{M_g}{W_x}"'
+
+  - name: wiedza_materialy
+    label: "Wiedza — Materiały konstrukcyjne"
+    folder: content/wiedza/materialy
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.title}}"
+    fields: *article_fields
+
+  - name: wiedza_elementy
+    label: "Wiedza — Elementy standardowe"
+    folder: content/wiedza/elementy
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.title}}"
+    fields: *article_fields
+
+  - name: blog_posts
+    label: "Blog"
+    folder: content/blog
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.title}}"
+    fields:
+      - {label: Tytuł, name: title, widget: string}
+      - {label: "Opis (widoczny na liście i w Google)", name: description, widget: string, required: false}
+      - {label: Data, name: date, widget: date, required: false, format: "YYYY-MM-DD"}
+      - {label: "Link do oryginalnego posta na LinkedIn", name: linkedinUrl, widget: string, required: false}
+      - label: Treść
+        name: blocks
+        widget: list
+        label_singular: "blok"
+        types: *block_types
+
+  - name: uslugi
+    label: "Usługi"
+    files:
+      - file: content/uslugi.json
+        label: "Strona /uslugi"
+        name: uslugi
+        format: json
+        fields:
+          - label: "Lista usług"
+            name: services
+            widget: list
+            label_singular: "usługa"
+            fields:
+              - {label: "Nazwa usługi", name: title, widget: string}
+              - {label: Opis, name: body, widget: text}
+              - label: "Punkty (zakres usługi)"
+                name: items
+                widget: list

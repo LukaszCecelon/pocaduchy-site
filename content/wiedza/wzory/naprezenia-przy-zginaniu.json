@@ -1,0 +1,36 @@
+{
+  "title": "Naprężenia przy zginaniu — wzór i przykład",
+  "description": "Jak policzyć naprężenia normalne w belce zginanej i na co zwrócić uwagę przy doborze przekroju.",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Przy zginaniu prostym maksymalne naprężenie normalne w przekroju belki liczymy z klasycznego wzoru na zginanie:"
+    },
+    {
+      "type": "wzor",
+      "latex": "\\sigma = \\frac{M_g}{W_x}"
+    },
+    {
+      "type": "tekst",
+      "body": "gdzie **Mg** to moment gnący w rozpatrywanym przekroju, a **Wx** to wskaźnik wytrzymałości przekroju na zginanie względem osi x. Dla typowych przekrojów wskaźnik ten liczy się tak:"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Przekrój | Wzór na Wx |\n|---|---|\n| Prostokąt (b × h) | b·h² / 6 |\n| Koło (Ø d) | π·d³ / 32 |\n| Rura (Ø D, Ø d) | π·(D⁴−d⁴) / (32·D) |"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/pocaduchy-logo.png",
+      "podpis": "Przykładowe zdjęcie — podmień w CMS na własne (np. rysunek przekroju)",
+      "wyrownanie": "prawo"
+    },
+    {
+      "type": "tekst",
+      "body": "Warunek wytrzymałościowy jest spełniony, gdy obliczone σ nie przekracza naprężenia dopuszczalnego dla danego materiału. W praktyce warsztatowej dobiera się przekrój z pewnym zapasem — zwłaszcza przy obciążeniach zmiennych."
+    },
+    {
+      "type": "galeria",
+      "zdjecia": ["/img/pocaduchy-logo.png", "/img/pocaduchy-logo-transparent.png"]
+    }
+  ]
+}

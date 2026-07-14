@@ -30,6 +30,18 @@ const config = {
     },
   ],
 
+  // KaTeX — style dla wzorów matematycznych renderowanych w blokach treści
+  // (BlockRenderer, typ "wzor") przez react-markdown + rehype-katex.
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   plugins: [
     // Google Consent Mode v2: przed załadowaniem skryptów reklamowych
     // deklarujemy brak zgód (RODO-safe default). Właściwy baner zgód to

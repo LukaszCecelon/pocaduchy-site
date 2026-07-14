@@ -2,6 +2,14 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './wiedza.module.css';
+import wzory from '@site/src/data/wiedza-wzory.json';
+import materialy from '@site/src/data/wiedza-materialy.json';
+import elementy from '@site/src/data/wiedza-elementy.json';
+
+function articleCount(n) {
+  if (n === 0) return 'wkrótce';
+  return n === 1 ? '1 artykuł' : `${n} artykuły`;
+}
 
 const CATEGORIES = [
   {
@@ -9,21 +17,21 @@ const CATEGORIES = [
     title: 'Wzory i tabele',
     body: 'Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.',
     href: '/wiedza/wzory',
-    count: '3 w przygotowaniu',
+    count: articleCount(wzory.length),
   },
   {
     n: '02',
     title: 'Materiały konstrukcyjne',
     body: 'Dobór materiałów do zastosowań konstrukcyjnych.',
     href: '/wiedza/materialy',
-    count: '1 w przygotowaniu',
+    count: articleCount(materialy.length),
   },
   {
     n: '03',
     title: 'Elementy standardowe',
     body: 'Łożyska, połączenia i inne elementy znormalizowane.',
     href: '/wiedza/elementy',
-    count: '1 w przygotowaniu',
+    count: articleCount(elementy.length),
   },
   {
     n: '04',

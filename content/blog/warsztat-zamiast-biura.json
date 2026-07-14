@@ -1,0 +1,15 @@
+{
+  "title": "Dlaczego dokumentuję pracę konstruktora, a nie tylko efekt końcowy",
+  "description": "O tym, czemu poCADuchy pokazuje warsztat i błędy po drodze, a nie tylko gotowy model 3D.",
+  "date": "2026-07-14",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Większość treści o konstruowaniu pokazuje gotowy efekt: ładny model 3D, złożenie, renderowany rysunek. Rzadko pokazuje się drogę do tego efektu — poprawki, błędne założenia, ślepe uliczki."
+    },
+    {
+      "type": "tekst",
+      "body": "poCADuchy powstało z chęci pokazania właśnie tej drugiej strony: jak wygląda praca konstruktora, gdy coś nie wychodzi za pierwszym razem — bo w praktyce warsztatowej tak jest niemal zawsze."
+    }
+  ]
+}

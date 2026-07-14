@@ -2,14 +2,10 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from '../../css/wiedza-category.module.css';
+import articles from '@site/src/data/wiedza-materialy.json';
 
-const ITEMS = [
-  {
-    title: 'Dobór materiałów',
-    body: 'Ściągawka do szybkich decyzji konstrukcyjnych bez zgadywania.',
-  },
-];
-
+// Lista artykułów pochodzi z src/data/wiedza-materialy.json, generowanego
+// przez scripts/build-content-pages.mjs z plików w content/wiedza/materialy/.
 export default function Materialy() {
   return (
     <Layout title="Materiały konstrukcyjne" description="Dobór materiałów do zastosowań konstrukcyjnych.">
@@ -24,18 +20,24 @@ export default function Materialy() {
             startuje, będzie rozbudowywany.
           </p>
         </div>
-        <div className={styles.grid}>
-          {ITEMS.map((item, i) => (
-            <Link key={item.title} to="/wiedza/materialy/wzorzec-artykulu" className={`${styles.card} pc-cut-card`}>
-              <div className={styles.cardHead}>
-                <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
-                <span className={styles.badge}>W przygotowaniu</span>
-              </div>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardBody}>{item.body}</p>
-            </Link>
-          ))}
-        </div>
+        {articles.length > 0 ? (
+          <div className={styles.grid}>
+            {articles.map((a, i) => (
+              <Link
+                key={a.slug}
+                to={`/wiedza/materialy/${a.slug}`}
+                className={`${styles.card} pc-cut-card`}>
+                <div className={styles.cardHead}>
+                  <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <h3 className={styles.cardTitle}>{a.title}</h3>
+                <p className={styles.cardBody}>{a.description}</p>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className={styles.lead}>Pierwsze artykuły w tym dziale pojawią się wkrótce.</p>
+        )}
       </div>
     </Layout>
   );

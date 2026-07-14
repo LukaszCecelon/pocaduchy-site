@@ -2,7 +2,19 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from './blog.module.css';
+import posts from '@site/src/data/blog-posts.json';
 
+function formatDate(iso) {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+}
+
+// Lista wpisów pochodzi z src/data/blog-posts.json, generowanego przez
+// scripts/build-content-pages.mjs z plików w content/blog/.
 export default function Blog() {
   return (
     <Layout
@@ -21,16 +33,24 @@ export default function Blog() {
           </p>
         </div>
 
-        <div className={`${styles.empty} pc-cut-card`}>
-          <span className={styles.emptyLabel}>Pierwszy artykuł wkrótce</span>
-          <p className={styles.emptyBody}>
-            Ta sekcja czeka na pierwsze teksty rozwinięte z LinkedIn. Układ
-            strony artykułu jest już gotowy — możesz go zobaczyć poniżej.
-          </p>
-          <Link to="/blog/wzorzec-artykulu" className={styles.emptyLink}>
-            Zobacz wzorzec strony artykułu →
-          </Link>
-        </div>
+        {posts.length > 0 ? (
+          <div className={styles.postsGrid}>
+            {posts.map((p) => (
+              <Link key={p.slug} to={`/blog/${p.slug}`} className={`${styles.postCard} pc-cut-card`}>
+                {p.date ? <span className={styles.postDate}>{formatDate(p.date)}</span> : null}
+                <h3 className={styles.postTitle}>{p.title}</h3>
+                <p className={styles.postBody}>{p.description}</p>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className={`${styles.empty} pc-cut-card`}>
+            <span className={styles.emptyLabel}>Pierwszy artykuł wkrótce</span>
+            <p className={styles.emptyBody}>
+              Ta sekcja czeka na pierwsze teksty rozwinięte z LinkedIn.
+            </p>
+          </div>
+        )}
       </div>
     </Layout>
   );
