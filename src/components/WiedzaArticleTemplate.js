@@ -1,39 +1,40 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import BlockRenderer from './BlockRenderer';
 import styles from './WiedzaArticleTemplate.module.css';
 
-export default function WiedzaArticleTemplate({ categoryLabel, categoryHref }) {
+// Layout artykułu bazy Wiedzy — treść (blocks) przychodzi z pliku danych
+// w content/wiedza/<kategoria>/<slug>.json, wygenerowanego/edytowanego
+// przez panel CMS (/admin) albo bezpośrednio przeze mnie.
+export default function WiedzaArticleTemplate({
+  title,
+  description,
+  categoryLabel,
+  categoryHref,
+  blocks,
+}) {
   return (
-    <Layout title="Wzorzec artykułu" description="Wzorzec strony artykułu w bazie wiedzy.">
+    <Layout title={title} description={description}>
       <div className={styles.wrap}>
         <div className={styles.breadcrumb}>
           <Link to="/wiedza">Wiedza</Link> /{' '}
           <Link to={categoryHref}>{categoryLabel}</Link> /{' '}
-          <span>Nazwa artykułu</span>
+          <span>{title}</span>
         </div>
 
         <div className={styles.layout}>
           <div>
-            <span className={styles.badge}>Wzorzec strony artykułu</span>
-            <h1 className={styles.title}>Tu pojawi się tytuł artykułu</h1>
-            <p className={styles.lead}>
-              Tu pojawi się treść: opis zagadnienia, wzór, tabela lub
-              instrukcja krok po kroku — w zależności od artykułu.
-            </p>
-            <div className={styles.placeholder}>
-              <span className={styles.placeholderLabel}>
-                Miejsce na wzór / tabelę / rysunek
-              </span>
-            </div>
-            <p className={styles.lead}>Kolejny akapit treści — do uzupełnienia.</p>
+            <h1 className={styles.title}>{title}</h1>
+            {description ? <p className={styles.lead}>{description}</p> : null}
+            <BlockRenderer blocks={blocks} />
           </div>
 
           <div className={`${styles.sidebar} pc-cut-card`}>
-            <span className={styles.sidebarLabel}>Na tej stronie</span>
-            <span className={styles.sidebarNote}>
-              Spis treści artykułu pojawi się tutaj
-            </span>
+            <span className={styles.sidebarLabel}>Dział</span>
+            <Link to={categoryHref} className={styles.sidebarNote}>
+              ← {categoryLabel}
+            </Link>
           </div>
         </div>
       </div>

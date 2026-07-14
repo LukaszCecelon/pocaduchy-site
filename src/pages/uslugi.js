@@ -1,43 +1,13 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import styles from './uslugi.module.css';
+import uslugiData from '@site/content/uslugi.json';
+
+const SERVICES = uslugiData.services;
 
 // Tymczasowo prywatna skrzynka — podmienić na kontakt@pocaduchy.pl,
 // gdy domena i poczta zostaną skonfigurowane.
 const CONTACT_EMAIL = 'RA-Engineering@outlook.com';
-
-const SERVICES = [
-  {
-    n: '01',
-    title: 'Projektowanie',
-    body: 'Projektowanie konstrukcji maszyn i elementów maszynowych w 3D — od koncepcji po dokumentację warsztatową.',
-    items: [
-      'Modelowanie 3D i złożenia',
-      'Dokumentacja wykonawcza',
-      'Dobór materiałów i tolerancji',
-    ],
-  },
-  {
-    n: '02',
-    title: 'Druk 3D',
-    body: 'Wydruki prototypów i elementów funkcjonalnych — sprawdzenie geometrii i montażu przed produkcją seryjną.',
-    items: [
-      'Prototypy funkcjonalne',
-      'Elementy jednostkowe',
-      'Dobór technologii i materiału',
-    ],
-  },
-  {
-    n: '03',
-    title: 'Konsultacje i audyty',
-    body: 'Przegląd dokumentacji i rozwiązań konstrukcyjnych dla biur projektowych — spojrzenie inżyniera z doświadczeniem warsztatowym.',
-    items: [
-      'Przegląd rysunków i modeli 3D',
-      'Audyt pod kątem wykonalności',
-      'Konsultacje projektowe',
-    ],
-  },
-];
 
 export default function Uslugi() {
   return (
@@ -60,9 +30,9 @@ export default function Uslugi() {
         </div>
 
         <div className={styles.grid}>
-          {SERVICES.map((s) => (
+          {SERVICES.map((s, i) => (
             <div key={s.title} className={`${styles.card} pc-cut-card`}>
-              <span className={styles.cardN}>{s.n}</span>
+              <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
               <h3 className={styles.cardTitle}>{s.title}</h3>
               <p className={styles.cardBody}>{s.body}</p>
               <div className={styles.divider} />

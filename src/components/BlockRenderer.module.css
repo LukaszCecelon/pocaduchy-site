@@ -1,0 +1,135 @@
+/* Zwykły blokowy kontener (nie flex!) — floaty na obrazach (wyrównanie
+   lewo/prawo) muszą działać w normalnym block formatting context, żeby
+   kolejny tekst mógł je opływać. Flex ignorowałby float na dzieciach. */
+.wrap > * {
+  margin-bottom: 24px;
+}
+.wrap > *:last-child {
+  margin-bottom: 0;
+}
+
+/* TEKST */
+.tekst {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--pc-navy);
+}
+.tekst :global(p) {
+  margin: 0 0 16px;
+}
+.tekst :global(p:last-child) {
+  margin-bottom: 0;
+}
+.tekst :global(strong) {
+  color: var(--pc-navy);
+}
+.tekst :global(a) {
+  color: var(--pc-rust);
+}
+.tekst :global(ul),
+.tekst :global(ol) {
+  margin: 0 0 16px;
+  padding-left: 22px;
+}
+
+/* OBRAZ */
+.obraz {
+  margin: 0;
+}
+.obraz img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--pc-border);
+}
+.podpis {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.obrazSrodek {
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+.obrazPelny {
+  width: 100%;
+  margin: 0 0 24px;
+}
+.obrazLewo {
+  float: left;
+  width: 45%;
+  margin: 0 24px 12px 0;
+}
+.obrazPrawo {
+  float: right;
+  width: 45%;
+  margin: 0 0 12px 24px;
+}
+
+/* GALERIA */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  clear: both;
+}
+.galeriaImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--pc-border);
+  display: block;
+}
+
+/* TABELA — clear:both, żeby nie wchodziła w kolizję z pływającym obrazem */
+.tabela {
+  clear: both;
+  overflow-x: auto;
+}
+.tabela :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+.tabela :global(th),
+.tabela :global(td) {
+  border: 1px solid var(--pc-border);
+  padding: 10px 14px;
+  text-align: left;
+}
+.tabela :global(th) {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+  background: #f8f8fa;
+}
+
+/* WZÓR — blok KaTeX wyśrodkowany, z lekkim tłem jak w rysunku technicznym */
+.wzor {
+  clear: both;
+  background: #f8f8fa;
+  border: 1px dashed var(--pc-border);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+.wzor :global(.katex) {
+  font-size: 1.15em;
+}
+
+@media (max-width: 640px) {
+  .obrazLewo,
+  .obrazPrawo {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+}

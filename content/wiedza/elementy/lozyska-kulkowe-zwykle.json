@@ -1,0 +1,20 @@
+{
+  "title": "Łożyska kulkowe zwykłe — dobór i oznaczenia",
+  "description": "Jak czytać oznaczenia łożysk kulkowych zwykłych i na co zwrócić uwagę przy doborze.",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Oznaczenie łożyska kulkowego zwykłego (np. 6204) koduje wymiary: dwie ostatnie cyfry × 5 dają średnicę otworu w milimetrach — więc 6204 to łożysko o otworze Ø20 mm."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/pocaduchy-logo.png",
+      "podpis": "Przykładowe zdjęcie — podmień w CMS na własne (np. zdjęcie łożyska)",
+      "wyrownanie": "lewo"
+    },
+    {
+      "type": "tekst",
+      "body": "Przy doborze łożyska warto sprawdzić nie tylko nośność statyczną i dynamiczną, ale też dopuszczalną prędkość obrotową i rodzaj uszczelnienia (2RS, ZZ) — to często decyduje o realnej trwałości w konkretnym zastosowaniu warsztatowym."
+    }
+  ]
+}

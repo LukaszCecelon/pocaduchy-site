@@ -5,10 +5,12 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "fetch:episodes": "node scripts/fetch-episodes.mjs",
-    "prestart": "node scripts/fetch-episodes.mjs",
-    "prebuild": "node scripts/fetch-episodes.mjs",
+    "build:content": "node scripts/build-content-pages.mjs",
+    "prestart": "node scripts/fetch-episodes.mjs && node scripts/build-content-pages.mjs",
+    "prebuild": "node scripts/fetch-episodes.mjs && node scripts/build-content-pages.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "edit": "concurrently -n STRONA,CMS -c blue,magenta \"npm:start\" \"npx decap-server\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -22,13 +24,20 @@
     "@docusaurus/preset-classic": "3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "katex": "^0.16.11",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.2",
-    "@docusaurus/types": "3.10.2"
+    "@docusaurus/types": "3.10.2",
+    "concurrently": "^9.1.0",
+    "decap-server": "^3.2.0"
   },
   "browserslist": {
     "production": [

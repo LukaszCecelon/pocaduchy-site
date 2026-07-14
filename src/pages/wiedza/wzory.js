@@ -2,25 +2,15 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import styles from '../../css/wiedza-category.module.css';
+import articles from '@site/src/data/wiedza-wzory.json';
 
-const ITEMS = [
-  {
-    title: 'Wytrzymałość materiałów',
-    body: 'Wzory i przykłady obliczeń przydatne przy doborze przekrojów i materiałów.',
-  },
-  {
-    title: 'Tolerancje i pasowania',
-    body: 'Tabele ISO do szybkiego sprawdzenia pasowań bez grzebania w normie.',
-  },
-  {
-    title: 'Rysunek techniczny',
-    body: 'Normy i oznaczenia, które faktycznie trzeba znać na produkcji.',
-  },
-];
-
+// Lista artykułów pochodzi z src/data/wiedza-wzory.json, generowanego przez
+// scripts/build-content-pages.mjs z plików w content/wiedza/wzory/.
 export default function Wzory() {
   return (
-    <Layout title="Wzory i tabele" description="Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.">
+    <Layout
+      title="Wzory i tabele"
+      description="Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.">
       <div className={styles.wrap}>
         <div className={styles.breadcrumb}>
           <Link to="/wiedza">Wiedza</Link> / <span>Wzory i tabele</span>
@@ -32,18 +22,24 @@ export default function Wzory() {
             praktyczne ściągawki do szybkiego sprawdzenia.
           </p>
         </div>
-        <div className={styles.grid}>
-          {ITEMS.map((item, i) => (
-            <Link key={item.title} to="/wiedza/wzory/wzorzec-artykulu" className={`${styles.card} pc-cut-card`}>
-              <div className={styles.cardHead}>
-                <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
-                <span className={styles.badge}>W przygotowaniu</span>
-              </div>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardBody}>{item.body}</p>
-            </Link>
-          ))}
-        </div>
+        {articles.length > 0 ? (
+          <div className={styles.grid}>
+            {articles.map((a, i) => (
+              <Link
+                key={a.slug}
+                to={`/wiedza/wzory/${a.slug}`}
+                className={`${styles.card} pc-cut-card`}>
+                <div className={styles.cardHead}>
+                  <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <h3 className={styles.cardTitle}>{a.title}</h3>
+                <p className={styles.cardBody}>{a.description}</p>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className={styles.lead}>Pierwsze artykuły w tym dziale pojawią się wkrótce.</p>
+        )}
       </div>
     </Layout>
   );
