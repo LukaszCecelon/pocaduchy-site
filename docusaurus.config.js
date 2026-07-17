@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'poCADuchy',
-  tagline: 'Warsztat, rysunki i realne problemy inżynierskie.',
+  tagline: 'Konstruowanie maszyn tak, jak wygląda naprawdę.',
   favicon: 'img/pocaduchy-logo.png',
 
   future: {

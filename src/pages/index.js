@@ -4,8 +4,24 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './index.module.css';
+import episodesData from '@site/src/data/episodes.json';
+import subscribersData from '@site/src/data/subscribers.json';
 
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
+
+// Najnowszy pełny odcinek (bez shortsów) z auto-generowanego episodes.json.
+const LATEST_EPISODE = episodesData.episodes.filter((e) => !e.isShort)[0];
+
+// Liczba subskrybentów z auto-generowanego subscribers.json (fetch-subscribers.mjs).
+const SUBSCRIBERS = subscribersData?.count;
+
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+}
 
 // Parametryczne koło zębate (18 zębów trapezowych) liczone matematycznie,
 // wyśrodkowane w (0,0) — dzięki temu grupa może się obracać wokół środka.
@@ -192,15 +208,17 @@ function Hero() {
         <div className={`${styles.heroCopy} ${styles.rise}`}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowBar} />
-            <span>Kanał o konstruowaniu</span>
+            <span>Kanał o inżynierii i konstruowaniu</span>
           </div>
           <h1 className={styles.heroTitle}>
-            Warsztat, rysunki i realne problemy inżynierskie.
+            <span className={styles.heroTitleInner}>
+              Konstruowanie maszyn tak, jak wygląda naprawdę.
+            </span>
           </h1>
           <p className={styles.heroLead}>
-            Buduję pracownię konstruktora na oczach widzów i pokazuję, jak
-            naprawdę wygląda praca nad maszynami — bez korporacyjnego
-            sztafażu, za to z realnymi błędami i poprawkami.
+            Rysunki, CAD, druk 3D i montaż — decyzje, koszty i błędy, których
+            nikt inny nie pokazuje. Zapraszam Was do świata, którego jeszcze
+            nikt nie pokazał na polskim YouTube.
           </p>
           <div className={styles.heroActions}>
             <a
@@ -214,9 +232,12 @@ function Hero() {
               Zobacz bazę wiedzy
             </Link>
           </div>
-          <p className={styles.subscriberNote}>
-            Dołącza już blisko 550 konstruktorów i inżynierów.
-          </p>
+          {SUBSCRIBERS ? (
+            <p className={styles.subscriberNote}>
+              Już {new Intl.NumberFormat('pl-PL').format(SUBSCRIBERS)} konstruktorów
+              i inżynierów ogląda, jak to robię.
+            </p>
+          ) : null}
         </div>
         <div className={`${styles.heroLogoWrap} ${styles.riseDelayed}`}>
           <div className={styles.heroBadgeOrbit}>
@@ -226,6 +247,40 @@ function Hero() {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// Pasek najnowszego odcinka — realna miniatura z YouTube, aktualizowana
+// automatycznie przez fetch-episodes.mjs (build + co noc).
+function LatestEpisode() {
+  const ep = LATEST_EPISODE;
+  if (!ep) return null;
+  return (
+    <div className={styles.latest}>
+      <div className={styles.latestInner}>
+        <div className={styles.latestHead}>
+          <span className={styles.latestBar} />
+          <span>Najnowszy odcinek</span>
+        </div>
+        <a
+          href={ep.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.latestCard} pc-cut-card`}>
+          <div className={styles.latestThumb}>
+            <img src={ep.thumbnail} alt="" loading="lazy" />
+            <div className={styles.latestPlay}>
+              <div className={styles.latestPlayIcon} />
+            </div>
+          </div>
+          <div className={styles.latestMeta}>
+            <span className={styles.latestDate}>{formatDate(ep.published)}</span>
+            <h3 className={styles.latestTitle}>{ep.title}</h3>
+            <span className={styles.latestCta}>Obejrzyj na YouTube →</span>
+          </div>
+        </a>
       </div>
     </div>
   );
@@ -306,6 +361,7 @@ export default function Home() {
       description="Baza wiedzy i archiwum kanału poCADuchy — wzory, tabele i poradniki dla konstruktorów maszyn.">
       <div ref={rootRef}>
         <Hero />
+        <LatestEpisode />
         <Teasers />
         <CtaBand />
       </div>
