@@ -1,0 +1,59 @@
+{
+  "title": "Chropowatość i oznaczenia powierzchni na rysunku",
+  "description": "Ra i Rz w praktyce, oznaczenia powierzchni na rysunku (DIN EN ISO 1302), zalecane wartości dla klas tolerancji ISO i osiągalne chropowatości różnymi metodami obróbki.",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "„Ma być gładkie\" to nie jest wymaganie konstrukcyjne. Na rysunku gładkość powierzchni określasz liczbą — najczęściej **Ra** albo **Rz** w mikrometrach — i to od niej zależy, czy część da się wykonać toczeniem za 5 minut, czy trzeba ją szlifować i docierać za dziesięciokrotność ceny. Tu masz komplet: co znaczą Ra i Rz, jak nanieść oznaczenie na rysunek i jakiej chropowatości realnie oczekiwać po danej metodzie obróbki."
+    },
+    {
+      "type": "tekst",
+      "body": "## Ra czy Rz?\n\n- **Ra** — średnie arytmetyczne odchylenie profilu od linii średniej. Najpopularniejszy parametr, „uśrednia\" nierówności, jest odporny na pojedyncze wypadki. Dobrze opisuje ogólny charakter powierzchni.\n- **Rz** — wysokość chropowatości liczona od najgłębszej doliny do najwyższego wierzchołka (na odcinku pomiarowym). Bardziej „karze\" pojedyncze rysy i wyrwy — używany tam, gdzie ważna jest szczelność albo wytrzymałość zmęczeniowa.\n\nOrientacyjne przełożenie jednego na drugi (zależy od rodzaju obróbki, więc traktuj jako zgrubne):"
+    },
+    {
+      "type": "wzor",
+      "latex": "R_z \\approx 4\\,R_a \\quad (\\text{typowo } 3\\ \\text{do}\\ 7)"
+    },
+    {
+      "type": "tekst",
+      "body": "## Jak wygląda oznaczenie na rysunku\n\nPodstawą jest symbol „ptaszka\". Sam znak (otwarty) oznacza dowolny stan powierzchni; **kreska u góry** = obróbka ubytkowa wymagana; **kółko w rozwidleniu** = obróbki ubytkowej zabroniona (powierzchnia surowa). Wartość parametru (np. `Ra 1,6`) wpisuje się nad półką, a w wyznaczonych miejscach można dodać metodę obróbki i kierunek śladów."
+    },
+    {
+      "type": "rysunek",
+      "podpis": "Symbol powierzchni: wartość parametru (Ra/Rz) nad półką; wariant z kreską oznacza wymaganą obróbkę ubytkową.",
+      "svg": "<svg viewBox='0 0 520 240' xmlns='http://www.w3.org/2000/svg' font-family='monospace'><path d='M70,150 L96,178 L150,96 L300,96' fill='none' stroke='#2b2f4c' stroke-width='2.5'/><text x='150' y='84' fill='#96453b' font-size='18'>Ra 1,6</text><line x1='150' y1='120' x2='150' y2='150' stroke='#6b6e88' stroke-width='0.8' stroke-dasharray='4 3'/><text x='95' y='205' fill='#6b6e88' font-size='12'>symbol podstawowy</text><path d='M350,150 L376,178 L430,96 L520,96' fill='none' stroke='#2b2f4c' stroke-width='2.5'/><line x1='398' y1='128' x2='430' y2='96' stroke='#2b2f4c' stroke-width='2.5'/><text x='430' y='205' text-anchor='middle' fill='#6b6e88' font-size='12'>obróbka ubytkowa wymagana</text><text x='300' y='150' fill='#96453b' font-size='13'>&#8592; wartość Ra/Rz</text></svg>"
+    },
+    {
+      "type": "tekst",
+      "body": "**Czytelność i usytuowanie:** symbol umieszcza się tak, by dało się go odczytać od dołu lub od prawej strony rysunku — bezpośrednio na powierzchni, na linii odniesienia albo na linii pomocniczej (wymiarowej). Jeśli większość powierzchni ma ten sam stan, podaje się go zbiorczo w rogu rysunku, a przy wyjątkach dopisuje symbole indywidualne."
+    },
+    {
+      "type": "tekst",
+      "body": "### Kierunek śladów obróbki\n\nGdy istotny jest kierunek rys po obróbce (uszczelnienia, prowadzenie, estetyka), dodaje się do symbolu jeden ze znaków (wg DIN EN ISO 1302):"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Znak | Kierunek śladów |\n|---|---|\n| = | Równolegle do płaszczyzny rzutu, na której naniesiono symbol |\n| ⊥ | Prostopadle do płaszczyzny rzutu |\n| X | Krzyżujące się w dwóch ukośnych kierunkach |\n| M | Wielokierunkowe (np. po frezowaniu czołowym, dogładzaniu) |\n| C | W przybliżeniu koncentryczne względem środka powierzchni |\n| R | W przybliżeniu promieniowe względem środka powierzchni |\n| P | Bez określonego kierunku lub punktowe |"
+    },
+    {
+      "type": "tekst",
+      "body": "## Jaką chropowatość dobrać do klasy tolerancji ISO\n\nCiaśniejsza tolerancja wymaga gładszej powierzchni — inaczej sama chropowatość „zjada\" pole tolerancji. Poniżej zalecane wartości Ra i Rz (µm) w zależności od zakresu wymiaru i klasy tolerancji ISO. Zasada: im ciaśniejsza klasa (niższy numer) i mniejszy wymiar, tym niższa dopuszczalna chropowatość."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Zakres wymiaru (mm) | Parametr | kl. 5 | kl. 6 | kl. 7 | kl. 8 | kl. 9 | kl. 10 | kl. 11 |\n|---|---|---|---|---|---|---|---|---|\n| 1 … 6 | Rz | 2,5 | 4 | 6,3 | 6,3 | 10 | 16 | 25 |\n| 1 … 6 | Ra | 0,4 | 0,8 | 0,8 | 1,6 | 1,6 | 3,2 | 6,3 |\n| 6 … 10 | Rz | 2,5 | 4 | 6,3 | 10 | 16 | 25 | 40 |\n| 6 … 10 | Ra | 0,4 | 0,8 | 0,8 | 1,6 | 3,2 | 6,3 | 12,5 |\n| 10 … 18 | Rz | 4 | 4 | 6,3 | 10 | 16 | 25 | 40 |\n| 10 … 18 | Ra | 0,8 | 0,8 | 0,8 | 1,6 | 3,2 | 6,3 | 12,5 |\n| 18 … 80 | Rz | 4 | 6,3 | 10 | 16 | 16 | 40 | 63 |\n| 18 … 80 | Ra | 0,8 | 0,8 | 1,6 | 3,2 | 3,2 | 6,3 | 12,5 |\n| 80 … 250 | Rz | 6,3 | 10 | 16 | 25 | 25 | 40 | 63 |\n| 80 … 250 | Ra | 0,8 | 1,6 | 1,6 | 3,2 | 3,2 | 6,3 | 12,5 |\n| 250 … 500 | Rz | 6,3 | 10 | 16 | 25 | 40 | 63 | 100 |\n| 250 … 500 | Ra | 0,8 | 1,6 | 1,6 | 3,2 | 6,3 | 12,5 | 25 |"
+    },
+    {
+      "type": "tekst",
+      "body": "## Osiągalna chropowatość wg metody obróbki\n\nZanim wpiszesz na rysunku `Ra 0,4`, sprawdź, czym to w ogóle da się zrobić. Tabela pokazuje realnie osiągane Rz i Ra (µm) dla obróbki dokładnej (min.), normalnej (zakres) i zgrubnej (max.). To najbardziej praktyczna ściąga: dobierasz metodę do wymagania, a nie odwrotnie."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Metoda obróbki | Rz dokł. (min) | Rz normalnie | Rz zgrubnie (max) | Ra dokł. (min) | Ra normalnie | Ra zgrubnie (max) |\n|---|---|---|---|---|---|---|\n| Odlewanie ciśnieniowe | 4 | 10…100 | 160 | – | 0,8…30 | – |\n| Odlewanie kokilowe | 10 | 25…160 | 250 | – | 3,2…50 | – |\n| Odlewanie w formach piaskowych | 25 | 63…250 | 1000 | – | 12,5…50 | – |\n| Spiekanie normalne | – | 2,5…10 | – | – | 0,4…1,6 | – |\n| Spiekanie kalibrowane | – | 1,6…7 | – | – | 0,3…0,8 | – |\n| Wyciskanie | 4 | 25…100 | 400 | 0,8 | 3,2…12,5 | 25 |\n| Kucie matrycowe | 10 | 63…400 | 1000 | 0,8 | 2,5…12,5 | 25 |\n| Wytłaczanie | 4 | 25…100 | 400 | 0,8 | 3,2…12,5 | 25 |\n| Ciągnienie głębokie | 0,4 | 4…10 | 16 | 0,2 | 1…3,2 | 6,3 |\n| Walcowanie / dogniatanie | 0,1 | 0,5…6,3 | 10 | 0,025 | 0,06…1,6 | 2 |\n| Erodowanie drutowe | 0,8 | 2,8…10 | 16 | 0,1 | 0,4…1 | 3,2 |\n| Erodowanie wgłębne | 1,5 | 5…10 | 31 | 0,2 | 0,45 | 6,3 |\n| Cięcie palnikiem | 16 | 40…100 | 1000 | 3,2 | 8…16 | 50 |\n| Cięcie laserem | – | 10…100 | – | – | 1…10 | – |\n| Cięcie plazmowe | – | 6…280 | – | – | 1…10 | – |\n| Cięcie na gilotynie | – | 10…63 | – | – | 1,6…12,5 | – |\n| Cięcie strumieniem wody | 4 | 16…100 | 400 | 1,6 | 6,3…25 | 50 |\n| Wiercenie w pełnym materiale | 16 | 40…160 | 250 | 1,6 | 6,3…12,5 | 25 |\n| Wytaczanie, rozwiercanie | 0,1 | 2,5…25 | 40 | 0,05 | 0,4…3,2 | 12,5 |\n| Pogłębianie | 6,3 | 10…25 | 40 | 0,8 | 1,6…6,3 | 12,5 |\n| Rozwiercanie dokładne | 0,4 | 4…10 | 25 | 0,2 | 0,8…2 | 6,3 |\n| Toczenie wzdłużne | 1 | 4…63 | 250 | 0,2 | 0,8…12,5 | 50 |\n| Toczenie poprzeczne | 2,5 | 10…63 | 250 | 0,4 | 1,6…12,5 | 50 |\n| Frezowanie obwodowe i czołowe | 1,6 | 10…63 | 160 | 0,4 | 1,6…12,5 | 25 |\n| Gładzenie o krótkim skoku | 0,04 | 0,1…1 | 2,5 | 0,006 | 0,02…0,17 | 0,34 |\n| Gładzenie o długim skoku | 0,04 | 1…11 | 15 | 0,006 | 0,13…0,65 | 1,6 |\n| Docieranie | 0,04 | 0,25…1,6 | 10 | 0,006 | 0,025…0,2 | 0,21 |\n| Docieranie polerujące | – | 0,04…0,25 | 0,4 | – | 0,005…0,035 | 0,05 |\n| Szlifowanie | 0,1 | 1,6…4 | 25 | 0,012 | 0,2…0,8 | 6,3 |"
+    },
+    {
+      "type": "tekst",
+      "body": "> **Praktyka:** typowe toczenie/frezowanie da Ra ~1,6–6,3; pod pasowania ruchowe i uszczelnienia zwykle celujesz w Ra 0,4–0,8 (rozwiercanie dokładne, szlifowanie); Ra poniżej 0,2 to już gładzenie i docieranie — droga i czasochłonna obróbka, więc wpisuj ją tylko tam, gdzie naprawdę jest potrzebna."
+    }
+  ]
+}

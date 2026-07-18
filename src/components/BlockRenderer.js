@@ -32,6 +32,18 @@ function ObrazBlock({src, podpis, wyrownanie}) {
   );
 }
 
+function RysunekBlock({svg, podpis}) {
+  if (!svg) return null;
+
+  return (
+    <figure className={styles.rysunek}>
+      {/* SVG pochodzi wyłącznie z naszego CMS-a/repo, czyli z zaufanego źródła. */}
+      <div dangerouslySetInnerHTML={{__html: svg}} />
+      {podpis ? <figcaption className={styles.podpis}>{podpis}</figcaption> : null}
+    </figure>
+  );
+}
+
 function GaleriaImage({src}) {
   const url = useBaseUrl(src);
   return <img src={url} alt="" loading="lazy" className={styles.galeriaImg} />;
@@ -69,6 +81,7 @@ function WzorBlock({latex}) {
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
+  rysunek: RysunekBlock,
   galeria: GaleriaBlock,
   tabela: TabelaBlock,
   wzor: WzorBlock,

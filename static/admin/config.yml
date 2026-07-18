@@ -61,6 +61,17 @@ collections:
                   - {label: "Do lewej (tekst opływa z prawej)", value: lewo}
                   - {label: "Do prawej (tekst opływa z lewej)", value: prawo}
                   - {label: "Pełna szerokość", value: pelna-szerokosc}
+          - label: "Rysunek (SVG)"
+            name: rysunek
+            widget: object
+            summary: "Rysunek: {{fields.podpis}}"
+            fields:
+              - {label: Typ, name: type, widget: hidden, default: rysunek}
+              - label: "Rysunek SVG (kod)"
+                name: svg
+                widget: text
+                hint: "Wklej pełny kod SVG, np. <svg ...>...</svg>."
+              - {label: Podpis, name: podpis, widget: string, required: false}
           - label: "Galeria zdjęć"
             name: galeria
             widget: object
