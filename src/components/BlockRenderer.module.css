@@ -70,6 +70,21 @@
   margin: 0 0 12px 24px;
 }
 
+/* RYSUNEK */
+.rysunek {
+  clear: both;
+  margin: 0;
+  background: #f8f8fa;
+  border: 1px dashed var(--pc-border);
+  padding: 20px;
+}
+.rysunek svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* GALERIA */
 .galeria {
   display: grid;
