@@ -11,7 +11,7 @@
     "prebuild": "node scripts/fetch-episodes.mjs && node scripts/fetch-subscribers.mjs && node scripts/build-content-pages.mjs",
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "edit": "concurrently -n STRONA,CMS -c blue,magenta \"npm:start\" \"npx decap-server\"",
+    "edit": "concurrently --kill-others-on-fail -n STRONA,CMS -c blue,magenta \"npm:start\" \"npx decap-server\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
