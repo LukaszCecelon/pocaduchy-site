@@ -1,21 +1,31 @@
 # poCADuchy — instrukcje projektowe
 
-## Workflow: podział pracy Claude / Codex
+## Model pracy (ustalony z Łukaszem, obowiązuje od 2026-07-27)
 
-Dla wszystkich nietrywialnych zadań w tym projekcie stosuj ten algorytm (ustalony z Łukaszem 2026-07-14):
+**Łukasz dostarcza materiały — Claude wykonuje wszystko na stronie samodzielnie, end-to-end.**
 
-1. **Plan** — wejdź w tryb planowania (`EnterPlanMode`), zbadaj kod, przygotuj plan działania.
-2. **Podział ról** — w planie każdy krok/zadanie oznacz wykonawcą: **Claude** albo **Codex**. Nie zostawiaj kroków bez przypisania.
-3. **Edycja** — Łukasz może edytować plan bezpośrednio w pliku planu przed zatwierdzeniem.
-4. **Zatwierdzenie** — `ExitPlanMode`, czekasz na akceptację.
-5. **Wykonanie zgodnie z podziałem:**
-   - **Zadania Claude** — wykonujesz sam (Edit/Write/Bash/Browser), tak jak zwykle.
-   - **Zadania Codex** — wywołujesz OpenAI Codex CLI przez Bash:
-     ```
-     codex exec "<szczegółowy, w pełni samodzielny prompt — Codex nie widzi tej rozmowy>" -s workspace-write -C "D:/poCADychy_STRONA/pocaduchy-site"
-     ```
-     Codex CLI (`codex-cli`, `@openai/codex`) jest zainstalowane i zalogowane (ChatGPT) na tej maszynie — nie wymaga dodatkowej autoryzacji. Po zakończeniu sprawdź wynik (`git diff`, odczyt zmienionych plików, ewentualnie build/test) **zanim** zamelduj rezultat Łukaszowi — nie ufaj bezkrytycznie podsumowaniu Codexa.
+- Łukasz przysyła pliki (PDF, zdjęcia, HEIC, dokumenty, arkusze, zrzuty ekranu) albo opisuje pomysł.
+- Claude sam: analizuje materiał, decyduje jak go pokazać, pisze kod/treść, weryfikuje w przeglądarce, commituje i publikuje.
+- **Nie** dziel pracy na podzadania dla Codeksa. **Nie** wymagaj od Łukasza obsługi CMS-a ani plików `.bat` — on wysyła materiał, Claude robi resztę.
+- Nie zasypuj pytaniami: podejmuj rozsądne decyzje projektowe samodzielnie, pytaj tylko gdy różne odczytania prowadzą do istotnie różnej pracy.
 
-**Kryterium podziału:** Codex dobrze nadaje się do dobrze wyizolowanych, precyzyjnie opisanych podzadań wykonywalnych bez bieżącej rozmowy (np. samodzielny moduł, skrypt, refaktor o jasno określonym zakresie). Zadania wymagające ciągłości kontekstu tej rozmowy, oceny wizualnej w przeglądarce, iteracyjnych decyzji projektowych albo częstego dialogu z Łukaszem zostają przy Claude.
+## Publikowanie
 
-Prompt dla Codexa musi być w pełni samodzielny — Codex nie ma dostępu do historii tej rozmowy, więc podaj mu pełny kontekst (pliki, konwencje, cel) wprost w promptcie.
+Standardowa ścieżka po każdej zmianie: edycja → `npm run build` (sanity check) → podgląd/weryfikacja → `git commit` → `git push` na `main`. GitHub Actions sam publikuje na **pocaduchy.pl** (2–3 min). Nocny cron odświeża odcinki i licznik subskrybentów.
+
+Przy większych zmianach: `git tag przed-<nazwa>` przed startem, żeby dało się wycofać (`git revert przed-<nazwa>..HEAD`).
+
+## Praca z plikami od Łukasza
+
+- **PDF** — czytaj przez Read (parametr `pages`); przy skanach użyj skilla `pdf`.
+- **HEIC (zdjęcia z iPhone'a)** — konwersja: `pillow-heif` jest zainstalowane (`python -c "import pillow_heif; pillow_heif.register_heif_opener()"` + PIL). Przy gęstych tabelach kadruj i powiększaj, zanim przepiszesz dane.
+- **Prawa autorskie** — nie reprodukuj skanów cudzych książek/poradników na stronie. Dane normatywne (DIN/ISO) i fakty są OK, ale przepisz je do **własnych** tabel i napisz oryginalny tekst.
+- Zdjęcia do publikacji: `static/img/`, w razie potrzeby zmniejsz/skonwertuj (waga strony).
+
+## Stan techniczny
+
+- **Produkcja: gałąź `main`** — Docusaurus 3.10, wyłączone presety docs/blog, własne strony React w `src/pages/`, design system `--pc-*` w `src/css/custom.css`.
+- Treść artykułów: `content/wiedza/<kategoria>/<slug>.json` i `content/blog/<slug>.json` — bloki renderowane przez `src/components/BlockRenderer.js` (typy: `tekst`, `obraz`, `galeria`, `tabela`, `wzor` KaTeX, `rysunek` SVG). `scripts/build-content-pages.mjs` sam generuje strony i listy przy buildzie.
+- Dane automatyczne: `scripts/fetch-episodes.mjs` (odcinki z RSS YouTube), `scripts/fetch-subscribers.mjs` (licznik subskrybentów) — hooki `prestart`/`prebuild`.
+- Decap CMS (`/admin`, tryb lokalny) i pliki `.bat` **zostają w repo**, ale nie są już główną ścieżką pracy — Łukasz z nich nie musi korzystać.
+- Gałąź **`next-tina`** to zaparkowany eksperyment (Next.js + TinaCMS, edycja wizualna). Nie rozwijamy go, chyba że Łukasz wróci do tematu. Nie usuwać.
