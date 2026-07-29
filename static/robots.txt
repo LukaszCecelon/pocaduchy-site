@@ -1,0 +1,63 @@
+# poCADuchy — pocaduchy.pl
+# Treść jest publiczna i chcemy, żeby była indeksowana oraz cytowana
+# — zarówno przez wyszukiwarki, jak i przez modele AI.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# --- Wyszukiwarki ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- Roboty AI (świadomie dopuszczone: chcemy być źródłem cytowanym
+#     w odpowiedziach asystentów AI) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://pocaduchy.pl/sitemap.xml

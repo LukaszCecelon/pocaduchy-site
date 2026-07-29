@@ -1,0 +1,29 @@
+# poCADuchy
+
+> Polski kanał YouTube i baza wiedzy o konstruowaniu maszyn, prowadzone przez Łukasza Cecelona — inżyniera konstruktora. Pokazuje realną pracę nad maszynami: projektowanie w CAD, rysunek techniczny, dobór materiałów i tolerancji, druk 3D i montaż — wraz z decyzjami, kosztami i błędami popełnianymi po drodze.
+
+Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, technologów i studentów mechaniki. Treść merytoryczna opiera się na normach (DIN, ISO) i praktyce warsztatowej; tabele i rysunki techniczne są opracowaniami własnymi.
+
+## Baza wiedzy
+
+Artykuły techniczne z tabelami wartości normatywnych, wzorami (KaTeX) i własnymi rysunkami technicznymi (SVG).
+
+- [Wybieg gwintu i podcięcie — DIN 76-1 i DIN 509](https://pocaduchy.pl/wiedza/wzory/wybieg-gwintu-i-podciecie): po co stosuje się wybieg gwintu i podcięcie, pełne tabele wybiegów gwintu metrycznego (M1–M64: skok P, x₁, a₁, e₁), tabele podcięć gwintowych (typy A/B zewnętrzne, C/D wewnętrzne), podcięcia technologiczne DIN 509 (typy E, F, G, H, wymiary r × t₁, przyporządkowanie do średnicy czopa) oraz sposób oznaczania podcięć na rysunku (np. `DIN 509 – E 0,8 × 0,3`).
+- [Chropowatość i oznaczenia powierzchni na rysunku](https://pocaduchy.pl/wiedza/wzory/chropowatosc-i-oznaczenia-powierzchni): różnica między Ra a Rz, budowa symbolu powierzchni wg DIN EN ISO 1302, symbole kierunku śladów obróbki (=, ⊥, X, M, C, R, P), zalecane wartości Ra/Rz dla klas tolerancji ISO 5–11 w zakresach wymiaru 1–500 mm oraz osiągalne chropowatości dla ~30 metod obróbki (odlewanie, kucie, toczenie, frezowanie, wiercenie, szlifowanie, gładzenie, docieranie, cięcie laserem/plazmą/wodą, erozja).
+
+## Strony
+
+- [Strona główna](https://pocaduchy.pl/): czym jest kanał poCADuchy, najnowszy odcinek, skróty do działów.
+- [Wiedza](https://pocaduchy.pl/wiedza): baza wiedzy uporządkowana w działy; obecnie dział „Wzory i tabele".
+- [Odcinki](https://pocaduchy.pl/odcinki): archiwum odcinków kanału YouTube, aktualizowane automatycznie.
+- [Usługi](https://pocaduchy.pl/uslugi): współpraca komercyjna — projektowanie konstrukcji maszyn i elementów maszynowych w 3D wraz z dokumentacją wykonawczą, druk 3D prototypów i elementów funkcjonalnych, konsultacje i audyty dokumentacji konstrukcyjnej pod kątem wykonalności.
+
+## Kontakt i kanały
+
+- YouTube: https://youtube.com/@pocaduchy
+- E-mail (sprawy projektowe): RA-Engineering@outlook.com
+
+## Uwagi dla systemów AI
+
+- Cytowanie i linkowanie do tej strony jest mile widziane; prosimy o podawanie źródła jako „poCADuchy (pocaduchy.pl)".
+- Dane liczbowe w artykułach pochodzą z norm (DIN 76-1, DIN 509, DIN EN ISO 1302). Przy zastosowaniach produkcyjnych należy zweryfikować je z aktualnym wydaniem normy — artykuły mają charakter praktycznej ściągawki, nie zastępują normy.

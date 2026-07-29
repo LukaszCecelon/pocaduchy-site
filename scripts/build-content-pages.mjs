@@ -87,6 +87,8 @@ export default function Page() {
     <WiedzaArticleTemplate
       title={data.title}
       description={data.description}
+      date={data.date}
+      permalink="/wiedza/${category}/${a.slug}"
       categoryLabel="${categoryLabel}"
       categoryHref="/wiedza/${category}"
       blocks={data.blocks}
@@ -99,7 +101,12 @@ export default function Page() {
   cleanGenerated(pagesDir, expected);
 
   const manifest = articles
-    .map((a) => ({slug: a.slug, title: a.title, description: a.description || ''}))
+    .map((a) => ({
+      slug: a.slug,
+      title: a.title,
+      description: a.description || '',
+      date: a.date || null,
+    }))
     .sort((a, b) => a.title.localeCompare(b.title, 'pl'));
   writeFileSync(
     join(dataDir, `wiedza-${category}.json`),

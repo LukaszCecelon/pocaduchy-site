@@ -243,7 +243,12 @@ function Hero() {
           <div className={styles.heroBadgeOrbit}>
             <span className={styles.orbitRing} />
             <div className={styles.heroBadge}>
-              <img src={useBaseUrl('/img/pocaduchy-logo.png')} alt="poCADuchy" />
+              <img
+                src={useBaseUrl('/img/pocaduchy-logo.png')}
+                alt="poCADuchy — Łukasz Cecelon, inżynier konstruktor"
+                width="252"
+                height="252"
+              />
             </div>
           </div>
         </div>
@@ -270,7 +275,11 @@ function LatestEpisode() {
           rel="noopener noreferrer"
           className={`${styles.latestCard} pc-cut-card`}>
           <div className={styles.latestThumb}>
-            <img src={ep.thumbnail} alt="" loading="lazy" />
+            <img
+              src={ep.thumbnail}
+              alt={`Miniatura odcinka: ${ep.title}`}
+              loading="lazy"
+            />
             <div className={styles.latestPlay}>
               <div className={styles.latestPlayIcon} />
             </div>
@@ -358,7 +367,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.tagline}
-      description="Baza wiedzy i archiwum kanału poCADuchy — wzory, tabele i poradniki dla konstruktorów maszyn.">
+      description="poCADuchy — kanał i baza wiedzy o konstruowaniu maszyn. Rysunek techniczny, CAD, dobór materiałów, tolerancje, druk 3D i montaż: realne decyzje, koszty i błędy z warsztatu konstruktora.">
       <div ref={rootRef}>
         <Hero />
         <LatestEpisode />

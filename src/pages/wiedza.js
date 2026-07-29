@@ -42,8 +42,8 @@ const CATEGORIES = [
 export default function Wiedza() {
   return (
     <Layout
-      title="Wiedza"
-      description="Baza wiedzy poCADuchy — wzory, tabele i poradniki dla konstruktorów maszyn.">
+      title="Baza wiedzy dla konstruktorów — wzory, tabele i normy"
+      description="Praktyczna baza wiedzy dla konstruktorów maszyn: wzory wytrzymałościowe, tabele tolerancji i pasowań, normy rysunkowe DIN i ISO — opracowane po inżyniersku, z przykładami.">
       <div className={styles.wrap}>
         <div className={styles.intro}>
           <div className={styles.eyebrow}>

@@ -1,8 +1,10 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
 
+const SITE = 'https://pocaduchy.pl';
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 
 // Dane generuje scripts/fetch-episodes.mjs (prebuild/prestart) z feedu RSS
@@ -17,11 +19,39 @@ function formatDate(iso) {
   });
 }
 
+// Lista odcinków jako dane strukturalne — każdy wpis to VideoObject
+// z tytułem, miniaturą i datą publikacji, wskazujący na YouTube.
+const EPISODES_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${SITE}/odcinki#lista`,
+  name: 'Odcinki kanału poCADuchy',
+  numberOfItems: EPISODES.length,
+  itemListElement: EPISODES.map((ep, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'VideoObject',
+      name: ep.title,
+      thumbnailUrl: ep.thumbnail,
+      uploadDate: ep.published,
+      url: ep.url,
+      embedUrl: `https://www.youtube.com/embed/${ep.id}`,
+      description: ep.title,
+      inLanguage: 'pl-PL',
+      publisher: {'@id': `${SITE}/#organizacja`},
+    },
+  })),
+};
+
 export default function Odcinki() {
   return (
     <Layout
-      title="Odcinki"
-      description="Archiwum odcinków kanału poCADuchy.">
+      title="Odcinki — archiwum filmów o konstruowaniu maszyn"
+      description="Wszystkie odcinki kanału poCADuchy w jednym miejscu: projektowanie w CAD, druk 3D, montaż i realne problemy inżynierskie z warsztatu.">
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(EPISODES_JSON_LD)}</script>
+      </Head>
       <div className={styles.wrap}>
         <div className={styles.intro}>
           <div className={styles.eyebrow}>
@@ -45,7 +75,11 @@ export default function Odcinki() {
                 rel="noopener noreferrer"
                 className={`${styles.card} pc-cut-card`}>
                 <div className={styles.thumb}>
-                  <img src={ep.thumbnail} alt="" loading="lazy" />
+                  <img
+                    src={ep.thumbnail}
+                    alt={`Miniatura odcinka: ${ep.title}`}
+                    loading="lazy"
+                  />
                   <div className={styles.playBadge}>
                     <div className={styles.playIcon} />
                   </div>

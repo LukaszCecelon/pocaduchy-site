@@ -8,6 +8,8 @@ export default function Page() {
     <WiedzaArticleTemplate
       title={data.title}
       description={data.description}
+      date={data.date}
+      permalink="/wiedza/wzory/wybieg-gwintu-i-podciecie"
       categoryLabel="Wzory i tabele"
       categoryHref="/wiedza/wzory"
       blocks={data.blocks}
