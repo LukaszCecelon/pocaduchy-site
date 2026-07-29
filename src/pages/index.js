@@ -306,11 +306,11 @@ function Teasers() {
     },
     {
       n: '03',
-      eyebrow: 'ARTYKUŁY',
-      title: 'Blog',
-      body: 'Artykuły o konstruowaniu i pracy inżyniera — rozwinięte z LinkedIn.',
-      cta: 'Czytaj →',
-      href: '/blog',
+      eyebrow: 'WSPÓŁPRACA',
+      title: 'Usługi',
+      body: 'Projektowanie konstrukcji, druk 3D i konsultacje — dla firm produkcyjnych i biur konstrukcyjnych.',
+      cta: 'Zobacz zakres →',
+      href: '/uslugi',
     },
   ];
 

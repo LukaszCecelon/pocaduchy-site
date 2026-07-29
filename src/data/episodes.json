@@ -1,7 +1,23 @@
 {
-  "fetchedAt": "2026-07-18T04:12:29.088Z",
+  "fetchedAt": "2026-07-29T20:49:54.631Z",
   "channelId": "UCatuUJWhqiOAiXhvb72wKOw",
   "episodes": [
+    {
+      "id": "G7331PHjNmI",
+      "title": "Konstruktorze - RUSZ ROBOTEM. Kiedy się to opłaca? Jak to zrobić? Rozkminka z tutorialem (iLogic)",
+      "url": "https://www.youtube.com/watch?v=G7331PHjNmI",
+      "published": "2026-07-27T17:25:27+00:00",
+      "thumbnail": "https://i.ytimg.com/vi/G7331PHjNmI/hqdefault.jpg",
+      "isShort": false
+    },
+    {
+      "id": "EHJEk3GN9Ow",
+      "title": "poCADuchy – transmisja na żywo",
+      "url": "https://www.youtube.com/watch?v=EHJEk3GN9Ow",
+      "published": "2026-07-21T16:30:41+00:00",
+      "thumbnail": "https://i.ytimg.com/vi/EHJEk3GN9Ow/hqdefault.jpg",
+      "isShort": false
+    },
     {
       "id": "4DSwMp9aPqM",
       "title": "Automatyzacja produkcji - Hot-Stamping by SureSolutions #automation #robotics #cad #engineering",
@@ -104,22 +120,6 @@
       "url": "https://www.youtube.com/watch?v=6DGWviF4hZo",
       "published": "2026-03-15T15:15:57+00:00",
       "thumbnail": "https://i.ytimg.com/vi/6DGWviF4hZo/hqdefault.jpg",
-      "isShort": false
-    },
-    {
-      "id": "hIrd3N_OLTU",
-      "title": "Szóste poCADuchy - Kulisy pracy konstruktora | Druk 3D | Projekt automatyzacji wtryskarki",
-      "url": "https://www.youtube.com/watch?v=hIrd3N_OLTU",
-      "published": "2026-03-08T13:24:46+00:00",
-      "thumbnail": "https://i.ytimg.com/vi/hIrd3N_OLTU/hqdefault.jpg",
-      "isShort": false
-    },
-    {
-      "id": "5KJsEitaEh4",
-      "title": "Piąte poCADuchy - Newsy, CAD, Chat GPT przy moim projekcie",
-      "url": "https://www.youtube.com/watch?v=5KJsEitaEh4",
-      "published": "2026-03-01T08:16:31+00:00",
-      "thumbnail": "https://i.ytimg.com/vi/5KJsEitaEh4/hqdefault.jpg",
       "isShort": false
     }
   ]
