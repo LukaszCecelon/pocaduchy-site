@@ -1,19 +1,56 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import styles from './uslugi.module.css';
 import uslugiData from '@site/content/uslugi.json';
 
+const SITE = 'https://pocaduchy.pl';
 const SERVICES = uslugiData.services;
 
 // Tymczasowo prywatna skrzynka — podmienić na kontakt@pocaduchy.pl,
 // gdy domena i poczta zostaną skonfigurowane.
 const CONTACT_EMAIL = 'RA-Engineering@outlook.com';
 
+// Dane strukturalne oferty — katalog usług, żeby wyszukiwarki i modele AI
+// wiedziały, co konkretnie oferujemy i komu.
+const SERVICES_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${SITE}/uslugi#uslugi`,
+  name: 'poCADuchy — usługi konstrukcyjne',
+  url: `${SITE}/uslugi`,
+  email: CONTACT_EMAIL,
+  image: `${SITE}/img/og-pocaduchy.jpg`,
+  parentOrganization: {'@id': `${SITE}/#organizacja`},
+  founder: {'@id': `${SITE}/#lukasz`},
+  areaServed: {'@type': 'Country', name: 'Polska'},
+  availableLanguage: 'pl',
+  description:
+    'Projektowanie konstrukcji maszyn i elementów maszynowych w 3D wraz z dokumentacją wykonawczą, druk 3D prototypów oraz konsultacje i audyty dokumentacji konstrukcyjnej.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Zakres usług',
+    itemListElement: SERVICES.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.body,
+        serviceType: s.items?.join(', '),
+        provider: {'@id': `${SITE}/#organizacja`},
+      },
+    })),
+  },
+};
+
 export default function Uslugi() {
   return (
     <Layout
-      title="Usługi"
-      description="Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych i biur konstrukcyjnych.">
+      title="Usługi konstrukcyjne — projektowanie maszyn, druk 3D, konsultacje"
+      description="Projektowanie konstrukcji maszyn i elementów maszynowych w 3D z dokumentacją wykonawczą, druk 3D prototypów oraz audyty dokumentacji dla firm produkcyjnych i biur konstrukcyjnych.">
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(SERVICES_JSON_LD)}</script>
+      </Head>
       <div className={styles.wrap}>
         <div className={styles.intro}>
           <div className={styles.eyebrow}>

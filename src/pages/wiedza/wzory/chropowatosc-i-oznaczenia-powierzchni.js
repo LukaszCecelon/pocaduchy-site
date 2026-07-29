@@ -8,6 +8,8 @@ export default function Page() {
     <WiedzaArticleTemplate
       title={data.title}
       description={data.description}
+      date={data.date}
+      permalink="/wiedza/wzory/chropowatosc-i-oznaczenia-powierzchni"
       categoryLabel="Wzory i tabele"
       categoryHref="/wiedza/wzory"
       blocks={data.blocks}

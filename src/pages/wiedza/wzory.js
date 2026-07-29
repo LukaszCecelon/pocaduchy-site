@@ -1,16 +1,44 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import styles from '../../css/wiedza-category.module.css';
 import articles from '@site/src/data/wiedza-wzory.json';
+
+const SITE = 'https://pocaduchy.pl';
+
+// Spis artykułów działu jako dane strukturalne — ułatwia wyszukiwarkom
+// i modelom AI zrozumienie, co zawiera ten dział.
+const LIST_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${SITE}/wiedza/wzory#dzial`,
+  name: 'Wzory i tabele — baza wiedzy poCADuchy',
+  url: `${SITE}/wiedza/wzory`,
+  inLanguage: 'pl-PL',
+  isPartOf: {'@id': `${SITE}/#strona`},
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: a.title,
+      url: `${SITE}/wiedza/wzory/${a.slug}`,
+    })),
+  },
+};
 
 // Lista artykułów pochodzi z src/data/wiedza-wzory.json, generowanego przez
 // scripts/build-content-pages.mjs z plików w content/wiedza/wzory/.
 export default function Wzory() {
   return (
     <Layout
-      title="Wzory i tabele"
-      description="Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.">
+      title="Wzory i tabele — wytrzymałość, tolerancje, normy rysunkowe"
+      description="Wzory wytrzymałościowe, tabele tolerancji i pasowań oraz normy rysunkowe (DIN, ISO) w praktycznym ujęciu — gotowe ściągawki dla konstruktorów maszyn.">
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(LIST_JSON_LD)}</script>
+      </Head>
       <div className={styles.wrap}>
         <div className={styles.breadcrumb}>
           <Link to="/wiedza">Wiedza</Link> / <span>Wzory i tabele</span>

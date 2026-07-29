@@ -43,6 +43,71 @@ const config = {
   ],
 
   plugins: [
+    // Dane strukturalne JSON-LD wspólne dla całej witryny: kto ją prowadzi
+    // (Person + Organization) i czym jest (WebSite). Wyszukiwarki i modele
+    // AI używają tego do zrozumienia i cytowania źródła.
+    function structuredData() {
+      const SITE = 'https://pocaduchy.pl';
+      const graph = {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': `${SITE}/#lukasz`,
+            name: 'Łukasz Cecelon',
+            jobTitle: 'Inżynier konstruktor',
+            url: SITE,
+            sameAs: ['https://youtube.com/@pocaduchy'],
+            knowsAbout: [
+              'konstruowanie maszyn',
+              'projektowanie CAD',
+              'rysunek techniczny',
+              'tolerancje i pasowania',
+              'druk 3D',
+              'dobór materiałów konstrukcyjnych',
+            ],
+          },
+          {
+            '@type': 'Organization',
+            '@id': `${SITE}/#organizacja`,
+            name: 'poCADuchy',
+            url: SITE,
+            logo: `${SITE}/img/pocaduchy-logo.png`,
+            image: `${SITE}/img/og-pocaduchy.jpg`,
+            email: 'RA-Engineering@outlook.com',
+            founder: {'@id': `${SITE}/#lukasz`},
+            sameAs: ['https://youtube.com/@pocaduchy'],
+            description:
+              'Kanał YouTube i baza wiedzy o konstruowaniu maszyn — CAD, rysunek techniczny, dobór materiałów, druk 3D. Prowadzi inżynier konstruktor Łukasz Cecelon.',
+          },
+          {
+            '@type': 'WebSite',
+            '@id': `${SITE}/#strona`,
+            url: SITE,
+            name: 'poCADuchy',
+            inLanguage: 'pl-PL',
+            publisher: {'@id': `${SITE}/#organizacja`},
+            description:
+              'Baza wiedzy dla konstruktorów maszyn: wzory, tabele norm (DIN, ISO), rysunek techniczny i praktyka warsztatowa.',
+          },
+        ],
+      };
+      return {
+        name: 'structured-data',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                attributes: {type: 'application/ld+json'},
+                innerHTML: JSON.stringify(graph),
+              },
+            ],
+          };
+        },
+      };
+    },
+
     // Google Consent Mode v2: przed załadowaniem skryptów reklamowych
     // deklarujemy brak zgód (RODO-safe default). Właściwy baner zgód to
     // CMP Google włączany w panelu AdSense (Privacy & messaging) — po
@@ -94,6 +159,20 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Obrazek pokazywany przy udostępnianiu linków (LinkedIn, Facebook,
+      // X, Messenger) — Docusaurus rozgłasza go jako og:image i twitter:image.
+      image: 'img/og-pocaduchy.jpg',
+      metadata: [
+        {name: 'author', content: 'Łukasz Cecelon'},
+        {
+          name: 'keywords',
+          content:
+            'konstruowanie maszyn, rysunek techniczny, CAD, tolerancje i pasowania, DIN, ISO, chropowatość powierzchni, druk 3D, konstruktor, inżynieria mechaniczna',
+        },
+        {property: 'og:type', content: 'website'},
+        {property: 'og:site_name', content: 'poCADuchy'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       colorMode: {
         defaultMode: 'light',
         // Strona jest zaprojektowana tylko na jasny motyw — przełącznik
