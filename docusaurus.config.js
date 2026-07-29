@@ -112,8 +112,6 @@ const config = {
           {to: '/wiedza', label: 'Wiedza', position: 'left'},
           {to: '/odcinki', label: 'Odcinki', position: 'left'},
           {to: '/uslugi', label: 'Usługi', position: 'left'},
-          {to: '/social', label: 'Social media', position: 'left'},
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://youtube.com/@pocaduchy',
             label: 'SUBSKRYBUJ',
@@ -131,8 +129,6 @@ const config = {
               {label: 'Wiedza', to: '/wiedza'},
               {label: 'Odcinki', to: '/odcinki'},
               {label: 'Usługi', to: '/uslugi'},
-              {label: 'Social media', to: '/social'},
-              {label: 'Blog', to: '/blog'},
             ],
           },
           {

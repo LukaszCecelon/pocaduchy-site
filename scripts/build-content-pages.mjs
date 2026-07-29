@@ -109,61 +109,13 @@ export default function Page() {
   return manifest.length;
 }
 
-function writeBlog() {
-  const contentDir = join(ROOT, 'content', 'blog');
-  const pagesDir = join(ROOT, 'src', 'pages', 'blog');
-  const dataDir = join(ROOT, 'src', 'data');
-  const posts = readJsonFiles(contentDir);
-
-  mkdirSync(pagesDir, {recursive: true});
-  mkdirSync(dataDir, {recursive: true});
-
-  const expected = new Set();
-  for (const p of posts) {
-    const file = `${p.slug}.js`;
-    expected.add(file);
-    const page = `${GENERATED_MARKER}
-import React from 'react';
-import BlogArticleTemplate from '@site/src/components/BlogArticleTemplate';
-import data from '@site/content/blog/${p.file}.json';
-
-export default function Page() {
-  return (
-    <BlogArticleTemplate
-      title={data.title}
-      description={data.description}
-      date={data.date}
-      linkedinUrl={data.linkedinUrl}
-      blocks={data.blocks}
-    />
-  );
-}
-`;
-    writeFileSync(join(pagesDir, file), page);
-  }
-  cleanGenerated(pagesDir, expected);
-
-  const manifest = posts
-    .map((p) => ({
-      slug: p.slug,
-      title: p.title,
-      description: p.description || '',
-      date: p.date || null,
-    }))
-    .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
-  writeFileSync(join(dataDir, 'blog-posts.json'), JSON.stringify(manifest, null, 2) + '\n');
-
-  return manifest.length;
-}
-
 const counts = {
   wzory: writeWiedzaCategory('wzory', 'Wzory i tabele'),
   materialy: writeWiedzaCategory('materialy', 'Materiały konstrukcyjne'),
   elementy: writeWiedzaCategory('elementy', 'Elementy standardowe'),
-  blog: writeBlog(),
 };
 
 console.log(
-  `[build-content-pages] OK: wzory=${counts.wzory}, materialy=${counts.materialy}, ` +
-    `elementy=${counts.elementy}, blog=${counts.blog}`,
+  `[build-content-pages] OK: wzory=${counts.wzory}, ` +
+    `materialy=${counts.materialy}, elementy=${counts.elementy}`,
 );

@@ -7,40 +7,37 @@ import materialy from '@site/src/data/wiedza-materialy.json';
 import elementy from '@site/src/data/wiedza-elementy.json';
 
 function articleCount(n) {
-  if (n === 0) return 'wkrótce';
   return n === 1 ? '1 artykuł' : `${n} artykuły`;
 }
 
+// Pokazujemy wyłącznie działy, które mają już artykuły — pusty dział pojawi
+// się na liście automatycznie, gdy trafi do niego pierwsza treść.
 const CATEGORIES = [
   {
-    n: '01',
     title: 'Wzory i tabele',
     body: 'Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.',
     href: '/wiedza/wzory',
-    count: articleCount(wzory.length),
+    articles: wzory,
   },
   {
-    n: '02',
     title: 'Materiały konstrukcyjne',
     body: 'Dobór materiałów do zastosowań konstrukcyjnych.',
     href: '/wiedza/materialy',
-    count: articleCount(materialy.length),
+    articles: materialy,
   },
   {
-    n: '03',
     title: 'Elementy standardowe',
     body: 'Łożyska, połączenia i inne elementy znormalizowane.',
     href: '/wiedza/elementy',
-    count: articleCount(elementy.length),
+    articles: elementy,
   },
-  {
-    n: '04',
-    title: 'Kalkulatory',
-    body: 'Interaktywne narzędzia obliczeniowe.',
-    href: '/wiedza/kalkulatory',
-    count: 'wkrótce',
-  },
-];
+]
+  .filter((c) => c.articles.length > 0)
+  .map((c, i) => ({
+    ...c,
+    n: String(i + 1).padStart(2, '0'),
+    count: articleCount(c.articles.length),
+  }));
 
 export default function Wiedza() {
   return (
