@@ -189,6 +189,7 @@ const config = {
         items: [
           {to: '/', label: 'Główna', position: 'left'},
           {to: '/wiedza', label: 'Wiedza', position: 'left'},
+          {to: '/blog', label: 'Artykuły', position: 'left'},
           {to: '/odcinki', label: 'Odcinki', position: 'left'},
           {to: '/uslugi', label: 'Usługi', position: 'left'},
           {
@@ -206,6 +207,7 @@ const config = {
             title: 'Strona',
             items: [
               {label: 'Wiedza', to: '/wiedza'},
+              {label: 'Artykuły', to: '/blog'},
               {label: 'Odcinki', to: '/odcinki'},
               {label: 'Usługi', to: '/uslugi'},
             ],

@@ -54,23 +54,38 @@ export default function Wiedza() {
             Wzory, tabele i poradniki, które faktycznie się przydają
           </h1>
           <p className={styles.lead}>
-            Baza uporządkowana w działy — wybierz jeden, żeby przejść dalej.
-            Będzie się rozrastać wraz z kanałem.
+            {CATEGORIES.length > 0
+              ? 'Baza uporządkowana w działy — wybierz jeden, żeby przejść dalej. Będzie się rozrastać wraz z kanałem.'
+              : 'Miejsce na wzory, tabele i normy, po które sięgam w codziennej pracy. Sekcja powstaje — będzie rosła wraz z kanałem.'}
           </p>
         </div>
 
-        <div className={styles.grid}>
-          {CATEGORIES.map((c) => (
-            <Link key={c.title} to={c.href} className={`${styles.card} pc-cut-card`}>
-              <span className={styles.cardN}>{c.n}</span>
-              <h3 className={styles.cardTitle}>{c.title}</h3>
-              <p className={styles.cardBody}>{c.body}</p>
-              <div className={styles.cardFooter}>
-                <span className={styles.soonTag}>{c.count}</span>
-              </div>
+        {CATEGORIES.length > 0 ? (
+          <div className={styles.grid}>
+            {CATEGORIES.map((c) => (
+              <Link key={c.title} to={c.href} className={`${styles.card} pc-cut-card`}>
+                <span className={styles.cardN}>{c.n}</span>
+                <h3 className={styles.cardTitle}>{c.title}</h3>
+                <p className={styles.cardBody}>{c.body}</p>
+                <div className={styles.cardFooter}>
+                  <span className={styles.soonTag}>{c.count}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className={`${styles.empty} pc-cut-card`}>
+            <h2 className={styles.emptyTitle}>Baza wiedzy w budowie</h2>
+            <p className={styles.emptyBody}>
+              Pracuję nad materiałami: wzory, tabele tolerancji i normy
+              rysunkowe. W międzyczasie zajrzyj do artykułów o codziennej
+              pracy konstruktora.
+            </p>
+            <Link to="/blog" className={`${styles.emptyCta} pc-cut`}>
+              Przejdź do artykułów →
             </Link>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     </Layout>
   );

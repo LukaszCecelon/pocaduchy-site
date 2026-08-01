@@ -1,0 +1,76 @@
+{
+  "title": "Wybory w pracy konstruktora: 📏 Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
+  "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study — śruba pasowana jako oś łożysk.",
+  "date": "2026-08-01",
+  "image": "/img/blog/handlowki-elementy-znormalizowane.jpg",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/handlowki-elementy-znormalizowane.jpg",
+      "alt": "Stanowisko konstruktora: model koła ręcznego w CAD na monitorze, rysunki techniczne na tablicy i szuflada z elementami znormalizowanymi — pokrętłami, uchwytami i śrubami.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Kiedy projektujemy nasze maszyny, często przychodzi nam zaczynać od białej kartki 📝. Każdą część rysujemy od przysłowiowego zera ✏️. Bardzo łatwo wtedy o wpadnięcie w koleiny myślowe, które będą kierowały nas w stronę projektowania dosłownie każdej części 🔄. Jednak poza naszą wyobraźnią istnieje jeszcze świat (ogromny świat) elementów znormalizowanych, handlówek, gotowców 🌐. Tak naprawdę można je wykorzystać w wielu miejscach maszyny, oszczędzając czas ⏱️ i środki w budżecie 💰 — czy to na wykonanie części, czy na czas konstruktora 👷."
+    },
+    {
+      "type": "tekst",
+      "body": "**🏗️ Dlatego dobry konstruktor powinien zadawać sobie pytania:**\n\n- 🤔 Projektować czy wziąć handlówkę?\n- ⚙️ Co będzie bardziej funkcjonalne?\n- ⏱️ Co szybciej znajdzie się na hali montażowej?\n- 🎨 Co będzie wyglądało bardziej estetycznie i profesjonalnie?"
+    },
+    {
+      "type": "tekst",
+      "body": "W tym artykule postaram się przedstawić Wam mój punkt widzenia na elementy handlowe, bo uważam to za naprawdę istotny temat w kontekście wydajności 🚀 i jakości naszej pracy ✅."
+    },
+    {
+      "type": "tekst",
+      "body": "## 👍 Zalety stosowania handlówek\n\nŻeby w ogóle myśleć i pamiętać o tych elementach, trzeba być przekonanym zasadności ich stosowania. Dlatego stwierdziłem, że na początku przedstawię wam kilka plusów \"gotowców\"."
+    },
+    {
+      "type": "tekst",
+      "body": "**💰 Stosunek Ceny do Jakości** - tutaj jeśli korzystamy z renomowanych dostawców, wygląda to bardzo korzystnie. Dodatkowo możemy starać się o rabaty ilościowe, albo dedykowane dla klienta. Jeśli konstruktor dobrze przemyśli jak sprytnie wykorzystać te elementy, to całościowo może urwać kilka-kilkanaście tysięcy PLN na całym projekcie."
+    },
+    {
+      "type": "tekst",
+      "body": "**⏱️ Terminy realizacji** - tutaj bezdyskusyjnie, handlówki to części, które możemy często mieć u siebie z dnia na dzień. Jeśli zależy nam na terminach - warto skupić się na ich doborze."
+    },
+    {
+      "type": "tekst",
+      "body": "**🖥️ Prosta integracja z CAD** - większość producentów posiada ogromne biblioteki modeli 3D swoich części. Dla konstruktora to idealna sytuacja - szybki dobór, kilka kliknięć i mamy element, który szybko wstawiamy do naszego projektu."
+    },
+    {
+      "type": "tekst",
+      "body": "**📏 Standaryzacja i unifikacja** - w firmach takich jak nasza, podejmujemy decyzje pozwalające nam na standaryzację niektórych elementów, dzięki czemu jeszcze bardziej optymalizujemy koszty. Na przykład: We wszystkich maszynach stosujemy określone uchwyty. Pozwala to mieć na magazynie większą ilość, a stosując dobre praktyki zarządzania materiałami, nie tracimy czasu, pieniędzy i przestrzeni na 10 różnych rodzajów uchwytów."
+    },
+    {
+      "type": "tekst",
+      "body": "## 🔍 Gdzie ich szukać?\n\nNa rynku tak naprawdę wyróżnia się 2 dużych producentów elementów standardowych:\n\n- 🔗 [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol)\n- 🔗 [KIPP](https://www.kipp.pl/pl/)"
+    },
+    {
+      "type": "tekst",
+      "body": "\"Elesa\" w moim odczuciu ma bardziej estetycznie wykonane niektóre elementy, ale ich system rabatowania jest dość słaby (zawsze trzeba składać duże zamówienie)"
+    },
+    {
+      "type": "tekst",
+      "body": "KIPP co prawda jeśli chodzi o jakość jest troszeczkę słabszy (moja subiektywna opinia), natomiast posiada asortyment, o który ciężko u pozostałych dostawców oraz system rabatów opierający się o dedykowane zniżki dla danego klienta."
+    },
+    {
+      "type": "tekst",
+      "body": "## 🧪 Case study – Jak zastąpić coś handlówką?\n\nOstatnio kilka razy - w miejscu gdzie nie ma wysokich prędkości obrotowych ani obciążeń - wykorzystałem zwykłą śrubę pasowaną jako oś łożysk. Gdyby się zastanowić nad kosztem projektowania, rysownia, zamawiania i produkcji takiego sworznia to zastosowanie w tym przypadku handlówki o to oszczędność rzędu 300%"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/handlowki-sruba-pasowana-jako-os-lozysk.jpg",
+      "alt": "Przekrój złożenia w CAD: śruba pasowana pełniąca funkcję osi dwóch łożysk kulkowych osadzonych w korpusie.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 📌 Podsumowanie\n\nW ~80–90 % projektów użycie standardowych elementów pozwala zaoszczędzić czas ⏳, budżet 💸 i uprościć zarządzanie zapasami 📦."
+    },
+    {
+      "type": "tekst",
+      "body": "Podziel się w komentarzu, które elementy znormalizowane pomogły Ci ostatnio przyspieszyć projekt i jakie masz własne triki na szybką integrację gotowych podzespołów! 😊"
+    }
+  ]
+}
