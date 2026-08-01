@@ -1,7 +1,15 @@
 {
-  "fetchedAt": "2026-08-01T06:34:43.178Z",
+  "fetchedAt": "2026-08-01T07:04:50.207Z",
   "channelId": "UCatuUJWhqiOAiXhvb72wKOw",
   "episodes": [
+    {
+      "id": "8rTxTSbQ4iA",
+      "title": "Wnioski po uruchomieniu maszyny. #HotStamping #automation #produkcja #maszyny #robotics #inventor",
+      "url": "https://www.youtube.com/watch?v=8rTxTSbQ4iA",
+      "published": "2026-08-01T07:01:02+00:00",
+      "thumbnail": "https://i.ytimg.com/vi/8rTxTSbQ4iA/hqdefault.jpg",
+      "isShort": true
+    },
     {
       "id": "G7331PHjNmI",
       "title": "Konstruktorze - RUSZ ROBOTEM. Kiedy się to opłaca? Jak to zrobić? Rozkminka z tutorialem (iLogic)",
@@ -113,14 +121,6 @@
       "published": "2026-03-21T07:38:47+00:00",
       "thumbnail": "https://i.ytimg.com/vi/Zy4q7h0b0os/hqdefault.jpg",
       "isShort": true
-    },
-    {
-      "id": "6DGWviF4hZo",
-      "title": "Siódme poCADuchy - Startujemy z montażem | Odchudzam bazy | Wyzwanie związane z detalem klienta",
-      "url": "https://www.youtube.com/watch?v=6DGWviF4hZo",
-      "published": "2026-03-15T15:15:57+00:00",
-      "thumbnail": "https://i.ytimg.com/vi/6DGWviF4hZo/hqdefault.jpg",
-      "isShort": false
     }
   ]
 }
