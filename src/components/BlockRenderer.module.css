@@ -32,6 +32,42 @@
   margin: 0 0 16px;
   padding-left: 22px;
 }
+.tekst :global(li) {
+  margin-bottom: 10px;
+}
+.tekst :global(li:last-child) {
+  margin-bottom: 0;
+}
+
+/* Nagłówki wewnątrz bloków tekstu — rytm typograficzny artykułu */
+.tekst :global(h2) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.25;
+  color: var(--pc-navy);
+  margin: 8px 0 16px;
+  padding-top: 10px;
+  border-top: 2px solid var(--pc-rust);
+  display: inline-block;
+}
+.tekst :global(h3) {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--pc-navy);
+  margin: 4px 0 12px;
+}
+.tekst :global(blockquote) {
+  margin: 0 0 16px;
+  padding: 14px 20px;
+  border-left: 4px solid var(--pc-rust);
+  background: #f8f8fa;
+  color: var(--pc-navy);
+}
+.tekst :global(blockquote p:last-child) {
+  margin-bottom: 0;
+}
 
 /* OBRAZ */
 .obraz {

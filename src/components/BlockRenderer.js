@@ -13,20 +13,40 @@ const ALIGN_CLASS = {
   'pelna-szerokosc': 'obrazPelny',
 };
 
+// Linki zewnętrzne otwieramy w nowej karcie, żeby czytelnik nie tracił
+// artykułu; rel chroni przed dostępem do window.opener.
+const MD_COMPONENTS = {
+  a({href = '', children, ...props}) {
+    const zewnetrzny = /^https?:\/\//i.test(href);
+    return (
+      <a
+        href={href}
+        {...(zewnetrzny ? {target: '_blank', rel: 'noopener noreferrer'} : {})}
+        {...props}>
+        {children}
+      </a>
+    );
+  },
+};
+
 function TekstBlock({body}) {
   return (
     <div className={styles.tekst}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_COMPONENTS}>
+        {body}
+      </ReactMarkdown>
     </div>
   );
 }
 
-function ObrazBlock({src, podpis, wyrownanie}) {
+function ObrazBlock({src, podpis, alt, wyrownanie}) {
   const url = useBaseUrl(src);
   const alignClass = styles[ALIGN_CLASS[wyrownanie]] || styles.obrazSrodek;
   return (
     <figure className={`${styles.obraz} ${alignClass}`}>
-      <img src={url} alt={podpis || ''} loading="lazy" />
+      {/* alt: opis dla czytników ekranu i wyszukiwarek — niezależny od
+          widocznego podpisu (obraz może mieć opis bez podpisu pod spodem) */}
+      <img src={url} alt={alt || podpis || ''} loading="lazy" />
       {podpis ? <figcaption className={styles.podpis}>{podpis}</figcaption> : null}
     </figure>
   );
