@@ -216,7 +216,7 @@ function Hero() {
             </span>
           </h1>
           <p className={styles.heroLead}>
-            Rysunki, CAD, druk 3D i montaż — decyzje, koszty i błędy, których
+            Rysunki, CAD, druk 3D i montaż: decyzje, koszty i błędy, których
             nikt inny nie pokazuje. Zapraszam Was do świata, którego jeszcze
             nikt nie pokazał na polskim YouTube.
           </p>
@@ -245,7 +245,7 @@ function Hero() {
             <div className={styles.heroBadge}>
               <img
                 src={useBaseUrl('/img/pocaduchy-logo.png')}
-                alt="poCADuchy — Łukasz Cecelon, inżynier konstruktor"
+                alt="Łukasz Cecelon, inżynier konstruktor i autor kanału poCADuchy"
                 width="252"
                 height="252"
               />
@@ -301,7 +301,7 @@ function Teasers() {
       n: '01',
       eyebrow: 'BAZA WIEDZY',
       title: 'Wiedza',
-      body: 'Wzory, tabele i poradniki dla konstruktorów maszyn — uporządkowane w działy i gotowe do rozbudowy.',
+      body: 'Wzory, tabele i poradniki dla konstruktorów maszyn, uporządkowane w działy i gotowe do rozbudowy.',
       cta: 'Przeglądaj bazę →',
       href: '/wiedza',
     },
@@ -309,7 +309,7 @@ function Teasers() {
       n: '02',
       eyebrow: 'ARCHIWUM',
       title: 'Odcinki',
-      body: 'Wszystkie odcinki kanału w jednym miejscu — miniatury, tytuły, linki do YouTube.',
+      body: 'Wszystkie odcinki kanału w jednym miejscu: miniatury, tytuły, linki do YouTube.',
       cta: 'Zobacz odcinki →',
       href: '/odcinki',
     },
@@ -317,7 +317,7 @@ function Teasers() {
       n: '03',
       eyebrow: 'WSPÓŁPRACA',
       title: 'Usługi',
-      body: 'Projektowanie konstrukcji, druk 3D i konsultacje — dla firm produkcyjnych i biur konstrukcyjnych.',
+      body: 'Projektowanie konstrukcji, druk 3D i konsultacje dla firm produkcyjnych oraz biur konstrukcyjnych.',
       cta: 'Zobacz zakres →',
       href: '/uslugi',
     },
@@ -348,7 +348,7 @@ function CtaBand() {
   return (
     <div className={`${styles.ctaBand} ${styles.revealItem}`} data-reveal>
       <h2 className={styles.ctaTitle}>
-        Nowy odcinek co tydzień — albo kiedy się uda w warsztacie.
+        Nowy odcinek co tydzień, albo kiedy się uda w warsztacie.
       </h2>
       <a
         href={YOUTUBE_URL}
@@ -367,7 +367,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.tagline}
-      description="poCADuchy — kanał i baza wiedzy o konstruowaniu maszyn. Rysunek techniczny, CAD, dobór materiałów, tolerancje, druk 3D i montaż: realne decyzje, koszty i błędy z warsztatu konstruktora.">
+      description="poCADuchy to kanał i baza wiedzy o konstruowaniu maszyn. Rysunek techniczny, CAD, dobór materiałów, tolerancje, druk 3D i montaż: realne decyzje, koszty i błędy z warsztatu konstruktora.">
       <div ref={rootRef}>
         <Hero />
         <LatestEpisode />
