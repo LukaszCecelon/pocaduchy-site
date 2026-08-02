@@ -1,0 +1,94 @@
+{
+  "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
+  "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT — z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
+  "date": "2026-06-21",
+  "image": "/img/blog/szacowanie-czasu-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/szacowanie-czasu-okladka.jpg",
+      "alt": "Konstruktor przy laptopie z modelem CAD, obok wykres i karteczki z szacunkami 4h, 8h, 12h — szacowanie czasu projektowania.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "- Masz spotkanie kick-off i pada pytanie: ile czasu zajmie koncepcja, ile projekt szczegółowy, a ile dokumentacja?\n- Rozmawiasz z klientem i pada pytanie, ile czasu zakładacie na projektowanie.\n- Prowadzisz zespół projektowy i musisz oszacować, jak długo zajmie faza projektowania."
+    },
+    {
+      "type": "tekst",
+      "body": "Jeśli już w życiu zderzyłeś się z tymi sytuacjami, to pewnie czujesz ten dreszcz emocji i burzę, która pojawia się w głowie: *„Wygląda prosto…”*, *„Ale jak coś się wysypie…?”*, *„A jeśli tylko wygląda prosto…?”*, *„Hmmm… 3 tygodnie, albo nie… powiem 4, żeby mieć zapas”*."
+    },
+    {
+      "type": "tekst",
+      "body": "Generalnie oszacowanie czasu projektowania — o ile nie bazujemy na jakimś standardowym portfolio produktowym firmy — to naprawdę duże wyzwanie. Tak naprawdę koszt projektowania jest jednym z większych przy ofertowaniu danej instalacji, a o ile czas produkcji czy montażu jesteśmy w stanie relatywnie łatwo oszacować, o tyle **czas projektowania to bardzo często jedna wielka niewiadoma**."
+    },
+    {
+      "type": "tekst",
+      "body": "W tym artykule postanowiłem przedstawić Wam **cztery metody estymacji**. Oczywiście polecam z nich korzystać hybrydowo i dostosowywać tę hybrydę do danego projektu — o czym na samym końcu."
+    },
+    {
+      "type": "tekst",
+      "body": "## Metoda 1: Oszacuj jako ekspert\n\nPosiadając zespół inżynierów konstruktorów, z reguły mamy w nim ekspertów w różnych zakresach: transportery, układy kartezjańskie, automatyczne montaże, paletyzacje itd. Szacując czas projektowania w dużym temacie, który podzielony jest już na jakieś części, warto skorzystać z ich wiedzy i doświadczeń. Mówiąc prosto: **estymacja na bazie doświadczenia ekspertów**."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybko, bez skomplikowanych arkuszy | Mocno subiektywna — jeżeli danych rzeczy nie będzie jednak projektował gość, który oszacował czas, może być to spory problem |\n| Uwzględnia dużo zagrożeń i buforuje na nie czas | Bez twardych danych typu arkusz kalkulacyjny trudno wybronić założenia przed np. klientem |\n| Idealna przy projektach niestandardowych | |"
+    },
+    {
+      "type": "tekst",
+      "body": "## Metoda 2: Znajdź analogię w przeszłości\n\nCzęsto zdarza się, że już kiedyś „coś podobnego” projektowaliśmy. Mamy wtedy (jako firma) dobrą bazę do estymacji. Może nie są to jakieś super standardy, ale czas spędzony wtedy na koncepcji i stworzeniu fundamentalnych założeń został już poświęcony — teraz można bazować na danych historycznych."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybka, sensowna, oparta na realnych danych z przeszłości | Wymaga bazy danych (lub dobrej pamięci) |\n| Świetna przy typowych projektach — standardowe stoły montażowe, przenośniki, ramy | Trzeba uważać na „pozorne podobieństwa” — mała różnica w projekcie może oznaczać dużą różnicę w czasie |"
+    },
+    {
+      "type": "tekst",
+      "body": "## Metoda 3: Estymacja parametryczna\n\nJeśli Twój zespół jest doświadczony i w miarę na tym samym poziomie, jeśli chodzi o wiedzę i umiejętności, możesz pokusić się o stworzenie pewnych parametrów. Oszacuj, ile zajmuje średnio projektowanie jednej części, tworzenie rysunku 2D, spotkania w historycznych projektach. Możesz wtedy stworzyć model na zasadzie:"
+    },
+    {
+      "type": "wzor",
+      "latex": "T = a \\cdot n_{\\text{części}} + b \\cdot n_{\\text{rysunków}} + c \\cdot n_{\\text{iteracji}} + \\ldots"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Bardzo trafna przy projektach powtarzalnych | Musisz mieć dane — najlepiej z wielu projektów |\n| Umożliwia szybkie przeliczenia scenariuszy typu „a co, jeśli dodamy 20% więcej części?” | Trudna do zastosowania przy prototypach i pierwszych wdrożeniach |"
+    },
+    {
+      "type": "tekst",
+      "body": "## Metoda 4: Estymacja trzech scenariuszy (PERT)\n\nZ projektowaniem jak z ludźmi — są optymiści, są pesymiści i są realiści (tutaj powinien być żart o tym, jakim otworem stoi świat przed każdym z nich, ale do brzegu)."
+    },
+    {
+      "type": "tekst",
+      "body": "Czas projektowania szacuj dla **3 scenariuszy**:\n\n- **a** — optymistyczny (wszystko idzie idealnie)\n- **b** — pesymistyczny (sypie się wszystko)\n- **m** — najbardziej prawdopodobny\n\nNastępnie użyj wzoru:"
+    },
+    {
+      "type": "wzor",
+      "latex": "E = \\frac{a + 4m + b}{6}"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Uwzględnia niepewność | Trochę więcej roboty — każde zadanie to trzy wartości |\n| Daje bardziej „życiowe” terminy | Trzeba dobrze znać możliwe scenariusze, żeby te szacunki miały sens |\n| Przydatna przy prezentacjach dla klienta lub kierownika projektu | |"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/szacowanie-czasu-metody.jpg",
+      "alt": "Cztery sceny ilustrujące metody szacowania: ekspert przy harmonogramie, porównanie projektów historycznych 7h i 10h, oś optimistic–most likely–pessimistic oraz wzór PERT z suwakami wartości.",
+      "podpis": "Cztery metody w jednym kadrze: ocena ekspercka, analogia, parametryka i PERT.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🧩 Jak to wygląda w prawdziwym życiu?\n\nNajlepiej stosować te metody **hybrydowo**. Jeśli się dokładnie nad tym zastanowić — one naprawdę płynnie mogą się przenikać!"
+    },
+    {
+      "type": "tekst",
+      "body": "Na przykład:\n\n- **Na początku:** ocena ekspercka + analogia\n- **Po dopracowaniu zakresu:** parametryczna\n- **Dla ryzykownych etapów:** PERT"
+    },
+    {
+      "type": "tekst",
+      "body": "Jeśli masz własny sposób na estymację — albo projekt, w którym szacunek rozjechał się z rzeczywistością tak, że do dziś to pamiętasz — chętnie posłucham. To temat, w którym najwięcej uczymy się od siebie nawzajem."
+    }
+  ]
+}

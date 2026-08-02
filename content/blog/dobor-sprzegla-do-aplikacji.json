@@ -1,0 +1,106 @@
+{
+  "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
+  "description": "Sprzęgła w budowie maszyn w praktyce: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe — budowa, zastosowania oraz cztery kryteria doboru sprzęgła do aplikacji.",
+  "date": "2026-08-02",
+  "image": "/img/blog/sprzeglo-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-okladka.jpg",
+      "alt": "Konstruktor zastanawia się nad doborem sprzęgła; obok wizualizacja sprzęgła osadzonego na wale silnika i dwa sprzęgła helikalne leżące na rysunku technicznym.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Kiedy przechodziłem z „procesówki” do świata „mechaniki ożywionej”, zacząłem dostrzegać wiele dziedzin, w których potrzebowałem się podszkolić 😶‍🌫️. Jedną z nich był **dobór sprzęgła do danej aplikacji**."
+    },
+    {
+      "type": "tekst",
+      "body": "Pamiętam jak dzisiaj moje pierwsze podejście… Stronka NORELEM, 10 rodzajów sprzęgieł i wielka rozkmina, co tu wybrać 🤯. Stąd pomysł na ten artykuł — żeby ktoś, kto jest teraz w podobnej sytuacji jak ja 4 lata temu, dopiero zaczyna przygodę z projektowaniem albo po prostu śledzi mój profil, dostał dawkę konkretnej, praktycznej wiedzy 💡."
+    },
+    {
+      "type": "tekst",
+      "body": "> **Na wstępie ważna informacja:** ten artykuł dotyczy sprzęgieł, które występują w 90, jak nie 95% aplikacji z obszaru automatyzacji i robotyzacji produkcji — egzotykę zostawiamy dla indywidualnych doktoryzacji."
+    },
+    {
+      "type": "tekst",
+      "body": "## 1. Krótko o samych sprzęgłach — do czego służą?\n\nMówiąc książkowo — **sprzęgło to element budowy maszyn zapewniający połączenie dwóch niezależnych wałów w celu przeniesienia momentu obrotowego**. Poza tym sprzęgła w budowie maszyn mogą kompensować niewspółosiowości wałów albo pełnić rolę bezpiecznika, aby przy przekroczeniu danego momentu nie uszkodzić przekładni, serwa czy silnika."
+    },
+    {
+      "type": "tekst",
+      "body": "## 2. Jakie sprzęgła są najpopularniejsze?"
+    },
+    {
+      "type": "tekst",
+      "body": "### ➡️ Sprzęgło kłowe\n\nTo chyba każdemu przynajmniej raz gdzieś przemknęło przed oczami. Stosowane bardzo często przy większości aplikacji, gdzie głównym zadaniem jest przeniesienie dużego momentu, a nie wysoka precyzja. Ze względu na swoją budowę pozwala kompensować niewspółosiowości osiowe. To sprzęgło pozwala również na bardzo wygodny serwis.\n\nCo do budowy — składa się ono z 2 osobnych piast oraz wymiennego elementu elastomerowego."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-klowe.png",
+      "alt": "Rysunek złożeniowy sprzęgła kłowego: dwie piasty z kłami i wymienny wkład elastomerowy w formie gwiazdki pomiędzy nimi.",
+      "podpis": "Budowa sprzęgła kłowego. Rysunek katalogowy: Elesa+Ganter.",
+      "wyrownanie": "srodek"
+    },
+    {
+      "type": "tekst",
+      "body": "### ➡️ Sprzęgło Oldhama\n\nJest dość podobne do sprzęgła kłowego, jednak pozwala na większą kompensację niewspółosiowości. **Ważne — nie może ono pracować z wałami przesuniętymi osiowo.**\n\nBudowa bardzo podobna jak sprzęgła kłowego: dwie piasty + łącznik."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-oldhama.png",
+      "alt": "Rysunek złożeniowy sprzęgła Oldhama: dwie piasty i pośredni krążek z prostopadłymi rowkami przenoszący moment.",
+      "podpis": "Budowa sprzęgła Oldhama. Rysunek katalogowy: Elesa+Ganter.",
+      "wyrownanie": "srodek"
+    },
+    {
+      "type": "tekst",
+      "body": "### ➡️ Sprzęgło mieszkowe\n\nTo wybór idealny dla układów, gdzie liczy się precyzja. Jest zbudowane z dwóch piast połączonych na stałe „mieszkiem”. Sam element łączący pozwala zniwelować odchyłki współosiowości oraz bicia."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-mieszkowe.png",
+      "alt": "Rysunek sprzęgła mieszkowego: dwie piasty zaciskowe połączone metalowym mieszkiem o karbowanej ściance.",
+      "podpis": "Sprzęgło mieszkowe. Rysunek katalogowy: Elesa+Ganter.",
+      "wyrownanie": "srodek"
+    },
+    {
+      "type": "tekst",
+      "body": "### ➡️ Sprzęgło helikalne\n\nMa niższą sztywność skrętną niż sprzęgło mieszkowe — tak można ładnie opisać to, że jest po prostu trochę mniej dokładne. Rozwiązanie bardziej ekonomiczne niż sprzęgło mieszkowe.\n\nZ ciekawości — sprawdźcie sobie sztywność skrętną dla sprzęgła mieszkowego i helikalnego o rozmiarze 32 w katalogu Elesy. Różnica potrafi zaskoczyć."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-helikalne.png",
+      "alt": "Rysunek sprzęgła helikalnego: jednolity korpus z wyciętym spiralnym rowkiem, zakończony piastami zaciskowymi.",
+      "podpis": "Sprzęgło helikalne. Rysunek katalogowy: Elesa+Ganter.",
+      "wyrownanie": "srodek"
+    },
+    {
+      "type": "tekst",
+      "body": "### ➡️ Sprzęgło przeciążeniowe\n\nJeśli chcesz zabezpieczyć napęd przed uszkodzeniem w przypadku np. zatarcia wału biernego, warto rozważyć zastosowanie właśnie tego sprzęgła. Liczba ich rodzajów może nieraz przyprawić o ból głowy, dlatego polecam kontaktować się z dostawcą w sprawie doboru.\n\nKiedyś korzystałem z takiego sprzęgła, osadzając na nim koło łańcuchowe napędzane od dużego motoreduktora w rozwijaku do kręgów blach."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/sprzeglo-przeciazeniowe.png",
+      "alt": "Sprzęgło przeciążeniowe: tarcza z rozmieszczonymi na obwodzie śrubami regulacyjnymi ustalającymi moment zadziałania.",
+      "podpis": "Sprzęgło przeciążeniowe. Zdjęcie produktowe: KTR Systems.",
+      "wyrownanie": "srodek"
+    },
+    {
+      "type": "tekst",
+      "body": "## 3. Dobór\n\nJakie kryteria konstruktor powinien wziąć pod uwagę, żeby odpowiednio dobrać sprzęgło? Są **cztery główne**:"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Kryterium | Co sprawdzić |\n| --- | --- |\n| **Typ aplikacji** | Wymagana precyzja, wielkość odchyłek między wałami |\n| **Parametry napędu** | Moment obrotowy, prędkość obrotowa |\n| **Rodzaj montażu** | Śruby dociskowe, zacisk na wale, wpust |\n| **Warunki pracy** | Temperatura, środowisko |"
+    },
+    {
+      "type": "tekst",
+      "body": "Osobiście korzystam z narzędzia, które naprawdę dobrze radzi sobie z kryteriami doboru — [konfigurator sprzęgieł KTR oTools](https://otools.ktr.com/otools/index.html?lang=de&inittab=1)."
+    },
+    {
+      "type": "tekst",
+      "body": "Mam nadzieję, że tym artykułem wprowadziłem Was w „świat sprzęgieł”. Tak jak wspominałem na początku, moim celem nie było wymienić wszystkich istniejących elementów tego typu — chciałem skupić się na praktycznym podejściu. Jeśli macie uwagi do tego, co napisałem, albo własne doświadczenia z doborem sprzęgieł — bardzo cenię sobie taki feedback. 💭"
+    }
+  ]
+}

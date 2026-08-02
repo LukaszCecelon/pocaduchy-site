@@ -1,0 +1,86 @@
+{
+  "title": "Z pracy konstruktora: Jak zorganizować produktywny KICK-OFF projektu?",
+  "description": "Jak przygotować i poprowadzić spotkanie kick-off projektu konstrukcyjnego: przygotowanie zespołu, gotowa agenda, podział ról i utrzymanie tempa po spotkaniu.",
+  "date": "2026-07-05",
+  "image": "/img/blog/kick-off-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/kick-off-okladka.jpg",
+      "alt": "Uścisk dłoni nad stołem konferencyjnym, w tle zespół i tablet z listą zadań — start nowego projektu konstrukcyjnego.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "*„Zaczynamy nowy projekt! Wow — podobno skomplikowany! Będzie go robiło 5 konstruktorów!”* Taka ekscytacja nowym tematem do zaprojektowania to coś zupełnie normalnego. Szczególnie kiedy mamy ambitny i ciekawy nowych rzeczy dział konstrukcyjny. Jednak w całej tej euforii nie można zapomnieć o twardej inżynierskiej metodyce."
+    },
+    {
+      "type": "tekst",
+      "body": "Projekty — a szczególnie te duże — muszą utrzymywać odpowiednie tempo, a kolejne etapy powinniśmy kończyć zgodnie z założonym harmonogramem (oczywiście jeśli nie zaskoczy nas jakaś totalna rewolucja). Dlatego bardzo ważne jest to, **jak zaczynamy każdy nowy projekt**."
+    },
+    {
+      "type": "tekst",
+      "body": "Najczęściej początkiem pracy nad projektem jest tzw. **kick-off**. To tam dowiadujemy się, co zostało sprzedane i co trzeba skonstruować. Właśnie takie spotkanie może **dobrze** lub **słabo** zacząć projekt. Od niego w dużej mierze zależy motywacja zespołu, początkowe tempo prac i utrzymanie projektu w budżecie oraz harmonogramie."
+    },
+    {
+      "type": "tekst",
+      "body": "W tym artykule postaram się przybliżyć Wam, co moim zdaniem jest ważne podczas kick-offa, jak się do niego przygotować oraz jak go poprowadzić."
+    },
+    {
+      "type": "tekst",
+      "body": "## 1. Przygotowanie\n\nMoże to nieoczywiste, co zaraz napiszę, ale do kick-offa przygotowany powinien być nie tylko sprzedawca czy kierownik projektu — ale również konstruktor i członkowie zespołu. Idealnie, jeśli np. kilka dni wcześniej wiesz o nowym temacie, masz dostępną ofertę, może jakiś szkic sprzedażowy. To pozwala poświęcić 30–40 minut na wstępną analizę, identyfikację zagrożeń oraz zapisanie pierwszych pytań do poruszenia na spotkaniu."
+    },
+    {
+      "type": "tekst",
+      "body": "Jeśli na kick-offa każdy przyjdzie przygotowany, zespół odniesie same korzyści:\n\n- ⏱️ Spotkanie pójdzie sprawnie\n- ⚠️ Znajdziemy więcej potencjalnych zagrożeń\n- 📊 Lepiej oszacujemy etapy w harmonogramie\n- 🤝 Każdy będzie miał poczucie, że od niego zależy powodzenie"
+    },
+    {
+      "type": "tekst",
+      "body": "## 2. Agenda\n\nDoświadczony inżynier projektu doskonale wie, że spotkanie — tym bardziej kick-off — bez agendy tak naprawdę mija się z celem."
+    },
+    {
+      "type": "tekst",
+      "body": "Na przestrzeni mojej przygody z projektowaniem i zarządzaniem wypracowałem kilka głównych punktów, które powinny być poruszone podczas startu projektu. Osobiście mam w OneNote zakładkę KICK-OFF i tam mam wypisane standardowe tematy do poruszenia:"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ☑ | Punkt agendy kick-offa |\n| --- | --- |\n| ☐ | Omówienie projektu, jego funkcjonalności i zastosowania u klienta |\n| ☐ | Ilość detali do obsłużenia — rysunki, modele 3D |\n| ☐ | Czasy cyklu |\n| ☐ | Czas przezbrojenia wymagany przez klienta |\n| ☐ | URS — preferowani / wymagani dostawcy |\n| ☐ | Opracowanie harmonogramu |\n| ☐ | **Budżet:** hardware |\n| ☐ | **Budżet:** czas projektu mechanicznego |\n| ☐ | **Budżet:** czas projektu automatycznego |\n| ☐ | **Budżet:** czas montażu |\n| ☐ | **Budżet:** czas uruchomienia (godziny dzienne / weekendowe / nocne) |"
+    },
+    {
+      "type": "tekst",
+      "body": "Omówienie tych punktów w moim odczuciu już na początku buduje pogląd konstruktora na to, jakich rozwiązań poszukiwać, których dostawców wybierać oraz na czym musi skupić się od zaraz, a co może poczekać."
+    },
+    {
+      "type": "tekst",
+      "body": "Wspólne napisanie harmonogramu podniesie świadomość sytuacyjną zespołu, ale i też poczucie odpowiedzialności — w końcu sami go stworzyliśmy, coś zadeklarowaliśmy."
+    },
+    {
+      "type": "tekst",
+      "body": "Jeśli jest to możliwe, na takim spotkaniu warto zidentyfikować, które moduły będą proste do zaprojektowania, a które będą kluczowe i trudne. Pozwoli to odpowiednio rozłożyć siły na początku."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/kick-off-priorytety.jpg",
+      "alt": "Zespół projektowy przy tablicy z kolumnami To Do, In Progress i Done — wyznaczanie priorytetów na starcie projektu.",
+      "podpis": "Wyznaczcie priorytety — zanim ktokolwiek otworzy CAD-a.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 3. Jasny podział ról i zadań\n\nTurbo ważna kwestia. Najgorzej, jeśli zespół wie, że ma zrobić maszynę, ale nie do końca wie, kto co dokładnie ma zrobić. Dlatego w trakcie kick-offa musi przyjść moment, w którym przyporządkujemy: rolę lidera 🧑‍✈️, osadzimy ludzi do konkretnych modułów 🛠️, wyznaczymy sklejacza layoutu 🗺️, osobę do kontaktu z klientem ☎️ i tak dalej."
+    },
+    {
+      "type": "tekst",
+      "body": "## 4. Podsumowanie i utrzymanie rytmu\n\nJak każde spotkanie, dobry kick-off kończy się wysłaniem podsumowania do uczestników 📝. Warto mieć skrybę, który na bieżąco zapisuje podnoszone kwestie. Oczywiście przed wysłaniem podsumowanie trzeba trochę zredagować, żeby konstruktorzy-wzrokowcy mieli wyróżnione kluczowe informacje."
+    },
+    {
+      "type": "tekst",
+      "body": "**Co dalej? Utrzymaj tempo! ⏰**\n\nJuż podczas kick-offa warto ustalić sposób komunikacji i częstotliwość kolejnych spotkań. Dzięki temu, że powiecie sobie o tym głośno, każdy będzie widział, do kiedy musi coś przygotować albo zadać pytania."
+    },
+    {
+      "type": "tekst",
+      "body": "Wdrażasz kick-offy u siebie w dziale i coś nie chce zaskoczyć? Napisz — chętnie podpowiem, co u mnie zadziałało, a co okazało się ślepą uliczką. Kontakt znajdziesz w zakładce [Usługi](/uslugi)."
+    }
+  ]
+}
