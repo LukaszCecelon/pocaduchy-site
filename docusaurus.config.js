@@ -78,7 +78,7 @@ const config = {
             founder: {'@id': `${SITE}/#lukasz`},
             sameAs: ['https://youtube.com/@pocaduchy'],
             description:
-              'Kanał YouTube i baza wiedzy o konstruowaniu maszyn — CAD, rysunek techniczny, dobór materiałów, druk 3D. Prowadzi inżynier konstruktor Łukasz Cecelon.',
+              'Kanał YouTube i baza wiedzy o konstruowaniu maszyn: CAD, rysunek techniczny, dobór materiałów, druk 3D. Prowadzi inżynier konstruktor Łukasz Cecelon.',
           },
           {
             '@type': 'WebSite',

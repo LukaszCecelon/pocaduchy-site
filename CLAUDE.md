@@ -9,6 +9,14 @@
 - **Nie** dziel pracy na podzadania dla Codeksa. **Nie** wymagaj od Łukasza obsługi CMS-a ani plików `.bat` — on wysyła materiał, Claude robi resztę.
 - Nie zasypuj pytaniami: podejmuj rozsądne decyzje projektowe samodzielnie, pytaj tylko gdy różne odczytania prowadzą do istotnie różnej pracy.
 
+## Styl tekstu (obowiązuje bezwzględnie)
+
+**Nie stosuj myślnika em dash („—") w żadnym tekście widocznym na stronie.** Łukasz uznaje go za marker treści generowanej przez AI. Zamiast niego: dwukropek, przecinek, kropka albo przebudowane zdanie. Zasada dotyczy treści artykułów (`content/**/*.json`), tekstów w `src/pages/*.js`, `docusaurus.config.js` i `static/llms.txt`. Komentarze w kodzie są wyłączone spod tej reguły.
+
+Ten sam zakaz **musi trafiać do każdej specyfikacji zadania dla Codeksa**, jeśli zadanie obejmuje pisanie lub redagowanie tekstu.
+
+Przed publikacją sprawdź: `grep -rn "—" content src/pages docusaurus.config.js static/llms.txt`
+
 ## Publikowanie
 
 Standardowa ścieżka po każdej zmianie: edycja → `npm run build` (sanity check) → podgląd/weryfikacja → `git commit` → `git push` na `main`. GitHub Actions sam publikuje na **pocaduchy.pl** (2–3 min). Nocny cron odświeża odcinki i licznik subskrybentów.
