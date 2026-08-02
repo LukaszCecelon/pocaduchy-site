@@ -1,15 +1,32 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
+import Okruszki from '@site/src/components/Okruszki';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
+import redakcja from '@site/content/odcinki.json';
 
 const SITE = 'https://pocaduchy.pl';
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 
-// Dane generuje scripts/fetch-episodes.mjs (prebuild/prestart) z feedu RSS
-// kanału — bez ręcznego utrzymania. Tu pokazujemy pełne odcinki, bez shortsów.
-const EPISODES = episodesData.episodes.filter((e) => !e.isShort);
+// Listę filmów generuje scripts/fetch-episodes.mjs (prebuild/prestart) z feedu
+// RSS kanału, bez ręcznego utrzymania. Shortsy i transmisje na żywo są już
+// odfiltrowane na etapie pobierania. Opisy i podział na działy dokładamy
+// z content/odcinki.json, dopasowując po identyfikatorze filmu.
+const EPISODES = episodesData.episodes
+  .filter((e) => !e.isShort)
+  .map((e) => ({...e, ...(redakcja.odcinki?.[e.id] || {})}));
+
+const DZIALY = redakcja.dzialy || [];
+const DZIAL_DOMYSLNY = redakcja.dzialDomyslny || DZIALY[0]?.id;
+
+// Grupujemy odcinki po działach, zachowując kolejność działów z pliku danych
+// i chronologię wewnątrz każdego z nich. Działy bez odcinków znikają.
+const GRUPY = DZIALY.map((d) => ({
+  ...d,
+  odcinki: EPISODES.filter((e) => (e.dzial || DZIAL_DOMYSLNY) === d.id),
+})).filter((g) => g.odcinki.length > 0);
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('pl-PL', {
@@ -19,8 +36,8 @@ function formatDate(iso) {
   });
 }
 
-// Lista odcinków jako dane strukturalne — każdy wpis to VideoObject
-// z tytułem, miniaturą i datą publikacji, wskazujący na YouTube.
+// Lista odcinków jako dane strukturalne. Każdy wpis to VideoObject z tytułem,
+// miniaturą, datą publikacji i własnym opisem, wskazujący na YouTube.
 const EPISODES_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -37,65 +54,77 @@ const EPISODES_JSON_LD = {
       uploadDate: ep.published,
       url: ep.url,
       embedUrl: `https://www.youtube.com/embed/${ep.id}`,
-      description: ep.title,
+      description: ep.opis || ep.title,
       inLanguage: 'pl-PL',
       publisher: {'@id': `${SITE}/#organizacja`},
     },
   })),
 };
 
+function Karta({ep}) {
+  return (
+    <a
+      href={ep.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${styles.card} pc-cut-card`}>
+      <div className={styles.thumb}>
+        <img src={ep.thumbnail} alt={`Miniatura odcinka: ${ep.title}`} loading="lazy" />
+        <div className={styles.playBadge}>
+          <div className={styles.playIcon} />
+        </div>
+      </div>
+      <div className={styles.meta}>
+        <span className={styles.epDate}>{formatDate(ep.published)}</span>
+        <span className={styles.epTitle}>{ep.title}</span>
+        {ep.opis ? <span className={styles.epOpis}>{ep.opis}</span> : null}
+      </div>
+    </a>
+  );
+}
+
 export default function Odcinki() {
   return (
     <Layout
-      title="Odcinki — archiwum filmów o konstruowaniu maszyn"
-      description="Wszystkie odcinki kanału poCADuchy w jednym miejscu: projektowanie w CAD, druk 3D, montaż i realne problemy inżynierskie z warsztatu.">
+      title="Odcinki: filmy o konstruowaniu maszyn, CAD i druku 3D"
+      description="Wszystkie odcinki kanału poCADuchy w jednym miejscu, podzielone na działy: automatyzacja pracy konstruktora, projektowanie i konstrukcja, warsztat i druk 3D oraz zawód konstruktora.">
       <Head>
         <script type="application/ld+json">{JSON.stringify(EPISODES_JSON_LD)}</script>
       </Head>
       <div className={styles.wrap}>
+        <Okruszki sciezka={[{nazwa: 'Odcinki', url: '/odcinki'}]} />
+
         <div className={styles.intro}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowBar} />
             <span>Archiwum</span>
           </div>
           <h1 className={styles.title}>Wszystkie odcinki z kanału</h1>
-          <p className={styles.lead}>
-            Pełne odcinki od najnowszego — kliknij, żeby obejrzeć na YouTube.
-            Lista aktualizuje się automatycznie.
+          {redakcja.intro ? <p className={styles.lead}>{redakcja.intro}</p> : null}
+          <p className={styles.leadMaly}>
+            Lista aktualizuje się automatycznie po każdej publikacji. Kliknij
+            kafel, żeby obejrzeć odcinek na YouTube. Jeśli wolisz czytać,
+            zajrzyj do <Link to="/blog">artykułów</Link>.
           </p>
         </div>
 
-        {EPISODES.length > 0 ? (
-          <div className={styles.grid}>
-            {EPISODES.map((ep) => (
-              <a
-                key={ep.id}
-                href={ep.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.card} pc-cut-card`}>
-                <div className={styles.thumb}>
-                  <img
-                    src={ep.thumbnail}
-                    alt={`Miniatura odcinka: ${ep.title}`}
-                    loading="lazy"
-                  />
-                  <div className={styles.playBadge}>
-                    <div className={styles.playIcon} />
-                  </div>
-                </div>
-                <div className={styles.meta}>
-                  <span className={styles.epDate}>{formatDate(ep.published)}</span>
-                  <span className={styles.epTitle}>{ep.title}</span>
-                </div>
-              </a>
-            ))}
-          </div>
+        {GRUPY.length > 0 ? (
+          GRUPY.map((g) => (
+            <section key={g.id} className={styles.dzial}>
+              <h2 className={styles.dzialNazwa}>{g.nazwa}</h2>
+              {g.opis ? <p className={styles.dzialOpis}>{g.opis}</p> : null}
+              <div className={styles.grid}>
+                {g.odcinki.map((ep) => (
+                  <Karta key={ep.id} ep={ep} />
+                ))}
+              </div>
+            </section>
+          ))
         ) : (
           <div className={`${styles.empty} pc-cut-card`}>
             <span className={styles.emptyLabel}>Odcinki wkrótce</span>
             <p className={styles.emptyBody}>
-              Nie udało się pobrać listy odcinków — zajrzyj bezpośrednio na
+              Nie udało się pobrać listy odcinków, zajrzyj bezpośrednio na
               kanał.
             </p>
           </div>

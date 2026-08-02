@@ -102,7 +102,14 @@
   font-weight: 700;
   font-size: 28px;
   color: var(--pc-bg);
-  margin: 0 0 22px;
+  margin: 0 0 12px;
+}
+.ctaBody {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c7cad9;
+  margin: 0 auto 24px;
+  max-width: 520px;
 }
 .ctaButton {
   font-family: var(--font-mono);
@@ -122,5 +129,142 @@
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Sekcje dodane przy rozbudowie strony (przebieg, dowody, pytania) */
+.sekcja {
+  margin-top: 56px;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--pc-rust);
+}
+.sekcjaLead {
+  font-size: 16.5px;
+  line-height: 1.68;
+  color: var(--pc-text-muted);
+  margin: 0 0 24px;
+  max-width: 68ch;
+}
+
+.kroki {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.krok {
+  display: flex;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--pc-border);
+}
+.krok:last-child {
+  border-bottom: none;
+}
+.krokN {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--pc-rust);
+  flex: none;
+  width: 34px;
+  padding-top: 4px;
+}
+.krokCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.krokTytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18.5px;
+  color: var(--pc-navy);
+  margin: 0;
+}
+.krokTresc {
+  font-size: 15.5px;
+  line-height: 1.66;
+  color: var(--pc-text-muted);
+  margin: 0;
+  max-width: 70ch;
+}
+
+.dowody {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 70ch;
+}
+.dowody li {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+}
+.dowody li::marker {
+  color: var(--pc-rust);
+}
+.dowody a {
+  color: var(--pc-rust);
+  font-weight: 500;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 72ch;
+}
+.faqItem {
+  border: 1px solid var(--pc-border);
+  background: #fbfbfc;
+  padding: 14px 18px;
+}
+.faqItem[open] {
+  background: #ffffff;
+  border-color: var(--pc-rust);
+}
+.faqQ {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16.5px;
+  color: var(--pc-navy);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.faqQ::-webkit-details-marker {
+  display: none;
+}
+.faqQ::before {
+  content: '+';
+  font-family: var(--font-mono);
+  color: var(--pc-rust);
+  font-size: 18px;
+  line-height: 1.2;
+  flex: none;
+}
+.faqItem[open] .faqQ::before {
+  content: '3';
+}
+.faqA {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--pc-text-muted);
+  margin: 10px 0 0 22px;
+}
+
+@media (max-width: 720px) {
+  .krok {
+    gap: 14px;
   }
 }

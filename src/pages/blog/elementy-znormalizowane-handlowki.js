@@ -7,11 +7,17 @@ export default function Page() {
   return (
     <BlogArticleTemplate
       title={data.title}
+      seoTitle={data.seoTitle}
       description={data.description}
       date={data.date}
+      dateModified={data.dateModified}
       permalink="/blog/elementy-znormalizowane-handlowki"
       image={data.image}
       linkedinUrl={data.linkedinUrl}
+      tags={data.tags}
+      related={data.related}
+      faq={data.faq}
+      howTo={data.howTo}
       blocks={data.blocks}
     />
   );

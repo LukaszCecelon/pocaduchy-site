@@ -2,50 +2,81 @@
   {
     "slug": "dobor-sprzegla-do-aplikacji",
     "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
-    "description": "Sprzęgła w budowie maszyn w praktyce: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe — budowa, zastosowania oraz cztery kryteria doboru sprzęgła do aplikacji.",
+    "seoTitle": "Jak dobrać sprzęgło do aplikacji? Rodzaje i dobór",
+    "description": "Sprzęgła w budowie maszyn w praktyce: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe - budowa, zastosowania oraz cztery kryteria doboru sprzęgła do aplikacji.",
     "date": "2026-08-02",
-    "image": "/img/blog/sprzeglo-okladka.jpg"
+    "image": "/img/blog/sprzeglo-okladka.jpg",
+    "tags": [
+      "elementy maszyn"
+    ]
   },
   {
     "slug": "standaryzacja-w-biurze-konstrukcyjnym",
     "title": "Kopiuj-wklej po inżyniersku (krótko o standaryzacji)",
-    "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć — z przykładem tabeli elementów handlowych.",
+    "seoTitle": "Standaryzacja w biurze konstrukcyjnym: jak zacząć",
+    "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć - z przykładem tabeli elementów handlowych.",
     "date": "2026-07-19",
-    "image": "/img/blog/standaryzacja-okladka.jpg"
+    "image": "/img/blog/standaryzacja-okladka.jpg",
+    "tags": [
+      "elementy maszyn",
+      "zarządzanie projektem"
+    ]
   },
   {
     "slug": "kick-off-projektu-konstrukcyjnego",
     "title": "Z pracy konstruktora: Jak zorganizować produktywny KICK-OFF projektu?",
+    "seoTitle": "Kick-off projektu konstrukcyjnego: agenda i role",
     "description": "Jak przygotować i poprowadzić spotkanie kick-off projektu konstrukcyjnego: przygotowanie zespołu, gotowa agenda, podział ról i utrzymanie tempa po spotkaniu.",
     "date": "2026-07-05",
-    "image": "/img/blog/kick-off-okladka.jpg"
+    "image": "/img/blog/kick-off-okladka.jpg",
+    "tags": [
+      "zarządzanie projektem"
+    ]
   },
   {
     "slug": "szacowanie-czasu-projektowania",
     "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
-    "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT — z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
+    "seoTitle": "Jak oszacować czas projektowania? Cztery metody",
+    "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT - z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
     "date": "2026-06-21",
-    "image": "/img/blog/szacowanie-czasu-okladka.jpg"
+    "image": "/img/blog/szacowanie-czasu-okladka.jpg",
+    "tags": [
+      "zarządzanie projektem"
+    ]
   },
   {
     "slug": "narzedzia-pracy-konstruktora",
-    "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy — co, jak i dlaczego wybrać",
-    "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D — pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
+    "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać",
+    "seoTitle": "Narzędzia konstruktora: sprzęt, CAD i prototypowanie",
+    "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D - pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
     "date": "2026-06-07",
-    "image": "/img/blog/narzedzia-konstruktora-okladka.jpg"
+    "image": "/img/blog/narzedzia-konstruktora-okladka.jpg",
+    "tags": [
+      "warsztat konstruktora"
+    ]
   },
   {
     "slug": "koszty-a-jakosc-w-projektowaniu-maszyn",
     "title": "Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
+    "seoTitle": "Koszty a jakość w projekcie maszyny: gdzie oszczędzać",
     "description": "Jak konstruktor maszyn godzi budżet z jakością: na czym nie oszczędzać na etapie koncepcji i projektu technicznego, a gdzie realnie szukać oszczędności.",
     "date": "2026-05-24",
-    "image": "/img/blog/koszty-a-jakosc-okladka.jpg"
+    "image": "/img/blog/koszty-a-jakosc-okladka.jpg",
+    "tags": [
+      "zarządzanie projektem",
+      "koszty"
+    ]
   },
   {
     "slug": "elementy-znormalizowane-handlowki",
     "title": "Wybory w pracy konstruktora: 📏 Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
-    "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study — śruba pasowana jako oś łożysk.",
+    "seoTitle": "Elementy znormalizowane: czy warto stosować handlówki?",
+    "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study - śruba pasowana jako oś łożysk.",
     "date": "2026-05-10",
-    "image": "/img/blog/handlowki-elementy-znormalizowane.jpg"
+    "image": "/img/blog/handlowki-elementy-znormalizowane.jpg",
+    "tags": [
+      "elementy maszyn",
+      "koszty"
+    ]
   }
 ]

@@ -46,6 +46,9 @@ function decodeXml(s) {
     .replace(/&#39;|&apos;/g, "'");
 }
 
+// Tytuły transmisji na żywo. Łukasz nie chce ich w archiwum odcinków.
+const JEST_TRANSMISJA = /transmisja na żywo|na żywo|live|livestream/i;
+
 async function isShort(videoId) {
   try {
     const res = await fetch(`https://www.youtube.com/shorts/${videoId}`, {
@@ -73,12 +76,19 @@ async function main() {
   const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
   if (entries.length === 0) return fail('feed bez wpisów');
 
+  let pominieteTransmisje = 0;
   const episodes = [];
   for (const entry of entries) {
     const id = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
     const title = entry.match(/<title>([^<]*)<\/title>/)?.[1];
     const published = entry.match(/<published>([^<]+)<\/published>/)?.[1];
     if (!id || !title || !published) continue;
+    // Transmisje na żywo pomijamy całkowicie: mają robocze tytuły, nie wnoszą
+    // treści do archiwum i psują listę odcinków oraz dane strukturalne.
+    if (JEST_TRANSMISJA.test(decodeXml(title))) {
+      pominieteTransmisje++;
+      continue;
+    }
     episodes.push({
       id,
       title: decodeXml(title),
@@ -94,7 +104,8 @@ async function main() {
 
   const full = episodes.filter((e) => !e.isShort).length;
   console.log(
-    `[fetch-episodes] OK: ${episodes.length} filmów (${full} odcinków, ${episodes.length - full} shortsów)`,
+    `[fetch-episodes] OK: ${episodes.length} filmów (${full} odcinków, ${episodes.length - full} shortsów` +
+      `${pominieteTransmisje ? `, pominięto ${pominieteTransmisje} transmisji na żywo` : ''})`,
   );
 }
 

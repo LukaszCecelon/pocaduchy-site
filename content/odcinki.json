@@ -1,0 +1,61 @@
+{
+  "_opis": "Warstwa redakcyjna nad automatycznie pobieraną listą odcinków. Lista filmów przychodzi z RSS YouTube (scripts/fetch-episodes.mjs), a tutaj dokładamy to, czego feed nie ma: podział na działy i opis każdego odcinka. Nowy odcinek pojawi się na stronie nawet bez wpisu tutaj - trafi wtedy do działu domyślnego i wyświetli sam tytuł.",
+
+  "intro": "Kanał poCADuchy to zapis realnej pracy konstruktora maszyn. Nie ma tu kursów \"od zera do bohatera\" ani gotowych recept z podręcznika. Jest za to to, co dzieje się między jednym a drugim: dlaczego wybrałem takie rozwiązanie, ile kosztowało, co poszło nie tak i co bym dziś zrobił inaczej. Każdy odcinek wychodzi z konkretnego projektu albo problemu, na który sam się natknąłem.",
+
+  "dzialy": [
+    {
+      "id": "automatyzacja",
+      "nazwa": "Automatyzacja pracy konstruktora",
+      "opis": "Jak zrzucić z siebie powtarzalną robotę: reguły iLogic, narzędzia AI i rzeczy, które kiedyś robiło się ręcznie."
+    },
+    {
+      "id": "projektowanie",
+      "nazwa": "Projektowanie i konstrukcja",
+      "opis": "Konkretne rozwiązania konstrukcyjne rozłożone na części: co działa, co się wykłada i dlaczego."
+    },
+    {
+      "id": "warsztat",
+      "nazwa": "Warsztat, druk 3D i sprzęt",
+      "opis": "Narzędzia, którymi pracuję na co dzień, i zderzenie ich specyfikacji z rzeczywistością."
+    },
+    {
+      "id": "zawod",
+      "nazwa": "Zawód konstruktora",
+      "opis": "Czym właściwie zajmuje się konstruktor i jak wygląda ta praca od środka."
+    }
+  ],
+
+  "dzialDomyslny": "projektowanie",
+
+  "odcinki": {
+    "G7331PHjNmI": {
+      "dzial": "automatyzacja",
+      "opis": "Kiedy automatyzacja projektowania robotem faktycznie się opłaca, a kiedy jest sztuką dla sztuki. W środku tutorial z iLogic w Inventorze i rachunek, po ilu powtórzeniach reguła zaczyna zarabiać na siebie."
+    },
+    "kostpb9PX9k": {
+      "dzial": "automatyzacja",
+      "opis": "Aplikacja do raportów zbudowana bez pisania kodu, z pomocą narzędzi AI. Pokazuję, co realnie dało się z tego wycisnąć w warunkach firmowych i gdzie takie podejście się kończy."
+    },
+    "KcbOEMd44ik": {
+      "dzial": "zawod",
+      "opis": "Za każdym przedmiotem wokół Ciebie stoi czyjaś decyzja konstrukcyjna. Odcinek o tym, czym naprawdę zajmuje się konstruktor: od pomysłu, przez model 3D i dokumentację, po halę montażową."
+    },
+    "TDG5zKpxpEQ": {
+      "dzial": "projektowanie",
+      "opis": "Budowa chwytaka i tool changera od strony praktycznej, z nauczką, która kosztowała mnie przeróbkę. Jeśli projektujesz chwytak po raz pierwszy, to jest ta lista rzeczy, o których warto pomyśleć wcześniej."
+    },
+    "9DGui56KlLU": {
+      "dzial": "projektowanie",
+      "opis": "Mały detal, przy którym najwięcej czasu zajęło samo dobranie metody modelowania. Projektowanie wielobryłowe w praktyce plus wydruk 3D jako sprawdzian geometrii przed produkcją."
+    },
+    "ibgUzR5_ZFw": {
+      "dzial": "warsztat",
+      "opis": "Bambulab H2S po zderzeniu z realną pracą, a nie z materiałami producenta. Wrażenia z użytkowania i przemyślenia o tym, co drukarka 3D zmienia w codziennej pracy konstruktora."
+    },
+    "m9PMXBRGEd8": {
+      "dzial": "projektowanie",
+      "opis": "Złącze obrotowe: jak wygląda w CAD, a jak zachowuje się w rzeczywistości. Do tego kierunek, w którym idą kolejne bazy konstrukcyjne na kanale."
+    }
+  }
+}

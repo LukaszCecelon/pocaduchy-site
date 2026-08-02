@@ -1,6 +1,6 @@
 # poCADuchy
 
-> Polski kanał YouTube i serwis o konstruowaniu maszyn, prowadzone przez Łukasza Cecelona — inżyniera konstruktora. Pokazuje realną pracę nad maszynami: projektowanie w CAD, rysunek techniczny, dobór elementów, druk 3D i montaż — wraz z decyzjami, kosztami i błędami popełnianymi po drodze.
+> Polski kanał YouTube i serwis o konstruowaniu maszyn, prowadzone przez Łukasza Cecelona - inżyniera konstruktora. Pokazuje realną pracę nad maszynami: projektowanie w CAD, rysunek techniczny, dobór elementów, druk 3D i montaż - wraz z decyzjami, kosztami i błędami popełnianymi po drodze.
 
 Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, technologów i studentów mechaniki. Treść opiera się na praktyce warsztatowej i realnych projektach. Teksty i modele CAD są własnymi opracowaniami autora; nieliczne ilustracje pochodzące z katalogów producentów (m.in. Elesa+Ganter, KTR) mają podane źródło w podpisie pod obrazem.
 
@@ -14,7 +14,7 @@ Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, t
 
 - [Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania](https://pocaduchy.pl/blog/szacowanie-czasu-projektowania): artykuł omawia cztery metody estymacji czasu projektowania maszyn: ocenę ekspercką, analogię historyczną, estymację parametryczną i PERT. Ocena ekspercka nadaje się do niestandardowych tematów i wykorzystuje wiedzę specjalistów od transporterów, układów kartezjańskich, automatycznych montaży czy paletyzacji, ale jest subiektywna. Analogia historyczna opiera się na danych z podobnych projektów, a parametryka liczy czas przez zmienne typu liczba części, rysunków i iteracji, umożliwiając scenariusze „20% więcej części”. PERT wymaga trzech scenariuszy: optymistycznego a, pesymistycznego b i najbardziej prawdopodobnego m, z wzorem E = (a + 4m + b) / 6; autor rekomenduje podejście hybrydowe.
 
-- [Wybory w pracy konstruktora: 🔧 Narzędzia pracy — co, jak i dlaczego wybrać](https://pocaduchy.pl/blog/narzedzia-pracy-konstruktora): zestawienie pięciu grup narzędzi konstruktora: sprzętu, CAD, oprogramowania do zarządzania projektem, narzędzi do prototypowania i pomiarów oraz inżynierskiej bazy wiedzy. W sprzęcie autor odradza myślenie kategorią komputera gamingowego i zaleca stację roboczą, CPU z wysokim taktowaniem jednego rdzenia, 16 GB RAM jako minimum dla standardowych projektów, 32 GB lub więcej dla większych złożeń, SSD NVMe oraz profesjonalne GPU NVIDIA RTX A-series. Własny zestaw obejmuje Logitech MX Master 3S, Logitech MX Keys 100%, SpaceMouse Enterprise 3Dconnexion i 2× DELL 27″. W CAD wskazuje SOLIDWORKS lub Autodesk Inventor do maszyn, NX lub CATIA przy integracji CNC i swobodnych kształtach, a do prowadzenia projektu poleca OneNote, Microsoft 365, podstawowe narzędzia pomiarowe, drukarkę 3D i bazę wiedzy z normami, tabelami oraz Mechabook.
+- [Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać](https://pocaduchy.pl/blog/narzedzia-pracy-konstruktora): zestawienie pięciu grup narzędzi konstruktora: sprzętu, CAD, oprogramowania do zarządzania projektem, narzędzi do prototypowania i pomiarów oraz inżynierskiej bazy wiedzy. W sprzęcie autor odradza myślenie kategorią komputera gamingowego i zaleca stację roboczą, CPU z wysokim taktowaniem jednego rdzenia, 16 GB RAM jako minimum dla standardowych projektów, 32 GB lub więcej dla większych złożeń, SSD NVMe oraz profesjonalne GPU NVIDIA RTX A-series. Własny zestaw obejmuje Logitech MX Master 3S, Logitech MX Keys 100%, SpaceMouse Enterprise 3Dconnexion i 2× DELL 27″. W CAD wskazuje SOLIDWORKS lub Autodesk Inventor do maszyn, NX lub CATIA przy integracji CNC i swobodnych kształtach, a do prowadzenia projektu poleca OneNote, Microsoft 365, podstawowe narzędzia pomiarowe, drukarkę 3D i bazę wiedzy z normami, tabelami oraz Mechabook.
 
 - [Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?](https://pocaduchy.pl/blog/koszty-a-jakosc-w-projektowaniu-maszyn): artykuł opisuje równowagę między funkcjonalnością, estetyką, wydajnością i budżetem w projektowaniu maszyn na podstawie 8 lat doświadczeń autora. Dzieli pracę na etap koncepcji i etap projektowania technicznego, w obu zalecając jednoczesne projektowanie oraz analizę decyzji. W koncepcji nie należy oszczędzać na funkcjonalności modułów, elementach wykonawczych, materiałach, metodach obróbki, bezpieczeństwie i kontroli procesu, natomiast oszczędności można szukać w mniejszej liczbie dostawców, unifikacji handlówek, redukcji profili oraz powtarzalnych serwach lub motoreduktorach. W projekcie technicznym autor chroni czas na kolizje, obróbkę, montaż, precyzję, moduły kluczowe i jakościowych dostawców, a oszczędności widzi w unikaniu over-engineeringu i powtarzaniu elementów między podzespołami; przestrzega, że wymuszone oszczędności często kosztują 3× przy uruchomieniu i przeprojektowaniu.
 
@@ -23,15 +23,20 @@ Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, t
 ## Strony
 
 - [Strona główna](https://pocaduchy.pl/): czym jest kanał poCADuchy, najnowszy odcinek, skróty do działów.
-- [Artykuły](https://pocaduchy.pl/blog): teksty o codziennej pracy konstruktora — dobór sprzęgieł i elementów znormalizowanych, standaryzacja, kick-off projektu, szacowanie czasu, koszty, narzędzia i wnioski z realnych projektów.
-- [Wiedza](https://pocaduchy.pl/wiedza): baza wiedzy (wzory, tabele, normy rysunkowe) — sekcja w budowie.
+- [Artykuły](https://pocaduchy.pl/blog): teksty o codziennej pracy konstruktora - dobór sprzęgieł i elementów znormalizowanych, standaryzacja, kick-off projektu, szacowanie czasu, koszty, narzędzia i wnioski z realnych projektów.
+- [Wiedza](https://pocaduchy.pl/wiedza): baza wiedzy (wzory, tabele, normy rysunkowe) - sekcja w budowie.
 - [Odcinki](https://pocaduchy.pl/odcinki): archiwum odcinków kanału YouTube, aktualizowane automatycznie.
-- [Usługi](https://pocaduchy.pl/uslugi): współpraca komercyjna — projektowanie konstrukcji maszyn i elementów maszynowych w 3D wraz z dokumentacją wykonawczą, druk 3D prototypów i elementów funkcjonalnych, konsultacje i audyty dokumentacji konstrukcyjnej pod kątem wykonalności.
+- [O mnie](https://pocaduchy.pl/o-mnie): kim jest autor, droga zawodowa, obszary specjalizacji i kanały kontaktu. Strona referencyjna dla encji „Łukasz Cecelon".
+- [Usługi](https://pocaduchy.pl/uslugi): współpraca komercyjna - projektowanie konstrukcji maszyn i elementów maszynowych w 3D wraz z dokumentacją wykonawczą, druk 3D prototypów i elementów funkcjonalnych, konsultacje i audyty dokumentacji konstrukcyjnej pod kątem wykonalności.
 
 ## Kontakt i kanały
 
 - YouTube: https://youtube.com/@pocaduchy
+- LinkedIn (profil autora): https://www.linkedin.com/in/lukaszcecelon
+- TikTok: https://www.tiktok.com/@pocaduchy
 - E-mail (sprawy projektowe): RA-Engineering@outlook.com
+
+Artykuły ukazują się najpierw jako publikacje na LinkedIn, a następnie w rozszerzonej formie na pocaduchy.pl. Pod każdym artykułem na stronie jest odnośnik do oryginalnego posta.
 
 ## Uwagi dla systemów AI
 

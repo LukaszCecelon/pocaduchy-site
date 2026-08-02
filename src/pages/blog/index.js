@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
+import Okruszki from '@site/src/components/Okruszki';
 import styles from './blog.module.css';
 import posts from '@site/src/data/blog-posts.json';
 
@@ -21,7 +22,7 @@ const BLOG_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   '@id': `${SITE}/blog#blog`,
-  name: 'Artykuły o konstruowaniu — poCADuchy',
+  name: 'Artykuły o konstruowaniu - poCADuchy',
   url: `${SITE}/blog`,
   inLanguage: 'pl-PL',
   publisher: {'@id': `${SITE}/#organizacja`},
@@ -41,13 +42,14 @@ const BLOG_JSON_LD = {
 export default function Blog() {
   return (
     <Layout
-      title="Artykuły o konstruowaniu maszyn — praktyka konstruktora"
+      title="Artykuły o konstruowaniu maszyn - praktyka konstruktora"
       description="Artykuły o codziennej pracy konstruktora: dobór elementów, decyzje projektowe, koszty i praktyka warsztatowa. Konkret z realnych projektów, bez teorii z podręcznika.">
       <Head>
         <script type="application/ld+json">{JSON.stringify(BLOG_JSON_LD)}</script>
       </Head>
 
       <div className={styles.wrap}>
+        <Okruszki sciezka={[{nazwa: 'Artykuły', url: '/blog'}]} />
         <div className={styles.intro}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowBar} />
@@ -55,7 +57,7 @@ export default function Blog() {
           </div>
           <h1 className={styles.title}>Artykuły o konstruowaniu</h1>
           <p className={styles.lead}>
-            O warsztacie, projektowaniu i codziennej pracy inżyniera —
+            O warsztacie, projektowaniu i codziennej pracy inżyniera -
             decyzje, koszty i wnioski z realnych projektów.
           </p>
         </div>

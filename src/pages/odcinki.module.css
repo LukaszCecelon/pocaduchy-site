@@ -184,3 +184,42 @@
     font-size: 30px;
   }
 }
+
+/* Opis kanału i podział na działy tematyczne (rozbudowa pod SEO) */
+.leadMaly {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-text-faint);
+  margin: 14px 0 0;
+}
+.leadMaly a {
+  color: var(--pc-rust);
+}
+
+.dzial {
+  margin-top: 48px;
+}
+.dzialNazwa {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pc-navy);
+  margin: 0 0 8px;
+  padding-top: 14px;
+  border-top: 2px solid var(--pc-rust);
+}
+.dzialOpis {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 0 0 22px;
+  max-width: 70ch;
+}
+
+.epOpis {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--pc-text-muted);
+  margin-top: 4px;
+}

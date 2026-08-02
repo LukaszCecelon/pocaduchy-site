@@ -1,14 +1,38 @@
 {
   "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
-  "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT — z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
+  "seoTitle": "Jak oszacować czas projektowania? Cztery metody",
+  "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT - z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
   "date": "2026-06-21",
+  "dateModified": "2026-08-02",
   "image": "/img/blog/szacowanie-czasu-okladka.jpg",
   "linkedinUrl": "https://www.linkedin.com/pulse/wybory-w-pracy-konstruktora-dobrze-oszacuj-czas-%C5%82ukasz-cecelon-x9ekf/",
+  "tags": [
+    "zarządzanie projektem"
+  ],
+  "related": [
+    "kick-off-projektu-konstrukcyjnego",
+    "koszty-a-jakosc-w-projektowaniu-maszyn",
+    "standaryzacja-w-biurze-konstrukcyjnym"
+  ],
+  "faq": [
+    {
+      "pytanie": "Jaki jest wzór PERT na szacowanie czasu?",
+      "odpowiedz": "E = (a + 4m + b) / 6, gdzie a to scenariusz optymistyczny, b pesymistyczny, a m najbardziej prawdopodobny. Metoda uwzględnia niepewność i daje bardziej życiowe terminy, ale wymaga trzech wartości dla każdego zadania."
+    },
+    {
+      "pytanie": "Którą metodę wybrać na początku projektu?",
+      "odpowiedz": "Na starcie najlepiej sprawdza się ocena ekspercka połączona z analogią do wcześniejszych projektów. Po dopracowaniu zakresu warto przejść na estymację parametryczną, a dla najbardziej ryzykownych etapów zastosować PERT."
+    },
+    {
+      "pytanie": "Dlaczego czas projektowania jest trudniejszy do wyceny niż produkcja?",
+      "odpowiedz": "Czas produkcji i montażu da się oszacować względnie łatwo, bo opiera się na powtarzalnych operacjach. Projektowanie, o ile nie bazuje na standardowym portfolio produktowym firmy, za każdym razem zawiera element niewiadomej."
+    }
+  ],
   "blocks": [
     {
       "type": "obraz",
       "src": "/img/blog/szacowanie-czasu-okladka.jpg",
-      "alt": "Konstruktor przy laptopie z modelem CAD, obok wykres i karteczki z szacunkami 4h, 8h, 12h — szacowanie czasu projektowania.",
+      "alt": "Konstruktor przy laptopie z modelem CAD, obok wykres i karteczki z szacunkami 4h, 8h, 12h - szacowanie czasu projektowania.",
       "wyrownanie": "pelna-szerokosc"
     },
     {
@@ -21,11 +45,11 @@
     },
     {
       "type": "tekst",
-      "body": "Generalnie oszacowanie czasu projektowania — o ile nie bazujemy na jakimś standardowym portfolio produktowym firmy — to naprawdę duże wyzwanie. Tak naprawdę koszt projektowania jest jednym z większych przy ofertowaniu danej instalacji, a o ile czas produkcji czy montażu jesteśmy w stanie relatywnie łatwo oszacować, o tyle **czas projektowania to bardzo często jedna wielka niewiadoma**."
+      "body": "Generalnie oszacowanie czasu projektowania - o ile nie bazujemy na jakimś standardowym portfolio produktowym firmy - to naprawdę duże wyzwanie. Tak naprawdę koszt projektowania jest jednym z większych przy ofertowaniu danej instalacji (piszę o tym szerzej przy [równowadze między budżetem a jakością](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)), a o ile czas produkcji czy montażu jesteśmy w stanie relatywnie łatwo oszacować, o tyle **czas projektowania to bardzo często jedna wielka niewiadoma**."
     },
     {
       "type": "tekst",
-      "body": "W tym artykule postanowiłem przedstawić Wam **cztery metody estymacji**. Oczywiście polecam z nich korzystać hybrydowo i dostosowywać tę hybrydę do danego projektu — o czym na samym końcu."
+      "body": "W tym artykule postanowiłem przedstawić Wam **cztery metody estymacji**. Oczywiście polecam z nich korzystać hybrydowo i dostosowywać tę hybrydę do danego projektu - o czym na samym końcu."
     },
     {
       "type": "tekst",
@@ -33,15 +57,15 @@
     },
     {
       "type": "tabela",
-      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybko, bez skomplikowanych arkuszy | Mocno subiektywna — jeżeli danych rzeczy nie będzie jednak projektował gość, który oszacował czas, może być to spory problem |\n| Uwzględnia dużo zagrożeń i buforuje na nie czas | Bez twardych danych typu arkusz kalkulacyjny trudno wybronić założenia przed np. klientem |\n| Idealna przy projektach niestandardowych | |"
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybko, bez skomplikowanych arkuszy | Mocno subiektywna - jeżeli danych rzeczy nie będzie jednak projektował gość, który oszacował czas, może być to spory problem |\n| Uwzględnia dużo zagrożeń i buforuje na nie czas | Bez twardych danych typu arkusz kalkulacyjny trudno wybronić założenia przed np. klientem |\n| Idealna przy projektach niestandardowych | |"
     },
     {
       "type": "tekst",
-      "body": "## Metoda 2: Znajdź analogię w przeszłości\n\nCzęsto zdarza się, że już kiedyś „coś podobnego” projektowaliśmy. Mamy wtedy (jako firma) dobrą bazę do estymacji. Może nie są to jakieś super standardy, ale czas spędzony wtedy na koncepcji i stworzeniu fundamentalnych założeń został już poświęcony — teraz można bazować na danych historycznych."
+      "body": "## Metoda 2: Znajdź analogię w przeszłości\n\nCzęsto zdarza się, że już kiedyś „coś podobnego” projektowaliśmy. Mamy wtedy (jako firma) dobrą bazę do estymacji. Może nie są to jakieś super standardy, ale czas spędzony wtedy na koncepcji i stworzeniu fundamentalnych założeń został już poświęcony - teraz można bazować na danych historycznych."
     },
     {
       "type": "tabela",
-      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybka, sensowna, oparta na realnych danych z przeszłości | Wymaga bazy danych (lub dobrej pamięci) |\n| Świetna przy typowych projektach — standardowe stoły montażowe, przenośniki, ramy | Trzeba uważać na „pozorne podobieństwa” — mała różnica w projekcie może oznaczać dużą różnicę w czasie |"
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Szybka, sensowna, oparta na realnych danych z przeszłości | Wymaga bazy danych (lub dobrej pamięci) |\n| Świetna przy typowych projektach - standardowe stoły montażowe, przenośniki, ramy | Trzeba uważać na „pozorne podobieństwa” - mała różnica w projekcie może oznaczać dużą różnicę w czasie |"
     },
     {
       "type": "tekst",
@@ -53,15 +77,15 @@
     },
     {
       "type": "tabela",
-      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Bardzo trafna przy projektach powtarzalnych | Musisz mieć dane — najlepiej z wielu projektów |\n| Umożliwia szybkie przeliczenia scenariuszy typu „a co, jeśli dodamy 20% więcej części?” | Trudna do zastosowania przy prototypach i pierwszych wdrożeniach |"
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Bardzo trafna przy projektach powtarzalnych | Musisz mieć dane - najlepiej z wielu projektów |\n| Umożliwia szybkie przeliczenia scenariuszy typu „a co, jeśli dodamy 20% więcej części?” | Trudna do zastosowania przy prototypach i pierwszych wdrożeniach |"
     },
     {
       "type": "tekst",
-      "body": "## Metoda 4: Estymacja trzech scenariuszy (PERT)\n\nZ projektowaniem jak z ludźmi — są optymiści, są pesymiści i są realiści (tutaj powinien być żart o tym, jakim otworem stoi świat przed każdym z nich, ale do brzegu)."
+      "body": "## Metoda 4: Estymacja trzech scenariuszy (PERT)\n\nZ projektowaniem jak z ludźmi - są optymiści, są pesymiści i są realiści (tutaj powinien być żart o tym, jakim otworem stoi świat przed każdym z nich, ale do brzegu)."
     },
     {
       "type": "tekst",
-      "body": "Czas projektowania szacuj dla **3 scenariuszy**:\n\n- **a** — optymistyczny (wszystko idzie idealnie)\n- **b** — pesymistyczny (sypie się wszystko)\n- **m** — najbardziej prawdopodobny\n\nNastępnie użyj wzoru:"
+      "body": "Czas projektowania szacuj dla **3 scenariuszy**:\n\n- **a** - optymistyczny (wszystko idzie idealnie)\n- **b** - pesymistyczny (sypie się wszystko)\n- **m** - najbardziej prawdopodobny\n\nNastępnie użyj wzoru:"
     },
     {
       "type": "wzor",
@@ -69,7 +93,7 @@
     },
     {
       "type": "tabela",
-      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Uwzględnia niepewność | Trochę więcej roboty — każde zadanie to trzy wartości |\n| Daje bardziej „życiowe” terminy | Trzeba dobrze znać możliwe scenariusze, żeby te szacunki miały sens |\n| Przydatna przy prezentacjach dla klienta lub kierownika projektu | |"
+      "markdown": "| ✅ Zalety | ❌ Wady |\n| --- | --- |\n| Uwzględnia niepewność | Trochę więcej roboty - każde zadanie to trzy wartości |\n| Daje bardziej „życiowe” terminy | Trzeba dobrze znać możliwe scenariusze, żeby te szacunki miały sens |\n| Przydatna przy prezentacjach dla klienta lub kierownika projektu | |"
     },
     {
       "type": "obraz",
@@ -80,15 +104,15 @@
     },
     {
       "type": "tekst",
-      "body": "## 🧩 Jak to wygląda w prawdziwym życiu?\n\nNajlepiej stosować te metody **hybrydowo**. Jeśli się dokładnie nad tym zastanowić — one naprawdę płynnie mogą się przenikać!"
+      "body": "## 🧩 Jak to wygląda w prawdziwym życiu?\n\nNajlepiej stosować te metody **hybrydowo**. Jeśli się dokładnie nad tym zastanowić - one naprawdę płynnie mogą się przenikać!"
     },
     {
       "type": "tekst",
-      "body": "Na przykład:\n\n- **Na początku:** ocena ekspercka + analogia\n- **Po dopracowaniu zakresu:** parametryczna\n- **Dla ryzykownych etapów:** PERT"
+      "body": "Na przykład:\n\n- **Na początku:** ocena ekspercka + analogia\n- **Po dopracowaniu zakresu:** parametryczna\n- **Dla ryzykownych etapów:** PERT\n\nSame szacunki spisujemy zwykle na [spotkaniu kick-off](/blog/kick-off-projektu-konstrukcyjnego) - tam też najłatwiej wyłapać moduły, które trzeba wycenić ostrożniej."
     },
     {
       "type": "tekst",
-      "body": "Jeśli masz własny sposób na estymację — albo projekt, w którym szacunek rozjechał się z rzeczywistością tak, że do dziś to pamiętasz — chętnie posłucham. To temat, w którym najwięcej uczymy się od siebie nawzajem."
+      "body": "Jeśli masz własny sposób na estymację - albo projekt, w którym szacunek rozjechał się z rzeczywistością tak, że do dziś to pamiętasz - chętnie posłucham. To temat, w którym najwięcej uczymy się od siebie nawzajem."
     }
   ]
 }

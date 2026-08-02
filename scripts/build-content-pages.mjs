@@ -138,11 +138,17 @@ export default function Page() {
   return (
     <BlogArticleTemplate
       title={data.title}
+      seoTitle={data.seoTitle}
       description={data.description}
       date={data.date}
+      dateModified={data.dateModified}
       permalink="/blog/${p.slug}"
       image={data.image}
       linkedinUrl={data.linkedinUrl}
+      tags={data.tags}
+      related={data.related}
+      faq={data.faq}
+      howTo={data.howTo}
       blocks={data.blocks}
     />
   );
@@ -156,9 +162,11 @@ export default function Page() {
     .map((p) => ({
       slug: p.slug,
       title: p.title,
+      seoTitle: p.seoTitle || null,
       description: p.description || '',
       date: p.date || null,
       image: p.image || null,
+      tags: p.tags || [],
     }))
     .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
   writeFileSync(join(dataDir, 'blog-posts.json'), JSON.stringify(manifest, null, 2) + '\n');

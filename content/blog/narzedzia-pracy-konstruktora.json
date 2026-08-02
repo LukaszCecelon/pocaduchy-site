@@ -1,9 +1,33 @@
 {
-  "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy — co, jak i dlaczego wybrać",
-  "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D — pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
+  "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać",
+  "seoTitle": "Narzędzia konstruktora: sprzęt, CAD i prototypowanie",
+  "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D - pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
   "date": "2026-06-07",
+  "dateModified": "2026-08-02",
   "image": "/img/blog/narzedzia-konstruktora-okladka.jpg",
   "linkedinUrl": "https://www.linkedin.com/pulse/wybory-w-pracy-konstruktora-narz%C4%99dzia-co-jak-i-dlaczego-cecelon-e35oc/",
+  "tags": [
+    "warsztat konstruktora"
+  ],
+  "related": [
+    "elementy-znormalizowane-handlowki",
+    "kick-off-projektu-konstrukcyjnego",
+    "standaryzacja-w-biurze-konstrukcyjnym"
+  ],
+  "faq": [
+    {
+      "pytanie": "Czy komputer gamingowy nadaje się do pracy w CAD?",
+      "odpowiedz": "To był mój błąd na starcie. Programy CAD potrzebują stacji roboczej: procesora o wysokim taktowaniu pojedynczego rdzenia, minimum 16 GB RAM (przy większych złożeniach 32 GB lub więcej), dysku SSD NVMe i profesjonalnej karty graficznej z certyfikowanymi sterownikami, na przykład z serii NVIDIA RTX A."
+    },
+    {
+      "pytanie": "SOLIDWORKS czy Inventor?",
+      "odpowiedz": "Do projektów maszyn oba się sprawdzają. Kupiłem licencję wieczystą SOLIDWORKS, głównie dlatego, że była wieczysta, ale dziś szedłbym raczej w stronę subskrypcji Inventora ze względu na większą stabilność i płynność działania. Do integracji z CNC i do części o swobodnych kształtach lepiej sprawdzą się NX lub CATIA."
+    },
+    {
+      "pytanie": "Czy drukarka 3D jest potrzebna konstruktorowi?",
+      "odpowiedz": "Moim zdaniem to największy game changer z całego wyposażenia. Prosty wydruk wielokrotnie uchronił mnie przed zaprojektowaniem czegoś, co nie miało prawa zadziałać, bo trudno przewidzieć na modelu, jak detal zachowa się w rzeczywistości."
+    }
+  ],
   "blocks": [
     {
       "type": "obraz",
@@ -13,7 +37,7 @@
     },
     {
       "type": "tekst",
-      "body": "Otwierając w 2021 roku swoją firmę, która świadczy usługi inżynierskie, tak naprawdę sam musiałem od przysłowiowego zera wybrać, wycenić i kupić wszystko, czego potrzebowałem do pracy jako konstruktor. Nie obyło się oczywiście bez wpadek i nietrafionych zakupów — jednak dzięki nim mogłem wyciągnąć wnioski 💡. W tym artykule chciałem się z Wami tymi wnioskami podzielić."
+      "body": "Otwierając w 2021 roku swoją firmę, która świadczy usługi inżynierskie, tak naprawdę sam musiałem od przysłowiowego zera wybrać, wycenić i kupić wszystko, czego potrzebowałem do pracy jako konstruktor. Nie obyło się oczywiście bez wpadek i nietrafionych zakupów - jednak dzięki nim mogłem wyciągnąć wnioski 💡. W tym artykule chciałem się z Wami tymi wnioskami podzielić."
     },
     {
       "type": "tekst",
@@ -21,19 +45,19 @@
     },
     {
       "type": "tekst",
-      "body": "## 🖥️ Sprzęt\n\nTutaj najlepiej zaglądać do specyfikacji oprogramowania, w którym planujecie pracować. Oczywiście warto też uwzględnić odpowiedni zapas mocy. Błędne założenie, z którego wyszedłem, było takie: *kupię komputer gamingowy — ma świetne parametry i naprawdę przystępną cenę*. **Naiwność w czystej postaci.**"
+      "body": "## 🖥️ Sprzęt\n\nTutaj najlepiej zaglądać do specyfikacji oprogramowania, w którym planujecie pracować. Oczywiście warto też uwzględnić odpowiedni zapas mocy. Błędne założenie, z którego wyszedłem, było takie: *kupię komputer gamingowy - ma świetne parametry i naprawdę przystępną cenę*. **Naiwność w czystej postaci.**"
     },
     {
       "type": "tekst",
-      "body": "**Najważniejsze: komputer typu stacja robocza** — może być nowy PC lub laptop. Polecam też przeglądanie odnowionych sprzętów na Allegro — można naprawdę znaleźć świetny komputer praktycznie o połowę tańszy, a posiadający imponująco wydajny hardware."
+      "body": "**Najważniejsze: komputer typu stacja robocza** - może być nowy PC lub laptop. Polecam też przeglądanie odnowionych sprzętów na Allegro - można naprawdę znaleźć świetny komputer praktycznie o połowę tańszy, a posiadający imponująco wydajny hardware."
     },
     {
       "type": "tabela",
-      "markdown": "| Podzespół | Na co zwrócić uwagę |\n| --- | --- |\n| **Procesor (CPU)** | Programy CAD, takie jak SOLIDWORKS czy Autodesk Inventor, korzystają głównie z jednego rdzenia. Dlatego zaleca się procesory o wysokim taktowaniu jednego rdzenia, np. Intel® Core™ i7 lub AMD Ryzen™ 7 z częstotliwością 3,3 GHz lub wyższą. Polecam również serię Xeon od Intela. |\n| **Pamięć RAM** | Dla standardowych projektów 16 GB może być wystarczające, jednak przy bardziej złożonych złożeniach i analizach zaleca się 32 GB lub więcej. Osobiście korzystam z PC z 32 GB oraz laptopa 64 GB. |\n| **Dysk** | SSD NVMe — zapewnia szybki dostęp do plików i skraca czas ładowania projektów. |\n| **Karta graficzna (GPU)** | Do pracy z programami CAD rekomendowane są profesjonalne karty graficzne, takie jak NVIDIA RTX A-series, które oferują certyfikowane sterowniki i optymalizację pod kątem aplikacji inżynierskich. |"
+      "markdown": "| Podzespół | Na co zwrócić uwagę |\n| --- | --- |\n| **Procesor (CPU)** | Programy CAD, takie jak SOLIDWORKS czy Autodesk Inventor, korzystają głównie z jednego rdzenia. Dlatego zaleca się procesory o wysokim taktowaniu jednego rdzenia, np. Intel® Core™ i7 lub AMD Ryzen™ 7 z częstotliwością 3,3 GHz lub wyższą. Polecam również serię Xeon od Intela. |\n| **Pamięć RAM** | Dla standardowych projektów 16 GB może być wystarczające, jednak przy bardziej złożonych złożeniach i analizach zaleca się 32 GB lub więcej. Osobiście korzystam z PC z 32 GB oraz laptopa 64 GB. |\n| **Dysk** | SSD NVMe - zapewnia szybki dostęp do plików i skraca czas ładowania projektów. |\n| **Karta graficzna (GPU)** | Do pracy z programami CAD rekomendowane są profesjonalne karty graficzne, takie jak NVIDIA RTX A-series, które oferują certyfikowane sterowniki i optymalizację pod kątem aplikacji inżynierskich. |"
     },
     {
       "type": "tekst",
-      "body": "Jednak sprzęt to nie tylko komputer. Równie ważne są peryferia: myszka, klawiatura, monitor(y), SpaceMouse. Moje wyposażenie to:\n\n- **Myszka:** Logitech MX Master 3S\n- **Klawiatura:** Logitech MX Keys (rozmiar 100%)\n- **Mysz 3D:** SpaceMouse Enterprise od 3Dconnexion\n- **Monitory:** 2× DELL 27″\n\nOstatnio doposażyłem swoje biuro w elektrycznie regulowane biurko — super sprawa."
+      "body": "Jednak sprzęt to nie tylko komputer. Równie ważne są peryferia: myszka, klawiatura, monitor(y), SpaceMouse. Moje wyposażenie to:\n\n- **Myszka:** Logitech MX Master 3S\n- **Klawiatura:** Logitech MX Keys (rozmiar 100%)\n- **Mysz 3D:** SpaceMouse Enterprise od 3Dconnexion\n- **Monitory:** 2× DELL 27″\n\nOstatnio doposażyłem swoje biuro w elektrycznie regulowane biurko - super sprawa."
     },
     {
       "type": "obraz",
@@ -44,11 +68,11 @@
     },
     {
       "type": "tekst",
-      "body": "## 🧰 Oprogramowanie CAD\n\nWybranie odpowiedniego software'u to temat nawet ważniejszy niż sprzęt. Przed jego dokonaniem musicie dokładnie przemyśleć, jakie zakładacie jego zastosowanie. Jeśli mają być to projekty maszyn — wybierzcie między **SOLIDWORKS** a **Inventorem**. Jeżeli potrzebujecie integracji z CNC albo projektujecie części o zaawansowanych swobodnych kształtach — lepiej sprawdzi się **NX** lub **CATIA**."
+      "body": "## 🧰 Oprogramowanie CAD\n\nWybranie odpowiedniego software'u to temat nawet ważniejszy niż sprzęt. Przed jego dokonaniem musicie dokładnie przemyśleć, jakie zakładacie jego zastosowanie. Jeśli mają być to projekty maszyn - wybierzcie między **SOLIDWORKS** a **Inventorem**. Jeżeli potrzebujecie integracji z CNC albo projektujecie części o zaawansowanych swobodnych kształtach - lepiej sprawdzi się **NX** lub **CATIA**."
     },
     {
       "type": "tekst",
-      "body": "Oczywiście, jeśli dział inżynierski jest już spory, a projekty są dość podobne, warto wdrożyć system PLM."
+      "body": "Oczywiście, jeśli dział inżynierski jest już spory, a projekty są dość podobne, warto wdrożyć system PLM. Równolegle warto zadbać o [standaryzację powtarzalnych modułów i handlówek](/blog/standaryzacja-w-biurze-konstrukcyjnym), bo to ona daje największy zwrot z każdej godziny pracy w CAD."
     },
     {
       "type": "tekst",
@@ -76,7 +100,7 @@
     {
       "type": "obraz",
       "src": "/img/blog/narzedzia-konstruktora-onenote.jpg",
-      "alt": "Microsoft OneNote — aplikacja do notatek, w której prowadzę notes projektu konstrukcyjnego.",
+      "alt": "Microsoft OneNote - aplikacja do notatek, w której prowadzę notes projektu konstrukcyjnego.",
       "podpis": "Grafika promocyjna Microsoft OneNote. Znak towarowy: Microsoft Corporation.",
       "wyrownanie": "pelna-szerokosc"
     },
@@ -86,19 +110,19 @@
     },
     {
       "type": "tekst",
-      "body": "**Prototypowanie** — tutaj zaczynają się trochę schody, bo zaczynają się też większe wydatki. Oczywiście podstawa to zestaw narzędzi: klucze płaskie, imbusy, grzechotki, śrubokręty. Super, jeśli masz wkrętarkę (moją akurat dostałem w prezencie od taty)."
+      "body": "**Prototypowanie** - tutaj zaczynają się trochę schody, bo zaczynają się też większe wydatki. Oczywiście podstawa to zestaw narzędzi: klucze płaskie, imbusy, grzechotki, śrubokręty. Super, jeśli masz wkrętarkę (moją akurat dostałem w prezencie od taty)."
     },
     {
       "type": "tekst",
-      "body": "Game changerem jest **drukarka 3D**. Naprawdę. Ile już razy prosty wydruk uratował mnie przed zaprojektowaniem czegoś, co nie miało prawa działać — często ciężko nam przewidzieć, jak detal, który ma się gdzieś zsunąć, przekręcić itd., zachowa się w rzeczywistości."
+      "body": "Game changerem jest **drukarka 3D**. Naprawdę. Ile już razy prosty wydruk uratował mnie przed zaprojektowaniem czegoś, co nie miało prawa działać - często ciężko nam przewidzieć, jak detal, który ma się gdzieś zsunąć, przekręcić itd., zachowa się w rzeczywistości."
     },
     {
       "type": "tekst",
-      "body": "## 🌐 Inżynierska baza wiedzy\n\nTabele, normy, standardy — świetnie jest mieć to w jednym miejscu. Przecież jako konstruktorzy bardzo często rysujemy jakieś podcięcia, podfrezowania, podtoczenia dla standardowych elementów, takich jak wpusty czy pierścienie zabezpieczające. Osobiście zacząłem sobie taką bazę wiedzy tworzyć sam w OneNote. Jednak polecam też poradnik inżyniera albo stronę [Mechabook](https://mechabook.eu/index.php)."
+      "body": "## 🌐 Inżynierska baza wiedzy\n\nTabele, normy, standardy - świetnie jest mieć to w jednym miejscu. Przecież jako konstruktorzy bardzo często rysujemy jakieś podcięcia, podfrezowania, podtoczenia dla standardowych elementów, takich jak wpusty czy pierścienie zabezpieczające. Do tej samej kategorii zaliczam biblioteki modeli 3D od producentów [elementów znormalizowanych](/blog/elementy-znormalizowane-handlowki) - to baza wiedzy i oszczędność czasu w jednym.\n\nOsobiście zacząłem sobie taką bazę wiedzy tworzyć sam w OneNote. Jednak polecam też poradnik inżyniera albo stronę [Mechabook](https://mechabook.eu/index.php)."
     },
     {
       "type": "tekst",
-      "body": "Mam nadzieję, że ten krótki artykuł pomoże Wam odpowiednio wybrać narzędzia swojej pracy. A jeśli masz w swoim zestawie coś, czego tu zabrakło, albo zakup, którego żałujesz — koniecznie daj znać."
+      "body": "Mam nadzieję, że ten krótki artykuł pomoże Wam odpowiednio wybrać narzędzia swojej pracy. A jeśli masz w swoim zestawie coś, czego tu zabrakło, albo zakup, którego żałujesz - koniecznie daj znać."
     }
   ]
 }
