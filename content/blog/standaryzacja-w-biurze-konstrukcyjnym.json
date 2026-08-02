@@ -1,0 +1,90 @@
+{
+  "title": "Kopiuj-wklej po inżyniersku (krótko o standaryzacji)",
+  "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć — z przykładem tabeli elementów handlowych.",
+  "date": "2026-07-19",
+  "image": "/img/blog/standaryzacja-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/standaryzacja-okladka.jpg",
+      "alt": "Izometryczna ilustracja: identyczne moduły maszyn jadące taśmą produkcyjną — obraz standaryzacji w projektowaniu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Przy projektach „szytych na miarę” bardzo często jako konstruktorzy zaczynamy od tzw. białej kartki. Jednak czy nie jesteśmy zbyt przekonani o indywidualności każdego projektu? Czy na pewno nie ma czegokolwiek, co mogłoby być „gotowcem do wklejenia”?"
+    },
+    {
+      "type": "tekst",
+      "body": "Tak naprawdę, jeśli zaczynamy każdy projekt od zera i nie mamy **żadnych** gotowych modułów ani wybranych i gotowych do umieszczenia w modelu elementów handlowych, to oddajemy konkurencji dziesiątki roboczogodzin i tysiące złotych. W tym artykule postaram się uwypuklić kluczowe korzyści z inżynierskiego kopiowania i wklejania."
+    },
+    {
+      "type": "tekst",
+      "body": "## 1. Mit: „Nie ma czasu i ludzi do standaryzacji”\n\nJedno z większych ryzyk, które prowadzi do przepalania setek godzin, to założenie z góry, że „u nas to się nie da” albo „nie mamy na razie na to czasu”. Szczerze mówiąc, nawet w momencie kiedy projektowałem w pojedynkę — wypracowanie standardów do kopiowania i wklejania oszczędzało mi dużo czasu."
+    },
+    {
+      "type": "tekst",
+      "body": "Dlatego faktem jest, że na standaryzację **nie może nie być czasu**. Jeśli mamy kilku konstruktorów, to nie jest to potrzeba, tylko konieczność, żeby coraz większe projekty robić coraz szybciej i jakościowo lepiej."
+    },
+    {
+      "type": "tekst",
+      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów — może podziałać z handlówkami, żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/standaryzacja-efekty.jpg",
+      "alt": "Porównanie dwóch biur konstrukcyjnych: po lewej chaos, alarmy i pośpiech bez standardów, po prawej spokojna praca z gotową biblioteką elementów standardowych.",
+      "podpis": "Efekty standaryzacji: ten sam dział, dwa różne dni pracy.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 2. Co standaryzować?\n\nTo będzie na pewno różniło się w zależności od profilu Waszej działalności. Jedne firmy mają całe bazy standardowych urządzeń, z których komponują linie. Inne muszą opierać się o drobniejsze elementy maszyn. Jednak w obu przypadkach korzystanie z uniwersalnych rozwiązań tworzy dźwignię wydajnościową."
+    },
+    {
+      "type": "tekst",
+      "body": "Generalnie polecam zadawać pytania:\n\n- Ile „podobnych” modułów w tym roku wykonaliśmy?\n- Ile „podobnych” urządzeń w tym roku zaprojektowaliśmy i dostarczyliśmy?\n- Jakie elementy handlowe najczęściej zamawiamy? *(Tu przyda się analiza BOM.)*"
+    },
+    {
+      "type": "tekst",
+      "body": "### Prosty case study z mojego doświadczenia\n\nIlu rodzajów uchwytów do drzwiczek serwisowych może używać dział konstrukcyjny? Odpowiedź: **wszystkich!**"
+    },
+    {
+      "type": "tekst",
+      "body": "I każdy, chcąc wstawić taki uchwyt, szuka na stronie czegoś, co mu się podoba, potem musi znaleźć rozmiar, sposób montażu, wykonać na modelu otwory itd. W efekcie mamy pewnie z 30 minut straconego czasu. Jeśli każdy z 10-osobowego działu straci 30 minut w podobny sposób? **300 minut → 5 godzin straty.** A to tylko „głupi” uchwyt."
+    },
+    {
+      "type": "tekst",
+      "body": "## 3. Jak zacząć?\n\nKtoś musi zrobić ten pierwszy krok. Jeśli po przeczytaniu tego artykułu stwierdziłeś, że u Was w dziale trzeba standaryzować — nie obawiaj się wyjść z inicjatywą!"
+    },
+    {
+      "type": "tekst",
+      "body": "Na początek warto (np. na zasadzie burzy mózgów) wyspecyfikować, co chcecie standaryzować. Następnie niech każdy oceni w skali 1–3 poziom trudności danego elementu czy modułu: **1** — rzeczy łatwe do ustandaryzowania, **3** — rzeczy wymagające sporo wysiłku, żeby ustalić standard. Można do tego przygotować prosty arkusz Excela."
+    },
+    {
+      "type": "tekst",
+      "body": "Co potem? **Działajcie.** Wyznaczcie osoby odpowiedzialne za wybranie optymalnych rozwiązań w danym zakresie. Trzymając się przykładu uchwytu — nie musi być to tylko kod katalogowy. Można np. stworzyć w Inventorze iFeature, którym jak pieczątką Twoi koledzy będą robili otwory pod ten uchwyt."
+    },
+    {
+      "type": "tekst",
+      "body": "Potem możecie stworzyć tabelę, z której będzie korzystał cały dział. Może ona wyglądać np. tak:"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Nazwa | Dostawca | Kod katalogowy | Opis |\n| --- | --- | --- | --- |\n| Uchwyty „pod rękę” | Elesa+Ganter | **EBP.180-8-C5** | Seria uchwytów **EBP** jest naszym standardem. **Kolor zatyczek — niebieski.** W szczególnych przypadkach można użyć innego rozmiaru. W tabeli warto trzymać jeszcze link do strony producenta i przykład zastosowania. |"
+    },
+    {
+      "type": "tekst",
+      "body": "*W oryginale ta tabela ma jeszcze kolumnę ze zdjęciem katalogowym elementu — u siebie wstawcie po prostu render lub zrzut z konfiguratora dostawcy.*"
+    },
+    {
+      "type": "tekst",
+      "body": "## Podsumowanie\n\nW świecie, gdzie deadline'y się skracają, a marża kurczy, **standaryzacja staje się najtańszym lewarem** — skraca modelowanie, stabilizuje harmonogram i porządkuje magazyn."
+    },
+    {
+      "type": "tekst",
+      "body": "Co sądzicie o tym podejściu? Może u Was standaryzacja jest już „ogarnięta”, a może dopiero zaczynacie? To jeden z tych tematów, w których najwięcej wynosi się z cudzych doświadczeń — dajcie znać, jak wygląda to u Was."
+    }
+  ]
+}

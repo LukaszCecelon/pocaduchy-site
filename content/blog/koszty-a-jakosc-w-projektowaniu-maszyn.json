@@ -1,0 +1,82 @@
+{
+  "title": "Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
+  "description": "Jak konstruktor maszyn godzi budżet z jakością: na czym nie oszczędzać na etapie koncepcji i projektu technicznego, a gdzie realnie szukać oszczędności.",
+  "date": "2026-05-24",
+  "image": "/img/blog/koszty-a-jakosc-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/koszty-a-jakosc-okladka.jpg",
+      "alt": "Inżynier w biurze konstrukcyjnym analizuje dane na tablecie, w tle szkic złożenia CAD — okładka artykułu o równowadze między kosztami a jakością w projektowaniu maszyn.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Temat z tytułu tego artykułu przewija się moim zdaniem przez większość czasu naszej pracy. Z jednej strony chcemy, aby nasze projekty były maksymalnie funkcjonalne, estetyczne i wydajne. Jednak zaraz nasz wzrok kieruje się na Excela z budżetem i zaczynamy zastanawiać się, gdzie szukać kompromisów. W tej publikacji chciałbym podzielić się z Wami tym, jakie podejście wypracowałem w czasie swojej przygody z projektowaniem. Na to, że jest ono takie, a nie inne, wpływ wywarło wiele osób i sytuacji, z którymi przez 8 ostatnich lat miałem szczęście się spotkać i współpracować."
+    },
+    {
+      "type": "tekst",
+      "body": "## ⚖️ Główne wyzwanie — równowaga!\n\nTak jak wspomniałem we wstępie, dobry konstruktor chciałby, żeby jego maszyna była zarówno funkcjonalna, jak i estetyczna, a do tego mieszcząca się w założonym budżecie."
+    },
+    {
+      "type": "tekst",
+      "body": "Taki stan **równowagi** może być czasem ciężki do osiągnięcia — na przykład dlatego, że mamy ograniczony budżet. Jednak ważne jest to, aby w każdym projekcie do niej **dążyć**. Warto to wyartykułować, ponieważ nie żyjemy w idealnym świecie, dlatego lepiej nie przyjmować, że taką równowagę osiągniemy w 100%. Jednak musimy jako inżynierowie zawsze mieć z tyłu głowy, że zmierzamy do ideału."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/koszty-a-jakosc-rownowaga.jpg",
+      "alt": "Ilustracja: konstruktor w kasku przy stanowisku CAD analizuje model przekładni na dwóch widokach ekranu — projektowanie i analiza idą w parze.",
+      "podpis": "Projektuj i analizuj — to dwie strony tej samej czynności, nie dwa osobne etapy.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🔩📊 Projektuj i analizuj\n\nZ reguły nasze projekty są podzielone na różne etapy. W mojej branży wyróżniamy generalnie:\n\n- **Etap koncepcji**\n- **Etap projektowania technicznego**"
+    },
+    {
+      "type": "tekst",
+      "body": "Ważne jest, aby na każdym z tych etapów — planując poszczególne podzespoły, a potem uszczegóławiając je — zarówno je projektować, jak i analizować."
+    },
+    {
+      "type": "tekst",
+      "body": "Taka analiza wcale nie musi (i moim zdaniem nie powinna) przybierać jakiejś utrwalonej formy. Doświadczony konstruktor potrafi robić to w trakcie samego projektowania, a potem jest w stanie uargumentować podjęte wtedy decyzje. Jak to robić na każdym z etapów?"
+    },
+    {
+      "type": "tekst",
+      "body": "## 💡 Etap koncepcji\n\nRozpoczynając projekt, musimy przede wszystkim zidentyfikować moduły łatwe i mało skomplikowane oraz te trudne i zaawansowane technicznie. Taka szybka analiza i podział pozwolą nam odpowiednio rozłożyć swój czas (ważne — to też jest koszt w projekcie). Następnie w etapie koncepcyjnym możemy oszacować, jakie rozwiązania odnośnie napędów, pneumatyki oraz rzeczy handlowych zastosujemy w każdym z modułów. Już teraz możemy wstępnie oszacować koszty każdego podzespołu i wysłać pierwsze zapytania ofertowe."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ❌ Na czym **nie** oszczędzamy | ✅ Gdzie **możemy** znaleźć oszczędności |\n| --- | --- |\n| Funkcjonalność każdego modułu | Z góry zakładając jak najmniejszą liczbę dostawców (np. napędy) |\n| Elementy wykonawcze (np. napędy, pneumatyka) dla kluczowych modułów | Unifikując elementy handlowe |\n| Materiały i metody obróbki dla części z kluczowych modułów | Unifikując lub redukując rozmiary profili — aluminiowych czy stalowych |\n| Bezpieczeństwo i kontrola procesu — potrzeba dodatkowego czujnika? dołóż go | Starając się wykorzystać tożsame napędy (np. serwa czy motoreduktory) |"
+    },
+    {
+      "type": "tekst",
+      "body": "> Warto pamiętać, żeby nie szukać oszczędności na siłę — najczęściej wtedy tracimy 3×: podczas uruchomienia, przeprojektowując i zamawiając nowe elementy."
+    },
+    {
+      "type": "tekst",
+      "body": "## ⚙️ Etap projektowania technicznego\n\nTutaj już doprowadzamy nasz projekt do stanu, w którym można zacząć produkcję części i zamówienia elementów handlowych. Zaczyna się tak naprawdę najbardziej intensywny czas dla konstruktora, ponieważ pojawiają się pierwsze problemy z zachowaniem funkcjonalności, może terminami, prowadzimy testy itd."
+    },
+    {
+      "type": "tekst",
+      "body": "W całym tym młynie musimy zachowywać zimną krew i działać metodycznie — to pozwoli nam utrzymywać równowagę między kosztami a jakością naszej maszyny. Tak samo jak w etapie koncepcji, tak i tutaj chcemy oszczędzać na tym, na czym można, a nie bać się kosztów w miejscach, które mogą stanowić potem „kulę u nogi”."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| ❌ Na czym **nie** oszczędzamy | ✅ Gdzie **możemy** znaleźć oszczędności |\n| --- | --- |\n| Czas na przemyślenie każdego elementu maszyny — sprawdzenie kolizji, optymalizacja pod kątem obróbki i montażu | Inwestując czas w przemyślenie każdego elementu maszyny, możemy oszczędzić na obróbce, czasie montażu i potencjalnych problemach przy testach |\n| Precyzja elementów — nie ma co się bać detali frezowanych tam, gdzie nie jesteśmy pewni, czy zagięta blaszka wystarczy | Zachowując balans między skomplikowaniem pojedynczych części a liczbą elementów do późniejszego montażu |\n| Moduły kluczowe i komponenty wchodzące w ich skład. Serce maszyny ma być w 100% funkcjonalne i jakościowe — nie ma tu miejsca na oszczędzanie na siłę | Używając oprogramowania tak, aby projektować możliwie efektywnie i wydajnie |\n| Jakościowi dostawcy | Jeśli się da — wykorzystując takie same elementy w kilku podzespołach |\n| | Unikając over-engineeringu w pełnym tego słowa znaczeniu |"
+    },
+    {
+      "type": "tekst",
+      "body": "## 📋 Podsumowanie\n\nWybór między kosztami a jakością w naszej pracy jest nawet trudniejszy niż niektóre nasze obliczenia. Dlaczego?"
+    },
+    {
+      "type": "tekst",
+      "body": "Często zależy od tego, jak klient będzie postrzegał naszą firmę. A tam z jednej strony widać funkcjonalność, ale też nie mniejszą uwagę przykuwa wygląd naszych urządzeń."
+    },
+    {
+      "type": "tekst",
+      "body": "Mam nadzieję, że tym artykułem poruszyłem ważną kwestię. Jeśli masz własne doświadczenia z szukaniem tej równowagi — albo przykład oszczędności, która okazała się kosztowna — daj znać. Chętnie o tym podyskutuję. 🗯️"
+    }
+  ]
+}

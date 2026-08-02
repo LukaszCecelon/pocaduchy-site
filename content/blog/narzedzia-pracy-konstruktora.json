@@ -1,0 +1,104 @@
+{
+  "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy — co, jak i dlaczego wybrać",
+  "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D — pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
+  "date": "2026-06-07",
+  "image": "/img/blog/narzedzia-konstruktora-okladka.jpg",
+  "linkedinUrl": "",
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/narzedzia-konstruktora-okladka.jpg",
+      "alt": "Dwa stanowiska konstruktora: stacja robocza z modelem przekładni w CAD, tablet z notatkami projektu, suwmiarka i mikrometr na biurku.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Otwierając w 2021 roku swoją firmę, która świadczy usługi inżynierskie, tak naprawdę sam musiałem od przysłowiowego zera wybrać, wycenić i kupić wszystko, czego potrzebowałem do pracy jako konstruktor. Nie obyło się oczywiście bez wpadek i nietrafionych zakupów — jednak dzięki nim mogłem wyciągnąć wnioski 💡. W tym artykule chciałem się z Wami tymi wnioskami podzielić."
+    },
+    {
+      "type": "tekst",
+      "body": "Myślę, że można wydzielić **5 grup narzędzi pracy konstruktora**:\n\n1. Sprzęt\n2. Oprogramowanie CAD\n3. Oprogramowanie wspomagające zarządzanie projektem\n4. Narzędzia do prototypowania i pomiarów\n5. Inżynierska baza wiedzy"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🖥️ Sprzęt\n\nTutaj najlepiej zaglądać do specyfikacji oprogramowania, w którym planujecie pracować. Oczywiście warto też uwzględnić odpowiedni zapas mocy. Błędne założenie, z którego wyszedłem, było takie: *kupię komputer gamingowy — ma świetne parametry i naprawdę przystępną cenę*. **Naiwność w czystej postaci.**"
+    },
+    {
+      "type": "tekst",
+      "body": "**Najważniejsze: komputer typu stacja robocza** — może być nowy PC lub laptop. Polecam też przeglądanie odnowionych sprzętów na Allegro — można naprawdę znaleźć świetny komputer praktycznie o połowę tańszy, a posiadający imponująco wydajny hardware."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Podzespół | Na co zwrócić uwagę |\n| --- | --- |\n| **Procesor (CPU)** | Programy CAD, takie jak SOLIDWORKS czy Autodesk Inventor, korzystają głównie z jednego rdzenia. Dlatego zaleca się procesory o wysokim taktowaniu jednego rdzenia, np. Intel® Core™ i7 lub AMD Ryzen™ 7 z częstotliwością 3,3 GHz lub wyższą. Polecam również serię Xeon od Intela. |\n| **Pamięć RAM** | Dla standardowych projektów 16 GB może być wystarczające, jednak przy bardziej złożonych złożeniach i analizach zaleca się 32 GB lub więcej. Osobiście korzystam z PC z 32 GB oraz laptopa 64 GB. |\n| **Dysk** | SSD NVMe — zapewnia szybki dostęp do plików i skraca czas ładowania projektów. |\n| **Karta graficzna (GPU)** | Do pracy z programami CAD rekomendowane są profesjonalne karty graficzne, takie jak NVIDIA RTX A-series, które oferują certyfikowane sterowniki i optymalizację pod kątem aplikacji inżynierskich. |"
+    },
+    {
+      "type": "tekst",
+      "body": "Jednak sprzęt to nie tylko komputer. Równie ważne są peryferia: myszka, klawiatura, monitor(y), SpaceMouse. Moje wyposażenie to:\n\n- **Myszka:** Logitech MX Master 3S\n- **Klawiatura:** Logitech MX Keys (rozmiar 100%)\n- **Mysz 3D:** SpaceMouse Enterprise od 3Dconnexion\n- **Monitory:** 2× DELL 27″\n\nOstatnio doposażyłem swoje biuro w elektrycznie regulowane biurko — super sprawa."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/narzedzia-konstruktora-peryferia.jpg",
+      "alt": "Trzy peryferia konstruktora: mysz Logitech MX Master 3S, mysz 3D 3Dconnexion SpaceMouse Enterprise i klawiatura Logitech MX Keys.",
+      "podpis": "Peryferia, z których korzystam na co dzień. Zdjęcia produktowe: Logitech i 3Dconnexion.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🧰 Oprogramowanie CAD\n\nWybranie odpowiedniego software'u to temat nawet ważniejszy niż sprzęt. Przed jego dokonaniem musicie dokładnie przemyśleć, jakie zakładacie jego zastosowanie. Jeśli mają być to projekty maszyn — wybierzcie między **SOLIDWORKS** a **Inventorem**. Jeżeli potrzebujecie integracji z CNC albo projektujecie części o zaawansowanych swobodnych kształtach — lepiej sprawdzi się **NX** lub **CATIA**."
+    },
+    {
+      "type": "tekst",
+      "body": "Oczywiście, jeśli dział inżynierski jest już spory, a projekty są dość podobne, warto wdrożyć system PLM."
+    },
+    {
+      "type": "tekst",
+      "body": "Osobiście kupiłem licencję wieczystą SOLIDWORKS, głównie dlatego, że była wieczysta. Teraz raczej szedłbym w stronę subskrypcji Inventora, ze względu na jego większą stabilność i płynność działania."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/narzedzia-konstruktora-cad.jpg",
+      "alt": "Zestawienie czterech systemów CAD używanych w projektowaniu maszyn: Siemens NX, Autodesk Inventor, CATIA i SOLIDWORKS.",
+      "podpis": "Cztery systemy, między którymi najczęściej wybiera konstruktor maszyn. Logotypy są znakami towarowymi ich właścicieli: Siemens AG, Autodesk Inc. i Dassault Systèmes.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🗂️ Oprogramowanie do zarządzania projektem\n\nOsobiście uważam, że świetnie nadaje się do tego **OneNote** od Microsoftu. Odpowiednio przygotowany szablon projektu pozwala prowadzić go w naprawdę zorganizowany sposób."
+    },
+    {
+      "type": "tekst",
+      "body": "Środowisko Microsoft jest też tak stworzone, że bardzo łatwo migrować dane między OneNote a Outlookiem, Wordem, Excelem czy Teams."
+    },
+    {
+      "type": "tekst",
+      "body": "Jest też aplikacja mobilna, która pozwala dorzucać notatki nawet kiedy jesteś na hali czy jedziesz pociągiem. Myślę, że to, jak odpowiednio przygotować taki notes projektu, to temat na osobny artykuł, bo jest on wręcz arcykluczowy w naszej branży."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/narzedzia-konstruktora-onenote.jpg",
+      "alt": "Microsoft OneNote — aplikacja do notatek, w której prowadzę notes projektu konstrukcyjnego.",
+      "podpis": "Grafika promocyjna Microsoft OneNote. Znak towarowy: Microsoft Corporation.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## 🔧 Narzędzia do prototypowania i pomiarów\n\nKonstruktor bez suwmiarki i „metrówki” to nie konstruktor. Trochę prześmiewczo, ale jest to celne stwierdzenie. Bardzo często musimy coś mierzyć, sprawdzać, jak duże będzie coś w rzeczywistości. Dlatego uważam, że przynajmniej te 2 najprostsze narzędzia pomiarowe to *must have* każdego inżynierskiego biurka."
+    },
+    {
+      "type": "tekst",
+      "body": "**Prototypowanie** — tutaj zaczynają się trochę schody, bo zaczynają się też większe wydatki. Oczywiście podstawa to zestaw narzędzi: klucze płaskie, imbusy, grzechotki, śrubokręty. Super, jeśli masz wkrętarkę (moją akurat dostałem w prezencie od taty)."
+    },
+    {
+      "type": "tekst",
+      "body": "Game changerem jest **drukarka 3D**. Naprawdę. Ile już razy prosty wydruk uratował mnie przed zaprojektowaniem czegoś, co nie miało prawa działać — często ciężko nam przewidzieć, jak detal, który ma się gdzieś zsunąć, przekręcić itd., zachowa się w rzeczywistości."
+    },
+    {
+      "type": "tekst",
+      "body": "## 🌐 Inżynierska baza wiedzy\n\nTabele, normy, standardy — świetnie jest mieć to w jednym miejscu. Przecież jako konstruktorzy bardzo często rysujemy jakieś podcięcia, podfrezowania, podtoczenia dla standardowych elementów, takich jak wpusty czy pierścienie zabezpieczające. Osobiście zacząłem sobie taką bazę wiedzy tworzyć sam w OneNote. Jednak polecam też poradnik inżyniera albo stronę [Mechabook](https://mechabook.eu/index.php)."
+    },
+    {
+      "type": "tekst",
+      "body": "Mam nadzieję, że ten krótki artykuł pomoże Wam odpowiednio wybrać narzędzia swojej pracy. A jeśli masz w swoim zestawie coś, czego tu zabrakło, albo zakup, którego żałujesz — koniecznie daj znać."
+    }
+  ]
+}
