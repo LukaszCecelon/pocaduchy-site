@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Okruszki from '@site/src/components/Okruszki';
 import styles from './wiedza.module.css';
 import wzory from '@site/src/data/wiedza-wzory.json';
 import materialy from '@site/src/data/wiedza-materialy.json';
@@ -10,7 +11,7 @@ function articleCount(n) {
   return n === 1 ? '1 artykuł' : `${n} artykuły`;
 }
 
-// Pokazujemy wyłącznie działy, które mają już artykuły — pusty dział pojawi
+// Pokazujemy wyłącznie działy, które mają już artykuły - pusty dział pojawi
 // się na liście automatycznie, gdy trafi do niego pierwsza treść.
 const CATEGORIES = [
   {
@@ -42,9 +43,10 @@ const CATEGORIES = [
 export default function Wiedza() {
   return (
     <Layout
-      title="Baza wiedzy dla konstruktorów — wzory, tabele i normy"
-      description="Praktyczna baza wiedzy dla konstruktorów maszyn: wzory wytrzymałościowe, tabele tolerancji i pasowań, normy rysunkowe DIN i ISO — opracowane po inżyniersku, z przykładami.">
+      title="Baza wiedzy dla konstruktorów - wzory, tabele i normy"
+      description="Praktyczna baza wiedzy dla konstruktorów maszyn: wzory wytrzymałościowe, tabele tolerancji i pasowań, normy rysunkowe DIN i ISO - opracowane po inżyniersku, z przykładami.">
       <div className={styles.wrap}>
+        <Okruszki sciezka={[{nazwa: 'Wiedza', url: '/wiedza'}]} />
         <div className={styles.intro}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowBar} />
@@ -55,8 +57,8 @@ export default function Wiedza() {
           </h1>
           <p className={styles.lead}>
             {CATEGORIES.length > 0
-              ? 'Baza uporządkowana w działy — wybierz jeden, żeby przejść dalej. Będzie się rozrastać wraz z kanałem.'
-              : 'Miejsce na wzory, tabele i normy, po które sięgam w codziennej pracy. Sekcja powstaje — będzie rosła wraz z kanałem.'}
+              ? 'Baza uporządkowana w działy - wybierz jeden, żeby przejść dalej. Będzie się rozrastać wraz z kanałem.'
+              : 'Miejsce na wzory, tabele i normy, po które sięgam w codziennej pracy. Sekcja powstaje - będzie rosła wraz z kanałem.'}
           </p>
         </div>
 

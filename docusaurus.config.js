@@ -57,7 +57,11 @@ const config = {
             name: 'Łukasz Cecelon',
             jobTitle: 'Inżynier konstruktor',
             url: SITE,
-            sameAs: ['https://youtube.com/@pocaduchy'],
+            sameAs: [
+              'https://youtube.com/@pocaduchy',
+              'https://www.linkedin.com/in/lukaszcecelon',
+              'https://www.tiktok.com/@pocaduchy',
+            ],
             knowsAbout: [
               'konstruowanie maszyn',
               'projektowanie CAD',
@@ -76,7 +80,11 @@ const config = {
             image: `${SITE}/img/og-pocaduchy.jpg`,
             email: 'RA-Engineering@outlook.com',
             founder: {'@id': `${SITE}/#lukasz`},
-            sameAs: ['https://youtube.com/@pocaduchy'],
+            sameAs: [
+              'https://youtube.com/@pocaduchy',
+              'https://www.linkedin.com/in/lukaszcecelon',
+              'https://www.tiktok.com/@pocaduchy',
+            ],
             description:
               'Kanał YouTube i baza wiedzy o konstruowaniu maszyn: CAD, rysunek techniczny, dobór materiałów, druk 3D. Prowadzi inżynier konstruktor Łukasz Cecelon.',
           },
@@ -192,6 +200,7 @@ const config = {
           {to: '/blog', label: 'Artykuły', position: 'left'},
           {to: '/odcinki', label: 'Odcinki', position: 'left'},
           {to: '/uslugi', label: 'Usługi', position: 'left'},
+          {to: '/o-mnie', label: 'O mnie', position: 'left'},
           {
             href: 'https://youtube.com/@pocaduchy',
             label: 'SUBSKRYBUJ',
@@ -210,12 +219,15 @@ const config = {
               {label: 'Artykuły', to: '/blog'},
               {label: 'Odcinki', to: '/odcinki'},
               {label: 'Usługi', to: '/uslugi'},
+              {label: 'O mnie', to: '/o-mnie'},
             ],
           },
           {
             title: 'Kanały',
             items: [
               {label: 'YouTube', href: 'https://youtube.com/@pocaduchy'},
+              {label: 'LinkedIn', href: 'https://www.linkedin.com/in/lukaszcecelon'},
+              {label: 'TikTok', href: 'https://www.tiktok.com/@pocaduchy'},
             ],
           },
         ],

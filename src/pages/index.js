@@ -4,6 +4,10 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './index.module.css';
+import blogPosts from '../data/blog-posts.json';
+
+// Manifest jest posortowany od najnowszego, wiec pierwszy wpis to ostatni artykul.
+const NAJNOWSZY = blogPosts[0];
 import episodesData from '@site/src/data/episodes.json';
 import subscribersData from '@site/src/data/subscribers.json';
 
@@ -228,8 +232,8 @@ function Hero() {
               className={`${styles.btnPrimary} pc-cut`}>
               Subskrybuj na YouTube →
             </a>
-            <Link to="/wiedza" className={`${styles.btnGhost} pc-cut`}>
-              Zobacz bazę wiedzy
+            <Link to="/blog" className={`${styles.btnGhost} pc-cut`}>
+              Czytaj artykuły
             </Link>
           </div>
           {SUBSCRIBERS ? (
@@ -299,11 +303,13 @@ function Teasers() {
   const cards = [
     {
       n: '01',
-      eyebrow: 'BAZA WIEDZY',
-      title: 'Wiedza',
-      body: 'Wzory, tabele i poradniki dla konstruktorów maszyn, uporządkowane w działy i gotowe do rozbudowy.',
-      cta: 'Przeglądaj bazę →',
-      href: '/wiedza',
+      eyebrow: 'ARTYKUŁY',
+      title: 'Artykuły',
+      body: NAJNOWSZY
+        ? `Praktyka konstruktora: decyzje, koszty i wnioski z realnych projektów. Ostatnio: ${NAJNOWSZY.seoTitle || NAJNOWSZY.title}`
+        : 'Praktyka konstruktora: decyzje projektowe, koszty i wnioski z realnych projektów.',
+      cta: 'Czytaj artykuły →',
+      href: '/blog',
     },
     {
       n: '02',
@@ -348,7 +354,7 @@ function CtaBand() {
   return (
     <div className={`${styles.ctaBand} ${styles.revealItem}`} data-reveal>
       <h2 className={styles.ctaTitle}>
-        Nowy odcinek co tydzień, albo kiedy się uda w warsztacie.
+        Daj suba, a nic Cię nie ominie
       </h2>
       <a
         href={YOUTUBE_URL}

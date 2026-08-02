@@ -1,14 +1,39 @@
 {
   "title": "Kopiuj-wklej po inżyniersku (krótko o standaryzacji)",
-  "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć — z przykładem tabeli elementów handlowych.",
+  "seoTitle": "Standaryzacja w biurze konstrukcyjnym: jak zacząć",
+  "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć - z przykładem tabeli elementów handlowych.",
   "date": "2026-07-19",
+  "dateModified": "2026-08-02",
   "image": "/img/blog/standaryzacja-okladka.jpg",
   "linkedinUrl": "https://www.linkedin.com/pulse/kopiuj-wklej-po-in%C5%BCyniersku-kr%C3%B3tko-o-standaryzacji-%C5%82ukasz-cecelon-hneef/",
+  "tags": [
+    "elementy maszyn",
+    "zarządzanie projektem"
+  ],
+  "related": [
+    "elementy-znormalizowane-handlowki",
+    "koszty-a-jakosc-w-projektowaniu-maszyn",
+    "dobor-sprzegla-do-aplikacji"
+  ],
+  "faq": [
+    {
+      "pytanie": "Ile realnie kosztuje brak standaryzacji?",
+      "odpowiedz": "Prosty przykład z mojej praktyki: dobór jednego uchwytu do drzwiczek serwisowych zajmuje około 30 minut, licząc szukanie na stronie producenta, dobór rozmiaru, sposób montażu i wykonanie otworów w modelu. Jeśli robi to osobno dziesięcioosobowy dział, to 300 minut, czyli 5 godzin straty na jednym elemencie."
+    },
+    {
+      "pytanie": "Czy da się znaleźć czas na standaryzację?",
+      "odpowiedz": "Trudno mi wyobrazić sobie sytuację, w której konstruktor nie może poświęcić około 5 godzin tygodniowo na ustandaryzowanie jednego modułu. Przy kilku konstruktorach to nie jest już potrzeba, tylko konieczność."
+    },
+    {
+      "pytanie": "Od czego zacząć standaryzację?",
+      "odpowiedz": "Od burzy mózgów, na której wypisujecie, co chcecie ustandaryzować. Potem każdy ocenia trudność w skali od 1 do 3 i wyznaczacie osoby odpowiedzialne za poszczególne zakresy. Efektem może być tabela z kodami katalogowymi oraz gotowe iFeature w Inventorze do wykonywania otworów."
+    }
+  ],
   "blocks": [
     {
       "type": "obraz",
       "src": "/img/blog/standaryzacja-okladka.jpg",
-      "alt": "Izometryczna ilustracja: identyczne moduły maszyn jadące taśmą produkcyjną — obraz standaryzacji w projektowaniu.",
+      "alt": "Izometryczna ilustracja: identyczne moduły maszyn jadące taśmą produkcyjną - obraz standaryzacji w projektowaniu.",
       "wyrownanie": "pelna-szerokosc"
     },
     {
@@ -21,7 +46,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 1. Mit: „Nie ma czasu i ludzi do standaryzacji”\n\nJedno z większych ryzyk, które prowadzi do przepalania setek godzin, to założenie z góry, że „u nas to się nie da” albo „nie mamy na razie na to czasu”. Szczerze mówiąc, nawet w momencie kiedy projektowałem w pojedynkę — wypracowanie standardów do kopiowania i wklejania oszczędzało mi dużo czasu."
+      "body": "## 1. Mit: „Nie ma czasu i ludzi do standaryzacji”\n\nJedno z większych ryzyk, które prowadzi do przepalania setek godzin, to założenie z góry, że „u nas to się nie da” albo „nie mamy na razie na to czasu”. Szczerze mówiąc, nawet w momencie kiedy projektowałem w pojedynkę - wypracowanie standardów do kopiowania i wklejania oszczędzało mi dużo czasu."
     },
     {
       "type": "tekst",
@@ -29,7 +54,7 @@
     },
     {
       "type": "tekst",
-      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów — może podziałać z handlówkami, żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
+      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów - może podziałać z [handlówkami](/blog/elementy-znormalizowane-handlowki), żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
     },
     {
       "type": "obraz",
@@ -40,7 +65,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 2. Co standaryzować?\n\nTo będzie na pewno różniło się w zależności od profilu Waszej działalności. Jedne firmy mają całe bazy standardowych urządzeń, z których komponują linie. Inne muszą opierać się o drobniejsze elementy maszyn. Jednak w obu przypadkach korzystanie z uniwersalnych rozwiązań tworzy dźwignię wydajnościową."
+      "body": "## 2. Co standaryzować?\n\nTo będzie na pewno różniło się w zależności od profilu Waszej działalności. Jedne firmy mają całe bazy standardowych urządzeń, z których komponują linie. Inne muszą opierać się o drobniejsze elementy maszyn. Jednak w obu przypadkach korzystanie z uniwersalnych rozwiązań tworzy dźwignię wydajnościową - dokładnie tak samo jak przy [świadomym pilnowaniu kosztów w projekcie](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)."
     },
     {
       "type": "tekst",
@@ -56,15 +81,15 @@
     },
     {
       "type": "tekst",
-      "body": "## 3. Jak zacząć?\n\nKtoś musi zrobić ten pierwszy krok. Jeśli po przeczytaniu tego artykułu stwierdziłeś, że u Was w dziale trzeba standaryzować — nie obawiaj się wyjść z inicjatywą!"
+      "body": "## 3. Jak zacząć?\n\nKtoś musi zrobić ten pierwszy krok. Jeśli po przeczytaniu tego artykułu stwierdziłeś, że u Was w dziale trzeba standaryzować - nie obawiaj się wyjść z inicjatywą!"
     },
     {
       "type": "tekst",
-      "body": "Na początek warto (np. na zasadzie burzy mózgów) wyspecyfikować, co chcecie standaryzować. Następnie niech każdy oceni w skali 1–3 poziom trudności danego elementu czy modułu: **1** — rzeczy łatwe do ustandaryzowania, **3** — rzeczy wymagające sporo wysiłku, żeby ustalić standard. Można do tego przygotować prosty arkusz Excela."
+      "body": "Na początek warto (np. na zasadzie burzy mózgów) wyspecyfikować, co chcecie standaryzować. Następnie niech każdy oceni w skali 1–3 poziom trudności danego elementu czy modułu: **1** - rzeczy łatwe do ustandaryzowania, **3** - rzeczy wymagające sporo wysiłku, żeby ustalić standard. Można do tego przygotować prosty arkusz Excela."
     },
     {
       "type": "tekst",
-      "body": "Co potem? **Działajcie.** Wyznaczcie osoby odpowiedzialne za wybranie optymalnych rozwiązań w danym zakresie. Trzymając się przykładu uchwytu — nie musi być to tylko kod katalogowy. Można np. stworzyć w Inventorze iFeature, którym jak pieczątką Twoi koledzy będą robili otwory pod ten uchwyt."
+      "body": "Co potem? **Działajcie.** Wyznaczcie osoby odpowiedzialne za wybranie optymalnych rozwiązań w danym zakresie. Trzymając się przykładu uchwytu z katalogu [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol) - nie musi być to tylko kod katalogowy. Można np. stworzyć w Inventorze iFeature, którym jak pieczątką Twoi koledzy będą robili otwory pod ten uchwyt."
     },
     {
       "type": "tekst",
@@ -72,19 +97,19 @@
     },
     {
       "type": "tabela",
-      "markdown": "| Nazwa | Dostawca | Kod katalogowy | Opis |\n| --- | --- | --- | --- |\n| Uchwyty „pod rękę” | Elesa+Ganter | **EBP.180-8-C5** | Seria uchwytów **EBP** jest naszym standardem. **Kolor zatyczek — niebieski.** W szczególnych przypadkach można użyć innego rozmiaru. W tabeli warto trzymać jeszcze link do strony producenta i przykład zastosowania. |"
+      "markdown": "| Nazwa | Dostawca | Kod katalogowy | Opis |\n| --- | --- | --- | --- |\n| Uchwyty „pod rękę” | Elesa+Ganter | **EBP.180-8-C5** | Seria uchwytów **EBP** jest naszym standardem. **Kolor zatyczek - niebieski.** W szczególnych przypadkach można użyć innego rozmiaru. W tabeli warto trzymać jeszcze link do strony producenta i przykład zastosowania. |"
     },
     {
       "type": "tekst",
-      "body": "*W oryginale ta tabela ma jeszcze kolumnę ze zdjęciem katalogowym elementu — u siebie wstawcie po prostu render lub zrzut z konfiguratora dostawcy.*"
+      "body": "*W oryginale ta tabela ma jeszcze kolumnę ze zdjęciem katalogowym elementu - u siebie wstawcie po prostu render lub zrzut z konfiguratora dostawcy.*"
     },
     {
       "type": "tekst",
-      "body": "## Podsumowanie\n\nW świecie, gdzie deadline'y się skracają, a marża kurczy, **standaryzacja staje się najtańszym lewarem** — skraca modelowanie, stabilizuje harmonogram i porządkuje magazyn."
+      "body": "## Podsumowanie\n\nW świecie, gdzie deadline'y się skracają, a marża kurczy, **standaryzacja staje się najtańszym lewarem** - skraca modelowanie, stabilizuje harmonogram i porządkuje magazyn."
     },
     {
       "type": "tekst",
-      "body": "Co sądzicie o tym podejściu? Może u Was standaryzacja jest już „ogarnięta”, a może dopiero zaczynacie? To jeden z tych tematów, w których najwięcej wynosi się z cudzych doświadczeń — dajcie znać, jak wygląda to u Was."
+      "body": "Co sądzicie o tym podejściu? Może u Was standaryzacja jest już „ogarnięta”, a może dopiero zaczynacie? To jeden z tych tematów, w których najwięcej wynosi się z cudzych doświadczeń - dajcie znać, jak wygląda to u Was."
     }
   ]
 }

@@ -1,23 +1,47 @@
 {
   "title": "Z pracy konstruktora: Jak zorganizować produktywny KICK-OFF projektu?",
+  "seoTitle": "Kick-off projektu konstrukcyjnego: agenda i role",
   "description": "Jak przygotować i poprowadzić spotkanie kick-off projektu konstrukcyjnego: przygotowanie zespołu, gotowa agenda, podział ról i utrzymanie tempa po spotkaniu.",
   "date": "2026-07-05",
+  "dateModified": "2026-08-02",
   "image": "/img/blog/kick-off-okladka.jpg",
   "linkedinUrl": "https://www.linkedin.com/pulse/z-pracy-konstruktora-jak-zorganizowa%C4%87-produktywny-kick-off-cecelon-mi0pc/",
+  "tags": [
+    "zarządzanie projektem"
+  ],
+  "related": [
+    "szacowanie-czasu-projektowania",
+    "koszty-a-jakosc-w-projektowaniu-maszyn",
+    "narzedzia-pracy-konstruktora"
+  ],
+  "faq": [
+    {
+      "pytanie": "Co powinno znaleźć się w agendzie kick-offu?",
+      "odpowiedz": "Omówienie projektu i jego zastosowania u klienta, liczba detali do obsłużenia wraz z rysunkami i modelami 3D, czasy cyklu, czas przezbrojenia wymagany przez klienta, URS i preferowani dostawcy, opracowanie harmonogramu oraz budżet rozbity na hardware, czas projektu mechanicznego i automatycznego, montaż i uruchomienie."
+    },
+    {
+      "pytanie": "Kto powinien być przygotowany do kick-offu?",
+      "odpowiedz": "Nie tylko sprzedawca i kierownik projektu, ale również konstruktorzy. Jeśli zespół dostanie ofertę i szkic sprzedażowy kilka dni wcześniej, wystarczy 30 do 40 minut na wstępną analizę, identyfikację zagrożeń i spisanie pytań."
+    },
+    {
+      "pytanie": "Jakie role trzeba przypisać na starcie projektu?",
+      "odpowiedz": "Lidera projektu, osoby odpowiedzialne za konkretne moduły, osobę składającą layout, osobę do kontaktu z klientem oraz skrybę, który spisuje ustalenia i przygotowuje podsumowanie."
+    }
+  ],
   "blocks": [
     {
       "type": "obraz",
       "src": "/img/blog/kick-off-okladka.jpg",
-      "alt": "Uścisk dłoni nad stołem konferencyjnym, w tle zespół i tablet z listą zadań — start nowego projektu konstrukcyjnego.",
+      "alt": "Uścisk dłoni nad stołem konferencyjnym, w tle zespół i tablet z listą zadań - start nowego projektu konstrukcyjnego.",
       "wyrownanie": "pelna-szerokosc"
     },
     {
       "type": "tekst",
-      "body": "*„Zaczynamy nowy projekt! Wow — podobno skomplikowany! Będzie go robiło 5 konstruktorów!”* Taka ekscytacja nowym tematem do zaprojektowania to coś zupełnie normalnego. Szczególnie kiedy mamy ambitny i ciekawy nowych rzeczy dział konstrukcyjny. Jednak w całej tej euforii nie można zapomnieć o twardej inżynierskiej metodyce."
+      "body": "*„Zaczynamy nowy projekt! Wow - podobno skomplikowany! Będzie go robiło 5 konstruktorów!”* Taka ekscytacja nowym tematem do zaprojektowania to coś zupełnie normalnego. Szczególnie kiedy mamy ambitny i ciekawy nowych rzeczy dział konstrukcyjny. Jednak w całej tej euforii nie można zapomnieć o twardej inżynierskiej metodyce."
     },
     {
       "type": "tekst",
-      "body": "Projekty — a szczególnie te duże — muszą utrzymywać odpowiednie tempo, a kolejne etapy powinniśmy kończyć zgodnie z założonym harmonogramem (oczywiście jeśli nie zaskoczy nas jakaś totalna rewolucja). Dlatego bardzo ważne jest to, **jak zaczynamy każdy nowy projekt**."
+      "body": "Projekty - a szczególnie te duże - muszą utrzymywać odpowiednie tempo, a kolejne etapy powinniśmy kończyć zgodnie z założonym harmonogramem (oczywiście jeśli nie zaskoczy nas jakaś totalna rewolucja). Dlatego bardzo ważne jest to, **jak zaczynamy każdy nowy projekt**."
     },
     {
       "type": "tekst",
@@ -29,7 +53,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 1. Przygotowanie\n\nMoże to nieoczywiste, co zaraz napiszę, ale do kick-offa przygotowany powinien być nie tylko sprzedawca czy kierownik projektu — ale również konstruktor i członkowie zespołu. Idealnie, jeśli np. kilka dni wcześniej wiesz o nowym temacie, masz dostępną ofertę, może jakiś szkic sprzedażowy. To pozwala poświęcić 30–40 minut na wstępną analizę, identyfikację zagrożeń oraz zapisanie pierwszych pytań do poruszenia na spotkaniu."
+      "body": "## 1. Przygotowanie\n\nMoże to nieoczywiste, co zaraz napiszę, ale do kick-offa przygotowany powinien być nie tylko sprzedawca czy kierownik projektu - ale również konstruktor i członkowie zespołu. Idealnie, jeśli np. kilka dni wcześniej wiesz o nowym temacie, masz dostępną ofertę, może jakiś szkic sprzedażowy. To pozwala poświęcić 30–40 minut na wstępną analizę, identyfikację zagrożeń oraz zapisanie pierwszych pytań do poruszenia na spotkaniu."
     },
     {
       "type": "tekst",
@@ -37,7 +61,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 2. Agenda\n\nDoświadczony inżynier projektu doskonale wie, że spotkanie — tym bardziej kick-off — bez agendy tak naprawdę mija się z celem."
+      "body": "## 2. Agenda\n\nDoświadczony inżynier projektu doskonale wie, że spotkanie - tym bardziej kick-off - bez agendy tak naprawdę mija się z celem."
     },
     {
       "type": "tekst",
@@ -45,7 +69,7 @@
     },
     {
       "type": "tabela",
-      "markdown": "| ☑ | Punkt agendy kick-offa |\n| --- | --- |\n| ☐ | Omówienie projektu, jego funkcjonalności i zastosowania u klienta |\n| ☐ | Ilość detali do obsłużenia — rysunki, modele 3D |\n| ☐ | Czasy cyklu |\n| ☐ | Czas przezbrojenia wymagany przez klienta |\n| ☐ | URS — preferowani / wymagani dostawcy |\n| ☐ | Opracowanie harmonogramu |\n| ☐ | **Budżet:** hardware |\n| ☐ | **Budżet:** czas projektu mechanicznego |\n| ☐ | **Budżet:** czas projektu automatycznego |\n| ☐ | **Budżet:** czas montażu |\n| ☐ | **Budżet:** czas uruchomienia (godziny dzienne / weekendowe / nocne) |"
+      "markdown": "| ☑ | Punkt agendy kick-offa |\n| --- | --- |\n| ☐ | Omówienie projektu, jego funkcjonalności i zastosowania u klienta |\n| ☐ | Ilość detali do obsłużenia - rysunki, modele 3D |\n| ☐ | Czasy cyklu |\n| ☐ | Czas przezbrojenia wymagany przez klienta |\n| ☐ | URS - preferowani / wymagani dostawcy |\n| ☐ | Opracowanie harmonogramu |\n| ☐ | **Budżet:** hardware |\n| ☐ | **Budżet:** czas projektu mechanicznego |\n| ☐ | **Budżet:** czas projektu automatycznego |\n| ☐ | **Budżet:** czas montażu |\n| ☐ | **Budżet:** czas uruchomienia (godziny dzienne / weekendowe / nocne) |"
     },
     {
       "type": "tekst",
@@ -53,17 +77,17 @@
     },
     {
       "type": "tekst",
-      "body": "Wspólne napisanie harmonogramu podniesie świadomość sytuacyjną zespołu, ale i też poczucie odpowiedzialności — w końcu sami go stworzyliśmy, coś zadeklarowaliśmy."
+      "body": "Jak konkretnie policzyć czas do harmonogramu, opisałem w artykule o [metodach szacowania czasu projektowania](/blog/szacowanie-czasu-projektowania).\n\nWspólne napisanie harmonogramu podniesie świadomość sytuacyjną zespołu, ale i też poczucie odpowiedzialności - w końcu sami go stworzyliśmy, coś zadeklarowaliśmy."
     },
     {
       "type": "tekst",
-      "body": "Jeśli jest to możliwe, na takim spotkaniu warto zidentyfikować, które moduły będą proste do zaprojektowania, a które będą kluczowe i trudne. Pozwoli to odpowiednio rozłożyć siły na początku."
+      "body": "Jeśli jest to możliwe, na takim spotkaniu warto zidentyfikować, które moduły będą proste do zaprojektowania, a które będą kluczowe i trudne. Pozwoli to odpowiednio rozłożyć siły na początku. Przy okazji od razu widać, gdzie warto trzymać budżet, a gdzie [nie opłaca się oszczędzać](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)."
     },
     {
       "type": "obraz",
       "src": "/img/blog/kick-off-priorytety.jpg",
-      "alt": "Zespół projektowy przy tablicy z kolumnami To Do, In Progress i Done — wyznaczanie priorytetów na starcie projektu.",
-      "podpis": "Wyznaczcie priorytety — zanim ktokolwiek otworzy CAD-a.",
+      "alt": "Zespół projektowy przy tablicy z kolumnami To Do, In Progress i Done - wyznaczanie priorytetów na starcie projektu.",
+      "podpis": "Wyznaczcie priorytety - zanim ktokolwiek otworzy CAD-a.",
       "wyrownanie": "pelna-szerokosc"
     },
     {
@@ -80,7 +104,7 @@
     },
     {
       "type": "tekst",
-      "body": "Wdrażasz kick-offy u siebie w dziale i coś nie chce zaskoczyć? Napisz — chętnie podpowiem, co u mnie zadziałało, a co okazało się ślepą uliczką. Kontakt znajdziesz w zakładce [Usługi](/uslugi)."
+      "body": "Wdrażasz kick-offy u siebie w dziale i coś nie chce zaskoczyć? Napisz - chętnie podpowiem, co u mnie zadziałało, a co okazało się ślepą uliczką. Kontakt znajdziesz w zakładce [Usługi](/uslugi)."
     }
   ]
 }

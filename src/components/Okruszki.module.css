@@ -1,0 +1,24 @@
+.okruszki {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+.okruszki a {
+  color: var(--pc-text-faint);
+  text-decoration: none;
+}
+.okruszki a:hover {
+  color: var(--pc-rust);
+  text-decoration: none;
+}
+.okruszki span[aria-current] {
+  color: var(--pc-navy);
+}
+.sep {
+  color: var(--pc-border);
+}
