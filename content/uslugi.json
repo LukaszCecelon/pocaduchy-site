@@ -1,4 +1,14 @@
 {
+  "_opis": "Wszystkie teksty zakladki /uslugi. Edytujesz tutaj, nie w kodzie.",
+  "meta": {
+    "tytul": "Usługi konstrukcyjne: projektowanie maszyn i druk 3D",
+    "opis": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D z dokumentacją wykonawczą, druk 3D prototypów oraz audyty dokumentacji dla firm produkcyjnych i biur konstrukcyjnych."
+  },
+  "hero": {
+    "eyebrow": "Usługi",
+    "naglowek": "Współpraca przy realnych projektach konstrukcyjnych",
+    "lead": "Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych. Pracuję zarówno przy pojedynczych podzespołach, jak i przy całych urządzeniach: od koncepcji po dokumentację, którą da się bez pytań przekazać na warsztat."
+  },
   "services": [
     {
       "title": "Projektowanie",
@@ -28,30 +38,59 @@
       ]
     }
   ],
-
-  "przebieg": [
-    {
-      "krok": "Rozmowa i zakres",
-      "tresc": "Zaczynamy od tego, co ma robić urządzenie i w jakich warunkach. Ustalamy funkcjonalność, czasy cyklu, wymagania klienta końcowego oraz preferowanych dostawców, jeśli takie są. Już na tym etapie wskazuję moduły, które widzę jako proste, i te, które będą kluczowe albo ryzykowne."
-    },
-    {
-      "krok": "Wycena i harmonogram",
-      "tresc": "Dostajesz wycenę z rozbiciem na etapy oraz termin. Czas projektowania szacuję metodycznie, a nie na oko: na bazie doświadczenia, analogii do wcześniejszych projektów i, przy ryzykownych etapach, trzech scenariuszy. Wolę podać termin, który dotrzymam, niż taki, który dobrze wygląda w ofercie."
-    },
-    {
-      "krok": "Koncepcja",
-      "tresc": "Powstaje układ ogólny i wstępny dobór rozwiązań: napędy, pneumatyka, elementy handlowe. Na tym etapie da się jeszcze tanio zmienić kierunek, dlatego pokazuję warianty razem z ich konsekwencjami kosztowymi. Wysyłamy też pierwsze zapytania ofertowe."
-    },
-    {
-      "krok": "Projekt techniczny i dokumentacja",
-      "tresc": "Model 3D doprowadzony do stanu produkcyjnego, sprawdzone kolizje, optymalizacja pod obróbkę i montaż, komplet rysunków wykonawczych i lista materiałowa. Dokumentacja ma być zrozumiała dla warsztatu, nie tylko poprawna formalnie."
-    },
-    {
-      "krok": "Wsparcie przy wykonaniu",
-      "tresc": "Odpowiadam na pytania warsztatu i montażu, nanoszę poprawki wynikające z realiów wykonania. W razie potrzeby drukuję prototyp 3D, żeby sprawdzić geometrię, zanim część pojedzie na obrabiarkę."
-    }
-  ],
-
+  "przebieg": {
+    "naglowek": "Jak wygląda współpraca",
+    "lead": "Ten sam schemat stosuję niezależnie od wielkości tematu. Chodzi o to, żebyś na każdym etapie wiedział, co dostajesz i kiedy.",
+    "kroki": [
+      {
+        "krok": "Rozmowa i zakres",
+        "tresc": "Zaczynamy od tego, co ma robić urządzenie i w jakich warunkach. Ustalamy funkcjonalność, czasy cyklu, wymagania klienta końcowego oraz preferowanych dostawców, jeśli takie są. Już na tym etapie wskazuję moduły, które widzę jako proste, i te, które będą kluczowe albo ryzykowne."
+      },
+      {
+        "krok": "Wycena i harmonogram",
+        "tresc": "Dostajesz wycenę z rozbiciem na etapy oraz termin. Czas projektowania szacuję metodycznie, a nie na oko: na bazie doświadczenia, analogii do wcześniejszych projektów i, przy ryzykownych etapach, trzech scenariuszy. Wolę podać termin, który dotrzymam, niż taki, który dobrze wygląda w ofercie."
+      },
+      {
+        "krok": "Koncepcja",
+        "tresc": "Powstaje układ ogólny i wstępny dobór rozwiązań: napędy, pneumatyka, elementy handlowe. Na tym etapie da się jeszcze tanio zmienić kierunek, dlatego pokazuję warianty razem z ich konsekwencjami kosztowymi. Wysyłamy też pierwsze zapytania ofertowe."
+      },
+      {
+        "krok": "Projekt techniczny i dokumentacja",
+        "tresc": "Model 3D doprowadzony do stanu produkcyjnego, sprawdzone kolizje, optymalizacja pod obróbkę i montaż, komplet rysunków wykonawczych i lista materiałowa. Dokumentacja ma być zrozumiała dla warsztatu, nie tylko poprawna formalnie."
+      },
+      {
+        "krok": "Wsparcie przy wykonaniu",
+        "tresc": "Odpowiadam na pytania warsztatu i montażu, nanoszę poprawki wynikające z realiów wykonania. W razie potrzeby drukuję prototyp 3D, żeby sprawdzić geometrię, zanim część pojedzie na obrabiarkę."
+      }
+    ]
+  },
+  "dowody": {
+    "naglowek": "Jak pracuję, czyli sprawdź sam",
+    "lead": "Nie musisz wierzyć mi na słowo. Sposób, w jaki podejmuję decyzje konstrukcyjne, opisuję publicznie, z konkretnymi liczbami i bez ukrywania błędów. To chyba najuczciwsze portfolio, jakie mogę pokazać:",
+    "pozycje": [
+      {
+        "slug": "koszty-a-jakosc-w-projektowaniu-maszyn",
+        "link": "Jak godzę budżet z jakością",
+        "reszta": "i na czym nigdy nie oszczędzam w projekcie maszyny."
+      },
+      {
+        "slug": "szacowanie-czasu-projektowania",
+        "link": "Czym szacuję czas projektowania",
+        "reszta": "i dlaczego termin podaję dopiero po ustaleniu zakresu."
+      },
+      {
+        "slug": "elementy-znormalizowane-handlowki",
+        "link": "Kiedy sięgam po element znormalizowany",
+        "reszta": "zamiast projektować część od zera."
+      },
+      {
+        "slug": "kick-off-projektu-konstrukcyjnego",
+        "link": "Jak prowadzę start projektu",
+        "reszta": "i co musi zostać ustalone, zanim ktokolwiek otworzy CAD-a."
+      }
+    ]
+  },
+  "faqNaglowek": "Najczęstsze pytania",
   "faq": [
     {
       "pytanie": "Dla kogo są te usługi?",
@@ -77,5 +116,10 @@
       "pytanie": "Jak wygląda rozliczenie?",
       "odpowiedz": "Najczęściej ryczałtem za ustalony zakres, przy dłuższych tematach etapami zgodnie z harmonogramem. Przy konsultacjach i audytach rozliczam się za czas. Wszystko ustalamy przed startem, żeby nie było niespodzianek."
     }
-  ]
+  ],
+  "cta": {
+    "naglowek": "Masz projekt do skonsultowania?",
+    "tresc": "Napisz, co chcesz zbudować albo co utknęło. Odpowiadam konkretnie: czy się tego podejmę, w jakim terminie i za ile.",
+    "przycisk": "Napisz w sprawie projektu"
+  }
 }
