@@ -36,7 +36,7 @@
       },
       {
         "tytul": "W jakim celu i na jakiej podstawie",
-        "tabela": "| Cel | Podstawa prawna | Okres |\n| --- | --- | --- |\n| Odpowiedź na wiadomość e-mail i prowadzenie korespondencji | art. 6 ust. 1 lit. b lub f RODO: wykonanie umowy albo mój prawnie uzasadniony interes | Przez czas sprawy, potem do 3 lat na wypadek roszczeń |\n| Zapewnienie działania i bezpieczeństwa serwisu | art. 6 ust. 1 lit. f RODO: prawnie uzasadniony interes | Zgodnie z polityką dostawcy infrastruktury |\n| Wyświetlanie reklam, w tym spersonalizowanych | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody lub wygaśnięcia cookies |\n| Rozliczenie usług, jeśli nawiążemy współpracę | art. 6 ust. 1 lit. c RODO: obowiązek prawny | 5 lat od końca roku podatkowego |"
+        "tabela": "| Cel | Podstawa prawna | Okres |\n| --- | --- | --- |\n| Odpowiedź na wiadomość e-mail i prowadzenie korespondencji | art. 6 ust. 1 lit. b lub f RODO: wykonanie umowy albo mój prawnie uzasadniony interes | Przez czas sprawy, potem do 3 lat na wypadek roszczeń |\n| Zapewnienie działania i bezpieczeństwa serwisu | art. 6 ust. 1 lit. f RODO: prawnie uzasadniony interes | Zgodnie z polityką dostawcy infrastruktury |\n| Analityka ruchu: ile osób odwiedza serwis, które treści czytają, skąd przychodzą | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody, dane w Google Analytics do 14 miesięcy |\n| Wyświetlanie reklam, w tym spersonalizowanych | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody lub wygaśnięcia cookies |\n| Rozliczenie usług, jeśli nawiążemy współpracę | art. 6 ust. 1 lit. c RODO: obowiązek prawny | 5 lat od końca roku podatkowego |"
       },
       {
         "tytul": "Komu dane są przekazywane",
@@ -44,7 +44,7 @@
           "Nie sprzedaję ani nie udostępniam danych nikomu w celach marketingowych. Dane mogą trafić wyłącznie do podmiotów, które są niezbędne do działania serwisu:"
         ],
         "lista": [
-          "**Google Ireland Limited i Google LLC** jako dostawca reklam AdSense oraz narzędzia zbierania zgód. Google jest w tym zakresie odrębnym administratorem danych i stosuje własną politykę.",
+          "**Google Ireland Limited i Google LLC** jako dostawca reklam AdSense, narzędzia zbierania zgód oraz statystyk Google Analytics. Google jest w tym zakresie odrębnym administratorem danych i stosuje własną politykę.",
           "**GitHub, Inc.** jako dostawca hostingu, na którym stoi serwis.",
           "**Dostawca poczty e-mail**, jeśli napiszesz do mnie wiadomość."
         ],
@@ -69,11 +69,11 @@
       {
         "tytul": "Pliki cookies",
         "akapity": [
-          "Cookies to małe pliki tekstowe zapisywane przez przeglądarkę. Serwis pocaduchy.pl nie stosuje własnych cookies analitycznych ani śledzących. Nie mam Google Analytics ani żadnego innego narzędzia do liczenia odwiedzin po stronie serwisu.",
+          "Cookies to małe pliki tekstowe zapisywane przez przeglądarkę. Serwis pocaduchy.pl nie stosuje własnych cookies. Wszystkie, które mogą się pojawić, pochodzą od Google i wymagają Twojej zgody, poza jednym, który tę zgodę zapamiętuje.",
           "Cookies, które faktycznie mogą pojawić się na Twoim urządzeniu:"
         ],
-        "tabela": "| Cookie | Kto ustawia | Do czego służy | Zgoda |\n| --- | --- | --- | --- |\n| `FCCDCF` | Google | Zapamiętuje Twój wybór w banerze zgody, żeby nie pytać przy każdej wizycie | Niezbędne do obsługi zgody |\n| Cookies Google AdSense | Google | Wyświetlanie reklam, ograniczanie ich powtarzalności, pomiar skuteczności, personalizacja | Wymagana Twoja zgoda |",
-        "poTabeli": "Do momentu wyrażenia zgody reklamy działają w trybie ograniczonym, bez personalizacji. Serwis ma domyślnie ustawioną odmowę dla wszystkich kategorii zgód i zmienia to dopiero po Twojej decyzji w banerze."
+        "tabela": "| Cookie | Kto ustawia | Do czego służy | Zgoda |\n| --- | --- | --- | --- |\n| `FCCDCF` | Google | Zapamiętuje Twój wybór w banerze zgody, żeby nie pytać przy każdej wizycie | Niezbędne do obsługi zgody |\n| Cookies Google Analytics (`_ga`, `_ga_*`) | Google | Statystyka odwiedzin: liczba użytkowników, czytane strony, źródło wejścia. Nie służą do identyfikacji osoby | Wymagana Twoja zgoda |\n| Cookies Google AdSense | Google | Wyświetlanie reklam, ograniczanie ich powtarzalności, pomiar skuteczności, personalizacja | Wymagana Twoja zgoda |",
+        "poTabeli": "Do momentu wyrażenia zgody reklamy działają w trybie ograniczonym, bez personalizacji, a statystyki nie zapisują cookies. Serwis ma domyślnie ustawioną odmowę dla wszystkich kategorii zgód i zmienia to dopiero po Twojej decyzji w banerze. W Google Analytics adres IP jest dodatkowo skracany."
       },
       {
         "tytul": "Jak zmienić lub wycofać zgodę",
