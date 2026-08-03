@@ -7,12 +7,12 @@
   "hero": {
     "eyebrow": "O mnie",
     "naglowek": "Łukasz Cecelon, inżynier konstruktor",
-    "lead": "Projektuję maszyny i prowadzę wdrożenia tak, żeby klient odebrał działającą linię, a nie teczkę rysunków. Prowadziłem projekty o wartości do 4 mln CHF, od oferty przez konstrukcję i zakupy po nadzór nad montażem. Na kanale poCADuchy pokazuję tę samą pracę od kuchni: decyzje, koszty i to, co poszło nie tak."
+    "lead": "Projektuję maszyny i prowadzę wdrożenia tak, żeby klient odebrał działającą linię, a nie tylko ładny model 3D. Prowadziłem projekty o wartości nawet 15 mln PLN, od oferty przez konstrukcję i zakupy po nadzór nad montażem. Natomiast kanał poCADuchy powstał z zajawki i pasji. Pokazuję na nim tę samą pracę tyle, że od kuchni: decyzje, koszty ale i to, co poszło nie tak."
   },
   "dlaczego": {
-    "naglowek": "Dlaczego poCADuchy",
+    "naglowek": "Dlaczego poCADuchy?",
     "akapity": [
-      "Konstruktor uczy się na cudzych błędach albo na własnych. Te pierwsze są tańsze, tylko że prawie nikt się nimi nie dzieli. Katalogi producentów pokazują produkt od najlepszej strony, podręczniki podają wzory bez kontekstu, a to, co dzieje się pomiędzy, czyli dlaczego wybrałem takie rozwiązanie i ile mnie to kosztowało, zostaje w głowie konstruktora albo w protokole z uruchomienia.",
+      "Uważam, że konstruktor najwięcej uczy się na cudzych błędach albo na własnych. Te pierwsze są tańsze, tylko że prawie nikt się nimi nie dzieli. Katalogi producentów pokazują produkt od najlepszej strony, podręczniki podają wzory, a to, co dzieje się pomiędzy, czyli dlaczego wybrałem takie rozwiązanie i ile mnie to kosztowało, zostaje tylko w głowie konstruktora.",
       "Dlatego opisuję konkrety. Że zastąpienie projektowanego sworznia śrubą pasowaną dało oszczędność rzędu 300 procent. Że dobieranie tego samego uchwytu osobno przez dziesięcioosobowy dział to 5 godzin straty na jednym elemencie. Tam, gdzie coś jest moją subiektywną oceną, piszę to wprost, bo w tym zawodzie nie ma jednej słusznej odpowiedzi na większość pytań."
     ]
   },
@@ -26,43 +26,44 @@
       },
       {
         "rok": "2018–2023",
-        "tytul": "Starszy konstruktor, DEC POLAND TEKPRO",
-        "tresc": "Konstrukcje urządzeń w Autodesk Inventor wraz z pełną dokumentacją i specyfikacjami materiałowymi, nadzór nad pracą młodszych konstruktorów. Tu nauczyłem się projektować pod naprawdę ostre wymagania: strefy zagrożone wybuchem w standardach ATEX, NEC i CEC oraz wysokie poziomy OEB, czyli restrykcyjną kontrolę ekspozycji na substancje czynne."
+        "tytul": "Młodszy → starszy konstruktor, DEC POLAND TEKPRO",
+        "tresc": "W tej firmie, przebyłem całą drogę – od początkującego konstruktora, do roli w której prowadziłem cały projekt i zarządzałem zespołem konstruktorów. Korzystałem z Autodesk Inventor, w którym tworzyłem projekty CAD wraz z pełną dokumentacją i specyfikacjami materiałowymi. Tu nauczyłem się projektować pod naprawdę restrykcyjne wymagania: strefy zagrożone wybuchem w standardach ATEX, NEC i CEC oraz wysokie poziomy OEB. Zrozumiałem też ideę systemów PLM i ERP."
       },
       {
         "rok": "od 2021",
         "tytul": "Własna działalność, R&A Engineering",
-        "tresc": "Projektowanie i doradztwo w automatyzacji produkcji: przenośniki taśmowe, roboty kartezjańskie, zrobotyzowane cele gnące, chwytaki. Do tego wycena elementów, wykonanie i montaż zaprojektowanych złożeń. Cały sprzęt i licencje musiałem wybrać i kupić sam, o czym wyszedł potem osobny artykuł."
+        "tresc": "Projektowanie i doradztwo w automatyzacji produkcji: przenośniki taśmowe, roboty kartezjańskie, zrobotyzowane cele gnące, chwytaki. Do tego wycena elementów, wykonanie i montaż zaprojektowanych złożeń. Cały sprzęt i licencje musiałem wybrać i kupić sam, o czym napisałem nawet kiedyś."
       },
       {
         "rok": "od 2023",
         "tytul": "Inżynier projektu i Team Leader, Sure Solutions",
-        "tresc": "Prowadzę projekt od oferty po odbiór u klienta: część mechaniczną projektuję sam, spinam automatykę i zakupy, pilnuję budżetu, a na koniec nadzoruję montaż mechaniczny i elektryczny. Od 2025 roku dodatkowo jako Team Leader. Największe prowadzone projekty sięgały 4 mln CHF."
+        "tresc": "Prowadzę projekt od oferty po odbiór u klienta: część mechaniczną projektuję sam, spinam automatykę i zakupy, pilnuję budżetu, a na koniec nadzoruję montaż mechaniczny i elektryczny. Od 2025 roku dodatkowo jako Team Leader – kiedy przy większych tematach potrzeba więcej niż jednego konstruktora."
       }
     ]
   },
   "obszary": {
     "naglowek": "Co projektuję",
     "pozycje": [
-      "Przenośniki taśmowe i transport międzyoperacyjny",
-      "Roboty kartezjańskie i zrobotyzowane cele gnące",
-      "Chwytaki i tool changery",
-      "Stanowiska Hot Stamping",
-      "Przyrządy produkcyjne i pomiarowe",
-      "Konstrukcje spawane i elementy z tworzyw sztucznych"
+      "Maszyny i urządzenia z obszaru automatyzacji produkcji",
+      "Chwytaki robotów",
+      "Transportery taśmowe",
+      "Układy krzywkowe",
+      "Konstrukcje spawane",
+      "Elementy z tworzyw sztucznych (pod obróbkę skrawaniem)",
+      "Elementy pod druk 3D"
     ],
     "stopka": "Jeśli szukasz kogoś do konkretnego tematu, zakres i przebieg współpracy opisałem w zakładce Usługi."
   },
   "warsztat": {
-    "naglowek": "Czym pracuję i co mam potwierdzone",
+    "naglowek": "Umiejętności i certyfikaty",
     "narzedzia": {
       "etykieta": "Narzędzia",
-      "tresc": "Autodesk Inventor i SOLIDWORKS na poziomie zaawansowanym, Fusion 360, statyczne analizy MES. Projekty prowadzę w OneNote, a prototypy sprawdzam na drukarce 3D, zanim część pojedzie na obrabiarkę."
+      "tresc": "Autodesk Inventor i SOLIDWORKS na poziomie zaawansowanym, Fusion 360, statyczne analizy MES. Projekty prowadzę w OneNote, a prototypy sprawdzam na drukarce 3D, zanim części zlecę do obróbki."
     },
     "certyfikaty": {
       "etykieta": "Certyfikaty i szkolenia",
       "pozycje": [
-        "Autodesk Inventor Certified User, Certiport (ważny do 2030)",
+        "Autodesk Inventor Certified User, Certiport",
         "Dyrektywa Maszynowa 2006/42/WE z oceną ryzyka, Certios (szkolenie zakończone egzaminem)",
         "Wymiarowanie i tolerowanie geometryczne GD&T wg ISO i ASME, TÜV Rheinland",
         "Bezpieczeństwo pracy w strefach zagrożonych wybuchem, TÜV Rheinland",
@@ -71,11 +72,11 @@
     },
     "wyksztalcenie": {
       "etykieta": "Wykształcenie",
-      "tresc": "Politechnika Rzeszowska, kierunek Komputerowo wspomagane wytwarzanie, tytuł inżyniera. Wcześniej technikum pojazdów samochodowych, co brzmi jak zupełnie inna bajka, ale nauczyło mnie rozbierać rzeczy na części, zanim zacząłem je składać w CAD-zie."
+      "tresc": "Politechnika Rzeszowska, kierunek Komputerowo wspomagane wytwarzanie, tytuł inżyniera. Wcześniej technikum pojazdów samochodowych, co brzmi jak zupełnie inna bajka, ale nauczyło mnie rozbierać rzeczy na części, jeszcze zanim zacząłem je projektować 😉"
     }
   },
   "kanaly": {
-    "naglowek": "Gdzie mnie znajdziesz",
+    "naglowek": "Gdzie mnie znajdziesz:",
     "linkedinOpis": "Tam najpierw ukazują się moje artykuły i tam toczy się dyskusja",
     "tiktokOpis": "Krótkie formy z warsztatu i CAD-a",
     "youtubeOpis": "Kanał poCADuchy",
@@ -85,5 +86,5 @@
   "ostatnie": {
     "naglowek": "Ostatnio napisałem"
   },
-  "biogram": "Łukasz Cecelon prowadzi projekty maszyn od oferty po odbiór u klienta, ostatnio o wartości do 4 mln CHF. Projektuje w Inventorze i SOLIDWORKS, wcześniej pod rygorem ATEX i wysokich poziomów OEB. Na kanale poCADuchy pokazuje tę pracę od kuchni."
+  "biogram": "Łukasz Cecelon prowadzi projekty maszyn od oferty po odbiór u klienta. Projektuje w Inventorze i SOLIDWORKS. Na kanale poCADuchy pokazuje tę pracę od kuchni."
 }
