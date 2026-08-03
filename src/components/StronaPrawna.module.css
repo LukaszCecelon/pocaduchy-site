@@ -1,0 +1,182 @@
+.wrap {
+  padding: 56px 32px 96px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--pc-border);
+  margin-bottom: 8px;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.12;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+}
+.lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #565a78;
+  margin: 0 0 16px;
+  max-width: 66ch;
+}
+.data {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin: 0;
+}
+
+.sekcja {
+  margin-top: 40px;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 23px;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--pc-rust);
+}
+
+.tekst {
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--pc-text-muted);
+  max-width: 70ch;
+}
+.tekst p {
+  margin: 0 0 14px;
+}
+.tekst p:last-child {
+  margin-bottom: 0;
+}
+.tekst a {
+  color: var(--pc-rust);
+}
+.tekst strong {
+  color: var(--pc-navy);
+}
+
+.lista {
+  margin: 4px 0 16px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-width: 70ch;
+}
+.lista li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--pc-text-muted);
+}
+.lista li::marker {
+  color: var(--pc-rust);
+}
+.lista li p {
+  margin: 0;
+}
+.lista strong {
+  color: var(--pc-navy);
+}
+
+.tabela {
+  margin: 6px 0 16px;
+  overflow-x: auto;
+  border: 1px solid var(--pc-border);
+  background: #ffffff;
+}
+.tabela table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14.5px;
+  min-width: 520px;
+}
+.tabela th,
+.tabela td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--pc-border);
+  vertical-align: top;
+  color: var(--pc-text-muted);
+}
+.tabela thead th {
+  background: var(--pc-navy);
+  color: var(--pc-bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+.tabela code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: #f1f1f5;
+  padding: 1px 5px;
+}
+
+/* Sekcja o charakterze tresci technicznych: ma sie rzucac w oczy */
+.wyrozniona {
+  background: #fbf7f6;
+  border: 1px solid #e3cfcb;
+  border-left: 4px solid var(--pc-rust);
+  padding: 4px 26px 24px;
+  margin-top: 44px;
+}
+.wyrozniona .h2 {
+  border-top: none;
+  padding-top: 22px;
+}
+
+/* Przycisk ponownego otwarcia okna zgody */
+.zgodaBox {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.zgodaBtn {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--pc-bg);
+  background: var(--pc-rust);
+  border: none;
+  padding: 13px 26px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.zgodaBtn:hover {
+  background: var(--pc-rust-hover);
+  transform: translateY(-2px);
+}
+.zgodaInfo {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 0;
+  max-width: 62ch;
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 40px 22px 72px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .wyrozniona {
+    padding: 4px 18px 20px;
+  }
+}

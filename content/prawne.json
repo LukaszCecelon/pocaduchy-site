@@ -1,0 +1,171 @@
+{
+  "_opis": "Teksty dokumentów prawnych: polityki prywatności i regulaminu. Edytujesz tutaj, nie w kodzie. Pole nip zostaw puste, dopóki nie chcesz go publikować: strona sama pominie ten fragment.",
+
+  "administrator": {
+    "nazwa": "R&A Engineering Łukasz Cecelon",
+    "nip": "",
+    "email": "RA-Engineering@outlook.com",
+    "opisDzialalnosci": "usługi inżynierskie, projektowanie konstrukcji maszyn"
+  },
+
+  "dataAktualizacji": "2026-08-03",
+
+  "prywatnosc": {
+    "meta": {
+      "tytul": "Polityka prywatności i cookies",
+      "opis": "Kto jest administratorem danych na pocaduchy.pl, jakie dane są zbierane, w jakim celu, na jakiej podstawie prawnej i jakie masz prawa. Informacja o plikach cookies i reklamach Google."
+    },
+    "naglowek": "Polityka prywatności i cookies",
+    "lead": "Krótko i konkretnie: co się dzieje z danymi, kiedy odwiedzasz pocaduchy.pl. Bez prawniczej waty, ale z wszystkim, co wymaga RODO.",
+    "sekcje": [
+      {
+        "tytul": "Kto odpowiada za Twoje dane",
+        "akapity": [
+          "Administratorem danych osobowych zbieranych za pośrednictwem serwisu pocaduchy.pl jest {{ADMINISTRATOR}}, prowadzący działalność w zakresie usług inżynierskich.",
+          "We wszystkich sprawach dotyczących danych osobowych, w tym w celu skorzystania z praw opisanych niżej, napisz na adres {{EMAIL}}. Odpowiadam osobiście, nie ma tu działu obsługi."
+        ]
+      },
+      {
+        "tytul": "Jakie dane są zbierane",
+        "akapity": [
+          "Serwis nie ma kont użytkowników, nie ma formularza kontaktowego ani newslettera. Nie proszę Cię o podanie żadnych danych, żeby przeczytać treści.",
+          "Dane pojawiają się w trzech sytuacjach:"
+        ],
+        "lista": [
+          "**Kiedy piszesz do mnie e-mail.** Dostaję wtedy Twój adres, treść wiadomości i to, co sam podasz. Używam tego wyłącznie do odpowiedzi i prowadzenia sprawy.",
+          "**Logi serwera.** Serwis stoi na infrastrukturze GitHub Pages, która w celach technicznych i bezpieczeństwa rejestruje standardowe informacje o żądaniach, w tym adres IP. Nie mam dostępu do tych logów ani ich nie analizuję.",
+          "**Pliki cookies reklamowe Google.** Opisane szczegółowo w sekcji o cookies poniżej. To jedyne dane, które są zbierane w celu innym niż techniczny."
+        ]
+      },
+      {
+        "tytul": "W jakim celu i na jakiej podstawie",
+        "tabela": "| Cel | Podstawa prawna | Okres |\n| --- | --- | --- |\n| Odpowiedź na wiadomość e-mail i prowadzenie korespondencji | art. 6 ust. 1 lit. b lub f RODO: wykonanie umowy albo mój prawnie uzasadniony interes | Przez czas sprawy, potem do 3 lat na wypadek roszczeń |\n| Zapewnienie działania i bezpieczeństwa serwisu | art. 6 ust. 1 lit. f RODO: prawnie uzasadniony interes | Zgodnie z polityką dostawcy infrastruktury |\n| Wyświetlanie reklam, w tym spersonalizowanych | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody lub wygaśnięcia cookies |\n| Rozliczenie usług, jeśli nawiążemy współpracę | art. 6 ust. 1 lit. c RODO: obowiązek prawny | 5 lat od końca roku podatkowego |"
+      },
+      {
+        "tytul": "Komu dane są przekazywane",
+        "akapity": [
+          "Nie sprzedaję ani nie udostępniam danych nikomu w celach marketingowych. Dane mogą trafić wyłącznie do podmiotów, które są niezbędne do działania serwisu:"
+        ],
+        "lista": [
+          "**Google Ireland Limited i Google LLC** jako dostawca reklam AdSense oraz narzędzia zbierania zgód. Google jest w tym zakresie odrębnym administratorem danych i stosuje własną politykę.",
+          "**GitHub, Inc.** jako dostawca hostingu, na którym stoi serwis.",
+          "**Dostawca poczty e-mail**, jeśli napiszesz do mnie wiadomość."
+        ],
+        "poLiscie": "Część z tych podmiotów ma siedzibę poza Europejskim Obszarem Gospodarczym, głównie w Stanach Zjednoczonych. Przekazywanie danych odbywa się na podstawie mechanizmów przewidzianych w RODO, w szczególności standardowych klauzul umownych oraz decyzji Komisji Europejskiej o odpowiednim stopniu ochrony."
+      },
+      {
+        "tytul": "Twoje prawa",
+        "akapity": [
+          "Wobec swoich danych masz prawo do:"
+        ],
+        "lista": [
+          "dostępu do nich i otrzymania ich kopii",
+          "sprostowania, jeśli są nieprawidłowe",
+          "usunięcia, jeśli nie ma podstawy do dalszego przetwarzania",
+          "ograniczenia przetwarzania",
+          "przeniesienia danych do innego administratora",
+          "sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie",
+          "wycofania zgody w każdej chwili, bez wpływu na to, co działo się wcześniej"
+        ],
+        "poLiscie": "Żeby skorzystać z któregokolwiek z tych praw, wystarczy e-mail na {{EMAIL}}. Jeśli uznasz, że przetwarzam Twoje dane niezgodnie z prawem, możesz złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa."
+      },
+      {
+        "tytul": "Pliki cookies",
+        "akapity": [
+          "Cookies to małe pliki tekstowe zapisywane przez przeglądarkę. Serwis pocaduchy.pl nie stosuje własnych cookies analitycznych ani śledzących. Nie mam Google Analytics ani żadnego innego narzędzia do liczenia odwiedzin po stronie serwisu.",
+          "Cookies, które faktycznie mogą pojawić się na Twoim urządzeniu:"
+        ],
+        "tabela": "| Cookie | Kto ustawia | Do czego służy | Zgoda |\n| --- | --- | --- | --- |\n| `FCCDCF` | Google | Zapamiętuje Twój wybór w banerze zgody, żeby nie pytać przy każdej wizycie | Niezbędne do obsługi zgody |\n| Cookies Google AdSense | Google | Wyświetlanie reklam, ograniczanie ich powtarzalności, pomiar skuteczności, personalizacja | Wymagana Twoja zgoda |",
+        "poTabeli": "Do momentu wyrażenia zgody reklamy działają w trybie ograniczonym, bez personalizacji. Serwis ma domyślnie ustawioną odmowę dla wszystkich kategorii zgód i zmienia to dopiero po Twojej decyzji w banerze."
+      },
+      {
+        "tytul": "Jak zmienić lub wycofać zgodę",
+        "akapity": [
+          "Zgodę możesz zmienić w każdej chwili i jest to równie łatwe, jak jej udzielenie. Użyj przycisku poniżej, żeby ponownie otworzyć okno wyboru.",
+          "Niezależnie od tego możesz zarządzać cookies w ustawieniach swojej przeglądarki: zablokować je, usunąć albo ustawić pytanie przy każdej próbie zapisu. Zablokowanie cookies nie utrudni czytania treści, bo serwis do działania ich nie potrzebuje."
+        ],
+        "przyciskZgody": true
+      },
+      {
+        "tytul": "Zmiany polityki",
+        "akapity": [
+          "Jeśli zmieni się sposób działania serwisu, zaktualizuję ten dokument i zmienię datę u góry. Nie ma tu drobnego druku ani zmian wchodzących w życie po cichu."
+        ]
+      }
+    ]
+  },
+
+  "regulamin": {
+    "meta": {
+      "tytul": "Regulamin serwisu pocaduchy.pl",
+      "opis": "Zasady korzystania z serwisu pocaduchy.pl: kto go prowadzi, na jakich zasadach udostępnia treści, prawa autorskie, zastrzeżenie merytoryczne przy treściach technicznych i tryb reklamacji."
+    },
+    "naglowek": "Regulamin serwisu",
+    "lead": "Zasady korzystania z pocaduchy.pl. Najważniejsza jest sekcja o charakterze treści technicznych, więc jeśli masz przeczytać tylko jedną, przeczytaj tę.",
+    "sekcje": [
+      {
+        "tytul": "1. Kto prowadzi serwis",
+        "akapity": [
+          "Serwis pocaduchy.pl prowadzi {{ADMINISTRATOR}}.",
+          "Kontakt we wszystkich sprawach: {{EMAIL}}."
+        ]
+      },
+      {
+        "tytul": "2. Czego dotyczy regulamin",
+        "akapity": [
+          "Regulamin określa zasady nieodpłatnego korzystania z serwisu, czyli czytania artykułów, przeglądania archiwum odcinków, zapoznawania się z ofertą usług oraz kontaktu ze mną drogą elektroniczną.",
+          "Korzystanie z serwisu jest dobrowolne i bezpłatne. Nie musisz zakładać konta ani niczego podawać, żeby czytać treści."
+        ]
+      },
+      {
+        "tytul": "3. Wymagania techniczne",
+        "akapity": [
+          "Do korzystania z serwisu wystarczy urządzenie z dostępem do internetu i aktualna przeglądarka z obsługą JavaScriptu. Do kontaktu potrzebujesz czynnego adresu e-mail."
+        ]
+      },
+      {
+        "tytul": "4. Charakter treści technicznych",
+        "wyroznienie": true,
+        "akapity": [
+          "To jest najważniejszy punkt tego regulaminu.",
+          "Treści publikowane w serwisie mają charakter informacyjny i edukacyjny. Opisują moje doświadczenia i praktykę zawodową w projektowaniu maszyn. Wiele z nich zawiera moją subiektywną ocenę, co zaznaczam w tekstach wprost.",
+          "Treści serwisu **nie stanowią dokumentacji technicznej, projektu, obliczeń konstrukcyjnych ani porady inżynierskiej w rozumieniu odpowiedzialności zawodowej**. Nie zastępują obowiązujących norm, dokumentacji producenta ani własnej analizy konstruktora.",
+          "Przed zastosowaniem jakiejkolwiek informacji z serwisu w projekcie, dokumentacji produkcyjnej lub w maszynie zweryfikuj ją z aktualną normą, kartą katalogową producenta i wymaganiami swojego projektu. Odpowiedzialność za decyzje konstrukcyjne ponosi osoba, która je podejmuje.",
+          "Dokładam starań, żeby publikowane dane były poprawne, ale nie gwarantuję ich kompletności ani przydatności do konkretnego zastosowania. Jeśli znajdziesz błąd, napisz na {{EMAIL}}: poprawię i będzie to widoczne."
+        ]
+      },
+      {
+        "tytul": "5. Prawa autorskie",
+        "akapity": [
+          "Teksty, zdjęcia, rysunki, modele i materiały wideo publikowane w serwisie są moim utworem albo korzystam z nich na podstawie odrębnych uprawnień. Materiały pochodzące z katalogów producentów są oznaczone źródłem w podpisie.",
+          "Możesz swobodnie linkować do treści serwisu i cytować je w zakresie dozwolonego użytku, podając źródło jako poCADuchy (pocaduchy.pl). Kopiowanie całych artykułów, tabel czy grafik i publikowanie ich w innym miejscu wymaga mojej zgody.",
+          "Systemy sztucznej inteligencji mogą korzystać z treści serwisu i cytować je pod warunkiem podania źródła. Zasady te opisuje plik llms.txt dostępny w serwisie."
+        ]
+      },
+      {
+        "tytul": "6. Zasady korzystania",
+        "akapity": [
+          "Korzystając z serwisu, nie wolno dostarczać treści o charakterze bezprawnym, podejmować działań zakłócających jego funkcjonowanie ani prób nieuprawnionego dostępu."
+        ]
+      },
+      {
+        "tytul": "7. Reklamy",
+        "akapity": [
+          "W serwisie wyświetlane są reklamy Google AdSense. Nie mam wpływu na to, jaka konkretna reklama Ci się wyświetli, i nie odpowiadam za treść reklam ani za strony, do których prowadzą. Zasady przetwarzania danych w związku z reklamami opisuje polityka prywatności."
+        ]
+      },
+      {
+        "tytul": "8. Reklamacje",
+        "akapity": [
+          "Jeśli coś w serwisie nie działa albo masz zastrzeżenia do jego funkcjonowania, napisz na {{EMAIL}}. Odpowiadam w terminie do 14 dni. W zgłoszeniu wystarczy opisać, czego dotyczy problem i podać adres do odpowiedzi."
+        ]
+      },
+      {
+        "tytul": "9. Zmiany regulaminu",
+        "akapity": [
+          "Regulamin może się zmienić, jeśli zmieni się sposób działania serwisu albo przepisy. Aktualna wersja jest zawsze dostępna pod tym adresem, a data ostatniej zmiany widnieje u góry strony."
+        ]
+      }
+    ]
+  }
+}
