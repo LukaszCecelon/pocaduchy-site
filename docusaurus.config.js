@@ -21,6 +21,40 @@ const config = {
 
   onBrokenLinks: 'throw',
 
+  // Zabezpieczenia po stronie dokumentu.
+  //
+  // GitHub Pages nie pozwala ustawiac wlasnych naglowkow HTTP, wiec to, co da
+  // sie zrobic, idzie przez znaczniki meta. Dzialaja: polityka referrera oraz
+  // czesc dyrektyw CSP. NIE dzialaja w meta i pozostaja niedostepne bez
+  // wlasnego serwera albo CDN przed strona: X-Content-Type-Options,
+  // Permissions-Policy oraz frame-ancestors, czyli ochrona przed clickjackingiem.
+  //
+  // CSP celowo NIE ogranicza script-src, img-src ani frame-src. AdSense laduje
+  // skrypty z wielu domen Google i podmienia je w czasie, wiec sztywna lista
+  // predzej czy pozniej zablokowalaby reklamy. Zamiast tego blokujemy klasy
+  // atakow, ktore z reklamami nie maja nic wspolnego.
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        'http-equiv': 'Content-Security-Policy',
+        content: [
+          "object-src 'none'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          'upgrade-insecure-requests',
+        ].join('; '),
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'referrer',
+        content: 'strict-origin-when-cross-origin',
+      },
+    },
+  ],
+
   // Google AdSense — ładowany na każdej stronie (weryfikacja + auto ads).
   scripts: [
     {
