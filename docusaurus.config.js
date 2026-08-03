@@ -223,6 +223,13 @@ const config = {
             ],
           },
           {
+            title: 'Formalności',
+            items: [
+              {label: 'Polityka prywatności i cookies', to: '/polityka-prywatnosci'},
+              {label: 'Regulamin', to: '/regulamin'},
+            ],
+          },
+          {
             title: 'Kanały',
             items: [
               {label: 'YouTube', href: 'https://youtube.com/@pocaduchy'},
