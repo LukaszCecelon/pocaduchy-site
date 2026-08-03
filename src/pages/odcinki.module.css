@@ -186,16 +186,6 @@
 }
 
 /* Opis kanału i podział na działy tematyczne (rozbudowa pod SEO) */
-.leadMaly {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--pc-text-faint);
-  margin: 14px 0 0;
-}
-.leadMaly a {
-  color: var(--pc-rust);
-}
-
 .dzial {
   margin-top: 48px;
 }

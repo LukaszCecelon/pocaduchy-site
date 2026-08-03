@@ -1,8 +1,6 @@
 {
   "_opis": "Warstwa redakcyjna nad automatycznie pobieraną listą odcinków. Lista filmów przychodzi z RSS YouTube (scripts/fetch-episodes.mjs), a tutaj dokładamy to, czego feed nie ma: podział na działy i opis każdego odcinka. Nowy odcinek pojawi się na stronie nawet bez wpisu tutaj - trafi wtedy do działu domyślnego i wyświetli sam tytuł.",
-
-  "intro": "Kanał poCADuchy to zapis realnej pracy konstruktora maszyn. Nie ma tu kursów \"od zera do bohatera\" ani gotowych recept z podręcznika. Jest za to to, co dzieje się między jednym a drugim: dlaczego wybrałem takie rozwiązanie, ile kosztowało, co poszło nie tak i co bym dziś zrobił inaczej. Każdy odcinek wychodzi z konkretnego projektu albo problemu, na który sam się natknąłem.",
-
+  "intro": "Kanał poCADuchy to mój projekt, który ma promować inżynierię i pokazywać pracę konstruktora „od kuchni”. Znajdziecie tu rozwiązania i decyzje, które do nich doprowadziły. Oczywiście nie brakuje również wartościowej wiedzy, przemycanej właśnie w formie case study, ale też typowo edukacyjnych materiałów.",
   "dzialy": [
     {
       "id": "automatyzacja",
@@ -25,9 +23,7 @@
       "opis": "Czym właściwie zajmuje się konstruktor i jak wygląda ta praca od środka."
     }
   ],
-
   "dzialDomyslny": "projektowanie",
-
   "odcinki": {
     "G7331PHjNmI": {
       "dzial": "automatyzacja",
