@@ -1,17 +1,14 @@
 {
   "_opis": "Wszystkie teksty strony /o-mnie. Edytujesz tutaj, nie w kodzie. Po zapisaniu pliku i przebudowaniu strony zmiany widać od razu. Pole 'biogram' pojawia się także pod każdym artykułem na blogu.",
-
   "meta": {
     "tytul": "Łukasz Cecelon, inżynier konstruktor maszyn",
     "opis": "Inżynier konstruktor z Mielca. Prowadzę projekty maszyn od oferty po odbiór u klienta, projektuję w Inventorze i SOLIDWORKS. Na kanale poCADuchy pokazuję tę pracę od kuchni."
   },
-
   "hero": {
     "eyebrow": "O mnie",
     "naglowek": "Łukasz Cecelon, inżynier konstruktor",
     "lead": "Projektuję maszyny i prowadzę wdrożenia tak, żeby klient odebrał działającą linię, a nie teczkę rysunków. Prowadziłem projekty o wartości do 4 mln CHF, od oferty przez konstrukcję i zakupy po nadzór nad montażem. Na kanale poCADuchy pokazuję tę samą pracę od kuchni: decyzje, koszty i to, co poszło nie tak."
   },
-
   "dlaczego": {
     "naglowek": "Dlaczego poCADuchy",
     "akapity": [
@@ -19,7 +16,6 @@
       "Dlatego opisuję konkrety. Że zastąpienie projektowanego sworznia śrubą pasowaną dało oszczędność rzędu 300 procent. Że dobieranie tego samego uchwytu osobno przez dziesięcioosobowy dział to 5 godzin straty na jednym elemencie. Tam, gdzie coś jest moją subiektywną oceną, piszę to wprost, bo w tym zawodzie nie ma jednej słusznej odpowiedzi na większość pytań."
     ]
   },
-
   "sciezka": {
     "naglowek": "Droga zawodowa",
     "wpisy": [
@@ -45,7 +41,6 @@
       }
     ]
   },
-
   "obszary": {
     "naglowek": "Co projektuję",
     "pozycje": [
@@ -58,7 +53,6 @@
     ],
     "stopka": "Jeśli szukasz kogoś do konkretnego tematu, zakres i przebieg współpracy opisałem w zakładce Usługi."
   },
-
   "warsztat": {
     "naglowek": "Czym pracuję i co mam potwierdzone",
     "narzedzia": {
@@ -80,12 +74,6 @@
       "tresc": "Politechnika Rzeszowska, kierunek Komputerowo wspomagane wytwarzanie, tytuł inżyniera. Wcześniej technikum pojazdów samochodowych, co brzmi jak zupełnie inna bajka, ale nauczyło mnie rozbierać rzeczy na części, zanim zacząłem je składać w CAD-zie."
     }
   },
-
-  "prywatnie": {
-    "naglowek": "Poza biurem",
-    "tresc": "Chodzę po górach, czasem w wariancie czterdziestu kilometrów na raz. Biegam, pływam i dźwigam. Kiedyś grałem na instrumentach, na to akurat doby już nie starcza."
-  },
-
   "kanaly": {
     "naglowek": "Gdzie mnie znajdziesz",
     "linkedinOpis": "Tam najpierw ukazują się moje artykuły i tam toczy się dyskusja",
@@ -94,10 +82,8 @@
     "blogOpis": "Teksty o praktyce konstruktora",
     "mailOpis": "Sprawy projektowe i współpraca"
   },
-
   "ostatnie": {
     "naglowek": "Ostatnio napisałem"
   },
-
   "biogram": "Łukasz Cecelon prowadzi projekty maszyn od oferty po odbiór u klienta, ostatnio o wartości do 4 mln CHF. Projektuje w Inventorze i SOLIDWORKS, wcześniej pod rygorem ATEX i wysokich poziomów OEB. Na kanale poCADuchy pokazuje tę pracę od kuchni."
 }
