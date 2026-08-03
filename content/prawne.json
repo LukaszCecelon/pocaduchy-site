@@ -1,15 +1,12 @@
 {
   "_opis": "Teksty dokumentów prawnych: polityki prywatności i regulaminu. Edytujesz tutaj, nie w kodzie. Pole nip zostaw puste, dopóki nie chcesz go publikować: strona sama pominie ten fragment.",
-
   "administrator": {
     "nazwa": "R&A Engineering Łukasz Cecelon",
-    "nip": "",
+    "nip": "8172199486",
     "email": "RA-Engineering@outlook.com",
     "opisDzialalnosci": "usługi inżynierskie, projektowanie konstrukcji maszyn"
   },
-
   "dataAktualizacji": "2026-08-03",
-
   "prywatnosc": {
     "meta": {
       "tytul": "Polityka prywatności i cookies",
@@ -94,7 +91,6 @@
       }
     ]
   },
-
   "regulamin": {
     "meta": {
       "tytul": "Regulamin serwisu pocaduchy.pl",
