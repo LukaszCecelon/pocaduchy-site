@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 // Dopoki jest pusty, zaden skrypt analityczny sie nie laduje i strona dziala
 // dokladnie tak jak przed dodaniem analityki. Wystarczy wkleic tu identyfikator
 // z panelu GA4, zeby wlaczyc zbieranie danych.
-const GA4_ID = '';
+const GA4_ID = 'G-JJ9Q0WW43T';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -240,6 +240,10 @@ const config = {
       };
     },
   ],
+
+  // Modul kliencki dopisujacy odslony przy przejsciach wewnatrz serwisu.
+  // Sam z siebie nic nie wysyla, dopoki GA4 nie jest wlaczony.
+  clientModules: ['./src/clientModules/analityka.js'],
 
   i18n: {
     defaultLocale: 'pl',
