@@ -17,8 +17,7 @@ const SUBSCRIBERS = subscribers?.count || null;
 
 // Cała treść tej strony siedzi w content/o-mnie.json, żeby dało się ją
 // poprawiać bez dotykania kodu.
-const {hero, dlaczego, sciezka, obszary, warsztat, prywatnie, kanaly, ostatnie, meta} =
-  tresc;
+const {hero, dlaczego, sciezka, obszary, warsztat, kanaly, ostatnie, meta} = tresc;
 
 // Rozszerzenie encji Person zdefiniowanej globalnie w docusaurus.config.js.
 // Ten sam @id, więc wyszukiwarki scalają oba opisy w jedną osobę. Wykształcenie
@@ -156,11 +155,6 @@ export default function OMnie() {
               <p className={styles.wTresc}>{warsztat.wyksztalcenie.tresc}</p>
             </div>
           </div>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.h2}>{prywatnie.naglowek}</h2>
-          <p className={styles.prose}>{prywatnie.tresc}</p>
         </section>
 
         <section className={styles.section}>
