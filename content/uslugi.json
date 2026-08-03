@@ -2,17 +2,17 @@
   "_opis": "Wszystkie teksty zakladki /uslugi. Edytujesz tutaj, nie w kodzie.",
   "meta": {
     "tytul": "Usługi konstrukcyjne: projektowanie maszyn i druk 3D",
-    "opis": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D z dokumentacją wykonawczą, druk 3D prototypów oraz audyty dokumentacji dla firm produkcyjnych i biur konstrukcyjnych."
+    "opis": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D z dokumentacją wykonawczą, druk 3D prototypów oraz audyty pracy działów konstrukcyjnych dla firm produkcyjnych i projektowych."
   },
   "hero": {
     "eyebrow": "Usługi",
-    "naglowek": "Współpraca przy realnych projektach konstrukcyjnych",
-    "lead": "Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych. Pracuję zarówno przy pojedynczych podzespołach, jak i przy całych urządzeniach: od koncepcji po dokumentację, którą da się bez pytań przekazać na warsztat."
+    "naglowek": "Współpraca przy projektach maszyn",
+    "lead": "Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych. Pracuję zarówno przy pojedynczych podzespołach, jak i przy całych urządzeniach: od koncepcji po dokumentację i uruchomienie."
   },
   "services": [
     {
       "title": "Projektowanie",
-      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D - od koncepcji po dokumentację warsztatową.",
+      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D – Autodesk, Fusion 360 oraz Solidworks",
       "items": [
         "Modelowanie 3D i złożenia",
         "Dokumentacja wykonawcza",
@@ -30,40 +30,14 @@
     },
     {
       "title": "Konsultacje i audyty",
-      "body": "Przegląd dokumentacji i rozwiązań konstrukcyjnych dla biur projektowych - spojrzenie inżyniera z doświadczeniem warsztatowym.",
+      "body": "Konsultacje dotyczące optymalizacji i uporządkowania pracy biur konstrukcyjnych. Standaryzacja, procesy i workflow",
       "items": [
-        "Przegląd rysunków i modeli 3D",
-        "Audyt pod kątem wykonalności",
-        "Konsultacje projektowe"
+        "Audyt standardów i procesów",
+        "Pomoc w usprawnieniu organizacji pracy",
+        "Wsparcie we wdrożeniu"
       ]
     }
   ],
-  "przebieg": {
-    "naglowek": "Jak wygląda współpraca",
-    "lead": "Ten sam schemat stosuję niezależnie od wielkości tematu. Chodzi o to, żebyś na każdym etapie wiedział, co dostajesz i kiedy.",
-    "kroki": [
-      {
-        "krok": "Rozmowa i zakres",
-        "tresc": "Zaczynamy od tego, co ma robić urządzenie i w jakich warunkach. Ustalamy funkcjonalność, czasy cyklu, wymagania klienta końcowego oraz preferowanych dostawców, jeśli takie są. Już na tym etapie wskazuję moduły, które widzę jako proste, i te, które będą kluczowe albo ryzykowne."
-      },
-      {
-        "krok": "Wycena i harmonogram",
-        "tresc": "Dostajesz wycenę z rozbiciem na etapy oraz termin. Czas projektowania szacuję metodycznie, a nie na oko: na bazie doświadczenia, analogii do wcześniejszych projektów i, przy ryzykownych etapach, trzech scenariuszy. Wolę podać termin, który dotrzymam, niż taki, który dobrze wygląda w ofercie."
-      },
-      {
-        "krok": "Koncepcja",
-        "tresc": "Powstaje układ ogólny i wstępny dobór rozwiązań: napędy, pneumatyka, elementy handlowe. Na tym etapie da się jeszcze tanio zmienić kierunek, dlatego pokazuję warianty razem z ich konsekwencjami kosztowymi. Wysyłamy też pierwsze zapytania ofertowe."
-      },
-      {
-        "krok": "Projekt techniczny i dokumentacja",
-        "tresc": "Model 3D doprowadzony do stanu produkcyjnego, sprawdzone kolizje, optymalizacja pod obróbkę i montaż, komplet rysunków wykonawczych i lista materiałowa. Dokumentacja ma być zrozumiała dla warsztatu, nie tylko poprawna formalnie."
-      },
-      {
-        "krok": "Wsparcie przy wykonaniu",
-        "tresc": "Odpowiadam na pytania warsztatu i montażu, nanoszę poprawki wynikające z realiów wykonania. W razie potrzeby drukuję prototyp 3D, żeby sprawdzić geometrię, zanim część pojedzie na obrabiarkę."
-      }
-    ]
-  },
   "dowody": {
     "naglowek": "Jak pracuję, czyli sprawdź sam",
     "lead": "Nie musisz wierzyć mi na słowo. Sposób, w jaki podejmuję decyzje konstrukcyjne, opisuję publicznie, z konkretnymi liczbami i bez ukrywania błędów. To chyba najuczciwsze portfolio, jakie mogę pokazać:",
@@ -98,7 +72,7 @@
     },
     {
       "pytanie": "W jakim oprogramowaniu pracujesz?",
-      "odpowiedz": "Głównie SOLIDWORKS, pracuję też w Autodesk Inventor. Dokumentację przekazuję w formatach uzgodnionych na starcie, łącznie z neutralnymi (STEP, PDF), żeby dało się z niej korzystać niezależnie od Waszego systemu CAD."
+      "odpowiedz": "Autodesk, Fusion 360 oraz Solidworks. Dokumentację przekazuję w formatach uzgodnionych na starcie, łącznie z neutralnymi (STEP, PDF), żeby dało się z niej korzystać niezależnie od Waszego systemu CAD."
     },
     {
       "pytanie": "Ile trwa zaprojektowanie urządzenia?",
@@ -106,11 +80,7 @@
     },
     {
       "pytanie": "Czy podpisujesz NDA?",
-      "odpowiedz": "Tak, standardowo. Projekty klientów nie trafiają na kanał ani do artykułów. Materiały, które publikuję, są moimi własnymi opracowaniami albo przykładami przygotowanymi specjalnie na potrzeby publikacji."
-    },
-    {
-      "pytanie": "Co dokładnie obejmuje audyt dokumentacji?",
-      "odpowiedz": "Przegląd modeli 3D i rysunków pod kątem wykonalności: czy detal da się wykonać w założonej technologii, czy tolerancje i pasowania mają sens, czy montaż jest możliwy w zakładanej kolejności, czy nie ma kolizji i czy dobór elementów handlowych jest optymalny kosztowo. Efektem jest lista uwag z priorytetami."
+      "odpowiedz": "Tak, standardowo. Zakres zawsze uzgadniany indywidualnie."
     },
     {
       "pytanie": "Jak wygląda rozliczenie?",
@@ -119,7 +89,7 @@
   ],
   "cta": {
     "naglowek": "Masz projekt do skonsultowania?",
-    "tresc": "Napisz, co chcesz zbudować albo co utknęło. Odpowiadam konkretnie: czy się tego podejmę, w jakim terminie i za ile.",
+    "tresc": "Napisz, co potrzebujesz zaprojektować. Odpowiadam konkretnie: czy się tego podejmę, w jakim terminie i za ile.",
     "przycisk": "Napisz w sprawie projektu"
   }
 }
