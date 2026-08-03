@@ -157,9 +157,9 @@ const config = {
     },
 
     // Google Consent Mode v2: przed załadowaniem skryptów reklamowych
-    // deklarujemy brak zgód (RODO-safe default). Właściwy baner zgód to
-    // CMP Google włączany w panelu AdSense (Privacy & messaging) — po
-    // uzyskaniu zgody użytkownika sam zaktualizuje te sygnały.
+    // deklarujemy brak zgód (RODO-safe default). Zgody reklamowe aktualizuje
+    // CMP Google (panel AdSense, Prywatność i wiadomości), a zgodę na
+    // statystyki nasz własny baner (src/components/BanerZgody.js).
     function consentModeDefaults() {
       return {
         name: 'consent-mode-defaults',
@@ -181,10 +181,37 @@ const config = {
       };
     },
 
+    // Przywrocenie wczesniejszej decyzji uzytkownika. Musi wykonac sie
+    // w <head>, miedzy domyslna odmowa a konfiguracja GA4: gdyby czekalo na
+    // Reacta, pierwsza odslona kazdej wizyty leciałaby bez zgody, mimo ze
+    // uzytkownik dawno ja wyrazil. Klucz i wersja jak w BanerZgody.js.
+    function consentStored() {
+      return {
+        name: 'consent-stored',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML:
+                  'try{' +
+                  "var z=JSON.parse(localStorage.getItem('pc-zgoda-analityka')||'null');" +
+                  "if(z&&z.wersja===1&&z.decyzja==='granted'){" +
+                  'window.dataLayer=window.dataLayer||[];' +
+                  'function gtag(){dataLayer.push(arguments);}' +
+                  "gtag('consent','update',{analytics_storage:'granted'});" +
+                  '}}catch(e){}',
+              },
+            ],
+          };
+        },
+      };
+    },
+
     // Google Analytics 4. Laduje sie dopiero, gdy GA4_ID jest uzupelniony.
-    // Consent Mode v2 jest juz zadeklarowany nizej z domyslna odmowa, wiec do
-    // czasu zgody uzytkownika GA4 wysyla wylacznie sygnaly bez cookies.
-    // Zgode aktualizuje CMP Google po wyborze w banerze.
+    // Consent Mode v2 jest zadeklarowany wyzej z domyslna odmowa, wiec do
+    // czasu zgody GA4 wysyla wylacznie sygnaly bez cookies. Zgode na
+    // statystyki daje wlasny baner, zgody reklamowe CMP Google.
     function googleAnalytics() {
       return {
         name: 'google-analytics-4',

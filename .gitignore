@@ -8,6 +8,12 @@
 .docusaurus
 .cache-loader
 
+# Eksperyment Next.js (next-app) — wynik builda i zaleznosci nie ida do repo.
+# Bez tego `git add -A` probuje zaindeksowac dziesiatki tysiecy plikow.
+next-app/.next/
+next-app/node_modules/
+next-app/out/
+
 # Claude Code (ustawienia lokalne)
 .claude/settings.local.json
 

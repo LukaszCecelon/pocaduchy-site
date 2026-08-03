@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Okruszki from '@site/src/components/Okruszki';
+import {otworzBanerZgody} from '@site/src/components/BanerZgody';
 import prawne from '@site/content/prawne.json';
 import styles from './StronaPrawna.module.css';
 
@@ -33,25 +34,32 @@ function formatDate(iso) {
 }
 
 // Ponowne otwarcie okna zgody. Wycofanie zgody musi byc rownie latwe jak jej
-// udzielenie, a baner Google domyslnie nie wraca sam z siebie.
+// udzielenie, a zaden z banerow nie wraca sam z siebie.
+//
+// Sa dwa niezalezne mechanizmy: nasz baner steruje statystykami, a CMP Google
+// zgodami reklamowymi. Przycisk otwiera oba, bo z punktu widzenia czytelnika
+// to jedna sprawa: chce zmienic zdanie.
 function PrzyciskZgody() {
-  const [stan, setStan] = React.useState('gotowy');
-
-  function otworz() {
-    if (typeof window === 'undefined') return;
-    const fc = window.googlefc;
+  function otworzGoogle() {
+    const fc = typeof window !== 'undefined' ? window.googlefc : null;
     if (fc && typeof fc.showRevocationMessage === 'function') {
       fc.showRevocationMessage();
-      return;
+      return true;
     }
     if (fc && Array.isArray(fc.callbackQueue)) {
       fc.callbackQueue.push({
         CONSENT_DATA_READY: () => window.googlefc.showRevocationMessage(),
       });
-      return;
+      return true;
     }
-    // Baner nie zdazyl sie zaladowac albo blokuje go rozszerzenie przegladarki.
-    setStan('niedostepny');
+    // CMP Google milczy, dopoki AdSense nie zatwierdzi witryny. To normalny
+    // stan, a nie blad, wiec nie robimy z tego komunikatu.
+    return false;
+  }
+
+  function otworz() {
+    otworzBanerZgody();
+    otworzGoogle();
   }
 
   return (
@@ -59,13 +67,6 @@ function PrzyciskZgody() {
       <button type="button" onClick={otworz} className={`${styles.zgodaBtn} pc-cut`}>
         Zmień ustawienia zgody
       </button>
-      {stan === 'niedostepny' ? (
-        <p className={styles.zgodaInfo}>
-          Okno zgody nie odpowiada. Najczęściej blokuje je rozszerzenie
-          przeglądarki typu adblock. Możesz też wyczyścić pliki cookies dla tej
-          strony, wtedy baner pojawi się ponownie przy następnej wizycie.
-        </p>
-      ) : null}
     </div>
   );
 }
