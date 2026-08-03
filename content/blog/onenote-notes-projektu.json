@@ -1,0 +1,105 @@
+{
+  "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
+  "seoTitle": "OneNote projektu: jak zorganizować notes konstruktora",
+  "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/onenote-notes-projektu-okladka.jpg",
+  "tags": [
+    "zarządzanie projektem",
+    "praca konstruktora"
+  ],
+  "related": [
+    "kick-off-projektu-konstrukcyjnego",
+    "projektowanie-z-niepelnymi-danymi",
+    "narzedzia-pracy-konstruktora"
+  ],
+  "faq": [
+    {
+      "pytanie": "Do czego konstruktor może używać OneNote w projekcie?",
+      "odpowiedz": "OneNote może trzymać pełną historię projektu w jednym miejscu, pomagać standaryzować pracę i poprawiać komunikację między działami."
+    },
+    {
+      "pytanie": "Jakie sekcje powinien mieć notes projektu?",
+      "odpowiedz": "Stałe punkty notesu to miejsce na dane projektowe, spotkanie kick-off i podsumowanie projektu. W zależności od założeń dochodzą przeglądy projektów, zadania, harmonogram oraz przestrzeń robocza dla konstruktorów i automatyków."
+    },
+    {
+      "pytanie": "Jakie formatki warto przygotować w OneNote projektu?",
+      "odpowiedz": "Warto przygotować stronę z danymi projektowymi, szablon tabeli na agendę i podsumowanie spotkań oraz tabelę z miejscami na opis, komentarz i zdjęcie lub zrzut ekranu przy zadaniach."
+    },
+    {
+      "pytanie": "Jak wdrożyć OneNote w zespole projektowym?",
+      "odpowiedz": "Największy wysiłek to promowanie, pomaganie i korygowanie sposobu korzystania z notesu. Sam wygląd i formatki są ważne, ale narzędzie działa dopiero wtedy, gdy zespół realnie go używa."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/onenote-notes-projektu-okladka.jpg",
+      "alt": "Okładka artykułu z konstruktorem w kasku, laptopem i ikoną Microsoft OneNote.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Od dłuższego czasu w moich postach i Waszych komentarzach przewijał się temat prowadzenia Notesu Projektu. Często o nim wspominałem przy okazji dyskusji na temat zarządzania projektem czy przydzielania zadań. Postanowiłem, że podzielę się z Wami tym, jak można prosto i efektywnie zorganizować sobie pracę przy pomocy aplikacji OneNote. 📈"
+    },
+    {
+      "type": "tekst",
+      "body": "Warto zaznaczyć, że często świetnym rozwiązaniem są programy pokroju Jira, Asana, ICP czy Todoist. Jednak przy moich potrzebach zawsze wymagałoby to korzystania z wersji płatnych. Dodatkowo to kolejny program do obsługi, dodatkowy interfejs do nauki itd. 😶🌫️\n\nDlatego odkąd pamiętam posługiwałem się OneNote do organizacji swojej pracy. Przez lata ten sposób posługiwania się czy formatki ewoluowały, jednak zawsze starałem się wykorzystać narzędzie, które tak czy siak mam w pakiecie Office."
+    },
+    {
+      "type": "tekst",
+      "body": "Dla mnie to świetne narzędzie, bo:\n\n- Mam pełną historię każdego projektu w jednym miejscu.\n- Standaryzuję swoją pracę.\n- Komunikacja między działami jest na wysokim poziomie.\n\nW tym artykule pokażę Wam, jak można fajnie dostosować sobie taki notes do własnych potrzeb oraz czy i kiedy warto pójść w stronę OneNote. 📐📏"
+    },
+    {
+      "type": "tekst",
+      "body": "### 1. Przemyśl jak wyglądają Twoje projekty 🧐\n\nNa początek musisz zdefiniować kilka kwestii, tak aby dobrze ustalić strukturę swojego szablonu. Jedni prowadzą długie projekty łącznie z montażem i odbiorem przez klienta, drudzy prowadzą projekt tylko od strony konstrukcyjnej, a jeszcze inni mają projekty trwające zaledwie kilka dni. Dlatego to tak ważne, żeby na samym początku odpowiedzieć sobie przynajmniej na te pytania:\n\n- Jakie etapy mają projekty, które prowadzę?\n- Czy współpracuję z innymi osobami?\n- Czy muszę przydzielać innym zadania?\n- Jak dużo w ciągu pół roku prowadzę projektów jednocześnie?\n\nJeśli już masz odpowiedzi, możesz zacząć tworzyć rdzeń swojego Notesu Projektu!"
+    },
+    {
+      "type": "tekst",
+      "body": "### 2. Szablon - rdzeń ⚡\n\nNa potrzeby wyjaśnienia zakładam, że:\n\n- Prowadzę projekty łącznie z montażem i uruchomieniem u klienta.\n- Współpracuję z innymi konstruktorami, automatykami i działem montażu.\n- Chcę na kolejnych etapach przydzielać zadania konkretnym osobom.\n- Mam około 4 projekty w ciągu roku."
+    },
+    {
+      "type": "tekst",
+      "body": "Przy takich założeniach szablon projektu będzie musiał zawierać miejsce na:\n\n- Regularne przeglądy projektów.\n- Przydzielanie zadań.\n- Harmonogram.\n- Przestrzeń roboczą dla innych konstruktorów i/lub automatyków.\n\nOprócz tego KAŻDY notes ma stałe punkty:\n\n- Miejsce na dane projektowe.\n- Miejsce na spotkanie kick-off.\n- Miejsce na podsumowanie projektu.\n\nJeśli już te wszystkie punkty przejdziecie, możecie przejść do stworzenia sobie takiego rdzenia notesu. Przykładowy zamieszczam poniżej."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/onenote-notes-projektu-rdzen-notesu.png",
+      "alt": "Lista sekcji w OneNote: informacje ogólne, kick-off, podsumowanie projektu, harmonogramy, przeglądy projektu, zadania oraz notesy konstruktorów i automatyków.",
+      "podpis": "Przykładowy rdzeń notesu projektu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 3. Budowa formatek 📐📏\n\nSzablon bez formatek będzie bezużyteczny! Dlatego musicie dobrze to przemyśleć. Dobrze przygotować sobie fajnie rozpisaną stronę z danymi projektowymi. Oprócz tego must have to szablon tabeli na agendę i podsumowanie spotkań.\n\nJeśli planujecie przydzielać zadania - również powinniście przygotować formę tabeli z miejscami na opis, komentarz i zdjęcie/zrzut ekranu."
+    },
+    {
+      "type": "tekst",
+      "body": "Osobiście posiadam też formatki ze \"sztywnymi punktami\" dla spotkań związanych z kolejnymi etapami projektu, tj.:\n\n- Spotkanie kick-off - jak dobrze je organizować pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego).\n- Koncepcja automatyki.\n- Projekt szczegółowy automatyki.\n- Start BOM.\n- Start montaż.\n- FAT.\n- SAT.\n\nPosiadanie takich predefiniowanych punktów do poruszenia na każdym z tych spotkań pomaga pamiętać o celach i nie zapomnieć o czymś istotnym. Oczywiście każde spotkanie musi mieć agendę, skrybę i podsumowanie. Więcej o tym pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego)."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/onenote-notes-projektu-agenda-spotkania.png",
+      "alt": "Tabela w OneNote do agendy i podsumowania spotkania z kolumnami statusu, punktu, ustaleń, osoby odpowiedzialnej, komentarza, deadline i daty ukończenia.",
+      "podpis": "Przykładowa formatka agendy i podsumowania spotkania.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 4. Współdziel Notes Projektu - promuj jego używanie! 🤝\n\nJak powszechnie wiadomo, nawet najlepsze narzędzie nie będzie działać - jeśli nie będzie się go używać... Tak samo jest w przypadku OneNote. Nie każdy będzie jego entuzjastą. Zawsze to dodatkowy wysiłek na wpisanie czegoś, uzupełnienie notatek, agendy itd. Jednak musicie promować podejście \"5 min uzupełniania OneNote to nie strata czasu tylko jego INWESTYCJA\". 🚀"
+    },
+    {
+      "type": "tekst",
+      "body": "Dlatego jeśli będziecie chcieli wprowadzić to rozwiązanie u siebie, największy wysiłek to nie formatki, wygląd czy przemyślenie rdzenia - fakt, to turbo ważne rzeczy - ale najwięcej energii i motywacji będziecie potrzebowali, żeby \"nauczyć\" kolegów i koleżanki korzystać z tego narzędzia. Żeby promować, pomagać i korygować."
+    },
+    {
+      "type": "tekst",
+      "body": "Super jeśli dział montażu przywyknie do odruchowego korzystania z OneNote. Oszczędza to wycieczek na halę montażową, wszystkie komentarze, uwagi czy instrukcje można \"wrzucić\" chłopakom w Notes. W drugą stronę, jeśli jest jakiś problem, to mogą zrobić zdjęcie i prosto z telefonu przesłać je do Notesu. Wszystkie zmiany widzicie w czasie rzeczywistym! 😉"
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nZ elektronicznego Notesu Projektu korzystam już pewnie z 7 lat. Czy uważam, że jest to najlepsze rozwiązanie na świecie? Nie. Czy myślę, że każdy MUSI tak organizować swoją pracę? Nie. Jednak stwierdziłem, że podzielę się moim podejściem, bo wydaje mi się, że sam OneNote niesie wiele korzyści, jakikolwiek Notes Projektu jest gamechangerem, a ta aplikacja jest u 90% ludzi domyślnie w pakiecie Office. 😉"
+    }
+  ]
+}

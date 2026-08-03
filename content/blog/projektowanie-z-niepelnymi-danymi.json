@@ -1,0 +1,110 @@
+{
+  "title": "Z pracy konstruktora: Jak projektować kiedy masz niepełne dane?",
+  "seoTitle": "Projektowanie z niepełnymi danymi: 6 praktyk",
+  "description": "Jak projektować maszynę przy niepełnych danych: lista niewiadomych, styl pracy, projektowanie falowe, alternatywy oraz komunikacja z klientem.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/projektowanie-z-niepelnymi-danymi-okladka.jpg",
+  "tags": [
+    "zarządzanie projektem",
+    "praca konstruktora",
+    "CAD"
+  ],
+  "related": [
+    "kick-off-projektu-konstrukcyjnego",
+    "szacowanie-czasu-projektowania",
+    "onenote-notes-projektu"
+  ],
+  "faq": [
+    {
+      "pytanie": "Od czego zacząć projektowanie z niepełnymi danymi?",
+      "odpowiedz": "Na początku warto podzielić maszynę lub linię na moduły i przy każdym zapytać: czego potrzebuję do zaprojektowania, jakie dane mam i jakich informacji brakuje. Potem trzeba wycisnąć z istniejących danych ile się da."
+    },
+    {
+      "pytanie": "Jaką listę zrobić przy brakujących danych projektowych?",
+      "odpowiedz": "Warto stworzyć tabelę, w której są moduły, brakujące dane oraz informacja, kto i na kiedy musi je dostarczyć. Taka tabela może być w OneNote projektu, Excelu albo notesie i powinna być codziennie aktualizowana."
+    },
+    {
+      "pytanie": "Co oznacza projektowanie falowe?",
+      "odpowiedz": "W miarę odhaczania punktów z listy niewiadomych design powinien stawać się coraz bardziej szczegółowy. Przeglądy projektu warto planować maksymalnie 2 tygodnie do przodu i zapisywać podjęte decyzje oraz braki."
+    },
+    {
+      "pytanie": "Czy warto tworzyć alternatywy przy niepełnych danych?",
+      "odpowiedz": "Czasem opłaca się równolegle poprowadzić 2 lub 3 rozwiązania i odrzucać alternatywy w miarę pojawiania się informacji. Przy koncepcyjnym designie może to uratować kilkanaście roboczogodzin."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-z-niepelnymi-danymi-okladka.jpg",
+      "alt": "Okładka artykułu o projektowaniu z niepełnymi danymi, z konstruktorem, rozmową telefoniczną i pracą przy maszynie.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Nowy projekt, spotkanie kick-off, ustalony harmonogram... Jednak na pytania: jaki mamy layout, czy mamy dane odnośnie detali, gdzie musimy wpasować naszą maszynę itp., odpowiedź brzmiała JESZCZE NIE WIEMY. 🤨😆"
+    },
+    {
+      "type": "tekst",
+      "body": "Brzmi znajomo? Jak wynikło z Waszych głosów w ankiecie, ale też i z mojego doświadczenia, niepełne dane projektowe są jednym z najczęstszych wyzwań stojących przed konstruktorami/inżynierami projektu. Mimo tego klienci wymagają od nas terminowości i otrzymania w pełni funkcjonalnej linii czy maszyny.\n\nPrzy takim podejściu działy konstrukcyjne, ale i też sami konstruktorzy muszą się po pierwsze odnaleźć, a po drugie na tyle efektywnie zarządzać danymi, wymianą informacji oraz swoim procesem projektowania, aby nie utknąć w miejscu. 📈"
+    },
+    {
+      "type": "tekst",
+      "body": "To właśnie dlatego postanowiłem zebrać w artykule, wydaje mi się, najbardziej praktyczne metody, które pomagają projektować kiedy posiadamy niepełne dane. Artykuł ten oparłem o zasady \"podręcznikowe\", Wasze spostrzeżenia z wiadomości prywatnych oraz własne doświadczenie. Miłej lektury!"
+    },
+    {
+      "type": "tekst",
+      "body": "### 6 praktyk, które nie zamrożą Was w miejscu\n\n**1. Najpierw SAM ustal czego nie wiesz i czego potrzebujesz**\n\nCoś, co powinien zrobić każdy już na samym początku procesu projektowania. Na początku podziel maszynę/linię na moduły i przy każdym zadaj pytania: czego potrzebuję do zaprojektowania? Jakie dane mam? Jakich informacji brakuje? To pozwoli Ci jasno przedstawić swoje potrzeby."
+    },
+    {
+      "type": "tekst",
+      "body": "Następnie trzeba wycisnąć z istniejących danych ile tylko się da: oferta, maile od klienta, szkice, URS - te dokumenty mogą dać Ci spory pogląd na to, \"co już masz\".\n\nTeraz kiedy podzieliłeś maszynę/linię na konkretne moduły i wiesz co \"już wiesz\" 😉, stwórz tabelę, w której będą zawarte moduły, brakujące dane oraz kto i na kiedy musi je dostarczyć. Taka tabela może być w OneNote projektu, Excelu jak i notesie. Wycinek przykładowej listy \"odmrażającej\" proces projektowania na zdjęciu poniżej. Taką listę powinieneś w początkowej fazie projektu przeglądać codziennie i aktualizować status każdego punktu."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-z-niepelnymi-danymi-lista-brakujacych-informacji.png",
+      "alt": "Tabela statusów z listą brakujących informacji projektowych, modułami, osobami odpowiedzialnymi i terminami.",
+      "podpis": "Przykładowa tabela zbierająca brakujące informacje.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "**2. Przyjmij odpowiedni styl projektowania**\n\nTutaj dużo zależy od tego, jakie dane JUŻ POSIADASZ. Możesz obrać jedno z dwóch podejść.\n\n**\"Od ogółu do szczegółu\"** - najlepiej sprawdzi się na przykład kiedy masz dane o layoucie. Wtedy jesteś w stanie zarysować gabaryty maszyny lub linii technologicznej i w jej obrębie opracować miejsce na poszczególne moduły. Możliwe, że nie masz 3D ani 2D detali, które maszyna ma obsłużyć, więc priorytetem dla Ciebie będzie wtedy ogólny zarys całości, konsultacje w tym zakresie z klientem. W tym czasie staraj się wypracować brakujące dane. Ważne, żebyś tutaj projektował \"blokowe moduły\" ze sporym zapasem miejsca."
+    },
+    {
+      "type": "tekst",
+      "body": "**\"Najpierw moduł, potem rama\"** - zdarza się też nieraz odwrotna sytuacja do tej z pkt. 1. Masz pełną dokumentację detali/procesu, ale brakuje Ci całościowego layoutu. Wtedy skup się na modułach, które już możesz projektować i nie potrzebujesz do nich ogólnego poglądu na layout czy ustawienie maszyny u klienta. Warto w takim podejściu projektować możliwie \"kompaktowo\", żeby potem móc łatwo ustawiać wszystko, nawet jeśli okaże się, że przestrzeń jest ograniczona.\n\nCechą wspólną obu podejść jest to, aby projektować około 50% ostatecznej formy. Nie trać czasu na początkowym etapie na docinanie profili, otworowanie, promienie i fazy. Bryły, wstępne kształty - to bez wystarczających danych jest wystarczające 😉, aby nie tracić zasobów i pieniędzy na roboczogodziny."
+    },
+    {
+      "type": "tekst",
+      "body": "**3. Projektuj falowo**\n\nMetoda do pewnego stopnia powiązana z punktami 1 i 2. Tak naprawdę w miarę \"odhaczania\" punktów z listy niewiadomych, Twój design powinien być coraz bardziej szczegółowy. Planuj przeglądy projektu maksymalnie 2 tygodnie do przodu. Zawsze spisuj podjęte decyzje oraz to, czego jeszcze nie wiesz. Pomoże Ci to nie wracać do odrzuconych rozwiązań, ewentualnie powrót będzie świadomy. 💡\n\nPrzykład: masz w projekcie robota z chwytakiem, ale nie masz modelu 3D transportowanych detali. Znasz jedynie ich gabaryty. Wrysuj chwytak jako odpowiednio duży prostopadłościan i zostaw do czasu uzyskania danych."
+    },
+    {
+      "type": "tekst",
+      "body": "**4. Twórz dwie lub trzy alternatywy**\n\nPrzy niepełnych danych czasem opłaca się równoległe poprowadzenie 2 lub 3 rozwiązań i w miarę pojawiania się informacji odrzucaj alternatywy. Oczywiście nie zawsze pozwala na to czas i trzeba robić to z głową, jednak jeśli tworzysz 2 lub 3 opcje bazując na takim koncepcyjnym designie, może to na koniec dnia uratować kilkanaście roboczogodzin, bo nie zostajesz z jednym dokładnym rozwiązaniem, które idzie do kosza."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-z-niepelnymi-danymi-alternatywy-koncepcji.jpg",
+      "alt": "Trzy warianty koncepcji modułu maszyny pokazane jako coraz bardziej dopracowane modele 3D.",
+      "podpis": "Kilka alternatyw na etapie koncepcji może uratować kilkanaście roboczogodzin.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "**5. Nie bój się odwiedzić klienta**\n\nCoś, co moim zdaniem mocno hamuje przepływ informacji, to niechęć do wybrania się na spotkanie u klienta na hali. Często dotyczy to tzw. \"zza biurkowych konstruktorów\". Moim zdaniem taka wizyta to powinien być must have - nawet przy sporej ilości danych. Klient nie zawsze zwróci uwagę na to co Ty, a wymaga dobrze zrobionej maszyny. Stety-niestety musimy w tym zakresie przejawiać dużo inicjatywy. Poza tym takie wycieczki to zawsze szansa na podpatrzenie rozwiązań z hali i rozwój."
+    },
+    {
+      "type": "tekst",
+      "body": "**6. Staraj się poznać i zrozumieć cały proces - przewiduj**\n\nJeśli projektujesz maszyny lub linie do podobnych gałęzi przemysłu, takie które wykonują podobne czynności lub obsługują podobny proces - staraj się stać ekspertem w tej dziedzinie. Dzięki temu nawet posiadając mało danych już na starcie będziesz o krok dalej, bo dokładnie wiesz co może Cię czekać, co jest warte do testowania już, a z czym musisz czekać na klienta."
+    },
+    {
+      "type": "tekst",
+      "body": "### Co JESZCZE warto robić?\n\n- Jasno komunikuj klientowi o brakujących informacjach oraz o tym, jak ich brak będzie wpływał na czas trwania projektu.\n- Znajdź jedną osobę odpowiedzialną za cały projekt po stronie klienta. Zdarza się tak, że trzy osoby w danej firmie mogą podać Ci trzy różne odpowiedzi na to samo pytanie.\n- Przygotuj standardowy formularz pytań, który wykorzystasz już na kick-off lub na pierwszym spotkaniu z klientem.\n- PROJEKTUJ Z GŁOWĄ - tak aby łatwo edytować model, a zmiany nie wywoływały u Ciebie odruchu wymiotnego 😉.\n- Twoje pytania muszą być precyzyjne, a podsumowania po spotkaniach obowiązkowe. Wtedy obie strony mają poczucie przejrzystości i profesjonalnego podejścia.\n- Zapamiętaj raz na zawsze - najczęściej 100% danych pojawi się podczas montażu maszyny u klienta - więc bądź na to odpowiednio przygotowany."
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nJak widzicie, nie ma jednego złotego klucza, który pozwoli na poprowadzenie od A do Z projektu z niepełnymi danymi. Zamiast niego mamy skrzynkę z narzędziami, które odpowiednio wykorzystane pomagają dopinać takie tematy.\n\nMam nadzieję, że cały tekst i metody w nim podane pomogą Wam podnosić poziom swojej pracy i projektować wydajnie, nawet nie mając pełnych danych."
+    }
+  ]
+}

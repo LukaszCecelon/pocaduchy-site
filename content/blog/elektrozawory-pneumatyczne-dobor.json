@@ -1,0 +1,148 @@
+{
+  "title": "Z pracy konstruktora: ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
+  "seoTitle": "Elektrozawory pneumatyczne: rodzaje i zastosowanie",
+  "description": "Elektrozawory pneumatyczne w maszynach: czym różnią się zawory 3/2, 5/2 i 5/3, co oznacza NO i NC oraz jak czytać symbole zaworów w praktyce.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg",
+  "tags": [
+    "pneumatyka",
+    "napędy",
+    "praca konstruktora"
+  ],
+  "related": [
+    "dobor-sprzegla-do-aplikacji",
+    "design-for-maintenance-przezbrojenia",
+    "projektowanie-z-niepelnymi-danymi"
+  ],
+  "faq": [
+    {
+      "pytanie": "Do czego służy elektrozawór pneumatyczny w maszynie?",
+      "odpowiedz": "Elektrozawór jest zaworem sterowanym sygnałem elektrycznym. W maszynie działa jako łącznik między sterownikiem PLC a elementami wykonawczymi, na przykład siłownikami."
+    },
+    {
+      "pytanie": "Czym różni się elektrozawór monostabilny od bistabilnego?",
+      "odpowiedz": "Elektrozawór monostabilny ma jedną stabilną pozycję i po zaniku sygnału wraca do pozycji pierwotnej, na przykład dzięki sprężynie. Bistabilny ma dwie stabilne pozycje i przełącza się między stronami po podaniu sygnału."
+    },
+    {
+      "pytanie": "Co oznacza NO i NC w elektrozaworach?",
+      "odpowiedz": "NO oznacza, że bez sygnału zawór jest otwarty i podpięty siłownik jest pod ciśnieniem. NC oznacza, że bez sygnału zawór jest zamknięty i siłownik jest bez ciśnienia."
+    },
+    {
+      "pytanie": "Kiedy stosować elektrozawór 5/3 z położeniem środkowym zamkniętym?",
+      "odpowiedz": "Można go użyć wtedy, gdy po utracie zasilania w układzie nie chcemy, żeby na przykład chwytak coś wypuścił. Podobnie jak 5/2 może sterować siłownikiem albo chwytakiem dwustronnego działania."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg",
+      "alt": "Okładka artykułu z dwoma elektrozaworami pneumatycznymi i konstruktorem pracującym przy biurku.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Nie wiem jak Wam, ale do pewnego czasu etap doboru elektrozaworów był czymś, czego bardzo nie lubiłem robić. Głównie ze względu, że niekoniecznie byłem z nimi \"zaprzyjaźniony\". Tak naprawdę dopiero kiedy projektuję maszyny i linie w obszarze automatyzacji produkcji, ten temat stał się na tyle ważny, że postanowiłem usystematyzować sobie tę wiedzę.\n\nMyślę, że niejeden konstruktor też zderza się z tym zagadnieniem, dlatego postanowiłem zorganizować mini kompendium wiedzy - takiej najbardziej przydatnej na co dzień."
+    },
+    {
+      "type": "tekst",
+      "body": "### 1. Elektrozawory - przede wszystkim co to i po co?\n\nJak sama nazwa wskazuje, jest to zawór sterowany przy pomocy sygnału elektrycznego - czyli w dużym uproszczeniu, nie wiemy jeszcze o rodzajach elektrozaworów, podajemy sygnał, zawór się otwiera. Na rysunku poniżej możecie zobaczyć jak to wygląda."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-schemat-zaworu-3-2.jpg",
+      "alt": "Przekrój zaworu 3/2 ze sprężyną powrotną, z opisanymi portami zasilania, odbiornika i odpowietrzenia.",
+      "podpis": "Schemat przedstawiający zawór 3/2 ze sprężyną powrotną. Źródło: hafner.pl",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Po co je stosować? Ano maszyna, żeby działała tak jak chcemy, MUSI BYĆ STEROWANA, a do tego konieczne są właśnie elektrozawory - to swego rodzaju łącznik między sterownikiem PLC a np. siłownikami w maszynie."
+    },
+    {
+      "type": "tekst",
+      "body": "### 2. Jakie wyróżniamy elektrozawory?\n\nSkoro już wiemy czym te graty są i dlaczego jednak są niezbędne w maszynie, zajmijmy się ich rodzajami.\n\nPierwszy podział, i jego pod-podział 😉, to zawory MONOSTABILNE i BISTABILNE."
+    },
+    {
+      "type": "tekst",
+      "body": "**Monostabilne** to takie, które mają jedną stabilną pozycję. Po ludzku - podajemy sygnał, zawór się otwiera. Sygnał zanika, zawór wraca do pierwotnej pozycji - na przykład dzięki sprężynie, która po zaniku sygnału przesunie tłoczek. Tutaj warto zaznaczyć, że elektrozawory monostabilne mogą być w wykonaniu normalnie otwartym (NO) lub normalnie zamkniętym (NC).\n\n**Bistabilne** to takie, gdzie obie pozycje zaworu wymagają sygnału. Ma dwie stabilne pozycje. Tutaj bez większej filozofii - po prostu przełączamy między lewą i prawą stroną."
+    },
+    {
+      "type": "tekst",
+      "body": "A co z NO i NC? Jest to dość proste. Tak naprawdę opisuje to położenie sprężyny w zaworze, bo to definiuje charakter jego pracy - w normalnym położeniu, takim bez sygnału.\n\n- **NO** - jeśli nie mamy sygnału, zawór będzie otwarty, podpięty siłownik będzie \"pod ciśnieniem\".\n- **NC** - jeśli nie mamy sygnału, zawór będzie zamknięty, podpięty siłownik będzie \"bez ciśnienia\"."
+    },
+    {
+      "type": "tekst",
+      "body": "Kolejny podział wynika z ilości portów w obudowie danego elektrozaworu, a co za tym idzie jego konkretnej funkcjonalności i zastosowania. Do każdego typu dołączyłem zdjęcie z opisem - nie wiem jak do Was, ale do mnie pismo obrazkowe nadal przemawia najbardziej."
+    },
+    {
+      "type": "tekst",
+      "body": "### Elektrozawór 3/2\n\n➡️ Elektrozawór 3/2 - 3 przyłącza / 2 pozycje - [zasada działania](https://youtu.be/9MeuhfgyhpY?si=7PZKo5SP6A_3Oc9b)."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-zawor-3-2-monostabilny-nc.jpg",
+      "alt": "Animacyjny przekrój zaworu 3/2 sterowanego ręcznie, połączonego z siłownikiem jednostronnego działania.",
+      "podpis": "Zawór 3/2 sterowany ręcznie, monostabilny, NC. Źródło: YouTube - IP Duursma",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Elektrozawór 5/2\n\n➡️ Elektrozawór 5/2 - 5 przyłączy / 2 pozycje - [zasada działania](https://www.youtube.com/watch?v=VRS41ez-SmQ)."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-zawor-5-2-schemat.jpg",
+      "alt": "Schemat pracy elektrozaworu 5/2 z przepływem powietrza do siłownika dwustronnego działania.",
+      "podpis": "Elektrozawór 5/2 - reprezentacja graficzna. Źródło: YouTube - IP Duursma",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Elektrozawór 5/3\n\n➡️ Elektrozawór 5/3 - 5 przyłączy / 3 pozycje. Warto zaznaczyć, że występują trzy rodzaje położenia środkowego: zamknięty, otwarty, odpowietrzony - [zasada działania](https://youtu.be/HTM2gxIX6oM?si=We9WRTwoQnok7BBN)."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-zawor-5-3-schemat.jpg",
+      "alt": "Schemat pracy elektrozaworu 5/3 z położeniem środkowym i przepływem powietrza do siłownika dwustronnego działania.",
+      "podpis": "Elektrozawór 5/3 - reprezentacja graficzna. Źródło: YouTube - IP Duursma",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "➡️ Elektrozawór 2x3/2 - to tak naprawdę 2 zawory 3/2 \"sklejone\" w jednym plasterku i pełniące funkcję zaworu 5/2."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Elektrozawór | Przyłącza | Pozycje | Uwagi | Zastosowanie |\n|---|---|---|---|---|\n| 3/2 | 3 | 2 | W artykule pokazany jako zawór 3/2, monostabilny, NC | Najczęściej przy siłownikach czy chwytakach jednostronnego działania; po utracie ciśnienia elementy wrócą na pozycję definiowaną położeniem sprężyny powrotnej |\n| 5/2 | 5 | 2 | Może być realizowany także jako 2x3/2, czyli dwa zawory 3/2 sklejone w jednym plasterku i pełniące funkcję zaworu 5/2 | Najczęściej do sterowania siłownikami dwustronnego działania; przy dużych siłownikach po utracie i/lub ponownym odzyskaniu zasilania może nastąpić niekontrolowany, niebezpieczny ruch |\n| 5/3 | 5 | 3 | Występują trzy rodzaje położenia środkowego: zamknięty, otwarty, odpowietrzony | Z położeniem środkowym zamkniętym, gdy po utracie zasilania w układzie nie chcemy, żeby na przykład chwytak coś wypuścił; podobnie jak 5/2 do sterowania siłownikiem lub chwytakiem pneumatycznym dwustronnego działania |"
+    },
+    {
+      "type": "tekst",
+      "body": "### 3. Zastosowanie\n\nJeśli chodzi gdzie jaki zawór użyć - to trochę temat rzeka. Jednak da się wyróżnić pewne standardy.\n\nElektrozawory 3/2 NC stosujemy najczęściej przy siłownikach czy chwytakach jednostronnego działania. Musimy mieć świadomość, że po utracie ciśnienia w układzie elementy wrócą na swoją pozycję, definiowaną położeniem sprężyny powrotnej."
+    },
+    {
+      "type": "tekst",
+      "body": "Elektrozawory 5/2 bistabilne stosujemy najczęściej do sterowania siłownikami dwustronnego działania. Jednak uwaga, przy dużych siłownikach, po utracie i/lub ponownym odzyskaniu zasilania może nastąpić niekontrolowany, niebezpieczny ruch. Jeśli istnieje ryzyko uderzenia człowieka - lepiej użyć np. 2x3/2.\n\nElektrozawór 5/3 z położeniem środkowym zamkniętym - jeśli po utracie zasilania w układzie nie chcemy, żeby na przykład chwytak coś wypuścił. Podobnie jak 5/2 można użyć go do sterowania siłownikiem, chwytakiem pneumatycznym dwustronnego działania."
+    },
+    {
+      "type": "tekst",
+      "body": "### 4. Oznaczenia i logika\n\nWszystko fajnie, ale zostaje jeszcze jedna rzecz - SYMBOLE. Kto nie miał z nimi problemu na starcie, niech pierwszy rzuci kamieniem...\n\nJednak znalazłem kiedyś świetną animację, która moim zdaniem wyraża więcej niż 1000 słów. Jak czytać symbole elektrozaworów? Proszę Państwa, zapraszam na animację - jak czytać symbol zaworu 5/2! 🎥"
+    },
+    {
+      "type": "wideo",
+      "src": "/img/blog/elektrozawory-pneumatyczne-dobor-symbol-zaworu-5-2.mp4",
+      "poster": "/img/blog/elektrozawory-pneumatyczne-dobor-symbol-zaworu-5-2-poster.jpg",
+      "alt": "Animacja pokazująca przepływ powietrza przez symbol zaworu 5/2 w dwóch pozycjach pracy.",
+      "podpis": "Animacja pokazująca, jak czytać symbol zaworu 5/2.",
+      "petla": true
+    },
+    {
+      "type": "tekst",
+      "body": "Tak jak widzicie, trzeba użyć trochę wyobraźni, ale jak już załapiecie na jednym przykładzie, to potem \"pójdzie\". Generalnie strzałki w kolejnych bloczkach symbolu pokazują przepływ powietrza w danej pozycji."
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nMam nadzieję, że tym tekstem chociaż w pewnym stopniu rozjaśniłem Wam, jak zabrać się za temat elektrozaworów. Nie jest to łatwe, ale moim zdaniem dla dobrego konstruktora - niezbędne. 💡⚡"
+    }
+  ]
+}

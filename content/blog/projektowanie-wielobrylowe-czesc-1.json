@@ -1,0 +1,97 @@
+{
+  "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 1)",
+  "seoTitle": "Projektowanie wielobryłowe w CAD: część 1",
+  "description": "Projektowanie wielobryłowe w CAD: czym jest część multi-body, kiedy pomaga przy dopasowaniu brył, a kiedy lepsze będzie klasyczne złożenie w CAD.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka.jpg",
+  "tags": [
+    "CAD",
+    "elementy maszyn",
+    "praca konstruktora"
+  ],
+  "related": [
+    "projektowanie-wielobrylowe-case-study",
+    "weryfikacja-cad-przed-produkcja",
+    "narzedzia-pracy-konstruktora"
+  ],
+  "faq": [
+    {
+      "pytanie": "Co to jest projektowanie wielobryłowe w CAD?",
+      "odpowiedz": "To praca w środowisku części, w której zamiast dodawać materiał do jednej bryły tworzy się nową, oddzielną bryłę. W jednej części może więc istnieć więcej niż jedna bryła."
+    },
+    {
+      "pytanie": "Kiedy warto projektować wielobryłowo?",
+      "odpowiedz": "Warto to rozważyć przy nierozłącznych zespołach części, idealnym dopasowaniu elementów, fazie głębokiej koncepcji, szybkim wprowadzaniu zmian i tworzeniu Master Layout dla złożenia."
+    },
+    {
+      "pytanie": "Kiedy projektowanie wielobryłowe nie ma sensu?",
+      "odpowiedz": "Podejście klasyczne będzie lepsze przy dużej liczbie powtarzających się elementów, symulacji ruchu, wielu niezależnych komponentach oraz prostych złożeniach."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka.jpg",
+      "alt": "Grafika okładkowa artykułu o projektowaniu wielobryłowym z konstruktorem i ikonami BOM oraz drzewa modelu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Dla początkujących użytkowników CAD hasło kojarzy się w większości z importowanymi modelami 3D, dla średniozaawansowanych - z czymś nie do końca użytecznym. Jednak kiedy w swojej pracy zaczynamy zastanawiać się, jak ją optymalizować, robić coś łatwiej, sprawniej lub ograniczać ilość błędów - temat projektowania wielobryłowego (Multi-body) robi się serio ciekawy."
+    },
+    {
+      "type": "tekst",
+      "body": "Postanowiłem napisać o tym tekst, bo jakiś czas temu zacząłem bardziej interesować się tą metodą i wykorzystaniem jej w mojej codziennej pracy. Będzie to dwa wydania artykułu. W sumie tytuł już na to wskazuje 🙃.\n\nCzęść pierwsza będzie dotyczyła teorii - oprzemy się o Autodesk Inventor, ale w wielu programach idea projektowania wielobryłowego jest dość podobna.\n\n[Część druga](/blog/projektowanie-wielobrylowe-case-study) pokaże zastosowania, które znalazłem w swoich projektach oraz ograniczenia, które nie pozwoliły wykonać w ten sposób wszystkich zespołów."
+    },
+    {
+      "type": "tekst",
+      "body": "### 1️⃣ Część wielobryłowa - co to w ogóle za stworzenie?\n\nW oprogramowaniu CAD, będąc w środowisku części, mamy funkcje typu bool - pozwalające na dodawanie/odejmowanie/pozostawianie części wspólnej w czasie projektowania. Poza tymi podstawowymi zadaniami mamy do dyspozycji opcję \"Dodania\" bryły. Innymi słowy, zamiast dodawać \"materiał\", tworzymy nową oddzielną bryłę. W ten sposób powstaje nam część, która zawiera w sobie de facto więcej niż 1 bryłę. Pokazałem to na zdjęciu poniżej."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-czesc-1-nowa-bryla-inventor.png",
+      "alt": "Zrzut z Autodesk Inventor pokazujący opcję tworzenia nowej bryły podczas wyciągnięcia elementu w środowisku części.",
+      "podpis": "Tworzenie nowej bryły w środowisku \"Część\".",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Z takiej wielobryłowej części możemy skorzystać na kilka sposobów:\n\n- \"wyciągnąć\" pojedyncze części - na przykład projektowanie uchwytu na telefon,\n- zamodelować podzespół w środowisku części jako \"szkielet\" i stworzyć z niego typowe złożenie - dzięki odpowiedniej metodyce ustrzec się \"nietrafionych\" otworów czy kolizji,\n- tworzyć obudowy, łatwo \"oklejając\" coś, co chcemy osłonić.\n\nZnając życie, takich przykładów sami macie sporo."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-czesc-1-zespol-z-czesci-wielobrylowej.png",
+      "alt": "Zrzut z Inventora pokazujący drzewo brył w części oraz wynikowe złożenie utworzone z modelu wielobryłowego.",
+      "podpis": "Stworzenie zespołu na podstawie części wielobryłowej.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 2️⃣ Wady i zalety projektowania części wielobryłowych\n\nStwierdziłem, że najłatwiej będzie wrzucić zestawienie w formie tabeli - dużo łatwiej będzie się Wam to czytało 😉"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-czesc-1-zalety-i-wady.png",
+      "alt": "Tabela porównująca zalety i wady projektowania wielobryłowego, między innymi kontrolę położenia elementów i trudniejszą obróbkę wielu części.",
+      "podpis": "Tabela z zaletami i wadami projektowania wielobryłowego.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 3️⃣ Kiedy stosować, a kiedy nie?\n\nOczywiście szerzej będę opisywał to w części 2, jednak już teraz, na bazie tabeli powyżej, można opisać kilka sytuacji, w których lepsze będzie podejście klasyczne oraz takich, gdzie projektowanie wielobryłowe sprawdzi się dużo lepiej."
+    },
+    {
+      "type": "tekst",
+      "body": "### Kiedy wielobryłowo? 🟧🟨🟩\n\n- nierozłączny zespół części, gdzie zależy nam na utrzymaniu położenia elementów względem siebie,\n- kiedy potrzebujemy coś idealnie dopasować - uchwyt do smartfona, bazę na detale klienta, obudowę,\n- kiedy zależy nam na szybkim i łatwym wprowadzeniu zmian - faza głębokiej koncepcji,\n- kiedy chcemy sobie stworzyć \"Master Layout\" dla złożenia."
+    },
+    {
+      "type": "tekst",
+      "body": "### Kiedy klasycznie? 🎻🎻🎻\n\n- złożenia z dużą ilością powtarzających się elementów, losowo rozłożonych w zespole,\n- kiedy potrzebujesz symulować ruch,\n- kiedy dany podzespół będzie zawierał bardzo dużą ilość niezależnych komponentów. Akurat tutaj warto też rozważyć ewentualny podział na mniejsze podzespoły,\n- proste złożenia, gdzie projektowanie wielobryłowe będzie \"strzelaniem do jabłka z armaty\"."
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nCzyli kiedy projektować wielobryłowo, Łukasz! Powiedz! 😂\n\nPolecę jak typowy inżynier: TO ZALEŻY - przeczytaj powyżej i sam zdecyduj (hehe). A tak serio to mam nadzieję, że ta część 1 pomogła Wam zobaczyć główne zalety i wady tego rodzaju projektowania części."
+    }
+  ]
+}

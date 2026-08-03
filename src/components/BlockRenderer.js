@@ -64,19 +64,65 @@ function RysunekBlock({svg, podpis}) {
   );
 }
 
-function GaleriaImage({src}) {
+function GaleriaImage({src, alt}) {
   const url = useBaseUrl(src);
-  return <img src={url} alt="" loading="lazy" className={styles.galeriaImg} />;
+  return <img src={url} alt={alt || ''} loading="lazy" className={styles.galeriaImg} />;
 }
 
-function GaleriaBlock({zdjecia}) {
-  const items = Array.isArray(zdjecia) ? zdjecia : [];
+function GaleriaBlock({zdjecia, obrazy}) {
+  // Zdjecia moga byc lista adresow albo lista obiektow {src, alt}. Druga
+  // postac jest lepsza, bo niesie opis dla czytnikow ekranu, ale pierwsza
+  // zostaje: uzywaja jej starsze artykuly.
+  const items = Array.isArray(obrazy) ? obrazy : Array.isArray(zdjecia) ? zdjecia : [];
   return (
     <div className={styles.galeria}>
-      {items.map((src, i) => (
-        <GaleriaImage key={`${src}-${i}`} src={src} />
-      ))}
+      {items.map((it, i) => {
+        const src = typeof it === 'string' ? it : it.src;
+        const alt = typeof it === 'string' ? '' : it.alt;
+        return <GaleriaImage key={`${src}-${i}`} src={src} alt={alt} />;
+      })}
     </div>
+  );
+}
+
+// Krotkie nagrania z warsztatu i z ekranu CAD. Sa czescia argumentacji
+// artykulu, nie ozdoba, wiec traktujemy je jak obraz: w ramce, z podpisem.
+function WideoBlock({src, poster, podpis, petla}) {
+  const url = useBaseUrl(src);
+  const posterUrl = useBaseUrl(poster || '');
+
+  // Domyslnie nagranie zachowuje sie jak animowany gif: leci w kolko, bez
+  // dzwieku, samo z siebie. Wystarczy podac petla: false, zeby czytelnik
+  // musial je uruchomic.
+  //
+  // Wyjatek: czytelnik, ktory w systemie prosil o ograniczenie animacji,
+  // dostaje nagranie zatrzymane. Samo CSS tego nie zalatwi, bo autoodtwarzanie
+  // jest atrybutem, nie stylem.
+  const [ograniczRuch, setOgraniczRuch] = React.useState(false);
+  React.useEffect(() => {
+    const q = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setOgraniczRuch(q.matches);
+    const zmiana = (e) => setOgraniczRuch(e.matches);
+    q.addEventListener('change', zmiana);
+    return () => q.removeEventListener('change', zmiana);
+  }, []);
+
+  const wPetli = petla !== false && !ograniczRuch;
+
+  return (
+    <figure className={styles.wideo}>
+      <video
+        src={url}
+        poster={poster ? posterUrl : undefined}
+        controls
+        muted={wPetli}
+        loop={wPetli}
+        autoPlay={wPetli}
+        playsInline
+        preload={wPetli ? 'auto' : 'metadata'}
+      />
+      {podpis ? <figcaption className={styles.podpis}>{podpis}</figcaption> : null}
+    </figure>
   );
 }
 
@@ -101,6 +147,7 @@ function WzorBlock({latex}) {
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
+  wideo: WideoBlock,
   rysunek: RysunekBlock,
   galeria: GaleriaBlock,
   tabela: TabelaBlock,

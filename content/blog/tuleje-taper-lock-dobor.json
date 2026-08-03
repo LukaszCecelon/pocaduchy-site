@@ -1,0 +1,117 @@
+{
+  "title": "Z pracy konstruktora: Tuleje Taper Lock / Taper Bush - co warto wiedzieć?",
+  "seoTitle": "Tuleje Taper Lock: dobór i montaż",
+  "description": "Tuleje Taper Lock w napędach: jak działają, jak dobrać tuleję do koła pasowego, jakie dają plusy i na co uważać przy montażu oraz serwisie maszyny.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/tuleje-taper-lock-dobor-okladka.jpg",
+  "tags": [
+    "elementy maszyn",
+    "napędy",
+    "montaż"
+  ],
+  "related": [
+    "polaczenie-wal-piasta",
+    "elementy-znormalizowane-handlowki",
+    "dobor-sprzegla-do-aplikacji"
+  ],
+  "faq": [
+    {
+      "pytanie": "Co to jest tuleja Taper Lock?",
+      "odpowiedz": "To standardowe rozwiązanie do osadzania kół i piast na wałach. W przekroju mamy dwa stożki: jeden na tulei i jeden w kole pasowym, a otwory na obwodzie służą do zaciskania oraz demontażu."
+    },
+    {
+      "pytanie": "Jak dobrać tuleję Taper Lock do koła?",
+      "odpowiedz": "Trzeba znać średnicę wałka i mieć dobrany pas zębaty, klinowy albo łańcuch. W opisie koła znajduje się standard tulei, np. 1108, a potem z tabeli dobiera się otwór pasujący do aplikacji."
+    },
+    {
+      "pytanie": "Na co uważać przy montażu Taper Lock?",
+      "odpowiedz": "Trzeba przewidzieć miejsce na klucz dynamometryczny, dostęp serwisowy do napędu, miejsce na demontaż tulei i zadbać, żeby monterzy użyli odpowiedniego momentu dokręcenia."
+    },
+    {
+      "pytanie": "Jakie korzyści daje Taper Lock konstruktorowi?",
+      "odpowiedz": "Zostaje mniej rysunków wykonawczych, spada ryzyko błędów 3D i 2D, łatwiej zmieniać średnice kół i łatwiej ustandaryzować napędy w obrębie całej maszyny."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/tuleje-taper-lock-dobor-okladka.jpg",
+      "alt": "Kolaż o tulejach Taper Lock: konstruktor trzyma tuleję, zdjęcie koła pasowego z tuleją oraz model CAD koła z czerwoną tuleją.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Wiele razy pisałem w moich materiałach o potrzebie szukania standardowych rozwiązań przy projektowaniu maszyn. Równolegle sam do niedawna używając koła pasowego szedłem w stronę rozwiercania otworu i dłutowania wpustu. Niby słyszałem o rozwiązaniach handlowych, tulejach rozprężnych, ale najwygodniej w CADzie było mi zrobić otwór i rowek pod wpust."
+    },
+    {
+      "type": "tekst",
+      "body": "Jednak ostatnio stwierdziłem, że muszę się ogarnąć i zgłębiłem temat gotowych, handlowych rozwiązań do osadzania kół i piast na wałach. Efekt:\n\n- Obniżenie kosztów (zarówno projektowania, jak i produkcji).\n- Skrócenie czasu dostawy.\n- Szybszy montaż i demontaż.\n- Większa elastyczność jeśli chodzi o wymianę kół na inne (większe lub mniejsze)."
+    },
+    {
+      "type": "tekst",
+      "body": "Dlatego stwierdziłem, że w tym artykule przybliżę Wam pierwszy ze standardów osadzania piast na wale - tuleje TAPER LOCK (lub TAPER BUSH). Mam nadzieję, że po przeczytaniu tego tekstu nie będziecie czekali ze zmianą podejścia tak długo jak ja 🙃. Dodatkowo podszedłem do tematu dość szeroko, bo w artykule znajdziecie też potencjalne ostrzeżenia, które trzeba brać pod uwagę projektując napęd z wykorzystaniem tych elementów."
+    },
+    {
+      "type": "tekst",
+      "body": "### Czym w ogóle jest tuleja Taper Lock?\n\nZawsze mówię, że konstruktorowi to najlepiej pokazać pismem obrazkowym 😉 Dlatego na początek zdjęcie:"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/tuleje-taper-lock-dobor-tuleja-w-kole.jpg",
+      "alt": "Model CAD i zdjęcie koła pasowego z czerwoną strzałką wskazującą tuleję Taper Lock osadzoną w piaście.",
+      "podpis": "Poglądowe zdjęcie tulei Taper Lock.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "W przekroju mamy dwa stożki - ten na tulei i ten w kole pasowym. Na obwodzie każdego z nich mamy otwory służące do zaciskania zestawu na wałku oraz otwory służące do demontażu.\n\nSam proces montażu świetnie pokazany jest na tym wideo ➡️ [LINK](https://www.youtube.com/watch?v=6hryqihFEQ4)"
+    },
+    {
+      "type": "tekst",
+      "body": "Jak widzicie, w przypadku użycia tego rozwiązania zamiast toczyć piastę i dłutować rowek wpustowy - dobiera się 2 elementy handlowe. Jednym z producentów ogólnie dostępnych i posiadających modele 3D jest [Optibelt](https://www.linkedin.com/company/optibelt-gmbh/). Dodatkowo zawsze możecie poprosić specjalistę o sprawdzenie/potwierdzenie doboru.\n\nPoniżej jeszcze widok w przekroju 💡"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/tuleje-taper-lock-dobor-przekroj-polaczenia.png",
+      "alt": "Przekrój modelu CAD pokazujący stożkową tuleję Taper Lock zaciskaną w kole pasowym.",
+      "podpis": "Połączenie Taper Lock w przekroju.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Co zyskujecie jako konstruktorzy?\n\nTo, co wymieniłem na początku, to była perspektywa \"biznesowa\". Z punktu widzenia konstruktora dochodzi jeszcze kilka bardzo praktycznych plusów:"
+    },
+    {
+      "type": "tekst",
+      "body": "- Mniej rysunków wykonawczych - zostaje tylko dobór i wpisanie kodów katalogowych w BOM.\n- Redukcja potencjalnych błędów - robota wykonana za Was, przeliczone rozmiary wpustów i przenoszone momenty, nie ma też mowy o błędach wynikających z 3D lub 2D.\n- Łatwa zmiana średnicy kół - po prostu rotujecie zestawami bez edycji.\n- Duże pole do ustandaryzowania w obrębie całej maszyny - monterzy też na tym skorzystają (na wideo z linku na końcu widać, że montaż takiego zestawu to około minuta)."
+    },
+    {
+      "type": "tekst",
+      "body": "### Jak dobrać?\n\nW zasadzie musicie wiedzieć jaka jest średnica wałka oraz musicie mieć dobrany pas zębaty, klinowy, łańcuch itd. (UWAGA: Dla pasków zębatych o profilu T oraz AT ciężej dostać koła zębate przygotowane pod tuleje TAPER LOCK).\n\nPotem wybieracie koło, które was interesuje. W jego opisie znajdziecie standard tulei TAPER LOCK, która jest do niego dedykowana, np. \"do tulei stożkowej 1108\". Następnie szukacie takiej tulei i z tabeli dobieracie taką, w której otwór na wałek pasuje do Waszej aplikacji."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/tuleje-taper-lock-dobor-opis-tulei-1108.png",
+      "alt": "Zrzut tabeli produktu koła pasowego, w której wyróżniono informację do tulei stożkowej 1108.",
+      "podpis": "Opis pasującej do koła tulei TAPER LOCK. Źródło: karta produktu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Na co uważać?\n\nPrzede wszystkim na przestrzeń dookoła napędu. Jak na pewno zauważyliście, do montażu potrzeba klucza dynamometrycznego - więc potrzeba też przewidzieć miejsce na niego."
+    },
+    {
+      "type": "tekst",
+      "body": "Druga ważna rzecz - dostęp serwisowy do samego napędu. Musicie tak zaprojektować maszynę, żeby serwisant mógł łatwo otworzyć cały napęd i mieć możliwość zdjęcia kół. Jeśli się nie da - stwórzcie demontowalny moduł, który da się wyjąć z maszyny i przeprowadzić serwis na stole warsztatowym.\n\nTrzeci temat to demontaż - nieraz żeby ściągnąć tuleję, trzeba będzie użyć młotka. Pamiętajcie o miejscu na to żeby swobodnie takim młotkiem operować 😉"
+    },
+    {
+      "type": "tekst",
+      "body": "Noi ostatnia rzecz - uczulcie monterów na sposób montażu tulei i koła. Podrzućcie im jakiś materiał z YouTube. Zadbajcie, żeby do osadzenia użyli odpowiedniego momentu (i tutaj o zgrozo klucz dynamometryczny jest niezbędny!)"
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nMam nadzieję, że ten artykuł przyda się Wam w codziennej pracy. Szczególnie jeśli do tej pory każde koło napędowe było dłutowane 🙃. Moim zdaniem, stosowanie dedykowanych, handlowych elementów w budowie maszyn to coś nad czym każdy musi pracować - po prostu nieraz robimy coś od lat i trudno nam w głowie przestawić tryb na dobór z katalogu.\n\nStay Tuned!"
+    }
+  ]
+}
