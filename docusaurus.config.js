@@ -1,6 +1,12 @@
 // @ts-check
 import {themes as prismThemes} from 'prism-react-renderer';
 
+// Identyfikator Google Analytics 4 w formacie G-XXXXXXXXXX.
+// Dopoki jest pusty, zaden skrypt analityczny sie nie laduje i strona dziala
+// dokladnie tak jak przed dodaniem analityki. Wystarczy wkleic tu identyfikator
+// z panelu GA4, zeby wlaczyc zbieranie danych.
+const GA4_ID = '';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'poCADuchy',
@@ -168,6 +174,38 @@ const config = {
                   "gtag('consent','default',{ad_storage:'denied'," +
                   "ad_user_data:'denied',ad_personalization:'denied'," +
                   "analytics_storage:'denied',wait_for_update:500});",
+              },
+            ],
+          };
+        },
+      };
+    },
+
+    // Google Analytics 4. Laduje sie dopiero, gdy GA4_ID jest uzupelniony.
+    // Consent Mode v2 jest juz zadeklarowany nizej z domyslna odmowa, wiec do
+    // czasu zgody uzytkownika GA4 wysyla wylacznie sygnaly bez cookies.
+    // Zgode aktualizuje CMP Google po wyborze w banerze.
+    function googleAnalytics() {
+      return {
+        name: 'google-analytics-4',
+        injectHtmlTags() {
+          if (!GA4_ID) return {};
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                attributes: {
+                  async: true,
+                  src: `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`,
+                },
+              },
+              {
+                tagName: 'script',
+                innerHTML:
+                  "window.dataLayer=window.dataLayer||[];" +
+                  "function gtag(){dataLayer.push(arguments);}" +
+                  "gtag('js',new Date());" +
+                  `gtag('config','${GA4_ID}',{anonymize_ip:true});`,
               },
             ],
           };
