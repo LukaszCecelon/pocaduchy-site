@@ -1,0 +1,138 @@
+{
+  "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 2 - Case Study)",
+  "seoTitle": "Projektowanie wielobryłowe w CAD: case study",
+  "description": "Case study projektowania wielobryłowego: baza na detal, kopiowane powierzchnie, kilka brył w jednej części, złożenie i prototyp z druku 3D w praktyce.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/projektowanie-wielobrylowe-case-study-okladka.jpg",
+  "tags": [
+    "CAD",
+    "druk 3D",
+    "praca konstruktora"
+  ],
+  "related": [
+    "projektowanie-wielobrylowe-czesc-1",
+    "weryfikacja-cad-przed-produkcja",
+    "narzedzia-pracy-konstruktora"
+  ],
+  "faq": [
+    {
+      "pytanie": "Jak zamodelować część wielobryłową krok po kroku?",
+      "odpowiedz": "Autor najpierw odwzorował kształt wewnętrzny detalu, potem zostawił kluczowe powierzchnie bazowania, dodał trzecią bryłę jako prowadzenie zewnętrzne i na końcu utworzył z brył złożenie."
+    },
+    {
+      "pytanie": "Dlaczego w case study wybrano projektowanie wielobryłowe?",
+      "odpowiedz": "Powody były trzy: skomplikowany kształt detalu, potrzeba stałego podglądu detalu i otoczenia oraz zminimalizowanie ryzyka niedopasowania otworów w zespole kilku współpracujących elementów."
+    },
+    {
+      "pytanie": "Po co tworzyć złożenie z części wielobryłowej?",
+      "odpowiedz": "Po dopracowaniu modelu w środowisku części autor wybrał bryły i stworzył z nich złożenie, z którego wygenerował STP pod druk 3D. Złożenie nie ma wiązań, więc Inventor ma mniej obliczeń."
+    },
+    {
+      "pytanie": "Czy projektowanie wielobryłowe pomaga przy prototypie z druku 3D?",
+      "odpowiedz": "W tym przykładzie tak. Kilka wersji bazy zostało wydrukowanych, żeby sprawdzić powierzchnie bazowania, a finalne bryły można było łatwo połączyć i wygenerować do testów."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-okladka.jpg",
+      "alt": "Grafika okładkowa drugiej części artykułu o projektowaniu wielobryłowym, z konstruktorem i wydrukowanym prototypem bazy.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Mam nadzieję, że przynajmniej część z Was czekała na konkretne Case Study o [projektowaniu w oparciu o modele wielobryłowe](/blog/projektowanie-wielobrylowe-czesc-1) 🙃."
+    },
+    {
+      "type": "tekst",
+      "body": "I nie będzie to przykład oderwany od rzeczywistości - osobiście zderzyłem się z potrzebą wykorzystania tej metodologii i pokażę Wam w tym artykule, jak krok po kroku stworzyłem prototyp bazy na detal. Teraz pod druk 3D na testy, a docelowo po paru modyfikacjach jako zespół do wykonania z aluminium i POM-u."
+    },
+    {
+      "type": "tekst",
+      "body": "### Winowajcy, czyli dlaczego poszedłem w stronę \"wielobryłówki\"\n\nNa wykorzystanie projektowania wielu brył w obrębie \"parta\" poszedłem z 3 prostych powodów:\n\n- kształt detalu wewnątrz jest skomplikowany i musiałem popracować kopiowanymi powierzchniami. Przez to już miałem drugą bryłę w obrębie modelu detalu,\n- chciałem cały czas mieć pogląd na detal i to, co się dzieje dookoła niego,\n- docelowo złożenie będzie miało 5 elementów ściśle ze sobą współpracujących. Zminimalizowałem do 0 ryzyko jakiegoś niedopasowania czy niepasujących otworów."
+    },
+    {
+      "type": "tekst",
+      "body": "### Jak zamodelować część wielobryłową - krok po kroku\n\nZastanawiałem się, jaka forma pokazania tej pracy będzie najlepsza. Wydaje mi się, że jednak idealne będzie nagranie wideo z voiceover. Przy okazji polecam kanał: [KLIK](https://youtube.com/@pocaduchy?si=KxrGpw-FfLAS1Jrn).\n\nW artykule pokażę główne etapy na zasadzie zdjęć i słownych opisów."
+    },
+    {
+      "type": "tekst",
+      "body": "### Krok 1 - odwzorowanie kształtu wewnętrznego detalu (Bryła 1 i 2)\n\nNa początku utworzyłem kopię kształtu wewnętrznego detali. Oczywiście nie obyło się bez kombinacji - trzeba było zaślepić przerwy w powierzchniach. Potem zszyłem całość i powstała mi bryła dokładnie wypełniająca wnętrze detalu. Dzięki temu miałem już w czym \"rzeźbić\". Zaznaczam, że wykonanie tego klasycznymi operacjami 3D może i byłoby możliwe, ale trwałoby pewnie wieki."
+    },
+    {
+      "type": "tekst",
+      "body": "Od tej chwili mam już w drzewie operacji dwie bryły - detal oraz baza. Odpowiednio je opisałem."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-odbicie-wewnetrznej-czesci-detalu.png",
+      "alt": "Model CAD pokazujący utworzenie odbicia wewnętrznej części detalu oraz osobną bryłę po operacji zszywania powierzchni.",
+      "podpis": "Utworzenie idealnego odbicia wewnętrznej części detalu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-dwie-bryly-w-jednej-czesci.png",
+      "alt": "Zrzut z CAD z listą brył BAZA i DETAL w jednej części oraz modelem detalu z bazą.",
+      "podpis": "Dwie bryły w obrębie jednej części (ipt.).",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Krok 2 - pozostawienie kluczowych części dla bazowania detalu\n\nPo \"wypełnieniu\" detalu mogłem dopasować bazę do moich wymagań i założeń. Na zdjęciu poniżej widać kolejne etapy \"rozwoju\" bryły. Raczej nic odkrywczego - zostawiłem to, czego potrzebowałem do wybazowania detalu. Tutaj zaznaczam, że powstało na tym etapie kilka wydruków, żeby sprawdzić, którymi powierzchniami najlepiej się bazować. Na środku wycięcie pod ssawkę, która \"dociąga\" detal, zapewniając idealne wyrównanie."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-etapy-projektowania-bazy.jpg",
+      "alt": "Kolejne modele CAD bazy pod detal: od prostych przekrojów po bryłę z otworami, wycięciami i powierzchniami bazującymi.",
+      "podpis": "Kolejne etapy projektowania bazy.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Krok 3 - prowadzenie zewnętrzne, trzecia bryła\n\nŚrodek mam już \"załatwiony\" - biorę się za element naprowadzający. Jest potrzebny, ponieważ detal jest podawany z wtryskarki przez robota kartezjańskiego, a one, jak dobrze wiadomo, nie są super precyzyjne. Dlatego muszę wykonać coś, co naprowadzi detal na docelową bazę, a ona już ustawi go precyzyjnie pod pobieranie do dalszych operacji."
+    },
+    {
+      "type": "tekst",
+      "body": "Żeby wykonać to naprowadzanie, najpierw dodałem trochę materiału do bazy, żeby odsunąć ją od powierzchni mocowania. Następnie narysowałem podstawę w formie prostokąta wychodzącego poza obrys detalu, w rzucie z góry - ta podstawa była nową bryłą. Następnie wykonałem naprowadzanie, tworząc około 10 mm marginesu błędu dla robota kartezjańskiego."
+    },
+    {
+      "type": "tekst",
+      "body": "Na koniec dodałem otwory oraz wycięcia sześciokątne, tak aby łatwo było połączyć ze sobą dwa wydruki. Tak wiem, można było to zrobić jako jeden element, ale chciałem mieć możliwość łączenia różnych wersji bazy wewnętrznej z naprowadzaniem. Poza tym docelowo będą to elementy z aluminium obrabianego klasycznie, więc brył będzie docelowo i tak więcej."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-trzecia-bryla-i-lista-bryl.png",
+      "alt": "Zrzut z CAD pokazujący trzecią bryłę prowadzenia zewnętrznego, listę korpusów bryłowych i model z bazą oraz naprowadzaniem.",
+      "podpis": "Stworzenie trzeciej bryły i podgląd na listę brył w obrębie części (ipt.).",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Krok 4 - tworzenie złożenia z brył\n\nKiedy dopracowałem na \"zero\" model w środowisku części, wybrałem w drzewie interesujące mnie bryły i stworzyłem z nich złożenie, z którego następnie wygenerowałem stp pod druk 3D. Zwróćcie uwagę, kiedy będziecie \"trenowali\" to podejście, że w złożeniu .iam nie ma wiązań. To kolejna zaleta - dużo mniej obliczeń dla Inventora przy tworzeniu większych złożeń."
+    },
+    {
+      "type": "tekst",
+      "body": "Docelowo to złożenie będzie miało pewnie około 7-9 elementów i dzięki temu, że zaprojektowałem je wielobryłowo, bardzo łatwo będzie mi teraz dokonać kolejnych podziałów oraz pilnować wzajemnego położenia części.\n\nWrzucam też fotkę po wykonaniu prototypu - żeby nie było, że projekt do szuflady 🙃🙃"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-tworzenie-zlozenia-z-bryl.png",
+      "alt": "Instrukcyjny zrzut z Inventora pokazujący wybór brył, tworzenie komponentów i wygenerowanie złożenia z części wielobryłowej.",
+      "podpis": "Jak wykonać złożenie z części wielobryłowej - krok po kroku.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/projektowanie-wielobrylowe-case-study-wydrukowany-prototyp.jpg",
+      "alt": "Czarny wydrukowany prototyp bazy z prowadzeniami, otworem centralnym i skręconymi elementami.",
+      "podpis": "Wydrukowany prototyp.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nJak widzicie, projektowanie wielobryłowe może mieć realne zastosowanie w naszej codziennej pracy."
+    }
+  ]
+}

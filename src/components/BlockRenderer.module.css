@@ -79,6 +79,19 @@
   height: auto;
   border: 1px solid var(--pc-border);
 }
+/* WIDEO - traktowane jak obraz: ta sama ramka, ten sam podpis pod spodem */
+.wideo {
+  margin: 0;
+  clear: both;
+}
+.wideo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--pc-border);
+  background: #000;
+}
+
 .podpis {
   font-family: var(--font-mono);
   font-size: 13px;

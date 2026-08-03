@@ -1,0 +1,125 @@
+{
+  "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
+  "seoTitle": "Weryfikacja CAD przed produkcją: checklista błędów",
+  "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg",
+  "tags": [
+    "CAD",
+    "montaż",
+    "praca konstruktora"
+  ],
+  "related": [
+    "projektowanie-wielobrylowe-czesc-1",
+    "standaryzacja-w-biurze-konstrukcyjnym",
+    "narzedzia-pracy-konstruktora"
+  ],
+  "faq": [
+    {
+      "pytanie": "Jak weryfikować CAD przed uruchomieniem produkcji?",
+      "odpowiedz": "Warto sprawdzić kolizje mechaniczne, ruch elementów, położenie otworów, numery części handlowych, możliwości serwisowe, wersje części, tolerancje na rysunkach oraz prowadzenie przewodów elektrycznych i pneumatycznych."
+    },
+    {
+      "pytanie": "Dlaczego błędy CAD trzeba wykrywać przed produkcją?",
+      "odpowiedz": "Błąd wykryty w CAD poprawia głównie konstruktor. Na produkcji dochodzą zakupy i dostawca części, a na montażu także dział montażu oraz koszty złomowania."
+    },
+    {
+      "pytanie": "Kiedy robić otwory montażowe w modelu CAD?",
+      "odpowiedz": "Autor nie wstawia otworów montażowych, dopóki nie dopasuje pełnej geometrii między elementami i nie ma pewności, że komponent handlowy zostaje w projekcie."
+    },
+    {
+      "pytanie": "Jak ograniczyć błędy przez wrzutki w trakcie projektowania?",
+      "odpowiedz": "Autor kończy aktualnie wykonywaną czynność, a dopiero potem zajmuje się wrzutką. Oderwanie w miejscu wymagającym skupienia mocno zwiększa ryzyko pomyłki."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg",
+      "alt": "Grafika okładkowa z konstruktorem sprawdzającym model maszyny i checklistę przed uruchomieniem produkcji.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Gdzieś kiedyś przeczytałem, że dopóki projekt jest jeszcze w CAD, każdy błąd jest o rzędy wielkości tańszy i mniej czasochłonny do poprawy niż kiedy pojawia się na hali. Dlatego to tak ważne, żeby na etapie projektu eliminować wszystkie potencjalne pomyłki."
+    },
+    {
+      "type": "tekst",
+      "body": "Jak to zwykle bywa: \"Łatwo się mówi, a życie weryfikuje\" - okazuje się, że jest przynajmniej kilka czynników, które przeszkadzają w dokładnej weryfikacji już na etapie CAD:\n\n- termin - już bardzo rzadko zdarza się, żeby nie było gonitwy,\n- zmiany - czy to wewnętrzne, czy od klienta. Zawsze są punktem generującym potencjalne pomyłki,\n- nasz mózg - cud biomechaniki, ale ma też swoje ograniczenia, lubi \"oszczędzać energię\" i łatwo się rozprasza,\n- wrzutki na \"międzyczas\" - odrywają od pracy, powstaje ryzyko, że akurat w tym miejscu, gdzie dostajesz info o wrzutce, popełnisz błąd,\n- brak \"kalki jakości\" - czegoś na zasadzie Poka-Yoke, tylko dla CAD."
+    },
+    {
+      "type": "tekst",
+      "body": "Sam od lat zderzam się z tymi wyzwaniami i oczywiście też poprawiam swoje błędy... Jednak dla mnie najważniejsze jest to, żeby OGRANICZAĆ własne pomyłki - nie do zera, jestem realistą - ale do możliwie największego minimum."
+    },
+    {
+      "type": "tekst",
+      "body": "Dlatego stwierdziłem, że przygotuję na ten temat artykuł, w którym postaram się zrobić trzy rzeczy:\n\n- zbudować świadomość, że eliminacja błędów w CAD to totalny must have - potem jest już tylko drożej i dłużej,\n- pokazać kiedy i gdzie już analizować swój projekt,\n- opisać kilka sposobów na to, jak weryfikować CAD przed uruchomieniem produkcji."
+    },
+    {
+      "type": "tekst",
+      "body": "### 1. Musisz wiedzieć DLACZEGO\n\nIdąc przez kolejne punkty tego artykułu, chcę eliminować czynniki przeszkadzające w powstaniu bezbłędnego projektu w 3D. Na pierwszy ogień: nasz mózg - on bez odpowiedniej motywacji i świadomości będzie pchał nas w stronę \"olewania\" niektórych rzeczy."
+    },
+    {
+      "type": "tekst",
+      "body": "Przyjmując szacunki analizy przeprowadzonej przez NASA Johnson Space Center, koszty wykrycia błędu na poszczególnych fazach projektu przyjmują poniższe mnożniki. Etap CAD przyjmujemy jako mnożnik = 1. Dodatkowo, żeby lepiej unaocznić wagę zagadnienia, pomyśl, ile osób jest zaangażowanych na kolejnych etapach wykrywania i poprawy błędu:\n\n- CAD - tylko Ty,\n- produkcja - Ty, dział zakupów, dostawca części,\n- montaż - Ty, dział montażu, dział zakupów, dostawca części + koszty złomowania."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/weryfikacja-cad-przed-produkcja-mnozniki-kosztow-bledow.png",
+      "alt": "Tabela z przybliżonym mnożnikiem kosztu błędu CAD: etap CAD 1x, produkcja części około 3,3x do 5,3x, montaż mechaniczny około 15x do 26x.",
+      "podpis": "Na podstawie analizy NASA Johnson Space Center.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 2. Kiedy i gdzie eliminować potencjalne pomyłki\n\nW obrębie tego punktu eliminujemy czynnik, którym są zmiany, termin i wrzutki na \"międzyczas\". Rzecz jasna nie w 100%, ale myślę, że w dość dużym stopniu."
+    },
+    {
+      "type": "tekst",
+      "body": "Tak naprawdę potencjalne błędy można eliminować samą metodyką projektowania. Dlaczego tak uważam? Zauważyłem, że wiele błędów powstaje na przykład przy zmianach projektowych, niezależnie czy to zmiana od klienta, zmiana po spotkaniu wewnętrznym, czy też spowodowana zastosowaniem innego napędu etc. W takich momentach często powstają pomyłki na zasadzie złego rozmiaru otworu, nieprawidłowego rozstawu, innego gwintu."
+    },
+    {
+      "type": "tekst",
+      "body": "Dlatego warto wypracowywać sobie sposób projektowania, który zapobiega takim pomyłkom - osobiście nie wstawiam otworów montażowych, dopóki nie dopasuję pełnej geometrii między elementami. Tak samo postępuję dla napędów, siłowników, prowadnic liniowych itp. Dopiero jak mam milion % pewności, że dany komponent handlowy zostaje i się nie zmieni - wykonuję otworowanie."
+    },
+    {
+      "type": "tekst",
+      "body": "Kolejną zasadą, którą moim zdaniem warto wyznawać, jest dobry podział projektu na podzespoły. Dzięki temu możemy sprawdzać projektowane złożenia na zasadzie \"od szczegółu do ogółu\" - sam tworzę sobie zawsze listę takich złożeń i odhaczam, czy mam gotowe/sprawdzone. Tutaj kontrolujemy dostępy serwisowe i dbamy o wykonalność poszczególnych części."
+    },
+    {
+      "type": "tekst",
+      "body": "Teraz temat śrub - to też OSTATNIA rzecz, którą robię. Nawet kiedy mam już wszystkie wstawione, to wyłączam je tak, żebym cały czas widział, czy otwory pasują. Dawniej często zdarzało się, że niepasujący otwór \"ukrył\" się pod śrubą i podkładką.\n\nWażne jest też to, jak wiążemy części w środowisku zespołu, jak korzystamy z parametrów oraz na jakim etapie dokonujemy ostatecznej kontroli."
+    },
+    {
+      "type": "tekst",
+      "body": "Więcej na ten temat będę chciał poopowiadać na moim kanale poCADuchy, który rusza już w lutym: [KLIK](https://www.youtube.com/channel/UCatuUJWhqiOAiXhvb72wKOw)."
+    },
+    {
+      "type": "tekst",
+      "body": "A co kiedy termin goni, kierownik naciska, a klient dzwoni? Nieważne co się dzieje, zawsze muszę mieć czas na przejrzenie modelu przed produkcją. Ci, co dzwonią i gonią, jeszcze Ci podziękują za to, że rozciągnąłeś projekt o dzień, ale zaoszczędziłeś dzięki temu może tydzień lub sporo kasy - to musisz zapamiętać i nie poddawać się presji."
+    },
+    {
+      "type": "tekst",
+      "body": "Mamy jeszcze do wygrania z \"wrzutkami na międzyczas\" - osobiście ich nie odrzucam ;) ale zawsze KOŃCZĘ to, co aktualnie robię, a dopiero potem zaczynam słuchać o wrzutce. Na przykład: dopasowuję 2 części, dzwoni telefon - jeśli to nie żona lub rodzice, kończę dopasowywać i dopiero oddzwaniam. Jak ktoś lub coś wybije cię w miejscu, gdzie nad czymś się skupiasz - jest ogromne prawdopodobieństwo pomyłki!"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/weryfikacja-cad-przed-produkcja-kolizje-i-bledy-cad.jpg",
+      "alt": "Ilustracja konstruktorów analizujących model CAD z oznaczeniami błędów, kolizji i ostrzeżeń przed uruchomieniem produkcji.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### 3. Jak weryfikować CAD przed uruchomieniem produkcji?\n\nJedziemy z ostatnim tematem - \"kalka jakości\". NIE UWIERZĘ, że każdy z nas ma w głowie to, co trzeba sprawdzić przed \"wypuszczeniem BOM\" w modelu CAD. Dlatego chciałbym wypisać rzeczy, które moim zdaniem MUSISZ zweryfikować:"
+    },
+    {
+      "type": "tekst",
+      "body": "- kolizje mechaniczne - zaczynając od kolizji w podzespołach, a kończąc na kolizjach w głównym złożeniu. Ja wykorzystuję analizę kolizji, funkcję w Inventorze,\n- sprawdzenie, czy poruszające się elementy nie mają kolizji na CAŁEJ DŁUGOŚCI RUCHU,\n- sprawdzenie położenia otworów względem siebie - tych pod śruby, ale też tych pod kołki,\n- weryfikacja części handlowych - czy numery katalogowe się zgadzają,\n- sprawdzenie możliwości serwisowych - to już powinno być weryfikowane przy pkt. 2, jednak tutaj ostateczna kontrola,\n- czy części są w odpowiedniej wersji,\n- czy na rysunkach uwzględniłem odpowiednie tolerancje. Sam mam checklistę do każdego 2D, pozwala wyeksportować pdf, dwg i stp tylko gdy ją odhaczę,\n- weryfikacja prowadzenia przewodów elektrycznych i pneumatycznych - najlepiej skonsultować się z monterami elektrykami,\n- daj koledze do przejrzenia - uwierz mi, godzina kumpla, który nie patrzył na ten projekt tak długo jak ty, to czasem więcej niż ty znajdziesz w 8 godzin."
+    },
+    {
+      "type": "tekst",
+      "body": "To myślę taki zestaw MUST HAVE, który każdy, kto czyta ten artykuł, bardzo łatwo mógłby rozbudować. W piątek będę chciał udostępnić Wam coś praktycznego - do zapisania albo wydrukowania - podobnie jak z osadzaniem piast na wałkach."
+    }
+  ]
+}

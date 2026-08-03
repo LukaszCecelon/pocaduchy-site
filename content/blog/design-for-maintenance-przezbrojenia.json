@@ -1,0 +1,109 @@
+{
+  "title": "Z pracy konstruktora: Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
+  "seoTitle": "Design for maintenance: projektowanie pod przezbrojenia",
+  "description": "Design for maintenance w praktyce: moduły, kołki bazujące, dostęp operatora, osłony i dokumentacja, które realnie skracają przezbrojenia maszyny.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg",
+  "tags": [
+    "montaż",
+    "utrzymanie ruchu",
+    "praca konstruktora"
+  ],
+  "related": [
+    "standaryzacja-w-biurze-konstrukcyjnym",
+    "kick-off-projektu-konstrukcyjnego",
+    "onenote-notes-projektu"
+  ],
+  "faq": [
+    {
+      "pytanie": "Jak projektować maszynę pod szybkie przezbrojenie?",
+      "odpowiedz": "Dobrym podejściem jest modułowa konstrukcja, w której konkretne stacje mają swoje zadania i można wymieniać całe moduły. Pomagają w tym kołki bazujące, baza z prowadnicą typu jaskółczy ogon oraz złącza HARTING lub pneumatyczne wtyczki wielokrotne."
+    },
+    {
+      "pytanie": "Jaki dostęp do modułów jest wygodny dla operatora?",
+      "odpowiedz": "Moduły powinny być na wyciągnięcie rąk operatora, bez konieczności demontażu wielu elementów po drodze. W artykule pada praktyczny zakres 700 - 900 mm od stałej przeszkody w maszynie oraz uwaga, żeby moduł nie ważył zbyt dużo."
+    },
+    {
+      "pytanie": "Jak ograniczyć liczbę narzędzi przy przezbrojeniu?",
+      "odpowiedz": "Warto ograniczyć rozmiary śrub tak, żeby UR używał jednego, maksymalnie dwóch kluczy. Przykładowy standard to używanie do wymiany modułów tylko śrub DIN 912 M8 i M12."
+    },
+    {
+      "pytanie": "Co pomaga wprowadzić Design For Maintenance w nawyk?",
+      "odpowiedz": "Pomaga odwiedzanie hali montażowej, samodzielne próby przezbrojenia urządzenia, wcześniejsze ustalenie zestawu narzędzi serwisowych, standard osłon oraz założenie maksymalnego czasu wymiany."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg",
+      "alt": "Okładka artykułu Design For Maintenance z konstruktorem przy laptopie i widokiem hali produkcyjnej.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Lata 20. XXI wieku to czasy, gdzie klient docelowy chce mieć szeroki wybór. Dla producentów oznacza to duże gamy produktowe i park maszynowy podatny na częste zmiany wykonywanych detali. Idąc dalej, producenci linii technologicznych czy konkretnych urządzeń muszą dbać o to, żeby ich maszyny łatwo było dostosować do różnych rodzajów produkcji - jednym słowem ELASTYCZNOŚĆ.\n\nJednak, żeby ta ELASTYCZNOŚĆ była możliwa, musi być wzięta pod uwagę zarówno w procesie sprzedaży danej maszyny czy linii technologicznej, jak i, moim zdaniem mamy tu 90% sukcesu, podczas PROJEKTOWANIA."
+    },
+    {
+      "type": "tekst",
+      "body": "**ELASTYCZNOŚĆ = ODPOWIEDNI PROJEKT**\n\nJakie w takim razie są dobre praktyki projektowania pod zmienną produkcję? Co powinien wiedzieć konstruktor mierzący się z takim tematem? O tym będzie niniejszy artykuł."
+    },
+    {
+      "type": "tekst",
+      "body": "### Sześć zasad skracających przestoje międzyprodukcyjne\n\n📈 **Wymiana całych modułów** - jeśli chcesz, żeby przezbrojenie Twojej maszyny mierzone było w minutach, a nie godzinach, dobrym podejściem będzie modułowa konstrukcja. Tak projektuj maszynę, aby była podzielona na konkretne stacje posiadające swoje zadania, np. podawanie detalu, orientowanie detalu, przenoszenie detalu, montaż, kontrola jakości itd."
+    },
+    {
+      "type": "tekst",
+      "body": "Każdy z takich modułów powinien być zaopatrzony w kołki bazujące, np. [takie](https://www.elesa-ganter.pl/pl/pol/Elementy-maszyn--Kolki-pozycjonuj%C4%85ce--DIN6321?_gl=1*4j9wxn*_up*MQ..*_gs*MQ..&gclid=CjwKCAjw6c63BhAiEiwAF0EH1K3tu5kPRnhNIcgrG80fP3HeeH-QlzlqgbVa9TdaGl41B7jvTblt7BoCQPMQAvD_BwE), albo np. zaprojektowany w formie bazy z prowadnicą typu jaskółczy ogon, tak aby cała wymiana polegała na odkręceniu 2 śrub i wyjęciu.\n\nStosuj złącza typu HARTING lub pneumatyczne wtyczki wielokrotne - na przykład [takie](https://www.festo.com/pl/pl/a/152507/?q=wielo%7E%3AsortByCoreRangeAndNewProduct)."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/design-for-maintenance-przezbrojenia-wymiana-modulu.jpg",
+      "alt": "Operator w kasku i kamizelce wymienia mały moduł maszyny na stole przy stanowisku produkcyjnym.",
+      "podpis": "Operator wymieniający całe moduły w ramach przezbrojenia maszyny.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "📈 **Łatwy dostęp i ergonomia** - tak rozplanuj położenie modułów, aby dostęp do każdego z nich był na wyciągnięcie rąk operatora. Unikaj rozwiązań, gdzie najpierw trzeba zdemontować \"X\" elementów, aby dostać się do docelowego wymiennego modułu. Z reguły będzie to 700 - 900 mm od jakiejś przeszkody stałej w maszynie. Pamiętaj też, żeby moduł nie ważył zbyt dużo. Jeśli będzie ciężki, a do tego trzeba będzie po niego sięgać, plecy operatorów nie będą zadowolone 😉 A po co się stresować odwiedzając potem produkcję."
+    },
+    {
+      "type": "tekst",
+      "body": "📈 **Ograniczona ilość rozmiarów śrub** - tutaj sprawa jest dość oczywista, idealnie jeśli UR użyje jednego, maksymalnie 2 kluczy do odkręcenia modułów. Unikaj też małych rozmiarów śrub - łatwo je zgubić, są nieporęczne i wrażliwe na zerwanie gwintu.\n\n📈 **Jasno oznaczone punkty nastawcze** - czasem nawet w dedykowanym dla produktu module istnieje potrzeba regulacji. Twoja maszyna powinna być zaprojektowana tak, że po podejściu do takiego podzespołu powinniśmy łatwo zidentyfikować miejsca nastaw. Idealnie, jeśli użyjemy do tego klucza, którym dokręcamy dany moduł na miejscu."
+    },
+    {
+      "type": "tekst",
+      "body": "📈 **Bezpieczeństwo ubrane w wygodę obsługi** - no właśnie, czy da się pogodzić te dwie kwestie? Oczywiście nie chodzi o redukcję potrzebnych osłon albo over-engineering pod tytułem: \"Dajmy kurtynę, będzie najwygodniej\". Istnieją praktyki projektowania osłon, które sprawiają, że są one relatywnie łatwo demontowalne. Dużą wagę odgrywa też ich waga, omen nomen 😅. Na przykład: zamiast projektować osłony z otworami pod śruby zastosuj \"kluczyk\", dzięki temu tylko poluzowujemy śruby."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/design-for-maintenance-przezbrojenia-oslona-na-kluczyk.png",
+      "alt": "Fragment modelu CAD osłony z wyciętym otworem w kształcie kluczyka pod mocowanie śrubą.",
+      "podpis": "Osłony montowane \"na kluczyk\".",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "📈 **Przejrzysta dokumentacja** - coś co \"uwielbiamy\", prawda? Niektóre firmy mają od tego całe działy, ale moim zdaniem to ostatecznie konstruktor musi sprawić, żeby taka dokumentacja była prosta, jasna i przyjazna użytkownikowi. Dlatego przewaga pisma obrazkowego i unikanie wielostronicowych tekstów mile widziane.\n\nMamy model 3D, mamy maszynę na żywo - przygotujmy dokumentację tak, aby ograniczyć późniejsze telefony od UR albo być w stanie odesłać klienta do odpowiedniego miejsca w instrukcji w 90% przypadków."
+    },
+    {
+      "type": "tekst",
+      "body": "### Co robić, żeby Design For Maintenance wszedł nam w nawyk?\n\n🔎 **Odwiedzaj halę montażową!** - nie bez powodu jest to pierwszy punkt. Dobry konstruktor to opatrzony konstruktor. To ktoś, kto wiele razy samodzielnie obsługiwał maszyny danego typu, ktoś kto chętnie podchodzi i próbuje własnoręcznie przezbroić urządzenie. Oglądaj nie tylko swoje projekty, podchodź do tematów prowadzonych przez Twoich kolegów, zadawaj pytanie: czy można było to zrobić lepiej?"
+    },
+    {
+      "type": "tekst",
+      "body": "🔧 **Z góry ustalaj zestaw narzędzi serwisowych** - dzięki temu unikniesz mnożenia różnych rozmiarów śrub. Na przykład zapisz sobie w notesie projektu jako standard: do wymiany modułów używam tylko śrub DIN 912 M8 i M12.\n\n🤨 **Wypracuj w projekcie, a najlepiej w firmie, standard osłon** - pomijając już kwestie oszczędności czasu projektowania. Jeśli już znajdziesz albo znajdziecie rozwiązanie łatwe do demontażu, ekonomicznie logiczne oraz zapewniające pełne bezpieczeństwo - ustalcie, że osłony do maszyn robimy TYLKO w ten sposób.\n\n⏱️ **Załóż z góry maksymalny czas wymiany** - to na etapie projektowania pomoże Ci skupić się na rozwiązaniach wielopłaszczyznowych. Moduły będą zarówno funkcjonalne, ale też Plug&Play. Ten czas oczywiście będzie różnił się dla danej maszyny, ale miej go po prostu na uwadze."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/design-for-maintenance-przezbrojenia-konstruktor-na-hali.jpg",
+      "alt": "Konstruktor siedzi przy stanowisku maszyny i analizuje wymienny moduł oraz czas przezbrojenia.",
+      "podpis": "Konstruktor musi wychodzić z wirtualnego świata.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Podsumowanie\n\nJeśli projektujesz dla branż o wysokiej zmienności produkcji, z pewnością zetknąłeś się już z wyzwaniami opisanymi w tym artykule. Osobiście zebrałem tutaj kilka moim zdaniem dobrych praktyk. Oczywiście cały temat projektowania \"ELASTYCZNYCH\" maszyn jest naprawdę obszerny i ten artykuł nie opisuje wszystkich jego zakamarków."
+    }
+  ]
+}

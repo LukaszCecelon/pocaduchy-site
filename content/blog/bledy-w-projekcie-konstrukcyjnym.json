@@ -1,0 +1,96 @@
+{
+  "title": "Z pracy konstruktora: Zrobiłem błąd - co teraz? (🥶😫 vs 💡🤨)",
+  "seoTitle": "Błędy w projekcie konstrukcyjnym: co robić?",
+  "description": "Błędy w projekcie konstruktora: jak podejść do pomyłki, wyciągnąć wnioski, zapisać je w bazie wiedzy i ograniczyć ryzyko problemów przed produkcją.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka.jpg",
+  "tags": [
+    "praca konstruktora",
+    "zarządzanie projektem",
+    "CAD"
+  ],
+  "related": [
+    "pozornie-latwe-miejsca-projektu",
+    "kick-off-projektu-konstrukcyjnego",
+    "szacowanie-czasu-projektowania"
+  ],
+  "faq": [
+    {
+      "pytanie": "Co zrobić po błędzie w projekcie konstrukcyjnym?",
+      "odpowiedz": "Najpierw trzeba nazwać, co nie wyszło, i nie ukrywać problemu. Potem warto zadać pytania: co się stało, dlaczego się stało i jakie decyzje to spowodowały."
+    },
+    {
+      "pytanie": "Jak wyciągać wnioski z pomyłek w projekcie?",
+      "odpowiedz": "Pomyłki warto zapisywać przy zakończeniu projektu i wrzucać do bazy wiedzy. Przy podobnym projekcie taka baza powinna wrócić na Kick-Off."
+    },
+    {
+      "pytanie": "Jak ograniczyć błędy przed uruchomieniem produkcji?",
+      "odpowiedz": "Pomaga kompletne 3D, analiza kolizji, przegląd BOM, dodatkowy dzień na sprawdzenie projektu, review z kolegą oraz prototyp albo pierwsze fizyczne złożenie."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka.jpg",
+      "alt": "Kolaż o błędach w pracy konstruktora: konsultacja przy modelu CAD, zmartwiony inżynier przy rysunku i notatnik z napisem lessons learned.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "\"Podejdź na montaż - problem mamy\"\n\n\"Wpisałeś nie ten kod katalogowy do BOM\"\n\n\"Przewidziałeś za mało czasu na testy\""
+    },
+    {
+      "type": "tekst",
+      "body": "Kto z nas przynajmniej kilka razy nie usłyszał takich albo podobnych zdań. Tak naprawdę nasza praca jest bardzo obciążona potencjalnymi błędami czy niezgodnościami - jak to praca kreatywna."
+    },
+    {
+      "type": "tekst",
+      "body": "Jednak moim zdaniem warto pochylić się chwilę nad tym tematem, dlatego że to jak podchodzimy do naszych błędów jest super ważne!\n\nNa wstępie chciałem też zaznaczyć, że ten artykuł będzie omawiał nie tylko pomyłki typowo konstrukcyjne, ale i takie pojawiające się na różnych innych etapach trwania projektu. 📈"
+    },
+    {
+      "type": "tekst",
+      "body": "W tym celu spróbowałem popatrzeć na błędy w projektach z 3 różnych perspektyw:\n\n- Mentalne podejście do problemów/błędów.\n- Sposoby na wyciąganie wniosków z pomyłek.\n- Jak można unikać ich na etapie projektowania (gratka dla konstruktorów 😎)."
+    },
+    {
+      "type": "tekst",
+      "body": "### 1. Mentalne podejście do problemów/błędów ⚡🧠\n\nTo jak będziemy radzili sobie z popełnianymi w projektach błędami, tak naprawdę najbardziej zależy od naszej głowy. Powiedzmy sobie szczerze - problemy i pomyłki będą zawsze (mniejsze lub większe), możemy przyjąć je jako wartość stałą... To co jest wartością zmienną to nasz mental, nasza reakcja."
+    },
+    {
+      "type": "tekst",
+      "body": "Najgorsze co można zrobić, to potraktować błąd jako dowód braku kompetencji - to będzie powodowało w przyszłości paraliż decyzyjny, unikanie trudnych i rozwijających tematów czy zrzucanie winy na innych.\n\nPo prawie 10 latach popełniania różnych błędów i pomyłek myślę, że kluczowe są trzy rzeczy:"
+    },
+    {
+      "type": "tekst",
+      "body": "- **Transparentność** - jeśli boisz przyznać się do błędu, tracisz najwięcej: czas na jego ukrycie, zaufanie kolegów, profesjonalizm. Umiejętność powiedzenia: \"To i to nie wyszło\", \"Pomyliłem się z y\" - to coś co jest dość trudne, ale kluczowe.\n- **Dystans emocjonalny** - emocje potrafią przesłonić racjonalizm. Dobrze, aby pierwszą myślą nie było: \"Ile to będzie kosztowało?\", ale \"Co zrobić, żeby zadziałało?\", a potem \"Na co zwrócę uwagę następnym razem?\"\n- **Zaufanie w zespole** - jeśli zarządzasz zespołem, nie reaguj na błędy złością. To szybko zdemotywuje ludzi, będą mniej transparentni i chętni do ambitnych projektów.\n\n**Do zapamiętania:** Jeśli projektujesz - pomyłki to coś co zdarza się każdemu. Kluczem jest Twoje podejście."
+    },
+    {
+      "type": "tekst",
+      "body": "### 2. Sposoby na wyciąganie wniosków z pomyłek 📘💡\n\n\"Najlepsze zespoły projektowe nie popełniają mniej błędów, tylko szybciej się z nich uczą.\"\n\n\"Najdroższe są błędy, o których zapomnieliśmy\"\n\nTe dwa cytaty moim zdaniem są kluczem. Musimy mieć z tyłu głowy konkretny plan, co robić jeśli błąd się przytrafi."
+    },
+    {
+      "type": "tekst",
+      "body": "🔍 **Zadaj pytania i zapisz** - Co się stało? Dlaczego się to stało? Jakie decyzje to spowodowały?\n\n🧭 **Zrób krok w tył i zobacz perspektywę** - Czy błąd wynikł z braku informacji, pośpiechu, błędnych założeń? Sam błąd to efekt, źródło jest tygodnie albo miesiące wcześniej.\n\n🔄 **Wprowadź zmianę** - Dobrze wszystkie pomyłki podsumować przy zakończeniu projektu i wrzucić do bazy wiedzy. Taką bazę trzeba wykorzystywać przy każdym nowym projekcie, jeśli jest podobny to koniecznie wyciągnąć tę bazę na Kick-Off."
+    },
+    {
+      "type": "tekst",
+      "body": "Jeśli jesteś liderem zespołu - mocno promuj takie działanie. Po roku okaże się, że macie naprawdę \"przeorane\" tematy i kolejne projekty zaczną wskakiwać na totalnie wyższy poziom."
+    },
+    {
+      "type": "tekst",
+      "body": "### 3. Jak można unikać ich na etapie projektowania (gratka dla konstruktorów) 😎\n\nJakiś czas temu opublikowałem post na temat błędów projektowych - [LINK TUTAJ](https://www.linkedin.com/posts/lukaszcecelon_projektowanie-cad-engineeringlife-activity-7381218721421467648-2IK-?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADXZLVsBNxGJoQBPX3fKZHLDEkDJUeQYl3w) 😉\n\nW tym punkcie artykułu chcę przedstawić Wam listę dobrych praktyk, które opisaliście w komentarzach do mojego posta oraz takich, które sam wypracowałem. Smacznego!"
+    },
+    {
+      "type": "tekst",
+      "body": "- Elementy złączne wstawiaj na samym końcu, o ile nie są konieczne do weryfikacji kolizji. Dzięki temu łatwiej zauważysz niepasujące otwory.\n- Korzystaj z narzędzi do analizy kolizji w programach CAD.\n- Uruchamiaj produkcję TYLKO gdy masz KOMPLETNY model 3D. Zlecanie projektu po kawałku to prosta droga do problemów.\n- Zostaw sobie 1 cały dzień na szukanie kolizji/problemów. Ten dzień wcale nikogo nie zbawi, a może uratować projekt przed wieloma faulami.\n- Regularnie rób przeglądy projektu, wtedy już na wczesnym etapie skonfrontujesz swoje pomysły i wyłapiecie potencjalne pomyłki (również te koncepcyjne)."
+    },
+    {
+      "type": "tekst",
+      "body": "- Jeśli to możliwe zbuduj prototyp, albo wykonaj jedno z wielu takich samych złożeń fizycznie. Jeśli masz potem do wykonania 20 takich samych, lepiej zrobić \"debugging\" na pierwszej sztuce.\n- Twórz checklisty (np. do sprawdzania rysunków wykonawczych).\n- Poproś kolegę o przejrzenie modelu przed uruchomieniem produkcji.\n- Przejrzyj ostatecznie BOM - złożenie po złożeniu, zweryfikuj kody katalogowe \"handlówek\".\n- Stosuj metody projektowania pozwalające na minimalizowanie błędów (np. części wielobryłowe).\n- Nie uruchamiaj produkcji projektu w pędzie. Złap oddech, przejrzyj go, wyłącz komunikatory i maile. Nie daj się presji uruchomienia DZISIAJ. Przełożony wytrzyma jeden dzień, a firma zarobi na dokładniejszym projekcie."
+    },
+    {
+      "type": "tekst",
+      "body": "Na 100% znalazłoby się jeszcze więcej metod, ale wydaje mi się, że powyższe to taki must have. Oczywiście pracujemy w różnych branżach, więc każdy powinien wybrać taki rodzaj radzenia sobie z pomyłkami, który najbardziej przystaje do jego dziedziny."
+    }
+  ]
+}

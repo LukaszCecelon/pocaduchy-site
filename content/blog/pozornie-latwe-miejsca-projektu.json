@@ -1,0 +1,101 @@
+{
+  "title": "Z pracy konstruktora: [Case study] Pozornie \"łatwe\" miejsca w projekcie - na co uważać?",
+  "seoTitle": "Pozornie łatwe miejsca w projekcie maszyny",
+  "description": "Case study z palcami chwytaka: dlaczego prosty detal zaczął obracać się przy odkładaniu, co zmieniło kształt palców i jak podejść do testów.",
+  "date": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "image": "/img/blog/pozornie-latwe-miejsca-projektu-okladka.jpg",
+  "tags": [
+    "praca konstruktora",
+    "montaż",
+    "druk 3D"
+  ],
+  "related": [
+    "bledy-w-projekcie-konstrukcyjnym",
+    "kick-off-projektu-konstrukcyjnego",
+    "szacowanie-czasu-projektowania"
+  ],
+  "faq": [
+    {
+      "pytanie": "Dlaczego pozornie łatwe miejsca w projekcie mogą sprawić problemy?",
+      "odpowiedz": "Bo często lądują mentalnie w szufladce \"rachu ciachu i po strachu\". Uwaga konstruktora idzie na koncepcję, czas cyklu, krytyczne moduły, bezpieczeństwo i integrację z maszynami klienta."
+    },
+    {
+      "pytanie": "Co było przyczyną rotacji detalu w chwytaku?",
+      "odpowiedz": "Problemem okazał się kształt palca chwytającego detal. Pryzma generowała wypadkową siłę, przez którą detal zaczynał obracać się wokół własnej osi."
+    },
+    {
+      "pytanie": "Jak testować łatwe ruchy w maszynie?",
+      "odpowiedz": "Warto więcej nagrywać, testować nawet potencjalnie łatwe ruchy, używać druku 3D i planować z automatykiem tryb TEST, żeby maszyna mogła pracować bez urządzeń współpracujących klienta."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "obraz",
+      "src": "/img/blog/pozornie-latwe-miejsca-projektu-okladka.jpg",
+      "alt": "Konstruktor w kasku ogląda biały detal z palcami chwytaka na tle maszyny przemysłowej.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "W projektowaniu maszyn spotykamy się z wieloma wyzwaniami - szczególnie konstruując urządzenia \"szyte na miarę\". Najczęściej przy takich tematach mamy część modułów zidentyfikowanych jako trudne, wymagające testów i prototypów. Jednak są również takie, które wydają się łatwe i przyjemne do narysowania."
+    },
+    {
+      "type": "tekst",
+      "body": "Okazuje się jednak, że te pozornie \"łatwe\" moduły mogą przy uruchomieniu sprawić nam dużo problemów. Dlatego w tym artykule postanowiłem podzielić się z Wami sytuacją, w której pryzmatyczny kształt palców chwytaka - coś co stosuje się wręcz w ciemno - zawiódł i sprawił, że trzeba było wrócić do (no właśnie) pozornie łatwego elementu konstrukcji. W podsumowaniu spróbowałem wyciągnąć wnioski z tego Case Study - mam nadzieję, że się Wam przydadzą."
+    },
+    {
+      "type": "tekst",
+      "body": "### \"Łatwe\" do narysowania palce chwytaka\n\nSam proces - tak żebyście poznali kontekst - polegał na podniesieniu detali z podajników taśmowych za pomocą manipulatora 2 osiowego i odłożeniu ich na 2 z 16 baz na module montażowym. Taki ruch odbywał się 8 razy. Do łapania detali wykorzystywaliśmy chwytaki DHPC firmy FESTO. Wrzucam Wam poniżej schematycznie zasadę działania."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/pozornie-latwe-miejsca-projektu-schemat-urzadzenia.png",
+      "alt": "Schemat urządzenia: manipulator dwuosiowy przenosi detale z dwóch transporterów na moduł montażowy z szesnastoma bazami.",
+      "podpis": "Schemat działania urządzenia.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Podczas testów kilka razy detal nie trafił na bazę. Zaczęło się szukanie problemu. Jednak nikt nie pomyślał nawet, że winne mogą być palce chwytaków. Przeróbki baz, ustawianie manipulatora, dostosowywanie zderzaków - no został sprawdzony każdy jeden element. Aż w końcu nagraliśmy wideo z takiej perspektywy, że widać było jak detal po odpuszczeniu ciśnienia w chwytaku, zaczyna rotować wokół własnej osi... Największy paradoks był taki, że moduł o który martwiłem się najbardziej, był najbardziej krytyczny - działał ze 100% skutecznością."
+    },
+    {
+      "type": "tekst",
+      "body": "Po szybkiej analizie uznaliśmy, że winny jest kształt palca chwytającego detal. W pierwotnej wersji, tak jak już pisałem, była to najzwyklejsza pryzma. Jednak okazuje się, że przy takim detalu (z wtrysku) i chwycie pryzmą, powstaje jakaś wypadkowa siła, powodująca obracanie się detalu. Postanowiliśmy zmodyfikować palce w taki sposób, żeby naciskać na detal maksymalnie prostopadle do osi - POMOGŁO."
+    },
+    {
+      "type": "wideo",
+      "src": "/img/blog/pozornie-latwe-miejsca-projektu-test-palcow-chwytaka.mp4",
+      "poster": "/img/blog/pozornie-latwe-miejsca-projektu-test-palcow-chwytaka-poster.jpg",
+      "podpis": "Zachowanie detalu przy jednym i drugim rodzaju palców. Ten po lewej - na pewno zauważycie jak mocno się obrócił.",
+      "petla": false
+    },
+    {
+      "type": "tekst",
+      "body": "Dla porównania, tak wyglądał przekrój palców - problematycznych po lewej i tych, które rozwiązały problem - po prawej. Uprzedzam pytania o kąt pryzmy - jaki by nie był, detal zawsze rotował."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/pozornie-latwe-miejsca-projektu-przekroj-palcow-chwytaka.png",
+      "alt": "Dwa przekroje palców chwytaka: po lewej palec pryzmatyczny, po prawej zmieniony kształt naciskający detal bardziej prostopadle do osi.",
+      "podpis": "Przekroje palców chwytaków.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "### Wnioski\n\nKiedy projektujemy maszynę, większość naszej uwagi \"zjadają\" grube tematy:\n\n- Ogólna koncepcja.\n- Czas cyklu.\n- Krytyczne moduły.\n- Bezpieczeństwo.\n- Integracja z maszynami klienta."
+    },
+    {
+      "type": "tekst",
+      "body": "Dla rzeczy typu palce chwytaka, lądują mentalnie w szufladce pt. \"rachu ciachu i po strachu, zrobione, nie drążę\".\n\nDo tej pory w moim przypadku tak było. Jednak od momentu, kiedy tak trywialne miejsce sprawiło mi tak dużo problemów, postanowiłem zmienić swoje podejście. Spróbowałem to zebrać w krótką listę:"
+    },
+    {
+      "type": "tekst",
+      "body": "- Czuwam nad swoim tokiem myślenia w trakcie projektu i bardziej świadomie podchodzę do \"łatwych\" miejsc w projekcie - nadal staram się je ogarniać na początku możliwie szybko, ale kiedy dogram już trudne i krytyczne moduły, wracam do \"drobnostek\".\n- Więcej \"bawię\" się detalami. Dużo więcej czasu poświęcam na identyfikację potencjalnych problemów.\n- Nawet przy potencjalnie łatwych ruchach - testuję. Druk 3D bardzo się tu przydaje.\n- Dużo więcej nagrywam.\n- Mam bardziej pesymistyczne myślenie przy projektowaniu \"łatwych\" miejsc.\n- Planuję z automatykiem tryb \"TEST\" tak aby maszyna mogła np. 8h pracować bez urządzeń współpracujących klienta."
+    },
+    {
+      "type": "tekst",
+      "body": "Mam nadzieję, że dotarliście do końca artykułu, a jego treść pomoże Wam bardziej krytycznie patrzeć na \"łatwe\" miejsca w projekcie."
+    }
+  ]
+}

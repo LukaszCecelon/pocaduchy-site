@@ -10,9 +10,10 @@
     "elementy maszyn"
   ],
   "related": [
+    "polaczenie-wal-piasta",
+    "tuleje-taper-lock-dobor",
     "elementy-znormalizowane-handlowki",
-    "standaryzacja-w-biurze-konstrukcyjnym",
-    "narzedzia-pracy-konstruktora"
+    "standaryzacja-w-biurze-konstrukcyjnym"
   ],
   "howTo": {
     "nazwa": "Jak dobrać sprzęgło do aplikacji",
