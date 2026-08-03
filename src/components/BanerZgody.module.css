@@ -1,0 +1,120 @@
+/* Pasek zgody przyklejony do dolu okna. Celowo nie blokuje strony: dotyczy
+   wylacznie statystyk, wiec czytanie tresci nie wymaga zadnej decyzji. */
+.baner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  background: var(--pc-navy);
+  border-left: 4px solid var(--pc-rust);
+  box-shadow: 0 12px 34px rgba(20, 22, 40, 0.28);
+  animation: wjazd 0.28s ease-out;
+}
+
+@keyframes wjazd {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .baner {
+    animation: none;
+  }
+}
+
+.tresc {
+  min-width: 0;
+}
+.naglowek {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pc-rust-light, #e0a79f);
+  margin: 0 0 6px;
+}
+.opis {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #d7d9e6;
+  margin: 0;
+  max-width: 70ch;
+}
+.link {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link:hover {
+  color: #ffffff;
+}
+
+.przyciski {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.przycisk {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  border: none;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.przycisk:hover {
+  transform: translateY(-2px);
+}
+.zgoda {
+  background: var(--pc-rust);
+  color: var(--pc-bg);
+}
+.zgoda:hover {
+  background: var(--pc-rust-hover);
+}
+/* Odmowa jest mniej krzykliwa kolorystycznie, ale ma ten sam rozmiar,
+   pozycje i czytelnosc co zgoda. */
+.odmowa {
+  background: transparent;
+  color: #d7d9e6;
+  box-shadow: inset 0 0 0 1px rgba(215, 217, 230, 0.45);
+}
+.odmowa:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+@media (max-width: 860px) {
+  .baner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 18px 20px;
+  }
+  .przyciski {
+    flex-direction: column-reverse;
+  }
+  .przycisk {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}

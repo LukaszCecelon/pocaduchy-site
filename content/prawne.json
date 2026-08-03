@@ -7,6 +7,15 @@
     "opisDzialalnosci": "usługi inżynierskie, projektowanie konstrukcji maszyn"
   },
   "dataAktualizacji": "2026-08-03",
+  "baner": {
+    "_opis": "Teksty paska zgody na analityke, ktory pokazuje sie przy pierwszej wizycie.",
+    "naglowek": "Zgoda na statystyki",
+    "tresc": "Chcę wiedzieć, które materiały są dla Was przydatne, więc zbieram anonimowe statystyki odwiedzin. Bez zgody strona działa tak samo, po prostu nie wiem, co czytacie.",
+    "linkTekst": "Szczegóły w polityce prywatności",
+    "linkUrl": "/polityka-prywatnosci",
+    "przyciskZgoda": "Zgadzam się",
+    "przyciskOdmowa": "Nie zgadzam się"
+  },
   "prywatnosc": {
     "meta": {
       "tytul": "Polityka prywatności i cookies",
@@ -78,7 +87,9 @@
       {
         "tytul": "Jak zmienić lub wycofać zgodę",
         "akapity": [
+          "Przy pierwszej wizycie pokazuje się pasek z pytaniem o zgodę na statystyki. Decyzja zapisuje się w pamięci przeglądarki (localStorage), a nie w pliku cookie, więc dopóki nie wyrazisz zgody, serwis nie zapisuje na Twoim urządzeniu żadnego cookie.",
           "Zgodę możesz zmienić w każdej chwili i jest to równie łatwe, jak jej udzielenie. Użyj przycisku poniżej, żeby ponownie otworzyć okno wyboru.",
+          "Zgody reklamowe obsługuje osobny mechanizm dostarczany przez Google. Ten sam przycisk otwiera także jego okno, o ile reklamy są w danym momencie wyświetlane.",
           "Niezależnie od tego możesz zarządzać cookies w ustawieniach swojej przeglądarki: zablokować je, usunąć albo ustawić pytanie przy każdej próbie zapisu. Zablokowanie cookies nie utrudni czytania treści, bo serwis do działania ich nie potrzebuje."
         ],
         "przyciskZgody": true
