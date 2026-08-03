@@ -29,11 +29,18 @@ function articleJsonLd({
   dateModified,
   permalink,
   image,
+  blocks,
   tags,
   faq,
   howTo,
 }) {
   const url = `${SITE}${permalink || ''}`;
+  const coverImage = `${SITE}${image || '/img/og-pocaduchy.jpg'}`;
+  const blockImages = Array.isArray(blocks)
+    ? blocks.filter((b) => b?.type === 'obraz' && b.src).map((b) => `${SITE}${b.src}`)
+    : [];
+  const uniqueImages = Array.from(new Set([coverImage, ...blockImages]));
+  const jsonLdImage = blockImages.length ? uniqueImages : coverImage;
   const graph = [
     {
       '@type': 'BlogPosting',
@@ -43,7 +50,7 @@ function articleJsonLd({
       inLanguage: 'pl-PL',
       url,
       mainEntityOfPage: url,
-      image: `${SITE}${image || '/img/og-pocaduchy.jpg'}`,
+      image: jsonLdImage,
       ...(date ? {datePublished: date} : {}),
       ...(date ? {dateModified: dateModified || date} : {}),
       ...(tags && tags.length ? {keywords: tags.join(', ')} : {}),
@@ -224,6 +231,7 @@ export default function BlogArticleTemplate({
               dateModified,
               permalink,
               image,
+              blocks,
               tags,
               faq,
               howTo,

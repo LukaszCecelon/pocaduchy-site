@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import imageSizes from '@site/src/data/image-sizes.json';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -29,6 +30,11 @@ const MD_COMPONENTS = {
   },
 };
 
+function imageSizeAttrs(src) {
+  const size = imageSizes[src];
+  return size ? {width: size.w, height: size.h} : {};
+}
+
 function TekstBlock({body}) {
   return (
     <div className={styles.tekst}>
@@ -42,11 +48,12 @@ function TekstBlock({body}) {
 function ObrazBlock({src, podpis, alt, wyrownanie}) {
   const url = useBaseUrl(src);
   const alignClass = styles[ALIGN_CLASS[wyrownanie]] || styles.obrazSrodek;
+  const sizeAttrs = imageSizeAttrs(src);
   return (
     <figure className={`${styles.obraz} ${alignClass}`}>
       {/* alt: opis dla czytników ekranu i wyszukiwarek — niezależny od
           widocznego podpisu (obraz może mieć opis bez podpisu pod spodem) */}
-      <img src={url} alt={alt || podpis || ''} loading="lazy" />
+      <img src={url} alt={alt || podpis || ''} loading="lazy" {...sizeAttrs} />
       {podpis ? <figcaption className={styles.podpis}>{podpis}</figcaption> : null}
     </figure>
   );
@@ -66,7 +73,16 @@ function RysunekBlock({svg, podpis}) {
 
 function GaleriaImage({src, alt}) {
   const url = useBaseUrl(src);
-  return <img src={url} alt={alt || ''} loading="lazy" className={styles.galeriaImg} />;
+  const sizeAttrs = imageSizeAttrs(src);
+  return (
+    <img
+      src={url}
+      alt={alt || ''}
+      loading="lazy"
+      className={styles.galeriaImg}
+      {...sizeAttrs}
+    />
+  );
 }
 
 function GaleriaBlock({zdjecia, obrazy}) {
@@ -90,6 +106,7 @@ function GaleriaBlock({zdjecia, obrazy}) {
 function WideoBlock({src, poster, podpis, petla}) {
   const url = useBaseUrl(src);
   const posterUrl = useBaseUrl(poster || '');
+  const posterSizeAttrs = imageSizeAttrs(poster);
 
   // Domyslnie nagranie zachowuje sie jak animowany gif: leci w kolko, bez
   // dzwieku, samo z siebie. Wystarczy podac petla: false, zeby czytelnik
@@ -114,6 +131,7 @@ function WideoBlock({src, poster, podpis, petla}) {
       <video
         src={url}
         poster={poster ? posterUrl : undefined}
+        {...posterSizeAttrs}
         controls
         muted={wPetli}
         loop={wPetli}
