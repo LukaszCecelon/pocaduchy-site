@@ -8,7 +8,7 @@ import uslugiData from '@site/content/uslugi.json';
 
 const SITE = 'https://pocaduchy.pl';
 const SERVICES = uslugiData.services;
-const PRZEBIEG = uslugiData.przebieg || [];
+const {meta, hero, przebieg, dowody, cta} = uslugiData;
 const FAQ = uslugiData.faq || [];
 
 // Tymczasowo prywatna skrzynka - podmienić na kontakt@pocaduchy.pl,
@@ -75,8 +75,8 @@ const USLUGI_JSON_LD = {
 export default function Uslugi() {
   return (
     <Layout
-      title="Usługi konstrukcyjne: projektowanie maszyn i druk 3D"
-      description="Projektowanie konstrukcji maszyn i elementów maszynowych w 3D z dokumentacją wykonawczą, druk 3D prototypów oraz audyty dokumentacji dla firm produkcyjnych i biur konstrukcyjnych.">
+      title={meta.tytul}
+      description={meta.opis}>
       <Head>
         <script type="application/ld+json">{JSON.stringify(USLUGI_JSON_LD)}</script>
       </Head>
@@ -86,18 +86,10 @@ export default function Uslugi() {
         <div className={styles.intro}>
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowBar} />
-            <span>Usługi</span>
+            <span>{hero.eyebrow}</span>
           </div>
-          <h1 className={styles.title}>
-            Współpraca przy realnych projektach konstrukcyjnych
-          </h1>
-          <p className={styles.lead}>
-            Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych,
-            integratorów automatyki i biur konstrukcyjnych. Pracuję zarówno przy
-            pojedynczych podzespołach, jak i przy całych urządzeniach: od
-            koncepcji po dokumentację, którą da się bez pytań przekazać na
-            warsztat.
-          </p>
+          <h1 className={styles.title}>{hero.naglowek}</h1>
+          <p className={styles.lead}>{hero.lead}</p>
         </div>
 
         <div className={styles.grid}>
@@ -116,15 +108,12 @@ export default function Uslugi() {
           ))}
         </div>
 
-        {PRZEBIEG.length ? (
+        {przebieg?.kroki?.length ? (
           <section className={styles.sekcja}>
-            <h2 className={styles.h2}>Jak wygląda współpraca</h2>
-            <p className={styles.sekcjaLead}>
-              Ten sam schemat stosuję niezależnie od wielkości tematu. Chodzi o
-              to, żebyś na każdym etapie wiedział, co dostajesz i kiedy.
-            </p>
+            <h2 className={styles.h2}>{przebieg.naglowek}</h2>
+            <p className={styles.sekcjaLead}>{przebieg.lead}</p>
             <ol className={styles.kroki}>
-              {PRZEBIEG.map((k, i) => (
+              {przebieg.kroki.map((k, i) => (
                 <li key={k.krok} className={styles.krok}>
                   <span className={styles.krokN}>
                     {String(i + 1).padStart(2, '0')}
@@ -140,44 +129,20 @@ export default function Uslugi() {
         ) : null}
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Jak pracuję, czyli sprawdź sam</h2>
-          <p className={styles.sekcjaLead}>
-            Nie musisz wierzyć mi na słowo. Sposób, w jaki podejmuję decyzje
-            konstrukcyjne, opisuję publicznie, z konkretnymi liczbami i bez
-            ukrywania błędów. To chyba najuczciwsze portfolio, jakie mogę
-            pokazać:
-          </p>
+          <h2 className={styles.h2}>{dowody.naglowek}</h2>
+          <p className={styles.sekcjaLead}>{dowody.lead}</p>
           <ul className={styles.dowody}>
-            <li>
-              <Link to="/blog/koszty-a-jakosc-w-projektowaniu-maszyn">
-                Jak godzę budżet z jakością
-              </Link>{' '}
-              i na czym nigdy nie oszczędzam w projekcie maszyny.
-            </li>
-            <li>
-              <Link to="/blog/szacowanie-czasu-projektowania">
-                Czym szacuję czas projektowania
-              </Link>{' '}
-              i dlaczego termin podaję dopiero po ustaleniu zakresu.
-            </li>
-            <li>
-              <Link to="/blog/elementy-znormalizowane-handlowki">
-                Kiedy sięgam po element znormalizowany
-              </Link>{' '}
-              zamiast projektować część od zera.
-            </li>
-            <li>
-              <Link to="/blog/kick-off-projektu-konstrukcyjnego">
-                Jak prowadzę start projektu
-              </Link>{' '}
-              i co musi zostać ustalone, zanim ktokolwiek otworzy CAD-a.
-            </li>
+            {dowody.pozycje.map((d) => (
+              <li key={d.slug}>
+                <Link to={`/blog/${d.slug}`}>{d.link}</Link> {d.reszta}
+              </li>
+            ))}
           </ul>
         </section>
 
         {FAQ.length ? (
           <section className={styles.sekcja}>
-            <h2 className={styles.h2}>Najczęstsze pytania</h2>
+            <h2 className={styles.h2}>{uslugiData.faqNaglowek}</h2>
             <div className={styles.faqList}>
               {FAQ.map((p) => (
                 <details key={p.pytanie} className={styles.faqItem}>
@@ -191,13 +156,10 @@ export default function Uslugi() {
       </div>
 
       <div className={styles.ctaBand}>
-        <h2 className={styles.ctaTitle}>Masz projekt do skonsultowania?</h2>
-        <p className={styles.ctaBody}>
-          Napisz, co chcesz zbudować albo co utknęło. Odpowiadam konkretnie:
-          czy się tego podejmę, w jakim terminie i za ile.
-        </p>
+        <h2 className={styles.ctaTitle}>{cta.naglowek}</h2>
+        <p className={styles.ctaBody}>{cta.tresc}</p>
         <a href={`mailto:${CONTACT_EMAIL}`} className={`${styles.ctaButton} pc-cut`}>
-          Napisz w sprawie projektu
+          {cta.przycisk}
         </a>
       </div>
     </Layout>
