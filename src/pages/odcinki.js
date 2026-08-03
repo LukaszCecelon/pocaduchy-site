@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
-import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
@@ -101,11 +100,6 @@ export default function Odcinki() {
           </div>
           <h1 className={styles.title}>Wszystkie odcinki z kanału</h1>
           {redakcja.intro ? <p className={styles.lead}>{redakcja.intro}</p> : null}
-          <p className={styles.leadMaly}>
-            Lista aktualizuje się automatycznie po każdej publikacji. Kliknij
-            kafel, żeby obejrzeć odcinek na YouTube. Jeśli wolisz czytać,
-            zajrzyj do <Link to="/blog">artykułów</Link>.
-          </p>
         </div>
 
         {GRUPY.length > 0 ? (
