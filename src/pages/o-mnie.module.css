@@ -230,3 +230,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Narzędzia, certyfikaty, wykształcenie */
+.warsztat {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.wBlok {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 16px;
+  border-left: 2px solid var(--pc-border);
+}
+.wEtykieta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+}
+.wTresc {
+  font-size: 15.5px;
+  line-height: 1.66;
+  color: var(--pc-text-muted);
+  margin: 0;
+  max-width: 70ch;
+}
+.wLista {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 70ch;
+}
+.wLista li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--pc-text-muted);
+}
+.wLista li::marker {
+  color: var(--pc-rust);
+}

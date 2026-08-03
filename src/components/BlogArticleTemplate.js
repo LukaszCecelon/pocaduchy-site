@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
 import posts from '@site/src/data/blog-posts.json';
+import oMnie from '@site/content/o-mnie.json';
 import styles from '@site/src/pages/blog/blog.module.css';
 
 const SITE = 'https://pocaduchy.pl';
@@ -128,12 +129,7 @@ function Autor() {
       />
       <div className={styles.authorText}>
         <span className={styles.authorLabel}>O autorze</span>
-        <p className={styles.authorBody}>
-          <strong>Łukasz Cecelon</strong> projektuje maszyny i zautomatyzowane
-          linie produkcyjne, a od 2021 roku prowadzi własne biuro
-          konstrukcyjne. Na kanale poCADuchy pokazuje realną pracę nad
-          konstrukcją: decyzje, koszty i błędy popełniane po drodze.
-        </p>
+        <p className={styles.authorBody}>{oMnie.biogram}</p>
         <Link to="/o-mnie" className={styles.authorLink}>
           Więcej o mnie →
         </Link>
