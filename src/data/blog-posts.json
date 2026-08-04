@@ -1,160 +1,5 @@
 [
   {
-    "slug": "bledy-w-projekcie-konstrukcyjnym",
-    "title": "Z pracy konstruktora: Zrobiłem błąd - co teraz? (🥶😫 vs 💡🤨)",
-    "seoTitle": "Błędy w projekcie konstrukcyjnym: co robić?",
-    "description": "Błędy w projekcie konstruktora: jak podejść do pomyłki, wyciągnąć wnioski, zapisać je w bazie wiedzy i ograniczyć ryzyko problemów przed produkcją.",
-    "date": "2026-08-03",
-    "image": "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka.jpg",
-    "tags": [
-      "praca konstruktora",
-      "zarządzanie projektem",
-      "CAD"
-    ]
-  },
-  {
-    "slug": "design-for-maintenance-przezbrojenia",
-    "title": "Z pracy konstruktora: Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
-    "seoTitle": "Design for maintenance: projektowanie pod przezbrojenia",
-    "description": "Design for maintenance w praktyce: moduły, kołki bazujące, dostęp operatora, osłony i dokumentacja, które realnie skracają przezbrojenia maszyny.",
-    "date": "2026-08-03",
-    "image": "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg",
-    "tags": [
-      "montaż",
-      "utrzymanie ruchu",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "elektrozawory-pneumatyczne-dobor",
-    "title": "Z pracy konstruktora: ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
-    "seoTitle": "Elektrozawory pneumatyczne: rodzaje i zastosowanie",
-    "description": "Elektrozawory pneumatyczne w maszynach: czym różnią się zawory 3/2, 5/2 i 5/3, co oznacza NO i NC oraz jak czytać symbole zaworów w praktyce.",
-    "date": "2026-08-03",
-    "image": "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg",
-    "tags": [
-      "pneumatyka",
-      "napędy",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "onenote-notes-projektu",
-    "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
-    "seoTitle": "OneNote projektu: jak zorganizować notes konstruktora",
-    "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
-    "date": "2026-08-03",
-    "image": "/img/blog/onenote-notes-projektu-okladka.jpg",
-    "tags": [
-      "zarządzanie projektem",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "polaczenie-wal-piasta",
-    "title": "Z pracy konstruktora: Połączenie wał-piasta - przegląd rozwiązań",
-    "seoTitle": "Połączenie wał-piasta: przegląd rozwiązań",
-    "description": "Przegląd połączeń wał-piasta: wpust, docisk, wałek zębaty, Taper Lock i tuleje rozprężno-zaciskowe z zastosowaniami, kosztami i ograniczeniami.",
-    "date": "2026-08-03",
-    "image": "/img/blog/polaczenie-wal-piasta-okladka.jpg",
-    "tags": [
-      "elementy maszyn",
-      "napędy",
-      "montaż"
-    ]
-  },
-  {
-    "slug": "pozornie-latwe-miejsca-projektu",
-    "title": "Z pracy konstruktora: [Case study] Pozornie \"łatwe\" miejsca w projekcie - na co uważać?",
-    "seoTitle": "Pozornie łatwe miejsca w projekcie maszyny",
-    "description": "Case study z palcami chwytaka: dlaczego prosty detal zaczął obracać się przy odkładaniu, co zmieniło kształt palców i jak podejść do testów.",
-    "date": "2026-08-03",
-    "image": "/img/blog/pozornie-latwe-miejsca-projektu-okladka.jpg",
-    "tags": [
-      "praca konstruktora",
-      "montaż",
-      "druk 3D"
-    ]
-  },
-  {
-    "slug": "projektowanie-wielobrylowe-case-study",
-    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 2 - Case Study)",
-    "seoTitle": "Projektowanie wielobryłowe w CAD: case study",
-    "description": "Case study projektowania wielobryłowego: baza na detal, kopiowane powierzchnie, kilka brył w jednej części, złożenie i prototyp z druku 3D w praktyce.",
-    "date": "2026-08-03",
-    "image": "/img/blog/projektowanie-wielobrylowe-case-study-okladka.jpg",
-    "tags": [
-      "CAD",
-      "druk 3D",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "projektowanie-wielobrylowe-czesc-1",
-    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 1)",
-    "seoTitle": "Projektowanie wielobryłowe w CAD: część 1",
-    "description": "Projektowanie wielobryłowe w CAD: czym jest część multi-body, kiedy pomaga przy dopasowaniu brył, a kiedy lepsze będzie klasyczne złożenie w CAD.",
-    "date": "2026-08-03",
-    "image": "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka.jpg",
-    "tags": [
-      "CAD",
-      "elementy maszyn",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "projektowanie-z-niepelnymi-danymi",
-    "title": "Z pracy konstruktora: Jak projektować kiedy masz niepełne dane?",
-    "seoTitle": "Projektowanie z niepełnymi danymi: 6 praktyk",
-    "description": "Jak projektować maszynę przy niepełnych danych: lista niewiadomych, styl pracy, projektowanie falowe, alternatywy oraz komunikacja z klientem.",
-    "date": "2026-08-03",
-    "image": "/img/blog/projektowanie-z-niepelnymi-danymi-okladka.jpg",
-    "tags": [
-      "zarządzanie projektem",
-      "praca konstruktora",
-      "CAD"
-    ]
-  },
-  {
-    "slug": "tuleje-taper-lock-dobor",
-    "title": "Z pracy konstruktora: Tuleje Taper Lock / Taper Bush - co warto wiedzieć?",
-    "seoTitle": "Tuleje Taper Lock: dobór i montaż",
-    "description": "Tuleje Taper Lock w napędach: jak działają, jak dobrać tuleję do koła pasowego, jakie dają plusy i na co uważać przy montażu oraz serwisie maszyny.",
-    "date": "2026-08-03",
-    "image": "/img/blog/tuleje-taper-lock-dobor-okladka.jpg",
-    "tags": [
-      "elementy maszyn",
-      "napędy",
-      "montaż"
-    ]
-  },
-  {
-    "slug": "umiejetnosci-poczatkujacego-konstruktora",
-    "title": "Z pracy konstruktora: Jakie umiejętności powinien rozwijać początkujący konstruktor?",
-    "seoTitle": "Umiejętności początkującego konstruktora maszyn",
-    "description": "Dziesięć umiejętności dla początkującego konstruktora: CAD, szkicowanie, wytwarzanie, materiały, producenci, angielski, komunikacja i nauka.",
-    "date": "2026-08-03",
-    "image": "/img/blog/umiejetnosci-poczatkujacego-konstruktora-okladka.jpg",
-    "tags": [
-      "CAD",
-      "rysunek techniczny",
-      "praca konstruktora"
-    ]
-  },
-  {
-    "slug": "weryfikacja-cad-przed-produkcja",
-    "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
-    "seoTitle": "Weryfikacja CAD przed produkcją: checklista błędów",
-    "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
-    "date": "2026-08-03",
-    "image": "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg",
-    "tags": [
-      "CAD",
-      "montaż",
-      "praca konstruktora"
-    ]
-  },
-  {
     "slug": "dobor-sprzegla-do-aplikacji",
     "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
     "seoTitle": "Jak dobrać sprzęgło do aplikacji? Rodzaje i dobór",
@@ -232,6 +77,161 @@
     "tags": [
       "elementy maszyn",
       "koszty"
+    ]
+  },
+  {
+    "slug": "projektowanie-wielobrylowe-case-study",
+    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 2 - Case Study)",
+    "seoTitle": "Projektowanie wielobryłowe w CAD: case study",
+    "description": "Case study projektowania wielobryłowego: baza na detal, kopiowane powierzchnie, kilka brył w jednej części, złożenie i prototyp z druku 3D w praktyce.",
+    "date": "2026-02-12",
+    "image": "/img/blog/projektowanie-wielobrylowe-case-study-okladka.jpg",
+    "tags": [
+      "CAD",
+      "druk 3D",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "projektowanie-wielobrylowe-czesc-1",
+    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 1)",
+    "seoTitle": "Projektowanie wielobryłowe w CAD: część 1",
+    "description": "Projektowanie wielobryłowe w CAD: czym jest część multi-body, kiedy pomaga przy dopasowaniu brył, a kiedy lepsze będzie klasyczne złożenie w CAD.",
+    "date": "2026-02-04",
+    "image": "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka.jpg",
+    "tags": [
+      "CAD",
+      "elementy maszyn",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "weryfikacja-cad-przed-produkcja",
+    "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
+    "seoTitle": "Weryfikacja CAD przed produkcją: checklista błędów",
+    "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
+    "date": "2026-01-28",
+    "image": "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg",
+    "tags": [
+      "CAD",
+      "montaż",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "umiejetnosci-poczatkujacego-konstruktora",
+    "title": "Z pracy konstruktora: Jakie umiejętności powinien rozwijać początkujący konstruktor?",
+    "seoTitle": "Umiejętności początkującego konstruktora maszyn",
+    "description": "Dziesięć umiejętności dla początkującego konstruktora: CAD, szkicowanie, wytwarzanie, materiały, producenci, angielski, komunikacja i nauka.",
+    "date": "2026-01-14",
+    "image": "/img/blog/umiejetnosci-poczatkujacego-konstruktora-okladka.jpg",
+    "tags": [
+      "CAD",
+      "rysunek techniczny",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "polaczenie-wal-piasta",
+    "title": "Z pracy konstruktora: Połączenie wał-piasta - przegląd rozwiązań",
+    "seoTitle": "Połączenie wał-piasta: przegląd rozwiązań",
+    "description": "Przegląd połączeń wał-piasta: wpust, docisk, wałek zębaty, Taper Lock i tuleje rozprężno-zaciskowe z zastosowaniami, kosztami i ograniczeniami.",
+    "date": "2026-01-07",
+    "image": "/img/blog/polaczenie-wal-piasta-okladka.jpg",
+    "tags": [
+      "elementy maszyn",
+      "napędy",
+      "montaż"
+    ]
+  },
+  {
+    "slug": "tuleje-taper-lock-dobor",
+    "title": "Z pracy konstruktora: Tuleje Taper Lock / Taper Bush - co warto wiedzieć?",
+    "seoTitle": "Tuleje Taper Lock: dobór i montaż",
+    "description": "Tuleje Taper Lock w napędach: jak działają, jak dobrać tuleję do koła pasowego, jakie dają plusy i na co uważać przy montażu oraz serwisie maszyny.",
+    "date": "2025-12-02",
+    "image": "/img/blog/tuleje-taper-lock-dobor-okladka.jpg",
+    "tags": [
+      "elementy maszyn",
+      "napędy",
+      "montaż"
+    ]
+  },
+  {
+    "slug": "pozornie-latwe-miejsca-projektu",
+    "title": "Z pracy konstruktora: [Case study] Pozornie \"łatwe\" miejsca w projekcie - na co uważać?",
+    "seoTitle": "Pozornie łatwe miejsca w projekcie maszyny",
+    "description": "Case study z palcami chwytaka: dlaczego prosty detal zaczął obracać się przy odkładaniu, co zmieniło kształt palców i jak podejść do testów.",
+    "date": "2025-11-26",
+    "image": "/img/blog/pozornie-latwe-miejsca-projektu-okladka.jpg",
+    "tags": [
+      "praca konstruktora",
+      "montaż",
+      "druk 3D"
+    ]
+  },
+  {
+    "slug": "bledy-w-projekcie-konstrukcyjnym",
+    "title": "Z pracy konstruktora: Zrobiłem błąd - co teraz? (🥶😫 vs 💡🤨)",
+    "seoTitle": "Błędy w projekcie konstrukcyjnym: co robić?",
+    "description": "Błędy w projekcie konstruktora: jak podejść do pomyłki, wyciągnąć wnioski, zapisać je w bazie wiedzy i ograniczyć ryzyko problemów przed produkcją.",
+    "date": "2025-10-22",
+    "image": "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka.jpg",
+    "tags": [
+      "praca konstruktora",
+      "zarządzanie projektem",
+      "CAD"
+    ]
+  },
+  {
+    "slug": "onenote-notes-projektu",
+    "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
+    "seoTitle": "OneNote projektu: jak zorganizować notes konstruktora",
+    "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
+    "date": "2025-10-02",
+    "image": "/img/blog/onenote-notes-projektu-okladka.jpg",
+    "tags": [
+      "zarządzanie projektem",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "projektowanie-z-niepelnymi-danymi",
+    "title": "Z pracy konstruktora: Jak projektować kiedy masz niepełne dane?",
+    "seoTitle": "Projektowanie z niepełnymi danymi: 6 praktyk",
+    "description": "Jak projektować maszynę przy niepełnych danych: lista niewiadomych, styl pracy, projektowanie falowe, alternatywy oraz komunikacja z klientem.",
+    "date": "2025-09-10",
+    "image": "/img/blog/projektowanie-z-niepelnymi-danymi-okladka.jpg",
+    "tags": [
+      "zarządzanie projektem",
+      "praca konstruktora",
+      "CAD"
+    ]
+  },
+  {
+    "slug": "design-for-maintenance-przezbrojenia",
+    "title": "Z pracy konstruktora: Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
+    "seoTitle": "Design for maintenance: projektowanie pod przezbrojenia",
+    "description": "Design for maintenance w praktyce: moduły, kołki bazujące, dostęp operatora, osłony i dokumentacja, które realnie skracają przezbrojenia maszyny.",
+    "date": "2025-08-26",
+    "image": "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg",
+    "tags": [
+      "montaż",
+      "utrzymanie ruchu",
+      "praca konstruktora"
+    ]
+  },
+  {
+    "slug": "elektrozawory-pneumatyczne-dobor",
+    "title": "Z pracy konstruktora: ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
+    "seoTitle": "Elektrozawory pneumatyczne: rodzaje i zastosowanie",
+    "description": "Elektrozawory pneumatyczne w maszynach: czym różnią się zawory 3/2, 5/2 i 5/3, co oznacza NO i NC oraz jak czytać symbole zaworów w praktyce.",
+    "date": "2025-07-31",
+    "image": "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg",
+    "tags": [
+      "pneumatyka",
+      "napędy",
+      "praca konstruktora"
     ]
   }
 ]
