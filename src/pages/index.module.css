@@ -658,7 +658,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(470px, 78%);
+  width: min(360px, 62%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -752,7 +752,7 @@
 
 @media (max-width: 900px) {
   .rysunekOtwarcia {
-    width: min(320px, 70%);
+    width: min(245px, 56%);
   }
   .opisWymiaru {
     font-size: 26px;
