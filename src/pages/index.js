@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {formatShortDatePl} from '@site/src/lib/site';
+import Zebatka3D from '@site/src/components/Zebatka3D';
 import styles from './index.module.css';
 import blogPosts from '../data/blog-posts.json';
 
@@ -78,7 +79,132 @@ function GearLayer({z, edge, delay}) {
   );
 }
 
-function Cad3dViewport() {
+// Sekwencja otwarcia strony glownej.
+//
+// Pomysl: strona najpierw kresli sie jak rysunek techniczny, a potem plaski
+// rzut wstaje w bryle. To jest jedyny efekt, ktory moze zrobic strona o
+// konstruowaniu maszyn, a nie dowolna strona z ladna animacja.
+//
+// Twarda zasada: naglowek i przyciski sa widoczne od pierwszej klatki.
+// Animacja nigdy nie kaze czekac na tresc, bo to psuje ocene szybkosci
+// strony i przy kolejnych wizytach zwyczajnie irytuje.
+const KLUCZ_OTWARCIA = 'pc-hero-otwarcie';
+const WERSJA_OTWARCIA = 1;
+
+function czyPierwszaWizyta() {
+  // Adres z ?otwarcie=1 zawsze odtwarza pelna sekwencje. Sluzy do pokazywania
+  // jej komus i do sprawdzania zmian bez czyszczenia pamieci przegladarki.
+  try {
+    if (new URLSearchParams(window.location.search).has('otwarcie')) return true;
+  } catch {
+    // Brak obslugi URLSearchParams nie moze wywrocic strony.
+  }
+
+  try {
+    const zapis = JSON.parse(window.localStorage.getItem(KLUCZ_OTWARCIA) || 'null');
+    return !(zapis && zapis.wersja === WERSJA_OTWARCIA);
+  } catch {
+    // Tryb prywatny potrafi rzucic wyjatkiem. Wtedy pokazujemy pelna wersje:
+    // lepiej pokazac za duzo raz niz nie pokazac wcale.
+    return true;
+  }
+}
+
+function zapamietajWizyte() {
+  try {
+    window.localStorage.setItem(
+      KLUCZ_OTWARCIA,
+      JSON.stringify({wersja: WERSJA_OTWARCIA, data: new Date().toISOString()}),
+    );
+  } catch {
+    // Brak zapisu oznacza tylko, ze przy nastepnej wizycie sekwencja zagra
+    // od nowa. Nic sie nie psuje.
+  }
+}
+
+function useSekwencjaOtwarcia() {
+  // Na serwerze i w pierwszej klatce zakladamy stan koncowy. Dzieki temu
+  // strona bez JavaScriptu wyglada poprawnie, a nie zastyga w polowie animacji.
+  const [stan, setStan] = React.useState({faza: 'bryla', rysunek: false, webgl: true});
+
+  useEffect(() => {
+    const bezRuchu = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Jedno sprawdzenie WebGL zamiast czekania, az komponent 3D sam sie podda.
+    // Gdy go nie ma, wracamy do warstwowej wersji CSS, ktora dziala wszedzie.
+    let webgl = false;
+    try {
+      const probny = document.createElement('canvas');
+      webgl = Boolean(probny.getContext('webgl') || probny.getContext('experimental-webgl'));
+    } catch {
+      webgl = false;
+    }
+
+    if (bezRuchu || !czyPierwszaWizyta()) {
+      setStan({faza: 'bryla', rysunek: false, webgl});
+      return undefined;
+    }
+
+    // Pelna sekwencja: plaski rzut, na nim kresli sie rysunek, potem bryla wstaje.
+    setStan({faza: 'plasko', rysunek: true, webgl});
+    zapamietajWizyte();
+
+    const wstan = setTimeout(() => {
+      setStan((p) => ({...p, faza: 'bryla'}));
+    }, 1800);
+    const schowajRysunek = setTimeout(() => {
+      setStan((p) => ({...p, rysunek: false}));
+    }, 2600);
+
+    return () => {
+      clearTimeout(wstan);
+      clearTimeout(schowajRysunek);
+    };
+  }, []);
+
+  return stan;
+}
+
+// Warstwa rysunku technicznego: linie pomocnicze, linia wymiarowa z grotami
+// i opis. Lezy nad modelem i znika, gdy bryla wstaje.
+function RysunekOtwarcia({widoczny}) {
+  return (
+    <svg
+      className={`${styles.rysunekOtwarcia} ${widoczny ? styles.rysunekGra : ''}`}
+      // Przezroczystosc ustawiamy wprost, a nie klasa. Klasa zalezalaby od
+      // kolejnosci regul w arkuszu, a tu chodzi o jednoznaczne zniknięcie
+      // rysunku dokladnie w chwili, gdy bryla wstaje.
+      style={{opacity: widoczny ? 1 : 0}}
+      viewBox="0 0 520 520"
+      aria-hidden="true"
+      focusable="false">
+      <g className={styles.liniePomocnicze}>
+        <path d="M60 260 H460" style={{'--dl': 400, '--op': '0ms'}} />
+        <path d="M260 60 V460" style={{'--dl': 400, '--op': '120ms'}} />
+      </g>
+      <g className={styles.linieWymiarowe}>
+        <path d="M60 96 V132" style={{'--dl': 40, '--op': '420ms'}} />
+        <path d="M460 96 V132" style={{'--dl': 40, '--op': '480ms'}} />
+        <path d="M60 112 H460" style={{'--dl': 400, '--op': '560ms'}} />
+      </g>
+      <g className={styles.grotyWymiaru}>
+        <path d="M60 112 l12 -5 v10 z" />
+        <path d="M460 112 l-12 -5 v10 z" />
+      </g>
+      <text className={styles.opisWymiaru} x="245" y="104">
+        ⌀416
+      </text>
+      <text className={styles.opisDetalu} x="60" y="470">
+        PC-001 · KOŁO ZĘBATE · z=18
+      </text>
+    </svg>
+  );
+}
+
+// Zapasowa wersja bryly, zlozona z plaskich warstw CSS. Wchodzi tam, gdzie
+// nie ma WebGL: starsze urzadzenia, wylaczone przyspieszenie sprzetowe,
+// przegladarki w trybie oszczedzania. Strona ma dzialac wszedzie.
+function BrylaWarstwowa() {
   const layers = Array.from({length: GEAR_LAYERS}, (_, i) => ({
     z: (i - (GEAR_LAYERS - 1) / 2) * LAYER_STEP,
     edge: i === 0 || i === GEAR_LAYERS - 1,
@@ -86,16 +212,28 @@ function Cad3dViewport() {
   }));
 
   return (
-    <div className={styles.viewport} aria-hidden="true">
-      <div className={styles.scene}>
-        <div className={styles.tilt} data-tilt>
-          <div className={styles.gearSpin3d}>
-            {layers.map((l) => (
-              <GearLayer key={l.z} z={l.z} edge={l.edge} delay={l.delay} />
-            ))}
-          </div>
+    <div className={styles.scene}>
+      <div className={styles.tilt} data-tilt>
+        <div className={styles.gearSpin3d}>
+          {layers.map((l) => (
+            <GearLayer key={l.z} z={l.z} edge={l.edge} delay={l.delay} />
+          ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function Cad3dViewport({faza, rysunek, webgl}) {
+  return (
+    <div className={styles.viewport} aria-hidden="true">
+      {webgl ? (
+        <Zebatka3D faza={faza} className={styles.bryla3d} />
+      ) : (
+        <BrylaWarstwowa />
+      )}
+
+      <RysunekOtwarcia widoczny={rysunek} />
 
       {/* Triada osi jak w oknie CAD */}
       <svg
@@ -227,9 +365,10 @@ function useHeroParallax() {
 
 function Hero() {
   const heroRef = useHeroParallax();
+  const {faza, rysunek, webgl} = useSekwencjaOtwarcia();
   return (
     <div className={styles.hero} ref={heroRef}>
-      <Cad3dViewport />
+      <Cad3dViewport faza={faza} rysunek={rysunek} webgl={webgl} />
       <div className={styles.heroGrid}>
         <div className={`${styles.heroCopy} ${styles.rise}`}>
           <div className={styles.eyebrow}>
