@@ -6,7 +6,7 @@
 
 - Łukasz przysyła pliki (PDF, zdjęcia, HEIC, dokumenty, arkusze, zrzuty ekranu) albo opisuje pomysł.
 - Claude sam: analizuje materiał, decyduje jak go pokazać, pisze kod/treść, weryfikuje w przeglądarce, commituje i publikuje.
-- **Nie** dziel pracy na podzadania dla Codeksa. **Nie** wymagaj od Łukasza obsługi CMS-a ani plików `.bat` — on wysyła materiał, Claude robi resztę.
+- **Nie** wymagaj od Łukasza obsługi narzędzi ani plików konfiguracyjnych — on wysyła materiał, Claude robi resztę.
 - Nie zasypuj pytaniami: podejmuj rozsądne decyzje projektowe samodzielnie, pytaj tylko gdy różne odczytania prowadzą do istotnie różnej pracy.
 
 ## Głos Łukasza (czytaj PRZED pisaniem czegokolwiek)
@@ -50,5 +50,6 @@ Przy większych zmianach: `git tag przed-<nazwa>` przed startem, żeby dało si�
 - **Produkcja: gałąź `main`** — Docusaurus 3.10, wyłączone presety docs/blog, własne strony React w `src/pages/`, design system `--pc-*` w `src/css/custom.css`.
 - Treść artykułów: `content/wiedza/<kategoria>/<slug>.json` i `content/blog/<slug>.json` — bloki renderowane przez `src/components/BlockRenderer.js` (typy: `tekst`, `obraz`, `galeria`, `tabela`, `wzor` KaTeX, `rysunek` SVG). `scripts/build-content-pages.mjs` sam generuje strony i listy przy buildzie.
 - Dane automatyczne: `scripts/fetch-episodes.mjs` (odcinki z RSS YouTube), `scripts/fetch-subscribers.mjs` (licznik subskrybentów) — hooki `prestart`/`prebuild`.
-- Decap CMS (`/admin`, tryb lokalny) i pliki `.bat` **zostają w repo**, ale nie są już główną ścieżką pracy — Łukasz z nich nie musi korzystać.
-- Gałąź **`next-tina`** to zaparkowany eksperyment (Next.js + TinaCMS, edycja wizualna). Nie rozwijamy go, chyba że Łukasz wróci do tematu. Nie usuwać.
+- Decap CMS (`/admin`), pliki `.bat` i katalog roboczy `next-app/` zostały **usunięte** (decyzja Łukasza z 2026-08-04). Nie przywracaj ich bez wyraźnej prośby.
+- Gałąź **`next-tina`** to zaparkowany eksperyment (Next.js + TinaCMS, edycja wizualna). To jedyne miejsce, gdzie ten kod istnieje. **Nie usuwać gałęzi.** Wracamy do tematu dopiero przy świadomej zmianie architektury.
+- Pełny opis architektury i uzasadnienie decyzji: `ARCHITEKTURA.md`.

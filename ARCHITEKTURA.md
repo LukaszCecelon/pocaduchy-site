@@ -33,7 +33,7 @@ konkretny problem przy projekcie i szuka konkretnej odpowiedzi.
 | Style | CSS Modules + zmienne `--pc-*` | Brak frameworka: strona ma około 10 typów widoków, framework byłby cięższy niż problem |
 | Treść | `content/**/*.json` | Łukasz ma edytować teksty bez dotykania kodu |
 | Hosting | GitHub Pages | Za darmo, wystarczająco szybko, zero utrzymania |
-| CMS | Decap pod `/admin` | **Zaparkowany.** Zostaje w repo, ale nie jest ścieżką pracy |
+| CMS | **Brak** | Decap został usunięty 4 sierpnia 2026. Łukasz przysyła materiał, treść trafia na stronę przez pliki JSON, więc panel był warstwą, z której nikt nie korzystał |
 
 ### Cena hostingu statycznego
 
@@ -221,5 +221,12 @@ wycofać.
   kontrolnych. Testy jednostkowe komponentów widoku dałyby tu mało.
 - **Brak trybu ciemnego.** Przełącznik jest wyłączony, bo strona ma dopracowany
   jeden motyw, a drugi wymagałby przejrzenia wszystkich widoków.
-- **`next-app/`** to porzucony eksperyment z Next.js i TinaCMS. Nieśledzony
-  przez gita.
+- **Brak panelu do edycji treści.** Decap CMS istniał pod `/admin` i został
+  usunięty 4 sierpnia 2026. Model pracy wygląda inaczej: Łukasz przysyła
+  materiał, treść trafia do plików JSON, panel był warstwą pośrednią, której
+  nikt nie używał.
+- **Eksperyment z Next.js i TinaCMS** (edycja wizualna prosto na podglądzie
+  strony) żyje wyłącznie na gałęzi **`next-tina`**. Katalog roboczy
+  `next-app/` usunięto, bo zawierał już tylko wynik budowania. Gałęzi nie
+  kasować: to jedyne miejsce, gdzie ten kod istnieje. Temat wraca dopiero
+  przy świadomej zmianie architektury.

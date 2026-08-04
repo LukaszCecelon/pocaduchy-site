@@ -12,7 +12,6 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "postbuild": "node scripts/strip-ads-from-404.mjs",
-    "edit": "concurrently --kill-others-on-fail -n STRONA,CMS -c blue,magenta \"npm:start\" \"npx decap-server\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -38,9 +37,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.2",
-    "@docusaurus/types": "3.10.2",
-    "concurrently": "^9.1.0",
-    "decap-server": "^3.2.0"
+    "@docusaurus/types": "3.10.2"
   },
   "browserslist": {
     "production": [

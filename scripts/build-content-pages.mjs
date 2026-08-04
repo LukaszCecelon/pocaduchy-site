@@ -1,9 +1,10 @@
 /**
- * Generuje strony Wiedzy/Bloga z plików danych w content/ (edytowanych przez
- * panel CMS pod /admin, tryb lokalny) oraz manifesty list kategorii w
- * src/data/. Uruchamiane automatycznie w prestart/prebuild — Łukasz nigdy
- * nie tworzy ani nie edytuje wygenerowanych stron w src/pages ręcznie,
- * tylko pliki danych w content/ (przez CMS albo wprost).
+ * Generuje strony Wiedzy i Bloga z plików danych w content/ oraz manifesty
+ * list kategorii w src/data/. Uruchamiane automatycznie w prestart i prebuild.
+ *
+ * Jedynym źródłem prawdy są pliki w content/. Wygenerowanych stron w
+ * src/pages/blog/ nikt nie edytuje ręcznie: każda taka zmiana zniknie
+ * przy najbliższym budowaniu strony.
  */
 import {
   readdirSync,

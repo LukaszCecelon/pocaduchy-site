@@ -55,12 +55,6 @@ Powstają przy `npm run start` i `npm run build`, nie edytuj ich ręcznie:
 | `src/data/blog-posts.json` | manifest artykułów |
 | `src/pages/blog/*.js` | strony artykułów |
 
-## Edycja przez CMS
-
-Alternatywna, rzadziej używana ścieżka: `Edytuj-Strone.bat` uruchamia serwer
-razem z panelem Decap pod `/admin`, `Publikuj-Zmiany.bat` publikuje zmiany.
-Panel działa wyłącznie lokalnie i nie jest dostępny na produkcji.
-
 ## Audyty i analizy
 
 Katalog `analizy/` zawiera raporty z audytów bezpieczeństwa, wydajności i SEO
