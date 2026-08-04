@@ -3,23 +3,14 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
+import {SITE_URL, formatLongDatePl} from '@site/src/lib/site';
 import styles from './WiedzaArticleTemplate.module.css';
-
-const SITE = 'https://pocaduchy.pl';
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
-}
 
 // Dane strukturalne artykułu: TechArticle (treść techniczna) + ścieżka
 // okruszków. Dzięki temu Google i modele AI wiedzą, że to artykuł
 // merytoryczny, kto jest autorem i gdzie leży w strukturze serwisu.
 function articleJsonLd({title, description, date, permalink, categoryLabel, categoryHref}) {
-  const url = `${SITE}${permalink || ''}`;
+  const url = `${SITE_URL}${permalink || ''}`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,11 +22,11 @@ function articleJsonLd({title, description, date, permalink, categoryLabel, cate
         inLanguage: 'pl-PL',
         url,
         mainEntityOfPage: url,
-        image: `${SITE}/img/og-pocaduchy.jpg`,
+        image: `${SITE_URL}/img/og-pocaduchy.jpg`,
         ...(date ? {datePublished: date, dateModified: date} : {}),
-        author: {'@id': `${SITE}/#lukasz`},
-        publisher: {'@id': `${SITE}/#organizacja`},
-        isPartOf: {'@id': `${SITE}/#strona`},
+        author: {'@id': `${SITE_URL}/#lukasz`},
+        publisher: {'@id': `${SITE_URL}/#organizacja`},
+        isPartOf: {'@id': `${SITE_URL}/#strona`},
         articleSection: categoryLabel,
         audience: {
           '@type': 'Audience',
@@ -46,13 +37,13 @@ function articleJsonLd({title, description, date, permalink, categoryLabel, cate
         '@type': 'BreadcrumbList',
         '@id': `${url}#okruszki`,
         itemListElement: [
-          {'@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE},
-          {'@type': 'ListItem', position: 2, name: 'Wiedza', item: `${SITE}/wiedza`},
+          {'@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE_URL},
+          {'@type': 'ListItem', position: 2, name: 'Wiedza', item: `${SITE_URL}/wiedza`},
           {
             '@type': 'ListItem',
             position: 3,
             name: categoryLabel,
-            item: `${SITE}${categoryHref}`,
+            item: `${SITE_URL}${categoryHref}`,
           },
           {'@type': 'ListItem', position: 4, name: title, item: url},
         ],
@@ -100,7 +91,7 @@ export default function WiedzaArticleTemplate({
             {description ? <p className={styles.lead}>{description}</p> : null}
             {date ? (
               <p className={styles.meta}>
-                <time dateTime={date}>{formatDate(date)}</time> · Łukasz Cecelon
+                <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
               </p>
             ) : null}
             <BlockRenderer blocks={blocks} />

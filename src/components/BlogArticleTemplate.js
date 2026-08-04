@@ -5,18 +5,8 @@ import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
 import posts from '@site/src/data/blog-posts.json';
 import oMnie from '@site/content/o-mnie.json';
+import {SITE_URL, absoluteSiteUrl, formatLongDatePl} from '@site/src/lib/site';
 import styles from '@site/src/pages/blog/blog.module.css';
-
-const SITE = 'https://pocaduchy.pl';
-
-function formatDate(iso) {
-  if (!iso) return null;
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
-}
 
 // Dane strukturalne wpisu: BlogPosting + ścieżka okruszków, a gdy artykuł ma
 // sekcję pytań lub instrukcję krok po kroku, dokładamy FAQPage / HowTo.
@@ -34,13 +24,27 @@ function articleJsonLd({
   faq,
   howTo,
 }) {
-  const url = `${SITE}${permalink || ''}`;
-  const coverImage = `${SITE}${image || '/img/og-pocaduchy.jpg'}`;
+  const url = `${SITE_URL}${permalink || ''}`;
+  const coverImage = absoluteSiteUrl(image || '/img/og-pocaduchy.jpg');
   const blockImages = Array.isArray(blocks)
-    ? blocks.filter((b) => b?.type === 'obraz' && b.src).map((b) => `${SITE}${b.src}`)
+    ? blocks.filter((b) => b?.type === 'obraz' && b.src).map((b) => absoluteSiteUrl(b.src))
     : [];
   const uniqueImages = Array.from(new Set([coverImage, ...blockImages]));
   const jsonLdImage = blockImages.length ? uniqueImages : coverImage;
+  const videoNodes = Array.isArray(blocks)
+    ? blocks
+        .filter((b) => b?.type === 'wideo' && b.src && b.poster)
+        .map((b, i) => ({
+          '@type': 'VideoObject',
+          '@id': `${url}#wideo-${i + 1}`,
+          name: b.podpis || title,
+          description: b.alt || b.podpis || description,
+          thumbnailUrl: absoluteSiteUrl(b.poster),
+          uploadDate: date,
+          contentUrl: absoluteSiteUrl(b.src),
+          isPartOf: {'@id': `${url}#artykul`},
+        }))
+    : [];
   const graph = [
     {
       '@type': 'BlogPosting',
@@ -54,9 +58,9 @@ function articleJsonLd({
       ...(date ? {datePublished: date} : {}),
       ...(date ? {dateModified: dateModified || date} : {}),
       ...(tags && tags.length ? {keywords: tags.join(', ')} : {}),
-      author: {'@id': `${SITE}/#lukasz`},
-      publisher: {'@id': `${SITE}/#organizacja`},
-      isPartOf: {'@id': `${SITE}/#strona`},
+      author: {'@id': `${SITE_URL}/#lukasz`},
+      publisher: {'@id': `${SITE_URL}/#organizacja`},
+      isPartOf: {'@id': `${SITE_URL}/#strona`},
       audience: {
         '@type': 'Audience',
         audienceType: 'konstruktorzy, inżynierowie mechanicy, technolodzy',
@@ -66,12 +70,14 @@ function articleJsonLd({
       '@type': 'BreadcrumbList',
       '@id': `${url}#okruszki`,
       itemListElement: [
-        {'@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE},
-        {'@type': 'ListItem', position: 2, name: 'Artykuły', item: `${SITE}/blog`},
+        {'@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE_URL},
+        {'@type': 'ListItem', position: 2, name: 'Artykuły', item: `${SITE_URL}/blog`},
         {'@type': 'ListItem', position: 3, name: title, item: url},
       ],
     },
   ];
+
+  graph.push(...videoNodes);
 
   if (faq && faq.length) {
     graph.push({
@@ -212,8 +218,8 @@ export default function BlogArticleTemplate({
     <Layout title={seoTitle || title} description={description}>
       <Head>
         <meta property="og:type" content="article" />
-        {image ? <meta property="og:image" content={`${SITE}${image}`} /> : null}
-        {image ? <meta name="twitter:image" content={`${SITE}${image}`} /> : null}
+        {image ? <meta property="og:image" content={absoluteSiteUrl(image)} /> : null}
+        {image ? <meta name="twitter:image" content={absoluteSiteUrl(image)} /> : null}
         {date ? <meta property="article:published_time" content={date} /> : null}
         {dateModified ? (
           <meta property="article:modified_time" content={dateModified} />
@@ -250,7 +256,7 @@ export default function BlogArticleTemplate({
         <div className={styles.metaRow}>
           {date ? (
             <span className={styles.metaDate}>
-              <time dateTime={date}>{formatDate(date)}</time> · Łukasz Cecelon
+              <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
             </span>
           ) : null}
           {linkedinUrl ? (

@@ -2,11 +2,11 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Okruszki from '@site/src/components/Okruszki';
+import {SITE_URL, formatShortDatePl} from '@site/src/lib/site';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
 import redakcja from '@site/content/odcinki.json';
 
-const SITE = 'https://pocaduchy.pl';
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 
 // Listę filmów generuje scripts/fetch-episodes.mjs (prebuild/prestart) z feedu
@@ -27,20 +27,12 @@ const GRUPY = DZIALY.map((d) => ({
   odcinki: EPISODES.filter((e) => (e.dzial || DZIAL_DOMYSLNY) === d.id),
 })).filter((g) => g.odcinki.length > 0);
 
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
-}
-
 // Lista odcinków jako dane strukturalne. Każdy wpis to VideoObject z tytułem,
 // miniaturą, datą publikacji i własnym opisem, wskazujący na YouTube.
 const EPISODES_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  '@id': `${SITE}/odcinki#lista`,
+  '@id': `${SITE_URL}/odcinki#lista`,
   name: 'Odcinki kanału poCADuchy',
   numberOfItems: EPISODES.length,
   itemListElement: EPISODES.map((ep, i) => ({
@@ -55,7 +47,7 @@ const EPISODES_JSON_LD = {
       embedUrl: `https://www.youtube.com/embed/${ep.id}`,
       description: ep.opis || ep.title,
       inLanguage: 'pl-PL',
-      publisher: {'@id': `${SITE}/#organizacja`},
+      publisher: {'@id': `${SITE_URL}/#organizacja`},
     },
   })),
 };
@@ -74,7 +66,7 @@ function Karta({ep}) {
         </div>
       </div>
       <div className={styles.meta}>
-        <span className={styles.epDate}>{formatDate(ep.published)}</span>
+        <span className={styles.epDate}>{formatShortDatePl(ep.published)}</span>
         <span className={styles.epTitle}>{ep.title}</span>
         {ep.opis ? <span className={styles.epOpis}>{ep.opis}</span> : null}
       </div>

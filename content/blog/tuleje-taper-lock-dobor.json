@@ -54,7 +54,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Czym w ogóle jest tuleja Taper Lock?\n\nZawsze mówię, że konstruktorowi to najlepiej pokazać pismem obrazkowym 😉 Dlatego na początek zdjęcie:"
+      "body": "## Czym w ogóle jest tuleja Taper Lock?\n\nZawsze mówię, że konstruktorowi to najlepiej pokazać pismem obrazkowym 😉 Dlatego na początek zdjęcie:"
     },
     {
       "type": "obraz",
@@ -80,7 +80,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Co zyskujecie jako konstruktorzy?\n\nTo, co wymieniłem na początku, to była perspektywa \"biznesowa\". Z punktu widzenia konstruktora dochodzi jeszcze kilka bardzo praktycznych plusów:"
+      "body": "## Co zyskujecie jako konstruktorzy?\n\nTo, co wymieniłem na początku, to była perspektywa \"biznesowa\". Z punktu widzenia konstruktora dochodzi jeszcze kilka bardzo praktycznych plusów:"
     },
     {
       "type": "tekst",
@@ -88,7 +88,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Jak dobrać?\n\nW zasadzie musicie wiedzieć jaka jest średnica wałka oraz musicie mieć dobrany pas zębaty, klinowy, łańcuch itd. (UWAGA: Dla pasków zębatych o profilu T oraz AT ciężej dostać koła zębate przygotowane pod tuleje TAPER LOCK).\n\nPotem wybieracie koło, które was interesuje. W jego opisie znajdziecie standard tulei TAPER LOCK, która jest do niego dedykowana, np. \"do tulei stożkowej 1108\". Następnie szukacie takiej tulei i z tabeli dobieracie taką, w której otwór na wałek pasuje do Waszej aplikacji."
+      "body": "## Jak dobrać?\n\nW zasadzie musicie wiedzieć jaka jest średnica wałka oraz musicie mieć dobrany pas zębaty, klinowy, łańcuch itd. (UWAGA: Dla pasków zębatych o profilu T oraz AT ciężej dostać koła zębate przygotowane pod tuleje TAPER LOCK).\n\nPotem wybieracie koło, które was interesuje. W jego opisie znajdziecie standard tulei TAPER LOCK, która jest do niego dedykowana, np. \"do tulei stożkowej 1108\". Następnie szukacie takiej tulei i z tabeli dobieracie taką, w której otwór na wałek pasuje do Waszej aplikacji."
     },
     {
       "type": "obraz",
@@ -99,7 +99,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Na co uważać?\n\nPrzede wszystkim na przestrzeń dookoła napędu. Jak na pewno zauważyliście, do montażu potrzeba klucza dynamometrycznego - więc potrzeba też przewidzieć miejsce na niego."
+      "body": "## Na co uważać?\n\nPrzede wszystkim na przestrzeń dookoła napędu. Jak na pewno zauważyliście, do montażu potrzeba klucza dynamometrycznego - więc potrzeba też przewidzieć miejsce na niego."
     },
     {
       "type": "tekst",
@@ -111,7 +111,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nMam nadzieję, że ten artykuł przyda się Wam w codziennej pracy. Szczególnie jeśli do tej pory każde koło napędowe było dłutowane 🙃. Moim zdaniem, stosowanie dedykowanych, handlowych elementów w budowie maszyn to coś nad czym każdy musi pracować - po prostu nieraz robimy coś od lat i trudno nam w głowie przestawić tryb na dobór z katalogu.\n\nStay Tuned!"
+      "body": "## Podsumowanie\n\nMam nadzieję, że ten artykuł przyda się Wam w codziennej pracy. Szczególnie jeśli do tej pory każde koło napędowe było dłutowane 🙃. Moim zdaniem, stosowanie dedykowanych, handlowych elementów w budowie maszyn to coś nad czym każdy musi pracować - po prostu nieraz robimy coś od lat i trudno nam w głowie przestawić tryb na dobór z katalogu.\n\nStay Tuned!"
     }
   ]
 }

@@ -6,9 +6,9 @@ import remarkGfm from 'remark-gfm';
 import Okruszki from '@site/src/components/Okruszki';
 import {otworzBanerZgody} from '@site/src/components/BanerZgody';
 import prawne from '@site/content/prawne.json';
+import {SITE_URL, formatLongDatePl} from '@site/src/lib/site';
 import styles from './StronaPrawna.module.css';
 
-const SITE = 'https://pocaduchy.pl';
 const {administrator, dataAktualizacji} = prawne;
 
 // Nazwa administratora skladana z danych: NIP dokladamy tylko wtedy, gdy jest
@@ -23,14 +23,6 @@ function podstaw(tekst) {
   return (tekst || '')
     .replace(/\{\{ADMINISTRATOR\}\}/g, `**${NAZWA_ADMINISTRATORA}**`)
     .replace(/\{\{EMAIL\}\}/g, `[${administrator.email}](mailto:${administrator.email})`);
-}
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
 }
 
 // Ponowne otwarcie okna zgody. Wycofanie zgody musi byc rownie latwe jak jej
@@ -128,14 +120,14 @@ export default function StronaPrawna({dokument, sciezka}) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${SITE}${sciezka}#strona`,
-    url: `${SITE}${sciezka}`,
+    '@id': `${SITE_URL}${sciezka}#strona`,
+    url: `${SITE_URL}${sciezka}`,
     name: d.meta.tytul,
     description: d.meta.opis,
     inLanguage: 'pl-PL',
     dateModified: dataAktualizacji,
-    isPartOf: {'@id': `${SITE}/#strona`},
-    publisher: {'@id': `${SITE}/#organizacja`},
+    isPartOf: {'@id': `${SITE_URL}/#strona`},
+    publisher: {'@id': `${SITE_URL}/#organizacja`},
   };
 
   return (
@@ -152,7 +144,7 @@ export default function StronaPrawna({dokument, sciezka}) {
           <p className={styles.lead}>{d.lead}</p>
           <p className={styles.data}>
             Ostatnia aktualizacja:{' '}
-            <time dateTime={dataAktualizacji}>{formatDate(dataAktualizacji)}</time>
+            <time dateTime={dataAktualizacji}>{formatLongDatePl(dataAktualizacji)}</time>
           </p>
         </header>
 

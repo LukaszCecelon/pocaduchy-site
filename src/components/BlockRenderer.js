@@ -45,7 +45,7 @@ function TekstBlock({body}) {
   );
 }
 
-function ObrazBlock({src, podpis, alt, wyrownanie}) {
+function ObrazBlock({src, podpis, alt, wyrownanie, priorytet}) {
   const url = useBaseUrl(src);
   const alignClass = styles[ALIGN_CLASS[wyrownanie]] || styles.obrazSrodek;
   const sizeAttrs = imageSizeAttrs(src);
@@ -53,7 +53,13 @@ function ObrazBlock({src, podpis, alt, wyrownanie}) {
     <figure className={`${styles.obraz} ${alignClass}`}>
       {/* alt: opis dla czytników ekranu i wyszukiwarek — niezależny od
           widocznego podpisu (obraz może mieć opis bez podpisu pod spodem) */}
-      <img src={url} alt={alt || podpis || ''} loading="lazy" {...sizeAttrs} />
+      <img
+        src={url}
+        alt={alt || podpis || ''}
+        loading={priorytet ? 'eager' : 'lazy'}
+        fetchPriority={priorytet ? 'high' : undefined}
+        {...sizeAttrs}
+      />
       {podpis ? <figcaption className={styles.podpis}>{podpis}</figcaption> : null}
     </figure>
   );
@@ -177,12 +183,13 @@ const BLOCK_COMPONENTS = {
 // wyłącznie tutaj — BLOCK_COMPONENTS + odpowiadająca kolekcja w config.yml.
 export default function BlockRenderer({blocks}) {
   const items = Array.isArray(blocks) ? blocks : [];
+  const firstImageIndex = items.findIndex((block) => block?.type === 'obraz');
   return (
     <div className={styles.wrap}>
       {items.map((block, i) => {
         const Component = BLOCK_COMPONENTS[block?.type];
         if (!Component) return null;
-        return <Component key={i} {...block} />;
+        return <Component key={i} {...block} priorytet={i === firstImageIndex} />;
       })}
     </div>
   );

@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import {formatShortDatePl} from '@site/src/lib/site';
 import styles from './index.module.css';
 import blogPosts from '../data/blog-posts.json';
 
@@ -18,14 +19,6 @@ const LATEST_EPISODE = episodesData.episodes.filter((e) => !e.isShort)[0];
 
 // Liczba subskrybentów z auto-generowanego subscribers.json (fetch-subscribers.mjs).
 const SUBSCRIBERS = subscribersData?.count;
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
-}
 
 // Parametryczne koło zębate (18 zębów trapezowych) liczone matematycznie,
 // wyśrodkowane w (0,0) — dzięki temu grupa może się obracać wokół środka.
@@ -174,29 +167,58 @@ function useHeroParallax() {
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return undefined;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return undefined;
-    }
     const wrap = hero.querySelector('[data-tilt]');
     if (!wrap) return undefined;
 
-    const onMove = (e) => {
-      const r = hero.getBoundingClientRect();
-      const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-      const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
-      wrap.style.setProperty('--tx', `${(nx * 7).toFixed(2)}deg`);
-      wrap.style.setProperty('--ty', `${(-ny * 6).toFixed(2)}deg`);
-    };
-    const onLeave = () => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let ograniczRuch = reducedMotion.matches;
+    let frameId = null;
+    let ostatniRuch = null;
+
+    const resetTilt = () => {
       wrap.style.setProperty('--tx', '0deg');
       wrap.style.setProperty('--ty', '0deg');
     };
 
+    const updateTilt = () => {
+      frameId = null;
+      if (ograniczRuch || !ostatniRuch) return;
+
+      const r = hero.getBoundingClientRect();
+      const nx = ((ostatniRuch.clientX - r.left) / r.width - 0.5) * 2;
+      const ny = ((ostatniRuch.clientY - r.top) / r.height - 0.5) * 2;
+      wrap.style.setProperty('--tx', `${(nx * 7).toFixed(2)}deg`);
+      wrap.style.setProperty('--ty', `${(-ny * 6).toFixed(2)}deg`);
+    };
+
+    const onMove = (e) => {
+      if (ograniczRuch) return;
+      ostatniRuch = {clientX: e.clientX, clientY: e.clientY};
+      if (frameId === null) frameId = window.requestAnimationFrame(updateTilt);
+    };
+
+    const onLeave = () => {
+      ostatniRuch = null;
+      resetTilt();
+    };
+
+    const onReducedMotionChange = (e) => {
+      ograniczRuch = e.matches;
+      if (!ograniczRuch) return;
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+      frameId = null;
+      ostatniRuch = null;
+      resetTilt();
+    };
+
     hero.addEventListener('mousemove', onMove);
     hero.addEventListener('mouseleave', onLeave);
+    reducedMotion.addEventListener('change', onReducedMotionChange);
     return () => {
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
       hero.removeEventListener('mousemove', onMove);
       hero.removeEventListener('mouseleave', onLeave);
+      reducedMotion.removeEventListener('change', onReducedMotionChange);
     };
   }, []);
 
@@ -289,7 +311,7 @@ function LatestEpisode() {
             </div>
           </div>
           <div className={styles.latestMeta}>
-            <span className={styles.latestDate}>{formatDate(ep.published)}</span>
+            <span className={styles.latestDate}>{formatShortDatePl(ep.published)}</span>
             <h3 className={styles.latestTitle}>{ep.title}</h3>
             <span className={styles.latestCta}>Obejrzyj na YouTube →</span>
           </div>

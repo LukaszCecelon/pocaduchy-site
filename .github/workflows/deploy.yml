@@ -8,10 +8,10 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# Domyślnie nic. Uprawnienia nadajemy osobno każdemu zadaniu, bo zadanie
+# budujące uruchamia kod zależności z npm i nie ma powodu, żeby mogło
+# publikować cokolwiek ani prosić o token tożsamości.
+permissions: {}
 
 concurrency:
   group: pages
@@ -20,6 +20,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +38,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # Tylko to zadanie publikuje, więc tylko ono dostaje prawo zapisu
+    # do Pages i token tożsamości. Nie uruchamia kodu z zależności.
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -3,37 +3,27 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
+import {SITE_URL, formatLongDatePl} from '@site/src/lib/site';
 import styles from './blog.module.css';
 import posts from '@site/src/data/blog-posts.json';
-
-const SITE = 'https://pocaduchy.pl';
-
-function formatDate(iso) {
-  if (!iso) return null;
-  return new Date(iso).toLocaleDateString('pl-PL', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  });
-}
 
 // Spis artykułów jako dane strukturalne (Blog + lista wpisów).
 const BLOG_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  '@id': `${SITE}/blog#blog`,
+  '@id': `${SITE_URL}/blog#blog`,
   name: 'Artykuły o konstruowaniu - poCADuchy',
-  url: `${SITE}/blog`,
+  url: `${SITE_URL}/blog`,
   inLanguage: 'pl-PL',
-  publisher: {'@id': `${SITE}/#organizacja`},
-  isPartOf: {'@id': `${SITE}/#strona`},
+  publisher: {'@id': `${SITE_URL}/#organizacja`},
+  isPartOf: {'@id': `${SITE_URL}/#strona`},
   blogPost: posts.map((p) => ({
     '@type': 'BlogPosting',
     headline: p.title,
     description: p.description,
-    url: `${SITE}/blog/${p.slug}`,
+    url: `${SITE_URL}/blog/${p.slug}`,
     ...(p.date ? {datePublished: p.date} : {}),
-    author: {'@id': `${SITE}/#lukasz`},
+    author: {'@id': `${SITE_URL}/#lukasz`},
   })),
 };
 
@@ -76,7 +66,7 @@ export default function Blog() {
                 ) : null}
                 <div className={styles.postMeta}>
                   {p.date ? (
-                    <span className={styles.postDate}>{formatDate(p.date)}</span>
+                    <span className={styles.postDate}>{formatLongDatePl(p.date)}</span>
                   ) : null}
                   <h2 className={styles.postTitle}>{p.title}</h2>
                   <p className={styles.postBody}>{p.description}</p>

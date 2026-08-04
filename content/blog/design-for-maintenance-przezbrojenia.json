@@ -50,7 +50,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Sześć zasad skracających przestoje międzyprodukcyjne\n\n📈 **Wymiana całych modułów** - jeśli chcesz, żeby przezbrojenie Twojej maszyny mierzone było w minutach, a nie godzinach, dobrym podejściem będzie modułowa konstrukcja. Tak projektuj maszynę, aby była podzielona na konkretne stacje posiadające swoje zadania, np. podawanie detalu, orientowanie detalu, przenoszenie detalu, montaż, kontrola jakości itd."
+      "body": "## Sześć zasad skracających przestoje międzyprodukcyjne\n\n📈 **Wymiana całych modułów** - jeśli chcesz, żeby przezbrojenie Twojej maszyny mierzone było w minutach, a nie godzinach, dobrym podejściem będzie modułowa konstrukcja. Tak projektuj maszynę, aby była podzielona na konkretne stacje posiadające swoje zadania, np. podawanie detalu, orientowanie detalu, przenoszenie detalu, montaż, kontrola jakości itd."
     },
     {
       "type": "tekst",
@@ -88,7 +88,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Co robić, żeby Design For Maintenance wszedł nam w nawyk?\n\n🔎 **Odwiedzaj halę montażową!** - nie bez powodu jest to pierwszy punkt. Dobry konstruktor to opatrzony konstruktor. To ktoś, kto wiele razy samodzielnie obsługiwał maszyny danego typu, ktoś kto chętnie podchodzi i próbuje własnoręcznie przezbroić urządzenie. Oglądaj nie tylko swoje projekty, podchodź do tematów prowadzonych przez Twoich kolegów, zadawaj pytanie: czy można było to zrobić lepiej?"
+      "body": "## Co robić, żeby Design For Maintenance wszedł nam w nawyk?\n\n🔎 **Odwiedzaj halę montażową!** - nie bez powodu jest to pierwszy punkt. Dobry konstruktor to opatrzony konstruktor. To ktoś, kto wiele razy samodzielnie obsługiwał maszyny danego typu, ktoś kto chętnie podchodzi i próbuje własnoręcznie przezbroić urządzenie. Oglądaj nie tylko swoje projekty, podchodź do tematów prowadzonych przez Twoich kolegów, zadawaj pytanie: czy można było to zrobić lepiej?"
     },
     {
       "type": "tekst",
@@ -103,7 +103,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nJeśli projektujesz dla branż o wysokiej zmienności produkcji, z pewnością zetknąłeś się już z wyzwaniami opisanymi w tym artykule. Osobiście zebrałem tutaj kilka moim zdaniem dobrych praktyk. Oczywiście cały temat projektowania \"ELASTYCZNYCH\" maszyn jest naprawdę obszerny i ten artykuł nie opisuje wszystkich jego zakamarków."
+      "body": "## Podsumowanie\n\nJeśli projektujesz dla branż o wysokiej zmienności produkcji, z pewnością zetknąłeś się już z wyzwaniami opisanymi w tym artykule. Osobiście zebrałem tutaj kilka moim zdaniem dobrych praktyk. Oczywiście cały temat projektowania \"ELASTYCZNYCH\" maszyn jest naprawdę obszerny i ten artykuł nie opisuje wszystkich jego zakamarków."
     }
   ]
 }

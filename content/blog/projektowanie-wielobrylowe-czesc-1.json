@@ -46,7 +46,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 1️⃣ Część wielobryłowa - co to w ogóle za stworzenie?\n\nW oprogramowaniu CAD, będąc w środowisku części, mamy funkcje typu bool - pozwalające na dodawanie/odejmowanie/pozostawianie części wspólnej w czasie projektowania. Poza tymi podstawowymi zadaniami mamy do dyspozycji opcję \"Dodania\" bryły. Innymi słowy, zamiast dodawać \"materiał\", tworzymy nową oddzielną bryłę. W ten sposób powstaje nam część, która zawiera w sobie de facto więcej niż 1 bryłę. Pokazałem to na zdjęciu poniżej."
+      "body": "## 1️⃣ Część wielobryłowa - co to w ogóle za stworzenie?\n\nW oprogramowaniu CAD, będąc w środowisku części, mamy funkcje typu bool - pozwalające na dodawanie/odejmowanie/pozostawianie części wspólnej w czasie projektowania. Poza tymi podstawowymi zadaniami mamy do dyspozycji opcję \"Dodania\" bryły. Innymi słowy, zamiast dodawać \"materiał\", tworzymy nową oddzielną bryłę. W ten sposób powstaje nam część, która zawiera w sobie de facto więcej niż 1 bryłę. Pokazałem to na zdjęciu poniżej."
     },
     {
       "type": "obraz",
@@ -68,7 +68,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 2️⃣ Wady i zalety projektowania części wielobryłowych\n\nStwierdziłem, że najłatwiej będzie wrzucić zestawienie w formie tabeli - dużo łatwiej będzie się Wam to czytało 😉"
+      "body": "## 2️⃣ Wady i zalety projektowania części wielobryłowych\n\nStwierdziłem, że najłatwiej będzie wrzucić zestawienie w formie tabeli - dużo łatwiej będzie się Wam to czytało 😉"
     },
     {
       "type": "obraz",
@@ -79,19 +79,19 @@
     },
     {
       "type": "tekst",
-      "body": "### 3️⃣ Kiedy stosować, a kiedy nie?\n\nOczywiście szerzej będę opisywał to w części 2, jednak już teraz, na bazie tabeli powyżej, można opisać kilka sytuacji, w których lepsze będzie podejście klasyczne oraz takich, gdzie projektowanie wielobryłowe sprawdzi się dużo lepiej."
+      "body": "## 3️⃣ Kiedy stosować, a kiedy nie?\n\nOczywiście szerzej będę opisywał to w części 2, jednak już teraz, na bazie tabeli powyżej, można opisać kilka sytuacji, w których lepsze będzie podejście klasyczne oraz takich, gdzie projektowanie wielobryłowe sprawdzi się dużo lepiej."
     },
     {
       "type": "tekst",
-      "body": "### Kiedy wielobryłowo? 🟧🟨🟩\n\n- nierozłączny zespół części, gdzie zależy nam na utrzymaniu położenia elementów względem siebie,\n- kiedy potrzebujemy coś idealnie dopasować - uchwyt do smartfona, bazę na detale klienta, obudowę,\n- kiedy zależy nam na szybkim i łatwym wprowadzeniu zmian - faza głębokiej koncepcji,\n- kiedy chcemy sobie stworzyć \"Master Layout\" dla złożenia."
+      "body": "## Kiedy wielobryłowo? 🟧🟨🟩\n\n- nierozłączny zespół części, gdzie zależy nam na utrzymaniu położenia elementów względem siebie,\n- kiedy potrzebujemy coś idealnie dopasować - uchwyt do smartfona, bazę na detale klienta, obudowę,\n- kiedy zależy nam na szybkim i łatwym wprowadzeniu zmian - faza głębokiej koncepcji,\n- kiedy chcemy sobie stworzyć \"Master Layout\" dla złożenia."
     },
     {
       "type": "tekst",
-      "body": "### Kiedy klasycznie? 🎻🎻🎻\n\n- złożenia z dużą ilością powtarzających się elementów, losowo rozłożonych w zespole,\n- kiedy potrzebujesz symulować ruch,\n- kiedy dany podzespół będzie zawierał bardzo dużą ilość niezależnych komponentów. Akurat tutaj warto też rozważyć ewentualny podział na mniejsze podzespoły,\n- proste złożenia, gdzie projektowanie wielobryłowe będzie \"strzelaniem do jabłka z armaty\"."
+      "body": "## Kiedy klasycznie? 🎻🎻🎻\n\n- złożenia z dużą ilością powtarzających się elementów, losowo rozłożonych w zespole,\n- kiedy potrzebujesz symulować ruch,\n- kiedy dany podzespół będzie zawierał bardzo dużą ilość niezależnych komponentów. Akurat tutaj warto też rozważyć ewentualny podział na mniejsze podzespoły,\n- proste złożenia, gdzie projektowanie wielobryłowe będzie \"strzelaniem do jabłka z armaty\"."
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nCzyli kiedy projektować wielobryłowo, Łukasz! Powiedz! 😂\n\nPolecę jak typowy inżynier: TO ZALEŻY - przeczytaj powyżej i sam zdecyduj (hehe). A tak serio to mam nadzieję, że ta część 1 pomogła Wam zobaczyć główne zalety i wady tego rodzaju projektowania części."
+      "body": "## Podsumowanie\n\nCzyli kiedy projektować wielobryłowo, Łukasz! Powiedz! 😂\n\nPolecę jak typowy inżynier: TO ZALEŻY - przeczytaj powyżej i sam zdecyduj (hehe). A tak serio to mam nadzieję, że ta część 1 pomogła Wam zobaczyć główne zalety i wady tego rodzaju projektowania części."
     }
   ]
 }

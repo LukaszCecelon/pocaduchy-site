@@ -3,8 +3,6 @@
  * Colors extracted directly from the channel logo file.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
 :root {
   --pc-navy: #2b2f4c;
   --pc-navy-soft: #4a4e6b;

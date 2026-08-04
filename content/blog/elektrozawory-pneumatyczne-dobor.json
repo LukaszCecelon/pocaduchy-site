@@ -46,7 +46,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 1. Elektrozawory - przede wszystkim co to i po co?\n\nJak sama nazwa wskazuje, jest to zawór sterowany przy pomocy sygnału elektrycznego - czyli w dużym uproszczeniu, nie wiemy jeszcze o rodzajach elektrozaworów, podajemy sygnał, zawór się otwiera. Na rysunku poniżej możecie zobaczyć jak to wygląda."
+      "body": "## 1. Elektrozawory - przede wszystkim co to i po co?\n\nJak sama nazwa wskazuje, jest to zawór sterowany przy pomocy sygnału elektrycznego - czyli w dużym uproszczeniu, nie wiemy jeszcze o rodzajach elektrozaworów, podajemy sygnał, zawór się otwiera. Na rysunku poniżej możecie zobaczyć jak to wygląda."
     },
     {
       "type": "obraz",
@@ -61,7 +61,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 2. Jakie wyróżniamy elektrozawory?\n\nSkoro już wiemy czym te graty są i dlaczego jednak są niezbędne w maszynie, zajmijmy się ich rodzajami.\n\nPierwszy podział, i jego pod-podział 😉, to zawory MONOSTABILNE i BISTABILNE."
+      "body": "## 2. Jakie wyróżniamy elektrozawory?\n\nSkoro już wiemy czym te graty są i dlaczego jednak są niezbędne w maszynie, zajmijmy się ich rodzajami.\n\nPierwszy podział, i jego pod-podział 😉, to zawory MONOSTABILNE i BISTABILNE."
     },
     {
       "type": "tekst",
@@ -77,7 +77,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Elektrozawór 3/2\n\n➡️ Elektrozawór 3/2 - 3 przyłącza / 2 pozycje - [zasada działania](https://youtu.be/9MeuhfgyhpY?si=7PZKo5SP6A_3Oc9b)."
+      "body": "## Elektrozawór 3/2\n\n➡️ Elektrozawór 3/2 - 3 przyłącza / 2 pozycje - [zasada działania](https://youtu.be/9MeuhfgyhpY?si=7PZKo5SP6A_3Oc9b)."
     },
     {
       "type": "obraz",
@@ -88,7 +88,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Elektrozawór 5/2\n\n➡️ Elektrozawór 5/2 - 5 przyłączy / 2 pozycje - [zasada działania](https://www.youtube.com/watch?v=VRS41ez-SmQ)."
+      "body": "## Elektrozawór 5/2\n\n➡️ Elektrozawór 5/2 - 5 przyłączy / 2 pozycje - [zasada działania](https://www.youtube.com/watch?v=VRS41ez-SmQ)."
     },
     {
       "type": "obraz",
@@ -99,7 +99,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Elektrozawór 5/3\n\n➡️ Elektrozawór 5/3 - 5 przyłączy / 3 pozycje. Warto zaznaczyć, że występują trzy rodzaje położenia środkowego: zamknięty, otwarty, odpowietrzony - [zasada działania](https://youtu.be/HTM2gxIX6oM?si=We9WRTwoQnok7BBN)."
+      "body": "## Elektrozawór 5/3\n\n➡️ Elektrozawór 5/3 - 5 przyłączy / 3 pozycje. Warto zaznaczyć, że występują trzy rodzaje położenia środkowego: zamknięty, otwarty, odpowietrzony - [zasada działania](https://youtu.be/HTM2gxIX6oM?si=We9WRTwoQnok7BBN)."
     },
     {
       "type": "obraz",
@@ -118,7 +118,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 3. Zastosowanie\n\nJeśli chodzi gdzie jaki zawór użyć - to trochę temat rzeka. Jednak da się wyróżnić pewne standardy.\n\nElektrozawory 3/2 NC stosujemy najczęściej przy siłownikach czy chwytakach jednostronnego działania. Musimy mieć świadomość, że po utracie ciśnienia w układzie elementy wrócą na swoją pozycję, definiowaną położeniem sprężyny powrotnej."
+      "body": "## 3. Zastosowanie\n\nJeśli chodzi gdzie jaki zawór użyć - to trochę temat rzeka. Jednak da się wyróżnić pewne standardy.\n\nElektrozawory 3/2 NC stosujemy najczęściej przy siłownikach czy chwytakach jednostronnego działania. Musimy mieć świadomość, że po utracie ciśnienia w układzie elementy wrócą na swoją pozycję, definiowaną położeniem sprężyny powrotnej."
     },
     {
       "type": "tekst",
@@ -126,7 +126,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 4. Oznaczenia i logika\n\nWszystko fajnie, ale zostaje jeszcze jedna rzecz - SYMBOLE. Kto nie miał z nimi problemu na starcie, niech pierwszy rzuci kamieniem...\n\nJednak znalazłem kiedyś świetną animację, która moim zdaniem wyraża więcej niż 1000 słów. Jak czytać symbole elektrozaworów? Proszę Państwa, zapraszam na animację - jak czytać symbol zaworu 5/2! 🎥"
+      "body": "## 4. Oznaczenia i logika\n\nWszystko fajnie, ale zostaje jeszcze jedna rzecz - SYMBOLE. Kto nie miał z nimi problemu na starcie, niech pierwszy rzuci kamieniem...\n\nJednak znalazłem kiedyś świetną animację, która moim zdaniem wyraża więcej niż 1000 słów. Jak czytać symbole elektrozaworów? Proszę Państwa, zapraszam na animację - jak czytać symbol zaworu 5/2! 🎥"
     },
     {
       "type": "wideo",
@@ -142,7 +142,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nMam nadzieję, że tym tekstem chociaż w pewnym stopniu rozjaśniłem Wam, jak zabrać się za temat elektrozaworów. Nie jest to łatwe, ale moim zdaniem dla dobrego konstruktora - niezbędne. 💡⚡"
+      "body": "## Podsumowanie\n\nMam nadzieję, że tym tekstem chociaż w pewnym stopniu rozjaśniłem Wam, jak zabrać się za temat elektrozaworów. Nie jest to łatwe, ale moim zdaniem dla dobrego konstruktora - niezbędne. 💡⚡"
     }
   ]
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
+import {absoluteSiteUrl} from '@site/src/lib/site';
 import styles from './Okruszki.module.css';
-
-const SITE = 'https://pocaduchy.pl';
 
 // Ścieżka nawigacji widoczna na stronie plus odpowiadające jej dane
 // strukturalne BreadcrumbList. Google pokazuje taką ścieżkę zamiast
@@ -21,7 +20,7 @@ export default function Okruszki({sciezka = []}) {
       '@type': 'ListItem',
       position: i + 1,
       name: el.nazwa,
-      item: `${SITE}${el.url === '/' ? '' : el.url}`,
+      item: absoluteSiteUrl(el.url === '/' ? '' : el.url),
     })),
   };
 
