@@ -54,7 +54,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 6 praktyk, które nie zamrożą Was w miejscu\n\n**1. Najpierw SAM ustal czego nie wiesz i czego potrzebujesz**\n\nCoś, co powinien zrobić każdy już na samym początku procesu projektowania. Na początku podziel maszynę/linię na moduły i przy każdym zadaj pytania: czego potrzebuję do zaprojektowania? Jakie dane mam? Jakich informacji brakuje? To pozwoli Ci jasno przedstawić swoje potrzeby."
+      "body": "## 6 praktyk, które nie zamrożą Was w miejscu\n\n**1. Najpierw SAM ustal czego nie wiesz i czego potrzebujesz**\n\nCoś, co powinien zrobić każdy już na samym początku procesu projektowania. Na początku podziel maszynę/linię na moduły i przy każdym zadaj pytania: czego potrzebuję do zaprojektowania? Jakie dane mam? Jakich informacji brakuje? To pozwoli Ci jasno przedstawić swoje potrzeby."
     },
     {
       "type": "tekst",
@@ -100,11 +100,11 @@
     },
     {
       "type": "tekst",
-      "body": "### Co JESZCZE warto robić?\n\n- Jasno komunikuj klientowi o brakujących informacjach oraz o tym, jak ich brak będzie wpływał na czas trwania projektu.\n- Znajdź jedną osobę odpowiedzialną za cały projekt po stronie klienta. Zdarza się tak, że trzy osoby w danej firmie mogą podać Ci trzy różne odpowiedzi na to samo pytanie.\n- Przygotuj standardowy formularz pytań, który wykorzystasz już na kick-off lub na pierwszym spotkaniu z klientem.\n- PROJEKTUJ Z GŁOWĄ - tak aby łatwo edytować model, a zmiany nie wywoływały u Ciebie odruchu wymiotnego 😉.\n- Twoje pytania muszą być precyzyjne, a podsumowania po spotkaniach obowiązkowe. Wtedy obie strony mają poczucie przejrzystości i profesjonalnego podejścia.\n- Zapamiętaj raz na zawsze - najczęściej 100% danych pojawi się podczas montażu maszyny u klienta - więc bądź na to odpowiednio przygotowany."
+      "body": "## Co JESZCZE warto robić?\n\n- Jasno komunikuj klientowi o brakujących informacjach oraz o tym, jak ich brak będzie wpływał na czas trwania projektu.\n- Znajdź jedną osobę odpowiedzialną za cały projekt po stronie klienta. Zdarza się tak, że trzy osoby w danej firmie mogą podać Ci trzy różne odpowiedzi na to samo pytanie.\n- Przygotuj standardowy formularz pytań, który wykorzystasz już na kick-off lub na pierwszym spotkaniu z klientem.\n- PROJEKTUJ Z GŁOWĄ - tak aby łatwo edytować model, a zmiany nie wywoływały u Ciebie odruchu wymiotnego 😉.\n- Twoje pytania muszą być precyzyjne, a podsumowania po spotkaniach obowiązkowe. Wtedy obie strony mają poczucie przejrzystości i profesjonalnego podejścia.\n- Zapamiętaj raz na zawsze - najczęściej 100% danych pojawi się podczas montażu maszyny u klienta - więc bądź na to odpowiednio przygotowany."
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nJak widzicie, nie ma jednego złotego klucza, który pozwoli na poprowadzenie od A do Z projektu z niepełnymi danymi. Zamiast niego mamy skrzynkę z narzędziami, które odpowiednio wykorzystane pomagają dopinać takie tematy.\n\nMam nadzieję, że cały tekst i metody w nim podane pomogą Wam podnosić poziom swojej pracy i projektować wydajnie, nawet nie mając pełnych danych."
+      "body": "## Podsumowanie\n\nJak widzicie, nie ma jednego złotego klucza, który pozwoli na poprowadzenie od A do Z projektu z niepełnymi danymi. Zamiast niego mamy skrzynkę z narzędziami, które odpowiednio wykorzystane pomagają dopinać takie tematy.\n\nMam nadzieję, że cały tekst i metody w nim podane pomogą Wam podnosić poziom swojej pracy i projektować wydajnie, nawet nie mając pełnych danych."
     }
   ]
 }

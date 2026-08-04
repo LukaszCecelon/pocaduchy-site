@@ -46,7 +46,7 @@
     },
     {
       "type": "tekst",
-      "body": "### \"Łatwe\" do narysowania palce chwytaka\n\nSam proces - tak żebyście poznali kontekst - polegał na podniesieniu detali z podajników taśmowych za pomocą manipulatora 2 osiowego i odłożeniu ich na 2 z 16 baz na module montażowym. Taki ruch odbywał się 8 razy. Do łapania detali wykorzystywaliśmy chwytaki DHPC firmy FESTO. Wrzucam Wam poniżej schematycznie zasadę działania."
+      "body": "## \"Łatwe\" do narysowania palce chwytaka\n\nSam proces - tak żebyście poznali kontekst - polegał na podniesieniu detali z podajników taśmowych za pomocą manipulatora 2 osiowego i odłożeniu ich na 2 z 16 baz na module montażowym. Taki ruch odbywał się 8 razy. Do łapania detali wykorzystywaliśmy chwytaki DHPC firmy FESTO. Wrzucam Wam poniżej schematycznie zasadę działania."
     },
     {
       "type": "obraz",
@@ -83,7 +83,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Wnioski\n\nKiedy projektujemy maszynę, większość naszej uwagi \"zjadają\" grube tematy:\n\n- Ogólna koncepcja.\n- Czas cyklu.\n- Krytyczne moduły.\n- Bezpieczeństwo.\n- Integracja z maszynami klienta."
+      "body": "## Wnioski\n\nKiedy projektujemy maszynę, większość naszej uwagi \"zjadają\" grube tematy:\n\n- Ogólna koncepcja.\n- Czas cyklu.\n- Krytyczne moduły.\n- Bezpieczeństwo.\n- Integracja z maszynami klienta."
     },
     {
       "type": "tekst",

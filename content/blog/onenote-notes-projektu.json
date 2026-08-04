@@ -53,11 +53,11 @@
     },
     {
       "type": "tekst",
-      "body": "### 1. Przemyśl jak wyglądają Twoje projekty 🧐\n\nNa początek musisz zdefiniować kilka kwestii, tak aby dobrze ustalić strukturę swojego szablonu. Jedni prowadzą długie projekty łącznie z montażem i odbiorem przez klienta, drudzy prowadzą projekt tylko od strony konstrukcyjnej, a jeszcze inni mają projekty trwające zaledwie kilka dni. Dlatego to tak ważne, żeby na samym początku odpowiedzieć sobie przynajmniej na te pytania:\n\n- Jakie etapy mają projekty, które prowadzę?\n- Czy współpracuję z innymi osobami?\n- Czy muszę przydzielać innym zadania?\n- Jak dużo w ciągu pół roku prowadzę projektów jednocześnie?\n\nJeśli już masz odpowiedzi, możesz zacząć tworzyć rdzeń swojego Notesu Projektu!"
+      "body": "## 1. Przemyśl jak wyglądają Twoje projekty 🧐\n\nNa początek musisz zdefiniować kilka kwestii, tak aby dobrze ustalić strukturę swojego szablonu. Jedni prowadzą długie projekty łącznie z montażem i odbiorem przez klienta, drudzy prowadzą projekt tylko od strony konstrukcyjnej, a jeszcze inni mają projekty trwające zaledwie kilka dni. Dlatego to tak ważne, żeby na samym początku odpowiedzieć sobie przynajmniej na te pytania:\n\n- Jakie etapy mają projekty, które prowadzę?\n- Czy współpracuję z innymi osobami?\n- Czy muszę przydzielać innym zadania?\n- Jak dużo w ciągu pół roku prowadzę projektów jednocześnie?\n\nJeśli już masz odpowiedzi, możesz zacząć tworzyć rdzeń swojego Notesu Projektu!"
     },
     {
       "type": "tekst",
-      "body": "### 2. Szablon - rdzeń ⚡\n\nNa potrzeby wyjaśnienia zakładam, że:\n\n- Prowadzę projekty łącznie z montażem i uruchomieniem u klienta.\n- Współpracuję z innymi konstruktorami, automatykami i działem montażu.\n- Chcę na kolejnych etapach przydzielać zadania konkretnym osobom.\n- Mam około 4 projekty w ciągu roku."
+      "body": "## 2. Szablon - rdzeń ⚡\n\nNa potrzeby wyjaśnienia zakładam, że:\n\n- Prowadzę projekty łącznie z montażem i uruchomieniem u klienta.\n- Współpracuję z innymi konstruktorami, automatykami i działem montażu.\n- Chcę na kolejnych etapach przydzielać zadania konkretnym osobom.\n- Mam około 4 projekty w ciągu roku."
     },
     {
       "type": "tekst",
@@ -72,7 +72,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 3. Budowa formatek 📐📏\n\nSzablon bez formatek będzie bezużyteczny! Dlatego musicie dobrze to przemyśleć. Dobrze przygotować sobie fajnie rozpisaną stronę z danymi projektowymi. Oprócz tego must have to szablon tabeli na agendę i podsumowanie spotkań.\n\nJeśli planujecie przydzielać zadania - również powinniście przygotować formę tabeli z miejscami na opis, komentarz i zdjęcie/zrzut ekranu."
+      "body": "## 3. Budowa formatek 📐📏\n\nSzablon bez formatek będzie bezużyteczny! Dlatego musicie dobrze to przemyśleć. Dobrze przygotować sobie fajnie rozpisaną stronę z danymi projektowymi. Oprócz tego must have to szablon tabeli na agendę i podsumowanie spotkań.\n\nJeśli planujecie przydzielać zadania - również powinniście przygotować formę tabeli z miejscami na opis, komentarz i zdjęcie/zrzut ekranu."
     },
     {
       "type": "tekst",
@@ -87,7 +87,7 @@
     },
     {
       "type": "tekst",
-      "body": "### 4. Współdziel Notes Projektu - promuj jego używanie! 🤝\n\nJak powszechnie wiadomo, nawet najlepsze narzędzie nie będzie działać - jeśli nie będzie się go używać... Tak samo jest w przypadku OneNote. Nie każdy będzie jego entuzjastą. Zawsze to dodatkowy wysiłek na wpisanie czegoś, uzupełnienie notatek, agendy itd. Jednak musicie promować podejście \"5 min uzupełniania OneNote to nie strata czasu tylko jego INWESTYCJA\". 🚀"
+      "body": "## 4. Współdziel Notes Projektu - promuj jego używanie! 🤝\n\nJak powszechnie wiadomo, nawet najlepsze narzędzie nie będzie działać - jeśli nie będzie się go używać... Tak samo jest w przypadku OneNote. Nie każdy będzie jego entuzjastą. Zawsze to dodatkowy wysiłek na wpisanie czegoś, uzupełnienie notatek, agendy itd. Jednak musicie promować podejście \"5 min uzupełniania OneNote to nie strata czasu tylko jego INWESTYCJA\". 🚀"
     },
     {
       "type": "tekst",
@@ -99,7 +99,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nZ elektronicznego Notesu Projektu korzystam już pewnie z 7 lat. Czy uważam, że jest to najlepsze rozwiązanie na świecie? Nie. Czy myślę, że każdy MUSI tak organizować swoją pracę? Nie. Jednak stwierdziłem, że podzielę się moim podejściem, bo wydaje mi się, że sam OneNote niesie wiele korzyści, jakikolwiek Notes Projektu jest gamechangerem, a ta aplikacja jest u 90% ludzi domyślnie w pakiecie Office. 😉"
+      "body": "## Podsumowanie\n\nZ elektronicznego Notesu Projektu korzystam już pewnie z 7 lat. Czy uważam, że jest to najlepsze rozwiązanie na świecie? Nie. Czy myślę, że każdy MUSI tak organizować swoją pracę? Nie. Jednak stwierdziłem, że podzielę się moim podejściem, bo wydaje mi się, że sam OneNote niesie wiele korzyści, jakikolwiek Notes Projektu jest gamechangerem, a ta aplikacja jest u 90% ludzi domyślnie w pakiecie Office. 😉"
     }
   ]
 }

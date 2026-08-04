@@ -6,9 +6,8 @@ import Okruszki from '@site/src/components/Okruszki';
 import posts from '@site/src/data/blog-posts.json';
 import subscribers from '@site/src/data/subscribers.json';
 import tresc from '@site/content/o-mnie.json';
+import {SITE_URL} from '@site/src/lib/site';
 import styles from './o-mnie.module.css';
-
-const SITE = 'https://pocaduchy.pl';
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/lukaszcecelon';
 const TIKTOK_URL = 'https://www.tiktok.com/@pocaduchy';
@@ -26,18 +25,18 @@ const {hero, dlaczego, sciezka, obszary, warsztat, kanaly, ostatnie, meta} = tre
 const AUTOR_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
-  '@id': `${SITE}/o-mnie#profil`,
-  url: `${SITE}/o-mnie`,
+  '@id': `${SITE_URL}/o-mnie#profil`,
+  url: `${SITE_URL}/o-mnie`,
   inLanguage: 'pl-PL',
   mainEntity: {
     '@type': 'Person',
-    '@id': `${SITE}/#lukasz`,
+    '@id': `${SITE_URL}/#lukasz`,
     name: 'Łukasz Cecelon',
     jobTitle: 'Inżynier konstruktor',
     description: tresc.biogram,
     email: CONTACT_EMAIL,
-    url: `${SITE}/o-mnie`,
-    image: `${SITE}/img/pocaduchy-logo-transparent.png`,
+    url: `${SITE_URL}/o-mnie`,
+    image: `${SITE_URL}/img/pocaduchy-logo-transparent.png`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Mielec',

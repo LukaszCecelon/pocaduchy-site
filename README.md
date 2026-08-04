@@ -1,43 +1,67 @@
-# Website
+# pocaduchy.pl
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Strona inżyniera konstruktora Łukasza Cecelona, prowadzącego kanał YouTube
+poCADuchy. Docusaurus 3 z wyłączonymi presetami docs i blog, własne strony
+React, treść w plikach JSON.
 
-## Installation
+Opis architektury i uzasadnienie decyzji projektowych: [ARCHITEKTURA.md](ARCHITEKTURA.md).
+Zasady pracy i pisania treści: [CLAUDE.md](CLAUDE.md) oraz katalog [`styl/`](styl/).
+
+## Uruchomienie
 
 ```bash
 npm install
-```
-
-**Note**: feel free to use the package manager of your choice.
-
-## Local Development
-
-```bash
 npm run start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Serwer deweloperski działa pod `http://localhost:3000` i odświeża się przy
+zapisie plików.
 
-## Build
+## Publikacja
 
 ```bash
 npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Po kontrolnym budowaniu: `git commit` i `git push` na gałąź `main`. Publikacja
+przez GitHub Actions trwa 2 do 3 minut. Osobny harmonogram przebudowuje stronę
+w nocy, żeby odświeżyć listę odcinków i licznik subskrybentów.
 
-## Deployment
+## Gdzie leży treść
 
-Using SSH:
+| Co | Gdzie |
+|---|---|
+| Artykuły | `content/blog/<slug>.json` |
+| Strona o mnie | `content/o-mnie.json` |
+| Usługi | `content/uslugi.json` |
+| Odcinki: wstęp i opisy | `content/odcinki.json` |
+| Polityka prywatności, regulamin | `content/prawne.json` |
 
-```bash
-USE_SSH=true npm run deploy
-```
+**Nie edytuj plików w `src/pages/blog/`**: są generowane przy budowaniu strony
+i każda ręczna zmiana zostanie nadpisana.
 
-Not using SSH:
+Typy bloków dostępne w artykułach: `tekst`, `obraz`, `wideo`, `galeria`,
+`tabela`, `wzor`, `rysunek`. Opisane w [ARCHITEKTURA.md](ARCHITEKTURA.md).
 
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
+## Pliki generowane automatycznie
 
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Powstają przy `npm run start` i `npm run build`, nie edytuj ich ręcznie:
+
+| Plik | Skąd pochodzi |
+|---|---|
+| `src/data/episodes.json` | RSS kanału YouTube |
+| `src/data/subscribers.json` | licznik subskrybentów |
+| `src/data/image-sizes.json` | wymiary plików z `static/img/` |
+| `src/data/blog-posts.json` | manifest artykułów |
+| `src/pages/blog/*.js` | strony artykułów |
+
+## Edycja przez CMS
+
+Alternatywna, rzadziej używana ścieżka: `Edytuj-Strone.bat` uruchamia serwer
+razem z panelem Decap pod `/admin`, `Publikuj-Zmiany.bat` publikuje zmiany.
+Panel działa wyłącznie lokalnie i nie jest dostępny na produkcji.
+
+## Audyty i analizy
+
+Katalog `analizy/` zawiera raporty z audytów bezpieczeństwa, wydajności i SEO
+oraz zapisy prac koncepcyjnych nad bazą wiedzy.

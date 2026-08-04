@@ -455,41 +455,6 @@
   margin-top: 4px;
 }
 
-.cardSoon {
-  background: #f8f8fa;
-  border: 1px dashed #c7cad9;
-}
-.cardEyebrowSoon {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--pc-text-faint);
-  font-weight: 500;
-}
-.cardTitleSoon {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--pc-text-muted);
-  margin: 0;
-}
-.cardBodySoon {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--pc-text-faint);
-  margin: 0;
-}
-.soonTag {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--pc-text-faint);
-  text-transform: uppercase;
-  background: #ededf2;
-  padding: 4px 8px;
-  width: fit-content;
-}
-
 /* NAJNOWSZY ODCINEK */
 .latest {
   padding: 72px 32px 0;

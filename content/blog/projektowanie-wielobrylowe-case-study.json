@@ -50,15 +50,15 @@
     },
     {
       "type": "tekst",
-      "body": "### Winowajcy, czyli dlaczego poszedłem w stronę \"wielobryłówki\"\n\nNa wykorzystanie projektowania wielu brył w obrębie \"parta\" poszedłem z 3 prostych powodów:\n\n- kształt detalu wewnątrz jest skomplikowany i musiałem popracować kopiowanymi powierzchniami. Przez to już miałem drugą bryłę w obrębie modelu detalu,\n- chciałem cały czas mieć pogląd na detal i to, co się dzieje dookoła niego,\n- docelowo złożenie będzie miało 5 elementów ściśle ze sobą współpracujących. Zminimalizowałem do 0 ryzyko jakiegoś niedopasowania czy niepasujących otworów."
+      "body": "## Winowajcy, czyli dlaczego poszedłem w stronę \"wielobryłówki\"\n\nNa wykorzystanie projektowania wielu brył w obrębie \"parta\" poszedłem z 3 prostych powodów:\n\n- kształt detalu wewnątrz jest skomplikowany i musiałem popracować kopiowanymi powierzchniami. Przez to już miałem drugą bryłę w obrębie modelu detalu,\n- chciałem cały czas mieć pogląd na detal i to, co się dzieje dookoła niego,\n- docelowo złożenie będzie miało 5 elementów ściśle ze sobą współpracujących. Zminimalizowałem do 0 ryzyko jakiegoś niedopasowania czy niepasujących otworów."
     },
     {
       "type": "tekst",
-      "body": "### Jak zamodelować część wielobryłową - krok po kroku\n\nZastanawiałem się, jaka forma pokazania tej pracy będzie najlepsza. Wydaje mi się, że jednak idealne będzie nagranie wideo z voiceover. Przy okazji polecam kanał: [KLIK](https://youtube.com/@pocaduchy?si=KxrGpw-FfLAS1Jrn).\n\nW artykule pokażę główne etapy na zasadzie zdjęć i słownych opisów."
+      "body": "## Jak zamodelować część wielobryłową - krok po kroku\n\nZastanawiałem się, jaka forma pokazania tej pracy będzie najlepsza. Wydaje mi się, że jednak idealne będzie nagranie wideo z voiceover. Przy okazji polecam kanał: [KLIK](https://youtube.com/@pocaduchy?si=KxrGpw-FfLAS1Jrn).\n\nW artykule pokażę główne etapy na zasadzie zdjęć i słownych opisów."
     },
     {
       "type": "tekst",
-      "body": "### Krok 1 - odwzorowanie kształtu wewnętrznego detalu (Bryła 1 i 2)\n\nNa początku utworzyłem kopię kształtu wewnętrznego detali. Oczywiście nie obyło się bez kombinacji - trzeba było zaślepić przerwy w powierzchniach. Potem zszyłem całość i powstała mi bryła dokładnie wypełniająca wnętrze detalu. Dzięki temu miałem już w czym \"rzeźbić\". Zaznaczam, że wykonanie tego klasycznymi operacjami 3D może i byłoby możliwe, ale trwałoby pewnie wieki."
+      "body": "## Krok 1 - odwzorowanie kształtu wewnętrznego detalu (Bryła 1 i 2)\n\nNa początku utworzyłem kopię kształtu wewnętrznego detali. Oczywiście nie obyło się bez kombinacji - trzeba było zaślepić przerwy w powierzchniach. Potem zszyłem całość i powstała mi bryła dokładnie wypełniająca wnętrze detalu. Dzięki temu miałem już w czym \"rzeźbić\". Zaznaczam, że wykonanie tego klasycznymi operacjami 3D może i byłoby możliwe, ale trwałoby pewnie wieki."
     },
     {
       "type": "tekst",
@@ -80,7 +80,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Krok 2 - pozostawienie kluczowych części dla bazowania detalu\n\nPo \"wypełnieniu\" detalu mogłem dopasować bazę do moich wymagań i założeń. Na zdjęciu poniżej widać kolejne etapy \"rozwoju\" bryły. Raczej nic odkrywczego - zostawiłem to, czego potrzebowałem do wybazowania detalu. Tutaj zaznaczam, że powstało na tym etapie kilka wydruków, żeby sprawdzić, którymi powierzchniami najlepiej się bazować. Na środku wycięcie pod ssawkę, która \"dociąga\" detal, zapewniając idealne wyrównanie."
+      "body": "## Krok 2 - pozostawienie kluczowych części dla bazowania detalu\n\nPo \"wypełnieniu\" detalu mogłem dopasować bazę do moich wymagań i założeń. Na zdjęciu poniżej widać kolejne etapy \"rozwoju\" bryły. Raczej nic odkrywczego - zostawiłem to, czego potrzebowałem do wybazowania detalu. Tutaj zaznaczam, że powstało na tym etapie kilka wydruków, żeby sprawdzić, którymi powierzchniami najlepiej się bazować. Na środku wycięcie pod ssawkę, która \"dociąga\" detal, zapewniając idealne wyrównanie."
     },
     {
       "type": "obraz",
@@ -91,7 +91,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Krok 3 - prowadzenie zewnętrzne, trzecia bryła\n\nŚrodek mam już \"załatwiony\" - biorę się za element naprowadzający. Jest potrzebny, ponieważ detal jest podawany z wtryskarki przez robota kartezjańskiego, a one, jak dobrze wiadomo, nie są super precyzyjne. Dlatego muszę wykonać coś, co naprowadzi detal na docelową bazę, a ona już ustawi go precyzyjnie pod pobieranie do dalszych operacji."
+      "body": "## Krok 3 - prowadzenie zewnętrzne, trzecia bryła\n\nŚrodek mam już \"załatwiony\" - biorę się za element naprowadzający. Jest potrzebny, ponieważ detal jest podawany z wtryskarki przez robota kartezjańskiego, a one, jak dobrze wiadomo, nie są super precyzyjne. Dlatego muszę wykonać coś, co naprowadzi detal na docelową bazę, a ona już ustawi go precyzyjnie pod pobieranie do dalszych operacji."
     },
     {
       "type": "tekst",
@@ -110,7 +110,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Krok 4 - tworzenie złożenia z brył\n\nKiedy dopracowałem na \"zero\" model w środowisku części, wybrałem w drzewie interesujące mnie bryły i stworzyłem z nich złożenie, z którego następnie wygenerowałem stp pod druk 3D. Zwróćcie uwagę, kiedy będziecie \"trenowali\" to podejście, że w złożeniu .iam nie ma wiązań. To kolejna zaleta - dużo mniej obliczeń dla Inventora przy tworzeniu większych złożeń."
+      "body": "## Krok 4 - tworzenie złożenia z brył\n\nKiedy dopracowałem na \"zero\" model w środowisku części, wybrałem w drzewie interesujące mnie bryły i stworzyłem z nich złożenie, z którego następnie wygenerowałem stp pod druk 3D. Zwróćcie uwagę, kiedy będziecie \"trenowali\" to podejście, że w złożeniu .iam nie ma wiązań. To kolejna zaleta - dużo mniej obliczeń dla Inventora przy tworzeniu większych złożeń."
     },
     {
       "type": "tekst",
@@ -132,7 +132,7 @@
     },
     {
       "type": "tekst",
-      "body": "### Podsumowanie\n\nJak widzicie, projektowanie wielobryłowe może mieć realne zastosowanie w naszej codziennej pracy."
+      "body": "## Podsumowanie\n\nJak widzicie, projektowanie wielobryłowe może mieć realne zastosowanie w naszej codziennej pracy."
     }
   ]
 }

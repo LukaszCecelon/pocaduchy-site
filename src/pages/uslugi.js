@@ -3,10 +3,10 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
+import {SITE_URL} from '@site/src/lib/site';
 import styles from './uslugi.module.css';
 import uslugiData from '@site/content/uslugi.json';
 
-const SITE = 'https://pocaduchy.pl';
 const SERVICES = uslugiData.services;
 const {meta, hero, przebieg, dowody, cta} = uslugiData;
 const FAQ = uslugiData.faq || [];
@@ -23,13 +23,13 @@ const USLUGI_JSON_LD = {
   '@graph': [
     {
       '@type': 'ProfessionalService',
-      '@id': `${SITE}/uslugi#uslugi`,
+      '@id': `${SITE_URL}/uslugi#uslugi`,
       name: 'poCADuchy - usługi konstrukcyjne',
-      url: `${SITE}/uslugi`,
+      url: `${SITE_URL}/uslugi`,
       email: CONTACT_EMAIL,
-      image: `${SITE}/img/og-pocaduchy.jpg`,
-      parentOrganization: {'@id': `${SITE}/#organizacja`},
-      founder: {'@id': `${SITE}/#lukasz`},
+      image: `${SITE_URL}/img/og-pocaduchy.jpg`,
+      parentOrganization: {'@id': `${SITE_URL}/#organizacja`},
+      founder: {'@id': `${SITE_URL}/#lukasz`},
       areaServed: {'@type': 'Country', name: 'Polska'},
       availableLanguage: 'pl',
       knowsAbout: [
@@ -51,7 +51,7 @@ const USLUGI_JSON_LD = {
             name: s.title,
             description: s.body,
             serviceType: s.items?.join(', '),
-            provider: {'@id': `${SITE}/#organizacja`},
+            provider: {'@id': `${SITE_URL}/#organizacja`},
           },
         })),
       },
@@ -60,7 +60,7 @@ const USLUGI_JSON_LD = {
       ? [
           {
             '@type': 'FAQPage',
-            '@id': `${SITE}/uslugi#pytania`,
+            '@id': `${SITE_URL}/uslugi#pytania`,
             mainEntity: FAQ.map((p) => ({
               '@type': 'Question',
               name: p.pytanie,
