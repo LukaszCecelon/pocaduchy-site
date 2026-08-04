@@ -641,3 +641,120 @@
     padding: 24px 26px;
   }
 }
+
+/* ============================================================
+   SEKWENCJA OTWARCIA: rysunek techniczny, ktory wstaje w bryle
+   ============================================================ */
+
+/* Model 3D wypelnia okno widoku. Kanwa sama skaluje sie do kontenera. */
+.bryla3d {
+  position: absolute;
+  inset: 0;
+}
+
+/* Warstwa rysunku lezy nad modelem i jest przezroczysta dla kursora,
+   zeby nie blokowala przechylania bryly za mysza. */
+.rysunekOtwarcia {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(470px, 78%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Samo przejscie. Wartosc przezroczystosci ustawia komponent, zeby nie
+   zalezala od kolejnosci regul w arkuszu. */
+.rysunekOtwarcia {
+  transition: opacity 0.7s ease-out;
+}
+
+/* Kreslenie: dlugosc linii podajemy w --dl, opoznienie w --op.
+   pathLength nie wystarczy, bo potrzebujemy roznych predkosci. */
+.rysunekOtwarcia path {
+  fill: none;
+  stroke-dasharray: var(--dl, 400);
+  stroke-dashoffset: var(--dl, 400);
+}
+.rysunekGra path {
+  animation: kresliLinie 0.62s cubic-bezier(0.33, 1, 0.68, 1) var(--op, 0ms) forwards;
+}
+@keyframes kresliLinie {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.liniePomocnicze path {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1;
+  stroke-dasharray: 6 5;
+  stroke-dashoffset: 0;
+  opacity: 0;
+}
+.rysunekGra .liniePomocnicze path {
+  animation: pojawLinie 0.5s ease-out var(--op, 0ms) forwards;
+}
+@keyframes pojawLinie {
+  to {
+    opacity: 1;
+  }
+}
+
+.linieWymiarowe path {
+  stroke: rgba(201, 105, 92, 0.9);
+  stroke-width: 1.3;
+}
+
+/* Groty i opisy wchodza dopiero po dociagnieciu linii wymiarowej:
+   na rysunku najpierw jest linia, potem jej zakonczenia. */
+.grotyWymiaru path {
+  fill: rgba(201, 105, 92, 0.9);
+  stroke: none;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  opacity: 0;
+}
+.rysunekGra .grotyWymiaru path {
+  animation: pojawLinie 0.3s ease-out 1.16s forwards;
+}
+
+.opisWymiaru,
+.opisDetalu {
+  font-family: var(--font-mono);
+  fill: rgba(255, 255, 255, 0.82);
+  opacity: 0;
+}
+.opisWymiaru {
+  font-size: 20px;
+}
+.opisDetalu {
+  font-size: 13px;
+  fill: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+}
+.rysunekGra .opisWymiaru {
+  animation: pojawLinie 0.35s ease-out 1.24s forwards;
+}
+.rysunekGra .opisDetalu {
+  animation: pojawLinie 0.35s ease-out 1.4s forwards;
+}
+
+/* Czytelnik, ktory prosil o ograniczenie animacji, dostaje stan koncowy
+   od razu: bryle bez kreslenia. */
+@media (prefers-reduced-motion: reduce) {
+  .rysunekOtwarcia {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .rysunekOtwarcia {
+    width: min(320px, 70%);
+  }
+  .opisWymiaru {
+    font-size: 26px;
+  }
+}
