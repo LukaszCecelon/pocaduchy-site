@@ -1,7 +1,15 @@
 {
-  "fetchedAt": "2026-08-04T05:32:07.631Z",
+  "fetchedAt": "2026-08-04T14:00:43.845Z",
   "channelId": "UCatuUJWhqiOAiXhvb72wKOw",
   "episodes": [
+    {
+      "id": "Y7yfAalcC-w",
+      "title": "Spinamy system poCADuchów w całość 🤙 #strona #www #pocaduchy #praca #engineering #community",
+      "url": "https://www.youtube.com/watch?v=Y7yfAalcC-w",
+      "published": "2026-08-04T13:52:08+00:00",
+      "thumbnail": "https://i.ytimg.com/vi/Y7yfAalcC-w/hqdefault.jpg",
+      "isShort": true
+    },
     {
       "id": "8rTxTSbQ4iA",
       "title": "Wnioski po uruchomieniu maszyny. #HotStamping #automation #produkcja #maszyny #robotics #inventor",
@@ -105,14 +113,6 @@
       "published": "2026-03-22T16:10:52+00:00",
       "thumbnail": "https://i.ytimg.com/vi/m9PMXBRGEd8/hqdefault.jpg",
       "isShort": false
-    },
-    {
-      "id": "Zy4q7h0b0os",
-      "title": "No wreszcie! #3dprinting #cad #bambulab #engineering",
-      "url": "https://www.youtube.com/watch?v=Zy4q7h0b0os",
-      "published": "2026-03-21T07:38:47+00:00",
-      "thumbnail": "https://i.ytimg.com/vi/Zy4q7h0b0os/hqdefault.jpg",
-      "isShort": true
     }
   ]
 }

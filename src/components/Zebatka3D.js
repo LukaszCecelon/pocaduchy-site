@@ -17,7 +17,14 @@ const BOLT_HOLE_UNIFORM = new Float32Array(BOLT_HOLES.flatMap((hole) => [hole.x,
 const OUTER_COLOR = [0x2b / 255, 0x2f / 255, 0x4c / 255];
 const RUST_COLOR = [0x96 / 255, 0x45 / 255, 0x3b / 255];
 const FULL_TURN_MS = 12000;
-const PHASE_MS = 900;
+// Podnoszenie plaskiego rzutu w bryle. Dluzej niz typowe przejscie interfejsu,
+// bo to jest moment, na ktory patrzy widz, a nie zmiana stanu przycisku.
+const PHASE_MS = 1500;
+
+// Wielkosc bryly w oknie widoku. Plaski rzut jest odrobine wiekszy, zeby po
+// podniesieniu w bryle nie sprawial wrazenia, ze model urosl.
+const SKALA_PLASKO = 0.72;
+const SKALA_BRYLA = 0.66;
 const TRIANGLE_COUNT = 672;
 
 const SOLID_VERTEX_SHADER = `
@@ -488,11 +495,16 @@ function drawScene(
 }
 
 function composeModelMatrix(spin, phase, pointerX, pointerY) {
-  const lifted = easeOutCubic(phase);
+  // Wygladzenie jest juz zrobione w updatePhase. Gdyby nalozyc je tu drugi raz,
+  // bryla szarpnelaby na starcie i pelzla na koncu, bo krzywa zlozona sama
+  // ze soba jest mocno przesunieta ku poczatkowi.
+  const lifted = phase;
   const tiltX = degToRad(58 * lifted + pointerY * 3.2 * lifted);
   const tiltY = degToRad(pointerX * 4.5 * lifted);
   const openingTurn = degToRad(-13 * lifted);
-  const scale = 0.94 - lifted * 0.08;
+  // Bryla celowo nie wypelnia okna widoku: ma byc tlem dla naglowka,
+  // a nie konkurowac z nim o uwage.
+  const scale = SKALA_PLASKO - lifted * (SKALA_PLASKO - SKALA_BRYLA);
 
   return multiplyMat4(
     scaleMatrix(scale, scale, scale),
@@ -510,7 +522,10 @@ function updatePhase(state, now) {
 
   const elapsed = now - state.phaseStartedAt;
   const progress = clamp(elapsed / PHASE_MS, 0, 1);
-  const eased = easeOutCubic(progress);
+  // Lagodne wejscie i wyjscie: bryla rusza spokojnie i spokojnie dochodzi
+  // do ujecia docelowego. easeOut startowal gwaltownie, co przy podnoszeniu
+  // plaskiego rzutu wygladalo jak szarpniecie.
+  const eased = easeInOutCubic(progress);
   state.phase = state.phaseFrom + (state.phaseTarget - state.phaseFrom) * eased;
 
   if (progress >= 1) {
@@ -701,6 +716,12 @@ function mat3FromMat4(m) {
 
 function easeOutCubic(t) {
   return 1 - Math.pow(1 - t, 3);
+}
+
+// Symetryczna krzywa: powolny start, przyspieszenie w srodku, powolne dojscie.
+// Uzywana przy podnoszeniu plaskiego rzutu w bryle.
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
 function clamp(value, min, max) {
