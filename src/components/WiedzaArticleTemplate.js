@@ -52,9 +52,8 @@ function articleJsonLd({title, description, date, permalink, categoryLabel, cate
   };
 }
 
-// Layout artykułu bazy Wiedzy — treść (blocks) przychodzi z pliku danych
-// w content/wiedza/<kategoria>/<slug>.json, wygenerowanego/edytowanego
-// przez panel CMS (/admin) albo bezpośrednio przeze mnie.
+// Layout artykułu bazy Wiedzy. Treść (blocks) przychodzi z pliku danych
+// w content/wiedza/<kategoria>/<slug>.json, edytowanego ręcznie.
 export default function WiedzaArticleTemplate({
   title,
   description,
