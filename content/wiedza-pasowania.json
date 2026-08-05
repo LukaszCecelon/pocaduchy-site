@@ -1,0 +1,124 @@
+{
+  "_opis": "Teksty strony kalkulatora pasowań. Edytujesz tutaj, nie w kodzie.",
+  "meta": {
+    "tytul": "Kalkulator pasowań ISO: luz, wcisk i dobór pasowania",
+    "opis": "Policz luz i wcisk dla dowolnego pasowania ISO 286, albo odwrotnie: podaj wymagany luz, a kalkulator dobierze pasowanie. Z wykresem pól tolerancji i przykładami zastosowań."
+  },
+  "naglowek": "Pasowania: kalkulator luzu i wcisku",
+  "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji. Możesz też pójść od drugiej strony: podać wymagany luz i sprawdzić, które pasowania go dają.",
+  "trybPasowanie": "Mam pasowanie, chcę luz",
+  "trybLuz": "Mam luz, szukam pasowania",
+  "zasadaOtworu": "Stały otwór (H)",
+  "zasadaWalka": "Stały wałek (h)",
+  "podpisWykresu": "Pola tolerancji względem wymiaru nominalnego. Skala pionowa w mikrometrach.",
+  "rodzaje": {
+    "luzne": {
+      "nazwa": "Pasowanie luźne",
+      "opis": "Wałek jest zawsze mniejszy od otworu, więc zawsze zostaje luz. Elementy da się złożyć ręcznie i zwykle mogą się względem siebie obracać albo przesuwać."
+    },
+    "mieszane": {
+      "nazwa": "Pasowanie mieszane",
+      "opis": "Zależnie od rzeczywistych wymiarów w partii może wyjść niewielki luz albo niewielki wcisk. Stosuje się je tam, gdzie liczy się dokładne ustalenie położenia, a montaż odbywa się pod prasą albo lekkim uderzeniem."
+    },
+    "ciasne": {
+      "nazwa": "Pasowanie ciasne",
+      "opis": "Wałek jest zawsze większy od otworu, więc połączenie wymaga wciskania albo montażu na gorąco. Przenosi moment bez dodatkowych elementów, ale demontaż bywa niszczący."
+    }
+  },
+  "sekcje": [
+    {
+      "tytul": "Jak to czytać",
+      "akapity": [
+        "**Luz** to różnica wymiarów, gdy otwór jest większy od wałka. **Wcisk** to sytuacja odwrotna, w kalkulatorze pokazywana jako wartość ujemna.",
+        "Luz maksymalny wychodzi wtedy, gdy trafi się największy otwór z partii i najmniejszy wałek. Luz minimalny odwrotnie: najmniejszy otwór i największy wałek. Realne części wypadają gdzieś pomiędzy, ale konstruktor musi zaprojektować tak, żeby **oba skrajne przypadki działały**."
+      ]
+    },
+    {
+      "tytul": "Dwie zasady doboru",
+      "akapity": [
+        "**Zasada stałego otworu** oznacza, że otwór ma zawsze pole H, czyli odchyłkę dolną równą zeru, a pasowanie dobiera się odchyłkami wałka. Jest najczęstsza, bo otwory wykonuje się narzędziem o stałej średnicy: rozwiertakiem albo przeciągaczem, a wałek łatwiej doszlifować do dowolnego wymiaru.",
+        "**Zasada stałego wałka** oznacza, że wałek ma pole h, a pasowanie dobiera się odchyłkami otworu. Przydaje się, gdy na jednym wale o stałej średnicy trzeba osadzić kilka elementów o różnym charakterze połączenia."
+      ]
+    },
+    {
+      "tytul": "Skąd biorą się litery i cyfry",
+      "akapity": [
+        "**Litera** określa położenie pola tolerancji względem wymiaru nominalnego. Małe litery to wałki, wielkie to otwory. Litery z początku alfabetu odsuwają materiał, czyli dają luz, a litery z końca dokładają materiału, czyli dają wcisk. Pola **h** i **H** leżą dokładnie na wymiarze nominalnym, a **js** i **JS** są względem niego symetryczne.",
+        "**Cyfra** to klasa dokładności IT i mówi, jak szerokie jest pole tolerancji. Im niższa cyfra, tym ciaśniejsze wykonanie i wyższy koszt. Ta sama klasa oznacza inną wartość w mikrometrach dla różnych średnic, bo większe wymiary trudniej wykonać dokładnie."
+      ]
+    }
+  ],
+  "zastrzezenie": "Wartości pochodzą z tablic ISO 286 dla średnic od 1 do 500 mm. Kalkulator liczy geometrię pasowania, a nie nośność połączenia. Przy połączeniach wciskanych przenoszących moment sprawdź naciski i naprężenia w piaście osobno.",
+  "zrodla": [
+    {
+      "nazwa": "Zasady pasowania wymiarów, pkm.edu.pl",
+      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/zasady-pasowania-wymiarow/"
+    },
+    {
+      "nazwa": "Dobór pasowań wymiarów, pkm.edu.pl",
+      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/dobor-pasowan-wymiarow/"
+    },
+    {
+      "nazwa": "Położenie pól tolerancji względem wymiaru nominalnego, pkm.edu.pl",
+      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/polozenie-pol-tolerancji-wzgledem-wymiaru-normalnego/"
+    }
+  ],
+  "zastosowania": [
+    {
+      "pasowania": ["H8/u8", "H8/s7", "S7/h6", "H7/r6", "R7/h6"],
+      "opis": "Połączenia wtłaczane kół zębatych z wałami, tarcz sprzęgłowych oraz wieńców kół zębatych z piastami."
+    },
+    {
+      "pasowania": ["H7/p6", "P7/h6"],
+      "opis": "Koła zębate na wałach maszyn obciążonych zmiennie i udarowo, tuleje łożyskowe, kołki, pierścienie osadcze i wpusty."
+    },
+    {
+      "pasowania": ["H7/n6", "N7/h6"],
+      "opis": "Wieńce kół zębatych z piastami, dźwignie i korby na wałach, tuleje w korpusach, koła i sprzęgła na wałach, łożyska na wałach."
+    },
+    {
+      "pasowania": ["H7/m6", "M7/h6"],
+      "opis": "Koła pasowe i zębate na wałach zabezpieczone przed przesuwem wzdłużnym, sworznie i kołki ustalające."
+    },
+    {
+      "pasowania": ["H7/k6"],
+      "opis": "Koła pasowe i zamachowe z wałami, ręczne dźwignie na wałach, kołki, śruby i sworznie ustalające."
+    },
+    {
+      "pasowania": ["H7/j6", "J7/h6"],
+      "opis": "Części często demontowane ręcznie: zewnętrzne pierścienie łożysk tocznych w osłonach, wymienne koła zębate i pasowe, wymieniane tuleje łożyskowe i panewki łożysk ślizgowych."
+    },
+    {
+      "pasowania": ["H7/h6"],
+      "opis": "Połączenia przesuwane ręcznie po nasmarowaniu: zewnętrzne pierścienie łożysk tocznych, pierścienie uszczelniające, prowadnice, łożyska ślizgowe, narzędzia na trzpieniach."
+    },
+    {
+      "pasowania": ["H8/h9", "H9/h8"],
+      "opis": "Pierścienie osadcze i łożyska ślizgowe."
+    },
+    {
+      "pasowania": ["H11/h11"],
+      "opis": "Części lutowane lub spawane, zaciskane na wałach, tuleje dystansowe."
+    },
+    {
+      "pasowania": ["H7/g6", "G7/h6"],
+      "opis": "Łożyska ślizgowe korbowodów."
+    },
+    {
+      "pasowania": ["H7/f7"],
+      "opis": "Łożyska i prowadnice ślizgowe."
+    },
+    {
+      "pasowania": ["H8/e8", "E8/h9"],
+      "opis": "Połączenia ze znacznym luzem, wały w długich łożyskach."
+    },
+    {
+      "pasowania": ["H11/d11", "D11/h11"],
+      "opis": "Połączenia nitów z otworami."
+    },
+    {
+      "pasowania": ["H11/c11"],
+      "opis": "Połączenia z dużym luzem, łożyska maszyn rolniczych."
+    }
+  ]
+}
