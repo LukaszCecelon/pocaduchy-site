@@ -43,7 +43,7 @@ function rozbijSymbol(symbol) {
 // Mikrometry na milimetry z sensowna liczba miejsc: przy setnych mikrometra
 // nikt nie pracuje, wiec nie udajemy takiej dokladnosci.
 function mm(um) {
-  return (um / 1000).toFixed(3);
+  return (um / 1000).toFixed(3).replace('.', ',');
 }
 
 function znak(um) {
@@ -104,6 +104,11 @@ function obliczPowiekszenie(wynik) {
   const surowe = CEL_SZCZELINY_PX / (maxUm / 2 * 0.001 * pxNaMm);
   const wybrane = [...POWIEKSZENIA].reverse().find((p) => p <= surowe);
   return Math.max(wybrane || 1, 1);
+}
+
+// Wymiar w milimetrach po polsku: trzy miejsca i przecinek, tak jak na rysunku.
+function mm3(wartosc) {
+  return wartosc.toFixed(3).replace('.', ',');
 }
 
 // Polowa wartosci srednicowej, po polsku i bez udawanej dokladnosci.
@@ -177,6 +182,85 @@ function WykresPol({wynik}) {
 
       <text x={W / 2} y={H - 14} className={styles.wykresSkala}>
         {TEKSTY_UI.wartosciMikrometry}
+      </text>
+    </svg>
+  );
+}
+
+// Detal warsztatowy pojedynczej czesci: przekroj, os symetrii, linia wymiarowa
+// ze znakiem srednicy i wymiary graniczne pod spodem. Konstruktor ma tu
+// przeczytac dokladnie to, co przepisze do dokumentacji, bez rozwijania tabeli.
+//
+// Rysunek jest schematyczny, nie w skali: pokazuje uklad i wymiary, a roznice
+// rzedu mikrometrow i tak nie bylyby na nim widoczne. Od tego jest przekroj
+// pasowania obok.
+function Detal({tytul, symbol, srednica, dolny, gorny, walek}) {
+  const id = React.useId().replace(/:/g, '');
+  const wzorId = `${id}-kreskowanie`;
+
+  const OS = 75;
+  const POL_SZER = 23;
+  const Y_DETALU = 46;
+  const Y_DOL = 104;
+  const Y_WYMIARU = 34;
+  const lewa = OS - POL_SZER;
+  const prawa = OS + POL_SZER;
+
+  // Strzalka rysowana na zewnatrz linii wymiarowej, jak na rysunku warsztatowym.
+  const strzalka = (x, wLewo) => (
+    <path
+      d={`M${x} ${Y_WYMIARU} l${wLewo ? 7 : -7} -3 v6 z`}
+      className={walek ? styles.strzalkaWalka : styles.strzalkaOtworu}
+    />
+  );
+
+  return (
+    <svg viewBox="0 0 150 124" className={styles.detal} role="img"
+      aria-label={`${tytul} ${symbol}, średnica od ${mm3(dolny)} do ${mm3(gorny)} milimetra`}>
+      <defs>
+        <pattern id={wzorId} width="7" height="7" patternUnits="userSpaceOnUse"
+          patternTransform={`rotate(${walek ? -45 : 45})`}>
+          <line x1="0" y1="0" x2="0" y2="7"
+            className={walek ? styles.kreskowanieWalka : styles.kreskowanieKorpusu} />
+        </pattern>
+      </defs>
+
+      <text x={OS} y="10" className={styles.detalTytul}>{tytul}</text>
+      <text x={OS} y="25" className={walek ? styles.detalSymbolWalka : styles.detalSymbolOtworu}>
+        ⌀{srednica} {symbol}
+      </text>
+
+      {/* Linia wymiarowa z wynoszami do krawedzi mierzonej srednicy. */}
+      <line x1={lewa} y1={Y_WYMIARU} x2={prawa} y2={Y_WYMIARU} className={styles.liniaWymiaruDetalu} />
+      {strzalka(lewa, true)}
+      {strzalka(prawa, false)}
+      <line x1={lewa} y1={Y_WYMIARU - 4} x2={lewa} y2={Y_DETALU + 4} className={styles.wynos} />
+      <line x1={prawa} y1={Y_WYMIARU - 4} x2={prawa} y2={Y_DETALU + 4} className={styles.wynos} />
+
+      {walek ? (
+        <g>
+          {/* Walek osadzony na szerszej podstawie, zeby na pierwszy rzut oka
+              bylo widac, ze to czesc pelna, a nie otwor. */}
+          <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V86 h30 v18 H${OS - 53} V86 h30 Z`}
+            className={styles.materialWalka} />
+          <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V86 h30 v18 H${OS - 53} V86 h30 Z`}
+            fill={`url(#${wzorId})`} />
+        </g>
+      ) : (
+        <g>
+          {/* Material korpusu po obu stronach, a w srodku swiatlo otworu. */}
+          <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
+          <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
+          <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
+          <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
+          <rect x={lewa} y={Y_DETALU} width={POL_SZER * 2} height={Y_DOL - Y_DETALU} className={styles.swiatloOtworu} />
+        </g>
+      )}
+
+      <line x1={OS} y1={Y_DETALU - 8} x2={OS} y2={Y_DOL + 6} className={styles.osPrzekroju} />
+
+      <text x={OS} y="118" className={styles.detalWymiary}>
+        {mm3(dolny)} / {mm3(gorny)}
       </text>
     </svg>
   );
@@ -402,16 +486,16 @@ function TabelaDanych({wynik}) {
             <td>{TEKSTY_UI.otwor} {symbolOtworu(wynik)}</td>
             <td>{znak(wynik.otwor.ES.um)} µm</td>
             <td>{znak(wynik.otwor.EI.um)} µm</td>
-            <td>{wynik.otwor.wymiarGraniczny.dolny.toFixed(3)} mm</td>
-            <td>{wynik.otwor.wymiarGraniczny.gorny.toFixed(3)} mm</td>
+            <td>{mm3(wynik.otwor.wymiarGraniczny.dolny)} mm</td>
+            <td>{mm3(wynik.otwor.wymiarGraniczny.gorny)} mm</td>
             <td>{wynik.otwor.tolerancja.um} µm</td>
           </tr>
           <tr>
             <td>{TEKSTY_UI.walek} {symbolWalka(wynik)}</td>
             <td>{znak(wynik.walek.es.um)} µm</td>
             <td>{znak(wynik.walek.ei.um)} µm</td>
-            <td>{wynik.walek.wymiarGraniczny.dolny.toFixed(3)} mm</td>
-            <td>{wynik.walek.wymiarGraniczny.gorny.toFixed(3)} mm</td>
+            <td>{mm3(wynik.walek.wymiarGraniczny.dolny)} mm</td>
+            <td>{mm3(wynik.walek.wymiarGraniczny.gorny)} mm</td>
             <td>{wynik.walek.tolerancja.um} µm</td>
           </tr>
         </tbody>
@@ -443,11 +527,28 @@ function WynikKompaktowy({wynik, otwor, setOtwor, walek, setWalek}) {
         <p className={styles.werdykt}>{werdykt}</p>
       </div>
 
-      <Przekroj wynik={wynik} />
-
-      <div className={styles.legendaPrzekroju}>
-        <span><span className={`${styles.kropka} ${styles.kropkaOtwor}`} />{TEKSTY_UI.legendaOtwor}</span>
-        <span><span className={`${styles.kropka} ${styles.kropkaWalek}`} />{TEKSTY_UI.legendaWalek}</span>
+      {/* Dwa detale z wymiarami po lewej, przekroj pasowania po prawej.
+          Detale odpowiadaja na pytanie "co wpisac na rysunek", przekroj na
+          pytanie "jak to bedzie pasowac". */}
+      <div className={styles.rysunki}>
+        <div className={styles.detale}>
+          <Detal
+            tytul={TEKSTY_UI.otwor.toUpperCase()}
+            symbol={symbolOtworu(wynik)}
+            srednica={wynik.srednica}
+            dolny={wynik.otwor.wymiarGraniczny.dolny}
+            gorny={wynik.otwor.wymiarGraniczny.gorny}
+          />
+          <Detal
+            walek
+            tytul={TEKSTY_UI.walek.toUpperCase()}
+            symbol={symbolWalka(wynik)}
+            srednica={wynik.srednica}
+            dolny={wynik.walek.wymiarGraniczny.dolny}
+            gorny={wynik.walek.wymiarGraniczny.gorny}
+          />
+        </div>
+        <Przekroj wynik={wynik} />
       </div>
 
       <PolaTolerancji otwor={otwor} setOtwor={setOtwor} walek={walek} setWalek={setWalek} />
@@ -571,12 +672,15 @@ export default function KalkulatorPasowan() {
     }
   }, [srednica, otwor, walek]);
 
+  // Rozdzielamy dwie rozne sytuacje: silnik odrzucil dane wejsciowe, a nie
+  // znalazl pasowania. Wczesniej obie konczyly sie tym samym komunikatem
+  // "poszerz widelki", co wysylalo uzytkownika w zla strone.
   const propozycje = React.useMemo(() => {
-    if (tryb !== 'luz') return [];
+    if (tryb !== 'luz') return {lista: []};
     try {
-      return znajdzPasowania({srednica, luzMin: Number(luzMin), luzMax: Number(luzMax), zasada});
-    } catch {
-      return [];
+      return {lista: znajdzPasowania({srednica, luzMin: Number(luzMin), luzMax: Number(luzMax), zasada})};
+    } catch (e) {
+      return {lista: [], blad: e.message};
     }
   }, [tryb, srednica, luzMin, luzMax, zasada]);
 
@@ -609,16 +713,19 @@ export default function KalkulatorPasowan() {
       </div>
 
       {tryb === 'pasowanie' ? (
-        wynik.ok ? (
-          <div className={styles.panelPasowania}>
-            <SterowaniePasowaniem
-              srednica={srednica}
-              setSrednica={setSrednica}
-              zasada={zasada}
-              setZasada={setZasada}
-              symbol={symbol}
-              ustawSymbol={ustawSymbol}
-            />
+        /* Formularz zostaje na ekranie takze przy bledzie. Bez tego zla
+           srednica albo pole bez danych w tablicach zabieraly uzytkownikowi
+           miejsce, w ktorym mogl to poprawic, i narzedzie wygladalo na zepsute. */
+        <div className={styles.panelPasowania}>
+          <SterowaniePasowaniem
+            srednica={srednica}
+            setSrednica={setSrednica}
+            zasada={zasada}
+            setZasada={setZasada}
+            symbol={symbol}
+            ustawSymbol={ustawSymbol}
+          />
+          {wynik.ok ? (
             <WynikKompaktowy
               wynik={wynik.ok}
               otwor={otwor}
@@ -626,11 +733,16 @@ export default function KalkulatorPasowan() {
               walek={walek}
               setWalek={setWalek}
             />
-            <Szczegoly wynik={wynik.ok} otwarte={otwarteDetails} setOtwarte={setOtwarteDetails} />
-          </div>
-        ) : (
-          <p className={styles.blad}>{wynik.blad}</p>
-        )
+          ) : (
+            <div className={styles.wynikKompaktowy}>
+              <p className={styles.blad}>{wynik.blad}</p>
+              <PolaTolerancji otwor={otwor} setOtwor={setOtwor} walek={walek} setWalek={setWalek} />
+            </div>
+          )}
+          {wynik.ok
+            ? <Szczegoly wynik={wynik.ok} otwarte={otwarteDetails} setOtwarte={setOtwarteDetails} />
+            : null}
+        </div>
       ) : (
         <div className={styles.panelLuzu}>
           <div className={styles.polaLuzu}>
@@ -696,11 +808,11 @@ export default function KalkulatorPasowan() {
           </div>
 
           <div className={styles.propozycje}>
-            {propozycje.length === 0 ? (
-              <p className={styles.blad}>{TEKSTY_UI.brakPasowania}</p>
+            {propozycje.lista.length === 0 ? (
+              <p className={styles.blad}>{propozycje.blad || TEKSTY_UI.brakPasowania}</p>
             ) : (
               <ol className={styles.listaPropozycji}>
-                {propozycje.map((p) => (
+                {propozycje.lista.map((p) => (
                   <li key={p.symbol}>
                     <button type="button" className={styles.propozycja} onClick={() => ustawSymbol(p.symbol)}>
                       <span className={styles.propSymbol}>
