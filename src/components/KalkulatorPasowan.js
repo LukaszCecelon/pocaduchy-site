@@ -12,8 +12,16 @@ import styles from './KalkulatorPasowan.module.css';
 // Najczesciej uzywane pasowania, wprost z tablic pasowan normalnych.
 // Sluza jako skroty: jedno klikniecie zamiast dwoch list rozwijanych.
 const SKROTY = {
-  stalegoOtworu: ['H7/g6', 'H7/h6', 'H7/f7', 'H7/k6', 'H7/n6', 'H7/p6', 'H7/s6', 'H11/c11'],
-  stalegoWalka: ['G7/h6', 'H7/h6', 'F8/h6', 'K7/h6', 'P7/h6', 'H11/h11'],
+  stalegoOtworu: [
+    {rodzaj: 'luzne', pasowania: ['H11/c11', 'H8/e8', 'H7/f7', 'H7/g6', 'H7/h6']},
+    {rodzaj: 'mieszane', pasowania: ['H7/js6', 'H7/k6', 'H7/m6', 'H7/n6']},
+    {rodzaj: 'ciasne', pasowania: ['H7/p6', 'H7/r6', 'H7/s6']},
+  ],
+  stalegoWalka: [
+    {rodzaj: 'luzne', pasowania: ['H11/h11', 'E9/h8', 'F8/h6', 'G7/h6', 'H7/h6']},
+    {rodzaj: 'mieszane', pasowania: ['K7/h6', 'M7/h6', 'N7/h6']},
+    {rodzaj: 'ciasne', pasowania: ['P7/h6', 'R7/h6', 'S7/h6']},
+  ],
 };
 
 const SREDNICE_SKROTY = [6, 10, 20, 30, 50, 80, 120];
@@ -67,6 +75,8 @@ function WykresPol({wynik}) {
         <text x={x + szer / 2} y={Math.min(yG, yD) - 10} className={styles.wykresEtykieta}>
           {etykieta}
         </text>
+        {/* Wartosc rowna zeru lezy dokladnie na linii wymiaru nominalnego,
+            wiec bez obwodki tekst zlewalby sie z przerywana linia. */}
         <text x={x + szer + 10} y={yG + 4} className={styles.wykresWartosc}>
           {znak(gora)}
         </text>
@@ -332,17 +342,24 @@ export default function KalkulatorPasowan() {
       {tryb === 'pasowanie' ? (
         <div className={styles.skrotyPasowan}>
           <span className={styles.etykieta}>Najczęstsze pasowania</span>
-          <div className={styles.skroty}>
-            {SKROTY[zasada].map((s) => (
-              <button
-                key={s}
-                type="button"
-                className={`${styles.skrot} ${s === symbol ? styles.skrotAktywny : ''}`}
-                onClick={() => ustawSymbol(s)}>
-                {s}
-              </button>
-            ))}
-          </div>
+          {SKROTY[zasada].map((grupa) => (
+            <div key={grupa.rodzaj} className={styles.grupaSkrotow}>
+              <span className={`${styles.nazwaGrupy} ${styles[grupa.rodzaj]}`}>
+                {tresc.rodzaje[grupa.rodzaj].nazwa}
+              </span>
+              <div className={styles.skroty}>
+                {grupa.pasowania.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    className={`${styles.skrot} ${s === symbol ? styles.skrotAktywny : ''}`}
+                    onClick={() => ustawSymbol(s)}>
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       ) : null}
 
