@@ -5,7 +5,7 @@
     "opis": "Policz luz i wcisk dla dowolnego pasowania ISO 286, albo odwrotnie: podaj wymagany luz, a kalkulator dobierze pasowanie. Z wykresem pól tolerancji i przykładami zastosowań."
   },
   "naglowek": "Pasowania: kalkulator luzu i wcisku",
-  "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji. Możesz też pójść od drugiej strony: podać wymagany luz i sprawdzić, które pasowania go dają.",
+  "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji.",
   "trybPasowanie": "Wymiary na podstawie pasowania",
   "trybLuz": "Pasowanie na podstawie wymiarów",
   "zasadaOtworu": "Stały otwór (H)",
@@ -14,25 +14,18 @@
   "rodzaje": {
     "luzne": {
       "nazwa": "Pasowanie luźne",
-      "opis": "Między wałkiem a otworem zawsze zostaje luz, więc części składasz ręką, bez prasy i bez podgrzewania. Wałek może się w otworze obracać albo przesuwać. Takie połączenie samo z siebie nie przeniesie momentu: jeśli ma go przenosić, potrzebny jest wpust, kołek albo tuleja zaciskowa. Typowe miejsca: pierścienie łożysk w oprawach, prowadnice, panewki ślizgowe, tuleje dystansowe."
+      "opis": "Między wałkiem a otworem zawsze zostaje luz, więc części łatwo poskładać ręcznie, bez prasy i bez podgrzewania. Wałek może się w otworze obracać albo przesuwać. Takie połączenie samo z siebie nie przeniesie momentu: jeśli ma go przenosić, potrzebny jest wpust, kołek albo tuleja zaciskowa. Typowe miejsca: pierścienie łożysk w oprawach, prowadnice, panewki ślizgowe, tuleje dystansowe."
     },
     "mieszane": {
       "nazwa": "Pasowanie mieszane",
-      "opis": "Jedna sztuka z partii wyjdzie z mikroskopijnym luzem, druga z mikroskopijnym wciskiem, zależnie od tego, gdzie w polu tolerancji trafi konkretny detal. Montaż idzie lekkim uderzeniem, ręczną prasą albo lekkim podgrzaniem, a demontaż zwykle ściągaczem. Wybiera się je wtedy, gdy zależy nam na dokładnym ustaleniu położenia i współosiowości, a nie na przeniesieniu obciążenia. Moment i tak przenosi wpust albo kołek. Typowe miejsca: koła zębate i pasowe na wałach, sworznie i kołki ustalające."
+      "opis": "Jedna sztuka z partii wyjdzie z mikroskopijnym luzem, druga z mikroskopijnym wciskiem, zależnie od tego, gdzie w polu tolerancji trafi konkretny detal. Montaż następuje najczęściej przy pomocy ręcznej prasy, uderzenia młotkiem czy lekkiego podgrzania, a demontaż zwykle ściągaczem lub wybijakiem. Wybiera się je wtedy, gdy zależy nam na dokładnym ustaleniu położenia i współosiowości, a nie na przeniesieniu obciążenia. Moment i tak przenosi wpust albo kołek. Typowe miejsca: koła zębate i pasowe na wałach, sworznie i kołki ustalające."
     },
     "ciasne": {
       "nazwa": "Pasowanie ciasne",
-      "opis": "Wałek jest zawsze większy od otworu, więc montaż wymaga prasy, podgrzania piasty albo schłodzenia wałka. Połączenie przenosi moment samym tarciem, bez wpustu, i po zmontowaniu części pozostają względem siebie nieruchome. Dwie rzeczy do przemyślenia już na etapie projektu: demontaż bywa niszczący, więc zaplanuj miejsce na ściągacz albo kanał na olej, oraz wcisk wywołuje naprężenia w piaście, które przy cienkiej ściance trzeba policzyć osobno. Typowe miejsca: wieńce kół zębatych, tarcze sprzęgłowe, tuleje wtłaczane."
+      "opis": "Wałek jest zawsze większy od otworu, więc montaż wymaga prasy, podgrzania piasty albo schłodzenia wałka. Połączenie przenosi moment samym tarciem, bez wpustu, i po zmontowaniu części pozostają względem siebie nieruchome. Dwie rzeczy do przemyślenia już na etapie projektu: demontaż bywa niszczący, więc zaplanuj miejsce na ściągacz albo kanał na olej. Wcisk wywołuje naprężenia w piaście, które przy cienkiej ściance trzeba policzyć osobno. Typowe miejsca: wieńce kół zębatych, tarcze sprzęgłowe, tuleje wtłaczane."
     }
   },
   "sekcje": [
-    {
-      "tytul": "Jak to czytać",
-      "akapity": [
-        "**Luz** to różnica wymiarów, gdy otwór jest większy od wałka. **Wcisk** to sytuacja odwrotna, w kalkulatorze pokazywana jako wartość ujemna.",
-        "Luz maksymalny wychodzi wtedy, gdy trafi się największy otwór z partii i najmniejszy wałek. Luz minimalny odwrotnie: najmniejszy otwór i największy wałek. Realne części wypadają gdzieś pomiędzy, ale konstruktor musi zaprojektować tak, żeby **oba skrajne przypadki działały**."
-      ]
-    },
     {
       "tytul": "Dwie zasady doboru",
       "akapity": [
