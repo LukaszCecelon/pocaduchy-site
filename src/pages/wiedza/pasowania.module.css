@@ -108,26 +108,6 @@
   margin: 0 4px 4px 0;
 }
 
-.zrodla {
-  margin: 0 0 16px;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 70ch;
-}
-.zrodla li {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--pc-text-muted);
-}
-.zrodla li::marker {
-  color: var(--pc-rust);
-}
-.zrodla a {
-  color: var(--pc-rust);
-}
-
 @media (max-width: 720px) {
   .wrap {
     padding: 40px 20px 72px;

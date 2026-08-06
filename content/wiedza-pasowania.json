@@ -49,75 +49,101 @@
     }
   ],
   "zastrzezenie": "Wartości pochodzą z tablic ISO 286 dla średnic od 1 do 500 mm. Kalkulator liczy geometrię pasowania, a nie nośność połączenia. Przy połączeniach wciskanych przenoszących moment sprawdź naciski i naprężenia w piaście osobno.",
-  "zrodla": [
-    {
-      "nazwa": "Zasady pasowania wymiarów, pkm.edu.pl",
-      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/zasady-pasowania-wymiarow/"
-    },
-    {
-      "nazwa": "Dobór pasowań wymiarów, pkm.edu.pl",
-      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/dobor-pasowan-wymiarow/"
-    },
-    {
-      "nazwa": "Położenie pól tolerancji względem wymiaru nominalnego, pkm.edu.pl",
-      "url": "https://pkm.edu.pl/baza-wiedzy/tolerancje-i-pasowania/polozenie-pol-tolerancji-wzgledem-wymiaru-normalnego/"
-    }
-  ],
   "zastosowania": [
     {
-      "pasowania": ["H8/u8", "H8/s7", "S7/h6", "H7/r6", "R7/h6"],
+      "pasowania": [
+        "H8/u8",
+        "H8/s7",
+        "S7/h6",
+        "H7/r6",
+        "R7/h6"
+      ],
       "opis": "Połączenia wtłaczane kół zębatych z wałami, tarcz sprzęgłowych oraz wieńców kół zębatych z piastami."
     },
     {
-      "pasowania": ["H7/p6", "P7/h6"],
+      "pasowania": [
+        "H7/p6",
+        "P7/h6"
+      ],
       "opis": "Koła zębate na wałach maszyn obciążonych zmiennie i udarowo, tuleje łożyskowe, kołki, pierścienie osadcze i wpusty."
     },
     {
-      "pasowania": ["H7/n6", "N7/h6"],
+      "pasowania": [
+        "H7/n6",
+        "N7/h6"
+      ],
       "opis": "Wieńce kół zębatych z piastami, dźwignie i korby na wałach, tuleje w korpusach, koła i sprzęgła na wałach, łożyska na wałach."
     },
     {
-      "pasowania": ["H7/m6", "M7/h6"],
+      "pasowania": [
+        "H7/m6",
+        "M7/h6"
+      ],
       "opis": "Koła pasowe i zębate na wałach zabezpieczone przed przesuwem wzdłużnym, sworznie i kołki ustalające."
     },
     {
-      "pasowania": ["H7/k6"],
+      "pasowania": [
+        "H7/k6"
+      ],
       "opis": "Koła pasowe i zamachowe z wałami, ręczne dźwignie na wałach, kołki, śruby i sworznie ustalające."
     },
     {
-      "pasowania": ["H7/j6", "J7/h6"],
+      "pasowania": [
+        "H7/j6",
+        "J7/h6"
+      ],
       "opis": "Części często demontowane ręcznie: zewnętrzne pierścienie łożysk tocznych w osłonach, wymienne koła zębate i pasowe, wymieniane tuleje łożyskowe i panewki łożysk ślizgowych."
     },
     {
-      "pasowania": ["H7/h6"],
+      "pasowania": [
+        "H7/h6"
+      ],
       "opis": "Połączenia przesuwane ręcznie po nasmarowaniu: zewnętrzne pierścienie łożysk tocznych, pierścienie uszczelniające, prowadnice, łożyska ślizgowe, narzędzia na trzpieniach."
     },
     {
-      "pasowania": ["H8/h9", "H9/h8"],
+      "pasowania": [
+        "H8/h9",
+        "H9/h8"
+      ],
       "opis": "Pierścienie osadcze i łożyska ślizgowe."
     },
     {
-      "pasowania": ["H11/h11"],
+      "pasowania": [
+        "H11/h11"
+      ],
       "opis": "Części lutowane lub spawane, zaciskane na wałach, tuleje dystansowe."
     },
     {
-      "pasowania": ["H7/g6", "G7/h6"],
+      "pasowania": [
+        "H7/g6",
+        "G7/h6"
+      ],
       "opis": "Łożyska ślizgowe korbowodów."
     },
     {
-      "pasowania": ["H7/f7"],
+      "pasowania": [
+        "H7/f7"
+      ],
       "opis": "Łożyska i prowadnice ślizgowe."
     },
     {
-      "pasowania": ["H8/e8", "E8/h9"],
+      "pasowania": [
+        "H8/e8",
+        "E8/h9"
+      ],
       "opis": "Połączenia ze znacznym luzem, wały w długich łożyskach."
     },
     {
-      "pasowania": ["H11/d11", "D11/h11"],
+      "pasowania": [
+        "H11/d11",
+        "D11/h11"
+      ],
       "opis": "Połączenia nitów z otworami."
     },
     {
-      "pasowania": ["H11/c11"],
+      "pasowania": [
+        "H11/c11"
+      ],
       "opis": "Połączenia z dużym luzem, łożyska maszyn rolniczych."
     }
   ]

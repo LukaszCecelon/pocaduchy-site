@@ -80,15 +80,19 @@ function WykresPol({wynik}) {
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className={styles.wykres} role="img"
       aria-label={`Wykres pól tolerancji dla pasowania ${wynik.symbol} na średnicy ${wynik.srednica} milimetra`}>
-      {/* linia wymiaru nominalnego */}
-      <line x1="40" y1={OS_Y} x2={W - 40} y2={OS_Y} className={styles.wykresOs} />
-      <text x="44" y={OS_Y - 8} className={styles.wykresOsPodpis}>
-        wymiar nominalny {wynik.srednica} mm
+      {/* Linia wymiaru nominalnego. Opis stoi w wolnym marginesie po lewej,
+          poza obszarem kolumn, zeby zaden prostokat go nie zaslonil. */}
+      <line x1="16" y1={OS_Y} x2={W - 40} y2={OS_Y} className={styles.wykresOs} />
+      <text x="20" y={OS_Y - 12} className={styles.wykresOsPodpis}>
+        ⌀{wynik.srednica} mm
+      </text>
+      <text x="20" y={OS_Y + 20} className={styles.wykresOsPodpisMaly}>
+        wymiar nominalny
       </text>
 
-      {kolumna(120, 150, wynik.otwor.ES.um, wynik.otwor.EI.um, 'var(--pc-navy-soft)',
+      {kolumna(190, 150, wynik.otwor.ES.um, wynik.otwor.EI.um, 'var(--pc-navy-soft)',
         `otwór ${wynik.otwor.litera}${wynik.otwor.klasa}`)}
-      {kolumna(430, 150, wynik.walek.es.um, wynik.walek.ei.um, 'var(--pc-rust)',
+      {kolumna(460, 150, wynik.walek.es.um, wynik.walek.ei.um, 'var(--pc-rust)',
         `wałek ${wynik.walek.litera}${wynik.walek.klasa}`)}
 
       <text x={W / 2} y={H - 14} className={styles.wykresSkala}>
