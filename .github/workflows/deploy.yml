@@ -51,10 +51,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
+        # Uwaga na przyszłość: parametru "timeout" nie ma sensu podnosić.
+        # Akcja przycina go do twardego maksimum 600000 ms, czyli 10 minut,
+        # i wypisuje o tym tylko ostrzeżenie. Gdy publikacja po stronie Pages
+        # przekracza ten czas, akcja ANULUJE gotowy deployment. Wtedy jedyne
+        # wyjście to ponowne uruchomienie albo zmiana sposobu publikacji.
         uses: actions/deploy-pages@v5
-        with:
-          # Zapas na wypadek, gdyby publikacja po stronie Pages znowu się
-          # ślimaczyła. Po przekroczeniu limitu akcja nie tylko zgłasza błąd:
-          # ANULUJE trwający deployment, więc zmiana nie trafia na stronę
-          # mimo poprawnego builda. Wolimy poczekać dłużej.
-          timeout: 1800000
