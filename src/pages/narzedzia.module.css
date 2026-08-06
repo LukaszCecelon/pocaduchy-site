@@ -1,0 +1,172 @@
+.wrap {
+  padding: 72px 32px 96px;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.intro {
+  margin-bottom: 44px;
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.eyebrowBar {
+  width: 5px;
+  height: 22px;
+  background: var(--pc-rust);
+  display: inline-block;
+}
+
+.eyebrow span:last-child {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--pc-rust);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #565a78;
+  margin: 0;
+}
+
+/* Kafelki sa szersze niz w bazie wiedzy, bo narzedzi bedzie kilkanascie,
+   a nie kilkadziesiat, i kazde potrzebuje zdania wyjasniajacego. */
+/* auto-fit, a nie auto-fill: dopoki narzedzie jest jedno, kafelek ma zajac
+   cala szerokosc zamiast siedziec samotnie w pierwszej kolumnie. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 56px;
+  max-width: 980px;
+}
+
+.card {
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--pc-border);
+  border-left: 4px solid var(--pc-rust);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--pc-rust);
+}
+
+.cardTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--pc-navy);
+  margin: 0;
+}
+
+.cardBody {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.cardDane {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--pc-text-faint);
+  border-top: 1px solid var(--pc-border);
+  padding-top: 10px;
+}
+
+.kolejka {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.kolejkaTytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--pc-navy);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--pc-rust);
+}
+
+.kolejkaOpis {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--pc-text-muted);
+  margin: 0 0 16px;
+}
+
+.kolejkaLista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.kolejkaPozycja {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  padding-left: 22px;
+  position: relative;
+}
+
+/* Znacznik zamiast punktora: ta sama figura co w oznaczeniach na rysunku. */
+.kolejkaPozycja::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: var(--pc-navy-soft);
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 48px 20px 72px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}

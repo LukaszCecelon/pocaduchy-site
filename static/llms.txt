@@ -49,9 +49,14 @@ Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, t
 - [Strona główna](https://pocaduchy.pl/): czym jest kanał poCADuchy, najnowszy odcinek, skróty do działów.
 - [Artykuły](https://pocaduchy.pl/blog): teksty o codziennej pracy konstruktora - dobór sprzęgieł i elementów znormalizowanych, standaryzacja, kick-off projektu, szacowanie czasu, koszty, narzędzia i wnioski z realnych projektów.
 - [Wiedza](https://pocaduchy.pl/wiedza): baza wiedzy (wzory, tabele, normy rysunkowe) - sekcja w budowie.
+- [Narzędzia inżyniera](https://pocaduchy.pl/narzedzia): kalkulatory inżynierskie po polsku, przeznaczone do użycia w trakcie pracy nad modelem, a nie do czytania.
 - [Odcinki](https://pocaduchy.pl/odcinki): archiwum odcinków kanału YouTube, aktualizowane automatycznie.
 - [O mnie](https://pocaduchy.pl/o-mnie): kim jest autor, droga zawodowa, obszary specjalizacji i kanały kontaktu. Strona referencyjna dla encji „Łukasz Cecelon".
 - [Usługi](https://pocaduchy.pl/uslugi): współpraca komercyjna - projektowanie konstrukcji maszyn i elementów maszynowych w 3D wraz z dokumentacją wykonawczą, druk 3D prototypów i elementów funkcjonalnych, konsultacje i audyty dokumentacji konstrukcyjnej pod kątem wykonalności.
+
+## Narzędzia
+
+- [Kalkulator pasowań ISO 286](https://pocaduchy.pl/narzedzia/pasowania): liczy luz i wcisk dla pasowań ISO 286 w zakresie średnic od 1 do 500 mm, w obu kierunkach: z pasowania na wymiary graniczne oraz z zadanego luzu na listę pasowań. Obsługuje zasadę stałego otworu i stałego wałka, pola tolerancji od A do Z i od a do z oraz klasy IT4 do IT12. Podaje odchyłki górną i dolną, wymiary graniczne otworu i wałka, tolerancję pasowania i zapis na rysunek. Wynikowi towarzyszy przekrój otworu z wałkiem oraz zdanie warsztatowe o sposobie montażu: montaż ręczny, prasa albo podgrzanie piasty i schłodzenie wałka. Pasowania uprzywilejowane są oznaczone. Kalkulator liczy geometrię pasowania, a nie nośność połączenia.
 
 ## Kontakt i kanały
 

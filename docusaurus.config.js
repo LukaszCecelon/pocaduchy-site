@@ -111,6 +111,19 @@ const config = {
   ],
 
   plugins: [
+    // Kalkulator pasowań mieszkał najpierw pod /wiedza/pasowania i ten adres
+    // zdążył trafić do sitemapy oraz do wyszukiwarek. Po przeniesieniu do
+    // zakładki Narzędzia stary adres musi prowadzić do nowego, inaczej
+    // tracimy to, co Google już zaindeksował.
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {from: '/wiedza/pasowania', to: '/narzedzia/pasowania'},
+        ],
+      },
+    ],
+
     // Dane strukturalne JSON-LD wspólne dla całej witryny: kto ją prowadzi
     // (Person + Organization) i czym jest (WebSite). Wyszukiwarki i modele
     // AI używają tego do zrozumienia i cytowania źródła.
@@ -328,6 +341,7 @@ const config = {
         items: [
           {to: '/', label: 'Główna', position: 'left'},
           {to: '/wiedza', label: 'Wiedza', position: 'left'},
+          {to: '/narzedzia', label: 'Narzędzia', position: 'left'},
           {to: '/blog', label: 'Artykuły', position: 'left'},
           {to: '/odcinki', label: 'Odcinki', position: 'left'},
           {to: '/uslugi', label: 'Usługi', position: 'left'},
@@ -347,6 +361,7 @@ const config = {
             title: 'Strona',
             items: [
               {label: 'Wiedza', to: '/wiedza'},
+              {label: 'Narzędzia', to: '/narzedzia'},
               {label: 'Artykuły', to: '/blog'},
               {label: 'Odcinki', to: '/odcinki'},
               {label: 'Usługi', to: '/uslugi'},
