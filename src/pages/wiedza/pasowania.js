@@ -11,6 +11,17 @@ import styles from './pasowania.module.css';
 
 const SCIEZKA = '/wiedza/pasowania';
 
+// Odpowiedz do danych strukturalnych bierzemy po TYTULE sekcji, a nie po jej
+// numerze. Sekcje sa trescia edytowalna w pliku JSON, wiec usuniecie albo
+// przestawienie jednej z nich nie moze wywracac strony.
+function opisZasadyStalegoOtworu() {
+  const sekcja = tresc.sekcje.find((s) => s.tytul === 'Dwie zasady doboru');
+  const akapit = sekcja && sekcja.akapity && sekcja.akapity[0];
+  return akapit
+    ? akapit.replace(/\*\*/g, '')
+    : 'Otwór ma zawsze pole H, czyli odchyłkę dolną równą zeru, a pasowanie dobiera się odchyłkami wałka.';
+}
+
 // Dane strukturalne. Kalkulator sam w sobie jest dla wyszukiwarki niewidoczny,
 // bo tresc powstaje po interakcji, wiec opisujemy strone jako artykul
 // z pytaniami, a nie jako aplikacje.
@@ -53,7 +64,7 @@ function daneStrukturalne() {
             name: 'Na czym polega zasada stałego otworu?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: tresc.sekcje[1].akapity[0].replace(/\*\*/g, ''),
+              text: opisZasadyStalegoOtworu(),
             },
           },
         ],
