@@ -120,8 +120,46 @@
 .skrotyPasowan {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
   margin-bottom: 24px;
+}
+
+/* Kafelki pogrupowane wg rodzaju pasowania: konstruktor zwykle wie, czy chce
+   luz czy wcisk, zanim wybierze konkretne oznaczenie. */
+.grupaSkrotow {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.nazwaGrupy {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 7px 10px;
+  text-align: center;
+}
+.nazwaGrupy.luzne {
+  background: #eaf3ec;
+  color: #3f7d58;
+}
+.nazwaGrupy.mieszane {
+  background: #f8f1e2;
+  color: #8a6318;
+}
+.nazwaGrupy.ciasne {
+  background: #f7e9e7;
+  color: var(--pc-rust);
+}
+
+@media (max-width: 620px) {
+  .grupaSkrotow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .nazwaGrupy {
+    text-align: left;
+    width: fit-content;
+  }
 }
 
 /* --- zasada --- */
@@ -232,6 +270,12 @@
   font-family: var(--font-mono);
   font-size: 13px;
   fill: var(--pc-text-muted);
+  /* Obwodka w kolorze tla. Wartosc zero lezy na linii wymiaru nominalnego,
+     wiec bez niej cyfra zlewa sie z przerywana linia. */
+  paint-order: stroke;
+  stroke: #fbfaf8;
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 .wykresSkala {
   font-family: var(--font-mono);

@@ -6,23 +6,23 @@
   },
   "naglowek": "Pasowania: kalkulator luzu i wcisku",
   "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji. Możesz też pójść od drugiej strony: podać wymagany luz i sprawdzić, które pasowania go dają.",
-  "trybPasowanie": "Mam pasowanie, chcę luz",
-  "trybLuz": "Mam luz, szukam pasowania",
+  "trybPasowanie": "Wymiary na podstawie pasowania",
+  "trybLuz": "Pasowanie na podstawie wymiarów",
   "zasadaOtworu": "Stały otwór (H)",
   "zasadaWalka": "Stały wałek (h)",
   "podpisWykresu": "Pola tolerancji względem wymiaru nominalnego. Skala pionowa w mikrometrach.",
   "rodzaje": {
     "luzne": {
       "nazwa": "Pasowanie luźne",
-      "opis": "Wałek jest zawsze mniejszy od otworu, więc zawsze zostaje luz. Elementy da się złożyć ręcznie i zwykle mogą się względem siebie obracać albo przesuwać."
+      "opis": "Między wałkiem a otworem zawsze zostaje luz, więc części składasz ręką, bez prasy i bez podgrzewania. Wałek może się w otworze obracać albo przesuwać. Takie połączenie samo z siebie nie przeniesie momentu: jeśli ma go przenosić, potrzebny jest wpust, kołek albo tuleja zaciskowa. Typowe miejsca: pierścienie łożysk w oprawach, prowadnice, panewki ślizgowe, tuleje dystansowe."
     },
     "mieszane": {
       "nazwa": "Pasowanie mieszane",
-      "opis": "Zależnie od rzeczywistych wymiarów w partii może wyjść niewielki luz albo niewielki wcisk. Stosuje się je tam, gdzie liczy się dokładne ustalenie położenia, a montaż odbywa się pod prasą albo lekkim uderzeniem."
+      "opis": "Jedna sztuka z partii wyjdzie z mikroskopijnym luzem, druga z mikroskopijnym wciskiem, zależnie od tego, gdzie w polu tolerancji trafi konkretny detal. Montaż idzie lekkim uderzeniem, ręczną prasą albo lekkim podgrzaniem, a demontaż zwykle ściągaczem. Wybiera się je wtedy, gdy zależy nam na dokładnym ustaleniu położenia i współosiowości, a nie na przeniesieniu obciążenia. Moment i tak przenosi wpust albo kołek. Typowe miejsca: koła zębate i pasowe na wałach, sworznie i kołki ustalające."
     },
     "ciasne": {
       "nazwa": "Pasowanie ciasne",
-      "opis": "Wałek jest zawsze większy od otworu, więc połączenie wymaga wciskania albo montażu na gorąco. Przenosi moment bez dodatkowych elementów, ale demontaż bywa niszczący."
+      "opis": "Wałek jest zawsze większy od otworu, więc montaż wymaga prasy, podgrzania piasty albo schłodzenia wałka. Połączenie przenosi moment samym tarciem, bez wpustu, i po zmontowaniu części pozostają względem siebie nieruchome. Dwie rzeczy do przemyślenia już na etapie projektu: demontaż bywa niszczący, więc zaplanuj miejsce na ściągacz albo kanał na olej, oraz wcisk wywołuje naprężenia w piaście, które przy cienkiej ściance trzeba policzyć osobno. Typowe miejsca: wieńce kół zębatych, tarcze sprzęgłowe, tuleje wtłaczane."
     }
   },
   "sekcje": [
@@ -38,13 +38,6 @@
       "akapity": [
         "**Zasada stałego otworu** oznacza, że otwór ma zawsze pole H, czyli odchyłkę dolną równą zeru, a pasowanie dobiera się odchyłkami wałka. Jest najczęstsza, bo otwory wykonuje się narzędziem o stałej średnicy: rozwiertakiem albo przeciągaczem, a wałek łatwiej doszlifować do dowolnego wymiaru.",
         "**Zasada stałego wałka** oznacza, że wałek ma pole h, a pasowanie dobiera się odchyłkami otworu. Przydaje się, gdy na jednym wale o stałej średnicy trzeba osadzić kilka elementów o różnym charakterze połączenia."
-      ]
-    },
-    {
-      "tytul": "Skąd biorą się litery i cyfry",
-      "akapity": [
-        "**Litera** określa położenie pola tolerancji względem wymiaru nominalnego. Małe litery to wałki, wielkie to otwory. Litery z początku alfabetu odsuwają materiał, czyli dają luz, a litery z końca dokładają materiału, czyli dają wcisk. Pola **h** i **H** leżą dokładnie na wymiarze nominalnym, a **js** i **JS** są względem niego symetryczne.",
-        "**Cyfra** to klasa dokładności IT i mówi, jak szerokie jest pole tolerancji. Im niższa cyfra, tym ciaśniejsze wykonanie i wyższy koszt. Ta sama klasa oznacza inną wartość w mikrometrach dla różnych średnic, bo większe wymiary trudniej wykonać dokładnie."
       ]
     }
   ],
