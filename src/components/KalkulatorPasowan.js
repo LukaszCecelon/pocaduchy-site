@@ -25,6 +25,11 @@ const SKROTY = {
 };
 
 const SREDNICE_SKROTY = [6, 10, 20, 30, 50, 80, 120];
+const POWIEKSZENIA = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000];
+
+// Napisy interfejsu siedza w pliku tresci, zeby dalo sie je poprawic bez
+// dotykania kodu. Tutaj tylko skrot, zeby nie pisac tresc.ui w kazdym miejscu.
+const TEKSTY_UI = tresc.ui;
 
 function rozbijSymbol(symbol) {
   const [otwor, walek] = symbol.split('/');
@@ -43,6 +48,53 @@ function mm(um) {
 
 function znak(um) {
   return um > 0 ? `+${um}` : String(um);
+}
+
+function symbolOtworu(wynik) {
+  return `${wynik.otwor.litera}${wynik.otwor.klasa}`;
+}
+
+function symbolWalka(wynik) {
+  return `${wynik.walek.litera}${wynik.walek.klasa}`;
+}
+
+function opisZakresu(wynik) {
+  if (wynik.rodzaj === 'ciasne') {
+    return `Wcisk od ${Math.abs(wynik.luzMaksymalny.um)} do ${Math.abs(wynik.luzMinimalny.um)} µm`;
+  }
+  if (wynik.rodzaj === 'mieszane') {
+    return `Od wcisku ${Math.abs(wynik.luzMinimalny.um)} µm do luzu ${wynik.luzMaksymalny.um} µm`;
+  }
+  return `Luz od ${wynik.luzMinimalny.um} do ${wynik.luzMaksymalny.um} µm`;
+}
+
+function wybierzWerdykt(wynik) {
+  const lista = tresc.werdykty?.[wynik.rodzaj] || [];
+  if (lista.length === 0) return '';
+
+  const abs = Math.abs(wynik.luzMinimalny.um);
+  const rate = abs / wynik.srednica;
+  const wartosc = wynik.rodzaj === 'luzne' ? wynik.luzMinimalny.um : abs;
+
+  const dopasowany = lista.find((wpis) => {
+    const prog = wynik.rodzaj === 'ciasne' ? wpis.doUmNaMm : wpis.doUm;
+    const wartoscPorownawcza = wynik.rodzaj === 'ciasne' ? rate : wartosc;
+    return prog !== undefined
+      && wartoscPorownawcza <= prog
+      && (wpis.maxUm === undefined || abs <= wpis.maxUm);
+  });
+
+  return (dopasowany || lista[lista.length - 1]).tekst;
+}
+
+function obliczPowiekszenie(wynik) {
+  const maxUm = Math.max(Math.abs(wynik.luzMaksymalny.um), Math.abs(wynik.luzMinimalny.um));
+  if (maxUm <= 0) return 1;
+
+  const pxNaMm = 124 / wynik.srednica;
+  const surowe = 22 / (maxUm * 0.001 * pxNaMm);
+  const wybrane = [...POWIEKSZENIA].reverse().find((p) => p <= surowe);
+  return Math.max(wybrane || 1, 1);
 }
 
 // Wykres pol tolerancji. Dwie kolumny, otwor i walek, wzgledem linii wymiaru
@@ -88,7 +140,10 @@ function WykresPol({wynik}) {
   };
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className={styles.wykres} role="img"
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      className={styles.wykres}
+      role="img"
       aria-label={`Wykres pól tolerancji dla pasowania ${wynik.symbol} na średnicy ${wynik.srednica} milimetra`}>
       {/* Linia wymiaru nominalnego. Opis stoi w wolnym marginesie po lewej,
           poza obszarem kolumn, zeby zaden prostokat go nie zaslonil. */}
@@ -97,85 +152,381 @@ function WykresPol({wynik}) {
         ⌀{wynik.srednica} mm
       </text>
       <text x="20" y={OS_Y + 20} className={styles.wykresOsPodpisMaly}>
-        wymiar nominalny
+        {TEKSTY_UI.wymiarNominalny}
       </text>
 
       {kolumna(190, 150, wynik.otwor.ES.um, wynik.otwor.EI.um, 'var(--pc-navy-soft)',
-        `otwór ${wynik.otwor.litera}${wynik.otwor.klasa}`)}
+        `${TEKSTY_UI.otwor.toLowerCase()} ${symbolOtworu(wynik)}`)}
       {kolumna(460, 150, wynik.walek.es.um, wynik.walek.ei.um, 'var(--pc-rust)',
-        `wałek ${wynik.walek.litera}${wynik.walek.klasa}`)}
+        `${TEKSTY_UI.walek.toLowerCase()} ${symbolWalka(wynik)}`)}
 
       <text x={W / 2} y={H - 14} className={styles.wykresSkala}>
-        wartości w mikrometrach
+        {TEKSTY_UI.wartosciMikrometry}
       </text>
     </svg>
   );
 }
 
-function Wynik({wynik}) {
-  const rodzaj = tresc.rodzaje[wynik.rodzaj];
+// Przekroj wzdluzny walka lezacego w otworze.
+//
+// Uklad jest jednostronny i to jest swiadoma decyzja: walek lezy na dnie
+// otworu, tak jak lezy naprawde, wiec CALA szczelina zbiera sie u gory.
+// Dzieki temu jeden wymiar na rysunku odpowiada jednej liczbie z tablic,
+// bez dzielenia luzu srednicowego na dwie polowki.
+//
+// Przy pasowaniu ciasnym walek jest wiekszy od otworu, wiec material korpusu
+// wchodzi w obszar walka. Ten obszar rysujemy krzyzowym kreskowaniem: to
+// wizualne wytlumaczenie, dlaczego takie polaczenie idzie na prase.
+function Przekroj({wynik}) {
+  const id = React.useId().replace(/:/g, '');
+  const wzorKorpusuId = `${id}-korpus`;
+  const wzorWalkaId = `${id}-walek`;
+  const wzorWciskuId = `${id}-wcisk`;
+
+  // Geometria stala. Prawa czesc rysunku (od X_WYMIARY) jest zarezerwowana na
+  // opisy wymiarow, zeby zaden podpis nie wychodzil poza viewBox.
+  const Y_WALEK_GORA = 72;
+  const Y_WALEK_DOL = 156;
+  const X_KORPUS = 28;
+  const SZER_KORPUSU = 356;
+  const X_WALEK = 84;
+  const SZER_WALKA = 244;
+  const X_WYMIARY = 384;
+
+  const powiekszenie = obliczPowiekszenie(wynik);
+  const pxNaUm = (124 / wynik.srednica) / 1000 * powiekszenie;
   const ciasne = wynik.rodzaj === 'ciasne';
   const mieszane = wynik.rodzaj === 'mieszane';
 
-  // Przy pasowaniu ciasnym mowienie o "luzie ujemnym" jest myląc e.
-  // Konstruktor mysli wtedy wciskiem, wiec tak to nazywamy.
-  const naglowek = ciasne
-    ? `Wcisk od ${Math.abs(wynik.luzMaksymalny.um)} do ${Math.abs(wynik.luzMinimalny.um)} µm`
-    : mieszane
-      ? `Od wcisku ${Math.abs(wynik.luzMinimalny.um)} µm do luzu ${wynik.luzMaksymalny.um} µm`
-      : `Luz od ${wynik.luzMinimalny.um} do ${wynik.luzMaksymalny.um} µm`;
+  // Minimalna widoczna wysokosc pasma: przy bardzo malych wartosciach linia
+  // zerowej grubosci zniknełaby zupelnie i rysunek klamalby w druga strone.
+  const naPiksele = (um) => (um > 0 ? Math.max(um * pxNaUm, 2) : 0);
+
+  const luzUm = Math.max(wynik.luzMaksymalny.um, 0);
+  const wciskUm = Math.max(-wynik.luzMinimalny.um, 0);
+  const luzPx = naPiksele(luzUm);
+  const wciskPx = naPiksele(wciskUm);
+
+  // Powierzchnia otworu od gory. Przy luzie ucieka w gore, przy wcisku
+  // schodzi w dol i nachodzi na walek.
+  const przesuniecieKorpusu = ciasne ? wciskPx : -luzPx;
+
+  const labelOtworu = `${TEKSTY_UI.otwor.toUpperCase()} ${symbolOtworu(wynik)}`;
+  const labelWalka = `${TEKSTY_UI.walek.toUpperCase()} ${symbolWalka(wynik)}`;
+  const opisUkladu = ciasne ? TEKSTY_UI.ukladPrzekrojuCiasne : TEKSTY_UI.ukladPrzekroju;
+  const opisSkali = powiekszenie === 1
+    ? `${TEKSTY_UI.rysunek11} ${opisUkladu}`
+    : `${TEKSTY_UI.roznicaPowiekszona} ${powiekszenie} ${TEKSTY_UI.razy} ${opisUkladu}`;
+  const ariaLabel = `${tresc.rodzaje[wynik.rodzaj].nazwa}: ${opisZakresu(wynik)}, ${labelOtworu}, ${labelWalka}.`;
+
+  // Wymiar z dwiema strzalkami i podpisem po prawej stronie rysunku.
+  // Przy pasowaniu mieszanym oba pasma sa cienkie i stoja tuz obok siebie,
+  // wiec podpisy trzeba rozsunac, inaczej nachodza na siebie.
+  const obaWymiary = luzUm > 0 && wciskUm > 0;
+  const wymiar = (yOd, yDo, tekst, klasa, odsuniecie = 0) => (
+    <g>
+      <line x1={X_WYMIARY} y1={yOd} x2={X_WYMIARY} y2={yDo} className={styles.liniaWymiarowa} />
+      <line x1={X_WYMIARY - 7} y1={yOd} x2={X_WYMIARY + 7} y2={yOd} className={styles.liniaWymiarowa} />
+      <line x1={X_WYMIARY - 7} y1={yDo} x2={X_WYMIARY + 7} y2={yDo} className={styles.liniaWymiarowa} />
+      <text
+        x={X_WYMIARY + 10}
+        y={(yOd + yDo) / 2 + 4 + odsuniecie}
+        className={`${styles.wymiarPrzekroju} ${klasa}`}>
+        {tekst}
+      </text>
+    </g>
+  );
 
   return (
-    <div className={styles.wynik}>
-      <div className={`${styles.wynikGlowny} ${styles[wynik.rodzaj]}`}>
-        <span className={styles.wynikOdznaka}>{rodzaj.nazwa}</span>
-        <p className={styles.wynikLiczba}>{naglowek}</p>
-        <p className={styles.wynikOpis}>{rodzaj.opis}</p>
-      </div>
+    <div className={styles.przekrojWrap}>
+      <svg viewBox="0 0 520 210" className={styles.przekroj} role="img" aria-label={ariaLabel}>
+        <defs>
+          <pattern id={wzorKorpusuId} width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="7" className={styles.kreskowanieKorpusu} />
+          </pattern>
+          {/* Sasiadujace czesci kreskuje sie w przeciwne strony. */}
+          <pattern id={wzorWalkaId} width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+            <line x1="0" y1="0" x2="0" y2="7" className={styles.kreskowanieWalka} />
+          </pattern>
+          <pattern id={wzorWciskuId} width="6" height="6" patternUnits="userSpaceOnUse">
+            <path d="M0 6 L6 0 M0 0 L6 6" className={styles.kreskowanieWcisku} />
+          </pattern>
+        </defs>
 
-      <WykresPol wynik={wynik} />
-      <p className={styles.podpisWykresu}>{tresc.podpisWykresu}</p>
+        {/* Walek. Rysowany pierwszy, zeby material korpusu mogl na niego
+            nachodzic przy pasowaniu ciasnym. */}
+        <g>
+          <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={Y_WALEK_DOL - Y_WALEK_GORA}
+            className={styles.materialWalka} />
+          <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={Y_WALEK_DOL - Y_WALEK_GORA}
+            fill={`url(#${wzorWalkaId})`} />
+          <rect x={X_WALEK + SZER_WALKA / 2 - 58} y="99" width="116" height="30" rx="3"
+            className={styles.tablicaWalka} />
+          <text x={X_WALEK + SZER_WALKA / 2} y="119" className={styles.etykietaPrzekroju}>{labelWalka}</text>
+        </g>
 
-      <div className={styles.tabelaWrap}>
-        <table className={styles.tabela}>
-          <thead>
-            <tr>
-              <th>Element</th>
-              <th>Odchyłka górna</th>
-              <th>Odchyłka dolna</th>
-              <th>Wymiar najmniejszy</th>
-              <th>Wymiar największy</th>
-              <th>Tolerancja</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Otwór {wynik.otwor.litera}{wynik.otwor.klasa}</td>
-              <td>{znak(wynik.otwor.ES.um)} µm</td>
-              <td>{znak(wynik.otwor.EI.um)} µm</td>
-              <td>{wynik.otwor.wymiarGraniczny.dolny.toFixed(3)} mm</td>
-              <td>{wynik.otwor.wymiarGraniczny.gorny.toFixed(3)} mm</td>
-              <td>{wynik.otwor.tolerancja.um} µm</td>
-            </tr>
-            <tr>
-              <td>Wałek {wynik.walek.litera}{wynik.walek.klasa}</td>
-              <td>{znak(wynik.walek.es.um)} µm</td>
-              <td>{znak(wynik.walek.ei.um)} µm</td>
-              <td>{wynik.walek.wymiarGraniczny.dolny.toFixed(3)} mm</td>
-              <td>{wynik.walek.wymiarGraniczny.gorny.toFixed(3)} mm</td>
-              <td>{wynik.walek.tolerancja.um} µm</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        {/* Dolna powierzchnia otworu styka sie z walkiem i sie nie rusza. */}
+        <g>
+          <rect x={X_KORPUS} y={Y_WALEK_DOL} width={SZER_KORPUSU} height="120" className={styles.materialKorpusu} />
+          <rect x={X_KORPUS} y={Y_WALEK_DOL} width={SZER_KORPUSU} height="120" fill={`url(#${wzorKorpusuId})`} />
+        </g>
 
-      <p className={styles.zapis}>
-        Zapis na rysunku: <strong>⌀{wynik.srednica} {wynik.symbol}</strong>
-        {'  '}albo osobno: otwór ⌀{wynik.srednica} {wynik.otwor.litera}{wynik.otwor.klasa}
-        {' '}({mm(wynik.otwor.EI.um)} / {mm(wynik.otwor.ES.um)}), wałek ⌀{wynik.srednica}{' '}
-        {wynik.walek.litera}{wynik.walek.klasa} ({mm(wynik.walek.ei.um)} / {mm(wynik.walek.es.um)}).
-      </p>
+        {/* Gorna powierzchnia otworu: jedyny element, ktory sie animuje.
+            Prostokat siega wysoko ponad viewBox, zeby przy ruchu w dol nie
+            odslonic tla. */}
+        <g
+          className={styles.warstwaPrzekroju}
+          style={{transform: `translateY(${przesuniecieKorpusu}px)`}}>
+          <rect x={X_KORPUS} y={Y_WALEK_GORA - 140} width={SZER_KORPUSU} height="140"
+            className={styles.materialKorpusu} />
+          <rect x={X_KORPUS} y={Y_WALEK_GORA - 140} width={SZER_KORPUSU} height="140"
+            fill={`url(#${wzorKorpusuId})`} />
+        </g>
+
+        {/* Tabliczka z opisem stoi nieruchomo, bo material korpusu zawsze ja
+            pokrywa, a razem z warstwa wyjezdzalaby poza rysunek. */}
+        <g>
+          <rect x={X_KORPUS + 22} y="14" width="126" height="30" rx="3" className={styles.tablicaOtworu} />
+          <text x={X_KORPUS + 85} y="34" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
+        </g>
+
+        {/* Obszar, w ktorym material walka i korpusu zajmuja to samo miejsce. */}
+        {wciskUm > 0 ? (
+          <g>
+            <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={wciskPx} className={styles.nakladanie} />
+            <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={wciskPx} fill={`url(#${wzorWciskuId})`} />
+          </g>
+        ) : null}
+
+        {luzUm > 0
+          ? wymiar(Y_WALEK_GORA - luzPx, Y_WALEK_GORA,
+            `${TEKSTY_UI.luzMax} ${luzUm} µm`, styles.wymiarLuzu, obaWymiary ? -9 : 0)
+          : null}
+
+        {/* Przy pasowaniu mieszanym oba wymiary stoja obok siebie: to jedyny
+            sposob, zeby pokazac, ze jedna sztuka bedzie miala luz, a druga wcisk. */}
+        {wciskUm > 0
+          ? wymiar(Y_WALEK_GORA, Y_WALEK_GORA + wciskPx,
+            `${mieszane || ciasne ? TEKSTY_UI.wciskMax : TEKSTY_UI.wcisk} ${wciskUm} µm`,
+            styles.wymiarWcisku, obaWymiary ? 9 : 0)
+          : null}
+      </svg>
+      <p className={styles.skalaPrzekroju}>{opisSkali}</p>
     </div>
+  );
+}
+
+function PolaTolerancji({otwor, setOtwor, walek, setWalek}) {
+  return (
+    <div className={styles.polaTolerancji}>
+      <label className={styles.poleKompaktowe}>
+        <span className={styles.etykieta}>{TEKSTY_UI.otwor}</span>
+        <span className={styles.para}>
+          <select
+            value={otwor.litera}
+            onChange={(e) => setOtwor({...otwor, litera: e.target.value})}
+            className={styles.select}
+            aria-label={TEKSTY_UI.poleOtworu}>
+            {LITERY_OTWOROW.map((l) => <option key={l} value={l}>{l}</option>)}
+          </select>
+          <select
+            value={otwor.klasa}
+            onChange={(e) => setOtwor({...otwor, klasa: Number(e.target.value)})}
+            className={styles.select}
+            aria-label={TEKSTY_UI.klasaOtworu}>
+            {KLASY_IT.map((k) => <option key={k} value={k}>{k}</option>)}
+          </select>
+        </span>
+      </label>
+
+      <label className={styles.poleKompaktowe}>
+        <span className={styles.etykieta}>{TEKSTY_UI.walek}</span>
+        <span className={styles.para}>
+          <select
+            value={walek.litera}
+            onChange={(e) => setWalek({...walek, litera: e.target.value})}
+            className={styles.select}
+            aria-label={TEKSTY_UI.poleWalka}>
+            {LITERY_WALKOW.map((l) => <option key={l} value={l}>{l}</option>)}
+          </select>
+          <select
+            value={walek.klasa}
+            onChange={(e) => setWalek({...walek, klasa: Number(e.target.value)})}
+            className={styles.select}
+            aria-label={TEKSTY_UI.klasaWalka}>
+            {KLASY_IT.map((k) => <option key={k} value={k}>{k}</option>)}
+          </select>
+        </span>
+      </label>
+    </div>
+  );
+}
+
+function TabelaDanych({wynik}) {
+  return (
+    <div className={styles.tabelaWrap}>
+      <table className={styles.tabela}>
+        <thead>
+          <tr>
+            <th>{TEKSTY_UI.element}</th>
+            <th>{TEKSTY_UI.odchylkaGorna}</th>
+            <th>{TEKSTY_UI.odchylkaDolna}</th>
+            <th>{TEKSTY_UI.wymiarNajmniejszy}</th>
+            <th>{TEKSTY_UI.wymiarNajwiekszy}</th>
+            <th>{TEKSTY_UI.tolerancja}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{TEKSTY_UI.otwor} {symbolOtworu(wynik)}</td>
+            <td>{znak(wynik.otwor.ES.um)} µm</td>
+            <td>{znak(wynik.otwor.EI.um)} µm</td>
+            <td>{wynik.otwor.wymiarGraniczny.dolny.toFixed(3)} mm</td>
+            <td>{wynik.otwor.wymiarGraniczny.gorny.toFixed(3)} mm</td>
+            <td>{wynik.otwor.tolerancja.um} µm</td>
+          </tr>
+          <tr>
+            <td>{TEKSTY_UI.walek} {symbolWalka(wynik)}</td>
+            <td>{znak(wynik.walek.es.um)} µm</td>
+            <td>{znak(wynik.walek.ei.um)} µm</td>
+            <td>{wynik.walek.wymiarGraniczny.dolny.toFixed(3)} mm</td>
+            <td>{wynik.walek.wymiarGraniczny.gorny.toFixed(3)} mm</td>
+            <td>{wynik.walek.tolerancja.um} µm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function ZapisNaRysunku({wynik}) {
+  return (
+    <p className={styles.zapis}>
+      {TEKSTY_UI.zapisNaRysunku} <strong>⌀{wynik.srednica} {wynik.symbol}</strong>
+      {' '}{TEKSTY_UI.zapisOsobno} {TEKSTY_UI.otwor.toLowerCase()} ⌀{wynik.srednica} {symbolOtworu(wynik)}
+      {' '}({mm(wynik.otwor.EI.um)} / {mm(wynik.otwor.ES.um)}), {TEKSTY_UI.walek.toLowerCase()} ⌀{wynik.srednica}{' '}
+      {symbolWalka(wynik)} ({mm(wynik.walek.ei.um)} / {mm(wynik.walek.es.um)}).
+    </p>
+  );
+}
+
+function WynikKompaktowy({wynik, otwor, setOtwor, walek, setWalek}) {
+  const rodzaj = tresc.rodzaje[wynik.rodzaj];
+  const werdykt = wybierzWerdykt(wynik);
+
+  return (
+    <section className={styles.wynikKompaktowy} aria-live="polite">
+      <div className={styles.wynikNaglowek}>
+        <span className={`${styles.wynikOdznaka} ${styles[wynik.rodzaj]}`}>{rodzaj.nazwa}</span>
+        <p className={styles.wynikLiczba}>{opisZakresu(wynik)}</p>
+        <p className={styles.werdykt}>{werdykt}</p>
+      </div>
+
+      <Przekroj wynik={wynik} />
+
+      <div className={styles.legendaPrzekroju}>
+        <span><span className={`${styles.kropka} ${styles.kropkaOtwor}`} />{TEKSTY_UI.legendaOtwor}</span>
+        <span><span className={`${styles.kropka} ${styles.kropkaWalek}`} />{TEKSTY_UI.legendaWalek}</span>
+      </div>
+
+      <PolaTolerancji otwor={otwor} setOtwor={setOtwor} walek={walek} setWalek={setWalek} />
+    </section>
+  );
+}
+
+function Szczegoly({wynik, otwarte, setOtwarte}) {
+  const aktualizuj = (klucz) => (event) => {
+    setOtwarte((stan) => ({...stan, [klucz]: event.currentTarget.open}));
+  };
+
+  return (
+    <div className={styles.szczegoly}>
+      <details open={otwarte.techniczne} onToggle={aktualizuj('techniczne')} className={styles.details}>
+        <summary>{TEKSTY_UI.odchylkiDetails}</summary>
+        <div className={styles.detailsZawartosc}>
+          <TabelaDanych wynik={wynik} />
+          <ZapisNaRysunku wynik={wynik} />
+          <WykresPol wynik={wynik} />
+          <p className={styles.podpisWykresu}>{tresc.podpisWykresu}</p>
+        </div>
+      </details>
+
+      <details open={otwarte.praktyka} onToggle={aktualizuj('praktyka')} className={styles.details}>
+        <summary>{TEKSTY_UI.praktykaDetails}</summary>
+        <div className={styles.detailsZawartosc}>
+          <p className={styles.opisPraktyczny}>{tresc.rodzaje[wynik.rodzaj].opis}</p>
+        </div>
+      </details>
+    </div>
+  );
+}
+
+function SterowaniePasowaniem({srednica, setSrednica, zasada, setZasada, symbol, ustawSymbol}) {
+  return (
+    <section className={styles.sterowanie}>
+      <label className={styles.pole}>
+        <span className={styles.etykieta}>{TEKSTY_UI.srednica}</span>
+        <div className={styles.zJednostka}>
+          <input
+            type="number"
+            min="1"
+            max="500"
+            step="0.5"
+            value={srednica}
+            onChange={(e) => setSrednica(Number(e.target.value))}
+            className={styles.input}
+          />
+          <span className={styles.jednostka}>mm</span>
+        </div>
+        <div className={styles.skroty}>
+          {SREDNICE_SKROTY.map((d) => (
+            <button key={d} type="button" className={styles.skrot} onClick={() => setSrednica(d)}>
+              {d}
+            </button>
+          ))}
+        </div>
+      </label>
+
+      <div className={styles.zasady}>
+        <span className={styles.etykieta}>{TEKSTY_UI.zasada}</span>
+        <div className={styles.przelacznik}>
+          <button
+            type="button"
+            className={`${styles.opcja} ${zasada === 'stalegoOtworu' ? styles.opcjaAktywna : ''}`}
+            onClick={() => setZasada('stalegoOtworu')}>
+            {tresc.zasadaOtworu}
+          </button>
+          <button
+            type="button"
+            className={`${styles.opcja} ${zasada === 'stalegoWalka' ? styles.opcjaAktywna : ''}`}
+            onClick={() => setZasada('stalegoWalka')}>
+            {tresc.zasadaWalka}
+          </button>
+        </div>
+      </div>
+
+      <div className={styles.skrotyPasowan}>
+        <span className={styles.etykieta}>{TEKSTY_UI.najczestsze}</span>
+        {SKROTY[zasada].map((grupa) => (
+          <div key={grupa.rodzaj} className={styles.grupaSkrotow}>
+            <span className={`${styles.nazwaGrupy} ${styles[grupa.rodzaj]}`}>
+              {tresc.rodzaje[grupa.rodzaj].nazwa}
+            </span>
+            <div className={styles.skroty}>
+              {grupa.pasowania.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  className={`${styles.skrot} ${s === symbol ? styles.skrotAktywny : ''}`}
+                  onClick={() => ustawSymbol(s)}>
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -187,6 +538,7 @@ export default function KalkulatorPasowan() {
   const [walek, setWalek] = React.useState({litera: 'g', klasa: 6});
   const [luzMin, setLuzMin] = React.useState(0);
   const [luzMax, setLuzMax] = React.useState(50);
+  const [otwarteDetails, setOtwarteDetails] = React.useState({techniczne: false, praktyka: false});
 
   const symbol = `${otwor.litera}${otwor.klasa}/${walek.litera}${walek.klasa}`;
 
@@ -214,12 +566,8 @@ export default function KalkulatorPasowan() {
     setTryb('pasowanie');
   }
 
-  const zbiorUprzywilejowanych =
-    PASOWANIA_UPRZYWILEJOWANE[zasada === 'stalegoOtworu' ? 'stalyOtwor' : 'stalyWalek'];
-
   return (
     <div className={styles.kalkulator}>
-      {/* Wybor trybu: to jest glowna decyzja, wiec stoi najwyzej i jest duza */}
       <div className={styles.tryby} role="tablist">
         <button
           type="button"
@@ -239,162 +587,116 @@ export default function KalkulatorPasowan() {
         </button>
       </div>
 
-      <div className={styles.pola}>
-        <label className={styles.pole}>
-          <span className={styles.etykieta}>Średnica nominalna</span>
-          <div className={styles.zJednostka}>
-            <input
-              type="number"
-              min="1"
-              max="500"
-              step="0.5"
-              value={srednica}
-              onChange={(e) => setSrednica(Number(e.target.value))}
-              className={styles.input}
+      {tryb === 'pasowanie' ? (
+        wynik.ok ? (
+          <div className={styles.panelPasowania}>
+            <SterowaniePasowaniem
+              srednica={srednica}
+              setSrednica={setSrednica}
+              zasada={zasada}
+              setZasada={setZasada}
+              symbol={symbol}
+              ustawSymbol={ustawSymbol}
             />
-            <span className={styles.jednostka}>mm</span>
+            <WynikKompaktowy
+              wynik={wynik.ok}
+              otwor={otwor}
+              setOtwor={setOtwor}
+              walek={walek}
+              setWalek={setWalek}
+            />
+            <Szczegoly wynik={wynik.ok} otwarte={otwarteDetails} setOtwarte={setOtwarteDetails} />
           </div>
-          <div className={styles.skroty}>
-            {SREDNICE_SKROTY.map((d) => (
-              <button key={d} type="button" className={styles.skrot} onClick={() => setSrednica(d)}>
-                {d}
-              </button>
-            ))}
-          </div>
-        </label>
-
-        {tryb === 'pasowanie' ? (
-          <>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>Otwór</span>
-              <div className={styles.para}>
-                <select
-                  value={otwor.litera}
-                  onChange={(e) => setOtwor({...otwor, litera: e.target.value})}
-                  className={styles.select}
-                  aria-label="Pole tolerancji otworu">
-                  {LITERY_OTWOROW.map((l) => <option key={l} value={l}>{l}</option>)}
-                </select>
-                <select
-                  value={otwor.klasa}
-                  onChange={(e) => setOtwor({...otwor, klasa: Number(e.target.value)})}
-                  className={styles.select}
-                  aria-label="Klasa dokładności otworu">
-                  {KLASY_IT.map((k) => <option key={k} value={k}>{k}</option>)}
-                </select>
-              </div>
-            </label>
-
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>Wałek</span>
-              <div className={styles.para}>
-                <select
-                  value={walek.litera}
-                  onChange={(e) => setWalek({...walek, litera: e.target.value})}
-                  className={styles.select}
-                  aria-label="Pole tolerancji wałka">
-                  {LITERY_WALKOW.map((l) => <option key={l} value={l}>{l}</option>)}
-                </select>
-                <select
-                  value={walek.klasa}
-                  onChange={(e) => setWalek({...walek, klasa: Number(e.target.value)})}
-                  className={styles.select}
-                  aria-label="Klasa dokładności wałka">
-                  {KLASY_IT.map((k) => <option key={k} value={k}>{k}</option>)}
-                </select>
-              </div>
-            </label>
-          </>
         ) : (
-          <>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>Luz minimalny</span>
-              <div className={styles.zJednostka}>
-                <input type="number" step="1" value={luzMin}
-                  onChange={(e) => setLuzMin(e.target.value)} className={styles.input} />
-                <span className={styles.jednostka}>µm</span>
-              </div>
-            </label>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>Luz maksymalny</span>
-              <div className={styles.zJednostka}>
-                <input type="number" step="1" value={luzMax}
-                  onChange={(e) => setLuzMax(e.target.value)} className={styles.input} />
-                <span className={styles.jednostka}>µm</span>
-              </div>
-            </label>
-          </>
-        )}
-      </div>
-
-      <div className={styles.zasady}>
-        <span className={styles.etykieta}>Zasada</span>
-        <div className={styles.przelacznik}>
-          <button type="button"
-            className={`${styles.opcja} ${zasada === 'stalegoOtworu' ? styles.opcjaAktywna : ''}`}
-            onClick={() => setZasada('stalegoOtworu')}>{tresc.zasadaOtworu}</button>
-          <button type="button"
-            className={`${styles.opcja} ${zasada === 'stalegoWalka' ? styles.opcjaAktywna : ''}`}
-            onClick={() => setZasada('stalegoWalka')}>{tresc.zasadaWalka}</button>
-        </div>
-      </div>
-
-      {tryb === 'pasowanie' ? (
-        <div className={styles.skrotyPasowan}>
-          <span className={styles.etykieta}>Najczęstsze pasowania</span>
-          {SKROTY[zasada].map((grupa) => (
-            <div key={grupa.rodzaj} className={styles.grupaSkrotow}>
-              <span className={`${styles.nazwaGrupy} ${styles[grupa.rodzaj]}`}>
-                {tresc.rodzaje[grupa.rodzaj].nazwa}
-              </span>
-              <div className={styles.skroty}>
-                {grupa.pasowania.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    className={`${styles.skrot} ${s === symbol ? styles.skrotAktywny : ''}`}
-                    onClick={() => ustawSymbol(s)}>
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
-
-      {tryb === 'pasowanie' ? (
-        wynik.ok ? <Wynik wynik={wynik.ok} /> : (
           <p className={styles.blad}>{wynik.blad}</p>
         )
       ) : (
-        <div className={styles.propozycje}>
-          {propozycje.length === 0 ? (
-            <p className={styles.blad}>
-              Nie znalazłem pasowania w tym zakresie. Spróbuj poszerzyć widełki luzu.
-            </p>
-          ) : (
-            <ol className={styles.listaPropozycji}>
-              {propozycje.map((p) => (
-                <li key={p.symbol}>
-                  <button type="button" className={styles.propozycja} onClick={() => ustawSymbol(p.symbol)}>
-                    <span className={styles.propSymbol}>
-                      {p.symbol}
-                      {p.uprzywilejowane ? <span className={styles.gwiazdka} title="pasowanie uprzywilejowane">★</span> : null}
-                    </span>
-                    <span className={styles.propZakres}>
-                      {p.luzMinimalny.um} do {p.luzMaksymalny.um} µm
-                    </span>
-                    <span className={`${styles.propRodzaj} ${styles[p.rodzaj]}`}>{p.rodzaj}</span>
-                  </button>
-                </li>
-              ))}
-            </ol>
-          )}
-          <p className={styles.legenda}>
-            ★ oznacza pasowanie uprzywilejowane, czyli takie, które warto wybierać w pierwszej
-            kolejności: narzędzia i sprawdziany są na nie łatwiej dostępne.
-          </p>
+        <div className={styles.panelLuzu}>
+          <div className={styles.polaLuzu}>
+            <label className={styles.pole}>
+              <span className={styles.etykieta}>{TEKSTY_UI.srednica}</span>
+              <div className={styles.zJednostka}>
+                <input
+                  type="number"
+                  min="1"
+                  max="500"
+                  step="0.5"
+                  value={srednica}
+                  onChange={(e) => setSrednica(Number(e.target.value))}
+                  className={styles.input}
+                />
+                <span className={styles.jednostka}>mm</span>
+              </div>
+            </label>
+            <label className={styles.pole}>
+              <span className={styles.etykieta}>{TEKSTY_UI.luzMinimalny}</span>
+              <div className={styles.zJednostka}>
+                <input
+                  type="number"
+                  step="1"
+                  value={luzMin}
+                  onChange={(e) => setLuzMin(e.target.value)}
+                  className={styles.input}
+                />
+                <span className={styles.jednostka}>µm</span>
+              </div>
+            </label>
+            <label className={styles.pole}>
+              <span className={styles.etykieta}>{TEKSTY_UI.luzMaksymalny}</span>
+              <div className={styles.zJednostka}>
+                <input
+                  type="number"
+                  step="1"
+                  value={luzMax}
+                  onChange={(e) => setLuzMax(e.target.value)}
+                  className={styles.input}
+                />
+                <span className={styles.jednostka}>µm</span>
+              </div>
+            </label>
+          </div>
+
+          <div className={styles.zasady}>
+            <span className={styles.etykieta}>{TEKSTY_UI.zasada}</span>
+            <div className={styles.przelacznik}>
+              <button
+                type="button"
+                className={`${styles.opcja} ${zasada === 'stalegoOtworu' ? styles.opcjaAktywna : ''}`}
+                onClick={() => setZasada('stalegoOtworu')}>
+                {tresc.zasadaOtworu}
+              </button>
+              <button
+                type="button"
+                className={`${styles.opcja} ${zasada === 'stalegoWalka' ? styles.opcjaAktywna : ''}`}
+                onClick={() => setZasada('stalegoWalka')}>
+                {tresc.zasadaWalka}
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.propozycje}>
+            {propozycje.length === 0 ? (
+              <p className={styles.blad}>{TEKSTY_UI.brakPasowania}</p>
+            ) : (
+              <ol className={styles.listaPropozycji}>
+                {propozycje.map((p) => (
+                  <li key={p.symbol}>
+                    <button type="button" className={styles.propozycja} onClick={() => ustawSymbol(p.symbol)}>
+                      <span className={styles.propSymbol}>
+                        {p.symbol}
+                        {p.uprzywilejowane ? <span className={styles.gwiazdka} title={TEKSTY_UI.gwiazdka}>★</span> : null}
+                      </span>
+                      <span className={styles.propZakres}>
+                        {p.luzMinimalny.um} do {p.luzMaksymalny.um} µm
+                      </span>
+                      <span className={`${styles.propRodzaj} ${styles[p.rodzaj]}`}>{p.rodzaj}</span>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            )}
+            <p className={styles.legenda}>{TEKSTY_UI.legendaGwiazdki}</p>
+          </div>
         </div>
       )}
 

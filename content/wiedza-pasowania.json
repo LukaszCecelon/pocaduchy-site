@@ -11,6 +11,45 @@
   "zasadaOtworu": "Stały otwór (H)",
   "zasadaWalka": "Stały wałek (h)",
   "podpisWykresu": "Pola tolerancji względem wymiaru nominalnego. Skala pionowa w mikrometrach.",
+  "_uiOpis": "Napisy interfejsu kalkulatora. Trzymamy je tutaj, a nie w kodzie, żeby dało się je poprawić bez dotykania Reacta.",
+  "ui": {
+    "srednica": "Średnica nominalna",
+    "zasada": "Zasada",
+    "najczestsze": "Najczęstsze pasowania",
+    "otwor": "Otwór",
+    "walek": "Wałek",
+    "element": "Element",
+    "odchylkaGorna": "Odchyłka górna",
+    "odchylkaDolna": "Odchyłka dolna",
+    "wymiarNajmniejszy": "Wymiar najmniejszy",
+    "wymiarNajwiekszy": "Wymiar największy",
+    "tolerancja": "Tolerancja",
+    "poleOtworu": "Pole tolerancji otworu",
+    "klasaOtworu": "Klasa dokładności otworu",
+    "poleWalka": "Pole tolerancji wałka",
+    "klasaWalka": "Klasa dokładności wałka",
+    "odchylkiDetails": "Odchyłki, wymiary graniczne i zapis na rysunku",
+    "praktykaDetails": "Co to znaczy w praktyce",
+    "zapisNaRysunku": "Zapis na rysunku:",
+    "zapisOsobno": "albo osobno:",
+    "legendaOtwor": "otwór w korpusie",
+    "legendaWalek": "wałek",
+    "rysunek11": "Rysunek w skali 1:1.",
+    "roznicaPowiekszona": "Różnica wymiarów powiększona",
+    "razy": "razy.",
+    "ukladPrzekroju": "Wałek leży na dnie otworu, więc cały luz widać u góry.",
+    "ukladPrzekrojuCiasne": "Wałek jest większy od otworu, więc u góry materiały nachodzą na siebie.",
+    "luzMax": "luz max",
+    "wciskMax": "wcisk max",
+    "wcisk": "wcisk",
+    "luzMinimalny": "Luz minimalny",
+    "luzMaksymalny": "Luz maksymalny",
+    "brakPasowania": "Nie znalazłem pasowania w tym zakresie. Spróbuj poszerzyć widełki luzu.",
+    "gwiazdka": "pasowanie uprzywilejowane",
+    "legendaGwiazdki": "★ oznacza pasowanie uprzywilejowane, czyli takie, które warto wybierać w pierwszej kolejności: narzędzia i sprawdziany są na nie łatwiej dostępne.",
+    "wymiarNominalny": "wymiar nominalny",
+    "wartosciMikrometry": "wartości w mikrometrach"
+  },
   "rodzaje": {
     "luzne": {
       "nazwa": "Pasowanie luźne",
@@ -24,6 +63,54 @@
       "nazwa": "Pasowanie ciasne",
       "opis": "Wałek jest zawsze większy od otworu, więc montaż wymaga prasy, podgrzania piasty albo schłodzenia wałka. Połączenie przenosi moment samym tarciem, bez wpustu, i po zmontowaniu części pozostają względem siebie nieruchome. Dwie rzeczy do przemyślenia już na etapie projektu: demontaż bywa niszczący, więc zaplanuj miejsce na ściągacz albo kanał na olej. Wcisk wywołuje naprężenia w piaście, które przy cienkiej ściance trzeba policzyć osobno. Typowe miejsca: wieńce kół zębatych, tarcze sprzęgłowe, tuleje wtłaczane."
     }
+  },
+  "_werdyktyOpis": "Zdanie warsztatowe pod wynikiem: czym to zmontować. Kalkulator bierze pierwszy próg, którego wartość graniczna nie została przekroczona. Progi luźnych i mieszanych są w mikrometrach, progi ciasnych w mikrometrach wcisku na każdy milimetr średnicy (bo ten sam wcisk na ⌀8 i na ⌀200 to zupełnie inna robota). Pole maxUm to dodatkowy limit bezwzględny: powyżej niego werdykt przeskakuje do cięższego, nawet jeśli wcisk na milimetr jest umiarkowany.",
+  "werdykty": {
+    "luzne": [
+      {
+        "doUm": 5,
+        "tekst": "Wepchniesz ręką, ale ciasno. Zadzior po obróbce albo wiór na powierzchni potrafi zablokować montaż, więc oczyść i nasmaruj obie części."
+      },
+      {
+        "doUm": 30,
+        "tekst": "Wepchniesz ręką, bez narzędzi. Wałek obraca się i przesuwa w otworze, a połączenie samo utrzymuje współosiowość."
+      },
+      {
+        "doUm": 100,
+        "tekst": "Wchodzi swobodnie, montaż bez żadnych narzędzi. Luz jest już na tyle duży, że współosiowości nie licz z tego połączenia."
+      },
+      {
+        "tekst": "Duży luz, zwykle celowy. Położenie musi wyznaczyć coś innego: kołek, kołnierz albo powierzchnia oporowa."
+      }
+    ],
+    "mieszane": [
+      {
+        "doUm": 8,
+        "tekst": "Większość sztuk z partii wepchniesz ręcznie, reszta z lekkim oporem. Na montażu wystarczy ścisk ręczny albo postukanie młotkiem z miękkim obuchem."
+      },
+      {
+        "doUm": 20,
+        "tekst": "Loteria zależna od sztuki: jedną wepchniesz ręką, drugą będziesz musiał wprasować. Zaplanuj fazę na wejściu i przewidź na hali obie sytuacje."
+      },
+      {
+        "tekst": "W praktyce większość sztuk pójdzie na prasę. Traktuj to jak połączenie wciskane, a nie jak takie, które monter złoży ręką."
+      }
+    ],
+    "ciasne": [
+      {
+        "doUmNaMm": 0.5,
+        "maxUm": 40,
+        "tekst": "Wcisk lekki. Prasa ręczna albo warsztatowa wystarczy. Faza na wejściu i smar montażowy chronią powierzchnię przed zatarciem."
+      },
+      {
+        "doUmNaMm": 2,
+        "maxUm": 120,
+        "tekst": "Wcisk typowy dla połączeń przenoszących moment tarciem. Potrzebna prasa, a podgrzanie piasty o kilkadziesiąt stopni bardzo ułatwia robotę."
+      },
+      {
+        "tekst": "Wcisk duży. Wpychanie tego na zimno grozi zatarciem i zdarciem powierzchni, więc podgrzej piastę albo schłodź wałek. Przy cienkiej ściance policz naprężenia obwodowe osobno."
+      }
+    ]
   },
   "sekcje": [
     {
