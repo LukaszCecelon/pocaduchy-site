@@ -129,17 +129,10 @@ export default function Pasowania() {
         </section>
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Źródła</h2>
-          <ul className={styles.zrodla}>
-            {tresc.zrodla.map((z) => (
-              <li key={z.url}>
-                <a href={z.url} target="_blank" rel="noopener noreferrer">{z.nazwa}</a>
-              </li>
-            ))}
-            <li>Wartości odchyłek i klas dokładności wg ISO 286 dla średnic od 1 do 500 mm.</li>
-          </ul>
+          <h2 className={styles.h2}>Zobacz też</h2>
           <p className={styles.tekstProsty}>
-            Zobacz też: <Link to="/blog/polaczenie-wal-piasta">połączenia wał-piasta</Link> oraz{' '}
+            <Link to="/blog/polaczenie-wal-piasta">Połączenia wał-piasta: przegląd rozwiązań</Link>
+            {' '}oraz{' '}
             <Link to="/blog/weryfikacja-cad-przed-produkcja">weryfikacja CAD przed produkcją</Link>.
           </p>
         </section>
