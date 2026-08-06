@@ -87,11 +87,11 @@ function wybierzWerdykt(wynik) {
   return (dopasowany || lista[lista.length - 1]).tekst;
 }
 
-// Srednica walka na rysunku. Wycinek jest celowo maly, zeby przy tej samej
-// szerokosci ramki zmiescilo sie wieksze powiekszenie szczeliny.
-const SREDNICA_PX = 88;
+// Srednica walka na rysunku. Wycinek jest celowo maly: to podglad w
+// narzedziu roboczym, a nie ilustracja do artykulu.
+const SREDNICA_PX = 60;
 // Do tylu pikseli ma urosnac szczelina po jednej stronie walka.
-const CEL_SZCZELINY_PX = 26;
+const CEL_SZCZELINY_PX = 14;
 
 // Walek lezy w osi otworu, wiec luz srednicowy rozklada sie po polowie na
 // obie strony. Powiekszenie dobieramy pod te polowe, bo to ona jest tym,
@@ -202,13 +202,13 @@ function Przekroj({wynik}) {
 
   // Geometria stala. Prawa czesc rysunku (od X_WYMIARY) jest zarezerwowana na
   // opisy wymiarow, zeby zaden podpis nie wychodzil poza viewBox.
-  const CY = 105;
+  const CY = 75;
   const R_WALKA = SREDNICA_PX / 2;
-  const X_KORPUS = 26;
-  const SZER_KORPUSU = 330;
-  const X_WALEK = 70;
-  const SZER_WALKA = 240;
-  const X_WYMIARY = 356;
+  const X_KORPUS = 8;
+  const SZER_KORPUSU = 176;
+  const X_WALEK = 34;
+  const SZER_WALKA = 124;
+  const X_WYMIARY = 184;
 
   const powiekszenie = obliczPowiekszenie(wynik);
   const pxNaUm = (SREDNICA_PX / wynik.srednica) / 1000 * powiekszenie;
@@ -244,11 +244,11 @@ function Przekroj({wynik}) {
     return (
       <g>
         <line x1={X_WYMIARY} y1={yOd} x2={X_WYMIARY} y2={yDo} className={styles.liniaWymiarowa} />
-        <line x1={X_WYMIARY - 7} y1={yOd} x2={X_WYMIARY + 7} y2={yOd} className={styles.liniaWymiarowa} />
-        <line x1={X_WYMIARY - 7} y1={yDo} x2={X_WYMIARY + 7} y2={yDo} className={styles.liniaWymiarowa} />
-        <text x={X_WYMIARY + 10} y={srodek} className={`${styles.wymiarPrzekroju} ${klasa}`}>
-          <tspan x={X_WYMIARY + 10} dy="-1">{nazwa} {um} µm</tspan>
-          <tspan x={X_WYMIARY + 10} dy="14" className={styles.wymiarNaStrone}>
+        <line x1={X_WYMIARY - 5} y1={yOd} x2={X_WYMIARY + 5} y2={yOd} className={styles.liniaWymiarowa} />
+        <line x1={X_WYMIARY - 5} y1={yDo} x2={X_WYMIARY + 5} y2={yDo} className={styles.liniaWymiarowa} />
+        <text x={X_WYMIARY + 8} y={srodek} className={`${styles.wymiarPrzekroju} ${klasa}`}>
+          <tspan x={X_WYMIARY + 8} dy="-1">{nazwa} {um} µm</tspan>
+          <tspan x={X_WYMIARY + 8} dy="11" className={styles.wymiarNaStrone}>
             {polowa(um)} {TEKSTY_UI.naStrone}
           </tspan>
         </text>
@@ -258,7 +258,7 @@ function Przekroj({wynik}) {
 
   return (
     <div className={styles.przekrojWrap}>
-      <svg viewBox="0 0 520 210" className={styles.przekroj} role="img" aria-label={ariaLabel}>
+      <svg viewBox="0 0 320 150" className={styles.przekroj} role="img" aria-label={ariaLabel}>
         <defs>
           <pattern id={wzorKorpusuId} width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
             <line x1="0" y1="0" x2="0" y2="7" className={styles.kreskowanieKorpusu} />
@@ -283,16 +283,16 @@ function Przekroj({wynik}) {
 
         {/* Powierzchnia otworu od dolu. */}
         <g className={styles.warstwaPrzekroju} style={{transform: `translateY(${przesuniecie}px)`}}>
-          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="110" className={styles.materialKorpusu} />
-          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="110" fill={`url(#${wzorKorpusuId})`} />
+          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="80" className={styles.materialKorpusu} />
+          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="80" fill={`url(#${wzorKorpusuId})`} />
         </g>
 
         {/* Powierzchnia otworu od gory. Prostokat siega poza viewBox, zeby
             przy ruchu w dol nie odslonic tla. */}
         <g className={styles.warstwaPrzekroju} style={{transform: `translateY(${-przesuniecie}px)`}}>
-          <rect x={X_KORPUS} y={yWalekGora - 110} width={SZER_KORPUSU} height="110"
+          <rect x={X_KORPUS} y={yWalekGora - 80} width={SZER_KORPUSU} height="80"
             className={styles.materialKorpusu} />
-          <rect x={X_KORPUS} y={yWalekGora - 110} width={SZER_KORPUSU} height="110"
+          <rect x={X_KORPUS} y={yWalekGora - 80} width={SZER_KORPUSU} height="80"
             fill={`url(#${wzorKorpusuId})`} />
         </g>
 
@@ -308,15 +308,15 @@ function Przekroj({wynik}) {
 
         {/* Os symetrii: kreska-kropka, tak jak na rysunku technicznym.
             To ona pokazuje, ze walek stoi w osi otworu, a nie lezy na dnie. */}
-        <line x1={X_KORPUS - 12} y1={CY} x2={X_WYMIARY + 8} y2={CY} className={styles.osPrzekroju} />
+        <line x1={X_KORPUS - 6} y1={CY} x2={X_WYMIARY + 6} y2={CY} className={styles.osPrzekroju} />
 
         {/* Tabliczki opisowe stoja nieruchomo, bo material zawsze je pokrywa. */}
         <g>
-          <rect x={X_KORPUS + 16} y="10" width="126" height="26" rx="3" className={styles.tablicaOtworu} />
-          <text x={X_KORPUS + 79} y="27" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
+          <rect x={X_KORPUS + 8} y="6" width="92" height="20" rx="2" className={styles.tablicaOtworu} />
+          <text x={X_KORPUS + 54} y="20" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
         </g>
         <g>
-          <rect x={X_WALEK + SZER_WALKA / 2 - 63} y={CY - 13} width="126" height="26" rx="3"
+          <rect x={X_WALEK + SZER_WALKA / 2 - 46} y={CY - 10} width="92" height="20" rx="2"
             className={styles.tablicaWalka} />
           <text x={X_WALEK + SZER_WALKA / 2} y={CY + 4} className={styles.etykietaPrzekroju}>{labelWalka}</text>
         </g>
