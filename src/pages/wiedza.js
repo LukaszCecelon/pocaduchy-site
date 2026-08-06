@@ -62,18 +62,17 @@ export default function Wiedza() {
           </p>
         </div>
 
-        {/* Narzedzia stoja nad dzialami z artykulami, bo to po nie ludzie
-            wracaja najczesciej: otwiera sie je w trakcie pracy, a nie czyta
-            raz od poczatku do konca. */}
+        {/* Kalkulatory maja wlasna zakladke, bo to inna intencja: tutaj sie
+            czyta, tam sie liczy. Zostaje jeden mostek, zeby czytelnik wiedzial,
+            gdzie ich szukac. */}
         <div className={styles.narzedzia}>
-          <h2 className={styles.narzedziaTytul}>Narzędzia</h2>
-          <Link to="/wiedza/pasowania" className={`${styles.narzedzie} pc-cut-card`}>
-            <span className={styles.narzedzieTag}>Kalkulator</span>
-            <h3 className={styles.cardTitle}>Pasowania: luz i wcisk</h3>
+          <h2 className={styles.narzedziaTytul}>Wolisz policzyć niż czytać?</h2>
+          <Link to="/narzedzia" className={`${styles.narzedzie} pc-cut-card`}>
+            <span className={styles.narzedzieTag}>Narzędzia inżyniera</span>
+            <h3 className={styles.cardTitle}>Kalkulatory konstruktora</h3>
             <p className={styles.cardBody}>
-              Policz luz albo wcisk dla dowolnego pasowania ISO, albo odwrotnie: podaj
-              wymagany luz, a kalkulator dobierze pasowanie. Z wykresem pól tolerancji
-              i przykładami zastosowań.
+              Kalkulator pasowań ISO 286 z przekrojem otworu i wałka, a w kolejce
+              przelicznik jednostek, dobór śruby i naciski na wpuście.
             </p>
           </Link>
         </div>

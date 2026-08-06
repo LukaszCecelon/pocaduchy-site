@@ -9,7 +9,7 @@ import {SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/wiedza-pasowania.json';
 import styles from './pasowania.module.css';
 
-const SCIEZKA = '/wiedza/pasowania';
+const SCIEZKA = '/narzedzia/pasowania';
 
 // Odpowiedz do danych strukturalnych bierzemy po TYTULE sekcji, a nie po jej
 // numerze. Sekcje sa trescia edytowalna w pliku JSON, wiec usuniecie albo
@@ -83,7 +83,7 @@ export default function Pasowania() {
       <div className={styles.wrap}>
         <Okruszki
           sciezka={[
-            {nazwa: 'Wiedza', url: '/wiedza'},
+            {nazwa: 'Narzędzia', url: '/narzedzia'},
             {nazwa: 'Pasowania', url: SCIEZKA},
           ]}
         />

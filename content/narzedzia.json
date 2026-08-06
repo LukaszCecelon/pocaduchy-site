@@ -1,0 +1,32 @@
+{
+  "_opis": "Teksty zakładki Narzędzia inżyniera. Edytujesz tutaj, nie w kodzie. Kolejne narzędzia dopisujesz do tablicy narzedzia, planowane do tablicy wKolejce.",
+  "meta": {
+    "tytul": "Narzędzia inżyniera: kalkulatory dla konstruktorów maszyn",
+    "opis": "Kalkulatory inżynierskie po polsku: pasowania ISO 286, luz i wcisk. Liczą to, co konstruktor sprawdza w trakcie pracy, z wynikiem czytelnym od razu."
+  },
+  "eyebrow": "Narzędzia inżyniera",
+  "naglowek": "Kalkulatory, które otwierasz w trakcie roboty",
+  "lead": "Nie artykuły do przeczytania raz, tylko narzędzia do policzenia czegoś w pięć sekund i wrócenia do modelu. Każde liczy na danych z tablic, a nie na przybliżeniach, i pokazuje wynik od razu, bez klikania przez trzy ekrany.",
+  "narzedzia": [
+    {
+      "tag": "Kalkulator",
+      "tytul": "Pasowania: luz i wcisk",
+      "url": "/narzedzia/pasowania",
+      "opis": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk, przekrój otworu z wałkiem i jedno zdanie o tym, czym to zmontować. Działa też odwrotnie: podaj wymagany luz, a dobierze pasowanie.",
+      "dane": "ISO 286, średnice od 1 do 500 mm"
+    }
+  ],
+  "wKolejceTytul": "Co jest w kolejce",
+  "wKolejceOpis": "Kolejność wynika z tego, po co sam najczęściej sięgam do tablic albo do kalkulatora w telefonie.",
+  "wKolejce": [
+    "Przelicznik jednostek po polsku, z jednostkami, które faktycznie występują w dokumentacji: Nm, kgf, bar, cal, mesh.",
+    "Dobór śruby: klasa wytrzymałości, moment dokręcania i siła w połączeniu.",
+    "Wpust pryzmatyczny: sprawdzenie nacisków powierzchniowych dla przenoszonego momentu.",
+    "Chropowatość: przełożenie Ra, Rz i klas na metodę obróbki.",
+    "Połączenie wciskane: naciski i naprężenia w piaście, czyli druga połowa tematu pasowań."
+  ],
+  "zobaczTez": {
+    "tytul": "Zobacz też",
+    "wstep": "Jeśli szukasz raczej wyjaśnienia niż liczby, zacznij od bazy wiedzy albo od artykułów o codziennej pracy konstruktora."
+  }
+}
