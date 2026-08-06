@@ -9,11 +9,12 @@
   "lead": "Nie artykuły do przeczytania raz, tylko narzędzia do policzenia czegoś w pięć sekund i wrócenia do modelu. Każde liczy na danych z tablic, a nie na przybliżeniach, i pokazuje wynik od razu, bez klikania przez trzy ekrany.",
   "narzedzia": [
     {
+      "kafelek": "Kalkulator pasowań",
       "tag": "Kalkulator",
       "tytul": "Pasowania: luz i wcisk",
       "url": "/narzedzia/pasowania",
       "opis": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk, przekrój otworu z wałkiem i jedno zdanie o tym, czym to zmontować. Działa też odwrotnie: podaj wymagany luz, a dobierze pasowanie.",
-      "dane": "ISO 286, średnice od 1 do 500 mm"
+      "dane": "ISO 286, 1 do 500 mm"
     }
   ],
   "wKolejceTytul": "Co jest w kolejce",

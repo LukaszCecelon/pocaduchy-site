@@ -283,11 +283,12 @@
   stroke-width: 1.15;
 }
 
+/* Os symetrii kreska-kropka, jak na rysunku technicznym. */
 .osPrzekroju {
   stroke: var(--pc-navy);
-  stroke-width: 1.2;
-  stroke-dasharray: 8 6;
-  opacity: 0.5;
+  stroke-width: 1.1;
+  stroke-dasharray: 14 4 2 4;
+  opacity: 0.55;
 }
 
 .tablicaOtworu {
@@ -327,6 +328,14 @@
 
 .wymiarWcisku {
   fill: var(--pc-rust);
+}
+
+/* Druga linia podpisu: ile z wartości średnicowej przypada na jedną stronę,
+   czyli ile faktycznie widać na rysunku. */
+.wymiarNaStrone {
+  font-weight: 400;
+  font-size: 10.5px;
+  opacity: 0.75;
 }
 
 .skalaPrzekroju {
