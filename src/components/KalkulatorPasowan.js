@@ -87,14 +87,29 @@ function wybierzWerdykt(wynik) {
   return (dopasowany || lista[lista.length - 1]).tekst;
 }
 
+// Srednica walka na rysunku. Wycinek jest celowo maly, zeby przy tej samej
+// szerokosci ramki zmiescilo sie wieksze powiekszenie szczeliny.
+const SREDNICA_PX = 88;
+// Do tylu pikseli ma urosnac szczelina po jednej stronie walka.
+const CEL_SZCZELINY_PX = 26;
+
+// Walek lezy w osi otworu, wiec luz srednicowy rozklada sie po polowie na
+// obie strony. Powiekszenie dobieramy pod te polowe, bo to ona jest tym,
+// co widac na rysunku.
 function obliczPowiekszenie(wynik) {
   const maxUm = Math.max(Math.abs(wynik.luzMaksymalny.um), Math.abs(wynik.luzMinimalny.um));
   if (maxUm <= 0) return 1;
 
-  const pxNaMm = 124 / wynik.srednica;
-  const surowe = 22 / (maxUm * 0.001 * pxNaMm);
+  const pxNaMm = SREDNICA_PX / wynik.srednica;
+  const surowe = CEL_SZCZELINY_PX / (maxUm / 2 * 0.001 * pxNaMm);
   const wybrane = [...POWIEKSZENIA].reverse().find((p) => p <= surowe);
   return Math.max(wybrane || 1, 1);
+}
+
+// Polowa wartosci srednicowej, po polsku i bez udawanej dokladnosci.
+function polowa(um) {
+  const v = um / 2;
+  return (Number.isInteger(v) ? String(v) : v.toFixed(1)).replace('.', ',');
 }
 
 // Wykres pol tolerancji. Dwie kolumny, otwor i walek, wzgledem linii wymiaru
@@ -167,12 +182,14 @@ function WykresPol({wynik}) {
   );
 }
 
-// Przekroj wzdluzny walka lezacego w otworze.
+// Przekroj wzdluzny: walek lezy w OSI otworu, wiec luz srednicowy rozklada
+// sie po polowie na obie strony i po obu stronach widac te sama szczeline.
+// Dlatego kazdy wymiar ma dwie linie: wartosc srednicowa z tablic i wartosc
+// przypadajaca na jedna strone, ktora faktycznie widac na rysunku.
 //
-// Uklad jest jednostronny i to jest swiadoma decyzja: walek lezy na dnie
-// otworu, tak jak lezy naprawde, wiec CALA szczelina zbiera sie u gory.
-// Dzieki temu jeden wymiar na rysunku odpowiada jednej liczbie z tablic,
-// bez dzielenia luzu srednicowego na dwie polowki.
+// Wycinek jest maly celowo. Im mniej materialu w kadrze, tym wieksze
+// powiekszenie szczeliny miesci sie w tej samej ramce, a o to tu chodzi:
+// zmiana pola tolerancji ma byc widoczna golym okiem.
 //
 // Przy pasowaniu ciasnym walek jest wiekszy od otworu, wiec material korpusu
 // wchodzi w obszar walka. Ten obszar rysujemy krzyzowym kreskowaniem: to
@@ -185,31 +202,33 @@ function Przekroj({wynik}) {
 
   // Geometria stala. Prawa czesc rysunku (od X_WYMIARY) jest zarezerwowana na
   // opisy wymiarow, zeby zaden podpis nie wychodzil poza viewBox.
-  const Y_WALEK_GORA = 72;
-  const Y_WALEK_DOL = 156;
-  const X_KORPUS = 28;
-  const SZER_KORPUSU = 356;
-  const X_WALEK = 84;
-  const SZER_WALKA = 244;
-  const X_WYMIARY = 384;
+  const CY = 105;
+  const R_WALKA = SREDNICA_PX / 2;
+  const X_KORPUS = 26;
+  const SZER_KORPUSU = 330;
+  const X_WALEK = 70;
+  const SZER_WALKA = 240;
+  const X_WYMIARY = 356;
 
   const powiekszenie = obliczPowiekszenie(wynik);
-  const pxNaUm = (124 / wynik.srednica) / 1000 * powiekszenie;
+  const pxNaUm = (SREDNICA_PX / wynik.srednica) / 1000 * powiekszenie;
   const ciasne = wynik.rodzaj === 'ciasne';
   const mieszane = wynik.rodzaj === 'mieszane';
 
-  // Minimalna widoczna wysokosc pasma: przy bardzo malych wartosciach linia
-  // zerowej grubosci zniknełaby zupelnie i rysunek klamalby w druga strone.
-  const naPiksele = (um) => (um > 0 ? Math.max(um * pxNaUm, 2) : 0);
+  // Wartosci z tablic sa srednicowe, a na rysunku widac polowe. Minimalna
+  // widoczna grubosc pasma, bo linia zerowej wysokosci zniknełaby zupelnie.
+  const naPiksele = (um) => (um > 0 ? Math.max(um / 2 * pxNaUm, 1.5) : 0);
 
   const luzUm = Math.max(wynik.luzMaksymalny.um, 0);
   const wciskUm = Math.max(-wynik.luzMinimalny.um, 0);
   const luzPx = naPiksele(luzUm);
   const wciskPx = naPiksele(wciskUm);
 
-  // Powierzchnia otworu od gory. Przy luzie ucieka w gore, przy wcisku
-  // schodzi w dol i nachodzi na walek.
-  const przesuniecieKorpusu = ciasne ? wciskPx : -luzPx;
+  // Powierzchnie otworu odjezdzaja od walka przy luzie, a przy wcisku
+  // wchodza na niego. Obie strony ruszaja sie symetrycznie.
+  const przesuniecie = ciasne ? -wciskPx : luzPx;
+  const yWalekGora = CY - R_WALKA;
+  const yWalekDol = CY + R_WALKA;
 
   const labelOtworu = `${TEKSTY_UI.otwor.toUpperCase()} ${symbolOtworu(wynik)}`;
   const labelWalka = `${TEKSTY_UI.walek.toUpperCase()} ${symbolWalka(wynik)}`;
@@ -219,23 +238,23 @@ function Przekroj({wynik}) {
     : `${TEKSTY_UI.roznicaPowiekszona} ${powiekszenie} ${TEKSTY_UI.razy} ${opisUkladu}`;
   const ariaLabel = `${tresc.rodzaje[wynik.rodzaj].nazwa}: ${opisZakresu(wynik)}, ${labelOtworu}, ${labelWalka}.`;
 
-  // Wymiar z dwiema strzalkami i podpisem po prawej stronie rysunku.
-  // Przy pasowaniu mieszanym oba pasma sa cienkie i stoja tuz obok siebie,
-  // wiec podpisy trzeba rozsunac, inaczej nachodza na siebie.
-  const obaWymiary = luzUm > 0 && wciskUm > 0;
-  const wymiar = (yOd, yDo, tekst, klasa, odsuniecie = 0) => (
-    <g>
-      <line x1={X_WYMIARY} y1={yOd} x2={X_WYMIARY} y2={yDo} className={styles.liniaWymiarowa} />
-      <line x1={X_WYMIARY - 7} y1={yOd} x2={X_WYMIARY + 7} y2={yOd} className={styles.liniaWymiarowa} />
-      <line x1={X_WYMIARY - 7} y1={yDo} x2={X_WYMIARY + 7} y2={yDo} className={styles.liniaWymiarowa} />
-      <text
-        x={X_WYMIARY + 10}
-        y={(yOd + yDo) / 2 + 4 + odsuniecie}
-        className={`${styles.wymiarPrzekroju} ${klasa}`}>
-        {tekst}
-      </text>
-    </g>
-  );
+  // Wymiar z dwiema strzalkami i dwuwierszowym podpisem po prawej stronie.
+  const wymiar = (yOd, yDo, nazwa, um, klasa) => {
+    const srodek = (yOd + yDo) / 2;
+    return (
+      <g>
+        <line x1={X_WYMIARY} y1={yOd} x2={X_WYMIARY} y2={yDo} className={styles.liniaWymiarowa} />
+        <line x1={X_WYMIARY - 7} y1={yOd} x2={X_WYMIARY + 7} y2={yOd} className={styles.liniaWymiarowa} />
+        <line x1={X_WYMIARY - 7} y1={yDo} x2={X_WYMIARY + 7} y2={yDo} className={styles.liniaWymiarowa} />
+        <text x={X_WYMIARY + 10} y={srodek} className={`${styles.wymiarPrzekroju} ${klasa}`}>
+          <tspan x={X_WYMIARY + 10} dy="-1">{nazwa} {um} µm</tspan>
+          <tspan x={X_WYMIARY + 10} dy="14" className={styles.wymiarNaStrone}>
+            {polowa(um)} {TEKSTY_UI.naStrone}
+          </tspan>
+        </text>
+      </g>
+    );
+  };
 
   return (
     <div className={styles.przekrojWrap}>
@@ -256,59 +275,61 @@ function Przekroj({wynik}) {
         {/* Walek. Rysowany pierwszy, zeby material korpusu mogl na niego
             nachodzic przy pasowaniu ciasnym. */}
         <g>
-          <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={Y_WALEK_DOL - Y_WALEK_GORA}
+          <rect x={X_WALEK} y={yWalekGora} width={SZER_WALKA} height={SREDNICA_PX}
             className={styles.materialWalka} />
-          <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={Y_WALEK_DOL - Y_WALEK_GORA}
+          <rect x={X_WALEK} y={yWalekGora} width={SZER_WALKA} height={SREDNICA_PX}
             fill={`url(#${wzorWalkaId})`} />
-          <rect x={X_WALEK + SZER_WALKA / 2 - 58} y="99" width="116" height="30" rx="3"
-            className={styles.tablicaWalka} />
-          <text x={X_WALEK + SZER_WALKA / 2} y="119" className={styles.etykietaPrzekroju}>{labelWalka}</text>
         </g>
 
-        {/* Dolna powierzchnia otworu styka sie z walkiem i sie nie rusza. */}
-        <g>
-          <rect x={X_KORPUS} y={Y_WALEK_DOL} width={SZER_KORPUSU} height="120" className={styles.materialKorpusu} />
-          <rect x={X_KORPUS} y={Y_WALEK_DOL} width={SZER_KORPUSU} height="120" fill={`url(#${wzorKorpusuId})`} />
+        {/* Powierzchnia otworu od dolu. */}
+        <g className={styles.warstwaPrzekroju} style={{transform: `translateY(${przesuniecie}px)`}}>
+          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="110" className={styles.materialKorpusu} />
+          <rect x={X_KORPUS} y={yWalekDol} width={SZER_KORPUSU} height="110" fill={`url(#${wzorKorpusuId})`} />
         </g>
 
-        {/* Gorna powierzchnia otworu: jedyny element, ktory sie animuje.
-            Prostokat siega wysoko ponad viewBox, zeby przy ruchu w dol nie
-            odslonic tla. */}
-        <g
-          className={styles.warstwaPrzekroju}
-          style={{transform: `translateY(${przesuniecieKorpusu}px)`}}>
-          <rect x={X_KORPUS} y={Y_WALEK_GORA - 140} width={SZER_KORPUSU} height="140"
+        {/* Powierzchnia otworu od gory. Prostokat siega poza viewBox, zeby
+            przy ruchu w dol nie odslonic tla. */}
+        <g className={styles.warstwaPrzekroju} style={{transform: `translateY(${-przesuniecie}px)`}}>
+          <rect x={X_KORPUS} y={yWalekGora - 110} width={SZER_KORPUSU} height="110"
             className={styles.materialKorpusu} />
-          <rect x={X_KORPUS} y={Y_WALEK_GORA - 140} width={SZER_KORPUSU} height="140"
+          <rect x={X_KORPUS} y={yWalekGora - 110} width={SZER_KORPUSU} height="110"
             fill={`url(#${wzorKorpusuId})`} />
         </g>
 
-        {/* Tabliczka z opisem stoi nieruchomo, bo material korpusu zawsze ja
-            pokrywa, a razem z warstwa wyjezdzalaby poza rysunek. */}
-        <g>
-          <rect x={X_KORPUS + 22} y="14" width="126" height="30" rx="3" className={styles.tablicaOtworu} />
-          <text x={X_KORPUS + 85} y="34" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
-        </g>
-
-        {/* Obszar, w ktorym material walka i korpusu zajmuja to samo miejsce. */}
+        {/* Obszary, w ktorych material walka i korpusu zajmuja to samo miejsce. */}
         {wciskUm > 0 ? (
           <g>
-            <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={wciskPx} className={styles.nakladanie} />
-            <rect x={X_WALEK} y={Y_WALEK_GORA} width={SZER_WALKA} height={wciskPx} fill={`url(#${wzorWciskuId})`} />
+            <rect x={X_WALEK} y={yWalekGora} width={SZER_WALKA} height={wciskPx} className={styles.nakladanie} />
+            <rect x={X_WALEK} y={yWalekGora} width={SZER_WALKA} height={wciskPx} fill={`url(#${wzorWciskuId})`} />
+            <rect x={X_WALEK} y={yWalekDol - wciskPx} width={SZER_WALKA} height={wciskPx} className={styles.nakladanie} />
+            <rect x={X_WALEK} y={yWalekDol - wciskPx} width={SZER_WALKA} height={wciskPx} fill={`url(#${wzorWciskuId})`} />
           </g>
         ) : null}
 
+        {/* Os symetrii: kreska-kropka, tak jak na rysunku technicznym.
+            To ona pokazuje, ze walek stoi w osi otworu, a nie lezy na dnie. */}
+        <line x1={X_KORPUS - 12} y1={CY} x2={X_WYMIARY + 8} y2={CY} className={styles.osPrzekroju} />
+
+        {/* Tabliczki opisowe stoja nieruchomo, bo material zawsze je pokrywa. */}
+        <g>
+          <rect x={X_KORPUS + 16} y="10" width="126" height="26" rx="3" className={styles.tablicaOtworu} />
+          <text x={X_KORPUS + 79} y="27" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
+        </g>
+        <g>
+          <rect x={X_WALEK + SZER_WALKA / 2 - 63} y={CY - 13} width="126" height="26" rx="3"
+            className={styles.tablicaWalka} />
+          <text x={X_WALEK + SZER_WALKA / 2} y={CY + 4} className={styles.etykietaPrzekroju}>{labelWalka}</text>
+        </g>
+
         {luzUm > 0
-          ? wymiar(Y_WALEK_GORA - luzPx, Y_WALEK_GORA,
-            `${TEKSTY_UI.luzMax} ${luzUm} µm`, styles.wymiarLuzu, obaWymiary ? -9 : 0)
+          ? wymiar(yWalekGora - luzPx, yWalekGora, TEKSTY_UI.luzMax, luzUm, styles.wymiarLuzu)
           : null}
 
         {/* Przy pasowaniu mieszanym oba wymiary stoja obok siebie: to jedyny
             sposob, zeby pokazac, ze jedna sztuka bedzie miala luz, a druga wcisk. */}
         {wciskUm > 0
-          ? wymiar(Y_WALEK_GORA, Y_WALEK_GORA + wciskPx,
-            `${mieszane || ciasne ? TEKSTY_UI.wciskMax : TEKSTY_UI.wcisk} ${wciskUm} µm`,
-            styles.wymiarWcisku, obaWymiary ? 9 : 0)
+          ? wymiar(yWalekDol - wciskPx, yWalekDol,
+            mieszane || ciasne ? TEKSTY_UI.wciskMax : TEKSTY_UI.wcisk, wciskUm, styles.wymiarWcisku)
           : null}
       </svg>
       <p className={styles.skalaPrzekroju}>{opisSkali}</p>

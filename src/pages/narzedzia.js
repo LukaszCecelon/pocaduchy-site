@@ -41,6 +41,20 @@ function daneStrukturalne() {
   };
 }
 
+// Znak na kafelku: otwor i walek w przekroju, czyli ten sam motyw, ktory
+// niesie caly dzial. Rysowany kodem, zeby kafelek nie ciagnal zadnego pliku.
+function Znak() {
+  return (
+    <svg className={styles.znak} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <rect x="1" y="1" width="62" height="62" className={styles.znakRamka} />
+      <rect x="1" y="1" width="62" height="21" className={styles.znakKorpus} />
+      <rect x="1" y="42" width="62" height="21" className={styles.znakKorpus} />
+      <rect x="13" y="27" width="38" height="10" className={styles.znakWalek} />
+      <line x1="0" y1="32" x2="64" y2="32" className={styles.znakOs} />
+    </svg>
+  );
+}
+
 export default function Narzedzia() {
   return (
     <Layout title={tresc.meta.tytul} description={tresc.meta.opis}>
@@ -64,8 +78,8 @@ export default function Narzedzia() {
           {tresc.narzedzia.map((n) => (
             <Link key={n.url} to={n.url} className={`${styles.card} pc-cut-card`}>
               <span className={styles.cardTag}>{n.tag}</span>
-              <h2 className={styles.cardTitle}>{n.tytul}</h2>
-              <p className={styles.cardBody}>{n.opis}</p>
+              <Znak />
+              <h2 className={styles.cardTitle}>{n.kafelek || n.tytul}</h2>
               <span className={styles.cardDane}>{n.dane}</span>
             </Link>
           ))}
