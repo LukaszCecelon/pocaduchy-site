@@ -5,6 +5,8 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const { BladPasowania, policzPasowanie, znajdzPasowania, odchylkiOtworu, odchylkiWalka } = require("./oblicz.js");
 
+const sredniceKontrolne = [3, 6, 10, 14, 18, 24, 30, 40, 50, 65, 80, 100, 120, 140, 160, 180, 200, 225, 250, 280, 315, 355, 400, 450, 500];
+
 function pasowanie(srednica, symbol) {
   const [otworRaw, walekRaw] = symbol.split("/");
   const otworMatch = otworRaw.match(/^([A-Z]+)(\d+)$/);
@@ -123,6 +125,92 @@ for (const [srednica, litera, klasa] of symetryczne) {
     assert.equal(gorna, -dolna);
   });
 }
+
+const odchylkiJ = [
+  ["j5", 5, [-2, -2, -2, -3, -3, -4, -4, -5, -5, -7, -7, -9, -9, -11, -11, -11, -13, -13, -13, -16, -16, -18, -18, -20, -20]],
+  ["j6", 6, [-2, -2, -2, -3, -3, -4, -4, -5, -5, -7, -7, -9, -9, -11, -11, -11, -13, -13, -13, -16, -16, -18, -18, -20, -20]],
+  ["j7", 7, [-4, -4, -5, -6, -6, -8, -8, -10, -10, -12, -12, -15, -15, -18, -18, -18, -21, -21, -21, -26, -26, -28, -28, -32, -32]],
+];
+
+for (const [symbol, klasa, eiTablicowe] of odchylkiJ) {
+  test(`tablicowe odchylki walka ${symbol}`, () => {
+    for (const [index, srednica] of sredniceKontrolne.entries()) {
+      const wynik = odchylkiWalka({ srednica, litera: "j", klasa });
+      assert.equal(wynik.ei, eiTablicowe[index], `${symbol} ${srednica} mm: ei`);
+      assert.equal(wynik.es, eiTablicowe[index] + wynik.tolerancja, `${symbol} ${srednica} mm: es`);
+    }
+  });
+}
+
+const otworyDeltaDo3 = [
+  ["M6", 6, { ES: -2, EI: -8 }],
+  ["N6", 6, { ES: -4, EI: -10 }],
+  ["P6", 6, { ES: -6, EI: -12 }],
+  ["M7", 7, { ES: -2, EI: -12 }],
+  ["N7", 7, { ES: -4, EI: -14 }],
+  ["R7", 7, { ES: -10, EI: -20 }],
+  ["S7", 7, { ES: -14, EI: -24 }],
+];
+
+for (const [symbol, klasa, expected] of otworyDeltaDo3) {
+  test(`delta zero do 3 mm dla ${symbol}`, () => {
+    const wynik = odchylkiOtworu({ srednica: 3, litera: symbol[0], klasa });
+    assert.equal(wynik.ES, expected.ES);
+    assert.equal(wynik.EI, expected.EI);
+  });
+}
+
+test("wyjatek ISO 286 dla otworu M6 w przedziale 250-315 mm", () => {
+  for (const srednica of [280, 315]) {
+    const wynik = odchylkiOtworu({ srednica, litera: "M", klasa: 6 });
+    assert.equal(wynik.ES, -9, `M6 ${srednica} mm: ES`);
+    assert.equal(wynik.EI, -41, `M6 ${srednica} mm: EI`);
+  }
+});
+
+test("tablicowe pole walka a11 i pasowanie H11/a11", () => {
+  const poczatek = odchylkiWalka({ srednica: 3, litera: "a", klasa: 11 });
+  assert.equal(poczatek.es, -270);
+  assert.equal(poczatek.ei, -330);
+
+  const koniec = odchylkiWalka({ srednica: 500, litera: "a", klasa: 11 });
+  assert.equal(koniec.es, -1650);
+  assert.equal(koniec.ei, -2050);
+
+  assertPasowanie(pasowanie(3, "H11/a11"), { EI: 0, ES: 60, ei: -330, es: -270, luzMin: 270, luzMax: 390, rodzaj: "luzne" });
+});
+
+test("tablicowe pole otworu A11 i pasowanie A11/h11", () => {
+  const poczatek = odchylkiOtworu({ srednica: 3, litera: "A", klasa: 11 });
+  assert.equal(poczatek.ES, 330);
+  assert.equal(poczatek.EI, 270);
+
+  const srodek = odchylkiOtworu({ srednica: 180, litera: "A", klasa: 11 });
+  assert.equal(srodek.ES, 820);
+  assert.equal(srodek.EI, 580);
+
+  const koniec = odchylkiOtworu({ srednica: 500, litera: "A", klasa: 11 });
+  assert.equal(koniec.ES, 2050);
+  assert.equal(koniec.EI, 1650);
+
+  assertPasowanie(pasowanie(3, "A11/h11"), { EI: 270, ES: 330, ei: -60, es: 0, luzMin: 270, luzMax: 390, rodzaj: "luzne" });
+});
+
+test("otwor J9 jest symetryczny jak JS9", () => {
+  for (const [srednica, expected] of [[3, 12.5], [100, 43.5], [315, 65], [500, 77.5]]) {
+    const wynik = odchylkiOtworu({ srednica, litera: "J", klasa: 9 });
+    assert.equal(wynik.ES, expected, `J9 ${srednica} mm: ES`);
+    assert.equal(wynik.EI, -expected, `J9 ${srednica} mm: EI`);
+  }
+});
+
+test("tablicowa koncowka otworu J6", () => {
+  for (const [srednica, expected] of [[280, { ES: 25, EI: -7 }], [315, { ES: 25, EI: -7 }], [400, { ES: 29, EI: -7 }], [500, { ES: 33, EI: -7 }]]) {
+    const wynik = odchylkiOtworu({ srednica, litera: "J", klasa: 6 });
+    assert.equal(wynik.ES, expected.ES, `J6 ${srednica} mm: ES`);
+    assert.equal(wynik.EI, expected.EI, `J6 ${srednica} mm: EI`);
+  }
+});
 
 const przypadkiBledow = [
   ["srednica zero", () => pasowanie(0, "H7/h6"), "SREDNICA_POZA_ZAKRESEM"],

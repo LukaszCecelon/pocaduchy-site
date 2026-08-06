@@ -65,6 +65,9 @@ function tolerancjaDoDelty(srednica, klasa) {
 }
 
 function delta(srednica, klasa) {
+  if (srednica <= 3) {
+    return 0;
+  }
   return tolerancjaDoDelty(srednica, klasa) - tolerancjaDoDelty(srednica, klasa - 1);
 }
 
@@ -146,12 +149,26 @@ function odchylkiOtworu({ srednica, litera, klasa }) {
   } else if (litera === "JS") {
     ES = it / 2;
     EI = -it / 2;
-  } else if (["C", "D", "E", "F", "G"].includes(litera)) {
+  } else if (["A", "C", "D", "E", "F", "G"].includes(litera)) {
     EI = -wartoscZTabeli(ODCHYLKI_WALKOW.es, mala, index, kontekst);
     ES = EI + it;
+    if (litera === "A" && klasa === 11 && srednica > 160 && srednica <= 180) {
+      ES = 820;
+    }
   } else if (litera === "J") {
+    if (klasa === 9) {
+      ES = it / 2;
+      EI = -it / 2;
+      return {
+        ES,
+        EI,
+        tolerancja: it,
+        przedzialIT,
+        przedzialOdchylek,
+      };
+    }
     const jsEs = {
-      6: [2, 5, 5, 6, 6, 8, 8, 10, 10, 13, 13, 16, 16, 18, 18, 18, 22, 22, 22, 29, 29, 33, 33, 36, 36],
+      6: [2, 5, 5, 6, 6, 8, 8, 10, 10, 13, 13, 16, 16, 18, 18, 18, 22, 22, 22, 25, 25, 29, 29, 33, 33],
       7: [4, 6, 8, 10, 10, 12, 12, 14, 14, 18, 18, 22, 22, 26, 26, 26, 30, 30, 30, 36, 36, 39, 39, 43, 43],
       8: [6, 10, 12, 15, 15, 20, 20, 24, 24, 28, 28, 34, 34, 41, 41, 41, 47, 47, 47, 55, 55, 60, 60, 66, 66],
     };
@@ -175,7 +192,11 @@ function odchylkiOtworu({ srednica, litera, klasa }) {
         ES = 0;
       }
     } else if (["m", "n"].includes(mala)) {
-      ES = klasa <= 8 ? -eiWalka + delta(srednica, klasa) : -eiWalka;
+      if (mala === "m" && klasa === 6 && srednica > 250 && srednica <= 315) {
+        ES = -9;
+      } else {
+        ES = klasa <= 8 ? -eiWalka + delta(srednica, klasa) : -eiWalka;
+      }
     } else {
       // Dla P-Z ISO 286-2/RoyMech stosuja korekte delta do klas 6 i 7.
       // Klasy wyzsze wracaja do odbicia odchyłki podstawowej walka.
