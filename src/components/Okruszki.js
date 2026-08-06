@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import {absoluteSiteUrl} from '@site/src/lib/site';
+import {absolutePageUrl} from '@site/src/lib/site';
+import nawigacja from '@site/content/nawigacja.json';
 import styles from './Okruszki.module.css';
 
 // Ścieżka nawigacji widoczna na stronie plus odpowiadające jej dane
@@ -11,7 +12,7 @@ import styles from './Okruszki.module.css';
 // Użycie: <Okruszki sciezka={[{nazwa: 'Usługi', url: '/uslugi'}]} />
 // Strona główna dokładana jest automatycznie jako pierwszy element.
 export default function Okruszki({sciezka = []}) {
-  const pelna = [{nazwa: 'Strona główna', url: '/'}, ...sciezka];
+  const pelna = [{nazwa: nawigacja.stronaGlowna, url: '/'}, ...sciezka];
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -20,7 +21,7 @@ export default function Okruszki({sciezka = []}) {
       '@type': 'ListItem',
       position: i + 1,
       name: el.nazwa,
-      item: absoluteSiteUrl(el.url === '/' ? '' : el.url),
+      item: absolutePageUrl(el.url),
     })),
   };
 
@@ -29,7 +30,7 @@ export default function Okruszki({sciezka = []}) {
       <Head>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
-      <nav className={styles.okruszki} aria-label="Ścieżka nawigacji">
+      <nav className={styles.okruszki} aria-label={nawigacja.ariaOkruszki}>
         {pelna.map((el, i) => {
           const ostatni = i === pelna.length - 1;
           return (

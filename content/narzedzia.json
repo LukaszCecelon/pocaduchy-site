@@ -1,7 +1,7 @@
 {
   "_opis": "Teksty zakładki Narzędzia inżyniera. Edytujesz tutaj, nie w kodzie. Kolejne narzędzia dopisujesz do tablicy narzedzia, planowane do tablicy wKolejce.",
   "meta": {
-    "tytul": "Narzędzia inżyniera: kalkulatory dla konstruktorów maszyn",
+    "tytul": "Kalkulatory inżynierskie dla konstruktora",
     "opis": "Kalkulatory inżynierskie po polsku: pasowania ISO 286, luz i wcisk. Liczą to, co konstruktor sprawdza w trakcie pracy, z wynikiem czytelnym od razu."
   },
   "eyebrow": "Narzędzia inżyniera",
@@ -25,8 +25,22 @@
     "Chropowatość: przełożenie Ra, Rz i klas na metodę obróbki.",
     "Połączenie wciskane: naciski i naprężenia w piaście, czyli druga połowa tematu pasowań."
   ],
+  "wArtykule": {
+    "tytul": "Policz to sam",
+    "wstep": "Zamiast szukać wartości w tablicach:"
+  },
   "zobaczTez": {
     "tytul": "Zobacz też",
-    "wstep": "Jeśli szukasz raczej wyjaśnienia niż liczby, zacznij od bazy wiedzy albo od artykułów o codziennej pracy konstruktora."
+    "wstep": "Jeśli szukasz raczej wyjaśnienia niż liczby, zacznij od bazy wiedzy albo od artykułów o codziennej pracy konstruktora.",
+    "linki": [
+      {
+        "tekst": "Baza wiedzy",
+        "url": "/wiedza"
+      },
+      {
+        "tekst": "artykuły",
+        "url": "/blog"
+      }
+    ]
   }
 }

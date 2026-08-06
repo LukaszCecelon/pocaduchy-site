@@ -5,7 +5,9 @@ import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
 import posts from '@site/src/data/blog-posts.json';
 import oMnie from '@site/content/o-mnie.json';
-import {SITE_URL, absoluteSiteUrl, formatLongDatePl} from '@site/src/lib/site';
+import narzedziaTresc from '@site/content/narzedzia.json';
+import nawigacja from '@site/content/nawigacja.json';
+import {SITE_URL, absoluteSiteUrl, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
 import styles from '@site/src/pages/blog/blog.module.css';
 
 // Dane strukturalne wpisu: BlogPosting + ścieżka okruszków, a gdy artykuł ma
@@ -24,7 +26,9 @@ function articleJsonLd({
   faq,
   howTo,
 }) {
-  const url = `${SITE_URL}${permalink || ''}`;
+  // Jeden wariant adresu w calym grafie: z koncowym ukosnikiem, tak jak
+  // canonical i sitemapa. Inaczej @id wpisu rozjezdza sie z adresem strony.
+  const url = absolutePageUrl(permalink || '/');
   const coverImage = absoluteSiteUrl(image || '/img/og-pocaduchy.jpg');
   const blockImages = Array.isArray(blocks)
     ? blocks.filter((b) => b?.type === 'obraz' && b.src).map((b) => absoluteSiteUrl(b.src))
@@ -70,8 +74,10 @@ function articleJsonLd({
       '@type': 'BreadcrumbList',
       '@id': `${url}#okruszki`,
       itemListElement: [
-        {'@type': 'ListItem', position: 1, name: 'Strona główna', item: SITE_URL},
-        {'@type': 'ListItem', position: 2, name: 'Artykuły', item: `${SITE_URL}/blog`},
+        // Adresy z koncowym ukosnikiem, tak jak canonical i sitemapa
+        // (trailingSlash: true). Jeden wariant adresu, zero rozjazdu.
+        {'@type': 'ListItem', position: 1, name: nawigacja.stronaGlowna, item: absolutePageUrl('/')},
+        {'@type': 'ListItem', position: 2, name: nawigacja.artykuly, item: absolutePageUrl('/blog')},
         {'@type': 'ListItem', position: 3, name: title, item: url},
       ],
     },
@@ -171,6 +177,35 @@ function powiazane(slug, related, tags) {
   return wybrane.slice(0, 3);
 }
 
+// Narzedzia powiazane z tematem artykulu. Odsylacz stoi w osobnym bloku pod
+// tekstem, a nie w srodku akapitu, bo artykuly sa odwzorowaniem publikacji
+// z LinkedIna i ich tresc ma zostac taka, jak zostala napisana.
+// Artykul wskazuje narzedzie adresem, a opis bierze sie z content/narzedzia.json,
+// wiec zmiana nazwy narzedzia w jednym miejscu poprawia je wszedzie.
+function NarzedziaDoTematu({narzedzia}) {
+  if (!narzedzia || !narzedzia.length) return null;
+
+  const lista = narzedzia
+    .map((url) => narzedziaTresc.narzedzia.find((n) => n.url === url))
+    .filter(Boolean);
+  if (!lista.length) return null;
+
+  return (
+    <aside className={`${styles.narzedziaBox} pc-cut-card`}>
+      <span className={styles.narzedziaLabel}>{narzedziaTresc.wArtykule.tytul}</span>
+      <p className={styles.narzedziaWstep}>{narzedziaTresc.wArtykule.wstep}</p>
+      <ul className={styles.narzedziaLista}>
+        {lista.map((n) => (
+          <li key={n.url}>
+            <Link to={n.url} className={styles.narzedziaLink}>{n.tytul}</Link>
+            <span className={styles.narzedziaDane}>{n.dane}</span>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  );
+}
+
 function PrzeczytajTez({slug, related, tags}) {
   const lista = powiazane(slug, related, tags);
   if (!lista.length) return null;
@@ -209,6 +244,7 @@ export default function BlogArticleTemplate({
   linkedinUrl,
   tags,
   related,
+  narzedzia,
   faq,
   howTo,
   blocks,
@@ -281,6 +317,8 @@ export default function BlogArticleTemplate({
         ) : null}
 
         <BlockRenderer blocks={blocks} />
+
+        <NarzedziaDoTematu narzedzia={narzedzia} />
 
         <Pytania faq={faq} />
 

@@ -11,6 +11,16 @@ export function absoluteSiteUrl(path = '') {
   return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
+export function absolutePageUrl(path = '') {
+  if (/^https?:\/\//i.test(path)) return path;
+  if (!path || path === '/') return `${SITE_URL}/`;
+
+  const [rawPath, hash] = path.split('#');
+  const normalized = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
+  const withSlash = normalized.endsWith('/') ? normalized : `${normalized}/`;
+  return `${SITE_URL}${withSlash}${hash ? `#${hash}` : ''}`;
+}
+
 // Data slownie, do naglowkow i stopek dokumentow: 3 sierpnia 2026.
 export function formatLongDatePl(iso) {
   if (!iso) return null;

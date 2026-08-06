@@ -497,3 +497,56 @@
     justify-content: center;
   }
 }
+
+/* Narzedzia powiazane z tematem artykulu. Blok stoi pod tekstem, zeby link do
+   kalkulatora nie wchodzil w srodek zdania napisanego przez autora. */
+.narzedziaBox {
+  margin-top: 40px;
+  border: 1px solid var(--pc-border);
+  border-left: 4px solid var(--pc-rust);
+  background: #f7f6f4;
+  padding: 22px 26px;
+}
+
+.narzedziaLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+}
+
+.narzedziaWstep {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 8px 0 12px;
+}
+
+.narzedziaLista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.narzedziaLista li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.narzedziaLink {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--pc-navy);
+}
+
+.narzedziaDane {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--pc-text-faint);
+}

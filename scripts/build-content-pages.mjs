@@ -148,6 +148,7 @@ export default function Page() {
       linkedinUrl={data.linkedinUrl}
       tags={data.tags}
       related={data.related}
+      narzedzia={data.narzedzia}
       faq={data.faq}
       howTo={data.howTo}
       blocks={data.blocks}

@@ -16,6 +16,9 @@
     "standaryzacja-w-biurze-konstrukcyjnym",
     "narzedzia-pracy-konstruktora"
   ],
+  "narzedzia": [
+    "/narzedzia/pasowania"
+  ],
   "faq": [
     {
       "pytanie": "Jak weryfikować CAD przed uruchomieniem produkcji?",

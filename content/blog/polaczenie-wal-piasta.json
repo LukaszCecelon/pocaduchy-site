@@ -16,6 +16,9 @@
     "dobor-sprzegla-do-aplikacji",
     "elementy-znormalizowane-handlowki"
   ],
+  "narzedzia": [
+    "/narzedzia/pasowania"
+  ],
   "faq": [
     {
       "pytanie": "Jakie są popularne połączenia wał-piasta?",
