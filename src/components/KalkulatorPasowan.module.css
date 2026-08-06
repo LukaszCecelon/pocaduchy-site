@@ -250,11 +250,14 @@
 
 /* Rysunek skaluje sie proporcjonalnie. Sztywna wysokosc dawala pasy pustego
    tla po bokach, bo SVG dopasowywalo sie wtedy do nizszego wymiaru. */
+/* Podglad, a nie ilustracja: rysunek ma zajmowac tyle, ile trzeba, zeby
+   bylo widac zmiane pola tolerancji, i ani piksela wiecej. */
 .przekroj {
   display: block;
   width: 100%;
+  max-width: 380px;
   height: auto;
-  aspect-ratio: 520 / 210;
+  aspect-ratio: 320 / 150;
   background: #fbfaf8;
   border: 1px solid var(--pc-border);
 }
@@ -302,7 +305,7 @@
 .etykietaPrzekroju {
   fill: #ffffff;
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 11px;
   font-weight: 700;
   text-anchor: middle;
   dominant-baseline: middle;
@@ -316,7 +319,7 @@
 
 .wymiarPrzekroju {
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 9px;
   font-weight: 700;
 }
 
@@ -334,7 +337,7 @@
    czyli ile faktycznie widać na rysunku. */
 .wymiarNaStrone {
   font-weight: 400;
-  font-size: 10.5px;
+  font-size: 8px;
   opacity: 0.75;
 }
 
