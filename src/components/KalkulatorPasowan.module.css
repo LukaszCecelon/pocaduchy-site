@@ -239,13 +239,105 @@
 .werdykt {
   font-size: 13.5px;
   line-height: 1.35;
-  color: var(--pc-text);
+  /* Werdykt ma byc ciemniejszy niz opisy pomocnicze, bo to on niesie
+     odpowiedz. Tokena --pc-text w design systemie nie ma, wiec navy. */
+  color: var(--pc-navy);
   margin: 0;
   max-width: 62ch;
 }
 
-.przekrojWrap {
+/* Detale z wymiarami po lewej, przekroj pasowania po prawej. Ponizej 560 px
+   wszystko schodzi w jedna kolumne, bo trzy rysunki obok siebie na telefonie
+   zrobilyby sie nieczytelne. */
+.rysunki {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 12px;
+  align-items: start;
   margin-top: 6px;
+}
+
+.detale {
+  display: grid;
+  gap: 8px;
+}
+
+.detal {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fbfaf8;
+  border: 1px solid var(--pc-border);
+}
+
+.detalTytul {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  fill: var(--pc-text-faint);
+  text-anchor: middle;
+}
+
+.detalSymbolOtworu,
+.detalSymbolWalka {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.detalSymbolOtworu {
+  fill: var(--pc-navy);
+}
+
+.detalSymbolWalka {
+  fill: var(--pc-rust);
+}
+
+/* Wymiary graniczne: to jest liczba, ktora idzie na rysunek wykonawczy. */
+.detalWymiary {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--pc-text-muted);
+  text-anchor: middle;
+}
+
+.liniaWymiaruDetalu {
+  stroke: var(--pc-navy);
+  stroke-width: 0.8;
+}
+
+.wynos {
+  stroke: var(--pc-navy);
+  stroke-width: 0.6;
+  opacity: 0.6;
+}
+
+.strzalkaOtworu {
+  fill: var(--pc-navy);
+}
+
+.strzalkaWalka {
+  fill: var(--pc-rust);
+}
+
+/* Swiatlo otworu: pusta przestrzen, wiec bez kreskowania. */
+.swiatloOtworu {
+  fill: #dfe3f0;
+}
+
+@media (max-width: 560px) {
+  .rysunki {
+    grid-template-columns: 1fr;
+  }
+
+  .detale {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.przekrojWrap {
+  margin-top: 0;
 }
 
 /* Rysunek skaluje sie proporcjonalnie. Sztywna wysokosc dawala pasy pustego
@@ -347,33 +439,6 @@
   color: var(--pc-text-faint);
   margin: 6px 0 0;
   text-align: center;
-}
-
-.legendaPrzekroju {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--pc-text-muted);
-  margin: 5px 0 7px;
-}
-
-.kropka {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-right: 5px;
-  vertical-align: -1px;
-}
-
-.kropkaOtwor {
-  background: var(--pc-navy-soft);
-}
-
-.kropkaWalek {
-  background: var(--pc-rust);
 }
 
 .polaTolerancji {
