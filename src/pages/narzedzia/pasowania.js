@@ -5,11 +5,12 @@ import Link from '@docusaurus/Link';
 import ReactMarkdown from 'react-markdown';
 import Okruszki from '@site/src/components/Okruszki';
 import KalkulatorPasowan from '@site/src/components/KalkulatorPasowan';
-import {SITE_URL} from '@site/src/lib/site';
+import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/wiedza-pasowania.json';
 import styles from './pasowania.module.css';
 
 const SCIEZKA = '/narzedzia/pasowania';
+const PAGE_URL = absolutePageUrl(SCIEZKA);
 
 // Odpowiedz do danych strukturalnych bierzemy po TYTULE sekcji, a nie po jej
 // numerze. Sekcje sa trescia edytowalna w pliku JSON, wiec usuniecie albo
@@ -22,6 +23,14 @@ function opisZasadyStalegoOtworu() {
     : 'Otwór ma zawsze pole H, czyli odchyłkę dolną równą zeru, a pasowanie dobiera się odchyłkami wałka.';
 }
 
+function odpowiedzFaq(pytanie) {
+  if (pytanie.odpowiedz) return pytanie.odpowiedz;
+
+  const sekcja = tresc.sekcje.find((s) => s.tytul === pytanie.odpowiedzSekcja);
+  const akapit = sekcja && sekcja.akapity && sekcja.akapity[pytanie.odpowiedzAkapit || 0];
+  return akapit ? akapit.replace(/\*\*/g, '') : opisZasadyStalegoOtworu();
+}
+
 // Dane strukturalne. Kalkulator sam w sobie jest dla wyszukiwarki niewidoczny,
 // bo tresc powstaje po interakcji, wiec opisujemy strone jako artykul
 // z pytaniami, a nie jako aplikacje.
@@ -31,7 +40,7 @@ function daneStrukturalne() {
     '@graph': [
       {
         '@type': 'TechArticle',
-        '@id': `${SITE_URL}${SCIEZKA}#artykul`,
+        '@id': `${PAGE_URL}#artykul`,
         headline: tresc.meta.tytul,
         description: tresc.meta.opis,
         inLanguage: 'pl-PL',
@@ -41,33 +50,15 @@ function daneStrukturalne() {
       },
       {
         '@type': 'FAQPage',
-        '@id': `${SITE_URL}${SCIEZKA}#pytania`,
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Czym różni się pasowanie luźne od ciasnego?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: `${tresc.rodzaje.luzne.opis} ${tresc.rodzaje.ciasne.opis}`,
-            },
+        '@id': `${PAGE_URL}#pytania`,
+        mainEntity: tresc.faq.map((pytanie) => ({
+          '@type': 'Question',
+          name: pytanie.pytanie,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: odpowiedzFaq(pytanie),
           },
-          {
-            '@type': 'Question',
-            name: 'Co oznacza pasowanie H7/g6?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'H7 to pole tolerancji otworu, g6 pole tolerancji wałka. Wielka litera dotyczy otworu, mała wałka. Litera określa położenie pola tolerancji względem wymiaru nominalnego, a cyfra klasę dokładności IT. H7/g6 jest pasowaniem luźnym stosowanym w łożyskach ślizgowych korbowodów.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Na czym polega zasada stałego otworu?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: opisZasadyStalegoOtworu(),
-            },
-          },
-        ],
+        })),
       },
     ],
   };
@@ -110,17 +101,14 @@ export default function Pasowania() {
         ))}
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Popularne pasowania i ich zastosowania</h2>
-          <p className={styles.tekstProsty}>
-            Uporządkowane od najciaśniejszych do najluźniejszych. Kliknij pasowanie, żeby
-            policzyć je dla swojej średnicy.
-          </p>
+          <h2 className={styles.h2}>{tresc.tabelaZastosowan.tytul}</h2>
+          <p className={styles.tekstProsty}>{tresc.tabelaZastosowan.opis}</p>
           <div className={styles.tabelaWrap}>
             <table className={styles.tabelaZastosowan}>
               <thead>
                 <tr>
-                  <th>Pasowania</th>
-                  <th>Gdzie się stosuje</th>
+                  <th>{tresc.tabelaZastosowan.naglowekPasowania}</th>
+                  <th>{tresc.tabelaZastosowan.naglowekZastosowanie}</th>
                 </tr>
               </thead>
               <tbody>
@@ -140,11 +128,15 @@ export default function Pasowania() {
         </section>
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Zobacz też</h2>
+          <h2 className={styles.h2}>{tresc.zobaczTez.tytul}</h2>
           <p className={styles.tekstProsty}>
-            <Link to="/blog/polaczenie-wal-piasta">Połączenia wał-piasta: przegląd rozwiązań</Link>
-            {' '}oraz{' '}
-            <Link to="/blog/weryfikacja-cad-przed-produkcja">weryfikacja CAD przed produkcją</Link>.
+            {tresc.zobaczTez.linki.map((link, i) => (
+              <React.Fragment key={link.url}>
+                {i === 0 ? null : ` ${tresc.zobaczTez.spojnik} `}
+                <Link to={link.url}>{link.tekst}</Link>
+              </React.Fragment>
+            ))}
+            .
           </p>
         </section>
       </div>

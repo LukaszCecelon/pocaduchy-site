@@ -3,11 +3,12 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
-import {SITE_URL} from '@site/src/lib/site';
+import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/narzedzia.json';
 import styles from './narzedzia.module.css';
 
 const SCIEZKA = '/narzedzia';
+const PAGE_URL = absolutePageUrl(SCIEZKA);
 
 // Lista narzedzi jest jednoczesnie trescia strony i zrodlem danych
 // strukturalnych, wiec obie rzeczy biora sie z tego samego pliku JSON.
@@ -17,7 +18,7 @@ function daneStrukturalne() {
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': `${SITE_URL}${SCIEZKA}#kolekcja`,
+        '@id': `${PAGE_URL}#kolekcja`,
         name: tresc.meta.tytul,
         description: tresc.meta.opis,
         inLanguage: 'pl-PL',
@@ -26,13 +27,13 @@ function daneStrukturalne() {
       },
       {
         '@type': 'ItemList',
-        '@id': `${SITE_URL}${SCIEZKA}#lista`,
+        '@id': `${PAGE_URL}#lista`,
         name: tresc.naglowek,
         numberOfItems: tresc.narzedzia.length,
         itemListElement: tresc.narzedzia.map((n, i) => ({
           '@type': 'ListItem',
           position: i + 1,
-          url: `${SITE_URL}${n.url}`,
+          url: absolutePageUrl(n.url),
           name: n.tytul,
         })),
       },
@@ -84,8 +85,13 @@ export default function Narzedzia() {
           <h2 className={styles.kolejkaTytul}>{tresc.zobaczTez.tytul}</h2>
           <p className={styles.kolejkaOpis}>
             {tresc.zobaczTez.wstep}{' '}
-            <Link to="/wiedza">Baza wiedzy</Link> oraz{' '}
-            <Link to="/blog">artykuły</Link>.
+            {tresc.zobaczTez.linki.map((link, i) => (
+              <React.Fragment key={link.url}>
+                {i === 0 ? null : ' oraz '}
+                <Link to={link.url}>{link.tekst}</Link>
+              </React.Fragment>
+            ))}
+            .
           </p>
         </section>
       </div>

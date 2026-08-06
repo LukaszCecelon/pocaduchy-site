@@ -1,8 +1,8 @@
 {
   "_opis": "Teksty strony kalkulatora pasowań. Edytujesz tutaj, nie w kodzie.",
   "meta": {
-    "tytul": "Kalkulator pasowań ISO: luz, wcisk i dobór pasowania",
-    "opis": "Policz luz i wcisk dla dowolnego pasowania ISO 286, albo odwrotnie: podaj wymagany luz, a kalkulator dobierze pasowanie. Z wykresem pól tolerancji i przykładami zastosowań."
+    "tytul": "Kalkulator pasowań ISO: luz i wcisk",
+    "opis": "Policz luz i wcisk dla pasowania ISO 286 albo dobierz pasowanie z podanego luzu. Z wykresem pól tolerancji i przykładami zastosowań."
   },
   "naglowek": "Pasowania: kalkulator luzu i wcisku",
   "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji.",
@@ -122,6 +122,41 @@
     }
   ],
   "zastrzezenie": "Wartości pochodzą z tablic ISO 286 dla średnic od 1 do 500 mm. Kalkulator liczy geometrię pasowania, a nie nośność połączenia. Przy połączeniach wciskanych przenoszących moment sprawdź naciski i naprężenia w piaście osobno.",
+  "faq": [
+    {
+      "pytanie": "Czym różni się pasowanie luźne od ciasnego?",
+      "odpowiedz": "Między wałkiem a otworem zawsze zostaje luz, więc części łatwo poskładać ręcznie, bez prasy i bez podgrzewania. Przy pasowaniu ciasnym wałek jest zawsze większy od otworu, więc montaż wymaga prasy, podgrzania piasty albo schłodzenia wałka."
+    },
+    {
+      "pytanie": "Co oznacza pasowanie H7/g6?",
+      "odpowiedz": "H7 to pole tolerancji otworu, g6 pole tolerancji wałka. Wielka litera dotyczy otworu, mała wałka. Litera określa położenie pola tolerancji względem wymiaru nominalnego, a cyfra klasę dokładności IT. H7/g6 jest pasowaniem luźnym stosowanym w łożyskach ślizgowych korbowodów."
+    },
+    {
+      "pytanie": "Na czym polega zasada stałego otworu?",
+      "odpowiedzSekcja": "Dwie zasady doboru",
+      "odpowiedzAkapit": 0
+    }
+  ],
+  "tabelaZastosowan": {
+    "tytul": "Popularne pasowania i ich zastosowania",
+    "opis": "Uporządkowane od najciaśniejszych do najluźniejszych. Kliknij pasowanie, żeby policzyć je dla swojej średnicy.",
+    "naglowekPasowania": "Pasowania",
+    "naglowekZastosowanie": "Gdzie się stosuje"
+  },
+  "zobaczTez": {
+    "tytul": "Zobacz też",
+    "linki": [
+      {
+        "tekst": "Połączenia wał-piasta: przegląd rozwiązań",
+        "url": "/blog/polaczenie-wal-piasta"
+      },
+      {
+        "tekst": "weryfikacja CAD przed produkcją",
+        "url": "/blog/weryfikacja-cad-przed-produkcja"
+      }
+    ],
+    "spojnik": "oraz"
+  },
   "zastosowania": [
     {
       "pasowania": [
