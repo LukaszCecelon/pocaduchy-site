@@ -49,3 +49,9 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Domyślne 10 minut potrafi nie wystarczyć, gdy publikacja po
+          # stronie Pages się ślimaczy. Po przekroczeniu limitu akcja nie
+          # tylko zgłasza błąd: ANULUJE trwający deployment, więc zmiana
+          # nie trafia na stronę mimo poprawnego builda. Wolimy poczekać.
+          timeout: 1800000
