@@ -509,6 +509,16 @@
 .details {
   border: 1px solid var(--pc-border);
   background: #ffffff;
+  min-width: 0;
+}
+
+/* Rozwinieta sekcja bierze cala szerokosc, a zwinieta schodzi do drugiego
+   rzedu. Bez tego tabela odchylek, ktora ma szerokosc minimalna, sciskala
+   sasiednia kolumne do jednego slowa w linii.
+   Regula dziala takze wtedy, gdy przegladarka nie zna atrybutu "name" dla
+   details i pozwoli otworzyc obie sekcje naraz. */
+.details[open] {
+  grid-column: 1 / -1;
 }
 
 .details summary {
