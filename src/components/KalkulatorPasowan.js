@@ -24,7 +24,6 @@ const SKROTY = {
   ],
 };
 
-const SREDNICE_SKROTY = [6, 10, 20, 30, 50, 80, 120];
 const POWIEKSZENIA = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000];
 
 // Napisy interfejsu siedza w pliku tresci, zeby dalo sie je poprawic bez
@@ -89,9 +88,9 @@ function wybierzWerdykt(wynik) {
 
 // Srednica walka na rysunku. Wycinek jest celowo maly: to podglad w
 // narzedziu roboczym, a nie ilustracja do artykulu.
-const SREDNICA_PX = 60;
+const SREDNICA_PX = 76;
 // Do tylu pikseli ma urosnac szczelina po jednej stronie walka.
-const CEL_SZCZELINY_PX = 14;
+const CEL_SZCZELINY_PX = 17;
 
 // Walek lezy w osi otworu, wiec luz srednicowy rozklada sie po polowie na
 // obie strony. Powiekszenie dobieramy pod te polowe, bo to ona jest tym,
@@ -109,12 +108,6 @@ function obliczPowiekszenie(wynik) {
 // Wymiar w milimetrach po polsku: trzy miejsca i przecinek, tak jak na rysunku.
 function mm3(wartosc) {
   return wartosc.toFixed(3).replace('.', ',');
-}
-
-// Polowa wartosci srednicowej, po polsku i bez udawanej dokladnosci.
-function polowa(um) {
-  const v = um / 2;
-  return (Number.isInteger(v) ? String(v) : v.toFixed(1)).replace('.', ',');
 }
 
 // Wykres pol tolerancji. Dwie kolumny, otwor i walek, wzgledem linii wymiaru
@@ -194,15 +187,15 @@ function WykresPol({wynik}) {
 // Rysunek jest schematyczny, nie w skali: pokazuje uklad i wymiary, a roznice
 // rzedu mikrometrow i tak nie bylyby na nim widoczne. Od tego jest przekroj
 // pasowania obok.
-function Detal({tytul, symbol, srednica, dolny, gorny, walek}) {
+function Detal({tytul, symbol, srednica, setSrednica, dolny, gorny, walek}) {
   const id = React.useId().replace(/:/g, '');
   const wzorId = `${id}-kreskowanie`;
 
   const OS = 75;
   const POL_SZER = 23;
-  const Y_DETALU = 46;
-  const Y_DOL = 104;
-  const Y_WYMIARU = 34;
+  const Y_DETALU = 20;
+  const Y_DOL = 78;
+  const Y_WYMIARU = 8;
   const lewa = OS - POL_SZER;
   const prawa = OS + POL_SZER;
 
@@ -215,61 +208,76 @@ function Detal({tytul, symbol, srednica, dolny, gorny, walek}) {
   );
 
   return (
-    <svg viewBox="0 0 150 124" className={styles.detal} role="img"
-      aria-label={`${tytul} ${symbol}, średnica od ${mm3(dolny)} do ${mm3(gorny)} milimetra`}>
-      <defs>
-        <pattern id={wzorId} width="7" height="7" patternUnits="userSpaceOnUse"
-          patternTransform={`rotate(${walek ? -45 : 45})`}>
-          <line x1="0" y1="0" x2="0" y2="7"
-            className={walek ? styles.kreskowanieWalka : styles.kreskowanieKorpusu} />
-        </pattern>
-      </defs>
+    <div className={styles.detalKarta}>
+      <span className={styles.detalTytul}>{tytul}</span>
 
-      <text x={OS} y="10" className={styles.detalTytul}>{tytul}</text>
-      <text x={OS} y="25" className={walek ? styles.detalSymbolWalka : styles.detalSymbolOtworu}>
-        ⌀{srednica} {symbol}
-      </text>
+      {/* Srednice wpisuje sie wprost przy znaku srednicy, czyli tam, gdzie
+          stoi ona na rysunku wykonawczym. Osobne pole "srednica nominalna"
+          nad kalkulatorem bylo tym samym wymiarem w drugim miejscu. */}
+      <label className={styles.detalWymiar}>
+        <span className={styles.detalFi} aria-hidden="true">⌀</span>
+        <input
+          type="number"
+          min="1"
+          max="500"
+          step="0.5"
+          value={srednica}
+          onChange={(e) => setSrednica(Number(e.target.value))}
+          className={styles.detalInput}
+          aria-label={`Średnica nominalna, ${tytul.toLowerCase()}`}
+        />
+        <span className={walek ? styles.detalSymbolWalka : styles.detalSymbolOtworu}>{symbol}</span>
+      </label>
 
-      {/* Linia wymiarowa z wynoszami do krawedzi mierzonej srednicy. */}
-      <line x1={lewa} y1={Y_WYMIARU} x2={prawa} y2={Y_WYMIARU} className={styles.liniaWymiaruDetalu} />
-      {strzalka(lewa, true)}
-      {strzalka(prawa, false)}
-      <line x1={lewa} y1={Y_WYMIARU - 4} x2={lewa} y2={Y_DETALU + 4} className={styles.wynos} />
-      <line x1={prawa} y1={Y_WYMIARU - 4} x2={prawa} y2={Y_DETALU + 4} className={styles.wynos} />
+      <svg viewBox="0 0 150 100" className={styles.detal} role="img"
+        aria-label={`${tytul} ${symbol}, średnica od ${mm3(dolny)} do ${mm3(gorny)} milimetra`}>
+        <defs>
+          <pattern id={wzorId} width="7" height="7" patternUnits="userSpaceOnUse"
+            patternTransform={`rotate(${walek ? -45 : 45})`}>
+            <line x1="0" y1="0" x2="0" y2="7"
+              className={walek ? styles.kreskowanieWalka : styles.kreskowanieKorpusu} />
+          </pattern>
+        </defs>
 
-      {walek ? (
-        <g>
-          {/* Walek osadzony na szerszej podstawie, zeby na pierwszy rzut oka
-              bylo widac, ze to czesc pelna, a nie otwor. */}
-          <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V86 h30 v18 H${OS - 53} V86 h30 Z`}
-            className={styles.materialWalka} />
-          <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V86 h30 v18 H${OS - 53} V86 h30 Z`}
-            fill={`url(#${wzorId})`} />
-        </g>
-      ) : (
-        <g>
-          {/* Material korpusu po obu stronach, a w srodku swiatlo otworu. */}
-          <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
-          <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
-          <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
-          <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
-          <rect x={lewa} y={Y_DETALU} width={POL_SZER * 2} height={Y_DOL - Y_DETALU} className={styles.swiatloOtworu} />
-        </g>
-      )}
+        {/* Linia wymiarowa z wynoszami do krawedzi mierzonej srednicy. */}
+        <line x1={lewa} y1={Y_WYMIARU} x2={prawa} y2={Y_WYMIARU} className={styles.liniaWymiaruDetalu} />
+        {strzalka(lewa, true)}
+        {strzalka(prawa, false)}
+        <line x1={lewa} y1={Y_WYMIARU - 4} x2={lewa} y2={Y_DETALU + 4} className={styles.wynos} />
+        <line x1={prawa} y1={Y_WYMIARU - 4} x2={prawa} y2={Y_DETALU + 4} className={styles.wynos} />
 
-      <line x1={OS} y1={Y_DETALU - 8} x2={OS} y2={Y_DOL + 6} className={styles.osPrzekroju} />
+        {walek ? (
+          <g>
+            {/* Walek osadzony na szerszej podstawie, zeby na pierwszy rzut oka
+                bylo widac, ze to czesc pelna, a nie otwor. */}
+            <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V60 h30 v18 H${OS - 53} V60 h30 Z`}
+              className={styles.materialWalka} />
+            <path d={`M${lewa} ${Y_DETALU + 5} l5 -5 h${POL_SZER * 2 - 10} l5 5 V60 h30 v18 H${OS - 53} V60 h30 Z`}
+              fill={`url(#${wzorId})`} />
+          </g>
+        ) : (
+          <g>
+            {/* Material korpusu po obu stronach, a w srodku swiatlo otworu. */}
+            <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
+            <rect x="14" y={Y_DETALU} width={lewa - 14} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
+            <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} className={styles.materialKorpusu} />
+            <rect x={prawa} y={Y_DETALU} width={136 - prawa} height={Y_DOL - Y_DETALU} fill={`url(#${wzorId})`} />
+            <rect x={lewa} y={Y_DETALU} width={POL_SZER * 2} height={Y_DOL - Y_DETALU} className={styles.swiatloOtworu} />
+          </g>
+        )}
 
-      <text x={OS} y="118" className={styles.detalWymiary}>
-        {mm3(dolny)} / {mm3(gorny)}
-      </text>
-    </svg>
+        <line x1={OS} y1={Y_DETALU - 6} x2={OS} y2={Y_DOL + 6} className={styles.osPrzekroju} />
+
+        <text x={OS} y="94" className={styles.detalWymiary}>
+          {mm3(dolny)} / {mm3(gorny)}
+        </text>
+      </svg>
+    </div>
   );
 }
 
 // Przekroj wzdluzny: walek lezy w OSI otworu, wiec luz srednicowy rozklada
 // sie po polowie na obie strony i po obu stronach widac te sama szczeline.
-// Dlatego kazdy wymiar ma dwie linie: wartosc srednicowa z tablic i wartosc
-// przypadajaca na jedna strone, ktora faktycznie widac na rysunku.
 //
 // Wycinek jest maly celowo. Im mniej materialu w kadrze, tym wieksze
 // powiekszenie szczeliny miesci sie w tej samej ramce, a o to tu chodzi:
@@ -284,20 +292,19 @@ function Przekroj({wynik}) {
   const wzorWalkaId = `${id}-walek`;
   const wzorWciskuId = `${id}-wcisk`;
 
-  // Geometria stala. Prawa czesc rysunku (od X_WYMIARY) jest zarezerwowana na
-  // opisy wymiarow, zeby zaden podpis nie wychodzil poza viewBox.
+  // Geometria stala. Kadr nie ma juz strefy na opisy wymiarow: liczby stoja
+  // przy detalach obok, a ten rysunek pokazuje wylacznie, jak czesci na
+  // siebie pasuja.
   const CY = 75;
   const R_WALKA = SREDNICA_PX / 2;
   const X_KORPUS = 8;
-  const SZER_KORPUSU = 176;
-  const X_WALEK = 34;
-  const SZER_WALKA = 124;
-  const X_WYMIARY = 184;
+  const SZER_KORPUSU = 304;
+  const X_WALEK = 52;
+  const SZER_WALKA = 216;
 
   const powiekszenie = obliczPowiekszenie(wynik);
   const pxNaUm = (SREDNICA_PX / wynik.srednica) / 1000 * powiekszenie;
   const ciasne = wynik.rodzaj === 'ciasne';
-  const mieszane = wynik.rodzaj === 'mieszane';
 
   // Wartosci z tablic sa srednicowe, a na rysunku widac polowe. Minimalna
   // widoczna grubosc pasma, bo linia zerowej wysokosci zniknełaby zupelnie.
@@ -321,24 +328,6 @@ function Przekroj({wynik}) {
     ? `${TEKSTY_UI.rysunek11} ${opisUkladu}`
     : `${TEKSTY_UI.roznicaPowiekszona} ${powiekszenie} ${TEKSTY_UI.razy} ${opisUkladu}`;
   const ariaLabel = `${tresc.rodzaje[wynik.rodzaj].nazwa}: ${opisZakresu(wynik)}, ${labelOtworu}, ${labelWalka}.`;
-
-  // Wymiar z dwiema strzalkami i dwuwierszowym podpisem po prawej stronie.
-  const wymiar = (yOd, yDo, nazwa, um, klasa) => {
-    const srodek = (yOd + yDo) / 2;
-    return (
-      <g>
-        <line x1={X_WYMIARY} y1={yOd} x2={X_WYMIARY} y2={yDo} className={styles.liniaWymiarowa} />
-        <line x1={X_WYMIARY - 5} y1={yOd} x2={X_WYMIARY + 5} y2={yOd} className={styles.liniaWymiarowa} />
-        <line x1={X_WYMIARY - 5} y1={yDo} x2={X_WYMIARY + 5} y2={yDo} className={styles.liniaWymiarowa} />
-        <text x={X_WYMIARY + 8} y={srodek} className={`${styles.wymiarPrzekroju} ${klasa}`}>
-          <tspan x={X_WYMIARY + 8} dy="-1">{nazwa} {um} µm</tspan>
-          <tspan x={X_WYMIARY + 8} dy="11" className={styles.wymiarNaStrone}>
-            {polowa(um)} {TEKSTY_UI.naStrone}
-          </tspan>
-        </text>
-      </g>
-    );
-  };
 
   return (
     <div className={styles.przekrojWrap}>
@@ -392,29 +381,19 @@ function Przekroj({wynik}) {
 
         {/* Os symetrii: kreska-kropka, tak jak na rysunku technicznym.
             To ona pokazuje, ze walek stoi w osi otworu, a nie lezy na dnie. */}
-        <line x1={X_KORPUS - 6} y1={CY} x2={X_WYMIARY + 6} y2={CY} className={styles.osPrzekroju} />
+        <line x1={X_KORPUS - 6} y1={CY} x2={X_KORPUS + SZER_KORPUSU + 6} y2={CY} className={styles.osPrzekroju} />
 
         {/* Tabliczki opisowe stoja nieruchomo, bo material zawsze je pokrywa. */}
         <g>
-          <rect x={X_KORPUS + 8} y="6" width="92" height="20" rx="2" className={styles.tablicaOtworu} />
-          <text x={X_KORPUS + 54} y="20" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
+          <rect x={X_KORPUS + 10} y="6" width="112" height="24" rx="2" className={styles.tablicaOtworu} />
+          <text x={X_KORPUS + 66} y="21" className={styles.etykietaPrzekroju}>{labelOtworu}</text>
         </g>
         <g>
-          <rect x={X_WALEK + SZER_WALKA / 2 - 46} y={CY - 10} width="92" height="20" rx="2"
+          <rect x={X_WALEK + SZER_WALKA / 2 - 56} y={CY - 12} width="112" height="24" rx="2"
             className={styles.tablicaWalka} />
           <text x={X_WALEK + SZER_WALKA / 2} y={CY + 4} className={styles.etykietaPrzekroju}>{labelWalka}</text>
         </g>
 
-        {luzUm > 0
-          ? wymiar(yWalekGora - luzPx, yWalekGora, TEKSTY_UI.luzMax, luzUm, styles.wymiarLuzu)
-          : null}
-
-        {/* Przy pasowaniu mieszanym oba wymiary stoja obok siebie: to jedyny
-            sposob, zeby pokazac, ze jedna sztuka bedzie miala luz, a druga wcisk. */}
-        {wciskUm > 0
-          ? wymiar(yWalekDol - wciskPx, yWalekDol,
-            mieszane || ciasne ? TEKSTY_UI.wciskMax : TEKSTY_UI.wcisk, wciskUm, styles.wymiarWcisku)
-          : null}
       </svg>
       <p className={styles.skalaPrzekroju}>{opisSkali}</p>
     </div>
@@ -515,7 +494,7 @@ function ZapisNaRysunku({wynik}) {
   );
 }
 
-function WynikKompaktowy({wynik, otwor, setOtwor, walek, setWalek}) {
+function WynikKompaktowy({wynik, setSrednica, otwor, setOtwor, walek, setWalek}) {
   const rodzaj = tresc.rodzaje[wynik.rodzaj];
   const werdykt = wybierzWerdykt(wynik);
 
@@ -536,6 +515,7 @@ function WynikKompaktowy({wynik, otwor, setOtwor, walek, setWalek}) {
             tytul={TEKSTY_UI.otwor.toUpperCase()}
             symbol={symbolOtworu(wynik)}
             srednica={wynik.srednica}
+            setSrednica={setSrednica}
             dolny={wynik.otwor.wymiarGraniczny.dolny}
             gorny={wynik.otwor.wymiarGraniczny.gorny}
           />
@@ -544,6 +524,7 @@ function WynikKompaktowy({wynik, otwor, setOtwor, walek, setWalek}) {
             tytul={TEKSTY_UI.walek.toUpperCase()}
             symbol={symbolWalka(wynik)}
             srednica={wynik.srednica}
+            setSrednica={setSrednica}
             dolny={wynik.walek.wymiarGraniczny.dolny}
             gorny={wynik.walek.wymiarGraniczny.gorny}
           />
@@ -583,32 +564,9 @@ function Szczegoly({wynik, otwarte, setOtwarte}) {
   );
 }
 
-function SterowaniePasowaniem({srednica, setSrednica, zasada, setZasada, symbol, ustawSymbol}) {
+function SterowaniePasowaniem({zasada, setZasada, symbol, ustawSymbol}) {
   return (
     <section className={styles.sterowanie}>
-      <label className={styles.pole}>
-        <span className={styles.etykieta}>{TEKSTY_UI.srednica}</span>
-        <div className={styles.zJednostka}>
-          <input
-            type="number"
-            min="1"
-            max="500"
-            step="0.5"
-            value={srednica}
-            onChange={(e) => setSrednica(Number(e.target.value))}
-            className={styles.input}
-          />
-          <span className={styles.jednostka}>mm</span>
-        </div>
-        <div className={styles.skroty}>
-          {SREDNICE_SKROTY.map((d) => (
-            <button key={d} type="button" className={styles.skrot} onClick={() => setSrednica(d)}>
-              {d}
-            </button>
-          ))}
-        </div>
-      </label>
-
       <div className={styles.zasady}>
         <span className={styles.etykieta}>{TEKSTY_UI.zasada}</span>
         <div className={styles.przelacznik}>
@@ -718,8 +676,6 @@ export default function KalkulatorPasowan() {
            miejsce, w ktorym mogl to poprawic, i narzedzie wygladalo na zepsute. */
         <div className={styles.panelPasowania}>
           <SterowaniePasowaniem
-            srednica={srednica}
-            setSrednica={setSrednica}
             zasada={zasada}
             setZasada={setZasada}
             symbol={symbol}
@@ -728,6 +684,7 @@ export default function KalkulatorPasowan() {
           {wynik.ok ? (
             <WynikKompaktowy
               wynik={wynik.ok}
+              setSrednica={setSrednica}
               otwor={otwor}
               setOtwor={setOtwor}
               walek={walek}

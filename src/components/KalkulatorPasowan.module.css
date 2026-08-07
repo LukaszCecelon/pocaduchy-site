@@ -49,7 +49,7 @@
 .sterowanie {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
 }
 
 .pole,
@@ -61,7 +61,7 @@
 
 .etykieta {
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--pc-text-faint);
@@ -115,9 +115,9 @@
 
 .skrot {
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  line-height: 1.1;
-  padding: 4px 5px;
+  font-size: 13px;
+  line-height: 1.15;
+  padding: 9px 11px;
   border: 1px solid var(--pc-border);
   background: #ffffff;
   color: var(--pc-text-muted);
@@ -140,7 +140,7 @@
 .zasady {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 
 .przelacznik {
@@ -153,8 +153,8 @@
 
 .opcja {
   font-family: var(--font-mono);
-  font-size: 11.5px;
-  padding: 6px 8px;
+  font-size: 13.5px;
+  padding: 11px 16px;
   border: none;
   background: #ffffff;
   color: var(--pc-text-muted);
@@ -169,23 +169,26 @@
 .skrotyPasowan {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 9px;
 }
 
 /* Skroty zostaja glowna sciezka wyboru, dlatego sa zwarte i latwe do skanowania. */
 .grupaSkrotow {
   display: grid;
-  grid-template-columns: 62px 1fr;
+  grid-template-columns: 86px 1fr;
   gap: 6px;
   align-items: start;
 }
 
 .nazwaGrupy {
   font-family: var(--font-mono);
-  font-size: 9.5px;
-  line-height: 1.1;
-  padding: 4px 5px;
+  font-size: 12px;
+  line-height: 1.15;
+  padding: 8px 8px;
   text-align: center;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
 }
 
 .nazwaGrupy.luzne,
@@ -246,58 +249,109 @@
   max-width: 62ch;
 }
 
-/* Detale z wymiarami po lewej, przekroj pasowania po prawej. Ponizej 560 px
-   wszystko schodzi w jedna kolumne, bo trzy rysunki obok siebie na telefonie
-   zrobilyby sie nieczytelne. */
+/* Dwa detale z wymiarami obok siebie, a pod nimi przekroj pasowania na calej
+   szerokosci. Wczesniej przekroj dzielil szerokosc z detalami i wychodzil z
+   tego znaczek, a to on pokazuje sedno: jak te dwie czesci na siebie pasuja. */
 .rysunki {
   display: grid;
-  grid-template-columns: 168px 1fr;
-  gap: 12px;
-  align-items: start;
+  gap: 10px;
   margin-top: 6px;
 }
 
 .detale {
   display: grid;
-  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.detalKarta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px 8px;
+  background: #fbfaf8;
+  border: 1px solid var(--pc-border);
 }
 
 .detal {
   display: block;
   width: 100%;
   height: auto;
-  background: #fbfaf8;
+}
+
+/* Wymiar wpisywany wprost przy znaku srednicy, tak jak stoi na rysunku
+   wykonawczym. Pole ma wygladac jak czesc opisu wymiaru, a nie jak formularz. */
+.detalWymiar {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  cursor: text;
+}
+
+.detalFi {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pc-navy);
+}
+
+.detalInput {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--pc-navy);
+  width: 4.4em;
+  padding: 3px 4px;
+  text-align: center;
   border: 1px solid var(--pc-border);
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+.detalInput:focus {
+  outline: 2px solid var(--pc-rust);
+  outline-offset: -2px;
+}
+
+/* Strzalki zwiekszania w polu liczbowym zabieraja miejsce potrzebne cyfrom. */
+.detalInput::-webkit-outer-spin-button,
+.detalInput::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.detalInput {
+  appearance: textfield;
 }
 
 .detalTytul {
   font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.12em;
-  fill: var(--pc-text-faint);
-  text-anchor: middle;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--pc-text-faint);
+  text-align: center;
 }
 
 .detalSymbolOtworu,
 .detalSymbolWalka {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
-  text-anchor: middle;
 }
 
 .detalSymbolOtworu {
-  fill: var(--pc-navy);
+  color: var(--pc-navy);
 }
 
 .detalSymbolWalka {
-  fill: var(--pc-rust);
+  color: var(--pc-rust);
 }
 
 /* Wymiary graniczne: to jest liczba, ktora idzie na rysunek wykonawczy. */
 .detalWymiary {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   fill: var(--pc-text-muted);
   text-anchor: middle;
 }
@@ -326,16 +380,6 @@
   fill: #dfe3f0;
 }
 
-@media (max-width: 560px) {
-  .rysunki {
-    grid-template-columns: 1fr;
-  }
-
-  .detale {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 .przekrojWrap {
   margin-top: 0;
 }
@@ -347,7 +391,6 @@
 .przekroj {
   display: block;
   width: 100%;
-  max-width: 380px;
   height: auto;
   aspect-ratio: 320 / 150;
   background: #fbfaf8;
