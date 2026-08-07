@@ -1,5 +1,6 @@
 import React from 'react';
-import {policzPasowanie, znajdzPasowania, odchylkiOtworu} from '@site/src/lib/pasowania/oblicz.js';
+import {policzPasowanie, znajdzPasowania} from '@site/src/lib/pasowania/oblicz.js';
+import {SREDNICA_PX, szerokoscPasma} from '@site/src/lib/pasowania/rysunek.js';
 import {
   LITERY_WALKOW,
   LITERY_OTWOROW,
@@ -83,31 +84,6 @@ function wybierzWerdykt(wynik) {
   });
 
   return (dopasowany || lista[lista.length - 1]).tekst;
-}
-
-// Srednica walka na rysunku. Wycinek jest celowo maly: to podglad w
-// narzedziu roboczym, a nie ilustracja do artykulu.
-const SREDNICA_PX = 76;
-// Najszersze pasmo szczeliny po jednej stronie walka.
-const CEL_SZCZELINY_PX = 26;
-
-// Jak szeroka ma byc szczelina na rysunku.
-//
-// Wczesniej powiekszenie dobieralo sie osobno pod KAZDE pasowanie tak, zeby
-// pasmo mialo zawsze podobna szerokosc. Efekt byl odwrotny do zamierzonego:
-// H7/g6 z luzem 41 um rysowalo sie szerzej niz H8/e8 ze 106 um, bo drugie
-// dostawalo mniejsze powiekszenie. Rysunek klamal o tym, co porownuje sie
-// na nim najczesciej, czyli o tym, ktore pasowanie jest luzniejsze.
-//
-// Teraz odniesieniem jest sama srednica, a nie wybrane pasowanie: bierzemy
-// tolerancje IT7 dla tej srednicy jako miare "typowego" pasowania. Funkcja
-// jest rosnaca i ograniczona, wiec luzniejsze pasowanie ZAWSZE rysuje sie
-// szerzej, a zadne nie wychodzi poza ramke. Cena jest taka, ze rysunek nie
-// ma juz jednej skali liczbowej: dokladne wartosci stoja przy detalach obok.
-function szerokoscPasma(um, srednica) {
-  if (um <= 0) return 0;
-  const odniesienie = 2 * odchylkiOtworu({srednica, litera: 'H', klasa: 7}).tolerancja;
-  return Math.max((CEL_SZCZELINY_PX * um) / (um + odniesienie), 1.5);
 }
 
 // Wymiar w milimetrach po polsku: trzy miejsca i przecinek, tak jak na rysunku.
