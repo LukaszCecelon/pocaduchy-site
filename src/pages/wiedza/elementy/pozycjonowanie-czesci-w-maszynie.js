@@ -12,6 +12,7 @@ export default function Page() {
       permalink="/wiedza/elementy/pozycjonowanie-czesci-w-maszynie"
       categoryLabel="Elementy standardowe"
       categoryHref="/wiedza/elementy"
+      linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
     />
   );

@@ -197,3 +197,78 @@
     margin: 0;
   }
 }
+
+/* Plik do pobrania. Wyglada jak osobna decyzja, a nie jak link w zdaniu,
+   bo pobranie pliku nia wlasnie jest. */
+.plik {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+  padding: 18px 22px;
+  border: 1px solid var(--pc-border);
+  border-left: 4px solid var(--pc-rust);
+  background: #f7f6f4;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.plik:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--pc-rust);
+  background: #fbf7f6;
+}
+
+.plikIkona {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--pc-rust);
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.plikTresc {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.plikTytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--pc-navy);
+}
+
+.plikOpis {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--pc-text-muted);
+}
+
+.plikMeta {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--pc-text-faint);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .plik {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .plikMeta {
+    width: 100%;
+  }
+}

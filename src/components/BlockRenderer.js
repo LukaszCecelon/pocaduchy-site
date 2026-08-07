@@ -150,6 +150,25 @@ function WideoBlock({src, poster, podpis, petla}) {
   );
 }
 
+// Plik do pobrania: materiał źródłowy, ściągawka na biurko, karta katalogowa.
+// Nie jest to zwykły link w tekście, bo pobranie pliku to osobna decyzja
+// czytelnika i ma prawo wyglądać jak osobna decyzja.
+function PlikBlock({src, tytul, opis, format, waga}) {
+  const url = useBaseUrl(src);
+  const szczegoly = [format, waga].filter(Boolean).join(', ');
+
+  return (
+    <a href={url} download className={`${styles.plik} pc-cut-card`}>
+      <span className={styles.plikIkona} aria-hidden="true">↓</span>
+      <span className={styles.plikTresc}>
+        <span className={styles.plikTytul}>{tytul}</span>
+        {opis ? <span className={styles.plikOpis}>{opis}</span> : null}
+      </span>
+      {szczegoly ? <span className={styles.plikMeta}>{szczegoly}</span> : null}
+    </a>
+  );
+}
+
 function TabelaBlock({markdown}) {
   return (
     <div className={styles.tabela}>
@@ -174,6 +193,7 @@ const BLOCK_COMPONENTS = {
   wideo: WideoBlock,
   rysunek: RysunekBlock,
   galeria: GaleriaBlock,
+  plik: PlikBlock,
   tabela: TabelaBlock,
   wzor: WzorBlock,
 };

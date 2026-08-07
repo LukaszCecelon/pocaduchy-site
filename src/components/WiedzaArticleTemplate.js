@@ -61,6 +61,7 @@ export default function WiedzaArticleTemplate({
   permalink,
   categoryLabel,
   categoryHref,
+  linkedinUrl,
   blocks,
 }) {
   return (
@@ -91,6 +92,16 @@ export default function WiedzaArticleTemplate({
             {date ? (
               <p className={styles.meta}>
                 <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
+                {/* Materiał ukazał się najpierw na LinkedIn. Odnośnik do
+                    oryginału zostaje, tak samo jak przy artykułach. */}
+                {linkedinUrl ? (
+                  <>
+                    {' · '}
+                    <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                      Pierwotnie na LinkedIn ↗
+                    </a>
+                  </>
+                ) : null}
               </p>
             ) : null}
             <BlockRenderer blocks={blocks} />

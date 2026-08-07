@@ -1,20 +1,29 @@
 {
   "slug": "pozycjonowanie-czesci-w-maszynie",
-  "title": "Sześć sposobów pozycjonowania części w maszynie",
-  "description": "Kołki walcowe, para kołek okrągły plus diamentowy, śruby pasowane, tuleje ZBH-B, pozycjonowanie kształtowe i zderzaki. Kiedy sięgnąć po który sposób, jakie tolerancje przyjąć i o czym pamiętać już na etapie modelu.",
+  "title": "6 sposobów pozycjonowania części w budowie maszyn",
+  "description": "6 rozwiązań z praktycznymi przykładami, z mojego doświadczenia: kołki walcowe, kołek okrągły i diamentowy, śruby pasowane, tuleje pozycjonujące ZBH-B, pozycjonowanie kształtowe i pozycjonowanie do zderzaka.",
   "date": "2026-08-07",
+  "linkedinUrl": "https://lnkd.in/p/dzBidbiY",
   "blocks": [
     {
       "type": "tekst",
-      "body": "Śruba nie pozycjonuje. Otwór przelotowy pod M8 ma zwykle 9 mm, więc zanim dokręcisz, część ma po pół milimetra swobody w każdą stronę. Przy pierwszym montażu nikt tego nie zauważy, bo ustawiasz na oko, mierzysz, poprawiasz i jedziesz dalej. Problem wraca przy drugim: po serwisie, po wymianie zużytego elementu, po przezbrojeniu na inny detal. Wtedy okazuje się, że nikt nie wie, gdzie dokładnie ta część stała, a ustawianie od nowa zajmuje pół zmiany."
+      "body": "6 rozwiązań z praktycznymi przykładami. Z mojego doświadczenia."
+    },
+    {
+      "type": "plik",
+      "src": "/pliki/pozycjonowanie-czesci-w-maszynie.pdf",
+      "tytul": "6 sposobów pozycjonowania części w budowie maszyn",
+      "opis": "Ten sam materiał w formie do wydrukowania i odłożenia na biurko.",
+      "format": "PDF, 8 stron",
+      "waga": "1,5 MB"
     },
     {
       "type": "tekst",
-      "body": "Poniżej sześć sposobów, których używam w maszynach. Nie są równorzędne: część nadaje się do montażu raz na zawsze, część do wielokrotnego demontażu, a część działa tylko wtedy, gdy pomyślisz o niej na etapie modelu, a nie na hali."
+      "body": "## 1. Kołki walcowe\n\nNajpopularniejszy sposób pozycjonowania dwóch lub więcej skręcanych ze sobą części."
     },
     {
       "type": "tekst",
-      "body": "## 1. Kołki walcowe\n\nNajpopularniejszy sposób ustalenia dwóch lub więcej skręcanych ze sobą części. Dwa kołki odbierają obrót i przesunięcie, śruby odpowiadają już tylko za dociśnięcie."
+      "body": "Dobre praktyki:\n\n- Otwór w tolerancji H7\n- Głębokość: 2 x średnica kołka\n- Jeśli jest możliwość, wykonaj drugi mniejszy otwór osiowo do wybijania\n- Dodaj fazy na wejściu otworu"
     },
     {
       "type": "galeria",
@@ -31,11 +40,11 @@
     },
     {
       "type": "tekst",
-      "body": "Dobre praktyki, które oszczędzają nerwy na montażu:\n\n- **Otwór w tolerancji H7.** To ta sama tolerancja, którą wykonawca dostaje rozwiertakiem, więc nie jest to żadne widzimisię, tylko standardowa robota.\n- **Głębokość osadzenia około dwóch średnic kołka.** Płycej kołek zaczyna się chwiać, głębiej niepotrzebnie podnosisz koszt otworu.\n- **Drugi, mniejszy otwór osiowo pod wybijak.** Jeśli jest do niego dostęp, zrób go. Bez niego demontaż kołka z otworu nieprzelotowego to walka.\n- **Fazy na wejściu otworu.** Kosztują jedno kliknięcie w CAD, a bez nich monter zaczyna kaleczyć krawędź.\n- **Rozstaw symetryczny albo asymetryczny.** Asymetryczny wybierz wtedy, gdy część wolno zmontować tylko w jednej pozycji. To najtańsze zabezpieczenie przed pomyłką, jakie masz."
+      "body": "W zależności od zastosowania używaj rozstawu symetrycznego albo asymetrycznego. Ten drugi stosuj kiedy musi być możliwy tylko jeden sposób montażu elementów."
     },
     {
       "type": "tekst",
-      "body": "## 2. Kołek okrągły i diamentowy\n\nPara kołków do modułów, które zdejmuje się i zakłada regularnie. Kołek okrągły ustala położenie w obu osiach, a kołek o kształcie rombu, czyli diamentowy, ustala już tylko kierunek obrotu."
+      "body": "## 2. Kołek okrągły i diamentowy\n\nDlaczego ta para kołków jest świetna do wielokrotnego montażu i demontażu?\n\nPierwsze skrzypce gra tutaj kołek o kształcie rombu (czy tam diamentu 😉). Dzięki temu umożliwia pozycjonowanie tylko w jednym kierunku."
     },
     {
       "type": "galeria",
@@ -52,15 +61,15 @@
     },
     {
       "type": "tekst",
-      "body": "Dlaczego to działa lepiej niż dwa kołki walcowe? Dwa kołki walcowe w otworach H7 są dokładne, ale przy każdym montażu walczysz z sumą tolerancji rozstawu. Kołek diamentowy ma luz w kierunku łączącym oba kołki, więc pochłania tę różnicę, a nadal nie pozwala części się obrócić."
+      "body": "Zwróć uwagę na montaż kołka typu C. Jego dłuższa krawędź powinna być ustawiona prostopadle do promienia okręgu kreślonego ze środka kołka typu B.\n\nJeśli masz elementy lub moduły maszyny wymagające łatwego i wielokrotnego demontażu i montażu, użyj pary kołków **DIN 6321 B i C** oraz tulei **DIN 172**."
     },
     {
       "type": "tekst",
-      "body": "Detal, na którym łatwo się przejechać: **dłuższa krawędź kołka typu C ustawiona prostopadle do promienia** poprowadzonego ze środka kołka typu B. Zamontujesz go obrócony o 90 stopni i cały sens znika, bo luz wypadnie w złą stronę.\n\nW praktyce sięgam po parę kołków DIN 6321 typu B i C razem z tulejami DIN 172. Tuleja jest tu istotna: to ona się zużywa przy setnym demontażu, a nie otwór w drogim korpusie."
+      "body": "## 3. Śruby pasowane\n\nStosuj tam, gdzie nie masz miejsca na standardowe kołki.\n\nŚruby pasowane łączą funkcję mocowania z dokładnym ustaleniem części. Dzięki precyzyjnie wykonanej części walcowej sprawdzają się szczególnie tam, gdzie nie ma miejsca na osobne kołki ustalające."
     },
     {
       "type": "tekst",
-      "body": "## 3. Śruby pasowane\n\nŚruba pasowana łączy dwie funkcje: dociska i ustala. Ma dokładnie wykonaną część walcową pod łbem, która pracuje jak kołek."
+      "body": "Przykłady montażu:"
     },
     {
       "type": "galeria",
@@ -77,11 +86,11 @@
     },
     {
       "type": "tekst",
-      "body": "Sięgam po nie tam, gdzie zwyczajnie nie ma miejsca na osobne kołki obok śrub. Zamiast czterech otworów robisz dwa i zwalniasz miejsce na materiał. Zapłacisz za to wyższą ceną samej śruby i tym, że wymiana na zwykłą śrubę po latach potrafi cicho zabrać Ci dokładność, bo nikt na hali nie zauważy różnicy."
+      "body": "## 4. Tuleje pozycjonujące ZBH-B\n\nProdukt firmy FESTO. Najczęściej używany gdy nie można wykonać głębokiego otworu oraz nie ma miejsca na standardowy kołek walcowy.\n\nOtwory pod te tuleje wykonujemy w tolerancji **H7**."
     },
     {
       "type": "tekst",
-      "body": "## 4. Tuleje pozycjonujące ZBH-B\n\nProdukt FESTO, wchodzi tam, gdzie kołek walcowy się nie mieści. Tuleja jest płytka, więc nie potrzebujesz głębokiego otworu, i pracuje na zewnętrznej średnicy zamiast na długości osadzenia."
+      "body": "Tam gdzie jest bardzo mało miejsca, czyli w wielu siłownikach FESTO:"
     },
     {
       "type": "galeria",
@@ -93,86 +102,76 @@
         {
           "src": "/img/wiedza/pozycjonowanie-tuleje-zbh-detal.jpg",
           "alt": "Zbliżenie modelu CAD na dwie śruby i dwie tuleje pozycjonujące w płycie montażowej."
-        },
-        {
-          "src": "/img/wiedza/pozycjonowanie-tuleje-zbh-profil.jpg",
-          "alt": "Model CAD profili aluminiowych ustalonych na płycie za pomocą tulei pozycjonujących z czerwono oznaczonym kołnierzem."
         }
       ]
     },
     {
       "type": "tekst",
-      "body": "Dwa miejsca, w których to rozwiązanie ratuje sytuację: przykręcanie osprzętu do korpusów siłowników FESTO, gdzie miejsca jest tyle, ile producent przewidział, oraz ustalanie profili aluminiowych względem płyty. Otwór pod tuleję wykonujemy w tolerancji **H7**, tak samo jak pod kołek."
+      "body": "Pomysł pozycjonowania profilu aluminiowego:"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/wiedza/pozycjonowanie-tuleje-zbh-profil.jpg",
+      "alt": "Model CAD profili aluminiowych ustalonych na płycie za pomocą tulei pozycjonujących z czerwono oznaczonym kołnierzem."
     },
     {
       "type": "tekst",
-      "body": "## 5. Pozycjonowanie kształtowe\n\nCzasami nie potrzebujesz żadnego dodatkowego elementu, bo pozycję ustala sam kształt części. Stopień, wybranie, kołnierz albo powierzchnia oporowa robią dokładnie to, co zrobiłby kołek, tylko za darmo."
+      "body": "## 5. Pozycjonowanie kształtowe\n\nDo pozycjonowania można wykorzystać również sam kształt projektowanych części. Niektóre elementy handlowe również wymagają pozycjonowania kształtowego."
     },
     {
       "type": "galeria",
       "obrazy": [
         {
           "src": "/img/wiedza/pozycjonowanie-ksztaltowe-motoreduktor.jpg",
-          "alt": "Model CAD motoreduktora ustalonego kołnierzem w wybraniu płyty montażowej."
-        },
-        {
-          "src": "/img/wiedza/pozycjonowanie-ksztaltowe-frezowane.jpg",
-          "alt": "Model CAD dwóch elementów frezowanych, gdzie stopień jednej części ustala położenie drugiej."
+          "alt": "Pozycjonowanie kształtowe kołnierza motoreduktora: model CAD motoreduktora ustalonego kołnierzem w wybraniu płyty."
         },
         {
           "src": "/img/wiedza/pozycjonowanie-ksztaltowe-lapki-chwytaka.jpg",
-          "alt": "Model CAD chwytaka z czerwonymi łapkami osadzonymi w wybraniach szczęk."
+          "alt": "Pozycjonowanie kształtowe łapek chwytaka: model CAD chwytaka z czerwonymi łapkami osadzonymi w wybraniach szczęk."
         },
         {
           "src": "/img/wiedza/pozycjonowanie-ksztaltowe-wozki-prowadnic.jpg",
-          "alt": "Model CAD dwóch wózków prowadnic liniowych ustalonych bokiem o stopień w płycie."
+          "alt": "Pozycjonowanie kształtowe wózków prowadnic liniowych: model CAD dwóch wózków dosuniętych do stopnia w płycie."
+        },
+        {
+          "src": "/img/wiedza/pozycjonowanie-ksztaltowe-frezowane.jpg",
+          "alt": "Pozycjonowanie kształtowe elementów frezowanych: model CAD dwóch części, gdzie stopień jednej ustala położenie drugiej."
         }
       ]
     },
     {
       "type": "tekst",
-      "body": "Część elementów handlowych wręcz tego wymaga. Wózki prowadnic liniowych mają w katalogu podaną powierzchnię bazową i wysokość stopnia oporowego, bo producent zakłada, że dosuniesz je do czegoś, a nie ustawisz na oko. To samo dotyczy kołnierzy motoreduktorów."
+      "body": "Pozycjonowanie kształtowe elementów frezowanych stosuję tak, aby przy montażu ograniczyć ilość elementów."
     },
     {
       "type": "tekst",
-      "body": "Ten sposób ma jeszcze jedną zaletę, która ujawnia się dopiero przy montażu: **zmniejsza liczbę elementów do trzymania w rękach**. Monter dosuwa część do oporu i przykręca, zamiast żonglować kołkami, młotkiem i suwmiarką naraz."
-    },
-    {
-      "type": "tekst",
-      "body": "## 6. Pozycjonowanie do zderzaka\n\nRozwiązanie dla modułów wymiennych, które muszą trafić na swoje miejsce, ale za każdym razem trochę inaczej. Typowy przypadek to wielotaktowe moduły PICK and PLACE, gdzie zmiana detalu oznacza przestawienie modułu o kilka milimetrów."
+      "body": "## 6. Pozycjonowanie do zderzaka\n\nTen rodzaj pozycjonowania można wykorzystać na przykład kiedy maszyna musi mieć wymienne moduły, ale zachodzi potrzeba ich pierwotnego ustawienia (np. przy wielotaktowych modułach PICK & PLACE)."
     },
     {
       "type": "galeria",
       "obrazy": [
         {
           "src": "/img/wiedza/pozycjonowanie-zderzaki-modul.jpg",
-          "alt": "Model CAD modułu maszyny dosuniętego do zderzaków śrubowych, z czujnikiem kontrolującym położenie."
+          "alt": "Przykład 1: model CAD modułu maszyny dosuniętego do zderzaków śrubowych, z czujnikiem kontrolującym położenie."
         },
         {
           "src": "/img/wiedza/pozycjonowanie-zderzaki-belka.jpg",
-          "alt": "Model CAD belki z dwoma zderzakami śrubowymi ustalającymi położenie modułu."
-        },
-        {
-          "src": "/img/wiedza/pozycjonowanie-zderzaki-nastawa.jpg",
-          "alt": "Model CAD węzła ze zderzakami, z czerwono obrysowanym zakresem nastawy elementu."
+          "alt": "Przykład 2: model CAD belki z dwoma zderzakami śrubowymi ustalającymi położenie modułu."
         }
       ]
     },
     {
       "type": "tekst",
-      "body": "Żeby to zadziałało, muszą zagrać dwie rzeczy naraz. Po pierwsze **rozstaw zderzaków**: dwa punkty oporu odległe od siebie ustalają kąt, dwa punkty blisko siebie ustalają go bardzo niedokładnie. Po drugie **otwory mocujące muszą przewidzieć cały zakres nastawy**. Jeśli zderzak da się przesunąć o 8 mm, a otwór pod śrubę zezwala na 3 mm, to nastawy nie ma, jest tylko złudzenie regulacji.\n\nSame zderzaki i śruby nastawcze wybieram z katalogu Elesa+Ganter, bo tam jest gotowy asortyment z powierzchniami czołowymi i nakrętkami kontrującymi."
+      "body": "Żeby prawidłowo użyć zderzaków do pozycjonowania, trzeba pamiętać o ich odpowiednim rozstawie. Otwory mocujące muszą zapewnić wymagany zakres nastawy elementu."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/wiedza/pozycjonowanie-zderzaki-nastawa.jpg",
+      "alt": "Model CAD węzła ze zderzakami, z czerwono obrysowanym zakresem nastawy elementu."
     },
     {
       "type": "tekst",
-      "body": "## Jak wybrać\n\nDecyzja rzadko zależy od dokładności, bo każdy z tych sposobów jest dokładniejszy niż otwór przelotowy pod śrubę. Zwykle rozstrzyga to, jak często ktoś będzie to rozkręcał i ile masz miejsca."
-    },
-    {
-      "type": "tabela",
-      "markdown": "| Sposób | Kiedy sięgam | O czym pamiętać |\n| --- | --- | --- |\n| Kołki walcowe | Montaż raz, potem rzadki serwis | Otwór H7, głębokość 2 x średnica, otwór pod wybijak |\n| Kołek okrągły i diamentowy | Moduły zdejmowane regularnie | Kołek C obrócony prostopadle do promienia, tuleje jako część zużywalna |\n| Śruby pasowane | Brak miejsca na osobne kołki | Wyższa cena, ryzyko wymiany na zwykłą śrubę |\n| Tuleje ZBH-B | Płytki materiał, osprzęt FESTO | Otwór w tolerancji H7 |\n| Kształt części | Zawsze, gdy geometria na to pozwala | Trzeba zaplanować w modelu, na hali już za późno |\n| Zderzaki | Moduły wymienne z nastawą | Rozstaw zderzaków i zakres ruchu w otworach mocujących |"
-    },
-    {
-      "type": "tekst",
-      "body": "Jeśli miałbym wskazać jedną rzecz, którą warto sobie odpuścić, to ustalanie czegokolwiek samymi śrubami z otworem przelotowym i nadzieją, że monter to zmierzy. Zmierzy raz. Za drugim razem będzie mierzył ktoś inny, w piątek po południu, przy stojącej linii."
+      "body": "Same śruby możemy wybrać w katalogu Elesa+Ganter."
     }
   ]
 }

@@ -92,6 +92,7 @@ export default function Page() {
       permalink="/wiedza/${category}/${a.slug}"
       categoryLabel="${categoryLabel}"
       categoryHref="/wiedza/${category}"
+      linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
     />
   );
