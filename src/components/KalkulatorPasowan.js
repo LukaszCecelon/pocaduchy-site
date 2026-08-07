@@ -511,13 +511,21 @@ function WynikKompaktowy({wynik, setSrednica, otwor, setOtwor, walek, setWalek})
 
 // Obie sekcje sa NIESTEROWANE: stan otwarcia trzyma przegladarka, a nie React.
 // Wczesniej byl on w stanie komponentu i podawany przez atrybut "open", przez
-// co kazde przerysowanie kalkulatora mogло zamknac wlasnie otwarta sekcje.
+// co kazde przerysowanie kalkulatora moglo zamknac wlasnie otwarta sekcje.
 // Bez atrybutu React w ogole nie dotyka tego elementu, wiec sekcja zostaje
 // otwarta takze wtedy, gdy uzytkownik zmieni pasowanie albo srednice.
+//
+// Wspolne "name" robi z nich harmonijke: przegladarka sama zamyka druga
+// sekcje przy otwarciu pierwszej. Dwie otwarte naraz rozjezdzaly uklad, bo
+// tabela odchylek ma szerokosc minimalna i spychala sasiednia kolumne do
+// jednego slowa w linii. Robi to HTML, a nie nasz kod, wiec poprawka
+// z niesterowanym details zostaje w mocy.
+const GRUPA_SZCZEGOLOW = 'pasowania-szczegoly';
+
 function Szczegoly({wynik}) {
   return (
     <div className={styles.szczegoly}>
-      <details className={styles.details}>
+      <details name={GRUPA_SZCZEGOLOW} className={styles.details}>
         <summary>{TEKSTY_UI.odchylkiDetails}</summary>
         <div className={styles.detailsZawartosc}>
           <TabelaDanych wynik={wynik} />
@@ -527,7 +535,7 @@ function Szczegoly({wynik}) {
         </div>
       </details>
 
-      <details className={styles.details}>
+      <details name={GRUPA_SZCZEGOLOW} className={styles.details}>
         <summary>{TEKSTY_UI.praktykaDetails}</summary>
         <div className={styles.detailsZawartosc}>
           <p className={styles.opisPraktyczny}>{tresc.rodzaje[wynik.rodzaj].opis}</p>
