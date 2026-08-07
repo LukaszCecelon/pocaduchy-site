@@ -77,3 +77,14 @@
     position: static;
   }
 }
+
+/* Odnosnik do pierwotnej publikacji. Stoi pod trescia i jest wyciszony:
+   ma byc przypisem, a nie zaproszeniem do wyjscia ze strony. */
+.zrodlo {
+  margin: 36px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--pc-border);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pc-text-faint);
+}

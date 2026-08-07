@@ -160,44 +160,4 @@
 }
 
 /* --- Narzedzia: kalkulatory i inne rzeczy uzywane w trakcie pracy --- */
-.narzedzia {
-  margin: 8px 0 40px;
-}
-.narzedziaTytul {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--pc-text-faint);
-  margin: 0 0 14px;
-  font-weight: 500;
-}
-.narzedzie {
-  display: block;
-  padding: 24px 26px;
-  background: var(--pc-navy);
-  color: #ffffff;
-  text-decoration: none;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-.narzedzie:hover {
-  background: #343858;
-  color: #ffffff;
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-.narzedzieTag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--pc-rust-light, #e0a79f);
-}
-.narzedzie .cardTitle {
-  color: #ffffff;
-  margin: 8px 0 8px;
-}
-.narzedzie .cardBody {
-  color: #d7d9e6;
-  margin: 0;
-}
+
