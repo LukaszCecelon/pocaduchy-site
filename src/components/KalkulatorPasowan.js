@@ -1,5 +1,5 @@
 import React from 'react';
-import {policzPasowanie, znajdzPasowania} from '@site/src/lib/pasowania/oblicz.js';
+import {policzPasowanie, znajdzPasowania, odchylkiOtworu} from '@site/src/lib/pasowania/oblicz.js';
 import {
   LITERY_WALKOW,
   LITERY_OTWOROW,
@@ -24,7 +24,6 @@ const SKROTY = {
   ],
 };
 
-const POWIEKSZENIA = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000];
 
 // Napisy interfejsu siedza w pliku tresci, zeby dalo sie je poprawic bez
 // dotykania kodu. Tutaj tylko skrot, zeby nie pisac tresc.ui w kazdym miejscu.
@@ -89,20 +88,26 @@ function wybierzWerdykt(wynik) {
 // Srednica walka na rysunku. Wycinek jest celowo maly: to podglad w
 // narzedziu roboczym, a nie ilustracja do artykulu.
 const SREDNICA_PX = 76;
-// Do tylu pikseli ma urosnac szczelina po jednej stronie walka.
-const CEL_SZCZELINY_PX = 17;
+// Najszersze pasmo szczeliny po jednej stronie walka.
+const CEL_SZCZELINY_PX = 26;
 
-// Walek lezy w osi otworu, wiec luz srednicowy rozklada sie po polowie na
-// obie strony. Powiekszenie dobieramy pod te polowe, bo to ona jest tym,
-// co widac na rysunku.
-function obliczPowiekszenie(wynik) {
-  const maxUm = Math.max(Math.abs(wynik.luzMaksymalny.um), Math.abs(wynik.luzMinimalny.um));
-  if (maxUm <= 0) return 1;
-
-  const pxNaMm = SREDNICA_PX / wynik.srednica;
-  const surowe = CEL_SZCZELINY_PX / (maxUm / 2 * 0.001 * pxNaMm);
-  const wybrane = [...POWIEKSZENIA].reverse().find((p) => p <= surowe);
-  return Math.max(wybrane || 1, 1);
+// Jak szeroka ma byc szczelina na rysunku.
+//
+// Wczesniej powiekszenie dobieralo sie osobno pod KAZDE pasowanie tak, zeby
+// pasmo mialo zawsze podobna szerokosc. Efekt byl odwrotny do zamierzonego:
+// H7/g6 z luzem 41 um rysowalo sie szerzej niz H8/e8 ze 106 um, bo drugie
+// dostawalo mniejsze powiekszenie. Rysunek klamal o tym, co porownuje sie
+// na nim najczesciej, czyli o tym, ktore pasowanie jest luzniejsze.
+//
+// Teraz odniesieniem jest sama srednica, a nie wybrane pasowanie: bierzemy
+// tolerancje IT7 dla tej srednicy jako miare "typowego" pasowania. Funkcja
+// jest rosnaca i ograniczona, wiec luzniejsze pasowanie ZAWSZE rysuje sie
+// szerzej, a zadne nie wychodzi poza ramke. Cena jest taka, ze rysunek nie
+// ma juz jednej skali liczbowej: dokladne wartosci stoja przy detalach obok.
+function szerokoscPasma(um, srednica) {
+  if (um <= 0) return 0;
+  const odniesienie = 2 * odchylkiOtworu({srednica, litera: 'H', klasa: 7}).tolerancja;
+  return Math.max((CEL_SZCZELINY_PX * um) / (um + odniesienie), 1.5);
 }
 
 // Wymiar w milimetrach po polsku: trzy miejsca i przecinek, tak jak na rysunku.
@@ -302,18 +307,12 @@ function Przekroj({wynik}) {
   const X_WALEK = 52;
   const SZER_WALKA = 216;
 
-  const powiekszenie = obliczPowiekszenie(wynik);
-  const pxNaUm = (SREDNICA_PX / wynik.srednica) / 1000 * powiekszenie;
   const ciasne = wynik.rodzaj === 'ciasne';
-
-  // Wartosci z tablic sa srednicowe, a na rysunku widac polowe. Minimalna
-  // widoczna grubosc pasma, bo linia zerowej wysokosci zniknełaby zupelnie.
-  const naPiksele = (um) => (um > 0 ? Math.max(um / 2 * pxNaUm, 1.5) : 0);
 
   const luzUm = Math.max(wynik.luzMaksymalny.um, 0);
   const wciskUm = Math.max(-wynik.luzMinimalny.um, 0);
-  const luzPx = naPiksele(luzUm);
-  const wciskPx = naPiksele(wciskUm);
+  const luzPx = szerokoscPasma(luzUm, wynik.srednica);
+  const wciskPx = szerokoscPasma(wciskUm, wynik.srednica);
 
   // Powierzchnie otworu odjezdzaja od walka przy luzie, a przy wcisku
   // wchodza na niego. Obie strony ruszaja sie symetrycznie.
@@ -323,10 +322,7 @@ function Przekroj({wynik}) {
 
   const labelOtworu = `${TEKSTY_UI.otwor.toUpperCase()} ${symbolOtworu(wynik)}`;
   const labelWalka = `${TEKSTY_UI.walek.toUpperCase()} ${symbolWalka(wynik)}`;
-  const opisUkladu = ciasne ? TEKSTY_UI.ukladPrzekrojuCiasne : TEKSTY_UI.ukladPrzekroju;
-  const opisSkali = powiekszenie === 1
-    ? `${TEKSTY_UI.rysunek11} ${opisUkladu}`
-    : `${TEKSTY_UI.roznicaPowiekszona} ${powiekszenie} ${TEKSTY_UI.razy} ${opisUkladu}`;
+  const opisSkali = ciasne ? TEKSTY_UI.ukladPrzekrojuCiasne : TEKSTY_UI.ukladPrzekroju;
   const ariaLabel = `${tresc.rodzaje[wynik.rodzaj].nazwa}: ${opisZakresu(wynik)}, ${labelOtworu}, ${labelWalka}.`;
 
   return (
@@ -537,14 +533,15 @@ function WynikKompaktowy({wynik, setSrednica, otwor, setOtwor, walek, setWalek})
   );
 }
 
-function Szczegoly({wynik, otwarte, setOtwarte}) {
-  const aktualizuj = (klucz) => (event) => {
-    setOtwarte((stan) => ({...stan, [klucz]: event.currentTarget.open}));
-  };
-
+// Obie sekcje sa NIESTEROWANE: stan otwarcia trzyma przegladarka, a nie React.
+// Wczesniej byl on w stanie komponentu i podawany przez atrybut "open", przez
+// co kazde przerysowanie kalkulatora mogло zamknac wlasnie otwarta sekcje.
+// Bez atrybutu React w ogole nie dotyka tego elementu, wiec sekcja zostaje
+// otwarta takze wtedy, gdy uzytkownik zmieni pasowanie albo srednice.
+function Szczegoly({wynik}) {
   return (
     <div className={styles.szczegoly}>
-      <details open={otwarte.techniczne} onToggle={aktualizuj('techniczne')} className={styles.details}>
+      <details className={styles.details}>
         <summary>{TEKSTY_UI.odchylkiDetails}</summary>
         <div className={styles.detailsZawartosc}>
           <TabelaDanych wynik={wynik} />
@@ -554,7 +551,7 @@ function Szczegoly({wynik, otwarte, setOtwarte}) {
         </div>
       </details>
 
-      <details open={otwarte.praktyka} onToggle={aktualizuj('praktyka')} className={styles.details}>
+      <details className={styles.details}>
         <summary>{TEKSTY_UI.praktykaDetails}</summary>
         <div className={styles.detailsZawartosc}>
           <p className={styles.opisPraktyczny}>{tresc.rodzaje[wynik.rodzaj].opis}</p>
@@ -618,7 +615,6 @@ export default function KalkulatorPasowan() {
   const [walek, setWalek] = React.useState({litera: 'g', klasa: 6});
   const [luzMin, setLuzMin] = React.useState(0);
   const [luzMax, setLuzMax] = React.useState(50);
-  const [otwarteDetails, setOtwarteDetails] = React.useState({techniczne: false, praktyka: false});
 
   const symbol = `${otwor.litera}${otwor.klasa}/${walek.litera}${walek.klasa}`;
 
@@ -696,9 +692,7 @@ export default function KalkulatorPasowan() {
               <PolaTolerancji otwor={otwor} setOtwor={setOtwor} walek={walek} setWalek={setWalek} />
             </div>
           )}
-          {wynik.ok
-            ? <Szczegoly wynik={wynik.ok} otwarte={otwarteDetails} setOtwarte={setOtwarteDetails} />
-            : null}
+          {wynik.ok ? <Szczegoly wynik={wynik.ok} /> : null}
         </div>
       ) : (
         <div className={styles.panelLuzu}>
