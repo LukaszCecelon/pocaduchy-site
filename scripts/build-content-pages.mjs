@@ -1,6 +1,6 @@
 /**
  * Generuje strony Wiedzy i Bloga z plików danych w content/ oraz manifesty
- * list kategorii w src/data/. Uruchamiane automatycznie w prestart i prebuild.
+ * list w src/data/. Uruchamiane automatycznie w prestart i prebuild.
  *
  * Jedynym źródłem prawdy są pliki w content/. Wygenerowanych stron w
  * src/pages/blog/ nikt nie edytuje ręcznie: każda taka zmiana zniknie
@@ -65,9 +65,12 @@ function cleanGenerated(pagesDir, expectedFiles) {
   }
 }
 
-function writeWiedzaCategory(category, categoryLabel) {
-  const contentDir = join(ROOT, 'content', 'wiedza', category);
-  const pagesDir = join(ROOT, 'src', 'pages', 'wiedza', category);
+// Wiedza jest na razie plaska: artykuly leza wprost w content/wiedza/ i maja
+// adresy /wiedza/<slug>. Dzialow nie ma swiadomie, bo przy kilku artykulach
+// kategoria niczego nie porzadkuje, a zakopuje tresc o jedno klikniecie glebiej.
+function writeWiedza() {
+  const contentDir = join(ROOT, 'content', 'wiedza');
+  const pagesDir = join(ROOT, 'src', 'pages', 'wiedza');
   const dataDir = join(ROOT, 'src', 'data');
   const articles = readJsonFiles(contentDir);
 
@@ -81,7 +84,7 @@ function writeWiedzaCategory(category, categoryLabel) {
     const page = `${GENERATED_MARKER}
 import React from 'react';
 import WiedzaArticleTemplate from '@site/src/components/WiedzaArticleTemplate';
-import data from '@site/content/wiedza/${category}/${a.file}.json';
+import data from '@site/content/wiedza/${a.file}.json';
 
 export default function Page() {
   return (
@@ -89,9 +92,7 @@ export default function Page() {
       title={data.title}
       description={data.description}
       date={data.date}
-      permalink="/wiedza/${category}/${a.slug}"
-      categoryLabel="${categoryLabel}"
-      categoryHref="/wiedza/${category}"
+      permalink="/wiedza/${a.slug}"
       linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
     />
@@ -100,25 +101,6 @@ export default function Page() {
 `;
     writeFileSync(join(pagesDir, file), page);
   }
-  // Strona działu powstaje tylko wtedy, gdy dział ma już artykuły. Pusty dział
-  // nie ma po co istnieć w wyszukiwarce, a link do niego i tak nie pojawia się
-  // na liście działów.
-  if (articles.length) {
-    expected.add('index.js');
-    writeFileSync(
-      join(pagesDir, 'index.js'),
-      `${GENERATED_MARKER}
-import React from 'react';
-import WiedzaKategoriaTemplate from '@site/src/components/WiedzaKategoriaTemplate';
-import artykuly from '@site/src/data/wiedza-${category}.json';
-
-export default function Page() {
-  return <WiedzaKategoriaTemplate klucz="${category}" artykuly={artykuly} />;
-}
-`,
-    );
-  }
-
   cleanGenerated(pagesDir, expected);
 
   const manifest = articles
@@ -128,11 +110,8 @@ export default function Page() {
       description: a.description || '',
       date: a.date || null,
     }))
-    .sort((a, b) => a.title.localeCompare(b.title, 'pl'));
-  writeFileSync(
-    join(dataDir, `wiedza-${category}.json`),
-    JSON.stringify(manifest, null, 2) + '\n',
-  );
+    .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  writeFileSync(join(dataDir, 'wiedza-artykuly.json'), JSON.stringify(manifest, null, 2) + '\n');
 
   return manifest.length;
 }
@@ -197,13 +176,10 @@ export default function Page() {
 }
 
 const counts = {
-  wzory: writeWiedzaCategory('wzory', 'Wzory i tabele'),
-  materialy: writeWiedzaCategory('materialy', 'Materiały konstrukcyjne'),
-  elementy: writeWiedzaCategory('elementy', 'Elementy standardowe'),
+  wiedza: writeWiedza(),
   blog: writeBlog(),
 };
 
 console.log(
-  `[build-content-pages] OK: wzory=${counts.wzory}, materialy=${counts.materialy}, ` +
-    `elementy=${counts.elementy}, blog=${counts.blog}`,
+  `[build-content-pages] OK: wiedza=${counts.wiedza}, blog=${counts.blog}`,
 );

@@ -120,6 +120,14 @@ const config = {
       {
         redirects: [
           {from: '/wiedza/pasowania', to: '/narzedzia/pasowania'},
+          // Wiedza miała przez chwilę działy. Zrezygnowaliśmy z nich, bo przy
+          // kilku artykułach kategoria niczego nie porządkuje, ale adresy
+          // zdążyły trafić do sitemapy, więc muszą prowadzić do nowych.
+          {from: '/wiedza/elementy', to: '/wiedza'},
+          {
+            from: '/wiedza/elementy/pozycjonowanie-czesci-w-maszynie',
+            to: '/wiedza/pozycjonowanie-czesci-w-maszynie',
+          },
         ],
       },
     ],
