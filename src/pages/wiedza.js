@@ -6,6 +6,7 @@ import styles from './wiedza.module.css';
 import wzory from '@site/src/data/wiedza-wzory.json';
 import materialy from '@site/src/data/wiedza-materialy.json';
 import elementy from '@site/src/data/wiedza-elementy.json';
+import kategorie from '@site/content/wiedza-kategorie.json';
 
 function articleCount(n) {
   return n === 1 ? '1 artykuł' : `${n} artykuły`;
@@ -13,26 +14,19 @@ function articleCount(n) {
 
 // Pokazujemy wyłącznie działy, które mają już artykuły - pusty dział pojawi
 // się na liście automatycznie, gdy trafi do niego pierwsza treść.
+// Nazwy i opisy działów siedzą w content/wiedza-kategorie.json, tym samym
+// pliku, z którego korzystają strony działów. Jedno źródło prawdy.
 const CATEGORIES = [
-  {
-    title: 'Wzory i tabele',
-    body: 'Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe.',
-    href: '/wiedza/wzory',
-    articles: wzory,
-  },
-  {
-    title: 'Materiały konstrukcyjne',
-    body: 'Dobór materiałów do zastosowań konstrukcyjnych.',
-    href: '/wiedza/materialy',
-    articles: materialy,
-  },
-  {
-    title: 'Elementy standardowe',
-    body: 'Łożyska, połączenia i inne elementy znormalizowane.',
-    href: '/wiedza/elementy',
-    articles: elementy,
-  },
+  {klucz: 'wzory', articles: wzory},
+  {klucz: 'materialy', articles: materialy},
+  {klucz: 'elementy', articles: elementy},
 ]
+  .map((c) => ({
+    ...c,
+    title: kategorie.dzialy[c.klucz].nazwa,
+    body: kategorie.dzialy[c.klucz].lead,
+    href: `/wiedza/${c.klucz}`,
+  }))
   .filter((c) => c.articles.length > 0)
   .map((c, i) => ({
     ...c,
