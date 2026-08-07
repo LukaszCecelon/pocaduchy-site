@@ -1,0 +1,22 @@
+{
+  "_opis": "Opisy działów bazy wiedzy. Strona działu powstaje automatycznie, gdy trafi do niego pierwszy artykuł, a teksty bierze stąd.",
+  "dzialy": {
+    "wzory": {
+      "nazwa": "Wzory i tabele",
+      "lead": "Obliczenia wytrzymałościowe, tolerancje i normy rysunkowe. To, po co sięgam w trakcie projektowania, a nie to, czego uczyłem się na egzamin."
+    },
+    "materialy": {
+      "nazwa": "Materiały konstrukcyjne",
+      "lead": "Dobór materiałów do zastosowań konstrukcyjnych: co się sprawdza, co się odkształca i co kosztuje więcej, niż jest warte."
+    },
+    "elementy": {
+      "nazwa": "Elementy standardowe",
+      "lead": "Łożyska, połączenia, kołki i inne elementy znormalizowane. Kiedy sięgnąć po gotowe, a kiedy zaprojektować własne."
+    }
+  },
+  "ui": {
+    "eyebrow": "Baza wiedzy",
+    "powrot": "Wróć do bazy wiedzy",
+    "pusty": "W tym dziale nie ma jeszcze artykułów."
+  }
+}

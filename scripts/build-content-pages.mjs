@@ -99,6 +99,25 @@ export default function Page() {
 `;
     writeFileSync(join(pagesDir, file), page);
   }
+  // Strona działu powstaje tylko wtedy, gdy dział ma już artykuły. Pusty dział
+  // nie ma po co istnieć w wyszukiwarce, a link do niego i tak nie pojawia się
+  // na liście działów.
+  if (articles.length) {
+    expected.add('index.js');
+    writeFileSync(
+      join(pagesDir, 'index.js'),
+      `${GENERATED_MARKER}
+import React from 'react';
+import WiedzaKategoriaTemplate from '@site/src/components/WiedzaKategoriaTemplate';
+import artykuly from '@site/src/data/wiedza-${category}.json';
+
+export default function Page() {
+  return <WiedzaKategoriaTemplate klucz="${category}" artykuly={artykuly} />;
+}
+`,
+    );
+  }
+
   cleanGenerated(pagesDir, expected);
 
   const manifest = articles
