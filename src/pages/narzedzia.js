@@ -41,16 +41,21 @@ function daneStrukturalne() {
   };
 }
 
-// Znak na kafelku: otwor i walek w przekroju, czyli ten sam motyw, ktory
-// niesie caly dzial. Rysowany kodem, zeby kafelek nie ciagnal zadnego pliku.
+// Znak na kafelku: walek w osi otworu, w przekroju, czyli ten sam motyw, ktory
+// niesie caly dzial. Kadr jest poziomy, bo taki wypelnia szerokosc kafelka,
+// zamiast siedziec w nim jako maly kwadracik. Rysowany kodem, zeby kafelek
+// nie ciagnal zadnego pliku.
 function Znak() {
+  // Proporcje kadru sa dobrane pod wolne miejsce w kwadratowym kafelku:
+  // szerokosc do wysokosci jak 120 do 66. Wyzszy kadr rozpychal kafelek
+  // i przestawal on byc kwadratem.
   return (
-    <svg className={styles.znak} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-      <rect x="1" y="1" width="62" height="62" className={styles.znakRamka} />
-      <rect x="1" y="1" width="62" height="21" className={styles.znakKorpus} />
-      <rect x="1" y="42" width="62" height="21" className={styles.znakKorpus} />
-      <rect x="13" y="27" width="38" height="10" className={styles.znakWalek} />
-      <line x1="0" y1="32" x2="64" y2="32" className={styles.znakOs} />
+    <svg className={styles.znak} viewBox="0 0 120 66" aria-hidden="true" focusable="false">
+      <rect x="0.75" y="0.75" width="118.5" height="64.5" className={styles.znakRamka} />
+      <rect x="1" y="1" width="118" height="21" className={styles.znakKorpus} />
+      <rect x="1" y="44" width="118" height="21" className={styles.znakKorpus} />
+      <rect x="22" y="27" width="76" height="12" className={styles.znakWalek} />
+      <line x1="6" y1="33" x2="114" y2="33" className={styles.znakOs} />
     </svg>
   );
 }

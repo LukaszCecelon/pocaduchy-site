@@ -89,16 +89,18 @@
   color: var(--pc-rust);
 }
 
-/* Znak zajmuje wolna przestrzen w srodku kafelka, tytul siada pod nim. */
+/* Znak rozpiera sie na cala szerokosc kafelka i zjada wolna przestrzen w
+   srodku, a tytul siada pod nim. Wczesniej byl kwadracikiem 72 px, przez co
+   kafelek wygladal na w polowie pusty. */
 .znak {
-  width: 72px;
-  height: 72px;
-  margin: auto auto 0;
+  width: 100%;
+  height: auto;
+  margin: 4px 0 auto;
   display: block;
 }
 
 .znakRamka {
-  fill: none;
+  fill: #fbfaf8;
   stroke: var(--pc-border);
   stroke-width: 1.5;
 }
