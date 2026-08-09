@@ -399,8 +399,8 @@ function Hero() {
           </div>
           {SUBSCRIBERS ? (
             <p className={styles.subscriberNote}>
-              Już {new Intl.NumberFormat('pl-PL').format(SUBSCRIBERS)} konstruktorów
-              i inżynierów ogląda, jak to robię.
+              Już {new Intl.NumberFormat('pl-PL').format(SUBSCRIBERS)} osób ogląda,
+              jak to robię.
             </p>
           ) : null}
         </div>
