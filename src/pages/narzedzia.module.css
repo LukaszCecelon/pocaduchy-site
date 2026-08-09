@@ -197,3 +197,28 @@
     font-size: 30px;
   }
 }
+
+/* Kafelek ze zdjeciami: ten sam kadr co znak rysowany kodem, zeby oba
+   kafelki mialy identyczna wysokosc i kwadrat sie nie rozjezdzal. */
+.znakFoto {
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 120 / 66;
+  margin: 4px 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8%;
+  padding: 5px 8px;
+  overflow: hidden;
+  background: #fbfaf8;
+  border: 1.5px solid var(--pc-border);
+}
+
+.znakFoto img {
+  height: 100%;
+  min-height: 0;
+  width: auto;
+  max-width: 44%;
+  object-fit: contain;
+}

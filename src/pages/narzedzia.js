@@ -60,6 +60,18 @@ function Znak() {
   );
 }
 
+// Kafelek pierscieni pokazuje dwa pierscienie obok siebie: zewnetrzny i
+// wewnetrzny. Rysunek techniczny nie oddalby tej roznicy tak szybko jak
+// dwa ksztalty postawione obok siebie.
+function ZnakPierscienie() {
+  return (
+    <span className={styles.znakFoto} aria-hidden="true">
+      <img src="/img/pierscien-din471-3d.png" alt="" width="408" height="553" loading="lazy" />
+      <img src="/img/pierscien-din472-3d.png" alt="" width="464" height="581" loading="lazy" />
+    </span>
+  );
+}
+
 export default function Narzedzia() {
   return (
     <Layout title={tresc.meta.tytul} description={tresc.meta.opis}>
@@ -83,7 +95,7 @@ export default function Narzedzia() {
           {tresc.narzedzia.map((n) => (
             <Link key={n.url} to={n.url} className={`${styles.card} pc-cut-card`}>
               <span className={styles.cardTag}>{n.tag}</span>
-              <Znak />
+              {n.znak === 'pierscienie' ? <ZnakPierscienie /> : <Znak />}
               <h2 className={styles.cardTitle}>{n.kafelek || n.tytul}</h2>
               <span className={styles.cardDane}>{n.dane}</span>
             </Link>

@@ -8,6 +8,8 @@ import styles from './KalkulatorPierscieni.module.css';
 
 const UI = tresc.ui;
 const SREDNICA_STARTOWA = 45;
+// Maksymalna wysokosc rysunku w px. Powyzej tego wymiary gina przy geometrii.
+const WYSOKOSC_RYSUNKU = 340;
 
 const WIDOKI = {walek: WidokWalek, otwor: WidokOtwor};
 const FOTO = {
@@ -69,6 +71,11 @@ export default function KalkulatorPierscieni() {
   // Pole wpisywania stoi w miejscu srednicy nominalnej. Na rysunku sasiaduje
   // z wymiarem rowka, wiec odsuwamy je, zeby oba dalo sie przeczytac.
   const odsunD1 = typ === 'walek' ? 3.4 : -3.4;
+  // Rysunek ma byc tlem dla wymiarow, a nie odwrotnie. Ograniczamy go
+  // wysokoscia i liczymy szerokosc z proporcji viewBox, dzieki czemu
+  // geometria sie nie znieksztalca, a etykiety zyskuja przewage wielkosci.
+  const [, , szerVB, wysVB] = pozycje[typ].viewBox;
+  const szerokoscPlotna = `min(100%, ${Math.round((WYSOKOSC_RYSUNKU * szerVB) / wysVB)}px)`;
   const foto = FOTO[typ];
 
   function zmienTyp(nowy) {
@@ -113,7 +120,7 @@ export default function KalkulatorPierscieni() {
 
       <div className={styles.uklad}>
         <div>
-          <div className={styles.plotno}>
+          <div className={styles.plotno} style={{width: szerokoscPlotna}}>
             <Widok
               className={styles.cad}
               role="img"
