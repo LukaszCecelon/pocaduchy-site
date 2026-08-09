@@ -1,7 +1,7 @@
 [
   {
     "slug": "dobor-sprzegla-do-aplikacji",
-    "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
+    "title": "Jak odpowiednio dobrać sprzęgło do aplikacji?",
     "seoTitle": "Jak dobrać sprzęgło: rodzaje i kryteria",
     "description": "Sprzęgła w budowie maszyn: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe oraz cztery kryteria doboru do aplikacji.",
     "date": "2026-08-02",
@@ -24,7 +24,7 @@
   },
   {
     "slug": "kick-off-projektu-konstrukcyjnego",
-    "title": "Z pracy konstruktora: Jak zorganizować produktywny KICK-OFF projektu?",
+    "title": "Jak zorganizować produktywny KICK-OFF projektu?",
     "seoTitle": "Kick-off projektu konstrukcyjnego: agenda i role",
     "description": "Jak przygotować i poprowadzić spotkanie kick-off projektu konstrukcyjnego: przygotowanie zespołu, gotowa agenda, podział ról i utrzymanie tempa po spotkaniu.",
     "date": "2026-07-05",
@@ -35,7 +35,7 @@
   },
   {
     "slug": "szacowanie-czasu-projektowania",
-    "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
+    "title": "Dobrze oszacuj czas projektowania",
     "seoTitle": "Jak oszacować czas projektowania? Cztery metody",
     "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT.",
     "date": "2026-06-21",
@@ -46,7 +46,7 @@
   },
   {
     "slug": "narzedzia-pracy-konstruktora",
-    "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać",
+    "title": "Narzędzia pracy - co, jak i dlaczego wybrać",
     "seoTitle": "Narzędzia pracy konstruktora: CAD i sprzęt",
     "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote, narzędzia pomiarowe i drukarka 3D: pięć grup narzędzi konstruktora.",
     "date": "2026-06-07",
@@ -57,7 +57,7 @@
   },
   {
     "slug": "koszty-a-jakosc-w-projektowaniu-maszyn",
-    "title": "Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
+    "title": "Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
     "seoTitle": "Koszty w projekcie maszyny: gdzie oszczędzać",
     "description": "Jak konstruktor maszyn godzi budżet z jakością: na czym nie oszczędzać na etapie koncepcji i projektu technicznego, a gdzie realnie szukać oszczędności.",
     "date": "2026-05-24",
@@ -69,7 +69,7 @@
   },
   {
     "slug": "elementy-znormalizowane-handlowki",
-    "title": "Wybory w pracy konstruktora: 📏 Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
+    "title": "Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
     "seoTitle": "Elementy znormalizowane: handlówki w maszynach",
     "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study - śruba pasowana jako oś łożysk.",
     "date": "2026-05-10",
@@ -81,7 +81,7 @@
   },
   {
     "slug": "projektowanie-wielobrylowe-case-study",
-    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 2 - Case Study)",
+    "title": "Projektowanie wielobryłowe - czym to jeść? (Część 2 - Case Study)",
     "seoTitle": "Projektowanie wielobryłowe w CAD: case study",
     "description": "Case study projektowania wielobryłowego: baza na detal, kopiowane powierzchnie, kilka brył w jednej części, złożenie i prototyp z druku 3D w praktyce.",
     "date": "2026-02-12",
@@ -94,7 +94,7 @@
   },
   {
     "slug": "projektowanie-wielobrylowe-czesc-1",
-    "title": "Z pracy konstruktora: Projektowanie wielobryłowe - czym to jeść? (Część 1)",
+    "title": "Projektowanie wielobryłowe - czym to jeść? (Część 1)",
     "seoTitle": "Projektowanie wielobryłowe w CAD: część 1",
     "description": "Projektowanie wielobryłowe w CAD: czym jest część multi-body, kiedy pomaga przy dopasowaniu brył, a kiedy lepsze będzie klasyczne złożenie w CAD.",
     "date": "2026-02-04",
@@ -107,7 +107,7 @@
   },
   {
     "slug": "weryfikacja-cad-przed-produkcja",
-    "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
+    "title": "Weryfikacja CAD przed uruchomieniem produkcji",
     "seoTitle": "Weryfikacja CAD: checklista przed produkcją",
     "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
     "date": "2026-01-28",
@@ -120,7 +120,7 @@
   },
   {
     "slug": "umiejetnosci-poczatkujacego-konstruktora",
-    "title": "Z pracy konstruktora: Jakie umiejętności powinien rozwijać początkujący konstruktor?",
+    "title": "Jakie umiejętności powinien rozwijać początkujący konstruktor?",
     "seoTitle": "Umiejętności początkującego konstruktora maszyn",
     "description": "Dziesięć umiejętności dla początkującego konstruktora: CAD, szkicowanie, wytwarzanie, materiały, producenci, angielski, komunikacja i nauka.",
     "date": "2026-01-14",
@@ -133,7 +133,7 @@
   },
   {
     "slug": "polaczenie-wal-piasta",
-    "title": "Z pracy konstruktora: Połączenie wał-piasta - przegląd rozwiązań",
+    "title": "Połączenie wał-piasta - przegląd rozwiązań",
     "seoTitle": "Połączenie wał-piasta: przegląd rozwiązań",
     "description": "Przegląd połączeń wał-piasta: wpust, docisk, wałek zębaty, Taper Lock i tuleje rozprężno-zaciskowe z zastosowaniami, kosztami i ograniczeniami.",
     "date": "2026-01-07",
@@ -146,7 +146,7 @@
   },
   {
     "slug": "tuleje-taper-lock-dobor",
-    "title": "Z pracy konstruktora: Tuleje Taper Lock / Taper Bush - co warto wiedzieć?",
+    "title": "Tuleje Taper Lock / Taper Bush - co warto wiedzieć?",
     "seoTitle": "Tuleje Taper Lock: dobór i montaż",
     "description": "Tuleje Taper Lock w napędach: jak działają, jak dobrać tuleję do koła pasowego, jakie dają plusy i na co uważać przy montażu oraz serwisie maszyny.",
     "date": "2025-12-02",
@@ -159,7 +159,7 @@
   },
   {
     "slug": "pozornie-latwe-miejsca-projektu",
-    "title": "Z pracy konstruktora: [Case study] Pozornie \"łatwe\" miejsca w projekcie - na co uważać?",
+    "title": "[Case study] Pozornie \"łatwe\" miejsca w projekcie - na co uważać?",
     "seoTitle": "Pozornie łatwe miejsca w projekcie maszyny",
     "description": "Case study z palcami chwytaka: dlaczego prosty detal zaczął obracać się przy odkładaniu, co zmieniło kształt palców i jak podejść do testów.",
     "date": "2025-11-26",
@@ -172,7 +172,7 @@
   },
   {
     "slug": "bledy-w-projekcie-konstrukcyjnym",
-    "title": "Z pracy konstruktora: Zrobiłem błąd - co teraz? (🥶😫 vs 💡🤨)",
+    "title": "Zrobiłem błąd - co teraz?",
     "seoTitle": "Błędy w projekcie konstrukcyjnym: co robić?",
     "description": "Błędy w projekcie konstruktora: jak podejść do pomyłki, wyciągnąć wnioski, zapisać je w bazie wiedzy i ograniczyć ryzyko problemów przed produkcją.",
     "date": "2025-10-22",
@@ -185,7 +185,7 @@
   },
   {
     "slug": "onenote-notes-projektu",
-    "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
+    "title": "Jak zorganizować OneNote projektu?",
     "seoTitle": "OneNote w projekcie konstrukcyjnym",
     "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
     "date": "2025-10-02",
@@ -197,7 +197,7 @@
   },
   {
     "slug": "projektowanie-z-niepelnymi-danymi",
-    "title": "Z pracy konstruktora: Jak projektować kiedy masz niepełne dane?",
+    "title": "Jak projektować kiedy masz niepełne dane?",
     "seoTitle": "Projektowanie z niepełnymi danymi: 6 praktyk",
     "description": "Jak projektować maszynę przy niepełnych danych: lista niewiadomych, styl pracy, projektowanie falowe, alternatywy oraz komunikacja z klientem.",
     "date": "2025-09-10",
@@ -210,7 +210,7 @@
   },
   {
     "slug": "design-for-maintenance-przezbrojenia",
-    "title": "Z pracy konstruktora: Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
+    "title": "Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
     "seoTitle": "Design for maintenance: przezbrojenia maszyn",
     "description": "Design for maintenance w praktyce: moduły, kołki bazujące, dostęp operatora, osłony i dokumentacja, które realnie skracają przezbrojenia maszyny.",
     "date": "2025-08-26",
@@ -223,7 +223,7 @@
   },
   {
     "slug": "elektrozawory-pneumatyczne-dobor",
-    "title": "Z pracy konstruktora: ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
+    "title": "ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
     "seoTitle": "Elektrozawory 3/2, 5/2 i 5/3: rodzaje",
     "description": "Elektrozawory pneumatyczne w maszynach: czym różnią się zawory 3/2, 5/2 i 5/3, co oznacza NO i NC oraz jak czytać symbole zaworów w praktyce.",
     "date": "2025-07-31",
