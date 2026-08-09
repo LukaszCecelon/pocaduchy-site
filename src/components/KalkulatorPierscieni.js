@@ -62,17 +62,23 @@ function Etykieta({zaczep, wejscie, children}) {
 }
 
 export default function KalkulatorPierscieni() {
+  // Pole trzyma to, co uzytkownik wpisal, a nie liczbe. Inaczej skasowanie
+  // zawartosci zamienia sie w zero i w polu zostaje samotne 0.
   const [typ, setTyp] = useState('walek');
-  const [srednica, setSrednica] = useState(SREDNICA_STARTOWA);
+  const [wpisane, setWpisane] = useState(String(SREDNICA_STARTOWA));
   const [skopiowano, setSkopiowano] = useState(false);
 
+  const puste = wpisane.trim() === '';
+  const srednica = puste ? null : Number(wpisane);
+
   const wynik = useMemo(() => {
+    if (puste) return {trafienie: false, najblizsze: []};
     try {
       return dobierzPierscien({typ, srednica});
     } catch (e) {
       return {trafienie: false, najblizsze: []};
     }
-  }, [typ, srednica]);
+  }, [typ, srednica, puste]);
 
   const trafione = wynik.trafienie ? wynik : null;
   const walek = typ === 'walek';
@@ -84,8 +90,9 @@ export default function KalkulatorPierscieni() {
   function zmienTyp(nowy) {
     setTyp(nowy);
     const lista = listaSrednic(nowy);
-    if (!lista.includes(srednica)) {
-      setSrednica(lista.reduce((a, b) => (Math.abs(b - srednica) < Math.abs(a - srednica) ? b : a)));
+    if (srednica !== null && !lista.includes(srednica)) {
+      const blisko = lista.reduce((a, b) => (Math.abs(b - srednica) < Math.abs(a - srednica) ? b : a));
+      setWpisane(String(blisko));
     }
   }
 
@@ -129,10 +136,10 @@ export default function KalkulatorPierscieni() {
                 inputMode="numeric"
                 step="1"
                 min="3"
-                value={srednica}
-                onChange={(e) => setSrednica(Number(e.target.value))}
+                value={wpisane}
+                onChange={(e) => setWpisane(e.target.value)}
                 aria-label={walek ? UI.etykietaSrednicyWalek : UI.etykietaSrednicyOtwor}
-                style={{width: `${Math.max(2.2, String(srednica).length + 0.7)}ch`}}
+                style={{width: `${Math.max(2.2, wpisane.length + 0.7)}ch`}}
               />
             </Etykieta>
 
@@ -220,7 +227,7 @@ export default function KalkulatorPierscieni() {
             </table>
           </details>
         </>
-      ) : (
+      ) : puste ? null : (
         <div className={styles.warn}>
           <p>{UI.brakTrafienia}</p>
           {wynik.najblizsze && wynik.najblizsze.length > 0 && (
@@ -231,7 +238,7 @@ export default function KalkulatorPierscieni() {
                   key={r.d1}
                   type="button"
                   className={styles.skok}
-                  onClick={() => setSrednica(r.d1)}
+                  onClick={() => setWpisane(String(r.d1))}
                 >
                   {`⌀${pl(r.d1)}`}
                 </button>
