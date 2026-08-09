@@ -3,25 +3,29 @@
   "viewBox": [
    0,
    0,
-   342,
-   510
+   234,
+   243
   ],
-  "etykiety": {
+  "zaczepy": {
    "m": {
-    "x": 55.526,
-    "y": 18.608
+    "x": 47.62,
+    "y": 37.737,
+    "typ": "poziomPrawo"
    },
    "n": {
-    "x": 86.257,
-    "y": 18.608
+    "x": 67.342,
+    "y": 37.737,
+    "typ": "poziomLewo"
    },
    "d1": {
-    "x": 83.509,
-    "y": 41.902
+    "x": 78.799,
+    "y": 95.971,
+    "typ": "pion"
    },
    "d2": {
-    "x": 90.234,
-    "y": 41.902
+    "x": 88.645,
+    "y": 95.971,
+    "typ": "pion"
    }
   }
  },
@@ -29,27 +33,31 @@
   "viewBox": [
    0,
    0,
-   284,
-   333
+   214,
+   192
   ],
-  "etykiety": {
+  "zaczepy": {
    "m": {
-    "x": 43.521,
-    "y": 6.907
+    "x": 38.827,
+    "y": 18.146,
+    "typ": "poziomPrawo"
    },
    "n": {
-    "x": 81.232,
-    "y": 6.907
+    "x": 61.318,
+    "y": 18.146,
+    "typ": "poziomLewo"
    },
    "d2": {
-    "x": 80.528,
-    "y": 46.366
+    "x": 78.757,
+    "y": 94.76,
+    "typ": "pion"
    },
    "d1": {
-    "x": 88.275,
-    "y": 46.366
+    "x": 89.019,
+    "y": 94.76,
+    "typ": "pion"
    }
   }
  },
- "_opis": "Pozycje etykiet wymiarowych na rysunkach z Inventora, w procentach szerokosci i wysokosci viewBox. Zrodlo: ROWKI POD PIERSCIENIE OSADCZE, poCADuchy, 09.08.2026."
+ "_opis": "Punkty zaczepienia etykiet wymiarowych, w procentach kadru. Zrodlo: ROWKI POD PIERSCIENIE OSADCZE, poCADuchy, 09.08.2026."
 }

@@ -8,8 +8,6 @@ import styles from './KalkulatorPierscieni.module.css';
 
 const UI = tresc.ui;
 const SREDNICA_STARTOWA = 45;
-// Maksymalna wysokosc rysunku w px. Powyzej tego wymiary gina przy geometrii.
-const WYSOKOSC_RYSUNKU = 340;
 
 const WIDOKI = {walek: WidokWalek, otwor: WidokOtwor};
 const FOTO = {
@@ -22,31 +20,42 @@ function pl(x) {
   return String(Math.round(x * 1000) / 1000).replace('.', ',');
 }
 
-// Wymiar w formacie z rysunku: wartosc, klasa tolerancji i odchylki
-// spietrzone w powiekszonym nawiasie. Bez klasy tolerancji nawias nie
-// ma czego pokazac, wiec go nie ma.
-function Wymiar({wartosc, klasa, gora, dol, przed = '⌀', po}) {
-  const glowny = `${przed}${pl(wartosc)}${klasa ? ` ${klasa}` : ''}${po ? ` ${po}` : ''}`;
-  if (gora === undefined) {
-    return <span className={styles.wym}><span className={styles.glowny}>{glowny}</span></span>;
-  }
+// Silnik zwraca odchylki walka jako es/ei, a otworu jako ES/EI. Rowek na walku
+// jest wymiarem zewnetrznym, w otworze wewnetrznym, wiec obie formy wystepuja
+// w jednym wyniku.
+const gornaOdchylka = (o) => (o.ES !== undefined ? o.ES : o.es);
+const dolnaOdchylka = (o) => (o.EI !== undefined ? o.EI : o.ei);
+const zapisOdchylki = (znak, um) => `${znak}${pl(Math.abs(um) / 1000)}`;
+
+function opisRowka(w) {
+  return `⌀${pl(w.rowek.d2)} ${w.rowek.d2Klasa} x ${pl(w.rowek.m)} ${w.rowek.mKlasa}`;
+}
+
+// Wymiar zapisany tak jak na rysunku wykonawczym: wartosc, klasa tolerancji
+// i odchylki spietrzone w powiekszonym nawiasie. Wymiar bez klasy tolerancji
+// zadnego nawiasu nie dostaje.
+function Wymiar({glowny, gora, dol}) {
+  if (gora === undefined) return <span className={styles.glowny}>{glowny}</span>;
   return (
-    <span className={styles.wym}>
+    <>
       <span className={styles.glowny}>{glowny}</span>
       <span className={styles.naw} aria-hidden="true">(</span>
       <span className={styles.odch}>
-        <span>{`+${pl(Math.abs(gora))}`}</span>
-        <span>{`-${pl(Math.abs(dol))}`}</span>
+        <span>{gora}</span>
+        <span>{dol}</span>
       </span>
       <span className={styles.naw} aria-hidden="true">)</span>
-    </span>
+    </>
   );
 }
 
-function Etykieta({poz, pion, wejscie, children}) {
-  const klasy = [styles.et, pion ? styles.pion : '', wejscie ? styles.wejscie : ''].join(' ');
+// Etykieta zaczepiona za krawedz, nie za srodek. Punkt zaczepienia odpowiada
+// rogowi pola tekstowego z oryginalnego rysunku, wiec etykieta rosnie zawsze
+// w strone wolnego miejsca i nigdy nie wchodzi na linie wymiarowa ani na groty.
+function Etykieta({zaczep, wejscie, children}) {
+  const klasy = [styles.et, styles[zaczep.typ], wejscie ? styles.wejscie : ''].join(' ');
   return (
-    <div className={klasy} style={{left: `${poz.x}%`, top: `${poz.y}%`}}>
+    <div className={klasy} style={{left: `${zaczep.x}%`, top: `${zaczep.y}%`}}>
       {children}
     </div>
   );
@@ -66,24 +75,17 @@ export default function KalkulatorPierscieni() {
   }, [typ, srednica]);
 
   const trafione = wynik.trafienie ? wynik : null;
+  const walek = typ === 'walek';
   const Widok = WIDOKI[typ];
-  const poz = pozycje[typ].etykiety;
-  // Pole wpisywania stoi w miejscu srednicy nominalnej. Na rysunku sasiaduje
-  // z wymiarem rowka, wiec odsuwamy je, zeby oba dalo sie przeczytac.
-  const odsunD1 = typ === 'walek' ? 3.4 : -3.4;
-  // Rysunek ma byc tlem dla wymiarow, a nie odwrotnie. Ograniczamy go
-  // wysokoscia i liczymy szerokosc z proporcji viewBox, dzieki czemu
-  // geometria sie nie znieksztalca, a etykiety zyskuja przewage wielkosci.
-  const [, , szerVB, wysVB] = pozycje[typ].viewBox;
-  const szerokoscPlotna = `min(100%, ${Math.round((WYSOKOSC_RYSUNKU * szerVB) / wysVB)}px)`;
+  const zaczepy = pozycje[typ].zaczepy;
   const foto = FOTO[typ];
+  const rowek = trafione ? trafione.rowek : null;
 
   function zmienTyp(nowy) {
     setTyp(nowy);
-    if (!dostepna(nowy, srednica)) {
-      const lista = listaSrednic(nowy);
-      const blisko = lista.reduce((a, b) => (Math.abs(b - srednica) < Math.abs(a - srednica) ? b : a));
-      setSrednica(blisko);
+    const lista = listaSrednic(nowy);
+    if (!lista.includes(srednica)) {
+      setSrednica(lista.reduce((a, b) => (Math.abs(b - srednica) < Math.abs(a - srednica) ? b : a)));
     }
   }
 
@@ -98,36 +100,28 @@ export default function KalkulatorPierscieni() {
     <div className={styles.tool}>
       <div className={styles.pasek}>
         <div className={styles.seg} role="group" aria-label={UI.tryb}>
-          <button
-            type="button"
-            onClick={() => zmienTyp('walek')}
-            aria-pressed={typ === 'walek'}
-          >
+          <button type="button" onClick={() => zmienTyp('walek')} aria-pressed={walek}>
             {UI.trybWalek}
           </button>
-          <button
-            type="button"
-            onClick={() => zmienTyp('otwor')}
-            aria-pressed={typ === 'otwor'}
-          >
+          <button type="button" onClick={() => zmienTyp('otwor')} aria-pressed={!walek}>
             {UI.trybOtwor}
           </button>
         </div>
         <p className={styles.normaChip}>
-          {UI.wykonanieNormalneWg} <b>{typ === 'walek' ? UI.normaWalek : UI.normaOtwor}</b>
+          {UI.wykonanieNormalneWg} <b>{walek ? UI.normaWalek : UI.normaOtwor}</b>
         </p>
       </div>
 
       <div className={styles.uklad}>
         <div>
-          <div className={styles.plotno} style={{width: szerokoscPlotna}}>
+          <div className={styles.plotno}>
             <Widok
               className={styles.cad}
               role="img"
-              aria-label={typ === 'walek' ? UI.rysunekWalek : UI.rysunekOtwor}
+              aria-label={walek ? UI.rysunekWalek : UI.rysunekOtwor}
             />
 
-            <Etykieta poz={{x: poz.d1.x + odsunD1, y: poz.d1.y}} pion wejscie>
+            <Etykieta zaczep={zaczepy.d1} wejscie>
               <span className={styles.polePrzed} aria-hidden="true">⌀</span>
               <input
                 className={styles.wpis}
@@ -137,44 +131,37 @@ export default function KalkulatorPierscieni() {
                 min="3"
                 value={srednica}
                 onChange={(e) => setSrednica(Number(e.target.value))}
-                aria-label={typ === 'walek' ? UI.etykietaSrednicyWalek : UI.etykietaSrednicyOtwor}
-                style={{width: `${Math.max(2.6, String(srednica).length + 1.2)}em`}}
+                aria-label={walek ? UI.etykietaSrednicyWalek : UI.etykietaSrednicyOtwor}
+                style={{width: `${Math.max(2.2, String(srednica).length + 0.7)}ch`}}
               />
             </Etykieta>
 
-            <Etykieta poz={poz.d2} pion>
-              {trafione ? (
+            <Etykieta zaczep={zaczepy.d2}>
+              {rowek ? (
                 <Wymiar
-                  wartosc={trafione.rowek.d2}
-                  klasa={trafione.rowek.d2Klasa}
-                  gora={odchylkaGorna(trafione.rowek.d2Odchylki) / 1000}
-                  dol={odchylkaDolna(trafione.rowek.d2Odchylki) / 1000}
+                  glowny={`⌀${pl(rowek.d2)} ${rowek.d2Klasa}`}
+                  gora={zapisOdchylki('+', gornaOdchylka(rowek.d2Odchylki))}
+                  dol={zapisOdchylki('-', dolnaOdchylka(rowek.d2Odchylki))}
                 />
               ) : (
-                <span className={styles.glowny}>?</span>
+                <Wymiar glowny="⌀?" />
               )}
             </Etykieta>
 
-            <Etykieta poz={poz.m}>
-              {trafione ? (
+            <Etykieta zaczep={zaczepy.m}>
+              {rowek ? (
                 <Wymiar
-                  wartosc={trafione.rowek.m}
-                  klasa={trafione.rowek.mKlasa}
-                  gora={odchylkaGorna(trafione.rowek.mOdchylki) / 1000}
-                  dol={odchylkaDolna(trafione.rowek.mOdchylki) / 1000}
-                  przed=""
+                  glowny={`${pl(rowek.m)} ${rowek.mKlasa}`}
+                  gora={zapisOdchylki('+', gornaOdchylka(rowek.mOdchylki))}
+                  dol={zapisOdchylki('-', dolnaOdchylka(rowek.mOdchylki))}
                 />
               ) : (
-                <span className={styles.glowny}>?</span>
+                <Wymiar glowny="?" />
               )}
             </Etykieta>
 
-            <Etykieta poz={poz.n}>
-              {trafione ? (
-                <Wymiar wartosc={trafione.rowek.n} przed="" po={UI.min} />
-              ) : (
-                <span className={styles.glowny}>?</span>
-              )}
+            <Etykieta zaczep={zaczepy.n}>
+              <Wymiar glowny={rowek ? `${pl(rowek.n)} ${UI.min}` : '?'} />
             </Etykieta>
           </div>
           <p className={styles.nota}>{UI.notaSchemat}</p>
@@ -185,14 +172,11 @@ export default function KalkulatorPierscieni() {
             <img src={foto.plik} alt={foto.alt} width="551" height="612" loading="lazy" />
           </div>
           <div className={styles.pierscienOpis}>
-            <p className={styles.rodzaj}>{typ === 'walek' ? UI.rodzajWalek : UI.rodzajOtwor}</p>
+            <p className={styles.rodzaj}>{walek ? UI.rodzajWalek : UI.rodzajOtwor}</p>
             <p className={styles.oznaczenie}>
-              {trafione ? trafione.oznaczenie : (typ === 'walek' ? UI.normaWalek : UI.normaOtwor)}
+              {trafione ? trafione.oznaczenie : walek ? UI.normaWalek : UI.normaOtwor}
             </p>
-            <p className={styles.zakres}>{typ === 'walek' ? UI.zakresWalek : UI.zakresOtwor}</p>
-            <p className={styles.opisPierscienia}>
-              {typ === 'walek' ? UI.opisPierscieniaWalek : UI.opisPierscieniaOtwor}
-            </p>
+            <p className={styles.zakres}>{walek ? UI.zakresWalek : UI.zakresOtwor}</p>
           </div>
         </aside>
       </div>
@@ -204,66 +188,36 @@ export default function KalkulatorPierscieni() {
             <button type="button" className={styles.copy} onClick={kopiuj}>
               {skopiowano ? UI.skopiowano : UI.kopiuj}
             </button>
-            <p className={styles.luz}>
-              {UI.luzOsiowy}: <b>{`${UI.doWartosci} ${pl(trafione.luzOsiowy.maksymalny)} ${UI.jednostkaMm}`}</b>
-            </p>
           </div>
-
-          {uwagiDoPokazania(trafione).length > 0 && (
-            <div className={styles.warn}>
-              <p className={styles.warnTytul}>{UI.ostrzezenia}</p>
-              <ul>
-                {uwagiDoPokazania(trafione).map((o) => (
-                  <li key={o.kod}>{UI[`ostrzezenie_${o.kod}`] || o.tresc}</li>
-                ))}
-              </ul>
-            </div>
-          )}
 
           <details className={styles.szczegoly}>
             <summary>{UI.wszystkieWymiary}</summary>
             <table className={styles.tabela}>
               <tbody>
-                <Wiersz nazwa={UI.srednicaRowka} symbol="d2">
-                  <Wymiar
-                    wartosc={trafione.rowek.d2}
-                    klasa={trafione.rowek.d2Klasa}
-                    gora={odchylkaGorna(trafione.rowek.d2Odchylki) / 1000}
-                    dol={odchylkaDolna(trafione.rowek.d2Odchylki) / 1000}
-                  />
-                </Wiersz>
-                <Wiersz nazwa={UI.szerokoscRowka} symbol="m">
-                  <Wymiar
-                    wartosc={trafione.rowek.m}
-                    klasa={trafione.rowek.mKlasa}
-                    gora={odchylkaGorna(trafione.rowek.mOdchylki) / 1000}
-                    dol={odchylkaDolna(trafione.rowek.mOdchylki) / 1000}
-                    przed=""
-                  />
-                </Wiersz>
-                <Wiersz nazwa={UI.glebokoscRowka} symbol="t">
-                  {`${pl(trafione.rowek.glebokosc)} ${UI.jednostkaMm}`}
-                </Wiersz>
-                <Wiersz nazwa={UI.odlegloscOdCzola} symbol="n">
-                  {`${pl(trafione.rowek.n)} ${UI.jednostkaMm} ${UI.min}`}
-                </Wiersz>
-                <Wiersz nazwa={UI.gruboscPierscienia} symbol="s">
-                  {`${pl(trafione.pierscien.s)} ${UI.jednostkaMm}`}
-                </Wiersz>
-                <Wiersz nazwa={UI.srednicaSwobodna} symbol="d3">
-                  {`${pl(trafione.pierscien.d3)} ${UI.jednostkaMm}`}
-                </Wiersz>
+                <tr>
+                  <td>{UI.glebokoscRowka}</td>
+                  <td>{`${pl(rowek.glebokosc)} ${UI.jednostkaMm}`}</td>
+                  <td>t</td>
+                </tr>
+                <tr>
+                  <td>{UI.gruboscPierscienia}</td>
+                  <td>{`${pl(trafione.pierscien.s)} ${UI.jednostkaMm}`}</td>
+                  <td>s</td>
+                </tr>
+                <tr>
+                  <td>{UI.srednicaSwobodna}</td>
+                  <td>{`${pl(trafione.pierscien.d3)} ${UI.jednostkaMm}`}</td>
+                  <td>d3</td>
+                </tr>
                 {trafione.pierscien.d4 !== undefined && (
-                  <Wiersz nazwa={UI.rozstawSzczypiec} symbol="d4">
-                    {`${pl(trafione.pierscien.d4)} ${UI.jednostkaMm}`}
-                  </Wiersz>
+                  <tr>
+                    <td>{UI.rozstawSzczypiec}</td>
+                    <td>{`${pl(trafione.pierscien.d4)} ${UI.jednostkaMm}`}</td>
+                    <td>d4</td>
+                  </tr>
                 )}
-                <Wiersz nazwa={UI.luzOsiowy} symbol={UI.luzOsiowyPodpis}>
-                  {`${UI.doWartosci} ${pl(trafione.luzOsiowy.maksymalny)} ${UI.jednostkaMm}`}
-                </Wiersz>
               </tbody>
             </table>
-            <p className={styles.notaMala}>{UI.notaLuz}</p>
           </details>
         </>
       ) : (
@@ -288,40 +242,4 @@ export default function KalkulatorPierscieni() {
       )}
     </div>
   );
-}
-
-function Wiersz({nazwa, symbol, children}) {
-  return (
-    <tr>
-      <td>{nazwa}</td>
-      <td>{children}</td>
-      <td>{symbol}</td>
-    </tr>
-  );
-}
-
-// Luz osiowy wynika z klasy H13 na szerokosci rowka i przekracza 0,2 mm dla
-// kazdej srednicy z tabeli. Jako ostrzezenie zapalalby sie zawsze, wiec
-// pokazujemy go przy wyniku, a z uwag go usuwamy.
-function uwagiDoPokazania(w) {
-  return w.ostrzezenia.filter((o) => o.kod !== 'LUZ_DUZY');
-}
-
-function dostepna(typ, srednica) {
-  return listaSrednic(typ).includes(srednica);
-}
-
-// Silnik zwraca odchylki walka jako es/ei, a otworu jako ES/EI. Rowek na walku
-// jest wymiarem zewnetrznym, rowek w otworze wewnetrznym, wiec obie formy
-// wystepuja w jednym wyniku.
-function odchylkaGorna(o) {
-  return o.ES !== undefined ? o.ES : o.es;
-}
-
-function odchylkaDolna(o) {
-  return o.EI !== undefined ? o.EI : o.ei;
-}
-
-function opisRowka(w) {
-  return `⌀${pl(w.rowek.d2)} ${w.rowek.d2Klasa} x ${pl(w.rowek.m)} ${w.rowek.mKlasa}`;
 }
