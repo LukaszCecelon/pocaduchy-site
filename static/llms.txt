@@ -60,7 +60,9 @@ Strona jest po polsku i kierowana do konstruktorów, inżynierów mechaników, t
 
 ## Narzędzia
 
-- [Kalkulator pasowań ISO 286](https://pocaduchy.pl/narzedzia/pasowania): liczy luz i wcisk dla pasowań ISO 286 w zakresie średnic od 1 do 500 mm, w obu kierunkach: z pasowania na wymiary graniczne oraz z zadanego luzu na listę pasowań. Obsługuje zasadę stałego otworu i stałego wałka, pola tolerancji od A do Z i od a do z oraz klasy IT4 do IT12. Podaje odchyłki górną i dolną, wymiary graniczne otworu i wałka, tolerancję pasowania i zapis na rysunek. Wynikowi towarzyszy przekrój otworu z wałkiem oraz zdanie warsztatowe o sposobie montażu: montaż ręczny, prasa albo podgrzanie piasty i schłodzenie wałka. Pasowania uprzywilejowane są oznaczone. Kalkulator liczy geometrię pasowania, a nie nośność połączenia.
+- [Kalkulator pasowań ISO 286](https://pocaduchy.pl/narzedzia/pasowania): liczy luz i wcisk dla pasowań ISO 286 w zakresie średnic od 1 do 500 mm, w obu kierunkach: z pasowania na wymiary graniczne oraz z zadanego luzu na listę pasowań. Obsługuje zasadę stałego otworu i stałego wałka, pola tolerancji od A do Z i od a do z oraz klasy IT4 do IT13. Podaje odchyłki górną i dolną, wymiary graniczne otworu i wałka, tolerancję pasowania i zapis na rysunek. Wynikowi towarzyszy przekrój otworu z wałkiem oraz zdanie warsztatowe o sposobie montażu: montaż ręczny, prasa albo podgrzanie piasty i schłodzenie wałka. Pasowania uprzywilejowane są oznaczone. Kalkulator liczy geometrię pasowania, a nie nośność połączenia.
+
+- [Kalkulator pierścieni osadczych DIN 471/472](https://pocaduchy.pl/narzedzia/pierscienie-osadcze/): dobiera wymiary rowka pod pierścień osadczy na wałek DIN 471 albo do otworu DIN 472. Użytkownik podaje średnicę nominalną, a narzędzie zwraca średnicę rowka z klasą tolerancji, szerokość rowka H13, głębokość, minimalną odległość od czoła oraz luz osiowy. Obejmuje dane tabelaryczne dostępne w kalkulatorze: DIN 471 od 3 do 100 mm i DIN 472 od 10 do 100 mm. Pierścienie Segera są nazwą potoczną, nie nazwą normy. Kalkulator nie liczy dopuszczalnego obciążenia osiowego.
 
 ## Kontakt i kanały
 

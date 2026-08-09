@@ -39,7 +39,7 @@ function sprawdzSrednice(srednica) {
 
 function sprawdzKlase(klasa) {
   if (!Number.isInteger(klasa) || !KLASY_IT.includes(klasa)) {
-    throw new BladPasowania(`Nieobslugiwana klasa IT${klasa}. Zakres: IT4-IT12.`, "NIEZNANA_KLASA");
+    throw new BladPasowania(`Nieobslugiwana klasa IT${klasa}. Zakres: IT4-IT13.`, "NIEZNANA_KLASA");
   }
 }
 

@@ -1,0 +1,160 @@
+{
+  "_opis": "Teksty strony kalkulatora pierścieni osadczych. Edytujesz tutaj, nie w kodzie.",
+  "seoTitle": "Kalkulator pierścieni osadczych DIN 471/472",
+  "opis": "Kalkulator rowka pod pierścień osadczy DIN 471 i DIN 472. Sprawdź średnicę, szerokość, głębokość rowka, tolerancje i luz osiowy bez szukania w tablicach.",
+  "meta": {
+    "tytul": "Kalkulator pierścieni osadczych DIN 471/472",
+    "opis": "Kalkulator rowka pod pierścień osadczy DIN 471 i DIN 472. Sprawdź średnicę, szerokość, głębokość rowka, tolerancje i luz osiowy bez szukania w tablicach."
+  },
+  "h1": "Pierścienie osadcze: kalkulator rowka DIN 471 i DIN 472",
+  "naglowek": "Pierścienie osadcze: kalkulator rowka DIN 471 i DIN 472",
+  "lead": "Wpisz średnicę wałka albo otworu, a kalkulator dobierze wymiary rowka pod pierścień osadczy. Dostajesz średnicę rowka z tolerancją, szerokość w H13, głębokość, minimalną odległość od czoła i luz osiowy. To jest ta mała tabela, do której wraca się przy rysunku 2D, tylko bez przewijania normy i przepisywania wartości ręcznie.",
+  "_uiOpis": "Napisy interfejsu kalkulatora. Trzymamy je tutaj, a nie w kodzie, żeby dało się je poprawić bez dotykania Reacta.",
+  "ui": {
+    "tryb": "Typ pierścienia",
+    "trybWalek": "Na wałek",
+    "trybOtwor": "Do otworu",
+    "etykietaSrednicyWalek": "Średnica wałka",
+    "etykietaSrednicyOtwor": "Średnica otworu",
+    "placeholderSrednicy": "np. 20",
+    "jednostkaMm": "mm",
+    "wykonanie": "Wykonanie",
+    "wykonanieNormalne": "Normalne",
+    "wykonanieWzmocnione": "Wzmocnione",
+    "normaWalek": "DIN 471",
+    "normaOtwor": "DIN 472",
+    "oznaczeniePierscienia": "Oznaczenie pierścienia",
+    "wynik": "Wynik",
+    "daneRowka": "Wymiary rowka",
+    "danePierscienia": "Wymiary pierścienia",
+    "tolerancje": "Tolerancje",
+    "srednicaNominalna": "Średnica nominalna",
+    "srednicaRowka": "Średnica rowka",
+    "szerokoscRowka": "Szerokość rowka",
+    "glebokoscRowka": "Głębokość rowka",
+    "odlegloscOdCzola": "Minimalna odległość od czoła",
+    "luzOsiowy": "Luz osiowy",
+    "luzOsiowyNominalny": "Luz osiowy nominalny",
+    "luzOsiowyMaksymalny": "Luz osiowy maksymalny",
+    "gruboscPierscienia": "Grubość pierścienia",
+    "srednicaZewnetrznaPierscienia": "Średnica zewnętrzna pierścienia",
+    "srednicaWewnetrznaPierscienia": "Średnica wewnętrzna pierścienia",
+    "szerokoscPierscienia": "Szerokość pierścienia",
+    "srednicaOtworowMontazowych": "Średnica otworów montażowych",
+    "klasaSrednicyRowka": "Klasa średnicy rowka",
+    "klasaSzerokosciRowka": "Klasa szerokości rowka",
+    "wartoscNominalna": "Wartość nominalna",
+    "wymiarNajmniejszy": "Wymiar najmniejszy",
+    "wymiarNajwiekszy": "Wymiar największy",
+    "odchylkaGorna": "Odchyłka górna",
+    "odchylkaDolna": "Odchyłka dolna",
+    "kopiuj": "Kopiuj wynik",
+    "skopiowano": "Skopiowano wynik",
+    "brakTrafienia": "Ta średnica nie występuje w tabeli kalkulatora. Wybierz jedną z dostępnych średnic DIN 471 albo DIN 472.",
+    "pozaZakresemNormy": "Poza zakresem tabeli DIN w kalkulatorze. Sprawdź najbliższe średnice albo wróć do tablic źródłowych.",
+    "najblizszeSrednice": "Najbliższe średnice",
+    "uwagaWzmocnione": "Dla tej średnicy kalkulator nie ma danych wykonania wzmocnionego.",
+    "ostrzezenia": "Uwagi do wyniku",
+    "rysunekWalek": "Schemat rowka na wałku pod pierścień osadczy DIN 471",
+    "rysunekOtwor": "Schemat rowka w otworze pod pierścień osadczy DIN 472",
+    "podpisRysunkuWalek": "Rowek na wałku: średnica rowka d2 jest mniejsza od średnicy nominalnej d1.",
+    "podpisRysunkuOtwor": "Rowek w otworze: średnica rowka d2 jest większa od średnicy nominalnej d1.",
+    "notaSchemat": "Rysunek jest schematem o stałych proporcjach. Pokazuje układ wymiarów, a nie rzeczywistą skalę głębokości rowka.",
+    "notaLuz": "Luz osiowy liczony jest z szerokości rowka m i nominalnej grubości pierścienia s.",
+    "zakresWalek": "Dostępne średnice DIN 471 w kalkulatorze: 3 do 100 mm.",
+    "zakresOtwor": "Dostępne średnice DIN 472 w kalkulatorze: 10 do 100 mm.",
+    "wykonanieNormalneWg": "wykonanie normalne wg",
+    "min": "min",
+    "doWartosci": "do",
+    "wszystkieWymiary": "Wszystkie wymiary",
+    "srednicaSwobodna": "Średnica w stanie swobodnym",
+    "rozstawSzczypiec": "Rozstaw pod szczypce",
+    "luzOsiowyPodpis": "m - s",
+    "rodzajWalek": "Pierścień zewnętrzny",
+    "rodzajOtwor": "Pierścień wewnętrzny",
+    "opisPierscieniaWalek": "Rozgina się przy zakładaniu na wałek i zaciska w rowku. Trzyma element przed zsunięciem się z wałka.",
+    "opisPierscieniaOtwor": "Ściska się przy wkładaniu do otworu i rozpiera w rowku. Trzyma element przed wysunięciem się z obudowy.",
+    "fotoWalekAlt": "Pierścień osadczy zewnętrzny DIN 471, widok z góry",
+    "fotoOtworAlt": "Pierścień osadczy wewnętrzny DIN 472, widok z góry",
+    "ostrzezenie_LUZ_DUZY": "Luz osiowy przekracza 0,2 mm. Rowek jest w klasie H13, więc przy górnej granicy pierścień ma sporo miejsca. Jeśli element ma stać nieruchomo, dołóż podkładkę dystansową.",
+    "ostrzezenie_ROWEK_PLYTKI": "Rowek jest płytszy niż 0,3 mm. Przy obciążeniu udarowym pierścień łatwo z niego wyskakuje.",
+    "ostrzezenie_POZA_ZAKRESEM_WZMOCNIONYM": "Dla tej średnicy kalkulator nie ma danych wykonania wzmocnionego."
+  },
+  "sekcje": [
+    {
+      "tytul": "DIN 471 czy DIN 472",
+      "akapity": [
+        "Najpierw trzeba rozdzielić dwie sytuacje, bo geometria rowka od razu idzie w inną stronę. DIN 471 dotyczy pierścienia zewnętrznego, czyli takiego, który siedzi w rowku na wałku. Wtedy średnica rowka d2 jest mniejsza od średnicy nominalnej d1, a głębokość wynika z różnicy tych średnic podzielonej przez dwa. DIN 472 dotyczy pierścienia wewnętrznego do otworu. Tam rowek jest wykonany w korpusie, więc d2 jest większe od d1. Niby drobiazg, ale w modelu CAD łatwo pomylić kierunek, zwłaszcza gdy detal ma kilka podobnych podtoczeń. Dlatego kalkulator trzyma dwa tryby osobno i pokazuje inną normę dla wałka oraz dla otworu."
+      ]
+    },
+    {
+      "tytul": "Skąd bierze się luz osiowy",
+      "akapity": [
+        "Luz osiowy w tym kalkulatorze nie jest oceną nośności połączenia. To prosta geometria: szerokość rowka m minus nominalna grubość pierścienia s. Dla przykładu przy części rozmiarów m jest większe od s o 0,1 mm, więc pierścień ma gdzie wejść i nie klinuje się w rowku. Do tego dochodzi tolerancja szerokości rowka H13, dlatego pokazany jest też maksymalny luz wynikający z górnej granicy m. W praktyce ten luz bywa niewidoczny w modelu, ale potrafi być słyszalny albo wyczuwalny przy osiowym opieraniu tulei, łożyska lub dystansu. Jeżeli położenie części ma być naprawdę dokładne, sam pierścień osadczy może nie wystarczyć jako powierzchnia referencyjna."
+      ]
+    },
+    {
+      "tytul": "Odległość od czoła to nie ozdoba",
+      "akapity": [
+        "Rowek pod pierścień osadczy nie powinien lądować tuż przy czole wałka albo przy krawędzi otworu tylko dlatego, że w CAD jeszcze się mieści. W tabeli jest wymiar n, czyli minimalna odległość od czoła. Ten kawałek materiału pracuje jak lokalne podparcie przy montażu i przy obciążeniu osiowym, nawet jeśli kalkulator nie liczy samej nośności. Za mała odległość oznacza też większe ryzyko wyszczerbienia krawędzi, problem z fazą albo konflikt z narzędziem podczas obróbki. Klasyk: model wygląda czysto, a technolog pyta, czym ma wykonać rowek bez zjedzenia czoła. Dlatego wynik z kalkulatora warto przepisać razem z n, a nie tylko z d2 i m."
+      ]
+    },
+    {
+      "tytul": "Jak czytać oznaczenie pierścienia",
+      "akapity": [
+        "Oznaczenie pierścienia w kalkulatorze jest budowane z normy, średnicy nominalnej i grubości s. Dla pierścienia na wałek będzie to DIN 471, dla pierścienia do otworu DIN 472. Średnica nominalna d1 nie jest średnicą rowka. To rozmiar wałka albo otworu, pod który dobierasz pierścień. Dopiero z tej pozycji tabeli wynikają d2, m, n oraz pozostałe wymiary samego pierścienia. Nazwa „pierścień Segera” jest tu użyteczna, bo tak wielu ludzi szuka tych elementów w katalogach i wyszukiwarce. Nie jest jednak nazwą normy. Na rysunku technicznym trzymaj się oznaczenia DIN i wymiarów rowka, bo to one mówią wykonawcy, co ma powstać w detalu."
+      ]
+    },
+    {
+      "tytul": "Wykonanie normalne i wzmocnione",
+      "akapity": [
+        "W danych kalkulatora rowek liczony jest dla wykonania normalnego. Silnik wie też, czy dana średnica mieści się w zakresie wykonania wzmocnionego, ale nie podstawia za nie osobnej tabeli wymiarów. To ważne ograniczenie. Pierścień wzmocniony nie powinien być traktowany jak ten sam detal z dopiskiem w nazwie, bo zmienia się założenie doboru elementu katalogowego. Jeżeli w projekcie wybierasz wykonanie wzmocnione, potraktuj wynik jako punkt startu do rozmowy z katalogiem producenta i tablicą normową, nie jako gotowy komplet danych produkcyjnych. Zwłaszcza że kalkulator nie liczy dopuszczalnego obciążenia osiowego. Pokazuje geometrię rowka i luz, a nie sprawdzenie wytrzymałościowe."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Jaki rowek pod pierścień Segera na wałku?",
+      "odpowiedz": "Dla wałka używa się pierścienia osadczego zewnętrznego według DIN 471. Kalkulator dobiera średnicę rowka d2, szerokość m w tolerancji H13, głębokość oraz minimalną odległość n od czoła. Pokazuje też luz osiowy wynikający z m i s. „Pierścień Segera” to nazwa potoczna, a nie nazwa normy."
+    },
+    {
+      "pytanie": "Czym różni się DIN 471 od DIN 472?",
+      "odpowiedz": "DIN 471 dotyczy pierścieni osadczych na wałek, więc rowek jest wykonany na średnicy zewnętrznej wałka. DIN 472 dotyczy pierścieni do otworu, czyli rowka w korpusie lub tulei. W pierwszym przypadku d2 jest mniejsze od d1, w drugim większe. Dlatego tych rowków nie warto wrzucać do jednego szablonu rysunku."
+    },
+    {
+      "pytanie": "Czy kalkulator liczy wytrzymałość pierścienia osadczego?",
+      "odpowiedz": "Nie. Kalkulator podaje geometrię rowka i luz osiowy wynikający z wymiarów w tabeli. Nie ma tu danych o dopuszczalnym obciążeniu osiowym pierścienia ani rowka, więc takich wartości nie da się uczciwie policzyć z obecnych danych. Przy krytycznym zabezpieczeniu osiowym trzeba zrobić osobne sprawdzenie z katalogiem producenta."
+    },
+    {
+      "pytanie": "Dlaczego szerokość rowka jest w tolerancji H13?",
+      "odpowiedz": "Szerokość rowka m jest w danych przypisana do pola H13. Kalkulator pokazuje wymiar nominalny oraz granice wynikające z tej klasy. Dzięki temu widać nie tylko liczbę do wpisania na rysunku, ale też maksymalny luz osiowy wynikający z górnej granicy szerokości rowka. To jest praktycznie ta wartość, która później może wyjść na montażu."
+    },
+    {
+      "pytanie": "Czy można dobrać pierścień osadczy dla średnicy pośredniej?",
+      "odpowiedz": "Nie wprost. Wymiary pierścieni osadczych są skokowe, a nie ciągłe jak zwykły wzór geometryczny. Jeżeli wpisana średnica nie występuje w tabeli, kalkulator pokazuje komunikat i najbliższe dostępne średnice. Wtedy trzeba zmienić średnicę konstrukcyjną albo wrócić do katalogu. Przeliczanie „pomiędzy” wygląda kusząco, ale może dać nieistniejący element."
+    }
+  ],
+  "zobaczTez": {
+    "tytul": "Zobacz też",
+    "linki": [
+      {
+        "tekst": "Połączenie wał-piasta: przegląd rozwiązań",
+        "url": "/blog/polaczenie-wal-piasta/"
+      },
+      {
+        "tekst": "Tuleje Taper Lock / Taper Bush",
+        "url": "/blog/tuleje-taper-lock-dobor/"
+      },
+      {
+        "tekst": "Elementy znormalizowane w konstrukcji maszyn",
+        "url": "/blog/elementy-znormalizowane-handlowki/"
+      },
+      {
+        "tekst": "Kalkulator pasowań ISO 286",
+        "url": "/narzedzia/pasowania/"
+      }
+    ],
+    "spojnik": "oraz"
+  },
+  "zastrzezenie": "Kalkulator korzysta z danych tabelarycznych dla wykonania normalnego. Liczy wymiary rowka i luz osiowy, ale nie sprawdza dopuszczalnego obciążenia pierścienia ani krawędzi rowka."
+}

@@ -7,6 +7,7 @@
     "fetch:episodes": "node scripts/fetch-episodes.mjs",
     "fetch:subscribers": "node scripts/fetch-subscribers.mjs",
     "build:content": "node scripts/build-content-pages.mjs",
+    "sprawdz:pierscienie": "node scripts/sprawdz-pierscienie.mjs",
     "prestart": "node scripts/fetch-episodes.mjs && node scripts/fetch-subscribers.mjs && node scripts/build-image-sizes.mjs && node scripts/build-content-pages.mjs",
     "prebuild": "node scripts/fetch-episodes.mjs && node scripts/fetch-subscribers.mjs && node scripts/build-image-sizes.mjs && node scripts/build-content-pages.mjs",
     "start": "docusaurus start",

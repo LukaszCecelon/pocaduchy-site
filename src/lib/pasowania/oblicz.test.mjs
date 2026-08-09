@@ -220,7 +220,7 @@ const przypadkiBledow = [
   ["nieznany otwor", () => policzPasowanie({ srednica: 20, otwor: { litera: "Q", klasa: 7 }, walek: { litera: "h", klasa: 6 } }), "NIEZNANA_LITERA"],
   ["nieznany walek", () => policzPasowanie({ srednica: 20, otwor: { litera: "H", klasa: 7 }, walek: { litera: "q", klasa: 6 } }), "NIEZNANA_LITERA"],
   ["klasa za niska", () => policzPasowanie({ srednica: 20, otwor: { litera: "H", klasa: 3 }, walek: { litera: "h", klasa: 6 } }), "NIEZNANA_KLASA"],
-  ["klasa za wysoka", () => policzPasowanie({ srednica: 20, otwor: { litera: "H", klasa: 7 }, walek: { litera: "h", klasa: 13 } }), "NIEZNANA_KLASA"],
+  ["klasa za wysoka", () => policzPasowanie({ srednica: 20, otwor: { litera: "H", klasa: 7 }, walek: { litera: "h", klasa: 14 } }), "NIEZNANA_KLASA"],
   ["brak tablicy t dla malej srednicy", () => policzPasowanie({ srednica: 10, otwor: { litera: "H", klasa: 7 }, walek: { litera: "t", klasa: 6 } }), "BRAK_DANYCH"],
 ];
 
