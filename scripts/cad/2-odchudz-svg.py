@@ -2,7 +2,7 @@
 import re, io, base64, sys
 from PIL import Image
 
-def zmniejsz_obrazy(svg, maks=72):
+def zmniejsz_obrazy(svg, maks=480):
     def zamien(m):
         cala = m.group(0)
         b64 = m.group(1)

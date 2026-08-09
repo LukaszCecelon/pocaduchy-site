@@ -57,57 +57,53 @@
   align-items: start;
 }
 
-/* --- rysunek --- */
-.plotno {
-  position: relative;
-  background: var(--pc-bg);
-  border: 1px solid var(--pc-border);
-  border-radius: 10px;
-  padding: 0;
-  margin: 0 auto;
-}
 
-.cad {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
+/* Etykiety wymiarowe. Kazda jest zaczepiona za rog pola tekstowego z
+   oryginalnego rysunku, a nie za srodek: rosnie w strone wolnego miejsca,
+   wiec nigdy nie wchodzi na linie wymiarowa ani na groty strzalek. Dlatego
+   nie potrzebuja tla, ktore wczesniej zamalowywalo grafike pod spodem. */
 .et {
   position: absolute;
-  transform: translate(-50%, -50%);
   white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 16px;
+  line-height: 1.05;
   color: var(--pc-navy);
-  background: var(--pc-bg);
-  padding: 0 3px;
-  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  /* Poswiata zamiast prostokata tla: rozjasnia kreskowanie tylko wokol
+     glifow, wiec liczba jest czytelna, a groty strzalek zostaja widoczne. */
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff;
 }
 
+/* rosnie w lewo i w gore od punktu zaczepienia */
+.poziomPrawo {
+  transform: translate(-100%, -100%);
+}
+
+/* rosnie w prawo i w gore */
+.poziomLewo {
+  transform: translate(0, -100%);
+}
+
+/* obrocona o 90 stopni, czytana od dolu, rosnie w gore i w lewo */
 .pion {
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: 0 0;
+  transform: rotate(-90deg) translate(0, -100%);
 }
 
 .wejscie {
   color: var(--pc-rust);
-  font-weight: 600;
-}
-
-/* wymiar z odchylkami, zapis jak na rysunku wykonawczym */
-.wym {
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
 }
 
 .glowny {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .naw {
   display: inline-block;
-  transform: scaleY(2.05);
+  transform: scaleY(2);
   font-weight: 300;
   color: var(--pc-navy-soft);
   margin: 0 1px;
@@ -116,11 +112,30 @@
 .odch {
   display: inline-flex;
   flex-direction: column;
-  font-size: 0.66em;
-  line-height: 1.08;
-  font-weight: 500;
+  font-size: 0.63em;
+  line-height: 1.1;
+  font-weight: 600;
   color: var(--pc-navy-soft);
 }
+
+/* --- rysunek --- */
+.plotno {
+  position: relative;
+  background: var(--pc-bg);
+  border: 1px solid var(--pc-border);
+  border-radius: 10px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 380px;
+}
+
+.cad {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 
 .polePrzed {
   color: var(--pc-text-muted);
@@ -132,10 +147,10 @@
   border-bottom: 1.5px dashed var(--pc-rust);
   background: transparent;
   font: inherit;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--pc-rust);
-  text-align: center;
+  text-align: left;
   padding: 0;
   outline: none;
   font-variant-numeric: tabular-nums;
@@ -168,7 +183,11 @@
   background: #fff;
 }
 
+/* Zdjecie pierscienia jest ilustracja, nie glownym elementem. Kafel ma staly
+   sufit, wiec przy waskim ekranie nie rozrasta sie na cala szerokosc. */
 .foto {
+  max-width: 156px;
+  margin: 0 auto;
   aspect-ratio: 1 / 1;
   background: var(--pc-bg);
   display: grid;
@@ -177,9 +196,11 @@
   border-bottom: 1px solid var(--pc-border);
 }
 
+/* Zdjecie pierscienia jest ilustracja, nie glownym elementem, wiec zajmuje
+   polowe kafla. Reszta to swiatlo. */
 .foto img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import ReactMarkdown from 'react-markdown';
 import Okruszki from '@site/src/components/Okruszki';
 import KalkulatorPierscieni from '@site/src/components/KalkulatorPierscieni';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
@@ -63,17 +62,6 @@ export default function PierscienieOsadcze() {
 
         <KalkulatorPierscieni />
 
-        {tresc.sekcje.map((s) => (
-          <section key={s.tytul} className={styles.sekcja}>
-            <h2 className={styles.h2}>{s.tytul}</h2>
-            {s.akapity.map((a) => (
-              <div key={a.slice(0, 30)} className={styles.tekst}>
-                <ReactMarkdown>{a}</ReactMarkdown>
-              </div>
-            ))}
-          </section>
-        ))}
-
         <section className={styles.sekcja}>
           <h2 className={styles.h2}>Najczęstsze pytania</h2>
           {tresc.faq.map((p) => (
@@ -95,7 +83,6 @@ export default function PierscienieOsadcze() {
             ))}
             .
           </p>
-          <p className={styles.tekstProsty}>{tresc.zastrzezenie}</p>
         </section>
       </div>
     </Layout>
