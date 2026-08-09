@@ -14,7 +14,8 @@
       "tytul": "Pasowania: luz i wcisk",
       "url": "/narzedzia/pasowania",
       "opis": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk, przekrój otworu z wałkiem i jedno zdanie o tym, czym to zmontować. Działa też odwrotnie: podaj wymagany luz, a dobierze pasowanie.",
-      "dane": "ISO 286, 1 do 500 mm"
+      "dane": "ISO 286, 1 do 500 mm",
+      "znak": "przekroj"
     },
     {
       "kafelek": "Pierścienie osadcze",
@@ -22,7 +23,8 @@
       "tytul": "Rowek pod pierścień osadczy",
       "url": "/narzedzia/pierscienie-osadcze",
       "opis": "Wpisz średnicę wałka albo otworu wprost na rysunku, a dostaniesz komplet wymiarów rowka z tolerancjami: średnicę, szerokość, głębokość i odległość od czoła. Do tego luz osiowy, którego w tablicach nie ma.",
-      "dane": "DIN 471 i DIN 472, 3 do 100 mm"
+      "dane": "DIN 471 i 472, 3 do 100 mm",
+      "znak": "pierscienie"
     }
   ],
   "wKolejceTytul": "Co jest w kolejce",
