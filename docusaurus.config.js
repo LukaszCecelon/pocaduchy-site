@@ -124,6 +124,12 @@ const config = {
           // kilku artykułach kategoria niczego nie porządkuje, ale adresy
           // zdążyły trafić do sitemapy, więc muszą prowadzić do nowych.
           {from: '/wiedza/elementy', to: '/wiedza'},
+          // Wczesny artykul o tym, po co poCADuchy pokazuje warsztat, a nie
+          // sam gotowy model. Zostal usuniety przy sprzataniu 29 lipca 2026,
+          // ale zdazyl sie zaindeksowac i nadal zbiera wyswietlenia na
+          // pozycji okolo 3. Kierujemy na strone O mnie, bo to ona niesie
+          // dzis ten sam temat.
+          {from: '/blog/warsztat-zamiast-biura', to: '/o-mnie'},
           {
             from: '/wiedza/elementy/pozycjonowanie-czesci-w-maszynie',
             to: '/wiedza/pozycjonowanie-czesci-w-maszynie',

@@ -1,6 +1,6 @@
 {
   "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
-  "seoTitle": "OneNote projektu: jak zorganizować notes konstruktora",
+  "seoTitle": "OneNote w projekcie konstrukcyjnym",
   "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
   "date": "2025-10-02",
   "dateModified": "2026-08-04",
@@ -77,7 +77,7 @@
     },
     {
       "type": "tekst",
-      "body": "Osobiście posiadam też formatki ze \"sztywnymi punktami\" dla spotkań związanych z kolejnymi etapami projektu, tj.:\n\n- Spotkanie kick-off - jak dobrze je organizować pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego).\n- Koncepcja automatyki.\n- Projekt szczegółowy automatyki.\n- Start BOM.\n- Start montaż.\n- FAT.\n- SAT.\n\nPosiadanie takich predefiniowanych punktów do poruszenia na każdym z tych spotkań pomaga pamiętać o celach i nie zapomnieć o czymś istotnym. Oczywiście każde spotkanie musi mieć agendę, skrybę i podsumowanie. Więcej o tym pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego)."
+      "body": "Osobiście posiadam też formatki ze \"sztywnymi punktami\" dla spotkań związanych z kolejnymi etapami projektu, tj.:\n\n- Spotkanie kick-off - jak dobrze je organizować pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego/).\n- Koncepcja automatyki.\n- Projekt szczegółowy automatyki.\n- Start BOM.\n- Start montaż.\n- FAT.\n- SAT.\n\nPosiadanie takich predefiniowanych punktów do poruszenia na każdym z tych spotkań pomaga pamiętać o celach i nie zapomnieć o czymś istotnym. Oczywiście każde spotkanie musi mieć agendę, skrybę i podsumowanie. Więcej o tym pisałem [tutaj](/blog/kick-off-projektu-konstrukcyjnego/)."
     },
     {
       "type": "obraz",

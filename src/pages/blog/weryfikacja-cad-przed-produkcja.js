@@ -1,4 +1,4 @@
-// AUTO-WYGENEROWANE przez scripts/build-content-pages.mjs — nie edytuj ręcznie.
+// AUTO-WYGENEROWANE przez scripts/build-content-pages.mjs - nie edytuj ręcznie.
 import React from 'react';
 import BlogArticleTemplate from '@site/src/components/BlogArticleTemplate';
 import data from '@site/content/blog/weryfikacja-cad-przed-produkcja.json';

@@ -1,7 +1,7 @@
 {
   "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
   "seoTitle": "Jak oszacować czas projektowania? Cztery metody",
-  "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT - z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
+  "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT.",
   "date": "2026-06-21",
   "dateModified": "2026-08-02",
   "image": "/img/blog/szacowanie-czasu-okladka.jpg",
@@ -46,7 +46,7 @@
     },
     {
       "type": "tekst",
-      "body": "Generalnie oszacowanie czasu projektowania - o ile nie bazujemy na jakimś standardowym portfolio produktowym firmy - to naprawdę duże wyzwanie. Tak naprawdę koszt projektowania jest jednym z większych przy ofertowaniu danej instalacji (piszę o tym szerzej przy [równowadze między budżetem a jakością](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)), a o ile czas produkcji czy montażu jesteśmy w stanie relatywnie łatwo oszacować, o tyle **czas projektowania to bardzo często jedna wielka niewiadoma**."
+      "body": "Generalnie oszacowanie czasu projektowania - o ile nie bazujemy na jakimś standardowym portfolio produktowym firmy - to naprawdę duże wyzwanie. Tak naprawdę koszt projektowania jest jednym z większych przy ofertowaniu danej instalacji (piszę o tym szerzej przy [równowadze między budżetem a jakością](/blog/koszty-a-jakosc-w-projektowaniu-maszyn/)), a o ile czas produkcji czy montażu jesteśmy w stanie relatywnie łatwo oszacować, o tyle **czas projektowania to bardzo często jedna wielka niewiadoma**."
     },
     {
       "type": "tekst",
@@ -109,7 +109,7 @@
     },
     {
       "type": "tekst",
-      "body": "Na przykład:\n\n- **Na początku:** ocena ekspercka + analogia\n- **Po dopracowaniu zakresu:** parametryczna\n- **Dla ryzykownych etapów:** PERT\n\nSame szacunki spisujemy zwykle na [spotkaniu kick-off](/blog/kick-off-projektu-konstrukcyjnego) - tam też najłatwiej wyłapać moduły, które trzeba wycenić ostrożniej."
+      "body": "Na przykład:\n\n- **Na początku:** ocena ekspercka + analogia\n- **Po dopracowaniu zakresu:** parametryczna\n- **Dla ryzykownych etapów:** PERT\n\nSame szacunki spisujemy zwykle na [spotkaniu kick-off](/blog/kick-off-projektu-konstrukcyjnego/) - tam też najłatwiej wyłapać moduły, które trzeba wycenić ostrożniej."
     },
     {
       "type": "tekst",

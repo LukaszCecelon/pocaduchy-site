@@ -1,7 +1,7 @@
 {
   "title": "Kopiuj-wklej po inżyniersku (krótko o standaryzacji)",
-  "seoTitle": "Standaryzacja w biurze konstrukcyjnym: jak zacząć",
-  "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć - z przykładem tabeli elementów handlowych.",
+  "seoTitle": "Standaryzacja w biurze konstrukcyjnym",
+  "description": "Standaryzacja w biurze konstrukcyjnym: co warto standaryzować, jak zacząć i jak wygląda przykład tabeli elementów handlowych.",
   "date": "2026-07-19",
   "dateModified": "2026-08-02",
   "image": "/img/blog/standaryzacja-okladka.jpg",
@@ -55,7 +55,7 @@
     },
     {
       "type": "tekst",
-      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów - może podziałać z [handlówkami](/blog/elementy-znormalizowane-handlowki), żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
+      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów - może podziałać z [handlówkami](/blog/elementy-znormalizowane-handlowki/), żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
     },
     {
       "type": "obraz",
@@ -66,7 +66,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 2. Co standaryzować?\n\nTo będzie na pewno różniło się w zależności od profilu Waszej działalności. Jedne firmy mają całe bazy standardowych urządzeń, z których komponują linie. Inne muszą opierać się o drobniejsze elementy maszyn. Jednak w obu przypadkach korzystanie z uniwersalnych rozwiązań tworzy dźwignię wydajnościową - dokładnie tak samo jak przy [świadomym pilnowaniu kosztów w projekcie](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)."
+      "body": "## 2. Co standaryzować?\n\nTo będzie na pewno różniło się w zależności od profilu Waszej działalności. Jedne firmy mają całe bazy standardowych urządzeń, z których komponują linie. Inne muszą opierać się o drobniejsze elementy maszyn. Jednak w obu przypadkach korzystanie z uniwersalnych rozwiązań tworzy dźwignię wydajnościową - dokładnie tak samo jak przy [świadomym pilnowaniu kosztów w projekcie](/blog/koszty-a-jakosc-w-projektowaniu-maszyn/)."
     },
     {
       "type": "tekst",

@@ -1,6 +1,6 @@
 {
   "title": "Wybory w pracy konstruktora: 📏 Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
-  "seoTitle": "Elementy znormalizowane: czy warto stosować handlówki?",
+  "seoTitle": "Elementy znormalizowane: handlówki w maszynach",
   "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study - śruba pasowana jako oś łożysk.",
   "date": "2026-05-10",
   "dateModified": "2026-08-02",
@@ -71,11 +71,11 @@
     },
     {
       "type": "tekst",
-      "body": "**📏 Standaryzacja i unifikacja** - w firmach takich jak nasza, podejmujemy decyzje pozwalające nam na standaryzację niektórych elementów, dzięki czemu jeszcze bardziej optymalizujemy koszty. Na przykład: We wszystkich maszynach stosujemy określone uchwyty. Jak taki standard wypracować w całym dziale, opisałem osobno w artykule o [standaryzacji w biurze konstrukcyjnym](/blog/standaryzacja-w-biurze-konstrukcyjnym). Pozwala to mieć na magazynie większą ilość, a stosując dobre praktyki zarządzania materiałami, nie tracimy czasu, pieniędzy i przestrzeni na 10 różnych rodzajów uchwytów."
+      "body": "**📏 Standaryzacja i unifikacja** - w firmach takich jak nasza, podejmujemy decyzje pozwalające nam na standaryzację niektórych elementów, dzięki czemu jeszcze bardziej optymalizujemy koszty. Na przykład: We wszystkich maszynach stosujemy określone uchwyty. Jak taki standard wypracować w całym dziale, opisałem osobno w artykule o [standaryzacji w biurze konstrukcyjnym](/blog/standaryzacja-w-biurze-konstrukcyjnym/). Pozwala to mieć na magazynie większą ilość, a stosując dobre praktyki zarządzania materiałami, nie tracimy czasu, pieniędzy i przestrzeni na 10 różnych rodzajów uchwytów."
     },
     {
       "type": "tekst",
-      "body": "## 🔍 Gdzie ich szukać?\n\nNa rynku tak naprawdę wyróżnia się 2 dużych producentów elementów standardowych (u obu znajdziecie też [sprzęgła, o których doborze pisałem osobno](/blog/dobor-sprzegla-do-aplikacji)):\n\n- 🔗 [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol)\n- 🔗 [KIPP](https://www.kipp.pl/pl/)"
+      "body": "## 🔍 Gdzie ich szukać?\n\nNa rynku tak naprawdę wyróżnia się 2 dużych producentów elementów standardowych (u obu znajdziecie też [sprzęgła, o których doborze pisałem osobno](/blog/dobor-sprzegla-do-aplikacji/)):\n\n- 🔗 [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol)\n- 🔗 [KIPP](https://www.kipp.pl/pl/)"
     },
     {
       "type": "tekst",
@@ -87,7 +87,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 🧪 Case study – Jak zastąpić coś handlówką?\n\nOstatnio kilka razy - w miejscu gdzie nie ma wysokich prędkości obrotowych ani obciążeń - wykorzystałem zwykłą śrubę pasowaną jako oś łożysk. Gdyby się zastanowić nad kosztem projektowania, rysownia, zamawiania i produkcji takiego sworznia to zastosowanie w tym przypadku handlówki o to oszczędność rzędu 300%. To dokładnie ten rodzaj decyzji, o którym piszę szerzej przy [równoważeniu kosztów i jakości w projekcie](/blog/koszty-a-jakosc-w-projektowaniu-maszyn)."
+      "body": "## 🧪 Case study – Jak zastąpić coś handlówką?\n\nOstatnio kilka razy - w miejscu gdzie nie ma wysokich prędkości obrotowych ani obciążeń - wykorzystałem zwykłą śrubę pasowaną jako oś łożysk. Gdyby się zastanowić nad kosztem projektowania, rysownia, zamawiania i produkcji takiego sworznia to zastosowanie w tym przypadku handlówki o to oszczędność rzędu 300%. To dokładnie ten rodzaj decyzji, o którym piszę szerzej przy [równoważeniu kosztów i jakości w projekcie](/blog/koszty-a-jakosc-w-projektowaniu-maszyn/)."
     },
     {
       "type": "obraz",

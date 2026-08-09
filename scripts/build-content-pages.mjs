@@ -21,10 +21,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
 const GENERATED_MARKER =
-  '// AUTO-WYGENEROWANE przez scripts/build-content-pages.mjs — nie edytuj ręcznie.';
+  '// AUTO-WYGENEROWANE przez scripts/build-content-pages.mjs - nie edytuj ręcznie.';
 
 // Polskie znaki nie zawsze są poprawnie transliterowane przez CMS przy
-// zapisie nazwy pliku (np. "ł" zostaje "ł", nie "l") — dlatego URL strony
+// zapisie nazwy pliku (np. "ł" zostaje "ł", nie "l") - dlatego URL strony
 // liczymy zawsze sami, niezależnie od tego, jak nazwał się plik na dysku.
 const PL_MAP = {
   ą: 'a', ć: 'c', ę: 'e', ł: 'l', ń: 'n', ó: 'o', ś: 's', ź: 'z', ż: 'z',
@@ -52,7 +52,7 @@ function readJsonFiles(dir) {
 }
 
 // Usuwa pliki wygenerowane wcześniej, których artykuł źródłowy zniknął z
-// content/ (np. usunięty w CMS-ie) — rozpoznawane wyłącznie po znaczniku
+// content/ (np. usunięty w CMS-ie) - rozpoznawane wyłącznie po znaczniku
 // na początku pliku, więc ręcznie pisane strony nigdy nie zostaną ruszone.
 function cleanGenerated(pagesDir, expectedFiles) {
   if (!existsSync(pagesDir)) return;
@@ -90,6 +90,7 @@ export default function Page() {
   return (
     <WiedzaArticleTemplate
       title={data.title}
+      seoTitle={data.seoTitle}
       description={data.description}
       date={data.date}
       permalink="/wiedza/${a.slug}"
@@ -107,6 +108,7 @@ export default function Page() {
     .map((a) => ({
       slug: a.slug,
       title: a.title,
+      seoTitle: a.seoTitle || null,
       description: a.description || '',
       date: a.date || null,
     }))

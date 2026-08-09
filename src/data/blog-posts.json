@@ -2,8 +2,8 @@
   {
     "slug": "dobor-sprzegla-do-aplikacji",
     "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
-    "seoTitle": "Jak dobrać sprzęgło do aplikacji? Rodzaje i dobór",
-    "description": "Sprzęgła w budowie maszyn w praktyce: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe - budowa, zastosowania oraz cztery kryteria doboru sprzęgła do aplikacji.",
+    "seoTitle": "Jak dobrać sprzęgło: rodzaje i kryteria",
+    "description": "Sprzęgła w budowie maszyn: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe oraz cztery kryteria doboru do aplikacji.",
     "date": "2026-08-02",
     "image": "/img/blog/sprzeglo-okladka.jpg",
     "tags": [
@@ -13,8 +13,8 @@
   {
     "slug": "standaryzacja-w-biurze-konstrukcyjnym",
     "title": "Kopiuj-wklej po inżyniersku (krótko o standaryzacji)",
-    "seoTitle": "Standaryzacja w biurze konstrukcyjnym: jak zacząć",
-    "description": "Standaryzacja w biurze konstrukcyjnym: dlaczego „nie ma czasu na standardy” to najdroższy mit, co warto standaryzować i jak zacząć - z przykładem tabeli elementów handlowych.",
+    "seoTitle": "Standaryzacja w biurze konstrukcyjnym",
+    "description": "Standaryzacja w biurze konstrukcyjnym: co warto standaryzować, jak zacząć i jak wygląda przykład tabeli elementów handlowych.",
     "date": "2026-07-19",
     "image": "/img/blog/standaryzacja-okladka.jpg",
     "tags": [
@@ -37,7 +37,7 @@
     "slug": "szacowanie-czasu-projektowania",
     "title": "Wybory w pracy konstruktora: ⌚ Dobrze oszacuj czas projektowania",
     "seoTitle": "Jak oszacować czas projektowania? Cztery metody",
-    "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT - z zaletami, wadami i wzorem E = (a + 4m + b) / 6.",
+    "description": "Cztery metody szacowania czasu projektowania maszyn: ocena ekspercka, analogia historyczna, estymacja parametryczna i PERT.",
     "date": "2026-06-21",
     "image": "/img/blog/szacowanie-czasu-okladka.jpg",
     "tags": [
@@ -47,8 +47,8 @@
   {
     "slug": "narzedzia-pracy-konstruktora",
     "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać",
-    "seoTitle": "Narzędzia konstruktora: sprzęt, CAD i prototypowanie",
-    "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D - pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
+    "seoTitle": "Narzędzia pracy konstruktora: CAD i sprzęt",
+    "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote, narzędzia pomiarowe i drukarka 3D: pięć grup narzędzi konstruktora.",
     "date": "2026-06-07",
     "image": "/img/blog/narzedzia-konstruktora-okladka.jpg",
     "tags": [
@@ -58,7 +58,7 @@
   {
     "slug": "koszty-a-jakosc-w-projektowaniu-maszyn",
     "title": "Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
-    "seoTitle": "Koszty a jakość w projekcie maszyny: gdzie oszczędzać",
+    "seoTitle": "Koszty w projekcie maszyny: gdzie oszczędzać",
     "description": "Jak konstruktor maszyn godzi budżet z jakością: na czym nie oszczędzać na etapie koncepcji i projektu technicznego, a gdzie realnie szukać oszczędności.",
     "date": "2026-05-24",
     "image": "/img/blog/koszty-a-jakosc-okladka.jpg",
@@ -70,7 +70,7 @@
   {
     "slug": "elementy-znormalizowane-handlowki",
     "title": "Wybory w pracy konstruktora: 📏 Elementy znormalizowane – czy warto korzystać z gotowych rozwiązań?",
-    "seoTitle": "Elementy znormalizowane: czy warto stosować handlówki?",
+    "seoTitle": "Elementy znormalizowane: handlówki w maszynach",
     "description": "Elementy znormalizowane w konstrukcji maszyn: zalety handlówek, gdzie ich szukać (Elesa+Ganter, KIPP) oraz case study - śruba pasowana jako oś łożysk.",
     "date": "2026-05-10",
     "image": "/img/blog/handlowki-elementy-znormalizowane.jpg",
@@ -108,7 +108,7 @@
   {
     "slug": "weryfikacja-cad-przed-produkcja",
     "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
-    "seoTitle": "Weryfikacja CAD przed produkcją: checklista błędów",
+    "seoTitle": "Weryfikacja CAD: checklista przed produkcją",
     "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
     "date": "2026-01-28",
     "image": "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg",
@@ -186,7 +186,7 @@
   {
     "slug": "onenote-notes-projektu",
     "title": "Z pracy konstruktora: Jak zorganizować OneNote projektu?",
-    "seoTitle": "OneNote projektu: jak zorganizować notes konstruktora",
+    "seoTitle": "OneNote w projekcie konstrukcyjnym",
     "description": "Jak zorganizować OneNote projektu: rdzeń notesu, formatki spotkań, zadania, harmonogram i wdrożenie narzędzia w codziennej pracy konstruktora.",
     "date": "2025-10-02",
     "image": "/img/blog/onenote-notes-projektu-okladka.jpg",
@@ -211,7 +211,7 @@
   {
     "slug": "design-for-maintenance-przezbrojenia",
     "title": "Z pracy konstruktora: Design For Maintenance. Jak projektować, żeby łatwo przezbrajać?",
-    "seoTitle": "Design for maintenance: projektowanie pod przezbrojenia",
+    "seoTitle": "Design for maintenance: przezbrojenia maszyn",
     "description": "Design for maintenance w praktyce: moduły, kołki bazujące, dostęp operatora, osłony i dokumentacja, które realnie skracają przezbrojenia maszyny.",
     "date": "2025-08-26",
     "image": "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg",
@@ -224,7 +224,7 @@
   {
     "slug": "elektrozawory-pneumatyczne-dobor",
     "title": "Z pracy konstruktora: ELEKTROZAWORY PNEUMATYCZNE - co dobrze jest wiedzieć?",
-    "seoTitle": "Elektrozawory pneumatyczne: rodzaje i zastosowanie",
+    "seoTitle": "Elektrozawory 3/2, 5/2 i 5/3: rodzaje",
     "description": "Elektrozawory pneumatyczne w maszynach: czym różnią się zawory 3/2, 5/2 i 5/3, co oznacza NO i NC oraz jak czytać symbole zaworów w praktyce.",
     "date": "2025-07-31",
     "image": "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg",
