@@ -32,8 +32,8 @@ const BLOG_JSON_LD = {
 export default function Blog() {
   return (
     <Layout
-      title="Artykuły o konstruowaniu maszyn - praktyka konstruktora"
-      description="Artykuły o codziennej pracy konstruktora: dobór elementów, decyzje projektowe, koszty i praktyka warsztatowa. Konkret z realnych projektów, bez teorii z podręcznika.">
+      title="Artykuły o konstruowaniu maszyn"
+      description="Artykuły o pracy konstruktora: dobór elementów, decyzje projektowe, koszty i praktyka warsztatowa z realnych projektów.">
       <Head>
         <script type="application/ld+json">{JSON.stringify(BLOG_JSON_LD)}</script>
       </Head>

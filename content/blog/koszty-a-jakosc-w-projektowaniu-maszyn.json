@@ -1,6 +1,6 @@
 {
   "title": "Wybory w pracy konstruktora: 💰 Koszty – jak osiągnąć równowagę między budżetem, a jakością?",
-  "seoTitle": "Koszty a jakość w projekcie maszyny: gdzie oszczędzać",
+  "seoTitle": "Koszty w projekcie maszyny: gdzie oszczędzać",
   "description": "Jak konstruktor maszyn godzi budżet z jakością: na czym nie oszczędzać na etapie koncepcji i projektu technicznego, a gdzie realnie szukać oszczędności.",
   "date": "2026-05-24",
   "dateModified": "2026-08-02",
@@ -66,11 +66,11 @@
     },
     {
       "type": "tekst",
-      "body": "Duża część oszczędności bierze się z sięgania po [elementy znormalizowane zamiast projektowania od zera](/blog/elementy-znormalizowane-handlowki) - u dostawców takich jak [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol) gotowy element bywa tańszy niż sam rysunek własnej części.\n\nTaka analiza wcale nie musi (i moim zdaniem nie powinna) przybierać jakiejś utrwalonej formy. Doświadczony konstruktor potrafi robić to w trakcie samego projektowania, a potem jest w stanie uargumentować podjęte wtedy decyzje. Jak to robić na każdym z etapów?"
+      "body": "Duża część oszczędności bierze się z sięgania po [elementy znormalizowane zamiast projektowania od zera](/blog/elementy-znormalizowane-handlowki/) - u dostawców takich jak [Elesa+Ganter](https://www.elesa-ganter.pl/pl/pol) gotowy element bywa tańszy niż sam rysunek własnej części.\n\nTaka analiza wcale nie musi (i moim zdaniem nie powinna) przybierać jakiejś utrwalonej formy. Doświadczony konstruktor potrafi robić to w trakcie samego projektowania, a potem jest w stanie uargumentować podjęte wtedy decyzje. Jak to robić na każdym z etapów?"
     },
     {
       "type": "tekst",
-      "body": "## 💡 Etap koncepcji\n\nRozpoczynając projekt, musimy przede wszystkim zidentyfikować moduły łatwe i mało skomplikowane oraz te trudne i zaawansowane technicznie. Taka szybka analiza i podział pozwolą nam odpowiednio rozłożyć swój czas (ważne - to też jest koszt w projekcie). Następnie w etapie koncepcyjnym możemy oszacować, jakie rozwiązania odnośnie napędów, pneumatyki oraz rzeczy handlowych zastosujemy w każdym z modułów. Już teraz możemy wstępnie oszacować koszty każdego podzespołu i wysłać pierwsze zapytania ofertowe. Sam czas projektowania też trzeba na tym etapie wycenić, a to temat na tyle obszerny, że poświęciłem mu [osobny artykuł o metodach szacowania](/blog/szacowanie-czasu-projektowania)."
+      "body": "## 💡 Etap koncepcji\n\nRozpoczynając projekt, musimy przede wszystkim zidentyfikować moduły łatwe i mało skomplikowane oraz te trudne i zaawansowane technicznie. Taka szybka analiza i podział pozwolą nam odpowiednio rozłożyć swój czas (ważne - to też jest koszt w projekcie). Następnie w etapie koncepcyjnym możemy oszacować, jakie rozwiązania odnośnie napędów, pneumatyki oraz rzeczy handlowych zastosujemy w każdym z modułów. Już teraz możemy wstępnie oszacować koszty każdego podzespołu i wysłać pierwsze zapytania ofertowe. Sam czas projektowania też trzeba na tym etapie wycenić, a to temat na tyle obszerny, że poświęciłem mu [osobny artykuł o metodach szacowania](/blog/szacowanie-czasu-projektowania/)."
     },
     {
       "type": "tabela",

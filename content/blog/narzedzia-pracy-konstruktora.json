@@ -1,7 +1,7 @@
 {
   "title": "Wybory w pracy konstruktora: 🔧 Narzędzia pracy - co, jak i dlaczego wybrać",
-  "seoTitle": "Narzędzia konstruktora: sprzęt, CAD i prototypowanie",
-  "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote do prowadzenia projektu, narzędzia pomiarowe i drukarka 3D - pięć grup narzędzi konstruktora i wnioski z własnych zakupów.",
+  "seoTitle": "Narzędzia pracy konstruktora: CAD i sprzęt",
+  "description": "Stacja robocza pod CAD, wybór oprogramowania, OneNote, narzędzia pomiarowe i drukarka 3D: pięć grup narzędzi konstruktora.",
   "date": "2026-06-07",
   "dateModified": "2026-08-02",
   "image": "/img/blog/narzedzia-konstruktora-okladka.jpg",
@@ -10,9 +10,9 @@
     "praca konstruktora"
   ],
   "related": [
+    "umiejetnosci-poczatkujacego-konstruktora",
     "onenote-notes-projektu",
-    "elementy-znormalizowane-handlowki",
-    "kick-off-projektu-konstrukcyjnego",
+    "elektrozawory-pneumatyczne-dobor",
     "standaryzacja-w-biurze-konstrukcyjnym"
   ],
   "faq": [
@@ -73,7 +73,7 @@
     },
     {
       "type": "tekst",
-      "body": "Oczywiście, jeśli dział inżynierski jest już spory, a projekty są dość podobne, warto wdrożyć system PLM. Równolegle warto zadbać o [standaryzację powtarzalnych modułów i handlówek](/blog/standaryzacja-w-biurze-konstrukcyjnym), bo to ona daje największy zwrot z każdej godziny pracy w CAD."
+      "body": "Oczywiście, jeśli dział inżynierski jest już spory, a projekty są dość podobne, warto wdrożyć system PLM. Równolegle warto zadbać o [standaryzację powtarzalnych modułów i handlówek](/blog/standaryzacja-w-biurze-konstrukcyjnym/), bo to ona daje największy zwrot z każdej godziny pracy w CAD."
     },
     {
       "type": "tekst",
@@ -119,7 +119,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 🌐 Inżynierska baza wiedzy\n\nTabele, normy, standardy - świetnie jest mieć to w jednym miejscu. Przecież jako konstruktorzy bardzo często rysujemy jakieś podcięcia, podfrezowania, podtoczenia dla standardowych elementów, takich jak wpusty czy pierścienie zabezpieczające. Do tej samej kategorii zaliczam biblioteki modeli 3D od producentów [elementów znormalizowanych](/blog/elementy-znormalizowane-handlowki) - to baza wiedzy i oszczędność czasu w jednym.\n\nOsobiście zacząłem sobie taką bazę wiedzy tworzyć sam w OneNote. Jednak polecam też poradnik inżyniera albo stronę [Mechabook](https://mechabook.eu/index.php)."
+      "body": "## 🌐 Inżynierska baza wiedzy\n\nTabele, normy, standardy - świetnie jest mieć to w jednym miejscu. Przecież jako konstruktorzy bardzo często rysujemy jakieś podcięcia, podfrezowania, podtoczenia dla standardowych elementów, takich jak wpusty czy pierścienie zabezpieczające. Do tej samej kategorii zaliczam biblioteki modeli 3D od producentów [elementów znormalizowanych](/blog/elementy-znormalizowane-handlowki/) - to baza wiedzy i oszczędność czasu w jednym.\n\nOsobiście zacząłem sobie taką bazę wiedzy tworzyć sam w OneNote. Jednak polecam też poradnik inżyniera albo stronę [Mechabook](https://mechabook.eu/index.php)."
     },
     {
       "type": "tekst",

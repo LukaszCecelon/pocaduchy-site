@@ -1,6 +1,6 @@
 {
   "title": "Z pracy konstruktora: Weryfikacja CAD przed uruchomieniem produkcji",
-  "seoTitle": "Weryfikacja CAD przed produkcją: checklista błędów",
+  "seoTitle": "Weryfikacja CAD: checklista przed produkcją",
   "description": "Jak sprawdzić CAD przed produkcją: kolizje, otwory, części handlowe, serwis, tolerancje, przewody, wersje części i kontrola modelu przez kolegę.",
   "date": "2026-01-28",
   "dateModified": "2026-08-04",
@@ -12,9 +12,9 @@
     "praca konstruktora"
   ],
   "related": [
+    "umiejetnosci-poczatkujacego-konstruktora",
     "projektowanie-wielobrylowe-czesc-1",
-    "standaryzacja-w-biurze-konstrukcyjnym",
-    "narzedzia-pracy-konstruktora"
+    "standaryzacja-w-biurze-konstrukcyjnym"
   ],
   "narzedzia": [
     "/narzedzia/pasowania"

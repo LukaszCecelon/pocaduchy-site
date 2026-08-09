@@ -19,7 +19,7 @@
   "prywatnosc": {
     "meta": {
       "tytul": "Polityka prywatności i cookies",
-      "opis": "Kto jest administratorem danych na pocaduchy.pl, jakie dane są zbierane, w jakim celu, na jakiej podstawie prawnej i jakie masz prawa. Informacja o plikach cookies i reklamach Google."
+      "opis": "Kto administruje danymi na pocaduchy.pl, jakie dane są zbierane, po co, na jakiej podstawie oraz jak działają cookies i reklamy Google."
     },
     "naglowek": "Polityka prywatności i cookies",
     "lead": "Krótko i konkretnie: co się dzieje z danymi, kiedy odwiedzasz pocaduchy.pl. Bez prawniczej waty, ale z wszystkim, co wymaga RODO.",
@@ -105,7 +105,7 @@
   "regulamin": {
     "meta": {
       "tytul": "Regulamin serwisu pocaduchy.pl",
-      "opis": "Zasady korzystania z serwisu pocaduchy.pl: kto go prowadzi, na jakich zasadach udostępnia treści, prawa autorskie, zastrzeżenie merytoryczne przy treściach technicznych i tryb reklamacji."
+      "opis": "Zasady korzystania z pocaduchy.pl: autor serwisu, treści techniczne, prawa autorskie, reklamy i tryb zgłaszania reklamacji."
     },
     "naglowek": "Regulamin serwisu",
     "lead": "Zasady korzystania z pocaduchy.pl. Najważniejsza jest sekcja o charakterze treści technicznych, więc jeśli masz przeczytać tylko jedną, przeczytaj tę.",

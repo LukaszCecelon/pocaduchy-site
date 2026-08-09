@@ -1,7 +1,7 @@
 {
   "title": "Z pracy konstruktora: Jak odpowiednio dobrać sprzęgło do aplikacji?",
-  "seoTitle": "Jak dobrać sprzęgło do aplikacji? Rodzaje i dobór",
-  "description": "Sprzęgła w budowie maszyn w praktyce: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe - budowa, zastosowania oraz cztery kryteria doboru sprzęgła do aplikacji.",
+  "seoTitle": "Jak dobrać sprzęgło: rodzaje i kryteria",
+  "description": "Sprzęgła w budowie maszyn: kłowe, Oldhama, mieszkowe, helikalne i przeciążeniowe oraz cztery kryteria doboru do aplikacji.",
   "date": "2026-08-02",
   "dateModified": "2026-08-02",
   "image": "/img/blog/sprzeglo-okladka.jpg",
@@ -76,7 +76,7 @@
     },
     {
       "type": "tekst",
-      "body": "## 1. Krótko o samych sprzęgłach - do czego służą?\n\nMówiąc książkowo - **sprzęgło to element budowy maszyn zapewniający połączenie dwóch niezależnych wałów w celu przeniesienia momentu obrotowego**. Sprzęgło to zresztą podręcznikowy przykład [elementu znormalizowanego, którego nie ma sensu projektować samemu](/blog/elementy-znormalizowane-handlowki).\n\nPoza tym sprzęgła w budowie maszyn mogą kompensować niewspółosiowości wałów albo pełnić rolę bezpiecznika, aby przy przekroczeniu danego momentu nie uszkodzić przekładni, serwa czy silnika."
+      "body": "## 1. Krótko o samych sprzęgłach - do czego służą?\n\nMówiąc książkowo - **sprzęgło to element budowy maszyn zapewniający połączenie dwóch niezależnych wałów w celu przeniesienia momentu obrotowego**. Sprzęgło to zresztą podręcznikowy przykład [elementu znormalizowanego, którego nie ma sensu projektować samemu](/blog/elementy-znormalizowane-handlowki/).\n\nPoza tym sprzęgła w budowie maszyn mogą kompensować niewspółosiowości wałów albo pełnić rolę bezpiecznika, aby przy przekroczeniu danego momentu nie uszkodzić przekładni, serwa czy silnika."
     },
     {
       "type": "tekst",
@@ -128,7 +128,7 @@
     },
     {
       "type": "tekst",
-      "body": "### ➡️ Sprzęgło przeciążeniowe\n\nJeśli chcesz zabezpieczyć napęd przed uszkodzeniem w przypadku np. zatarcia wału biernego, warto rozważyć zastosowanie właśnie tego sprzęgła. Liczba ich rodzajów może nieraz przyprawić o ból głowy, dlatego polecam kontaktować się z dostawcą w sprawie doboru. To też dobry kandydat do [ustandaryzowania w dziale](/blog/standaryzacja-w-biurze-konstrukcyjnym), żeby każdy nie dobierał go od nowa.\n\nKiedyś korzystałem z takiego sprzęgła, osadzając na nim koło łańcuchowe napędzane od dużego motoreduktora w rozwijaku do kręgów blach."
+      "body": "### ➡️ Sprzęgło przeciążeniowe\n\nJeśli chcesz zabezpieczyć napęd przed uszkodzeniem w przypadku np. zatarcia wału biernego, warto rozważyć zastosowanie właśnie tego sprzęgła. Liczba ich rodzajów może nieraz przyprawić o ból głowy, dlatego polecam kontaktować się z dostawcą w sprawie doboru. To też dobry kandydat do [ustandaryzowania w dziale](/blog/standaryzacja-w-biurze-konstrukcyjnym/), żeby każdy nie dobierał go od nowa.\n\nKiedyś korzystałem z takiego sprzęgła, osadzając na nim koło łańcuchowe napędzane od dużego motoreduktora w rozwijaku do kręgów blach."
     },
     {
       "type": "obraz",

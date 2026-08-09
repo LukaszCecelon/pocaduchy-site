@@ -534,7 +534,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.tagline}
-      description="poCADuchy to kanał i baza wiedzy o konstruowaniu maszyn. Rysunek techniczny, CAD, dobór materiałów, tolerancje, druk 3D i montaż: realne decyzje, koszty i błędy z warsztatu konstruktora.">
+      description="poCADuchy to kanał i baza wiedzy o konstruowaniu maszyn: CAD, rysunek techniczny, tolerancje, druk 3D, montaż, koszty i błędy z praktyki.">
       <div ref={rootRef}>
         <Hero />
         <LatestEpisode />

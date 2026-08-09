@@ -49,6 +49,7 @@ function articleJsonLd({title, description, date, permalink}) {
 // w content/wiedza/<slug>.json, edytowanego ręcznie.
 export default function WiedzaArticleTemplate({
   title,
+  seoTitle,
   description,
   date,
   permalink,
@@ -56,7 +57,7 @@ export default function WiedzaArticleTemplate({
   blocks,
 }) {
   return (
-    <Layout title={title} description={description}>
+    <Layout title={seoTitle || title} description={description}>
       <Head>
         <meta property="og:type" content="article" />
         {date ? <meta property="article:published_time" content={date} /> : null}

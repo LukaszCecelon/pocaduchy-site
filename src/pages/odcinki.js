@@ -77,8 +77,8 @@ function Karta({ep}) {
 export default function Odcinki() {
   return (
     <Layout
-      title="Odcinki: filmy o konstruowaniu maszyn, CAD i druku 3D"
-      description="Wszystkie odcinki kanału poCADuchy w jednym miejscu, podzielone na działy: automatyzacja pracy konstruktora, projektowanie i konstrukcja, warsztat i druk 3D oraz zawód konstruktora.">
+      title="Odcinki poCADuchy: CAD, maszyny i druk 3D"
+      description="Wszystkie odcinki kanału poCADuchy: automatyzacja pracy konstruktora, projektowanie maszyn, warsztat, druk 3D i zawód konstruktora.">
       <Head>
         <script type="application/ld+json">{JSON.stringify(EPISODES_JSON_LD)}</script>
       </Head>
