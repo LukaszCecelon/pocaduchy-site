@@ -1,0 +1,58 @@
+{
+  "videoId": "KcbOEMd44ik",
+  "title": "Czym zajmuje się konstruktor i czym różnią się jego specjalizacje",
+  "seoTitle": "Czym zajmuje się konstruktor? Cztery specjalizacje",
+  "description": "Konstruktor produktu, form wtryskowych, maszyn produkcyjnych i konstrukcji stalowych. Czym się różnią, co ich łączy i dlaczego rzeczy wokół nas wyglądają tak, a nie inaczej.",
+  "czasTrwania": "11 min",
+  "lead": "Kubek, klamka, zawias, monitor. Prawie wszystko w zasięgu wzroku ktoś zaprojektował tak, żeby dało się to wykonać, zmontować, naprawić i wyprodukować w milionach sztuk. Ten odcinek jest o ludziach, którzy to robią.",
+  "czegoSieDowiesz": [
+    "Czym różnią się cztery główne specjalizacje konstruktorskie",
+    "Dlaczego projektowanie form wtryskowych doczekało się własnych studiów podyplomowych",
+    "Czemu projektant konstrukcji stalowych musi mieć uprawnienia",
+    "Co łączy wszystkie specjalizacje niezależnie od branży"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Konstruktor produktu",
+      "akapity": [
+        "To jego projekty najczęściej dotykamy: myszki, klawiatury, odkurzacze, rowery. Dla użytkownika ekspres ma zrobić kawę. Dla konstruktora ten sam ekspres to podzespoły, a każdy podzespół to paczka pytań.",
+        "Jaki materiał, czy łatwo się to zmontuje, czy będzie ergonomiczne, jak przygotować część pod produkcję seryjną, ile będzie kosztowała. Po takim odcinku inaczej patrzy się na półkę w sklepie ze sprzętem AGD."
+      ]
+    },
+    {
+      "tytul": "Konstruktor form wtryskowych",
+      "akapity": [
+        "Większość plastikowych detali powstaje przez wtryśnięcie gorącego tworzywa do formy. Brzmi prosto, dopóki nie zacznie się jej projektować.",
+        "Płaszczyzna podziału formy, punkt wtrysku, chłodzenie, wypchnięcie detalu i skurcz, bo tworzywo studząc się zmienia wymiary. Do tego detale są potem gdzieś montowane, więc zaczepy i punkty mocowania muszą trzymać tolerancję.",
+        "To zagadnienie jest na tyle szerokie, że powstały wokół niego całe kierunki studiów podyplomowych."
+      ]
+    },
+    {
+      "tytul": "Konstruktor maszyn produkcyjnych",
+      "akapity": [
+        "Dzięki nim produkty w ogóle trafiają na półki w masowych ilościach. Branże są różne: spożywcza, metalowa, kosmetyczna, farmaceutyczna.",
+        "Pierwsze pytanie brzmi zawsze tak samo: jak obsłużyć dany detal. Jak go podawać, orientować, transportować w obrębie urządzenia. Potem dobór napędów, siłowników, czujników, łożysk i sprzęgieł. Na koniec montaż, obsługa i serwis, które mają być wygodne i przede wszystkim bezpieczne.",
+        "To jest obszar, w którym sam się obracam: maszyny montażowe i takie, które obsługują wtryskarki. Nie projektuję rzeczy, które widzicie na półce, tylko maszyny, dzięki którym jest ich tam wystarczająco dużo."
+      ]
+    },
+    {
+      "tytul": "Projektant konstrukcji stalowych",
+      "akapity": [
+        "Ludzie o stalowych nerwach, dosłownie. Projektują konstrukcje przenoszące duże obciążenia, po których poruszają się ludzie.",
+        "Muszą mieć uprawnienia pozwalające zatwierdzić projekt i wziąć za niego pełną odpowiedzialność. Ich codzienność to obliczenia: dobór profili, połączeń, zabezpieczenia przed korozją i warunkami atmosferycznymi.",
+        "Jest tu istotna różnica względem konstruktora maszyn. Maszynę zabezpiecza się czujnikami i obwodami bezpieczeństwa. Hali przed zawaleniem pod ciężarem śniegu nie zabezpieczy żaden czujnik, tylko poprawnie wykonane obliczenie."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Praca każdego konstruktora sprowadza się do rozwiązywania problemów, niezależnie od specjalizacji.",
+    "Drugi wspólny mianownik to podejmowanie decyzji w zbiorze ograniczeń: koszt, termin, materiał, bezpieczeństwo, miejsce, możliwości produkcji.",
+    "Nie ma przycisku zrób tak, żeby było dobrze, choć przełożeni czasem tego oczekują. Tym przyciskiem jest konstruktor.",
+    "Trzecia wspólna cecha: na końcu przychodzi rzeczywistość i mówi sprawdzam."
+  ],
+  "narzedzia": [],
+  "related": [
+    "umiejetnosci-poczatkujacego-konstruktora",
+    "kick-off-projektu-konstrukcyjnego"
+  ]
+}

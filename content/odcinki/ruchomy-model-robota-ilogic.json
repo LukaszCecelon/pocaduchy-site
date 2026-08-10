@@ -1,0 +1,58 @@
+{
+  "videoId": "G7331PHjNmI",
+  "title": "Ruchomy model robota w Inventorze: kiedy się opłaca i jak go zrobić",
+  "seoTitle": "Ruchomy model robota w Inventorze (iLogic)",
+  "description": "Formularz iLogic z suwakami do sterowania osiami robota w Inventorze. Kiedy taki model ma sens, czego potrzebujesz i jak powiązać parametry, żeby nie przeliczać kątów.",
+  "czasTrwania": "14 min",
+  "lead": "Model 3D robota, którym da się ruszać suwakami, robi się w dwadzieścia minut. Zanim jednak usiądziesz do Inventora, warto odpowiedzieć sobie na pytanie, czy w tym projekcie w ogóle jest po co.",
+  "czegoSieDowiesz": [
+    "W jakich sytuacjach ruchomy model robota zwraca włożony czas, a w jakich jest przerostem formy",
+    "Czego potrzebujesz przed startem i skąd wziąć zakresy ruchu osi",
+    "Jak związać model, żeby dało się nim obracać wokół właściwych osi",
+    "Dlaczego parametry użytkownika dodaje się do parametrów wiązań, a nie ustawia zakresów w samych wiązaniach"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Kiedy to się opłaca",
+      "akapity": [
+        "U mnie automatyk był dostępny dopiero za dwa miesiące. Chciałem wcześniej sprawdzić, czy nie ma kolizji z ramą, czy robot dosięga tam, gdzie trzeba, i zasymulować punkty krytyczne, w których pobiera detal i musi być w konkretnej pozycji.",
+        "Jeśli natomiast wiesz, że robot ma pełno miejsca, a chwytak będzie prosty, to raczej przerost formy nad treścią. Wyjątkiem jest sytuacja, gdy pokazujesz klientowi na spotkaniu, jak to sięga i jak wygląda z chwytakiem.",
+        "Kluczowa jest prostota wykonania. Chodzi o to, żeby cyknąć model w dwadzieścia minut, a nie siedzieć nad nim trzy godziny. Stosunek kosztu do efektu musi być korzystny, inaczej cała zabawa traci sens."
+      ]
+    },
+    {
+      "tytul": "Czego potrzebujesz",
+      "akapity": [
+        "Strona producenta, a na niej manual. Znajdziesz tam opisy osi i, co ważniejsze, ich zakresy. Przy moim robocie było dodatkowe ograniczenie: jeśli oś pierwsza obróci się poza pewien zakres, oś druga dostaje mniejszy limit, 127 zamiast 140 stopni.",
+        "Poza tym umiejętność odszukania parametrów w pliku złożenia, dodania parametrów użytkownika i zmiany jednostki z milimetrów na stopnie. Oraz sam formularz iLogic, gdzie wystarczy wiedzieć, skąd go dodać i jak przeciągnąć parametry."
+      ]
+    },
+    {
+      "tytul": "Wiązanie modelu",
+      "akapity": [
+        "Pierwsza rzecz po imporcie: zamrożenie wszystkich elementów złożenia. Dzięki temu nadawanie wiązań jest łatwiejsze, a przy okazji nic się nie rozjedzie po drodze.",
+        "Potem para po parze: wiązanie płaszczyznami i osiami, a na końcu wiązanie kątowe wokół konkretnej osi. Przy wiązaniu kątowym korzystam z opcji z wektorem odniesienia i zawsze odklikuję automatyczny wybór, żeby samemu wskazać oś obrotu.",
+        "Częsty problem: element nie ma płaszczyzny tam, gdzie jej potrzebujesz. Wtedy wchodzę w niego, dodaję oś w osi obrotu, a na jej podstawie tworzę płaszczyznę konstrukcyjną pod zerowym kątem. Dopiero ją wiążę."
+      ]
+    },
+    {
+      "tytul": "Parametry i suwaki",
+      "akapity": [
+        "Wiązania kątowe warto ponazywać, na przykład osiami. Obok dodaje się parametry użytkownika, jeden na oś, pamiętając o zmianie jednostki na kątową.",
+        "W formularzu iLogic przeciągasz parametry użytkownika, zmieniasz typ pola z tekstowego na suwak, a we właściwościach suwaka wpisujesz minimum i maksimum wprost z manuala.",
+        "Najważniejszy krok jest na końcu: nazwę parametru użytkownika dodajesz do parametru wiązania kątowego. Dzięki temu nie trzeba ustawiać żadnych zakresów w samych wiązaniach ani niczego przeliczać. Inventor nadał wiązaniom swoje kąty przy tworzeniu, a suwak po prostu dodaje albo odejmuje od nich wartość."
+      ]
+    }
+  ],
+  "wnioski": [
+    "To nie jest rocket science, tylko kilka funkcji formularza iLogic i parametrów złożenia.",
+    "Zanim zrobisz model ruchomy, sprawdź, czy w tym projekcie odpowiada na realne pytanie. Czasem odpowiada, czasem nie.",
+    "Dodawanie parametru użytkownika do parametru wiązania oszczędza całą matematykę z zakresami.",
+    "Zakresy osi bierz z manuala producenta, łącznie z ograniczeniami zależnymi od pozycji innej osi."
+  ],
+  "narzedzia": [],
+  "related": [
+    "narzedzia-pracy-konstruktora",
+    "standaryzacja-w-biurze-konstrukcyjnym"
+  ]
+}

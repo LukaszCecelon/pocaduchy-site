@@ -1,0 +1,154 @@
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+.hero {
+  margin: 10px 0 22px;
+}
+
+.title {
+  font-size: clamp(28px, 4.5vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+
+.meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--pc-text-faint);
+  margin: 0 0 14px;
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--pc-navy-soft);
+  margin: 0;
+}
+
+/* Odtwarzacz trzyma proporcje 16:9 niezaleznie od szerokosci ekranu. */
+.odtwarzacz {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--pc-border);
+  background: var(--pc-navy);
+  margin: 0 0 34px;
+}
+
+.odtwarzacz iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.sekcja {
+  margin: 0 0 32px;
+}
+
+.h2 {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.tekst {
+  font-size: 16.5px;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.lista,
+.wnioski {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+.lista li,
+.wnioski li {
+  margin-bottom: 8px;
+}
+
+.wnioski {
+  list-style: none;
+  padding-left: 0;
+}
+
+.wnioski li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.wnioski li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 10px;
+  height: 2px;
+  background: var(--pc-rust);
+}
+
+.kafle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.kafel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid var(--pc-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.kafel:hover {
+  border-color: var(--pc-navy);
+  text-decoration: none;
+  color: inherit;
+}
+
+.kafelTag {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+  font-weight: 700;
+}
+
+.kafelTytul {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.kafelDane {
+  font-size: 12.5px;
+  color: var(--pc-text-muted);
+}
+
+.powrot {
+  font-size: 14px;
+  color: var(--pc-text-muted);
+  border-top: 1px solid var(--pc-border);
+  padding-top: 18px;
+  margin: 0;
+}

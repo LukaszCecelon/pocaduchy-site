@@ -1,11 +1,13 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Okruszki from '@site/src/components/Okruszki';
 import {SITE_URL, formatShortDatePl} from '@site/src/lib/site';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
 import redakcja from '@site/content/odcinki.json';
+import stronyOdcinkow from '../data/odcinki-strony.json';
 
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 
@@ -16,6 +18,11 @@ const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 const EPISODES = episodesData.episodes
   .filter((e) => !e.isShort)
   .map((e) => ({...e, ...(redakcja.odcinki?.[e.id] || {})}));
+
+// Odcinki, ktore maja juz wlasna strone z opisem. Kafelek prowadzi wtedy tam,
+// a nie prosto na YouTube: widz dostaje streszczenie i moze zdecydowac, czy
+// chce ogladac, a wyszukiwarka dostaje tresc do zaindeksowania.
+const STRONY = new Map((stronyOdcinkow || []).map((o) => [o.videoId, o]));
 
 const DZIALY = redakcja.dzialy || [];
 const DZIAL_DOMYSLNY = redakcja.dzialDomyslny || DZIALY[0]?.id;
@@ -53,12 +60,9 @@ const EPISODES_JSON_LD = {
 };
 
 function Karta({ep}) {
-  return (
-    <a
-      href={ep.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`${styles.card} pc-cut-card`}>
+  const strona = STRONY.get(ep.id);
+  const wnetrze = (
+    <>
       <div className={styles.thumb}>
         <img src={ep.thumbnail} alt={`Miniatura odcinka: ${ep.title}`} loading="lazy" />
         <div className={styles.playBadge}>
@@ -67,9 +71,30 @@ function Karta({ep}) {
       </div>
       <div className={styles.meta}>
         <span className={styles.epDate}>{formatShortDatePl(ep.published)}</span>
-        <span className={styles.epTitle}>{ep.title}</span>
-        {ep.opis ? <span className={styles.epOpis}>{ep.opis}</span> : null}
+        <span className={styles.epTitle}>{strona ? strona.title : ep.title}</span>
+        {strona || ep.opis ? (
+          <span className={styles.epOpis}>{strona ? strona.description : ep.opis}</span>
+        ) : null}
+        {strona ? <span className={styles.epWiecej}>Opis odcinka →</span> : null}
       </div>
+    </>
+  );
+
+  if (strona) {
+    return (
+      <Link to={`/odcinki/${strona.slug}/`} className={`${styles.card} pc-cut-card`}>
+        {wnetrze}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={ep.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${styles.card} pc-cut-card`}>
+      {wnetrze}
     </a>
   );
 }
