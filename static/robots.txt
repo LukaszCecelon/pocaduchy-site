@@ -59,4 +59,11 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+# --- Nieistniejace juz sciezki ---
+# Panel CMS-a zostal usuniety w sierpniu 2026. Google zna ten adres z czasow,
+# gdy istnial, i przy kazdym obejsciu zglasza go jako blad 404. Zakaz
+# odwiedzania konczy te probe.
+User-agent: *
+Disallow: /admin
+
 Sitemap: https://pocaduchy.pl/sitemap.xml

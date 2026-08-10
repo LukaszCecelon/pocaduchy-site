@@ -393,7 +393,7 @@ function Hero() {
               className={`${styles.btnPrimary} pc-cut`}>
               Subskrybuj na YouTube →
             </a>
-            <Link to="/blog" className={`${styles.btnGhost} pc-cut`}>
+            <Link to="/blog/" className={`${styles.btnGhost} pc-cut`}>
               Czytaj artykuły
             </Link>
           </div>

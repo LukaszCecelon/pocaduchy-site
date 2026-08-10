@@ -123,16 +123,16 @@ const config = {
           // Wiedza miała przez chwilę działy. Zrezygnowaliśmy z nich, bo przy
           // kilku artykułach kategoria niczego nie porządkuje, ale adresy
           // zdążyły trafić do sitemapy, więc muszą prowadzić do nowych.
-          {from: '/wiedza/elementy', to: '/wiedza'},
+          {from: '/wiedza/elementy', to: '/wiedza/'},
           // Wczesny artykul o tym, po co poCADuchy pokazuje warsztat, a nie
           // sam gotowy model. Zostal usuniety przy sprzataniu 29 lipca 2026,
           // ale zdazyl sie zaindeksowac i nadal zbiera wyswietlenia na
           // pozycji okolo 3. Kierujemy na strone O mnie, bo to ona niesie
           // dzis ten sam temat.
-          {from: '/blog/warsztat-zamiast-biura', to: '/o-mnie'},
+          {from: '/blog/warsztat-zamiast-biura', to: '/o-mnie/'},
           {
             from: '/wiedza/elementy/pozycjonowanie-czesci-w-maszynie',
-            to: '/wiedza/pozycjonowanie-czesci-w-maszynie',
+            to: '/wiedza/pozycjonowanie-czesci-w-maszynie/',
           },
         ],
       },
@@ -354,12 +354,12 @@ const config = {
         },
         items: [
           {to: '/', label: 'Główna', position: 'left'},
-          {to: '/wiedza', label: 'Wiedza', position: 'left'},
-          {to: '/narzedzia', label: 'Narzędzia', position: 'left'},
-          {to: '/blog', label: 'Artykuły', position: 'left'},
-          {to: '/odcinki', label: 'Odcinki', position: 'left'},
-          {to: '/uslugi', label: 'Usługi', position: 'left'},
-          {to: '/o-mnie', label: 'O mnie', position: 'left'},
+          {to: '/wiedza/', label: 'Wiedza', position: 'left'},
+          {to: '/narzedzia/', label: 'Narzędzia', position: 'left'},
+          {to: '/blog/', label: 'Artykuły', position: 'left'},
+          {to: '/odcinki/', label: 'Odcinki', position: 'left'},
+          {to: '/uslugi/', label: 'Usługi', position: 'left'},
+          {to: '/o-mnie/', label: 'O mnie', position: 'left'},
           {
             href: 'https://youtube.com/@pocaduchy',
             label: 'SUBSKRYBUJ',
@@ -374,19 +374,19 @@ const config = {
           {
             title: 'Strona',
             items: [
-              {label: 'Wiedza', to: '/wiedza'},
-              {label: 'Narzędzia', to: '/narzedzia'},
-              {label: 'Artykuły', to: '/blog'},
-              {label: 'Odcinki', to: '/odcinki'},
-              {label: 'Usługi', to: '/uslugi'},
-              {label: 'O mnie', to: '/o-mnie'},
+              {label: 'Wiedza', to: '/wiedza/'},
+              {label: 'Narzędzia', to: '/narzedzia/'},
+              {label: 'Artykuły', to: '/blog/'},
+              {label: 'Odcinki', to: '/odcinki/'},
+              {label: 'Usługi', to: '/uslugi/'},
+              {label: 'O mnie', to: '/o-mnie/'},
             ],
           },
           {
             title: 'Formalności',
             items: [
-              {label: 'Polityka prywatności i cookies', to: '/polityka-prywatnosci'},
-              {label: 'Regulamin', to: '/regulamin'},
+              {label: 'Polityka prywatności i cookies', to: '/polityka-prywatnosci/'},
+              {label: 'Regulamin', to: '/regulamin/'},
             ],
           },
           {
