@@ -1,0 +1,42 @@
+{
+  "wymiar": "moment",
+  "meta": {
+    "tytul": "Moment obrotowy: przelicznik jednostek",
+    "opis": "Przelicz moment obrotowy: N·m, N·mm, kgf·m, lbf·ft, lbf·in i ozf·in. Przydatne przy kluczach dynamometrycznych, montażu i tabelach dokręcania z USA."
+  },
+  "naglowek": "Moment obrotowy: przelicznik jednostek",
+  "lead": "Moment obrotowy jest prosty, dopóki ktoś nie poda tabeli dokręcania w lbf·in, a klucz na stole ma skalę w N·m.",
+  "wstep": [
+    "Moment to siła razy ramię. W dokumentacji europejskiej najczęściej wystarczy N·m albo N·mm. Schody zaczynają się przy instrukcjach z USA, starszych tabelach dokręcania i małych napędach, gdzie pojawia się lbf·ft, lbf·in, kgf·cm albo ozf·in.",
+    "Najbardziej zdradliwe są jednostki imperialne, bo wyglądają podobnie. Lbf·ft i lbf·in różnią się dokładnie 12 razy. Na kluczu dynamometrycznym albo w instrukcji serwisowej taki błąd nie jest elegancką literówką, tylko przepisem na zerwany gwint.",
+    "Warto też pamiętać, że N·m jako moment i J jako energia mają ten sam wymiar bazowy, ale inny sens. Przy dokręcaniu śruby nie wpisujemy dżuli, nawet jeśli algebra jednostek próbuje udawać, że wszystko jest jedno."
+  ],
+  "pulapki": [
+    {
+      "tytul": "Lbf·ft kontra lbf·in",
+      "tresc": "1 lbf·ft to około 1,35582 N·m, a 1 lbf·in to około 0,112985 N·m. Różnica jest dwunastokrotna. Na małym kluczu dynamometrycznym skrót bywa drobny, a gwint nie ma poczucia humoru."
+    },
+    {
+      "tytul": "KgF razy metr w starych tabelach",
+      "tresc": "1 kgf·m to dokładnie 9,80665 N·m. Jeśli stara instrukcja podaje 12 kgf·m, to jest około 117,68 N·m, a nie 12 N·m. Ten błąd jest częsty przy przepisywaniu tabel do arkusza."
+    },
+    {
+      "tytul": "N·mm nie jest małym N·m z ozdobnikiem",
+      "tresc": "1 N·mm to dokładnie 0,001 N·m. W obliczeniach wałów i wpustów to wygodny zapis, bo geometria jest w milimetrach. Przy doborze klucza trzeba jednak wrócić do N·m albo cN·m, zależnie od narzędzia."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Ile N·m ma 1 lbf·ft?",
+      "odpowiedz": "1 lbf·ft ma około 1,35582 N·m. W praktyce 50 lbf·ft to około 67,79 N·m, czyli już normalny moment dokręcania, nie drobiazg."
+    },
+    {
+      "pytanie": "Ile N·m ma 1 lbf·in?",
+      "odpowiedz": "1 lbf·in ma około 0,112985 N·m. To dokładnie 1/12 lbf·ft, bo cal jest jedną dwunastą stopy."
+    },
+    {
+      "pytanie": "Czy 1 kgf·cm to 0,0980665 N·m?",
+      "odpowiedz": "Tak. 1 kgf·cm to dokładnie 0,0980665 N·m. Ta jednostka często pojawia się przy małych serwach i siłownikach elektrycznych z katalogów azjatyckich."
+    }
+  ]
+}

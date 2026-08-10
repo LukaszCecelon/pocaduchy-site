@@ -72,6 +72,29 @@ function ZnakPierscienie() {
   );
 }
 
+// Kafelek przelicznika: jedna linia z dwiema podzialkami, gesta u gory
+// i rzadka u dolu. To jest cala idea narzedzia pokazana bez ani jednego slowa:
+// ta sama odleglosc, dwa rozne sposoby jej opisania.
+function ZnakPrzelicznik() {
+  const gora = Array.from({length: 21}, (_, i) => 10 + i * 5);
+  const dol = Array.from({length: 9}, (_, i) => 10 + i * 12.5);
+  return (
+    <svg className={styles.znak} viewBox="0 0 120 66" aria-hidden="true" focusable="false">
+      <rect x="0.75" y="0.75" width="118.5" height="64.5" className={styles.znakRamka} />
+      <line x1="10" y1="33" x2="110" y2="33" className={styles.znakOs} />
+      {gora.map((x, i) => (
+        <line key={`g${x}`} x1={x} y1="33" x2={x} y2={i % 5 === 0 ? 17 : 24} className={styles.znakOs} />
+      ))}
+      {dol.map((x) => (
+        <line key={`d${x}`} x1={x} y1="33" x2={x} y2="49" className={styles.znakOs} />
+      ))}
+      <rect x="8" y="31" width="104" height="4" className={styles.znakWalek} />
+    </svg>
+  );
+}
+
+const ZNAKI = {pierscienie: ZnakPierscienie, przelicznik: ZnakPrzelicznik};
+
 export default function Narzedzia() {
   return (
     <Layout title={tresc.meta.tytul} description={tresc.meta.opis}>
@@ -92,14 +115,17 @@ export default function Narzedzia() {
         </div>
 
         <div className={styles.grid}>
-          {tresc.narzedzia.map((n) => (
-            <Link key={n.url} to={n.url} className={`${styles.card} pc-cut-card`}>
-              <span className={styles.cardTag}>{n.tag}</span>
-              {n.znak === 'pierscienie' ? <ZnakPierscienie /> : <Znak />}
-              <h2 className={styles.cardTitle}>{n.kafelek || n.tytul}</h2>
-              <span className={styles.cardDane}>{n.dane}</span>
-            </Link>
-          ))}
+          {tresc.narzedzia.map((n) => {
+            const ZnakKafelka = ZNAKI[n.znak] || Znak;
+            return (
+              <Link key={n.url} to={n.url} className={`${styles.card} pc-cut-card`}>
+                <span className={styles.cardTag}>{n.tag}</span>
+                <ZnakKafelka />
+                <h2 className={styles.cardTitle}>{n.kafelek || n.tytul}</h2>
+                <span className={styles.cardDane}>{n.dane}</span>
+              </Link>
+            );
+          })}
         </div>
 
         <section className={styles.kolejka}>

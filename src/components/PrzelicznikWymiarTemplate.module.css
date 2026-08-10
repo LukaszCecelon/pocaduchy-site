@@ -1,0 +1,221 @@
+.wrap {
+  padding: 56px 32px 96px;
+  max-width: 920px;
+  margin: 0 auto;
+  /* Kontener jest elementem ukladu elastycznego Docusaurusa. Bez jawnej
+     szerokosci dobiera ja do zawartosci, wiec tabela z minimalna szerokoscia
+     rozpychalaby cala strone zamiast przewijac sie sama. */
+  width: 100%;
+  min-width: 0;
+}
+
+.hero {
+  padding-bottom: 26px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.12;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: var(--pc-text-muted);
+  margin: 0;
+  max-width: 68ch;
+}
+
+.sekcja {
+  margin-top: 40px;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--pc-rust);
+}
+
+.h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  color: var(--pc-navy);
+}
+
+.tekst {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--pc-text-muted);
+  max-width: 70ch;
+  margin: 0 0 14px;
+}
+
+.tekstMaly {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pc-text-faint);
+  max-width: 70ch;
+  margin: 0 0 14px;
+}
+
+.pulapka {
+  border-left: 3px solid var(--pc-rust);
+  padding-left: 16px;
+  margin-bottom: 8px;
+}
+
+.pulapka .h3 {
+  margin-top: 0;
+}
+
+/* ---------- tabela przeliczen ---------- */
+
+.przewijak {
+  overflow-x: auto;
+  border: 1px solid var(--pc-border);
+  background: #fff;
+}
+
+.tabela {
+  /* Motyw Docusaurusa ustawia tabelom display: block z wlasnym przewijaniem.
+     Wiersz przestaje wtedy rozciagac sie na cala szerokosc, wiec wracamy do
+     zwyklej tabeli, a przewijanie bierze na siebie kontener .przewijak. */
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 14.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela th,
+.tabela td {
+  padding: 9px 14px;
+  text-align: right;
+  border-bottom: 1px solid var(--pc-border);
+  color: var(--pc-text-muted);
+  white-space: nowrap;
+}
+
+.tabela thead th {
+  background: var(--pc-navy);
+  color: var(--pc-bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: right;
+}
+
+.tabela thead th:first-child,
+.tabela tbody th {
+  text-align: left;
+}
+
+.tabela tbody th {
+  font-weight: 400;
+}
+
+.tabela tbody th b {
+  color: var(--pc-navy);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.tabela tbody th span {
+  color: var(--pc-text-faint);
+  font-size: 13px;
+}
+
+.tabela tbody tr:last-child td,
+.tabela tbody tr:last-child th {
+  border-bottom: none;
+}
+
+/* ---------- definicje ---------- */
+
+.definicje {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.def {
+  border: 1px solid var(--pc-border);
+  border-radius: 11px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.defTytul {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pc-navy);
+}
+
+.defTytul small {
+  font-weight: 400;
+  color: var(--pc-text-muted);
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.def p {
+  margin: 0 0 7px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+}
+
+.def p:last-child {
+  margin-bottom: 0;
+}
+
+.gdzie::before {
+  content: 'Gdzie to spotkasz: ';
+  font-weight: 600;
+  color: var(--pc-navy);
+}
+
+/* ---------- linki na dole ---------- */
+
+.linki {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.link {
+  border: 1px solid var(--pc-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14.5px;
+  color: var(--pc-navy);
+  background: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  border-color: var(--pc-navy);
+  color: var(--pc-rust);
+  text-decoration: none;
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 40px 20px 72px;
+  }
+}

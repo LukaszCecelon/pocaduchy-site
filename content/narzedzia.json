@@ -25,12 +25,20 @@
       "opis": "Wpisz średnicę wałka albo otworu wprost na rysunku, a dostaniesz komplet wymiarów rowka z tolerancjami: średnicę, szerokość, głębokość i odległość od czoła. Do tego luz osiowy, którego w tablicach nie ma.",
       "dane": "DIN 471 i 472, 3 do 100 mm",
       "znak": "pierscienie"
+    },
+    {
+      "kafelek": "Przelicznik jednostek",
+      "tag": "Przelicznik",
+      "tytul": "Przelicznik jednostek dla konstruktora",
+      "url": "/przelicznik/",
+      "opis": "157 jednostek w 20 wielkościach, razem z tymi, które siedzą w polskiej dokumentacji i których angielskie przeliczniki nie znają: kgf, kG, at, KM, obr/min. Pod wynikiem od razu tabela z pozostałymi jednostkami i wyjaśnienie, skąd się która bierze.",
+      "dane": "157 jednostek, 20 wielkości",
+      "znak": "przelicznik"
     }
   ],
   "wKolejceTytul": "Co jest w kolejce",
   "wKolejceOpis": "Kolejność wynika z tego, po co sam najczęściej sięgam do tablic albo do kalkulatora w telefonie.",
   "wKolejce": [
-    "Przelicznik jednostek po polsku, z jednostkami, które faktycznie występują w dokumentacji: Nm, kgf, bar, cal, mesh.",
     "Dobór śruby: klasa wytrzymałości, moment dokręcania i siła w połączeniu.",
     "Wpust pryzmatyczny: sprawdzenie nacisków powierzchniowych dla przenoszonego momentu.",
     "Chropowatość: przełożenie Ra, Rz i klas na metodę obróbki.",
