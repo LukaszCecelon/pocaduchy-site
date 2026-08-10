@@ -213,3 +213,12 @@
   color: var(--pc-text-muted);
   margin-top: 4px;
 }
+
+/* Sygnal, ze kafelek prowadzi na strone z opisem, a nie prosto na YouTube. */
+.epWiecej {
+  display: block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--pc-rust);
+}

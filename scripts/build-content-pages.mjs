@@ -177,11 +177,70 @@ export default function Page() {
   return manifest.length;
 }
 
+
+// Strony pojedynczych odcinkow. Fakty o filmie (data, miniatura, adres) biora
+// sie z danych pobranych z kanalu, wiec plik tresci trzyma wylacznie to, co
+// zostalo napisane recznie: streszczenie, sekcje i wnioski.
+function writeOdcinki() {
+  const contentDir = join(ROOT, 'content', 'odcinki');
+  const pagesDir = join(ROOT, 'src', 'pages', 'odcinki');
+  const dataDir = join(ROOT, 'src', 'data');
+  const odcinki = readJsonFiles(contentDir);
+
+  mkdirSync(pagesDir, {recursive: true});
+  mkdirSync(dataDir, {recursive: true});
+
+  const expected = new Set();
+  for (const o of odcinki) {
+    const file = `${o.slug}.js`;
+    expected.add(file);
+    const page = `${GENERATED_MARKER}
+import React from 'react';
+import OdcinekTemplate from '@site/src/components/OdcinekTemplate';
+import data from '@site/content/odcinki/${o.file}.json';
+
+export default function Page() {
+  return (
+    <OdcinekTemplate
+      videoId={data.videoId}
+      title={data.title}
+      seoTitle={data.seoTitle}
+      description={data.description}
+      permalink="/odcinki/${o.slug}/"
+      lead={data.lead}
+      czasTrwania={data.czasTrwania}
+      czegoSieDowiesz={data.czegoSieDowiesz}
+      sekcje={data.sekcje}
+      wnioski={data.wnioski}
+      narzedzia={data.narzedzia}
+      related={data.related}
+    />
+  );
+}
+`;
+    writeFileSync(join(pagesDir, file), page);
+  }
+  cleanGenerated(pagesDir, expected);
+
+  // Manifest pozwala liscie odcinkow rozpoznac, ktore filmy maja juz wlasna
+  // strone, i skierowac kafelek tam zamiast prosto na YouTube.
+  const manifest = odcinki.map((o) => ({
+    slug: o.slug,
+    videoId: o.videoId,
+    title: o.title,
+    description: o.description || '',
+  }));
+  writeFileSync(join(dataDir, 'odcinki-strony.json'), JSON.stringify(manifest, null, 2) + '\n');
+
+  return manifest.length;
+}
+
 const counts = {
   wiedza: writeWiedza(),
   blog: writeBlog(),
+  odcinki: writeOdcinki(),
 };
 
 console.log(
-  `[build-content-pages] OK: wiedza=${counts.wiedza}, blog=${counts.blog}`,
+  `[build-content-pages] OK: wiedza=${counts.wiedza}, blog=${counts.blog}, odcinki=${counts.odcinki}`,
 );

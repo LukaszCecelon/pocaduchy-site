@@ -1,0 +1,54 @@
+{
+  "videoId": "ibgUzR5_ZFw",
+  "title": "Bambu Lab H2S: cztery rzeczy do skalibrowania, zanim wydruk się nada",
+  "seoTitle": "Bambu Lab H2S: kalibracja, skurcz, nitkowanie",
+  "description": "Nitkowanie, gródki na obrysie, wymiar 99,6 zamiast 100 i jakość powierzchni. Co trzeba było ustawić w Bambu Lab H2S, żeby wydruki nadawały się do zastosowań mechanicznych.",
+  "czasTrwania": "10 min",
+  "lead": "Kupiłem kombajn i założyłem, że podpinam do prądu i drukuję. Półtora tygodnia popołudniami później wiem, że dobry sprzęt w rękach laika to dopiero połowa drogi. Cztery problemy i cztery konkretne nastawy.",
+  "czegoSieDowiesz": [
+    "Skąd bierze się nitkowanie przy PETG i dlaczego suszenie filamentu nie jest opcjonalne",
+    "Który parametr odpowiada za gródki na obrysie",
+    "Jak dograć wymiar, gdy zamiast 100 mm wychodzi 99,6",
+    "Które dwie kalibracje poprawiają jakość powierzchni"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Nitkowanie: filament, nie drukarka",
+      "akapity": [
+        "Zacząłem od PETG, czyli od materiału o wysokiej skłonności do chłonięcia wilgoci. Nawet w hermetycznym opakowaniu z pochłaniaczem, na dwóch czy trzech szpulach z rzędu, między obrysami ciągnęła się pajęczyna.",
+        "Rozwiązanie okazało się banalne: wysuszyć. Drukarka ma tryb suszenia, więc nie trzeba dokupować niczego osobno. Po suszeniu problem znika, a różnica na wydrukach jest widoczna gołym okiem."
+      ]
+    },
+    {
+      "tytul": "Gródki na obrysie: retrakcja",
+      "akapity": [
+        "Przy bazach pod detale na obrysie zaczęły pojawiać się gródki. Dla bazy to nie jest kosmetyka: w takim miejscu detal ma szansę się zawiesić i nie usiąść tam, gdzie powinien.",
+        "Przyczyną była za krótka retrakcja. PETG chętnie wypływa z dyszy, więc trzeba go mocniej cofać przy przejazdach. W Bambu Studio ustawia się to w edycji materiału, w nadpisywaniu ustawień: długość retrakcji, prędkość i długość ruchu dyszy, przy której ma się to dziać."
+      ]
+    },
+    {
+      "tytul": "Wymiar: parametr skurczu",
+      "akapity": [
+        "To był problem, który zmartwił mnie najbardziej. Beleczka, która w modelu ma 100 mm, na wydruku miała 99,6.",
+        "Odpowiada za to parametr skurczu. U mnie wyszło 99,5 procent dla filamentu Grupy Azoty i doszedłem do tego po sześciu czy siedmiu testach, plus standardowe kostki XYZ.",
+        "Rzecz, o której trzeba pamiętać: taką kalibrację robi się osobno dla każdego dostawcy filamentu. To nie jest ustawienie drukarki, tylko ustawienie materiału."
+      ]
+    },
+    {
+      "tytul": "Jakość powierzchni: dwie kalibracje",
+      "akapity": [
+        "Na górnych i bocznych warstwach pojawiały się ubytki i dziwne nierówności. W porównaniu z Prusą MK4, którą mam w pracy, wyglądało to słabo.",
+        "Pomogły dwie kalibracje dostępne w Bambu Studio w zakładce kalibracja: dynamiki przepływu oraz natężenia przepływu. Szczegóły są dobrze opisane na Wiki Bambu i to stamtąd wziąłem większość ustawień."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Drukarka z górnej półki nie zwalnia z nauki. Dobry produkt w rękach laika działa dobrze dopiero po kalibracji.",
+    "Skurcz kalibruje się per filament, nie per drukarka. Zmiana dostawcy oznacza powtórkę z testów.",
+    "Jeśli wydruk ma pracować jako baza albo przymiar, kosmetyczne wady przestają być kosmetyczne."
+  ],
+  "narzedzia": [],
+  "related": [
+    "narzedzia-pracy-konstruktora"
+  ]
+}

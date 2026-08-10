@@ -1,0 +1,59 @@
+{
+  "videoId": "kostpb9PX9k",
+  "title": "Aplikacja do raportów zrobiona przez konstruktora, nie programistę",
+  "seoTitle": "Konstruktor tworzy aplikację z AI: case study",
+  "description": "Raporty z serwisu i uruchomień robił każdy po swojemu. Jak zbudowałem z pomocą AI narzędzie, które je porządkuje, i co wyszło dopiero po oddaniu go monterom.",
+  "czasTrwania": "8 min",
+  "lead": "Nie o projektowaniu maszyn przez sztuczną inteligencję, bo do tego jeszcze daleko. O czymś prostszym i bardziej użytecznym: budowaniu własnych narzędzi, które realnie skracają robotę w dziale.",
+  "czegoSieDowiesz": [
+    "Jak dzielę pracę z AI na dwa etapy i dlaczego pierwszy jest ważniejszy",
+    "Co powinno znaleźć się w pierwszym zapytaniu, żeby nie zaczęło od kodowania",
+    "Jak wygląda gotowa aplikacja do raportów z uruchomienia i serwisu",
+    "Co wyszło dopiero wtedy, gdy narzędzie trafiło do monterów"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Problem: każdy raportuje po swojemu",
+      "akapity": [
+        "Raporty z serwisu, uruchomienia i odbioru maszyny to niby prosta rzecz. W praktyce jeden wysyłał mailem, drugi wrzucał na Teamsy, trzeci miał notatkę na kartce.",
+        "Do tego dochodziła obróbka notatek, dodawanie zdjęć, opisywanie problemów i przygotowanie maila do klienta. To zjadało czas. Brakowało jednego miejsca, w którym wpisuję co zrobiłem, dorzucam zdjęcia i na koniec klikam PDF."
+      ]
+    },
+    {
+      "tytul": "Dwa etapy pracy z AI",
+      "akapity": [
+        "Pierwszy etap to przygotowanie dobrej instrukcji. Drugi to testowanie i poprawianie. Cała wartość siedzi w pierwszym, bo to on decyduje, czy drugi będzie krótki.",
+        "W pierwszym zapytaniu podałem rolę, wyraźnie zaznaczyłem, że dyskutujemy nad koncepcją, żeby model nie zaczął od razu kodować, i opisałem trzy raporty, każdy w kilku zdaniach. Nie trzeba do tego żadnej ultra ustrukturyzowanej komendy.",
+        "Model dopytał o rzeczy, o których sam bym nie pomyślał: docelowa platforma, liczba zdjęć na raport, czy w grę wchodzi wideo, kto będzie korzystał, jaki hosting. Odpowiadałem po kolei.",
+        "Kluczowa była ostatnia prośba: żeby na podstawie całej rozmowy wygenerował dokument opisujący pomysł na tyle dokładnie, by dało się z nim iść do narzędzia piszącego kod. Od pierwszego zapytania do gotowej instrukcji minęło mniej niż dziesięć minut. Dla mnie, osoby nieprogramującej, przygotowanie takiego dokumentu samodzielnie byłoby praktycznie niewykonalne."
+      ]
+    },
+    {
+      "tytul": "Jak to działa",
+      "akapity": [
+        "Wybieram typ raportu: serwisowy, z testów prototypu, z uruchomienia albo z obserwacji pracy maszyny. Wpisuję dane podstawowe, czyli projekt, maszynę i osobę raportującą.",
+        "Kiedy coś dzieje się przy maszynie, dodaję wpis: powód zatrzymania, komentarz, zdjęcia albo wideo. To jest dla mnie najważniejsze, bo taka informacja przestaje zostawać w głowie, w przypadkowym folderze albo w notatniku.",
+        "Na końcu obserwacje, wnioski i kolejne kroki. Klik, robi się PDF w jednym standardzie i idzie mailem."
+      ]
+    },
+    {
+      "tytul": "Test w boju",
+      "akapity": [
+        "Aplikacja działała u mnie na telefonie i komputerze, więc dałem ją kilku monterom jadącym na uruchomienie i serwis.",
+        "I się zaczęło. Tu za dużo klikania, tam coś nieczytelne, przydałaby się edycja już dodanego zatrzymania, PDF wymagał poprawki. To są rzeczy, których siedząc przy biurku po prostu nie widać.",
+        "Drugi przyjemny element tego sposobu pracy: poprawki wchodziły od razu, więc koledzy korzystali z odświeżonej wersji bez żadnej instalacji."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Złe pytanie brzmi: czy AI zaprojektuje za mnie maszynę. Dobre: jakie usprawnienie w mojej pracy mogę dzięki niej wprowadzić.",
+    "Kto umie precyzyjnie opisać problem, ma dziś dużą przewagę. Opis problemu jest trudniejszy niż napisanie kodu.",
+    "Narzędzie nie musi być produkcyjne ani rozbudowane. Musi wejść do użycia szybko.",
+    "Test u ludzi, którzy naprawdę tego używają, wykrywa więcej niż tydzień poprawiania przy biurku."
+  ],
+  "narzedzia": [],
+  "related": [
+    "narzedzia-pracy-konstruktora",
+    "onenote-notes-projektu"
+  ]
+}

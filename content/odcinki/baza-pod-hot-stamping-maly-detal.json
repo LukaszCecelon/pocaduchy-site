@@ -1,0 +1,60 @@
+{
+  "videoId": "9DGui56KlLU",
+  "title": "Bazowanie detalu bez osi symetrii: trzy pomysły, jeden wdrożony",
+  "seoTitle": "Bazowanie detalu: jak wybrać powierzchnie bazowe",
+  "description": "Detal bez osi i płaszczyzn symetrii, z rysunkiem klienta, na którym tolerowane są tylko niektóre wymiary. Jak wybierałem powierzchnie bazowe i dlaczego dwa pierwsze pomysły odpadły.",
+  "czasTrwania": "13 min",
+  "lead": "Mały, filigranowy detal do AGD. Wygląda banalnie, a bazę pod hot stamping projektowałem parę dni. Cały problem sprowadza się do jednego pytania: na czym oprzeć detal, żeby leżał powtarzalnie.",
+  "czegoSieDowiesz": [
+    "Jak dorobić osie i płaszczyzny symetrii detalowi, który ich nie ma",
+    "Dlaczego rozstaw otworów bez tolerancji dyskwalifikuje je jako bazę",
+    "Co na rysunku klienta przesądziło o wyborze klipsów",
+    "Jak technologia obróbki potrafi odebrać bazowanie, które już się miało"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Najpierw geometria odniesienia",
+      "akapity": [
+        "Detal przyszedł bez osi i bez płaszczyzn symetrii. Bez nich każde kolejne wiązanie w szkicu to zgadywanka, więc trzeba je było stworzyć.",
+        "Pierwsza płaszczyzna powstała jako symetria między dwiema płaszczyznami detalu. Druga przez geometryczne wyznaczenie środka: szkic, z niego linia w środku detalu, a na niej oparta płaszczyzna. Od tego momentu da się cokolwiek sensownie wiązać."
+      ]
+    },
+    {
+      "tytul": "Trzy pomysły na bazowanie",
+      "akapity": [
+        "Pierwszy pomysł, dwa otworki, odpadł od razu. Na rysunku klienta tolerowane były średnice, ale nie rozstaw. Nie miałem więc pewności, jak detale będą tańczyły między seriami, a nawet między gniazdami formy. Do tego trzeba byłoby wytoczyć szpileczki i wkręcić je w bazę, czyli dołożyć elementy i podnieść koszt.",
+        "Drugi pomysł, dwie wieżyczki, odpadł dopiero po zbudowaniu bazy testowej. Ścianki są małe, wieżyczki stoją względem siebie pod kątem, więc ciężko było złapać dobre wymiary na rysunku. I znów to samo: między wieżyczkami nie ma ciasnych zależności.",
+        "Trzeci pomysł to klipsy, dwa z przodu i jeden mniejszy z tyłu. Wybrałem je dlatego, że na rysunku klienta rozstaw między klipsami i szerokość tego małego są oznaczone jako wymiary teoretycznie idealne, w nomenklaturze GD&T. To był jedyny zestaw powierzchni, którego rysunek faktycznie broni."
+      ]
+    },
+    {
+      "tytul": "Frez zabiera bazowanie",
+      "akapity": [
+        "Bazę robimy z jednego bloku materiału, a to znaczy, że wszędzie musi wejść frez, w tym przypadku minimum trójka. Po konsultacji z frezerem trzeba było zrobić ulżenia i wybrać promienie w narożach.",
+        "I w tym momencie straciłem pozycjonowanie w jednej osi, przód i tył. Zostało lewo i prawo na ściankach bocznych. Trzeba było pójść krok dalej i oprzeć się na wewnętrznej części detalu, pilnując przy tym, żeby wszędzie w środku zostało 3,2 mm miejsca na frez.",
+        "To jest ten rodzaj sytuacji, którego nie widać na modelu. Detal jest wyblokowany w obu kierunkach dopóki nie zapytasz, czym to wykonać."
+      ]
+    },
+    {
+      "tytul": "Prototyp z drukarki i ssawki",
+      "akapity": [
+        "Pierwszą bazę wydrukowałem w 3D. Detal siadał grzecznie, ale przy nacisku z lewej lub prawej strony przechylał się, bo powierzchnia podparcia była zbyt skromna.",
+        "Miejsca na większe podparcie brakowało, bo w bazie musiały znaleźć się ssawki. Bez nich, przy podnoszeniu głowicy, detal odjeżdżał do góry przyklejony do folii. Ostatecznie podparcie wyszło na płaskich powierzchniach środkowego elementu.",
+        "Na koniec doszło pochylenie całej bazy na stole obrotowym, znowu ze względu na wrażliwość stempla na ścinanie. Kąt wziąłem z powierzchni stempla przyłożonego do detalu."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Bazuj na tym, co rysunek klienta faktycznie toleruje. Ładna powierzchnia bez tolerancji to nie jest baza.",
+    "Zapytaj o technologię, zanim uznasz bazowanie za zamknięte. Promień freza potrafi zabrać cały kierunek.",
+    "Wydruk 3D prototypu bazy kosztuje kilka godzin i wyłapuje rzeczy, których model nie pokaże.",
+    "Każda dziwna powierzchnia na gotowej bazie ma swój powód. Widać go dopiero, gdy przejdzie się cały proces."
+  ],
+  "narzedzia": [
+    "/narzedzia/pasowania/"
+  ],
+  "related": [
+    "projektowanie-wielobrylowe-czesc-1",
+    "weryfikacja-cad-przed-produkcja"
+  ]
+}

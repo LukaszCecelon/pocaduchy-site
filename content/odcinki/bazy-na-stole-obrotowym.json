@@ -1,0 +1,62 @@
+{
+  "videoId": "m9PMXBRGEd8",
+  "title": "Bazy na stole obrotowym: cztery wyzwania i jedna pułapka",
+  "seoTitle": "Bazy na stole obrotowym: projektowanie i montaż",
+  "description": "Jak zaprojektowałem bazy na stół obrotowy do hot stampingu: mocowanie na magnesach, złącze obrotowe, identyfikacja baz i pułapka przy łączeniu części spawanych z frezowanymi.",
+  "czasTrwania": "18 min",
+  "lead": "Detal stoi pionowo, stół się kręci, więc do gry wchodzi siła odśrodkowa. Do tego stempel do hot stampingu, który nie znosi sił poprzecznych. Cztery wyzwania, które trzeba było rozwiązać, zanim bazy poszły na produkcję.",
+  "czegoSieDowiesz": [
+    "Dlaczego bazy trzymają się na magnesach, a nie na śrubach, i co daje wykręcenie jednej śruby",
+    "Jak doprowadzić sprężone powietrze i próżnię na stół, który się obraca",
+    "Skąd bierze się wycieranie baz aluminiowych i co z tym zrobić",
+    "Pułapka, w którą łatwo wpaść przy maszynie łączącej części spawane z frezowanymi"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Montaż i demontaż bez klucza",
+      "akapity": [
+        "Operator ma podejść, zdjąć jedną bazę i założyć drugą. Bez rozkręcania i bez szukania narzędzi.",
+        "Bazy siedzą na magnesach przykręconych do stołu obrotowego, a w samą bazę wkręcone są śruby z łbem stożkowym. Jeśli siła okaże się dla operatora za duża, wystarczy wykręcić jedną śrubę i docisk spada o kilka niutonów. To rzadki komfort: parametr, który da się poprawić po uruchomieniu, bez przeprojektowania.",
+        "Pozycjonowanie robi sprawdzony układ dwóch kołków, jednego ze ścięciem i jednego okrągłego, wpadających w tuleje wciśnięte w stół. Położenie kołka ściętego względem osi obrotu ma znaczenie i to jest jedno z tych miejsc, gdzie karta katalogowa mówi wprost, jak to zamontować."
+      ]
+    },
+    {
+      "tytul": "Prostopadłość, której nie widać na modelu",
+      "akapity": [
+        "Stempel do hot stampingu jest bardzo wrażliwy na ścinanie. Jeśli przy dociskaniu działa na niego jakakolwiek siła poprzeczna, jego żywotność spada drastycznie, a zaraz potem pojawiają się problemy z nadrukiem.",
+        "Dlatego bazę projektowałem od stempla, nie od detalu. Odsunąłem płaszczyznę konstrukcyjną od płaszczyzny stempla i dopiero na niej rysowałem podstawę bazy. Równoległość jest wtedy wymuszona konstrukcyjnie, a nie pilnowana wymiarem na rysunku.",
+        "Przy tym detalu różnica jest ledwie widoczna. Przy detalu, który musi stać mocno pochylony, to podejście ratuje cały węzeł."
+      ]
+    },
+    {
+      "tytul": "Media na obracającym się stole",
+      "akapity": [
+        "Każdy przewód musiałby się obkręcać wokół osi obrotu przy każdym cyklu. Rozwiązaniem jest złącze obrotowe, w tym przypadku czteroprzepustowe, bo tyle baz stoi na stole i każdą trzeba sterować niezależnie.",
+        "Ciekawą częścią była nie sama przelotka, tylko zablokowanie obrotu jej górnej części. Producent przewidział na to pin oznaczony w karcie jako antirotation. Wykorzystałem konstrukcję, która i tak już tam była: mocowanie głowicy hot stampingu, do którego przykręciliśmy blachę prowadzącą przewody i przytrzymującą złącze.",
+        "Drugi wniosek dotyczy próżni. Zamiast prowadzić ją przez złącze z odległej wyspy zaworowej, doprowadzamy sprężone powietrze, a generatory próżni siedzą już na stole. Mniejsze spadki na linii, krótsza droga, szybsza reakcja."
+      ]
+    },
+    {
+      "tytul": "Pułapka: spawane kontra frezowane",
+      "akapity": [
+        "Projektując części frezowane przyzwyczajamy się, że model jest na zero, a różnice zbiera tolerancja. Przy maszynie hybrydowej, gdzie spawana rama styka się z frezowaną płytą, to przyzwyczajenie robi krzywdę.",
+        "Zostawiłem 3 mm szpary między elementem a sufitem konstrukcji. Wyszło na styk. Dostawca zrobił środkowy słupek ramy odrobinę dłuższy, więc środek wyszedł wyżej niż narożniki. Trzeba było podłożyć podkładki pod płytę, żeby odzyskać równoległość względem głowicy, a te podkładki zjadły całe 3 mm.",
+        "Uratowała nas przestrzeń zostawiona na spoinę, bo obeszło się bez szlifowania spoiny w gotowej maszynie. Wniosek na przyszłość: przy takim styku 5 albo 6 mm i jest spokój.",
+        "My nie modelujemy spoin w 3D, ale zostawiamy im miejsce wszędzie tam, gdzie występują. Element w środku jest po prostu krótszy, a w narożnikach są wycięcia omijające spoinę."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Bazę pod hot stamping projektuj od płaszczyzny stempla, nie od detalu. Równoległość wychodzi wtedy z konstrukcji, a nie z pilnowania wymiaru.",
+    "Aluminiowa baza współpracująca z plastikiem po kilku tysiącach cykli zaczyna się wycierać. Anodowanie albo stal przeznaczona do azotowania rozwiązuje temat na starcie.",
+    "Przy styku części spawanych i frezowanych planuj szparę z zapasem. Tolerancje spawania są z innej ligi niż frezowania.",
+    "Generator próżni bliżej odbiornika to mniej spadków na linii niż prowadzenie gotowej próżni przez pół maszyny."
+  ],
+  "narzedzia": [
+    "/narzedzia/pasowania/"
+  ],
+  "related": [
+    "projektowanie-wielobrylowe-case-study",
+    "pozornie-latwe-miejsca-projektu"
+  ]
+}

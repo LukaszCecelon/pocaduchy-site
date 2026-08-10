@@ -1,0 +1,55 @@
+{
+  "videoId": "TDG5zKpxpEQ",
+  "title": "Chwytak robota: jak system wymiany narzędzia oszukał czujnik próżni",
+  "seoTitle": "Chwytak robota: tool changer i czujnik próżni",
+  "description": "Projekt chwytaka od kiści robota przez adapter i tool changer po ssawki. W środku błąd, który kosztował sporo szukania: czujnik pokazywał próżnię, której nie było.",
+  "czasTrwania": "16 min",
+  "lead": "Model 3D chwytaka wyglądał dobrze. Dopiero na maszynie okazało się, że mały system wymiany narzędzia potrafi wywinąć numer, którego w CAD nie widać. Przy okazji przejdziemy całą ścieżkę od kiści robota do ssawek.",
+  "czegoSieDowiesz": [
+    "Które wymiary kiści robota decydują o adapterze i skąd je wziąć",
+    "Po co w chwytaku system wymiany narzędzia i czym się go obsługuje",
+    "Dlaczego czujnik na generatorze próżni pokazywał detal, którego nie było",
+    "Jak dobierałem ssawki i co daje model 3D w wersji rozłożonej"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Od kiści do adaptera",
+      "akapity": [
+        "Kiść robota ma tolerowaną średnicę wewnętrzną, żeby ustawić chwytak w osi, oraz kołek pozycjonujący, który ustawia go kątowo. Wszystkie potrzebne wymiary, łącznie z tolerancją otworu pod kołek pasowy, siedzą w manualu na stronie producenta, w zakładce Downloads.",
+        "Chwytaka nie montujemy jednak wprost na kiści, bo maszyna ma się przezbrajać pod inne detale. Między kiść a chwytak wchodzi system wymiany narzędzia, czyli tool changer.",
+        "Przy adapterach do tool changerów jest jeden powtarzalny kłopot: otwory na kiści i otwory na systemie wymiany bywają położone bardzo blisko siebie. Da się to rozrysować, ale warto sprawdzić to wcześniej niż na etapie rysunku wykonawczego."
+      ]
+    },
+    {
+      "tytul": "Błąd, którego nie widać w modelu",
+      "akapity": [
+        "Na chwytak podaliśmy podciśnienie, a czujnik na generatorze próżni uparcie pokazywał, że detal jest w chwytaku. Nawet wtedy, gdy go tam nie było.",
+        "Przyczyna siedziała w małym tool changerze. Przekroje kanałów podciśnienia są w nim bardzo małe, więc na linii powstawał duży spadek. Dla czujnika wyglądało to jak uzyskana próżnia.",
+        "Dowód był prosty: po przepięciu przewodu bezpośrednio do chwytaka, z pominięciem systemu wymiany, czujnik zaczął działać poprawnie.",
+        "Ta wersja generatora nie ma regulowanego progu wykrywania. Wyjścia były dwa: wymienić generator na wersję z ekranikiem i nastawami albo dołożyć osobny czujnik podciśnienia z regulacją, wpięty w linię za generatorem. Wybraliśmy drugie, bo hybryda kosztowała mniej niż nowy generator, a maszyny są trzy."
+      ]
+    },
+    {
+      "tytul": "Ssawki i to, co je trzyma",
+      "akapity": [
+        "Rozstaw ssawek wynikał z tego, że nie mogłem dotykać miejsca, w którym powstaje nadruk. Wyrysowałem go na skopiowanej górnej powierzchni detalu i dopiero na tym budowałem bryłę chwytaka.",
+        "Ssawki dobierałem w konfiguratorze Piab: okrągła, wielomieszkowa dla większego skoku, do 13 mm średnicy, do części formowanych wtryskowo. Zostawiła się jedna seria, a w niej wyszła ośmiomilimetrowa z gwintem M5.",
+        "Model 3D ze strony producenta dostaje się w dwóch wersjach, złożonej i rozłożonej. Dzięki temu widać skok ssawki, czyli ile schowa się po uzyskaniu pełnego podciśnienia. To jest informacja potrzebna, żeby wiedzieć, czy ssawka dociągnie detal do bazy, czy tylko go dotknie.",
+        "Ostatni element to łącznik między ssawkami a tool changerem. Ma dziwny kształt i to nie przypadek: podcięcie wzięło się z analizy kolizji przy odbieraniu detalu z bazy."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Mały system wymiany narzędzia to nie tylko mechanika. Jego kanały pneumatyczne potrafią zmienić odczyt czujnika.",
+    "Jeśli czujnik kłamie, przepnij przewód z pominięciem podejrzanego elementu. Diagnostyka na dwie minuty.",
+    "Dołożenie taniego czujnika z nastawą bywa tańsze niż wymiana generatora, zwłaszcza gdy maszyn jest kilka.",
+    "Model ssawki w wersji rozłożonej mówi o skoku więcej niż karta katalogowa."
+  ],
+  "narzedzia": [
+    "/narzedzia/pasowania/"
+  ],
+  "related": [
+    "elementy-znormalizowane-handlowki",
+    "elektrozawory-pneumatyczne-dobor"
+  ]
+}
