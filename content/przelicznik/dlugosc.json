@@ -1,0 +1,42 @@
+{
+  "wymiar": "dlugosc",
+  "meta": {
+    "tytul": "Długość: przelicznik jednostek",
+    "opis": "Przelicz długość: mm, µm, nm, cale, mil, stopy, jardy i mile. Z uwagami o gwintach rurowych, tolerancjach, powłokach i rysunkach CAD z importu."
+  },
+  "naglowek": "Długość: przelicznik jednostek",
+  "lead": "Milimetry są spokojne do momentu, w którym do projektu wpada calowy katalog, rysunek z USA albo zapis mil w tolerancji.",
+  "wstep": [
+    "Długość wygląda jak najprostszy wymiar w całym przeliczniku. Metr, milimetr, cal i gotowe. W praktyce to właśnie tutaj pojawiają się drobne pułapki, które później kończą się źle dobranym łożyskiem albo gwintem, który w CAD wyglądał sensownie tylko przez chwilę.",
+    "W europejskiej dokumentacji maszyn króluje milimetr. Mikrometry wchodzą przy tolerancjach, pasowaniach i powłokach, a cale przy elementach z importu. Do tego dochodzi mil, czyli tysięczna cala, bardzo zdradliwa jednostka dla kogoś, kto odruchowo widzi w głowie milimetr.",
+    "Cal jest dokładny: 25,4 mm. Problem nie leży w samej liczbie, tylko w nazwach handlowych, gwintach rurowych i tym, że nie każdy wymiar calowy jest rzeczywistą średnicą mierzoną suwmiarką."
+  ],
+  "pulapki": [
+    {
+      "tytul": "Cal w gwincie rurowym nie jest średnicą z suwmiarki",
+      "tresc": "Gwint 1/2 cala nie ma średnicy zewnętrznej 12,7 mm. W gwintach rurowych oznaczenie jest nazwą systemu i historycznego rozmiaru rury. Dlatego przy złączkach trzeba patrzeć w tabelę gwintu, a nie tylko mnożyć przez 25,4."
+    },
+    {
+      "tytul": "Mil to nie milimetr",
+      "tresc": "1 mil to dokładnie 0,0254 mm, czyli 25,4 µm. W amerykańskich tolerancjach i grubościach powłok to normalny zapis. Pomyłka z 1 mm daje błąd 39,37 raza."
+    },
+    {
+      "tytul": "µm i nm łatwo zgubić w zapisie",
+      "tresc": "1 µm to 0,001 mm, a 1 nm to 0,000001 mm. Przy powłokach i chropowatości trzy zera robią różnicę. Dodatkowo nm jako nanometr nie ma nic wspólnego z N·m jako momentem."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Ile milimetrów ma 1 cal?",
+      "odpowiedz": "1 cal ma dokładnie 25,4 mm. To wartość definicyjna, więc przy przeliczaniu wymiarów calowych na metryczne nie trzeba zgadywać współczynnika."
+    },
+    {
+      "pytanie": "Ile mikrometrów ma 1 mil?",
+      "odpowiedz": "1 mil ma dokładnie 25,4 µm. To tysięczna część cala, czyli 0,001 in. W opisach powłok z USA mil bywa częstszy niż µm."
+    },
+    {
+      "pytanie": "Czy stopa ma równo 304,8 mm?",
+      "odpowiedz": "Tak. 1 stopa to 12 cali, czyli dokładnie 304,8 mm. Ta dokładność wynika z definicji cala międzynarodowego."
+    }
+  ]
+}

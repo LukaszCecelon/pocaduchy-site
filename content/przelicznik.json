@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "tytul": "Przelicznik jednostek dla konstruktora maszyn",
+    "opis": "Przelicznik jednostek z katalogów i dokumentacji maszyn: bar, psi, kgf, kG, KM, obr/min, cale, momenty i temperatury bez zgadywania w arkuszu."
+  },
+  "naglowek": "Przelicznik jednostek dla konstruktora maszyn",
+  "lead": "Przelicz jednostki, które realnie pojawiają się w katalogach, tabliczkach znamionowych i starych rysunkach. Bez udawania, że kgf, at albo KM nigdy nie istniały.",
+  "wstep": [
+    "Zwykły przelicznik ogarnia mm na cale i bar na psi. Tyle że w dokumentacji maszyn często wyskakują też kgf, kG, at, KM, obr/min albo kgf·m. I wtedy angielski kalkulator potrafi zrobić minę, jakby ktoś mu podał kod katalogowy z 1978 roku.",
+    "Ten przelicznik jest zbudowany pod polską dokumentację techniczną. Jednostki są pogrupowane według wielkości, ale ciśnienie i naprężenie zostają razem, bo fizycznie mają ten sam wymiar. Konstruktor szuka jednak obu zapisów, więc w opisach są też typowe pułapki: MPa kontra N/mm², kgf kontra kg i KM kontra hp.",
+    "Liczby idą przez jedną jednostkę bazową dla danego wymiaru. Tam, gdzie współczynnik jest dokładny z definicji, warto to wiedzieć przed zaokrągleniem wyniku na rysunku, w arkuszu albo w notatce do dostawcy."
+  ],
+  "faq": [
+    {
+      "pytanie": "Czy 1 bar to 1 at?",
+      "odpowiedz": "Nie. 1 bar to dokładnie 100 000 Pa, a 1 at to dokładnie 98 066,5 Pa. Różnica wynosi około 1,97 procent, czyli przy 100 bar robi się prawie 2 bary. Na starym manometrze może przejść, w obliczeniach hydrauliki już niekoniecznie."
+    },
+    {
+      "pytanie": "Dlaczego ciśnienie i naprężenie są na jednej liście?",
+      "odpowiedz": "Bo wymiar fizyczny jest ten sam: siła podzielona przez pole. 1 MPa to dokładnie 1 N/mm², czyli ta sama liczba zapisana językiem hydrauliki albo wytrzymałości materiałów. Interfejs trzyma je razem, ale opisy pokazują, gdzie dana jednostka faktycznie występuje."
+    },
+    {
+      "pytanie": "Czym różni się KM od hp?",
+      "odpowiedz": "KM, czyli koń mechaniczny metryczny, ma dokładnie 735,49875 W. Hp w tym przeliczniku ma około 745,7 W. Różnica to około 1,4 procent, więc na tabliczce silnika z USA nie warto przepisywać hp jako KM bez przeliczenia."
+    },
+    {
+      "pytanie": "Co oznacza kG w starej dokumentacji?",
+      "odpowiedz": "Najczęściej chodzi o kilogram siły, czyli kgf albo kilopond. 1 kG to wtedy dokładnie 9,80665 N. Problem zaczyna się wtedy, gdy ktoś w tabeli miesza kg jako masę i kG jako siłę, bo zapis wygląda prawie tak samo."
+    },
+    {
+      "pytanie": "Dlaczego przy temperaturze jest osobno różnica temperatur?",
+      "odpowiedz": "Bo skale Celsjusza i Fahrenheita mają przesunięte zera. Temperatura 1 °C to 33,8 °F, ale różnica 1 °C to różnica 1,8 °F. Przy rozszerzalności cieplnej interesuje Cię różnica, nie wartość na termometrze."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "wymiar": "cisnienie",
+  "meta": {
+    "tytul": "Ciśnienie: przelicznik jednostek",
+    "opis": "Przelicz ciśnienie i naprężenie: bar, psi, MPa, N/mm², at, atm, mmHg i słup wody. Pułapki z hydrauliki, katalogów, próżni i starych manometrów."
+  },
+  "naglowek": "Ciśnienie i naprężenie: przelicznik jednostek",
+  "lead": "Bar z manometru, MPa z hydrauliki i N/mm² z wytrzymałości to często ta sama rozmowa, tylko w innym języku.",
+  "wstep": [
+    "Ciśnienie w maszynach przychodzi z kilku stron naraz. Pneumatyka lubi bary, hydraulika często MPa, a stare manometry potrafią mieć at albo kgf/cm². Do tego dochodzi naprężenie, czyli ta sama fizyka, ale z rysunku, przekroju i obliczeń materiałowych.",
+    "Właśnie dlatego na jednej liście są Pa, bar, psi, MPa, N/mm² i jednostki słupa cieczy. Nie po to, żeby mieszać hydraulikę z wytrzymałością, tylko żeby nie udawać, że konstruktor nie przelicza tych rzeczy w jednym arkuszu. Klasyk: katalog siłownika w barach, arkusz z obciążeniem w N i sprawdzenie śruby w MPa.",
+    "Najważniejsze są wartości bliskie sobie, bo one są najbardziej zdradliwe. 1 bar, 1 at i 1 atm wyglądają jak jedna rodzina, ale mają trzy różne liczby."
+  ],
+  "pulapki": [
+    {
+      "tytul": "Bar, at i atm to nie to samo",
+      "tresc": "1 bar to dokładnie 100 000 Pa, 1 at to 98 066,5 Pa, a 1 atm to 101 325 Pa. Na starym manometrze różnica może wyglądać niewinnie. W doborze zaworu bezpieczeństwa albo siłownika lepiej jej nie zamiatać pod dywan."
+    },
+    {
+      "tytul": "MPa i N/mm² mają tę samą liczbę",
+      "tresc": "1 MPa to dokładnie 1 N/mm². To świetne przy obliczeniach naprężeń, bo przekroje w maszynach i tak liczy się zwykle w mm². Problem zaczyna się wtedy, gdy ktoś przepisze MPa jako N/m², bo wtedy ucieka czynnik 1 000 000."
+    },
+    {
+      "tytul": "Ciśnienie względne i bezwzględne",
+      "tresc": "Psi bywa zapisane jako psig albo psia. Psig liczy względem atmosfery, psia od zera absolutnego. Różnica przy warunkach normalnych to około 14,7 psi, więc przy próżni i sprężonym powietrzu nie jest to kosmetyka."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Ile MPa ma 1 bar?",
+      "odpowiedz": "1 bar to dokładnie 0,1 MPa, bo bar ma 100 000 Pa, a MPa ma 1 000 000 Pa. Dlatego 250 bar w hydraulice to 25 MPa."
+    },
+    {
+      "pytanie": "Ile psi ma 1 bar?",
+      "odpowiedz": "1 bar to około 14,5038 psi. W drugą stronę 1 psi to około 0,0689476 bar. Przy katalogach pneumatyki z USA warto przeliczać, bo 100 psi to nie 10 bar, tylko około 6,895 bar."
+    },
+    {
+      "pytanie": "Czy kgf/cm² to atmosfera techniczna?",
+      "odpowiedz": "Tak. 1 kgf/cm² to dokładnie 98 066,5 Pa, czyli 1 at. W starszej hydraulice zapis kg/cm² często oznacza właśnie kgf/cm², ale skrót jest nieprecyzyjny."
+    }
+  ]
+}

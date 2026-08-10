@@ -1,0 +1,18 @@
+{
+  "wszystko": "Wszystko",
+  "pozostale": "Pozostałe",
+  "filtryOpis": "Zawężenie listy do jednego rodzaju wielkości",
+  "grupaCzeste": "Najczęstsze",
+  "przeliczam": "Przeliczam",
+  "na": "Na",
+  "zamien": "Zamień kierunek",
+  "zaokraglenie": "Wynik zaokrąglony do sześciu cyfr znaczących.",
+  "rozneWymiary": "Te jednostki są z różnych wielkości, nie ma czego przeliczać.",
+  "rozsypkaTytul": "w pozostałych jednostkach:",
+  "definicjeTytul": "Skąd się biorą te jednostki",
+  "brakDefinicji": "Definicja tej jednostki czeka na opisanie.",
+  "trybWartosc": "Temperatura",
+  "trybRoznica": "Różnica temperatur",
+  "notaCisnienieTytul": "Ciśnienie i naprężenie to jedna lista, i słusznie.",
+  "notaCisnienie": "Oba są siłą na powierzchnię, oba liczą się w paskalach, więc przelicznik nie widzi między nimi różnicy. Fizycznie różnica jest: ciśnienie w płynie działa jednakowo we wszystkich kierunkach, a naprężenie w materiale ma kierunek i płaszczyznę. Dlatego mówi się o naprężeniu rozciągającym albo stycznym, a o ciśnieniu w siłowniku po prostu tak nie mówimy. Do przeliczenia liczby to jednak nic nie zmienia."
+}

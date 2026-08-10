@@ -1,0 +1,42 @@
+{
+  "wymiar": "sila",
+  "meta": {
+    "tytul": "Siła: przelicznik jednostek",
+    "opis": "Przelicz siłę: N, daN, kN, MN, kgf, kG, lbf, ozf i kip. Z wyjaśnieniem masy kontra siły w starych tabelach sprężyn, siłowników i zawiesi w UR."
+  },
+  "naglowek": "Siła: przelicznik jednostek",
+  "lead": "Kilogram w tabeli sprężyny czasem nie jest kilogramem masy. I właśnie wtedy zaczyna się zabawa z kgf, kG oraz niutonami.",
+  "wstep": [
+    "Siła w nowej dokumentacji powinna siedzieć w niutonach. Tyle teoria. W praktyce konstruktora wracają dekaniutony, kilogramy siły, funty siły i stare zapisy kG, szczególnie przy sprężynach, dociskach, zawiesiach i maszynach po kilku modernizacjach.",
+    "Najważniejsze rozróżnienie jest proste: kg to masa, kgf to siła. Masa sama z siebie nie jest siłą, dopóki nie przyjmiesz przyspieszenia. W normalnym ziemskim przeliczeniu używa się 9,80665 m/s², stąd 1 kgf ma dokładnie 9,80665 N.",
+    "W katalogach imperialnych dochodzi lb i lbf. Niby jedna litera, a zmienia obliczenia. Jeżeli dobierasz siłownik, sprężynę albo zatrzask, sprawdzenie tej litery jest tańsze niż poprawka na montażu."
+  ],
+  "pulapki": [
+    {
+      "tytul": "kG i kgf to praktycznie ten sam stary zapis siły",
+      "tresc": "1 kG w starej polskiej dokumentacji zwykle oznacza 1 kgf, czyli dokładnie 9,80665 N. Problem polega na tym, że kg wygląda jak masa, a kG jak siła. W tabelach sprężyn trzeba czytać nagłówki, nie tylko liczby."
+    },
+    {
+      "tytul": "Masa nie zamienia się w siłę bez przyspieszenia",
+      "tresc": "Masa 100 kg przy przyspieszeniu normalnym daje 980,665 N ciężaru. Ta sama masa przy przyspieszeniu 2 g daje już 1961,33 N. Przy ruchomych osiach i hamowaniu nie wystarczy pomnożyć kilogramów przez 10 i iść dalej."
+    },
+    {
+      "tytul": "daN jest blisko kgf, ale nie równy",
+      "tresc": "1 daN to dokładnie 10 N, a 1 kgf to 9,80665 N. Różnica wynosi około 1,97 procent. Przy zawiesiach i napinaniu pasów to zwykle wygodne przybliżenie, ale w obliczeniach warto mieć właściwą liczbę."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Ile niutonów ma 1 kgf?",
+      "odpowiedz": "1 kgf ma dokładnie 9,80665 N. To ciężar masy 1 kg przy przyspieszeniu normalnym 9,80665 m/s²."
+    },
+    {
+      "pytanie": "Ile niutonów ma 1 lbf?",
+      "odpowiedz": "1 lbf ma około 4,44822 N. Wartość wynika z definicji funta siły; w katalogach z USA trzeba odróżnić lbf od lb, bo lb jest masą, a lbf siłą."
+    },
+    {
+      "pytanie": "Czy 1 daN to tyle co 1 kg?",
+      "odpowiedz": "Nie. 1 daN to dokładnie 10 N, a ciężar masy 1 kg to 9,80665 N. Różnica jest mała, około 1,97 procent, ale jednostki opisują różne rzeczy."
+    }
+  ]
+}

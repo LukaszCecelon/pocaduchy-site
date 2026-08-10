@@ -1,0 +1,109 @@
+.wrap {
+  padding: 56px 32px 96px;
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.hero {
+  padding-bottom: 26px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.12;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: var(--pc-text-muted);
+  margin: 0;
+  max-width: 68ch;
+}
+
+.sekcja {
+  margin-top: 40px;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--pc-rust);
+}
+
+.h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  color: var(--pc-navy);
+}
+
+.tekst {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--pc-text-muted);
+  max-width: 70ch;
+  margin: 0 0 14px;
+}
+
+.tekst a {
+  color: var(--pc-rust);
+}
+
+.tekstMaly {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pc-text-faint);
+  max-width: 70ch;
+  margin: 14px 0 0;
+}
+
+.kafelki {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.kafelek {
+  border: 1px solid var(--pc-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.kafelek:hover {
+  border-color: var(--pc-navy);
+  text-decoration: none;
+}
+
+.kafelek b {
+  display: block;
+  color: var(--pc-navy);
+  font-size: 16.5px;
+  margin-bottom: 3px;
+}
+
+.kafelek span {
+  font-size: 13px;
+  color: var(--pc-text-faint);
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 40px 20px 72px;
+  }
+}
