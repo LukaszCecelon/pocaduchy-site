@@ -69,7 +69,7 @@ export default function WiedzaArticleTemplate({
 
       <div className={styles.wrap}>
         <div className={styles.breadcrumb}>
-          <Link to="/wiedza">Wiedza</Link> / <span>{title}</span>
+          <Link to="/wiedza/">Wiedza</Link> / <span>{title}</span>
         </div>
 
         <div className={styles.layout}>
@@ -98,7 +98,7 @@ export default function WiedzaArticleTemplate({
 
           <div className={`${styles.sidebar} pc-cut-card`}>
             <span className={styles.sidebarLabel}>Baza wiedzy</span>
-            <Link to="/wiedza" className={styles.sidebarNote}>
+            <Link to="/wiedza/" className={styles.sidebarNote}>
               ← Wszystkie materiały
             </Link>
           </div>

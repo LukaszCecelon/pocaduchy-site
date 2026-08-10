@@ -46,11 +46,11 @@
     "linki": [
       {
         "tekst": "Baza wiedzy",
-        "url": "/wiedza"
+        "url": "/wiedza/"
       },
       {
         "tekst": "artykuły",
-        "url": "/blog"
+        "url": "/blog/"
       }
     ]
   }

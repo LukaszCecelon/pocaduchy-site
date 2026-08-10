@@ -149,7 +149,7 @@ function Autor() {
       <div className={styles.authorText}>
         <span className={styles.authorLabel}>O autorze</span>
         <p className={styles.authorBody}>{oMnie.biogram}</p>
-        <Link to="/o-mnie" className={styles.authorLink}>
+        <Link to="/o-mnie/" className={styles.authorLink}>
           Więcej o mnie →
         </Link>
       </div>
@@ -284,7 +284,7 @@ export default function BlogArticleTemplate({
 
       <div className={styles.articleWrap}>
         <div className={styles.breadcrumb}>
-          <Link to="/blog">Artykuły</Link> / <span>{title}</span>
+          <Link to="/blog/">Artykuły</Link> / <span>{title}</span>
         </div>
 
         <h1 className={styles.articleTitle}>{title}</h1>
@@ -358,7 +358,7 @@ export default function BlogArticleTemplate({
         <PrzeczytajTez slug={slug} related={related} tags={tags} />
 
         <div className={styles.divider} />
-        <Link to="/blog" className={styles.backLink}>
+        <Link to="/blog/" className={styles.backLink}>
           ← Wróć do artykułów
         </Link>
       </div>

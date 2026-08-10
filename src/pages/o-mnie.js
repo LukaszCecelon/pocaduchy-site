@@ -128,7 +128,7 @@ export default function OMnie() {
           </ul>
           <p className={styles.prose}>
             Jeśli szukasz kogoś do konkretnego tematu, zakres i przebieg
-            współpracy opisałem w zakładce <Link to="/uslugi">Usługi</Link>.
+            współpracy opisałem w zakładce <Link to="/uslugi/">Usługi</Link>.
           </p>
         </section>
 
@@ -187,7 +187,7 @@ export default function OMnie() {
               <span className={styles.kanalNazwa}>TikTok</span>
               <span className={styles.kanalOpis}>{kanaly.tiktokOpis}</span>
             </a>
-            <Link to="/blog" className={`${styles.kanal} pc-cut-card`}>
+            <Link to="/blog/" className={`${styles.kanal} pc-cut-card`}>
               <span className={styles.kanalNazwa}>Artykuły</span>
               <span className={styles.kanalOpis}>
                 {posts.length} {kanaly.blogOpis}

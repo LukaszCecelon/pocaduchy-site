@@ -96,7 +96,7 @@ export default function Wiedza() {
               rysunkowe. W międzyczasie zajrzyj do artykułów o codziennej
               pracy konstruktora.
             </p>
-            <Link to="/blog" className={`${styles.emptyCta} pc-cut`}>
+            <Link to="/blog/" className={`${styles.emptyCta} pc-cut`}>
               Przejdź do artykułów →
             </Link>
           </div>
