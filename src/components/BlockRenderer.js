@@ -301,7 +301,6 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
               <th scope="col">m</th>
               <th scope="col">t</th>
               <th scope="col">n</th>
-              <th scope="col">luz osiowy</th>
             </tr>
           </thead>
           <tbody>
@@ -314,7 +313,6 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
                 <td>{pl(w.rowek.m)}</td>
                 <td>{pl(w.rowek.glebokosc)}</td>
                 <td>{pl(w.rowek.n)}</td>
-                <td>{pl(w.luzOsiowy.nominalny)} do {pl(w.luzOsiowy.maksymalny)}</td>
               </tr>
             ))}
           </tbody>
