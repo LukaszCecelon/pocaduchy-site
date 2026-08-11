@@ -5,8 +5,18 @@
     "opis": "Kalkulatory inżynierskie po polsku: pasowania ISO 286, luz i wcisk. Liczą to, co konstruktor sprawdza w trakcie pracy, z wynikiem czytelnym od razu."
   },
   "eyebrow": "Narzędzia inżyniera",
-  "naglowek": "Kalkulatory, które otwierasz w trakcie roboty",
-  "lead": "Nie artykuły do przeczytania raz, tylko narzędzia do policzenia czegoś w pięć sekund i wrócenia do modelu. Każde liczy na danych z tablic, a nie na przybliżeniach, i pokazuje wynik od razu, bez klikania przez trzy ekrany.",
+  "naglowek": "Kalkulatory, które powinieneś mieć pod ręką",
+  "lead": "Sam wiem, ile nieraz zajmuje szperania i zbierania „bazy wiedzy\". Chciałbym, żeby ta strona była Waszą bazą, do której łatwo sięgnąć i sprawdzić, co trzeba. Jeśli macie pomysł na kolejne narzędzia, dajcie znać mailem lub na LinkedIn.",
+  "leadLinki": [
+    {
+      "fraza": "mailem",
+      "url": "mailto:RA-Engineering@outlook.com"
+    },
+    {
+      "fraza": "LinkedIn",
+      "url": "https://www.linkedin.com/in/lukaszcecelon"
+    }
+  ],
   "narzedzia": [
     {
       "kafelek": "Kalkulator pasowań",

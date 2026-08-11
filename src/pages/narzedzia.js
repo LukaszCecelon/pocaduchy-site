@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
+import TekstZOdnosnikami from '@site/src/components/TekstZOdnosnikami';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/narzedzia.json';
 import styles from './narzedzia.module.css';
@@ -111,7 +112,9 @@ export default function Narzedzia() {
             <span>{tresc.eyebrow}</span>
           </div>
           <h1 className={styles.title}>{tresc.naglowek}</h1>
-          <p className={styles.lead}>{tresc.lead}</p>
+          <p className={styles.lead}>
+            <TekstZOdnosnikami tekst={tresc.lead} odnosniki={tresc.leadLinki} />
+          </p>
         </div>
 
         <div className={styles.grid}>
