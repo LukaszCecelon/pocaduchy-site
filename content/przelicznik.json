@@ -11,7 +11,8 @@
   },
   "wstep": [
     "Zwykły przelicznik ogarnia mm na cale i bar na psi. Tyle że w dokumentacji maszyn często wyskakują też kgf, kG, at, KM, obr/min albo kgf·m. Ten kalkulator trzyma te jednostki pod ręką, bez szukania po osobnych tabelach.",
-    "Ten przelicznik jest zbudowany pod polską dokumentację techniczną. Jednostki są pogrupowane według wielkości, żeby szybciej przejść od zapisu z katalogu do liczby, którą można wpisać w arkuszu albo na rysunku."
+    "Ten przelicznik jest zbudowany pod polską dokumentację techniczną. Jednostki są pogrupowane według wielkości, żeby szybciej przejść od zapisu z katalogu do liczby, którą można wpisać w arkuszu albo na rysunku.",
+    "Źródła i zakres danych. Współczynniki są zapisane względem jednostki bazowej każdego wymiaru. Część wartości jest dokładna z definicji: `1 cal = 0,0254 m` i `1 lb = 0,45359237 kg` wynikają z międzynarodowego układu jard-funt, `1 Mm = 1852 m`, `1 bar = 100 000 Pa`, a standardowe `g₀ = 9,80665 m/s²` daje `1 kgf = 9,80665 N`. Stopa, jard, lbf, psi, kgf·m i podobne jednostki są obliczone z tych definicji. Temperatury korzystają dodatkowo z przesunięcia skali, na przykład `0 °C = 273,15 K`. Wartości zawierające liczbę π są niewymierne: `1° = π/180 rad`, pełny obrót i `1 Hz = 2π rad`, a `1 obr/min = 2π/60 rad/s`. Ich zapis dziesiętny jest przybliżeniem, nie osobną definicją. Dla jednostek mających kilka odmian tablica jawnie przyjmuje konkretną konwencję, między innymi kalorię `4,1868 J` i BTU `1055,05585262 J`; nie należy przenosić wyniku na inną odmianę o tej samej nazwie. Przeliczenie liniowe korzysta z ilorazu współczynników, a wynik interfejs zaokrągla tylko do wyświetlenia. W tej tabeli nie ma punktów startowych ani korekt autora. Opisy jednostek i ich zastosowań są autorskim objaśnieniem definicji oraz praktyki konstruktora, nie cytatem z normy lub katalogu."
   ],
   "faq": [
     {
