@@ -6,6 +6,9 @@ import rehypeKatex from 'rehype-katex';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import imageSizes from '@site/src/data/image-sizes.json';
 import {dobierzPierscien, listaSrednic} from '@site/src/lib/pierscienie/oblicz';
+import WidokWalek from '@site/src/components/pierscienie/widok-walek.svg';
+import WidokOtwor from '@site/src/components/pierscienie/widok-otwor.svg';
+import pozycje from '@site/src/components/pierscienie/pozycje.json';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -189,6 +192,79 @@ function WzorBlock({latex}) {
 }
 
 
+
+const WIDOKI_ROWKA = {walek: WidokWalek, otwor: WidokOtwor};
+
+// Etykieta zaczepiona za rog pola tekstowego z oryginalnego rysunku, a nie za
+// srodek. Rosnie w strone wolnego miejsca, wiec nie wchodzi na linie wymiarowa
+// ani na groty strzalek. Ten sam mechanizm co w kalkulatorze.
+function EtykietaRowka({zaczep, children}) {
+  return (
+    <div
+      className={`${styles.etRowka} ${styles[zaczep.typ]}`}
+      style={{left: `${zaczep.x}%`, top: `${zaczep.y}%`}}>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Schemat rowka z oznaczeniami zamiast liczb. Rysunek jest tym samym plikiem,
+ * ktorego uzywa kalkulator, wiec tabela, narzedzie i przekroj pokazuja te sama
+ * geometrie. Glebokosci t nie opisujemy na rysunku, bo oryginal nie ma dla niej
+ * linii wymiarowej, a dorysowywanie jej byloby juz zmyslaniem cudzego rysunku.
+ */
+function SchematRowka({typ}) {
+  const Widok = WIDOKI_ROWKA[typ];
+  const zaczepy = pozycje[typ].zaczepy;
+  const element = typ === 'walek' ? 'wałka' : 'otworu';
+
+  return (
+    <div className={styles.plotnoRowka}>
+      <Widok
+        className={styles.cadRowka}
+        role="img"
+        aria-label={`Przekrój rowka pod pierścień osadczy w ${element} z oznaczeniami wymiarów`}
+      />
+      <EtykietaRowka zaczep={zaczepy.d1}>
+        <span className={styles.etGlowna}>⌀d1</span>
+      </EtykietaRowka>
+      <EtykietaRowka zaczep={zaczepy.d2}>
+        <span className={styles.etGlowna}>⌀d2</span>
+      </EtykietaRowka>
+      <EtykietaRowka zaczep={zaczepy.m}>
+        <span className={styles.etGlowna}>m</span>
+      </EtykietaRowka>
+      <EtykietaRowka zaczep={zaczepy.n}>
+        <span className={styles.etGlowna}>n</span>
+      </EtykietaRowka>
+    </div>
+  );
+}
+
+// Opis oznaczen pod schematem. Odpowiada na pytanie, ktorej srednicy dotyczy
+// ktory wymiar, zanim czytelnik wejdzie w tabele.
+function LegendaRowka({typ}) {
+  const walek = typ === 'walek';
+  const pozycjeLegendy = [
+    ['⌀d1', walek ? 'średnica wałka, czyli wymiar, pod który dobierasz pierścień' : 'średnica otworu, czyli wymiar gniazda w korpusie albo piaście'],
+    ['⌀d2', walek ? 'średnica rowka, mniejsza od d1, bo rowek jest podtoczeniem' : 'średnica rowka, większa od d1, bo rowek jest wybraniem w otworze'],
+    ['m', 'szerokość rowka w klasie H13'],
+    ['t', walek ? 'głębokość rowka, czyli (d1 - d2) / 2' : 'głębokość rowka, czyli (d2 - d1) / 2'],
+    ['n', 'najmniejsza dopuszczalna odległość rowka od czoła detalu'],
+  ];
+  return (
+    <dl className={styles.legendaRowka}>
+      {pozycjeLegendy.map(([symbol, opis]) => (
+        <div key={symbol}>
+          <dt>{symbol}</dt>
+          <dd>{opis}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
 // Liczby na rysunku warsztatowym pisze sie z przecinkiem, bez zer na koncu.
 function pl(x) {
   return String(Math.round(x * 1000) / 1000).replace('.', ',');
@@ -209,6 +285,8 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
 
   return (
     <figure className={styles.tabelaPierscieni}>
+      <SchematRowka typ={typ} />
+      <LegendaRowka typ={typ} />
       <div className={styles.tabelaPierscieniWrap}>
         <table>
           <caption className={styles.tabelaPierscieniCaption}>
