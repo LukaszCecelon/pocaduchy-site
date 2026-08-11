@@ -585,17 +585,32 @@
 
 /* ---------- schemat gwintu nad tablica ---------- */
 
+/* Rysunek jedzie razem z tablica, tak jak przy rowkach pod Seger: bez tego
+   po kilku wierszach czytelnik zostaje z kolumnami d1, s, d2, m, t, n i musi
+   wracac na gore, zeby sprawdzic, ktory wymiar jest ktory.
+
+   UWAGA: position sticky przestanie dzialac, jesli ktokolwiek doda overflow
+   hidden, auto albo scroll na ktorymkolwiek przodku tego panelu. */
 .gwPanel {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 8px);
+  z-index: 10;
   display: grid;
   grid-template-columns: 1.9fr 1fr;
   gap: 12px;
   align-items: center;
-  background: var(--pc-bg);
+  /* Tlo nieprzezroczyste, inaczej linie tabeli mieszalyby sie z liniami
+     rysunku i oba stalyby sie nieczytelne. */
+  background: #fff;
   border: 1px solid var(--pc-border);
   border-radius: 10px;
-  padding: 10px 12px;
-  margin-bottom: 14px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
   min-width: 0;
+}
+
+.gwSchemat {
+  max-height: 132px;
 }
 
 .gwSchemat {
@@ -648,9 +663,38 @@
   font-family: var(--font-mono);
 }
 
+/* Na waskim ekranie rysunki zostaja obok siebie, tylko mniejsze. Ustawione
+   jeden pod drugim daja 416 px wysokosci, czyli polowe telefonu, i przyklejony
+   panel zjadlby cala tabele. Ten blad popelnilismy juz raz przy Segerach. */
 @media (max-width: 700px) {
   .gwPanel {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .gwSchemat {
+    max-height: 96px;
+  }
+
+  /* Opisy skaluja sie razem z viewBox, wiec przy malym rysunku trzeba je
+     powiekszyc wzglednie, inaczej robia sie nieczytelne. */
+  .gwOpis {
+    font-size: 17px;
+  }
+}
+
+/* Telefon w poziomie i strona powiekszona do 200 procent: przyklejanie
+   wylaczone, bo panel zabralby wtedy polowe widocznego obszaru. */
+@media (max-height: 640px) {
+  .gwPanel {
+    position: static;
+  }
+}
+
+@media print {
+  .gwPanel {
+    position: static;
+    break-inside: avoid;
   }
 }
