@@ -10,6 +10,7 @@ import WidokWalek from '@site/src/components/pierscienie/widok-walek.svg';
 import WidokOtwor from '@site/src/components/pierscienie/widok-otwor.svg';
 import pozycje from '@site/src/components/pierscienie/pozycje.json';
 import {GWINTY, DLUGOSC_GWINTU, dlugoscGwintu} from '@site/src/lib/gwinty/dane';
+import {GRUPY as GRUPY_CHR, procesyGrupy, pelnaNazwa} from '@site/src/lib/chropowatosc/dane';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -430,6 +431,90 @@ function TabelaGwintowBlock({podpis}) {
   );
 }
 
+
+/**
+ * Tablica chropowatosci osiaganej roznymi metodami obrobki.
+ *
+ * Kreska znaczy "zrodlo nie podaje", a nie zero. Przy odlewaniu nikt nie mierzy
+ * granicy metody przy obrobce dokladnej, bo takiej obrobki tam nie ma.
+ */
+function TabelaChropowatosciBlock({podpis}) {
+  // Gwiazdka przy wartosci, dla ktorej dane trzymaja zastrzezenie. Klucz
+  // odpowiada kolumnie, wiec zastrzezenie siedzi dokladnie przy tej liczbie,
+  // ktorej dotyczy, a nie pod cala tabela.
+  const gwiazdka = (p, klucz) =>
+    p.uwagi && p.uwagi[klucz] ? (
+      <abbr className={styles.gwiazdkaKlucza} title={p.uwagi[klucz]}>
+        *
+      </abbr>
+    ) : null;
+
+  const kom = (p, w, klucz, pole) => (
+    <>
+      {w[pole] === null ? '\u2013' : pl(w[pole])}
+      {gwiazdka(p, klucz)}
+    </>
+  );
+
+  const zakres = (p, w, klucz) => (
+    <>
+      {w.od === w.do ? pl(w.od) : `${pl(w.od)} do ${pl(w.do)}`}
+      {gwiazdka(p, klucz)}
+    </>
+  );
+
+  return (
+    <figure className={styles.tabelaPierscieni}>
+      <div className={styles.tabelaPierscieniWrap}>
+        <table className={styles.tabelaChropowatosci}>
+          <caption className={styles.tabelaPierscieniCaption}>
+            Chropowatość osiągana metodami obróbki, wartości w mikrometrach
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" rowSpan={2}>Metoda obróbki</th>
+              <th scope="col" colSpan={3}>Rz</th>
+              <th scope="col" colSpan={3}>Ra</th>
+            </tr>
+            <tr>
+              <th scope="col">specjalnie</th>
+              <th scope="col">spotykany zakres</th>
+              <th scope="col">zgrubnie</th>
+              <th scope="col">specjalnie</th>
+              <th scope="col">spotykany zakres</th>
+              <th scope="col">zgrubnie</th>
+            </tr>
+          </thead>
+          {GRUPY_CHR.map((g) => (
+            <tbody key={g.id}>
+              <tr>
+                <th scope="colgroup" colSpan={7} className={styles.grupaChropowatosci}>
+                  {g.nazwa}
+                </th>
+              </tr>
+              {procesyGrupy(g.id).map((p) => (
+                <tr key={pelnaNazwa(p)}>
+                  <th scope="row">{pelnaNazwa(p)}</th>
+                  <td>{kom(p, p.rz, 'rz.min', 'min')}</td>
+                  <td>{zakres(p, p.rz, 'rz.zakres')}</td>
+                  <td>{kom(p, p.rz, 'rz.max', 'max')}</td>
+                  <td>{kom(p, p.ra, 'ra.min', 'min')}</td>
+                  <td>{zakres(p, p.ra, 'ra.zakres')}</td>
+                  <td>{kom(p, p.ra, 'ra.max', 'max')}</td>
+                </tr>
+              ))}
+            </tbody>
+          ))}
+        </table>
+      </div>
+      <figcaption className={styles.tabelaPierscieniPodpis}>
+        {podpis ||
+          'Wartości w mikrometrach. Specjalnie to granica osiągalna przy dobranym narzędziu i parametrach, spotykany zakres to wynik bez zabiegów specjalnych, zgrubnie to druga granica z zestawień. To nie są trzy klasy normowe. Kreska znaczy, że źródło nie podaje wartości, a nie że wynosi ona zero. Kolumny Ra i Rz pochodzą z niezależnych zestawień, więc nie opisują tej samej próbki i nie wolno dzielić jednej przez drugą ani przeliczać jednej na drugą. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią.'}
+      </figcaption>
+    </figure>
+  );
+}
+
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
@@ -441,6 +526,7 @@ const BLOCK_COMPONENTS = {
   wzor: WzorBlock,
   tabelaPierscieni: TabelaPierscieniBlock,
   tabelaGwintow: TabelaGwintowBlock,
+  tabelaChropowatosci: TabelaChropowatosciBlock,
 };
 
 // Renderuje artykuł z CMS-a: tablica bloków (tekst/obraz/galeria/tabela/wzor)
