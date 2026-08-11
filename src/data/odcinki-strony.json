@@ -9,36 +9,36 @@
     "slug": "baza-pod-hot-stamping-maly-detal",
     "videoId": "9DGui56KlLU",
     "title": "Bazowanie detalu bez osi symetrii: trzy pomysły, jeden wdrożony",
-    "description": "Detal bez osi i płaszczyzn symetrii, z rysunkiem klienta, na którym tolerowane są tylko niektóre wymiary. Jak wybierałem powierzchnie bazowe i dlaczego dwa pierwsze pomysły odpadły."
+    "description": "Jak wybrać powierzchnie bazowe dla detalu bez osi symetrii. Trzy warianty bazowania, kryteria odrzucenia i rozwiązanie zastosowane w hot stampingu."
   },
   {
     "slug": "bazy-na-stole-obrotowym",
     "videoId": "m9PMXBRGEd8",
     "title": "Bazy na stole obrotowym: cztery wyzwania i jedna pułapka",
-    "description": "Jak zaprojektowałem bazy na stół obrotowy do hot stampingu: mocowanie na magnesach, złącze obrotowe, identyfikacja baz i pułapka przy łączeniu części spawanych z frezowanymi."
+    "description": "Jak zrobiłem bazy na stół obrotowy do hot stampingu: magnesy, złącze obrotowe, identyfikacja baz i pułapka przy łączeniu części spawanych z frezowanymi."
   },
   {
     "slug": "chwytak-robota-tool-changer",
     "videoId": "TDG5zKpxpEQ",
     "title": "Chwytak robota: jak system wymiany narzędzia oszukał czujnik próżni",
-    "description": "Projekt chwytaka od kiści robota przez adapter i tool changer po ssawki. W środku błąd, który kosztował sporo szukania: czujnik pokazywał próżnię, której nie było."
+    "description": "Pokazuję projekt chwytaka robota: adapter, tool changer, ssawki i błąd czujnika, który pokazywał próżnię, choć w układzie jej nie było."
   },
   {
     "slug": "czym-zajmuje-sie-konstruktor",
     "videoId": "KcbOEMd44ik",
     "title": "Czym zajmuje się konstruktor i czym różnią się jego specjalizacje",
-    "description": "Konstruktor produktu, form wtryskowych, maszyn produkcyjnych i konstrukcji stalowych. Czym się różnią, co ich łączy i dlaczego rzeczy wokół nas wyglądają tak, a nie inaczej."
+    "description": "Czym różni się konstruktor produktu, form wtryskowych, maszyn i konstrukcji stalowych. Zakres pracy, wspólne zadania i wymagane kompetencje."
   },
   {
     "slug": "kalibracja-bambulab-h2s",
     "videoId": "ibgUzR5_ZFw",
     "title": "Bambu Lab H2S: cztery rzeczy do skalibrowania, zanim wydruk się nada",
-    "description": "Nitkowanie, gródki na obrysie, wymiar 99,6 zamiast 100 i jakość powierzchni. Co trzeba było ustawić w Bambu Lab H2S, żeby wydruki nadawały się do zastosowań mechanicznych."
+    "description": "Jak skalibrować Bambu Lab H2S: nitkowanie, gródki, skurcz wymiaru i jakość powierzchni w wydrukach do zastosowań mechanicznych."
   },
   {
     "slug": "ruchomy-model-robota-ilogic",
     "videoId": "G7331PHjNmI",
     "title": "Ruchomy model robota w Inventorze: kiedy się opłaca i jak go zrobić",
-    "description": "Formularz iLogic z suwakami do sterowania osiami robota w Inventorze. Kiedy taki model ma sens, czego potrzebujesz i jak powiązać parametry, żeby nie przeliczać kątów."
+    "description": "Formularz iLogic do sterowania osiami robota w Inventorze: kiedy ruchomy model ma sens i jak powiązać parametry bez ręcznego przeliczania kątów."
   }
 ]

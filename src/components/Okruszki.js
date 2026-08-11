@@ -14,9 +14,14 @@ import styles from './Okruszki.module.css';
 export default function Okruszki({sciezka = []}) {
   const pelna = [{nazwa: nawigacja.stronaGlowna, url: '/'}, ...sciezka];
 
+  // Staly identyfikator, zeby okruszki dalo sie scalic z reszta grafu strony
+  // zamiast dokladac anonimowy byt obok istniejacych.
+  const ostatniAdres = pelna[pelna.length - 1].url;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    '@id': `${absolutePageUrl(ostatniAdres)}#okruszki`,
     itemListElement: pelna.map((el, i) => ({
       '@type': 'ListItem',
       position: i + 1,

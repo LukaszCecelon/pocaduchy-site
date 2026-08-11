@@ -473,12 +473,15 @@
   background: var(--pc-rust);
   display: inline-block;
 }
-.latestHead span:last-child {
+.latestLabel {
   font-family: var(--font-mono);
   font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
   letter-spacing: 2px;
   color: var(--pc-rust);
   text-transform: uppercase;
+  margin: 0;
 }
 .latestCard {
   display: grid;

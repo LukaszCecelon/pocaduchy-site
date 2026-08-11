@@ -16,36 +16,37 @@ function zKanalu(videoId) {
   return (epizody.episodes || []).find((e) => e.id === videoId) || null;
 }
 
+// Czas trwania w tresci jest zapisany dla czlowieka ("11 min"), a schema.org
+// oczekuje ISO 8601. Rozdzielamy te dwie rzeczy, zeby nie trzeba bylo pisac
+// czasu dwa razy w pliku odcinka.
+function czasIso(czasTrwania) {
+  if (!czasTrwania) return undefined;
+  const m = /^\s*(?:(\d+)\s*h)?\s*(?:(\d+)\s*min)?\s*(?:(\d+)\s*s)?\s*$/.exec(czasTrwania);
+  if (!m || (!m[1] && !m[2] && !m[3])) return undefined;
+  return `PT${m[1] ? `${Number(m[1])}H` : ''}${m[2] ? `${Number(m[2])}M` : ''}${
+    m[3] ? `${Number(m[3])}S` : ''
+  }`;
+}
+
 function daneStrukturalne({videoId, title, description, permalink, kanal, czasTrwania}) {
   const url = absolutePageUrl(permalink);
+  // Okruszki emituja wlasny BreadcrumbList, wiec tutaj go nie powtarzamy.
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'VideoObject',
-        '@id': `${url}#wideo`,
-        name: title,
-        description,
-        thumbnailUrl: kanal ? kanal.thumbnail : undefined,
-        uploadDate: kanal ? kanal.published : undefined,
-        duration: czasTrwania || undefined,
-        contentUrl: kanal ? kanal.url : undefined,
-        embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}`,
-        inLanguage: 'pl-PL',
-        publisher: {'@id': `${SITE_URL}/#organizacja`},
-        creator: {'@id': `${SITE_URL}/#lukasz`},
-        isPartOf: {'@id': `${SITE_URL}/#strona`},
-      },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': `${url}#okruszki`,
-        itemListElement: [
-          {'@type': 'ListItem', position: 1, name: 'Strona główna', item: `${SITE_URL}/`},
-          {'@type': 'ListItem', position: 2, name: 'Odcinki', item: `${SITE_URL}/odcinki/`},
-          {'@type': 'ListItem', position: 3, name: title, item: url},
-        ],
-      },
-    ],
+    '@type': 'VideoObject',
+    '@id': `${url}#wideo`,
+    name: title,
+    description,
+    thumbnailUrl: kanal ? kanal.thumbnail : undefined,
+    uploadDate: kanal ? kanal.published : undefined,
+    duration: czasIso(czasTrwania),
+    // contentUrl ma prowadzic do pliku wideo, a takiego nie mamy. Sam adres
+    // ogladania opisuje embedUrl, wiec contentUrl zostaje pominiete.
+    embedUrl: `https://www.youtube-nocookie.com/embed/${videoId}`,
+    inLanguage: 'pl-PL',
+    publisher: {'@id': `${SITE_URL}/#organizacja`},
+    creator: {'@id': `${SITE_URL}/#lukasz`},
+    isPartOf: {'@id': `${SITE_URL}/#strona`},
   };
 }
 
