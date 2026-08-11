@@ -585,13 +585,84 @@
 
 /* ---------- tablica chropowatosci ---------- */
 
+/* Cztery kolumny zamiast siedmiu, wiec tabela miesci sie na telefonie
+   i nie trzeba jej przesuwac w bok. Prog przewijania zostaje jako
+   bezpiecznik dla bardzo waskich ekranow. */
 .tabelaPierscieniWrap .tabelaChropowatosci {
-  min-width: 700px;
+  min-width: 0;
 }
 
+.tabelaChropowatosci th,
+.tabelaChropowatosci td {
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+
+/* Nazwa metody i naglowki kolumn moga sie zawijac, same liczby nie.
+   Bez zawijania naglowek "spotykany zakres" trzymal kolumne szeroka na sto
+   pikseli i tabela nie miescila sie na telefonie. */
 .tabelaChropowatosci tbody th[scope='row'] {
   white-space: normal;
-  min-width: 190px;
+  min-width: 0;
+  /* Przenoszenie wyrazow, a nie lamanie w srodku sylaby. Strona ma lang="pl",
+     wiec przegladarka dzieli slowa w poprawnych miejscach. break-word robil
+     z "ciśnieniowe" cos w rodzaju "ciśnieni owe". */
+  hyphens: auto;
+}
+
+.tabelaChropowatosci thead th {
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.miedzyTabelami {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--pc-text-faint);
+  margin: 14px 0 10px;
+  max-width: 70ch;
+}
+
+@media (max-width: 560px) {
+  .tabelaChropowatosci {
+    font-size: 12.5px;
+  }
+
+  .tabelaChropowatosci th,
+  .tabelaChropowatosci td {
+    padding: 6px 5px;
+  }
+
+  /* Naglowki musza zmiescic cale slowo w kolumnie, inaczej lamia sie w srodku
+     wyrazu. Dlatego etykiety sa krotkie: granica, zakres, zgrubnie. */
+  .tabelaChropowatosci thead th {
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .tabelaChropowatosci td {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  /* Uklad stalych szerokosci. Przy ukladzie automatycznym przegladarka wolala
+     wypchnac tabele poza kontener, niz zawinac naglowek "spotykany zakres",
+     wiec sama szerokosc procentowa nie wystarczala. */
+  .tabelaChropowatosci {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .tabelaChropowatosci th:first-child,
+  .tabelaChropowatosci td:first-child {
+    width: 38%;
+  }
+
+  .tabelaChropowatosci thead th:not(:first-child),
+  .tabelaChropowatosci tbody td {
+    width: 20.6%;
+  }
 }
 
 /* Naglowek grupy technologicznej wewnatrz tabeli. Ma oddzielac, a nie
