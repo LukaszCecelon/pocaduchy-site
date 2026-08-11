@@ -351,3 +351,80 @@
   margin-top: 10px;
   max-width: 70ch;
 }
+
+/* ---------- schemat rowka nad tablica ---------- */
+
+.plotnoRowka {
+  position: relative;
+  background: var(--pc-bg);
+  border: 1px solid var(--pc-border);
+  border-radius: 10px;
+  margin: 0 auto 18px;
+  max-width: 340px;
+}
+
+.cadRowka {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Etykieta zaczepiona za rog pola tekstowego z oryginalnego rysunku.
+   Poswiata zamiast prostokata tla: rozjasnia kreskowanie tylko wokol glifow,
+   wiec oznaczenie jest czytelne, a groty strzalek zostaja widoczne. */
+.etRowka {
+  position: absolute;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  line-height: 1.05;
+  color: var(--pc-navy);
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff;
+}
+
+.etGlowna {
+  font-weight: 700;
+}
+
+/* rosnie w lewo i w gore od punktu zaczepienia */
+.poziomPrawo {
+  transform: translate(-100%, -100%);
+}
+
+/* rosnie w prawo i w gore */
+.poziomLewo {
+  transform: translate(0, -100%);
+}
+
+/* obrocona o 90 stopni, czytana od dolu */
+.pion {
+  transform-origin: 0 0;
+  transform: rotate(-90deg) translate(0, -100%);
+}
+
+.legendaRowka {
+  margin: 0 0 18px;
+  display: grid;
+  gap: 4px;
+}
+
+.legendaRowka > div {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.legendaRowka dt {
+  flex: 0 0 3.2em;
+  font-weight: 700;
+  color: var(--pc-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.legendaRowka dd {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--pc-text-muted);
+}
