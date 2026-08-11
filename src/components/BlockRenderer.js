@@ -243,22 +243,32 @@ function SchematRowka({typ}) {
 }
 
 // Opis oznaczen pod schematem. Odpowiada na pytanie, ktorej srednicy dotyczy
-// ktory wymiar, zanim czytelnik wejdzie w tabele.
+// ktory wymiar. Kazda pozycja ma opis pelny i skrot: na duzym ekranie widac
+// pelny, na malym skrot, zeby panel nie zjadal wysokosci potrzebnej na tabele.
+// Grubosc s nie wystepuje na schemacie, ale jest kolumna tabeli, wiec musi tu byc.
 function LegendaRowka({typ}) {
   const walek = typ === 'walek';
   const pozycjeLegendy = [
-    ['⌀d1', walek ? 'średnica wałka, czyli wymiar, pod który dobierasz pierścień' : 'średnica otworu, czyli wymiar gniazda w korpusie albo piaście'],
-    ['⌀d2', walek ? 'średnica rowka, mniejsza od d1, bo rowek jest podtoczeniem' : 'średnica rowka, większa od d1, bo rowek jest wybraniem w otworze'],
-    ['m', 'szerokość rowka w klasie H13'],
-    ['t', walek ? 'głębokość rowka, czyli (d1 - d2) / 2' : 'głębokość rowka, czyli (d2 - d1) / 2'],
-    ['n', 'najmniejsza dopuszczalna odległość rowka od czoła detalu'],
+    ['d1', walek ? 'średnica wałka, czyli wymiar, pod który dobierasz pierścień' : 'średnica otworu, czyli wymiar gniazda w korpusie albo piaście',
+      walek ? 'średnica wałka' : 'średnica otworu'],
+    ['s', 'nominalna grubość pierścienia, wymiar samego pierścienia, a nie rowka', 'grubość pierścienia'],
+    ['d2', walek ? 'średnica rowka, mniejsza od d1, bo rowek jest podtoczeniem' : 'średnica rowka, większa od d1, bo rowek jest wybraniem w otworze',
+      'średnica rowka'],
+    ['m', 'szerokość rowka w klasie H13', 'szerokość rowka'],
+    ['t', walek ? 'głębokość rowka, czyli (d1 - d2) / 2' : 'głębokość rowka, czyli (d2 - d1) / 2', 'głębokość rowka'],
+    ['n', 'najmniejsza dopuszczalna odległość rowka od czoła detalu', 'od czoła detalu'],
   ];
   return (
     <dl className={styles.legendaRowka}>
-      {pozycjeLegendy.map(([symbol, opis]) => (
+      {pozycjeLegendy.map(([symbol, opis, skrot]) => (
         <div key={symbol}>
           <dt>{symbol}</dt>
-          <dd>{opis}</dd>
+          <dd>
+            <span className={styles.legendaOpisPelny}>{opis}</span>
+            <span className={styles.legendaOpisSkrot} aria-hidden="true">
+              {skrot}
+            </span>
+          </dd>
         </div>
       ))}
     </dl>
@@ -285,8 +295,10 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
 
   return (
     <figure className={styles.tabelaPierscieni}>
-      <SchematRowka typ={typ} />
-      <LegendaRowka typ={typ} />
+      <div className={styles.odniesienieRowka}>
+        <SchematRowka typ={typ} />
+        <LegendaRowka typ={typ} />
+      </div>
       <div className={styles.tabelaPierscieniWrap}>
         <table>
           <caption className={styles.tabelaPierscieniCaption}>
