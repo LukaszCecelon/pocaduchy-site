@@ -554,3 +554,31 @@
     display: none;
   }
 }
+
+/* ---------- tablica gwintow ---------- */
+
+.tabelaPierscieniWrap .tabelaGwintow {
+  /* Wiecej kolumn niz w tablicy rowkow, wiec i szerszy prog przewijania.
+     Selektor jest dwuczlonowy, zeby wygral z regula .tabelaPierscieniWrap table,
+     ktora ustawia 640 px. */
+  min-width: 720px;
+}
+
+.tabelaGwintow thead tr:first-child th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.gwiazdkaKlucza {
+  color: var(--pc-rust);
+  margin-left: 2px;
+  cursor: help;
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+/* Kolejnosc wyboru wg ISO 261. Cyfra ma byc obecna, ale nie ma konkurowac
+   z wymiarami o uwage, bo to wskazowka, a nie wartosc do przepisania. */
+.wybor {
+  color: var(--pc-text-faint);
+  text-align: center !important;
+}

@@ -51,7 +51,7 @@
     },
     {
       "type": "tekst",
-      "body": "## Tabela czy kalkulator\n\nTabela jest dobra, kiedy chcesz porównać kilka średnic, sprawdzić zakres tolerancji albo zobaczyć, jak zmienia się głębokość rowka. Przydaje się też wtedy, gdy przeglądasz rysunek od kogoś innego i chcesz szybko złapać podejrzany wymiar.\n\nDo pojedynczego doboru szybciej użyć [kalkulatora rowka pod pierścień osadczy](/narzedzia/pierscienie-osadcze/). Wpisujesz średnicę, wybierasz wałek albo otwór i od razu dostajesz rowek, granice tolerancji oraz luz osiowy. Tabela zostaje jako kontrola i kontekst. Kalkulator jako narzędzie robocze przy konkretnym wymiarze."
+      "body": "## Tabela czy kalkulator\n\nTabela jest dobra, kiedy chcesz porównać kilka średnic, sprawdzić zakres tolerancji albo zobaczyć, jak zmienia się głębokość rowka. Przydaje się też wtedy, gdy przeglądasz rysunek od kogoś innego i chcesz szybko złapać podejrzany wymiar.\n\nDo pojedynczego doboru szybciej użyć [kalkulatora rowka pod pierścień osadczy](/narzedzia/pierscienie-osadcze/). Wpisujesz średnicę, wybierasz wałek albo otwór i od razu dostajesz rowek, granice tolerancji oraz luz osiowy. Tabela zostaje jako kontrola i kontekst. Kalkulator jako narzędzie robocze przy konkretnym wymiarze.\n\nPrzy sprawdzaniu dokumentacji śrubowej podobną rolę pełni [tabela gwintów metrycznych](/wiedza/gwinty-metryczne-tabela/): zestawia skoki, klucze i długości gwintu DIN 931."
     }
   ],
   "faq": [
