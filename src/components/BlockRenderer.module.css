@@ -359,8 +359,9 @@
   background: var(--pc-bg);
   border: 1px solid var(--pc-border);
   border-radius: 10px;
-  margin: 0 auto 18px;
-  max-width: 340px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px;
 }
 
 .cadRowka {
@@ -404,7 +405,8 @@
 }
 
 .legendaRowka {
-  margin: 0 0 18px;
+  margin: 0;
+  min-width: 0;
   display: grid;
   gap: 4px;
 }
@@ -434,4 +436,121 @@
 .klasaTol {
   color: var(--pc-text-faint);
   font-weight: 400;
+}
+
+/* ---------- panel odniesienia przyklejony przy tablicy ----------
+
+   Rysunek i legenda jada razem z tablica: bez tego po kilku wierszach
+   czytelnik zostaje z kolumnami opisanymi skrotami, a wyjasnienie jest juz
+   poza ekranem. Panel zatrzymuje sie pod paskiem nawigacji i zwalnia na koncu
+   wlasnego figure, wiec panel DIN 471 nie wchodzi nad naglowek DIN 472.
+
+   UWAGA: position: sticky przestanie dzialac, jesli ktokolwiek doda
+   overflow hidden, auto albo scroll na ktorymkolwiek przodku tego panelu. */
+
+.odniesienieRowka {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 8px);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  margin: 0 0 12px;
+  border: 1px solid var(--pc-border);
+  border-radius: 10px;
+  /* Tlo musi byc nieprzezroczyste. Przy polprzezroczystym linie tabeli
+     mieszalyby sie z liniami rysunku i oba stalyby sie nieczytelne. */
+  background: #fff;
+}
+
+.legendaOpisSkrot {
+  display: none;
+}
+
+/* Waski ekran albo niskie okno: mniejszy rysunek i skrocone opisy.
+   Panel w pelnym rozmiarze zajmowalby na telefonie tyle, ze pod nim
+   zostalyby trzy wiersze tabeli, czyli problem wrocilby innymi drzwiami. */
+@media (max-width: 700px), (max-height: 640px) {
+  .odniesienieRowka {
+    grid-template-columns: 140px minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px;
+  }
+
+  .odniesienieRowka .plotnoRowka {
+    max-width: 140px;
+  }
+
+  .odniesienieRowka .etRowka {
+    font-size: 11px;
+  }
+
+  .odniesienieRowka .legendaRowka {
+    gap: 2px;
+  }
+
+  .odniesienieRowka .legendaRowka > div {
+    gap: 4px;
+  }
+
+  .odniesienieRowka .legendaRowka dt {
+    flex: 0 0 2em;
+    font-size: 11.5px;
+  }
+
+  .odniesienieRowka .legendaRowka dd {
+    font-size: 11.5px;
+    line-height: 1.25;
+  }
+
+  /* Pelny opis zostaje w kodzie dla czytnika ekranu, skrot jest dla oka
+     i ma aria-hidden, zeby czytnik nie przeczytal tego samego dwa razy. */
+  .legendaOpisPelny {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .legendaOpisSkrot {
+    display: inline;
+  }
+}
+
+/* Telefon w poziomie i strona powiekszona do 200 procent: przyklejanie
+   wylaczone, bo panel zabralby wtedy polowe widocznego obszaru. */
+@media (max-height: 640px) {
+  .odniesienieRowka {
+    position: static;
+  }
+}
+
+@media print {
+  .odniesienieRowka {
+    position: static;
+    grid-template-columns: 200px minmax(0, 1fr);
+    break-inside: avoid;
+  }
+
+  .legendaOpisPelny {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+
+  .legendaOpisSkrot {
+    display: none;
+  }
 }
