@@ -568,12 +568,47 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.gwiazdkaKlucza {
+/* Odnosnik do przypisu przy liczbie. Numer, nie gwiazdka, bo zastrzezen bywa
+   kilka i trzeba wiedziec, ktore dotyczy ktorej wartosci. */
+.odnosnikPrzypisu {
+  font-size: 0.72em;
+  line-height: 0;
+  margin-left: 1px;
+}
+
+.odnosnikPrzypisu a {
   color: var(--pc-rust);
-  margin-left: 2px;
-  cursor: help;
   text-decoration: none;
-  border-bottom: 0;
+  font-weight: 700;
+}
+
+.odnosnikPrzypisu a:hover {
+  text-decoration: underline;
+}
+
+/* Tresc zastrzezen pod tabela. To jest zwykly tekst strony, wiec czyta go
+   czytnik ekranu, wyszukiwarka i model, a nie tylko mysz. */
+.przypisy {
+  margin: 0;
+  padding: 12px 16px 12px 34px;
+  border-top: 1px solid var(--pc-border);
+  background: var(--pc-bg);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--pc-text-muted);
+}
+
+.przypisy li {
+  margin-bottom: 5px;
+}
+
+.przypisy li:last-child {
+  margin-bottom: 0;
+}
+
+.przypisy li:target {
+  color: var(--pc-navy);
+  font-weight: 600;
 }
 
 /* Kolejnosc wyboru wg ISO 261. Cyfra ma byc obecna, ale nie ma konkurowac

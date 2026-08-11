@@ -42,7 +42,7 @@ const GWINTY = [
   {d: 12,   p: 1.75, pd: [1.5, 1.25, 1],  k: 19, kUwaga: 'wg ISO 4032 jest 18', w: 1},
   {
     d: 14, p: 2, pd: [1.5, 1.25, 1], k: 21, w: 2,
-    kUwaga: 'wg starego DIN 934 bylo 22',
+    kUwaga: 'wg starego DIN 934 było 22',
     // ISO 261 dopuszcza M14x1,25, ale przypisem zaweza je do swiec
     // zaplonowych. W zwyklej konstrukcji tego skoku sie nie uzywa.
     pdUwagi: {1.25: 'wg ISO 261 tylko do świec zapłonowych silników'},
@@ -50,7 +50,7 @@ const GWINTY = [
   {d: 16,   p: 2,    pd: [1.5, 1],        k: 24, w: 1},
   {d: 18,   p: 2.5,  pd: [2, 1.5, 1],     k: 27, w: 2},
   {d: 20,   p: 2.5,  pd: [2, 1.5, 1],     k: 30, w: 1},
-  {d: 22,   p: 2.5,  pd: [2, 1.5, 1],     k: 34, kUwaga: 'wg starego DIN 934 bylo 32', w: 2},
+  {d: 22,   p: 2.5,  pd: [2, 1.5, 1],     k: 34, kUwaga: 'wg starego DIN 934 było 32', w: 2},
   {d: 24,   p: 3,    pd: [2, 1.5, 1],     k: 36, w: 1},
   {d: 27,   p: 3,    pd: [2, 1.5, 1],     k: 41, w: 2},
   {d: 30,   p: 3.5,  pd: [2, 1.5, 1],     k: 46, w: 1},

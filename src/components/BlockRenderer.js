@@ -195,6 +195,54 @@ function WzorBlock({latex}) {
 
 
 
+
+/**
+ * Numerowanie przypisow do tabel z danymi.
+ *
+ * Zastrzezenie do liczby musi byc czescia tekstu strony, a nie dymkiem po
+ * najechaniu myszka. Dymek widzi tylko czlowiek z mysza: nie widzi go czytnik
+ * ekranu, uzytkownik klawiatury, telefon ani model jezykowy, ktory nasza tabele
+ * cytuje. A to wlasnie zastrzezenie decyduje, czy liczba znaczy to, co sie
+ * wydaje.
+ *
+ * Powtarzajace sie zastrzezenie dostaje jeden numer, bo to jest jedno
+ * zastrzezenie dotyczace wielu wierszy, a nie kilka roznych.
+ */
+function numerujPrzypisy(teksty) {
+  const kolejnosc = [];
+  for (const t of teksty) {
+    if (t && !kolejnosc.includes(t)) kolejnosc.push(t);
+  }
+  return {
+    numer: (t) => (t ? kolejnosc.indexOf(t) + 1 : null),
+    lista: kolejnosc,
+  };
+}
+
+function OdnosnikPrzypisu({numer, prefiks}) {
+  if (!numer) return null;
+  return (
+    <sup className={styles.odnosnikPrzypisu}>
+      <a href={`#${prefiks}-przypis-${numer}`} aria-label={`Zastrzeżenie ${numer}`}>
+        {numer}
+      </a>
+    </sup>
+  );
+}
+
+function ListaPrzypisow({lista, prefiks}) {
+  if (lista.length === 0) return null;
+  return (
+    <ol className={styles.przypisy}>
+      {lista.map((tekst, i) => (
+        <li key={tekst} id={`${prefiks}-przypis-${i + 1}`}>
+          {tekst}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 const WIDOKI_ROWKA = {walek: WidokWalek, otwor: WidokOtwor};
 
 // Etykieta zaczepiona za rog pola tekstowego z oryginalnego rysunku, a nie za
@@ -349,6 +397,17 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
  * tablica: 2d plus 6, 12 albo 25 zaleznie od dlugosci calej sruby.
  */
 function TabelaGwintowBlock({podpis}) {
+  const prefiks = 'gwint';
+  const wszystkie = [];
+  for (const g of GWINTY) {
+    wszystkie.push(g.pUwaga);
+    if (g.pdUwagi) for (const skok of g.pd) wszystkie.push(g.pdUwagi[skok]);
+    wszystkie.push(g.kUwaga);
+  }
+  const przypisy = numerujPrzypisy(wszystkie);
+  const odnosnik = (tekst) =>
+    tekst ? <OdnosnikPrzypisu numer={przypisy.numer(tekst)} prefiks={prefiks} /> : null;
+
   return (
     <figure className={styles.tabelaPierscieni}>
       <div className={styles.tabelaPierscieniWrap}>
@@ -381,22 +440,14 @@ function TabelaGwintowBlock({podpis}) {
                 <td className={styles.wybor}>{g.w}</td>
                 <td>
                   {pl(g.p)}
-                  {g.pUwaga ? (
-                    <abbr className={styles.gwiazdkaKlucza} title={g.pUwaga}>
-                      *
-                    </abbr>
-                  ) : null}
+                  {odnosnik(g.pUwaga)}
                 </td>
                 <td>
                   {g.pd.map((skok, i) => (
                     <React.Fragment key={skok}>
                       {i > 0 ? ' / ' : ''}
                       {pl(skok)}
-                      {g.pdUwagi && g.pdUwagi[skok] ? (
-                        <abbr className={styles.gwiazdkaKlucza} title={g.pdUwagi[skok]}>
-                          *
-                        </abbr>
-                      ) : null}
+                      {odnosnik(g.pdUwagi && g.pdUwagi[skok])}
                     </React.Fragment>
                   ))}
                 </td>
@@ -410,11 +461,7 @@ function TabelaGwintowBlock({podpis}) {
                   ) : (
                     <>
                       {pl(g.k)}
-                      {g.kUwaga ? (
-                        <abbr className={styles.gwiazdkaKlucza} title={g.kUwaga}>
-                          *
-                        </abbr>
-                      ) : null}
+                      {odnosnik(g.kUwaga)}
                     </>
                   )}
                 </td>
@@ -422,6 +469,7 @@ function TabelaGwintowBlock({podpis}) {
             ))}
           </tbody>
         </table>
+        <ListaPrzypisow lista={przypisy.lista} prefiks={prefiks} />
       </div>
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
@@ -447,11 +495,22 @@ function TabelaGwintowBlock({podpis}) {
  * przewijania w bok, czego siedem nie robilo.
  */
 function TabelaJednegoParametru({parametr, tytul}) {
+  const prefiks = `chr-${parametr}`;
+  // Przypisy numerujemy przed rysowaniem, zeby numer w komorce zgadzal sie
+  // z numerem na liscie pod tabela niezaleznie od kolejnosci renderowania.
+  const wszystkie = [];
+  for (const g of GRUPY_CHR) {
+    for (const proc of procesyGrupy(g.id)) {
+      for (const koniec of ['min', 'zakres', 'max']) {
+        wszystkie.push(proc.uwagi && proc.uwagi[`${parametr}.${koniec}`]);
+      }
+    }
+  }
+  const przypisy = numerujPrzypisy(wszystkie);
+
   const gwiazdka = (p, klucz) =>
     p.uwagi && p.uwagi[klucz] ? (
-      <abbr className={styles.gwiazdkaKlucza} title={p.uwagi[klucz]}>
-        *
-      </abbr>
+      <OdnosnikPrzypisu numer={przypisy.numer(p.uwagi[klucz])} prefiks={prefiks} />
     ) : null;
 
   const kom = (p, w, klucz, pole) => (
@@ -503,6 +562,7 @@ function TabelaJednegoParametru({parametr, tytul}) {
           </tbody>
         ))}
       </table>
+      <ListaPrzypisow lista={przypisy.lista} prefiks={prefiks} />
     </div>
   );
 }
