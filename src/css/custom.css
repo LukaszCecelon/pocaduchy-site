@@ -61,6 +61,9 @@ h1, h2, h3, h4, h5, h6 {
 .navbar__logo img {
   border-radius: 50%;
   object-fit: cover;
+  /* Infima ustawia tylko wysokosc. Bez tego atrybut width z konfiguracji
+     rozciagalby logo na cala szerokosc paska. */
+  width: auto;
 }
 
 .navbar__item.navbar__cta {
