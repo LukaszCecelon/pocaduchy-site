@@ -428,3 +428,10 @@
   line-height: 1.55;
   color: var(--pc-text-muted);
 }
+
+/* Klasa tolerancji stoi przy wymiarze tak jak na rysunku, ale lzejszym
+   krojem, zeby kolumna liczb nadal czytala sie z gory na dol. */
+.klasaTol {
+  color: var(--pc-text-faint);
+  font-weight: 400;
+}
