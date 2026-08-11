@@ -1,7 +1,7 @@
 // AUTO-WYGENEROWANE przez scripts/build-content-pages.mjs - nie edytuj ręcznie.
 import React from 'react';
 import WiedzaArticleTemplate from '@site/src/components/WiedzaArticleTemplate';
-import data from '@site/content/wiedza/pozycjonowanie-czesci-w-maszynie.json';
+import data from '@site/content/wiedza/rowki-pod-pierscienie-osadcze-seger.json';
 
 export default function Page() {
   return (
@@ -10,7 +10,7 @@ export default function Page() {
       seoTitle={data.seoTitle}
       description={data.description}
       date={data.date}
-      permalink="/wiedza/pozycjonowanie-czesci-w-maszynie"
+      permalink="/wiedza/rowki-pod-pierscienie-osadcze-seger"
       linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
       faq={data.faq}

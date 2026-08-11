@@ -5,6 +5,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import imageSizes from '@site/src/data/image-sizes.json';
+import {dobierzPierscien, listaSrednic} from '@site/src/lib/pierscienie/oblicz';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -187,6 +188,68 @@ function WzorBlock({latex}) {
   );
 }
 
+
+// Liczby na rysunku warsztatowym pisze sie z przecinkiem, bez zer na koncu.
+function pl(x) {
+  return String(Math.round(x * 1000) / 1000).replace('.', ',');
+}
+
+/**
+ * Tablica rowkow pod pierscienie osadcze, liczona z tego samego zrodla co
+ * kalkulator. Recznie przepisana tabela rozjechalaby sie z narzedziem przy
+ * pierwszej poprawce danych, a tutaj rozjazd jest niemozliwy.
+ */
+function TabelaPierscieniBlock({typ = 'walek', podpis}) {
+  const wiersze = listaSrednic(typ).map((d1) => {
+    const w = dobierzPierscien({typ, srednica: d1});
+    return {d1, w};
+  });
+  const norma = typ === 'walek' ? 'DIN 471' : 'DIN 472';
+  const element = typ === 'walek' ? 'wałka' : 'otworu';
+
+  return (
+    <figure className={styles.tabelaPierscieni}>
+      <div className={styles.tabelaPierscieniWrap}>
+        <table>
+          <caption className={styles.tabelaPierscieniCaption}>
+            {norma}: wymiary rowka w funkcji średnicy {element}
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">d1</th>
+              <th scope="col">s</th>
+              <th scope="col">d2</th>
+              <th scope="col">klasa d2</th>
+              <th scope="col">m</th>
+              <th scope="col">t</th>
+              <th scope="col">n</th>
+              <th scope="col">luz osiowy</th>
+            </tr>
+          </thead>
+          <tbody>
+            {wiersze.map(({d1, w}) => (
+              <tr key={d1}>
+                <th scope="row">{pl(d1)}</th>
+                <td>{pl(w.pierscien.s)}</td>
+                <td>{pl(w.rowek.d2)}</td>
+                <td>{w.rowek.d2Klasa}</td>
+                <td>{pl(w.rowek.m)}</td>
+                <td>{pl(w.rowek.glebokosc)}</td>
+                <td>{pl(w.rowek.n)}</td>
+                <td>{pl(w.luzOsiowy.nominalny)} do {pl(w.luzOsiowy.maksymalny)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <figcaption className={styles.tabelaPierscieniPodpis}>
+        {podpis ||
+          `Wszystkie wymiary w milimetrach. d1 to średnica ${element}, d2 średnica rowka, m jego szerokość w klasie H13, t głębokość, n minimalna odległość od czoła.`}
+      </figcaption>
+    </figure>
+  );
+}
+
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
@@ -196,6 +259,7 @@ const BLOCK_COMPONENTS = {
   plik: PlikBlock,
   tabela: TabelaBlock,
   wzor: WzorBlock,
+  tabelaPierscieni: TabelaPierscieniBlock,
 };
 
 // Renderuje artykuł z CMS-a: tablica bloków (tekst/obraz/galeria/tabela/wzor)

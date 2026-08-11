@@ -2,6 +2,10 @@
   padding: 40px 32px 96px;
   max-width: 1180px;
   margin: 0 auto;
+  /* Bez jawnej szerokosci kontener dobiera ja do zawartosci, wiec szeroka
+     tabela rozpychala cala strone zamiast przewijac sie u siebie. */
+  width: 100%;
+  min-width: 0;
 }
 .breadcrumb {
   font-family: var(--font-mono);
@@ -22,6 +26,13 @@
   grid-template-columns: 1fr 240px;
   gap: 56px;
   align-items: start;
+}
+
+/* Element siatki ma domyslnie min-width: auto, przez co nie da sie go zwezic
+   ponizej szerokosci najszerszego dziecka. To wlasnie tedy tabela wychodzila
+   poza ekran telefonu. */
+.layout > * {
+  min-width: 0;
 }
 
 .title {
@@ -87,4 +98,35 @@
   font-size: 14.5px;
   line-height: 1.6;
   color: var(--pc-text-faint);
+}
+
+/* ---------- pytania pod artykulem ---------- */
+
+.faq {
+  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 2px solid var(--pc-rust);
+}
+
+.faqTytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+}
+
+.faqPytanie {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  color: var(--pc-navy);
+}
+
+.faqOdpowiedz {
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--pc-text-muted);
+  max-width: 70ch;
+  margin: 0;
 }

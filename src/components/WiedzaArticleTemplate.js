@@ -9,8 +9,9 @@ import styles from './WiedzaArticleTemplate.module.css';
 // Dane strukturalne artykułu: TechArticle (treść techniczna) + ścieżka
 // okruszków. Dzięki temu Google i modele AI wiedzą, że to artykuł
 // merytoryczny, kto jest autorem i gdzie leży w strukturze serwisu.
-function articleJsonLd({title, description, date, permalink}) {
+function articleJsonLd({title, description, date, permalink, faq}) {
   const url = absolutePageUrl(permalink || '/');
+  const pytania = Array.isArray(faq) ? faq : [];
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -32,6 +33,22 @@ function articleJsonLd({title, description, date, permalink}) {
           audienceType: 'konstruktorzy, inżynierowie mechanicy, technolodzy',
         },
       },
+      // FAQPage dodajemy tylko wtedy, gdy artykul faktycznie ma pytania.
+      // Pusty wezel w danych strukturalnych to blad w Search Console,
+      // a nie neutralny brak.
+      ...(pytania.length
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${url}#pytania`,
+              mainEntity: pytania.map((p) => ({
+                '@type': 'Question',
+                name: p.pytanie,
+                acceptedAnswer: {'@type': 'Answer', text: p.odpowiedz},
+              })),
+            },
+          ]
+        : []),
       {
         '@type': 'BreadcrumbList',
         '@id': `${url}#okruszki`,
@@ -55,6 +72,7 @@ export default function WiedzaArticleTemplate({
   permalink,
   linkedinUrl,
   blocks,
+  faq,
 }) {
   return (
     <Layout title={seoTitle || title} description={description}>
@@ -63,7 +81,7 @@ export default function WiedzaArticleTemplate({
         {date ? <meta property="article:published_time" content={date} /> : null}
         <meta property="article:author" content="Łukasz Cecelon" />
         <script type="application/ld+json">
-          {JSON.stringify(articleJsonLd({title, description, date, permalink}))}
+          {JSON.stringify(articleJsonLd({title, description, date, permalink, faq}))}
         </script>
       </Head>
 
@@ -82,6 +100,18 @@ export default function WiedzaArticleTemplate({
               </p>
             ) : null}
             <BlockRenderer blocks={blocks} />
+
+            {Array.isArray(faq) && faq.length > 0 ? (
+              <section className={styles.faq}>
+                <h2 className={styles.faqTytul}>Najczęstsze pytania</h2>
+                {faq.map((p) => (
+                  <div key={p.pytanie}>
+                    <h3 className={styles.faqPytanie}>{p.pytanie}</h3>
+                    <p className={styles.faqOdpowiedz}>{p.odpowiedz}</p>
+                  </div>
+                ))}
+              </section>
+            ) : null}
 
             {/* Materiał ukazał się najpierw na LinkedIn. Odnośnik do oryginału
                 stoi pod treścią, żeby nie wyprowadzał czytelnika ze strony,

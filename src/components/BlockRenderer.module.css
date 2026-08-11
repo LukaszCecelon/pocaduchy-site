@@ -272,3 +272,82 @@
     width: 100%;
   }
 }
+
+/* ---------- tablica rowkow pod pierscienie osadcze ---------- */
+
+.tabelaPierscieni {
+  margin: 34px 0;
+  /* Element ukladu siatki domyslnie ma min-width: auto, wiec szeroka tabela
+     rozpychalaby cala strone zamiast przewijac sie we wlasnym kontenerze. */
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tabelaPierscieniWrap {
+  overflow-x: auto;
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--pc-border);
+  background: #ffffff;
+}
+
+.tabelaPierscieniWrap table {
+  /* Motyw Docusaurusa daje tabelom display: block z wlasnym przewijaniem.
+     Wiersz przestaje sie wtedy rozciagac, wiec przewijanie oddajemy kontenerowi. */
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: 14.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabelaPierscieniCaption {
+  caption-side: top;
+  text-align: left;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pc-text-faint);
+  border-bottom: 1px solid var(--pc-border);
+}
+
+.tabelaPierscieniWrap th,
+.tabelaPierscieniWrap td {
+  padding: 8px 14px;
+  text-align: right;
+  border-bottom: 1px solid var(--pc-border);
+  color: var(--pc-text-muted);
+  white-space: nowrap;
+}
+
+.tabelaPierscieniWrap thead th {
+  background: var(--pc-navy);
+  color: var(--pc-bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tabelaPierscieniWrap tbody th {
+  font-weight: 700;
+  color: var(--pc-navy);
+  text-align: left;
+}
+
+.tabelaPierscieniWrap tbody tr:last-child th,
+.tabelaPierscieniWrap tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabelaPierscieniPodpis {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--pc-text-faint);
+  margin-top: 10px;
+  max-width: 70ch;
+}
