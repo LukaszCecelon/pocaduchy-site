@@ -1,5 +1,5 @@
 import React from 'react';
-import {policzPasowanie, znajdzPasowania} from '@site/src/lib/pasowania/oblicz.js';
+import {policzPasowanie} from '@site/src/lib/pasowania/oblicz.js';
 import {SREDNICA_PX, szerokoscPasma} from '@site/src/lib/pasowania/rysunek.js';
 import {
   LITERY_WALKOW,
@@ -591,14 +591,54 @@ function SterowaniePasowaniem({zasada, setZasada, symbol, ustawSymbol}) {
   );
 }
 
+// Druga zakladka: tablica pasowan normalnych z opisem, gdzie sie ich uzywa.
+// Wczesniej wisiala pod kalkulatorem jako statyczna sekcja strony, ale tam nikt
+// jej nie klikal. Tutaj kazde oznaczenie jest przyciskiem: klikniecie przerzuca
+// na pierwsza zakladke z policzonym pasowaniem dla wpisanej srednicy.
+function TabelaZastosowan({ustawSymbol}) {
+  const opis = tresc.tabelaZastosowan;
+  return (
+    <div className={styles.panelTabeli}>
+      <p className={styles.opisTabeli}>{opis.opis}</p>
+      <div className={styles.tabelaWrap}>
+        <table className={styles.tabelaZastosowan}>
+          <thead>
+            <tr>
+              <th scope="col">{opis.naglowekPasowania}</th>
+              <th scope="col">{opis.naglowekZastosowanie}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tresc.zastosowania.map((z) => (
+              <tr key={z.pasowania.join()}>
+                <td className={styles.komorkaPasowan}>
+                  {z.pasowania.map((symbol) => (
+                    <button
+                      key={symbol}
+                      type="button"
+                      className={styles.kodPasowania}
+                      onClick={() => ustawSymbol(symbol)}
+                      title={TEKSTY_UI.policzToPasowanie}>
+                      {symbol}
+                    </button>
+                  ))}
+                </td>
+                <td>{z.opis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export default function KalkulatorPasowan() {
   const [tryb, setTryb] = React.useState('pasowanie');
   const [zasada, setZasada] = React.useState('stalegoOtworu');
   const [srednica, setSrednica] = React.useState(20);
   const [otwor, setOtwor] = React.useState({litera: 'H', klasa: 7});
   const [walek, setWalek] = React.useState({litera: 'g', klasa: 6});
-  const [luzMin, setLuzMin] = React.useState(0);
-  const [luzMax, setLuzMax] = React.useState(50);
 
   const symbol = `${otwor.litera}${otwor.klasa}/${walek.litera}${walek.klasa}`;
 
@@ -609,18 +649,6 @@ export default function KalkulatorPasowan() {
       return {blad: e.message};
     }
   }, [srednica, otwor, walek]);
-
-  // Rozdzielamy dwie rozne sytuacje: silnik odrzucil dane wejsciowe, a nie
-  // znalazl pasowania. Wczesniej obie konczyly sie tym samym komunikatem
-  // "poszerz widelki", co wysylalo uzytkownika w zla strone.
-  const propozycje = React.useMemo(() => {
-    if (tryb !== 'luz') return {lista: []};
-    try {
-      return {lista: znajdzPasowania({srednica, luzMin: Number(luzMin), luzMax: Number(luzMax), zasada})};
-    } catch (e) {
-      return {lista: [], blad: e.message};
-    }
-  }, [tryb, srednica, luzMin, luzMax, zasada]);
 
   function ustawSymbol(s) {
     const r = rozbijSymbol(s);
@@ -679,93 +707,7 @@ export default function KalkulatorPasowan() {
           {wynik.ok ? <Szczegoly wynik={wynik.ok} /> : null}
         </div>
       ) : (
-        <div className={styles.panelLuzu}>
-          <div className={styles.polaLuzu}>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>{TEKSTY_UI.srednica}</span>
-              <div className={styles.zJednostka}>
-                <input
-                  type="number"
-                  min="1"
-                  max="500"
-                  step="0.5"
-                  value={srednica}
-                  onChange={(e) => setSrednica(Number(e.target.value))}
-                  className={styles.input}
-                />
-                <span className={styles.jednostka}>mm</span>
-              </div>
-            </label>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>{TEKSTY_UI.luzMinimalny}</span>
-              <div className={styles.zJednostka}>
-                <input
-                  type="number"
-                  step="1"
-                  value={luzMin}
-                  onChange={(e) => setLuzMin(e.target.value)}
-                  className={styles.input}
-                />
-                <span className={styles.jednostka}>µm</span>
-              </div>
-            </label>
-            <label className={styles.pole}>
-              <span className={styles.etykieta}>{TEKSTY_UI.luzMaksymalny}</span>
-              <div className={styles.zJednostka}>
-                <input
-                  type="number"
-                  step="1"
-                  value={luzMax}
-                  onChange={(e) => setLuzMax(e.target.value)}
-                  className={styles.input}
-                />
-                <span className={styles.jednostka}>µm</span>
-              </div>
-            </label>
-          </div>
-
-          <div className={styles.zasady}>
-            <span className={styles.etykieta}>{TEKSTY_UI.zasada}</span>
-            <div className={styles.przelacznik}>
-              <button
-                type="button"
-                className={`${styles.opcja} ${zasada === 'stalegoOtworu' ? styles.opcjaAktywna : ''}`}
-                onClick={() => setZasada('stalegoOtworu')}>
-                {tresc.zasadaOtworu}
-              </button>
-              <button
-                type="button"
-                className={`${styles.opcja} ${zasada === 'stalegoWalka' ? styles.opcjaAktywna : ''}`}
-                onClick={() => setZasada('stalegoWalka')}>
-                {tresc.zasadaWalka}
-              </button>
-            </div>
-          </div>
-
-          <div className={styles.propozycje}>
-            {propozycje.lista.length === 0 ? (
-              <p className={styles.blad}>{propozycje.blad || TEKSTY_UI.brakPasowania}</p>
-            ) : (
-              <ol className={styles.listaPropozycji}>
-                {propozycje.lista.map((p) => (
-                  <li key={p.symbol}>
-                    <button type="button" className={styles.propozycja} onClick={() => ustawSymbol(p.symbol)}>
-                      <span className={styles.propSymbol}>
-                        {p.symbol}
-                        {p.uprzywilejowane ? <span className={styles.gwiazdka} title={TEKSTY_UI.gwiazdka}>★</span> : null}
-                      </span>
-                      <span className={styles.propZakres}>
-                        {p.luzMinimalny.um} do {p.luzMaksymalny.um} µm
-                      </span>
-                      <span className={`${styles.propRodzaj} ${styles[p.rodzaj]}`}>{p.rodzaj}</span>
-                    </button>
-                  </li>
-                ))}
-              </ol>
-            )}
-            <p className={styles.legenda}>{TEKSTY_UI.legendaGwiazdki}</p>
-          </div>
-        </div>
+        <TabelaZastosowan ustawSymbol={ustawSymbol} />
       )}
 
       <p className={styles.zastrzezenie}>{tresc.zastrzezenie}</p>

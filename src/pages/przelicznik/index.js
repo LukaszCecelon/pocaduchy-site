@@ -45,6 +45,21 @@ function daneStrukturalne() {
   };
 }
 
+// Lead konczy sie zaproszeniem do napisania, wiec ta fraza musi byc klikalna.
+// Wyciecie jej z tekstu w kodzie jest prostsze niz wprowadzanie markdownu
+// do pliku tresci dla jednego odnosnika.
+function LeadZOdnosnikiem({tekst, odnosnik}) {
+  if (!odnosnik || !tekst.includes(odnosnik.fraza)) return <>{tekst}</>;
+  const [przed, po] = tekst.split(odnosnik.fraza);
+  return (
+    <>
+      {przed}
+      <Link to={odnosnik.url}>{odnosnik.fraza}</Link>
+      {po}
+    </>
+  );
+}
+
 export default function PrzelicznikHub() {
   const bezStrony = WYMIARY.filter((w) => !OPISANE.has(w.id));
 
@@ -65,7 +80,9 @@ export default function PrzelicznikHub() {
 
         <header className={styles.hero}>
           <h1 className={styles.title}>{tresc.naglowek}</h1>
-          <p className={styles.lead}>{tresc.lead}</p>
+          <p className={styles.lead}>
+            <LeadZOdnosnikiem tekst={tresc.lead} odnosnik={tresc.leadLink} />
+          </p>
         </header>
 
         <Przelicznik />

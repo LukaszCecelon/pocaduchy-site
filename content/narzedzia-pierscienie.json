@@ -1,14 +1,14 @@
 {
   "_opis": "Teksty strony kalkulatora pierścieni osadczych. Edytujesz tutaj, nie w kodzie.",
-  "seoTitle": "Kalkulator pierścieni osadczych DIN 471/472",
-  "opis": "Kalkulator rowka pod pierścień osadczy DIN 471 i DIN 472. Sprawdź średnicę, szerokość, głębokość rowka, tolerancje i luz osiowy bez szukania w tablicach.",
+  "seoTitle": "Pierścienie Segera DIN 471/472: kalkulator",
+  "opis": "Kalkulator rowka pod pierścień Segera: DIN 471 na wałek i DIN 472 do otworu. Sprawdź d2, m, n, tolerancje i luz osiowy bez szukania w tablicach.",
   "meta": {
-    "tytul": "Kalkulator pierścieni osadczych DIN 471/472",
-    "opis": "Kalkulator rowka pod pierścień osadczy DIN 471 i DIN 472. Sprawdź średnicę, szerokość, głębokość rowka, tolerancje i luz osiowy bez szukania w tablicach."
+    "tytul": "Pierścienie Segera DIN 471/472: kalkulator",
+    "opis": "Kalkulator rowka pod pierścień Segera: DIN 471 na wałek i DIN 472 do otworu. Sprawdź d2, m, n, tolerancje i luz osiowy bez szukania w tablicach."
   },
   "h1": "Pierścienie osadcze: kalkulator rowka DIN 471 i DIN 472",
   "naglowek": "Pierścienie osadcze: kalkulator rowka DIN 471 i DIN 472",
-  "lead": "Wpisz średnicę wałka albo otworu, a kalkulator dobierze wymiary rowka pod pierścień osadczy. Dostajesz średnicę rowka z tolerancją, szerokość w H13, głębokość, minimalną odległość od czoła i luz osiowy. To jest ta mała tabela, do której wraca się przy rysunku 2D, tylko bez przewijania normy i przepisywania wartości ręcznie.",
+  "lead": "Wpisz średnicę wałka albo otworu, a kalkulator dobierze wymiary rowka pod pierścień osadczy. Dostajesz średnicę rowka z tolerancją, szerokość w H13, głębokość, minimalną odległość od czoła i luz osiowy. W warsztacie ktoś nazwie to po prostu rowkiem pod Seger. Kalkulator nadal trzyma rozdział na DIN 471 i DIN 472, bo inny rowek robisz na wałku, a inny w otworze.",
   "_uiOpis": "Napisy interfejsu kalkulatora. Trzymamy je tutaj, a nie w kodzie, żeby dało się je poprawić bez dotykania Reacta.",
   "ui": {
     "tryb": "Typ pierścienia",
@@ -102,7 +102,7 @@
     {
       "tytul": "Jak czytać oznaczenie pierścienia",
       "akapity": [
-        "Oznaczenie pierścienia w kalkulatorze jest budowane z normy, średnicy nominalnej i grubości s. Dla pierścienia na wałek będzie to DIN 471, dla pierścienia do otworu DIN 472. Średnica nominalna d1 nie jest średnicą rowka. To rozmiar wałka albo otworu, pod który dobierasz pierścień. Dopiero z tej pozycji tabeli wynikają d2, m, n oraz pozostałe wymiary samego pierścienia. Nazwa „pierścień Segera” jest tu użyteczna, bo tak wielu ludzi szuka tych elementów w katalogach i wyszukiwarce. Nie jest jednak nazwą normy. Na rysunku technicznym trzymaj się oznaczenia DIN i wymiarów rowka, bo to one mówią wykonawcy, co ma powstać w detalu."
+        "Oznaczenie pierścienia w kalkulatorze jest budowane z normy, średnicy nominalnej i grubości s. Dla pierścienia na wałek będzie to DIN 471, dla pierścienia do otworu DIN 472. Średnica nominalna d1 nie jest średnicą rowka. To rozmiar wałka albo otworu, pod który dobierasz pierścień. Dopiero z tej pozycji tabeli wynikają d2, m, n oraz pozostałe wymiary samego pierścienia. Na rysunku technicznym trzymaj się oznaczenia DIN i wymiarów rowka, bo to one mówią wykonawcy, co ma powstać w detalu."
       ]
     },
     {
@@ -115,7 +115,7 @@
   "faq": [
     {
       "pytanie": "Jaki rowek pod pierścień Segera na wałku?",
-      "odpowiedz": "Dla wałka używa się pierścienia osadczego zewnętrznego według DIN 471. Kalkulator dobiera średnicę rowka d2, szerokość m w tolerancji H13, głębokość oraz minimalną odległość n od czoła. Pokazuje też luz osiowy wynikający z m i s. „Pierścień Segera” to nazwa potoczna, a nie nazwa normy."
+      "odpowiedz": "Dla wałka używa się pierścienia osadczego zewnętrznego według DIN 471. Kalkulator dobiera średnicę rowka d2, szerokość m w tolerancji H13, głębokość oraz minimalną odległość n od czoła. Pokazuje też luz osiowy wynikający z m i s."
     },
     {
       "pytanie": "Czym różni się DIN 471 od DIN 472?",
@@ -132,6 +132,10 @@
     {
       "pytanie": "Czy można dobrać pierścień osadczy dla średnicy pośredniej?",
       "odpowiedz": "Nie wprost. Wymiary pierścieni osadczych są skokowe, a nie ciągłe jak zwykły wzór geometryczny. Jeżeli wpisana średnica nie występuje w tabeli, kalkulator pokazuje komunikat i najbliższe dostępne średnice. Wtedy trzeba zmienić średnicę konstrukcyjną albo wrócić do katalogu. Przeliczanie „pomiędzy” wygląda kusząco, ale może dać nieistniejący element."
+    },
+    {
+      "pytanie": "Czy pierścień Segera to to samo co DIN 471?",
+      "odpowiedz": "W warsztacie często mówi się tak na oba typy, ale to nazwa potoczna, nie numer normy. DIN 471 jest na wałek, a DIN 472 do otworu. Potoczna nazwa wzięła się od firmy Seeger, pisanej przez dwa e, dlatego zapis w katalogach i w wyszukiwarce może się różnić."
     }
   ],
   "zobaczTez": {
