@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
+import TekstZOdnosnikami from '@site/src/components/TekstZOdnosnikami';
 import Przelicznik from '@site/src/components/Przelicznik';
 import {STRONY_WYMIAROW} from '@site/src/components/PrzelicznikWymiarTemplate';
 import {WYMIARY, PLASKA} from '@site/src/lib/jednostki/oblicz';
@@ -45,21 +46,6 @@ function daneStrukturalne() {
   };
 }
 
-// Lead konczy sie zaproszeniem do napisania, wiec ta fraza musi byc klikalna.
-// Wyciecie jej z tekstu w kodzie jest prostsze niz wprowadzanie markdownu
-// do pliku tresci dla jednego odnosnika.
-function LeadZOdnosnikiem({tekst, odnosnik}) {
-  if (!odnosnik || !tekst.includes(odnosnik.fraza)) return <>{tekst}</>;
-  const [przed, po] = tekst.split(odnosnik.fraza);
-  return (
-    <>
-      {przed}
-      <Link to={odnosnik.url}>{odnosnik.fraza}</Link>
-      {po}
-    </>
-  );
-}
-
 export default function PrzelicznikHub() {
   const bezStrony = WYMIARY.filter((w) => !OPISANE.has(w.id));
 
@@ -81,7 +67,7 @@ export default function PrzelicznikHub() {
         <header className={styles.hero}>
           <h1 className={styles.title}>{tresc.naglowek}</h1>
           <p className={styles.lead}>
-            <LeadZOdnosnikiem tekst={tresc.lead} odnosnik={tresc.leadLink} />
+            <TekstZOdnosnikami tekst={tresc.lead} odnosniki={[tresc.leadLink]} />
           </p>
         </header>
 
