@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import imageSizes from '@site/src/data/image-sizes.json';
+import {wymiaryObrazu} from '@site/src/lib/obrazy';
 import {dobierzPierscien, listaSrednic} from '@site/src/lib/pierscienie/oblicz';
 import WidokWalek from '@site/src/components/pierscienie/widok-walek.svg';
 import WidokOtwor from '@site/src/components/pierscienie/widok-otwor.svg';
@@ -36,10 +36,7 @@ const MD_COMPONENTS = {
   },
 };
 
-function imageSizeAttrs(src) {
-  const size = imageSizes[src];
-  return size ? {width: size.w, height: size.h} : {};
-}
+const imageSizeAttrs = wymiaryObrazu;
 
 function TekstBlock({body}) {
   return (
@@ -352,16 +349,21 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
       <div className={styles.tabelaPierscieniWrap}>
         <table>
           <caption className={styles.tabelaPierscieniCaption}>
-            {norma}: wymiary rowka w funkcji średnicy {element}
+            {norma}: wymiary rowka w funkcji średnicy {element}. Wszystkie
+            wartości w milimetrach. d1 to średnica {element}, s grubość
+            pierścienia, d2 średnica dna rowka, m szerokość rowka, t głębokość,
+            n minimalna odległość od czoła.
           </caption>
           <thead>
             <tr>
-              <th scope="col">d1</th>
-              <th scope="col">s</th>
-              <th scope="col">d2</th>
-              <th scope="col">m</th>
-              <th scope="col">t</th>
-              <th scope="col">n</th>
+              {/* Jednostka w kazdym naglowku, zeby wiersz dalo sie zacytowac
+                  bez podpisu pod tabela. */}
+              <th scope="col">d1 [mm]</th>
+              <th scope="col">s [mm]</th>
+              <th scope="col">d2 [mm]</th>
+              <th scope="col">m [mm]</th>
+              <th scope="col">t [mm]</th>
+              <th scope="col">n [mm]</th>
             </tr>
           </thead>
           <tbody>
@@ -413,15 +415,16 @@ function TabelaGwintowBlock({podpis}) {
       <div className={styles.tabelaPierscieniWrap}>
         <table className={styles.tabelaGwintow}>
           <caption className={styles.tabelaPierscieniCaption}>
-            Gwint metryczny: skok, długość gwintu śruby i wymiar pod klucz
+            Gwint metryczny: skok, długość gwintu śruby i wymiar pod klucz.
+            Wszystkie wartości w milimetrach.
           </caption>
           <thead>
             <tr>
               <th scope="col" rowSpan={2}>M</th>
               <th scope="col" rowSpan={2}>wybór</th>
-              <th scope="col" colSpan={2}>Skok gwintu</th>
-              <th scope="col" colSpan={3}>Długość gwintu, DIN 931</th>
-              <th scope="col" rowSpan={2}>Klucz</th>
+              <th scope="col" colSpan={2}>Skok gwintu [mm]</th>
+              <th scope="col" colSpan={3}>Długość gwintu b [mm], DIN 931</th>
+              <th scope="col" rowSpan={2}>Klucz [mm]</th>
             </tr>
             <tr>
               <th scope="col">zwykły</th>
@@ -473,7 +476,7 @@ function TabelaGwintowBlock({podpis}) {
       </div>
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
-          'Wszystkie wymiary w milimetrach. Kąt zarysu gwintu metrycznego wynosi 60 stopni. Kolumna wyboru to kolejność z ISO 261: średnice pierwszego wyboru mają najlepszą dostępność śrub, gwintowników i sprawdzianów. Kreska w długości gwintu znaczy, że gwint byłby dłuższy od samej śruby albo że w tej średnicy nie ma śruby z łbem sześciokątnym. Długość gwintu jest wartością znormalizowaną, a nie deklaracją, że taka śruba leży na magazynie. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią, żeby je zobaczyć.'}
+          'Wszystkie wymiary w milimetrach. Kąt zarysu gwintu metrycznego wynosi 60 stopni. Kolumna wyboru to kolejność z ISO 261: średnice pierwszego wyboru mają najlepszą dostępność śrub, gwintowników i sprawdzianów. Kreska w długości gwintu znaczy, że gwint byłby dłuższy od samej śruby albo że w tej średnicy nie ma śruby z łbem sześciokątnym. Długość gwintu jest wartością znormalizowaną, a nie deklaracją, że taka śruba leży na magazynie. Numer przy wartości odsyła do zastrzeżenia pod tabelą.'}
       </figcaption>
     </figure>
   );
@@ -508,7 +511,7 @@ function TabelaJednegoParametru({parametr, tytul}) {
   }
   const przypisy = numerujPrzypisy(wszystkie);
 
-  const gwiazdka = (p, klucz) =>
+  const odnosnik = (p, klucz) =>
     p.uwagi && p.uwagi[klucz] ? (
       <OdnosnikPrzypisu numer={przypisy.numer(p.uwagi[klucz])} prefiks={prefiks} />
     ) : null;
@@ -516,7 +519,7 @@ function TabelaJednegoParametru({parametr, tytul}) {
   const kom = (p, w, klucz, pole) => (
     <>
       {w[pole] === null ? '\u2013' : pl(w[pole])}
-      {gwiazdka(p, klucz)}
+      {odnosnik(p, klucz)}
     </>
   );
 
@@ -525,7 +528,7 @@ function TabelaJednegoParametru({parametr, tytul}) {
   const zakres = (p, w, klucz) => (
     <>
       {w.od === w.do ? pl(w.od) : `${pl(w.od)}\u2026${pl(w.do)}`}
-      {gwiazdka(p, klucz)}
+      {odnosnik(p, klucz)}
     </>
   );
 
@@ -572,7 +575,7 @@ function TabelaChropowatosciBlock({podpis}) {
     <figure className={styles.tabelaPierscieni}>
       <TabelaJednegoParametru
         parametr="ra"
-        tytul="Ra osiągane metodami obróbki, w mikrometrach"
+        tytul="Ra osiągane metodami obróbki [µm]"
       />
       <p className={styles.miedzyTabelami}>
         Poniżej to samo w Rz. To osobne zestawienie, a nie przeliczenie tego,
@@ -580,11 +583,11 @@ function TabelaChropowatosciBlock({podpis}) {
       </p>
       <TabelaJednegoParametru
         parametr="rz"
-        tytul="Rz osiągane metodami obróbki, w mikrometrach"
+        tytul="Rz osiągane metodami obróbki [µm]"
       />
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
-          'Wartości w mikrometrach. Granica to wartość osiągalna przy dobranym narzędziu i parametrach, zakres to wynik spotykany bez zabiegów specjalnych, zgrubnie to druga granica z zestawień. To nie są trzy klasy normowe. Kreska znaczy, że źródło nie podaje wartości, a nie że wynosi ona zero. Obie tabele zebrano niezależnie, więc wiersz z jednej nie jest przeliczeniem wiersza z drugiej. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią.'}
+          'Wartości w mikrometrach. Granica to wartość osiągalna przy dobranym narzędziu i parametrach, zakres to wynik spotykany bez zabiegów specjalnych, zgrubnie to druga granica z zestawień. To nie są trzy klasy normowe. Kreska znaczy, że źródło nie podaje wartości, a nie że wynosi ona zero. Obie tabele zebrano niezależnie, więc wiersz z jednej nie jest przeliczeniem wiersza z drugiej. Numer przy wartości odsyła do zastrzeżenia pod tabelą.'}
       </figcaption>
     </figure>
   );

@@ -96,7 +96,9 @@ export default function Uslugi() {
           {SERVICES.map((s, i) => (
             <div key={s.title} className={`${styles.card} pc-cut-card`}>
               <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
-              <h3 className={styles.cardTitle}>{s.title}</h3>
+              {/* h2, bo kazda usluga to osobna sekcja strony na rowni
+                  z przebiegiem wspolpracy i dowodami nizej */}
+              <h2 className={styles.cardTitle}>{s.title}</h2>
               <p className={styles.cardBody}>{s.body}</p>
               <div className={styles.divider} />
               <ul className={styles.list}>

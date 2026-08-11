@@ -62,6 +62,10 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
   const sciezka = `/przelicznik/${strona.slug}`;
   const adres = absolutePageUrl(sciezka);
   const tab = tabela(tresc.wymiar);
+  const opisTabeli =
+    `Każdy wiersz mówi, ile wynosi jedna jednostka z lewej kolumny w pozostałych: ` +
+    `${tab.kolumny.map((k) => k.s).join(', ')}. ` +
+    `Wartości zaokrąglone do sześciu cyfr znaczących.`;
   const start = START[tresc.wymiar];
   const pozostale = STRONY_WYMIAROW.filter((s) => s.id !== tresc.wymiar);
 
@@ -138,12 +142,17 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
 
         <section className={styles.sekcja}>
           <h2 className={styles.h2}>Tabela przeliczeń</h2>
-          <p className={styles.tekstMaly}>
-            Każdy wiersz mówi, ile wynosi jedna jednostka z lewej kolumny w pozostałych
-            jednostkach. Wartości zaokrąglone do sześciu cyfr znaczących.
+          {/* Ten sam opis pojawia sie dwa razy. Widoczny akapit stoi nad
+              przewijakiem, zeby na telefonie nie trzeba bylo przewijac w bok,
+              zeby go doczytac. Podpis w tabeli jest niewidoczny, ale zostaje
+              przy niej, gdy tabele wytnie czytnik ekranu albo model jezykowy.
+              Akapit jest wtedy zbedny, wiec chowamy go przed czytnikiem. */}
+          <p className={styles.tekstMaly} aria-hidden="true">
+            {opisTabeli}
           </p>
           <div className={styles.przewijak}>
             <table className={styles.tabela}>
+              <caption className={styles.tabelaPodpisUkryty}>{opisTabeli}</caption>
               <thead>
                 <tr>
                   <th scope="col">1 jednostka</th>

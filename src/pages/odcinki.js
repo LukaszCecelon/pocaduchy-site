@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Okruszki from '@site/src/components/Okruszki';
 import {SITE_URL, formatShortDatePl} from '@site/src/lib/site';
+import {wymiaryMiniaturyYt} from '@site/src/lib/obrazy';
 import styles from './odcinki.module.css';
 import episodesData from '../data/episodes.json';
 import redakcja from '@site/content/odcinki.json';
@@ -64,7 +65,12 @@ function Karta({ep}) {
   const wnetrze = (
     <>
       <div className={styles.thumb}>
-        <img src={ep.thumbnail} alt={`Miniatura odcinka: ${ep.title}`} loading="lazy" />
+        <img
+          src={ep.thumbnail}
+          alt={`Miniatura odcinka: ${ep.title}`}
+          loading="lazy"
+          {...wymiaryMiniaturyYt(ep.thumbnail)}
+        />
         <div className={styles.playBadge}>
           <div className={styles.playIcon} />
         </div>

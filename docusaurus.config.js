@@ -351,6 +351,11 @@ const config = {
         logo: {
           alt: 'poCADuchy',
           src: 'img/pocaduchy-logo.png',
+          // Kwadratowe proporcje pliku zrodlowego. Wysokosc i tak narzuca
+          // pasek nawigacji, ale zadeklarowane wymiary rezerwuja miejsce,
+          // zanim obraz sie wczyta.
+          width: 504,
+          height: 504,
         },
         items: [
           {to: '/', label: 'Główna', position: 'left'},

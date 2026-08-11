@@ -2,7 +2,7 @@
   "videoId": "TDG5zKpxpEQ",
   "title": "Chwytak robota: jak system wymiany narzędzia oszukał czujnik próżni",
   "seoTitle": "Chwytak robota: tool changer i czujnik próżni",
-  "description": "Projekt chwytaka od kiści robota przez adapter i tool changer po ssawki. W środku błąd, który kosztował sporo szukania: czujnik pokazywał próżnię, której nie było.",
+  "description": "Pokazuję projekt chwytaka robota: adapter, tool changer, ssawki i błąd czujnika, który pokazywał próżnię, choć w układzie jej nie było.",
   "czasTrwania": "16 min",
   "lead": "Model 3D chwytaka wyglądał dobrze. Dopiero na maszynie okazało się, że mały system wymiany narzędzia potrafi wywinąć numer, którego w CAD nie widać. Przy okazji przejdziemy całą ścieżkę od kiści robota do ssawek.",
   "czegoSieDowiesz": [

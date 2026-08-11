@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import {formatShortDatePl} from '@site/src/lib/site';
+import {wymiaryMiniaturyYt} from '@site/src/lib/obrazy';
 import Zebatka3D from '@site/src/components/Zebatka3D';
 import styles from './index.module.css';
 import blogPosts from '../data/blog-posts.json';
@@ -432,7 +433,8 @@ function LatestEpisode() {
       <div className={styles.latestInner}>
         <div className={styles.latestHead}>
           <span className={styles.latestBar} />
-          <span>Najnowszy odcinek</span>
+          {/* h2, bo to naglowek sekcji: tytul odcinka nizej jest h3 */}
+          <h2 className={styles.latestLabel}>Najnowszy odcinek</h2>
         </div>
         <a
           href={ep.url}
@@ -444,6 +446,7 @@ function LatestEpisode() {
               src={ep.thumbnail}
               alt={`Miniatura odcinka: ${ep.title}`}
               loading="lazy"
+              {...wymiaryMiniaturyYt(ep.thumbnail)}
             />
             <div className={styles.latestPlay}>
               <div className={styles.latestPlayIcon} />

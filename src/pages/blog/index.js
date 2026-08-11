@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
 import {SITE_URL, formatLongDatePl} from '@site/src/lib/site';
+import {wymiaryObrazu} from '@site/src/lib/obrazy';
 import styles from './blog.module.css';
 import posts from '@site/src/data/blog-posts.json';
 
@@ -61,7 +62,7 @@ export default function Blog() {
                 className={`${styles.postCard} pc-cut-card`}>
                 {p.image ? (
                   <div className={styles.postThumb}>
-                    <img src={p.image} alt={p.title} loading="lazy" />
+                    <img src={p.image} alt={p.title} loading="lazy" {...wymiaryObrazu(p.image)} />
                   </div>
                 ) : null}
                 <div className={styles.postMeta}>

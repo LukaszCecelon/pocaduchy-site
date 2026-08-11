@@ -7,6 +7,7 @@ import posts from '@site/src/data/blog-posts.json';
 import subscribers from '@site/src/data/subscribers.json';
 import tresc from '@site/content/o-mnie.json';
 import {SITE_URL} from '@site/src/lib/site';
+import {wymiaryObrazu} from '@site/src/lib/obrazy';
 import styles from './o-mnie.module.css';
 const YOUTUBE_URL = 'https://youtube.com/@pocaduchy';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/lukaszcecelon';
@@ -92,6 +93,7 @@ export default function OMnie() {
             src="/img/pocaduchy-logo-transparent.png"
             alt="Łukasz Cecelon, inżynier konstruktor i autor kanału poCADuchy"
             className={styles.avatar}
+            {...wymiaryObrazu('/img/pocaduchy-logo-transparent.png')}
           />
         </header>
 
