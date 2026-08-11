@@ -297,7 +297,6 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
               <th scope="col">d1</th>
               <th scope="col">s</th>
               <th scope="col">d2</th>
-              <th scope="col">klasa d2</th>
               <th scope="col">m</th>
               <th scope="col">t</th>
               <th scope="col">n</th>
@@ -308,9 +307,12 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
               <tr key={d1}>
                 <th scope="row">{pl(d1)}</th>
                 <td>{pl(w.pierscien.s)}</td>
-                <td>{pl(w.rowek.d2)}</td>
-                <td>{w.rowek.d2Klasa}</td>
-                <td>{pl(w.rowek.m)}</td>
+                <td>
+                  {pl(w.rowek.d2)} <span className={styles.klasaTol}>{w.rowek.d2Klasa}</span>
+                </td>
+                <td>
+                  {pl(w.rowek.m)} <span className={styles.klasaTol}>H13</span>
+                </td>
                 <td>{pl(w.rowek.glebokosc)}</td>
                 <td>{pl(w.rowek.n)}</td>
               </tr>
@@ -320,7 +322,7 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
       </div>
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
-          `Wszystkie wymiary w milimetrach. d1 to średnica ${element}, d2 średnica rowka, m jego szerokość w klasie H13, t głębokość, n minimalna odległość od czoła.`}
+          `Wszystkie wymiary w milimetrach, przy d2 i m razem z klasą tolerancji. d1 to średnica ${element}, d2 średnica rowka, m jego szerokość, t głębokość, n minimalna odległość od czoła.`}
       </figcaption>
     </figure>
   );
