@@ -582,3 +582,75 @@
   color: var(--pc-text-faint);
   text-align: center !important;
 }
+
+/* ---------- schemat gwintu nad tablica ---------- */
+
+.gwPanel {
+  display: grid;
+  grid-template-columns: 1.9fr 1fr;
+  gap: 12px;
+  align-items: center;
+  background: var(--pc-bg);
+  border: 1px solid var(--pc-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.gwSchemat {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-width: 0;
+}
+
+/* Linia konturu grubsza, pomocnicza i wymiarowa cienkie. Tak jak na rysunku:
+   wierzcholki gwintu rysuje sie linia gruba, dno cienka. */
+.gwKontur {
+  fill: none;
+  stroke: var(--pc-navy);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.gwCienka {
+  fill: none;
+  stroke: var(--pc-navy-soft);
+  stroke-width: 0.7;
+}
+
+.gwOs {
+  stroke: var(--pc-navy-soft);
+  stroke-width: 0.7;
+  stroke-dasharray: 12 3 2 3;
+}
+
+.gwLiniaWym {
+  stroke: var(--pc-rust);
+  stroke-width: 0.8;
+}
+
+.gwPomocnicza {
+  stroke: var(--pc-rust);
+  stroke-width: 0.6;
+}
+
+.gwGrot {
+  fill: var(--pc-rust);
+  stroke: none;
+}
+
+.gwOpis {
+  fill: var(--pc-rust);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 700px) {
+  .gwPanel {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
