@@ -161,3 +161,51 @@
 
 /* --- Narzedzia: kalkulatory i inne rzeczy uzywane w trakcie pracy --- */
 
+
+/* ---------- znaki na kafelkach ---------- */
+
+.cardGora {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.znak {
+  width: 60px;
+  height: 40px;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.znakPlyta {
+  fill: #f2f1ee;
+  stroke: var(--pc-navy);
+  stroke-width: 1.2;
+}
+
+.znakLinia {
+  fill: none;
+  stroke: var(--pc-navy);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.znakKolek {
+  fill: var(--pc-rust);
+  stroke: none;
+}
+
+.znakGwint {
+  stroke: var(--pc-navy-soft);
+  stroke-width: 1;
+}
+
+/* Kafelek reaguje na najechanie, wiec znak tez, ale delikatnie. */
+.card:hover .znakKolek {
+  fill: var(--pc-navy);
+}
+
+.card:hover .znakLinia {
+  stroke: var(--pc-rust);
+}
