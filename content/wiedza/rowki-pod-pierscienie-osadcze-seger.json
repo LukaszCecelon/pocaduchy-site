@@ -1,0 +1,87 @@
+{
+  "slug": "rowki-pod-pierscienie-osadcze-seger",
+  "title": "Rowki pod pierścienie Segera według DIN 471 i DIN 472",
+  "seoTitle": "Rowki pod Seger: tabela DIN 471 i DIN 472",
+  "description": "Tablice rowków pod pierścienie Segera DIN 471 i DIN 472: d1, s, d2, m, t, n, luz osiowy oraz tolerancje h10/h11/h12 i H11/H12/H13 w praktyce.",
+  "date": "2026-08-11",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Rowek pod pierścień osadczy potrafi wyglądać niewinnie. Jedno podtoczenie, dwa wymiary na rysunku i temat niby zamknięty. A potem przy montażu okazuje się, że pierścień wchodzi za luźno, nie dochodzi do rowka albo szczypce mają tyle miejsca co konstruktor na poprawki po wysłaniu dokumentacji.\n\nDlatego ta tabela nie jest tylko listą średnic. Ma pomóc odczytać, co oznaczają wymiary rowka pod Seger, gdzie kończy się wymiar pierścienia, a gdzie zaczyna wymiar detalu. Seger to nazwa potoczna. Pochodzi od firmy Seeger, pisanej przez dwa „e”. W rysunku i doborze trzymajmy się jednak norm: **DIN 471** dla pierścieni zewnętrznych na wałek oraz **DIN 472** dla pierścieni wewnętrznych do otworu.\n\nJeśli potrzebujesz szybko policzyć jeden konkretny rozmiar, wygodniejszy będzie [kalkulator rowka pod pierścień osadczy](/narzedzia/pierscienie-osadcze/). Ten artykuł jest do czegoś innego: do czytania tablic, porównywania zakresów i sprawdzenia, czy wymiar na rysunku ma ręce i nogi."
+    },
+    {
+      "type": "tekst",
+      "body": "## Rowek to nie pierścień\n\nNajczęstsza pomyłka jest prosta: ktoś widzi `d1` i traktuje je jak średnicę rowka. Nie tędy droga. `d1` to średnica nominalna wałka albo otworu, pod który dobierasz pierścień. Dla wałka będzie to średnica czopa. Dla otworu będzie to średnica gniazda w korpusie, tulei albo piaście.\n\nRowek opisują dopiero kolejne wymiary: `d2`, `m`, `t` i `n`. `d2` jest średnicą rowka. `m` jest jego szerokością. `t` to głębokość rowka liczona promieniowo. `n` mówi, jak daleko rowek musi być odsunięty od czoła detalu.\n\nPrzy DIN 471 rowek jest na wałku, więc `d2` jest mniejsze od `d1`. Dla wałka 45 mm z tablicy wychodzi `d2 = 42,5 mm`, czyli głębokość `t = (45 - 42,5) / 2 = 1,25 mm`. Przy DIN 472 rowek jest w otworze, więc `d2` jest większe od `d1`. Dla otworu 45 mm wychodzi `d2 = 47,5 mm` i ta sama głębokość `t = 1,25 mm`. W CAD różnica wygląda jak detal. Na rysunku jest to już zupełnie inny kierunek obróbki."
+    },
+    {
+      "type": "tekst",
+      "body": "## Jak czytać tablicę\n\nTablica zaczyna się od `d1`, czyli średnicy nominalnej. To od tej kolumny startuje dobór. Potem masz `s`, czyli nominalną grubość pierścienia. Ten wymiar należy do pierścienia, nie do rowka. Dopiero `d2`, `m`, `t` i `n` opisują miejsce, które trzeba wykonać w detalu.\n\n`d2` zawsze czytaj razem z klasą tolerancji. Dla rowków na wałku występują klasy `h10`, `h11` albo `h12`. Dla rowków w otworze są to `H11`, `H12` albo, dla większego zakresu normy, `H13`. Sama liczba bez litery tolerancji jest trochę jak rysunek bez bazy. Niby coś mówi, ale technolog i tak musi dopytać.\n\nSzerokość `m` jest w klasie `H13`. Z tego bierze się luz osiowy. Nominalnie silnik liczy go jako `m - s`. Maksymalny luz wychodzi z górnej granicy szerokości `m`, przy założeniu, że grubość `s` pierścienia jest nominalna. To ważne ograniczenie: w danych nie ma tolerancji grubości pierścienia, więc tabela nie udaje pełnego sprawdzenia luzu w najgorszym przypadku. Pokazuje geometrię rowka z jednego źródła danych."
+    },
+    {
+      "type": "tekst",
+      "body": "## Tablica DIN 471 - rowek na wałku\n\nPoniższa tablica dotyczy pierścieni osadczych zewnętrznych, czyli takich, które zakładasz na wałek. Wiersze obejmują dane dostępne w serwisie: **44 rozmiary od 3 do 100 mm**. W źródle zapisany jest też zakres normy dla wykonania normalnego **3-300 mm** oraz zakres wykonania wzmocnionego **15-100 mm**, ale tutaj pokazujemy komplet wierszy, z których korzysta obecny kalkulator."
+    },
+    {
+      "type": "tabelaPierscieni",
+      "typ": "walek"
+    },
+    {
+      "type": "tekst",
+      "body": "## Tablica DIN 472 - rowek w otworze\n\nTa tablica dotyczy pierścieni osadczych wewnętrznych, czyli takich, które pracują w rowku wykonanym w otworze. Wiersze obejmują **24 rozmiary od 10 do 100 mm**. Kierunek głębokości jest przeciwny niż na wałku: średnica rowka `d2` jest większa od nominalnego otworu `d1`."
+    },
+    {
+      "type": "tabelaPierscieni",
+      "typ": "otwor"
+    },
+    {
+      "type": "tekst",
+      "body": "## Skąd są liczby w tabelach\n\nTablice w artykule nie są ręcznie przepisaną kopią obok kalkulatora. Renderer bierze wiersze z tego samego pliku danych, z którego korzysta silnik doboru. Dzięki temu, jeśli kiedyś zostanie rozszerzony zakres średnic albo poprawiony pojedynczy rekord, tabela i kalkulator nie zaczną żyć osobnym życiem. To ważne, bo przy takich wymiarach jeden przecinek potrafi zrobić różnicę między pierścieniem, który siada w rowku, a pierścieniem, który tylko ładnie wygląda w BOM.\n\nW danych jest też jawnie zapisana korekta dla wałka `d1 = 9 mm`: grubość pierścienia `s` przyjęto jako **0,80 mm**, a nie **1,00 mm**. Powód jest techniczny, nie kosmetyczny. Przy `m = 0,90 mm` pierścień o grubości 1,00 mm byłby grubszy od rowka. Taki zapis wyglądałby jak drobna literówka w tabeli, ale na warsztacie zamieniłby się w pytanie, kto ma to teraz ratować. Zwłaszcza przy małych rowkach, gdzie luz nominalny ma tylko **0,10 mm**."
+    },
+    {
+      "type": "tekst",
+      "body": "## Tolerancje: dlaczego klasa zmienia się ze średnicą\n\nW tablicach rowków klasa tolerancji `d2` nie jest stała. To nie jest kaprys osoby, która robiła tabelę. Przy małych średnicach ta sama klasa dokładności daje inne wartości odchyłek niż przy dużych, a norma rozdziela zakresy tak, żeby rowek był wykonalny i miał sens montażowy.\n\nDla rowka na wałku `d2` przechodzi przez `h10`, `h11` i `h12`. Mała litera `h` oznacza pole tolerancji wałka, więc górna odchyłka jest równa zero. Dla rowka w otworze występuje `H11`, `H12` i w szerszym zakresie danych `H13`. Duża litera `H` oznacza pole otworu, więc dolna odchyłka jest równa zero. Niby tylko wielkość litery, a na rysunku może uratować detal przed wykonaniem w złą stronę."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Typ rowka | Zakres d1 | Klasa d2 | Klasa m |\n| --- | ---: | ---: | ---: |\n| DIN 471, na wałku | 3-10 mm | h10 | H13 |\n| DIN 471, na wałku | 11-22 mm | h11 | H13 |\n| DIN 471, na wałku | 23-100 mm | h12 | H13 |\n| DIN 472, w otworze | 8-22 mm | H11 | H13 |\n| DIN 472, w otworze | 23-100 mm | H12 | H13 |\n| DIN 472, w otworze | 101-300 mm | H13 | H13 |"
+    },
+    {
+      "type": "tekst",
+      "body": "W praktyce zapis na rysunku powinien prowadzić wykonawcę bez zgadywania. Jeśli w tablicy jest `d2 = 42,5 h12`, to nie zapisuj samego `42,5`. Jeśli szerokość rowka jest `m = 1,85 H13`, to też nie warto zostawiać jej jako gołej liczby. Przy obróbce rowek zwykle i tak powstaje konkretnym nożem, frezem albo cyklem podtoczenia. Tolerancja mówi, gdzie ten wymiar ma się zmieścić po wykonaniu, a nie po optymistycznym spojrzeniu na model 3D."
+    },
+    {
+      "type": "tekst",
+      "body": "## Na co uważać przy projektowaniu\n\n- **Odległość od czoła `n`**. Rowek nie powinien lądować tuż przy krawędzi wałka albo otworu. Dla wałka 45 mm minimalne `n` wynosi 3,8 mm. Jeśli zostawisz mniej, osłabiasz krawędź, ryzykujesz problem z fazą i utrudniasz obróbkę. CAD zwykle tego nie skomentuje. Technolog już tak.\n\n- **Luz osiowy**. Pierścień osadczy nie jest precyzyjnym oporem osiowym bez luzu. Dla 45 mm nominalny luz z tablicy wynosi 0,10 mm, a maksymalny z szerokości `m` w H13 wynosi 0,24 mm. Jeśli tuleja albo łożysko ma siedzieć osiowo bez wyczuwalnego przesuwu, potrzebujesz dodatkowego dystansu, podkładki albo innego sposobu bazowania.\n\n- **Rowek jako karb**. Na wałku obciążonym zmiennie rowek jest koncentratorem naprężeń. Jeżeli w tym miejscu masz moment zginający, drgania albo udar, samo dobranie pierścienia z tabeli nie zamyka tematu. Warto sprawdzić przekrój, promienie, materiał i to, czy pierścień faktycznie musi siedzieć akurat tam.\n\n- **Dostęp szczypcami**. Wymiary `a`, `b`, `dp` i średnice swobodne pierścienia są po coś. Montaż potrzebuje miejsca na rozgięcie albo ściśnięcie pierścienia. Jeżeli obok rowka wstawisz wysoką piastę, kołnierz albo osłonę, to na ekranie nadal będzie pięknie. Przy stanowisku montażowym zrobi się mniej poetycko.\n\n- **Obciążenie osiowe**. Pierścień Segera jest zabezpieczeniem osiowym, ale nie magicznym zamiennikiem stopnia wału, nakrętki łożyskowej albo porządnej pokrywy. Tabela podaje geometrię. Nie podaje dopuszczalnej siły osiowej dla krawędzi rowka, pierścienia i materiału detalu."
+    },
+    {
+      "type": "tekst",
+      "body": "## Jak zapisać rowek na rysunku\n\nWeźmy konkretny przykład z silnika: pierścień na wałek `d1 = 45 mm`. Wynik to **DIN 471 - 45x1,75**. Rowek ma `d2 = 42,5 h12`, szerokość `m = 1,85 H13`, głębokość `t = 1,25 mm` i minimalną odległość od czoła `n = 3,8 mm`.\n\nGranice z tolerancji są równie ważne jak nominał. Dla tego przykładu średnica rowka `d2` ma zakres **42,25-42,50 mm**, bo `h12` ma górną odchyłkę 0. Szerokość `m` ma zakres **1,85-1,99 mm**, bo `H13` idzie od zera w górę. Luz osiowy liczony przez silnik wynosi **0,10 mm nominalnie** i **0,24 mm maksymalnie** przy nominalnej grubości pierścienia.\n\nNa rysunku można to zapisać prosto: `pierścień osadczy DIN 471 - 45x1,75; rowek: d2 42,5 h12; m 1,85 H13; t 1,25; n min. 3,8`. Jeżeli firmowy standard rysunkowy ma osobny symbol rowka, trzymaj się standardu. Ważne, żeby wykonawca dostał `d2`, `m`, `t`, `n` i tolerancje, a nie tylko hasło „rowek pod Seger”. Hasło jest dobre przy kawie. Na produkcji mniej."
+    },
+    {
+      "type": "tekst",
+      "body": "## Tabela czy kalkulator\n\nTabela jest dobra, kiedy chcesz porównać kilka średnic, sprawdzić zakres tolerancji albo zobaczyć, jak zmienia się głębokość rowka. Przydaje się też wtedy, gdy przeglądasz rysunek od kogoś innego i chcesz szybko złapać podejrzany wymiar.\n\nDo pojedynczego doboru szybciej użyć [kalkulatora rowka pod pierścień osadczy](/narzedzia/pierscienie-osadcze/). Wpisujesz średnicę, wybierasz wałek albo otwór i od razu dostajesz rowek, granice tolerancji oraz luz osiowy. Tabela zostaje jako kontrola i kontekst. Kalkulator jako narzędzie robocze przy konkretnym wymiarze."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Jaką tolerancję ma średnica d2 rowka pod pierścień osadczy?",
+      "odpowiedz": "Dla DIN 471 średnica rowka d2 ma klasy h10 dla d1 3-10 mm, h11 dla 11-22 mm i h12 dla 23-100 mm. Dla DIN 472 są to H11 dla 8-22 mm, H12 dla 23-100 mm oraz H13 dla 101-300 mm w szerszym zakresie danych normowych. Szerokość rowka m jest w obu typach w klasie H13."
+    },
+    {
+      "pytanie": "Jaki zakres średnic obejmuje tabela pierścieni Segera?",
+      "odpowiedz": "Tablica DIN 471 obejmuje 44 rozmiary od 3 do 100 mm, a tablica DIN 472 24 rozmiary od 10 do 100 mm. Sama norma sięga dalej: wykonanie normalne do 300 mm, wzmocnione od 15 do 100 mm. Powyżej 100 mm trzeba więc sięgnąć do katalogu producenta."
+    },
+    {
+      "pytanie": "Jak policzyć głębokość t rowka pod Seger?",
+      "odpowiedz": "Dla wałka DIN 471 głębokość t liczy się jako (d1 - d2) / 2. Dla otworu DIN 472 kierunek jest odwrotny, więc t = (d2 - d1) / 2. Dla d1 = 45 mm wychodzi t = 1,25 mm zarówno na wałku, jak i w otworze, ale średnice d2 są różne: 42,5 mm oraz 47,5 mm."
+    },
+    {
+      "pytanie": "Ile wynosi luz osiowy przy pierścieniu Segera?",
+      "odpowiedz": "Nominalny luz osiowy to różnica między szerokością rowka m a grubością pierścienia s. Dla DIN 471 - 45x1,75 wynosi 0,10 mm, a po uwzględnieniu tolerancji H13 na rowku rośnie do 0,24 mm. Dla DIN 472 - 100x3 jest to odpowiednio 0,15 mm i 0,33 mm. Luz zawsze jakiś jest, więc przy zespołach wrażliwych na bicie osiowe trzeba go wliczyć w łańcuch wymiarowy."
+    },
+    {
+      "pytanie": "Czy wymiar n rowka można zmniejszyć przy braku miejsca?",
+      "odpowiedz": "Wymiar n jest minimalną odległością rowka od czoła detalu, więc zmniejszanie go nie jest neutralną korektą. Dla wałka 45 mm n wynosi 3,8 mm, a dla wałka 10 mm n wynosi 0,6 mm. Jeśli zejdziesz poniżej tej wartości, osłabiasz krawędź i możesz utrudnić obróbkę oraz montaż pierścienia."
+    }
+  ]
+}

@@ -96,6 +96,7 @@ export default function Page() {
       permalink="/wiedza/${a.slug}"
       linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
+      faq={data.faq}
     />
   );
 }

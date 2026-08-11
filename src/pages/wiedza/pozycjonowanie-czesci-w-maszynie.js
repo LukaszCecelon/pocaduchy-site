@@ -13,6 +13,7 @@ export default function Page() {
       permalink="/wiedza/pozycjonowanie-czesci-w-maszynie"
       linkedinUrl={data.linkedinUrl}
       blocks={data.blocks}
+      faq={data.faq}
     />
   );
 }
