@@ -4,11 +4,14 @@
     "opis": "Przelicznik jednostek z katalogów i dokumentacji maszyn: bar, psi, kgf, kG, KM, obr/min, cale, momenty i temperatury bez zgadywania w arkuszu."
   },
   "naglowek": "Przelicznik jednostek dla konstruktora maszyn",
-  "lead": "Przelicz jednostki, które realnie pojawiają się w katalogach, tabliczkach znamionowych i starych rysunkach. Bez udawania, że kgf, at albo KM nigdy nie istniały.",
+  "lead": "Kalkulator jednostek dla inżyniera. Przelicz wielkości bez pomyłki. Jeśli jakichś Ci brakuje, napisz do mnie.",
+  "leadLink": {
+    "fraza": "napisz do mnie",
+    "url": "/o-mnie/"
+  },
   "wstep": [
-    "Zwykły przelicznik ogarnia mm na cale i bar na psi. Tyle że w dokumentacji maszyn często wyskakują też kgf, kG, at, KM, obr/min albo kgf·m. I wtedy angielski kalkulator potrafi zrobić minę, jakby ktoś mu podał kod katalogowy z 1978 roku.",
-    "Ten przelicznik jest zbudowany pod polską dokumentację techniczną. Jednostki są pogrupowane według wielkości, ale ciśnienie i naprężenie zostają razem, bo fizycznie mają ten sam wymiar. Konstruktor szuka jednak obu zapisów, więc w opisach są też typowe pułapki: MPa kontra N/mm², kgf kontra kg i KM kontra hp.",
-    "Liczby idą przez jedną jednostkę bazową dla danego wymiaru. Tam, gdzie współczynnik jest dokładny z definicji, warto to wiedzieć przed zaokrągleniem wyniku na rysunku, w arkuszu albo w notatce do dostawcy."
+    "Zwykły przelicznik ogarnia mm na cale i bar na psi. Tyle że w dokumentacji maszyn często wyskakują też kgf, kG, at, KM, obr/min albo kgf·m. Ten kalkulator trzyma te jednostki pod ręką, bez szukania po osobnych tabelach.",
+    "Ten przelicznik jest zbudowany pod polską dokumentację techniczną. Jednostki są pogrupowane według wielkości, żeby szybciej przejść od zapisu z katalogu do liczby, którą można wpisać w arkuszu albo na rysunku."
   ],
   "faq": [
     {

@@ -800,3 +800,87 @@
     transition: none;
   }
 }
+
+/* ---------- druga zakladka: tablica pasowan normalnych ---------- */
+
+.panelTabeli {
+  padding: 18px;
+}
+
+.opisTabeli {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 0 0 14px;
+  max-width: 70ch;
+}
+
+.tabelaWrap {
+  overflow-x: auto;
+  border: 1px solid var(--pc-border);
+  background: #ffffff;
+}
+
+.tabelaZastosowan {
+  /* Motyw Docusaurusa daje tabelom display: block, przez co wiersz przestaje
+     rozciagac sie na cala szerokosc. Przewijanie bierze na siebie .tabelaWrap. */
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 15px;
+}
+
+.tabelaZastosowan th,
+.tabelaZastosowan td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--pc-border);
+  color: var(--pc-text-muted);
+  line-height: 1.6;
+}
+
+.tabelaZastosowan thead th {
+  background: var(--pc-navy);
+  color: var(--pc-bg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tabelaZastosowan tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.komorkaPasowan {
+  white-space: nowrap;
+}
+
+/* Oznaczenie pasowania jest przyciskiem, ale ma wygladac jak kod na rysunku,
+   wiec obramowanie pojawia sie dopiero pod kursorem. */
+.kodPasowania {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  background: #f2f1ee;
+  color: var(--pc-navy);
+  padding: 3px 8px;
+  margin: 0 4px 4px 0;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.kodPasowania:hover {
+  border-color: var(--pc-rust);
+  color: var(--pc-rust);
+}
+
+@media (max-width: 720px) {
+  .panelTabeli {
+    padding: 14px;
+  }
+}

@@ -7,7 +7,7 @@
   "naglowek": "Pasowania: kalkulator luzu i wcisku",
   "lead": "Wpisz średnicę i pasowanie, a zobaczysz luz albo wcisk razem z wykresem pól tolerancji.",
   "trybPasowanie": "Wymiary na podstawie pasowania",
-  "trybLuz": "Pasowanie na podstawie wymiarów",
+  "trybLuz": "Popularne pasowania i ich zastosowania",
   "zasadaOtworu": "Stały otwór (H)",
   "zasadaWalka": "Stały wałek (h)",
   "podpisWykresu": "Pola tolerancji względem wymiaru nominalnego. Skala pionowa w mikrometrach.",
@@ -46,7 +46,8 @@
     "gwiazdka": "pasowanie uprzywilejowane",
     "legendaGwiazdki": "★ oznacza pasowanie uprzywilejowane, czyli takie, które warto wybierać w pierwszej kolejności: narzędzia i sprawdziany są na nie łatwiej dostępne.",
     "wymiarNominalny": "wymiar nominalny",
-    "wartosciMikrometry": "wartości w mikrometrach"
+    "wartosciMikrometry": "wartości w mikrometrach",
+    "policzToPasowanie": "Policz to pasowanie dla swojej średnicy"
   },
   "rodzaje": {
     "luzne": {
@@ -137,7 +138,7 @@
   ],
   "tabelaZastosowan": {
     "tytul": "Popularne pasowania i ich zastosowania",
-    "opis": "Uporządkowane od najciaśniejszych do najluźniejszych. Kliknij pasowanie, żeby policzyć je dla swojej średnicy.",
+    "opis": "Uporządkowane od najciaśniejszych do najluźniejszych. Kliknij oznaczenie, żeby wrócić do kalkulatora z policzonym pasowaniem.",
     "naglowekPasowania": "Pasowania",
     "naglowekZastosowanie": "Gdzie się stosuje"
   },

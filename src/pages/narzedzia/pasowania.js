@@ -101,33 +101,6 @@ export default function Pasowania() {
         ))}
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>{tresc.tabelaZastosowan.tytul}</h2>
-          <p className={styles.tekstProsty}>{tresc.tabelaZastosowan.opis}</p>
-          <div className={styles.tabelaWrap}>
-            <table className={styles.tabelaZastosowan}>
-              <thead>
-                <tr>
-                  <th>{tresc.tabelaZastosowan.naglowekPasowania}</th>
-                  <th>{tresc.tabelaZastosowan.naglowekZastosowanie}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tresc.zastosowania.map((z) => (
-                  <tr key={z.pasowania.join()}>
-                    <td className={styles.komorkaPasowan}>
-                      {z.pasowania.map((p) => (
-                        <code key={p} className={styles.kodPasowania}>{p}</code>
-                      ))}
-                    </td>
-                    <td>{z.opis}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className={styles.sekcja}>
           <h2 className={styles.h2}>{tresc.zobaczTez.tytul}</h2>
           <p className={styles.tekstProsty}>
             {tresc.zobaczTez.linki.map((link, i) => (
