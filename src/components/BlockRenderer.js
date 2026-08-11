@@ -9,6 +9,7 @@ import {dobierzPierscien, listaSrednic} from '@site/src/lib/pierscienie/oblicz';
 import WidokWalek from '@site/src/components/pierscienie/widok-walek.svg';
 import WidokOtwor from '@site/src/components/pierscienie/widok-otwor.svg';
 import pozycje from '@site/src/components/pierscienie/pozycje.json';
+import {GWINTY, DLUGOSC_GWINTU, dlugoscGwintu} from '@site/src/lib/gwinty/dane';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -340,6 +341,95 @@ function TabelaPierscieniBlock({typ = 'walek', podpis}) {
   );
 }
 
+
+/**
+ * Tablica gwintow metrycznych. Skoki i wymiary pod klucz ida z danych,
+ * a dlugosc gwintu liczy sie ze wzoru, bo w DIN 931 to jest wzor, a nie
+ * tablica: 2d plus 6, 12 albo 25 zaleznie od dlugosci calej sruby.
+ */
+function TabelaGwintowBlock({podpis}) {
+  return (
+    <figure className={styles.tabelaPierscieni}>
+      <div className={styles.tabelaPierscieniWrap}>
+        <table className={styles.tabelaGwintow}>
+          <caption className={styles.tabelaPierscieniCaption}>
+            Gwint metryczny: skok, długość gwintu śruby i wymiar pod klucz
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" rowSpan={2}>M</th>
+              <th scope="col" rowSpan={2}>wybór</th>
+              <th scope="col" colSpan={2}>Skok gwintu</th>
+              <th scope="col" colSpan={3}>Długość gwintu, DIN 931</th>
+              <th scope="col" rowSpan={2}>Klucz</th>
+            </tr>
+            <tr>
+              <th scope="col">zwykły</th>
+              <th scope="col">drobnozwojny</th>
+              {DLUGOSC_GWINTU.map((p) => (
+                <th key={p.id} scope="col">
+                  {p.opis}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {GWINTY.map((g) => (
+              <tr key={g.d}>
+                <th scope="row">M{pl(g.d)}</th>
+                <td className={styles.wybor}>{g.w}</td>
+                <td>
+                  {pl(g.p)}
+                  {g.pUwaga ? (
+                    <abbr className={styles.gwiazdkaKlucza} title={g.pUwaga}>
+                      *
+                    </abbr>
+                  ) : null}
+                </td>
+                <td>
+                  {g.pd.map((skok, i) => (
+                    <React.Fragment key={skok}>
+                      {i > 0 ? ' / ' : ''}
+                      {pl(skok)}
+                      {g.pdUwagi && g.pdUwagi[skok] ? (
+                        <abbr className={styles.gwiazdkaKlucza} title={g.pdUwagi[skok]}>
+                          *
+                        </abbr>
+                      ) : null}
+                    </React.Fragment>
+                  ))}
+                </td>
+                {DLUGOSC_GWINTU.map((p) => {
+                  const b = dlugoscGwintu(g.d, p.id);
+                  return <td key={p.id}>{b === null ? '–' : pl(b)}</td>;
+                })}
+                <td>
+                  {g.k === undefined ? (
+                    '–'
+                  ) : (
+                    <>
+                      {pl(g.k)}
+                      {g.kUwaga ? (
+                        <abbr className={styles.gwiazdkaKlucza} title={g.kUwaga}>
+                          *
+                        </abbr>
+                      ) : null}
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <figcaption className={styles.tabelaPierscieniPodpis}>
+        {podpis ||
+          'Wszystkie wymiary w milimetrach. Kąt zarysu gwintu metrycznego wynosi 60 stopni. Kolumna wyboru to kolejność z ISO 261: średnice pierwszego wyboru mają najlepszą dostępność śrub, gwintowników i sprawdzianów. Kreska w długości gwintu znaczy, że gwint byłby dłuższy od samej śruby albo że w tej średnicy nie ma śruby z łbem sześciokątnym. Długość gwintu jest wartością znormalizowaną, a nie deklaracją, że taka śruba leży na magazynie. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią, żeby je zobaczyć.'}
+      </figcaption>
+    </figure>
+  );
+}
+
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
@@ -350,6 +440,7 @@ const BLOCK_COMPONENTS = {
   tabela: TabelaBlock,
   wzor: WzorBlock,
   tabelaPierscieni: TabelaPierscieniBlock,
+  tabelaGwintow: TabelaGwintowBlock,
 };
 
 // Renderuje artykuł z CMS-a: tablica bloków (tekst/obraz/galeria/tabela/wzor)

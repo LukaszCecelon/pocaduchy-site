@@ -1,0 +1,78 @@
+{
+  "slug": "gwinty-metryczne-tabela",
+  "title": "Gwinty metryczne: tabela skoków, kluczy i długości gwintu DIN 931",
+  "seoTitle": "Gwinty metryczne: tabela skoków, kluczy i DIN 931",
+  "description": "Tabela gwintów metrycznych M1-M100: skoki zwykłe i drobnozwojne, klucze, różnice ISO i DIN oraz wzór długości gwintu śrub DIN 931 z objaśnieniami.",
+  "date": "2026-08-11",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Poniżej masz roboczą tablicę gwintów metrycznych od M1 do M100: skoki, długości części gwintowanej śrub DIN 931 i wymiary pod klucz. Sama liczba bez kontekstu potrafi jednak wysłać do warsztatu zły gwintownik albo zły klucz, dlatego pod tabelą rozkładam wszystkie kolumny na czynniki pierwsze."
+    },
+    {
+      "type": "tabelaGwintow"
+    },
+    {
+      "type": "tekst",
+      "body": "## Jak czytać tabelę gwintów metrycznych\n\nTabela ma 43 wiersze i obejmuje średnice nominalne od M1 do M100. Wszystkie wartości wymiarowe podano w milimetrach. Czytaj jeden wiersz poziomo, bo dopiero zestaw średnicy, skoku, długości gwintu i klucza opisuje to, czego szukasz.\n\n- **Kolumna M** podaje średnicę nominalną `d`. Oznaczenie M12 mówi więc o gwincie o średnicy nominalnej 12 mm. Nie jest to automatycznie średnica otworu pod gwintownik ani średnica zmierzona na gotowym, tolerowanym gwincie. Zarys gwintu metrycznego ma kąt **60 stopni**, zarówno dla skoku zwykłego, jak i drobnozwojnego.\n\n- **Skok zwykły** to odległość osiowa między odpowiadającymi sobie punktami sąsiednich zwojów. Dla M12 wynosi 1,75 mm. Jeśli na rysunku stoi samo `M12`, bez wartości po znaku `x`, w typowym zapisie chodzi właśnie o skok zwykły.\n\n- **Skoki drobnozwojne** są mniejsze od skoku zwykłego. Przy M12 tabela pokazuje 1,5, 1,25 oraz 1 mm. To warianty spotykane w praktyce, a nie deklaracja, że poza nimi norma nie przewiduje niczego więcej.\n\n- **Trzy kolumny długości gwintu** dotyczą śrub z łbem sześciokątnym DIN 931 i zależą od całkowitej długości śruby. Wartość `b` oznacza długość części gwintowanej, a nie długość całej śruby ani długość chwytu bez gwintu.\n\n- **Kolumna Klucz** podaje szerokość pod klucz, którą realnie spotkasz przy danym rozmiarze. Gwiazdka ostrzega, że samo oznaczenie M nie wystarcza do pewnego doboru narzędzia, bo ISO i stary DIN potrafią podać różne szerokości.\n\n- **Kolumna wyboru** to kolejność z ISO 261. Norma każe sięgać najpierw po średnice pierwszego wyboru, potem dopiero po drugi i trzeci. To nie jest ranking jakości, tylko dostępności: przy pierwszym wyborze łatwiej o śrubę, gwintownik i sprawdzian, a przy okazji o wymianę części po latach. Dlatego M10 zamiast M9 to zwykle dobra decyzja, nawet jeśli obliczeniowo obie pasują."
+    },
+    {
+      "type": "tekst",
+      "body": "## Skok zwykły kontra drobnozwojny\n\nSkok zwykły jest dobrym punktem wyjścia dla typowego połączenia maszynowego. Ma głębszy zarys niż wariant drobny, lepiej znosi zabrudzenie i drobne uszkodzenia, a montaż wymaga mniej obrotów. Przy serwisie maszyny to nie jest detal. Śruba, którą trzeba wykręcać w pyle albo po uderzeniu w pierwszy zwój, szybko pokazuje różnicę między katalogiem a halą.\n\nPo gwint drobnozwojny sięgam wtedy, gdy decyzja ma konkretny powód. Mniejszy skok daje dokładniejszą regulację osiową na jeden obrót, pozwala uzyskać większy przekrój rdzenia przy tej samej średnicy nominalnej i bywa przydatny przy ograniczonej wysokości nakrętki lub cienkiej ściance. Płaci się za to płytszym zarysem, większą wrażliwością na uszkodzenie i większą liczbą obrotów przy montażu. Trzeba też pilnować oznaczeń w BOM, na rysunku i przy zamówieniu. `M12` oraz `M12x1,25` nie są zamiennymi pozycjami.\n\nJest tu ważne ograniczenie. **Lista skoków drobnozwojnych w tabeli pokazuje warianty spotykane w praktyce, nie kompletny wykaz normowy.** Pełny zestaw dla danej średnicy może być dłuższy i trzeba go sprawdzić w ISO 261 oraz DIN 13. Tabela pomaga dobrać popularny wariant, ale nie zastępuje normy, rysunku dostawcy ani uzgodnionej specyfikacji w sporze zakupowym.\n\nSeria zwykła kończy się na M68, ale to granica z DIN 13-1, nie z ISO 261. Sama ISO 261 obejmuje M72 i większe średnice dalej, tyle że 6 mm jest tam już skokiem drobnym. W tabeli zostaje w kolumnie skoku zwykłego z gwiazdką, bo taki gwint dostaniesz domyślnie. To drobny przypis, dopóki ktoś nie wpisze w dokumentacji „skok zwykły według ISO 261” dla M72. Takiej pozycji w tej normie nie ma i wtedy przypis staje się niezgodnością."
+    },
+    {
+      "type": "tekst",
+      "body": "## Długość gwintu DIN 931 liczy się ze wzoru\n\nKolumny długości nie są osobnym zbiorem wartości do przepisywania. Dla śruby z łbem sześciokątnym DIN 931 oraz PN-82101 długość gwintu `b` wynika z trzech prostych wzorów zależnych od średnicy nominalnej `d` i długości całej śruby:\n\n- dla śrub do 125 mm: **`b = 2d + 6`**,\n- dla śrub powyżej 125 do 200 mm: **`b = 2d + 12`**,\n- dla śrub powyżej 200 mm: **`b = 2d + 25`**.\n\nKto zna te wzory, nie potrzebuje tabeli do policzenia pojedynczej śruby. Przykład: dla M16 o długości 100 mm obowiązuje pierwszy zakres, więc `b = 2 × 16 + 6 = 38 mm`. Podczas dobierania śruby trzeba osobno sprawdzić rzeczywisty pakiet części, podkładki, fazy i wybieg gwintu, bo wartość `b` nie zamyka geometrii całego połączenia.\n\n**Kreska w kolumnie długości gwintu nie oznacza braku danych.** Oznacza, że taki wariant śruby nie istnieje, bo obliczony gwint byłby dłuższy od całej śruby w danym zakresie. Dla M64 i długości do 125 mm wzór daje `b = 2 × 64 + 6 = 134 mm`. Nie da się wykonać 134 mm gwintu na śrubie, która ma najwyżej 125 mm, więc w tabeli słusznie stoi kreska. Dla M64 w kolejnym zakresie wzór daje już 140 mm i wariant ma ręce i nogi. Kreska stoi też w całym wierszu tam, gdzie w danej średnicy w ogóle nie ma śruby z łbem sześciokątnym: M1, M1,2, M1,4, M1,8, M2,2, M9 oraz M85. Te średnice mają gwint, ale nie mają śruby, a M85 jest tu najbardziej podchwytliwe, bo wymiar pod klucz 120 mm istnieje i dotyczy nakrętki.\n\nJedno zastrzeżenie do całej tej kolumny: **to jest wymiar znormalizowany, a nie informacja o stanie magazynu.** Wzór powie, ile gwintu ma mieć śruba M5 o długości 250 mm, ale nie obiecuje, że ktoś ją trzyma na półce w klasie i powłoce, których potrzebujesz.\n\nTa kontrola przydaje się też przy tworzeniu wariantu w CAD. Jeśli model śruby ma część gwintowaną dłuższą niż sama śruba, problemem nie jest renderer ani biblioteka części. Problemem jest kombinacja średnicy i długości, której norma po prostu nie przewiduje."
+    },
+    {
+      "type": "tekst",
+      "body": "## Jaki klucz do M10, M12, M14 i M22\n\nWymiar pod klucz wygląda jak najprostsza kolumna. I właśnie dlatego łatwo przeoczyć cztery rozbieżności. W tabeli stoi wymiar realnie spotykany w polskim warsztacie, ale gwiazdka sygnalizuje drugi rozmiar wynikający z ISO 4032 albo starego DIN 934."
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Gwint | W tabeli | Drugi wymiar normowy |\n| --- | ---: | ---: |\n| M10 | 17 mm | 16 mm według ISO 4032 |\n| M12 | 19 mm | 18 mm według ISO 4032 |\n| M14 | 21 mm | 22 mm według starego DIN 934 |\n| M22 | 34 mm | 32 mm według starego DIN 934 |"
+    },
+    {
+      "type": "tekst",
+      "body": "Co z tego wynika? Przy zamawianiu kluczy do nowej maszyny nie dobieraj rozmiaru wyłącznie po napisie M10 albo M12 w BOM. Sprawdź normę elementu, kartę producenta lub zmierz szerokość sześciokąta. Możesz dostać M10 na klucz 17 mm, ale nakrętka według ISO 4032 będzie wymagała 16 mm. Przy M12 analogiczna para to 19 i 18 mm.\n\nW serwisie starszej maszyny sytuacja robi się jeszcze ciekawsza, bo w jednym złożeniu mogą pracować elementy kupowane w różnych latach. Dla M14 warto mieć dostęp do 21 i 22 mm, a dla M22 do 34 i 32 mm. Jeden „pewny” klucz przypisany do średnicy gwintu istnieje głównie w zbyt uproszczonej ściągawce. Na hali kończy się to wycieczką do szafki po drugi rozmiar albo zaokrągleniem naroży pierwszym kluczem, który prawie pasował."
+    },
+    {
+      "type": "tekst",
+      "body": "## Na co uważać przy doborze gwintu\n\n- **Materiał i grubość ścianki.** Drobny skok daje więcej zwojów na tej samej długości, ale jego zarys jest płytszy. W cienkiej blasze nie pomoże sama zmiana skoku, jeśli do pracy wchodzi zbyt mało pełnych zwojów albo ścianka odkształca się przy dokręcaniu. Wtedy sensowniejsza może być nakrętka, nitonakrętka, tuleja gwintowana albo zmiana geometrii detalu.\n\n- **Aluminium i tworzywo.** W miękkim materiale zwykły, głębszy gwint często daje bezpieczniejszy punkt wyjścia niż drobnozwojny. Kluczowa jest jednak odpowiednia długość wkręcenia i ograniczenie nacisku na zwoje. Jeżeli połączenie ma być wielokrotnie rozbierane, wkładka gwintowa potrafi uratować detal przed stopniowym wyrywaniem albo wyrabianiem gwintu.\n\n- **Długość wkręcenia.** Nie dobieraj jej tylko do średnicy śruby. Zależy od materiału śruby i korpusu, obciążenia, skoku, liczby pełnych zwojów oraz tego, czy otwór jest przelotowy czy ślepy. W otworze ślepym trzeba zostawić miejsce na wybieg gwintownika i dno, inaczej śruba oprze się wcześniej, a połączenie będzie wyglądało na dokręcone bez uzyskania właściwego docisku.\n\n- **Odporność na odkręcanie.** Gwint drobnozwojny ma mniejszy kąt linii śrubowej, ale nie jest automatycznym zabezpieczeniem połączenia w drganiach. O wyniku decydują przede wszystkim napięcie wstępne, tarcie, sztywność pakietu, osiadanie powierzchni i sposób zabezpieczenia. Sama zamiana skoku bez policzenia docisku może tylko przenieść problem z montażu na uruchomienie.\n\n- **Zgodność pary.** Śruba, nakrętka i otwór gwintowany muszą mieć ten sam skok. Średnica nominalna nie wystarcza. Gwint M12x1 wejdzie w M12 o skoku 1,75 mm najwyżej na tyle, żeby uszkodzić pierwsze zwoje i dać monterowi fałszywe wrażenie, że „tylko ciężko idzie”."
+    },
+    {
+      "type": "tekst",
+      "body": "## Czego ta tabela świadomie nie mówi\n\nTabela nie dobiera **klasy wytrzymałości śruby**, **momentu dokręcania** ani sposobu zabezpieczenia połączenia. Moment zależy między innymi od klasy śruby, tarcia, smarowania, powłoki, podkładki i wymaganej siły zacisku. Jeśli dokumentacja miesza niutonometry, jednostki calowe albo rozmiary gwintów z różnych systemów, pomocny będzie [przelicznik jednostek](/przelicznik/). Sama konwersja nie robi jednak z gwintu calowego zamiennika metrycznego.\n\nNie ma tu również granicznych wymiarów gwintu ani pól tolerancji **6g** dla gwintu zewnętrznego i **6H** dla wewnętrznego. Te oznaczenia mówią o położeniu i szerokości pola tolerancji, a nie o klasie wytrzymałości. Do pracy z tolerancjami wałków i otworów przyda się [kalkulator pasowań](/narzedzia/pasowania/), ale tolerancje gwintów nadal trzeba brać z właściwej normy lub dokumentacji wykonawczej.\n\nGranica tej strony jest więc celowa. Dostajesz średnicę, popularne skoki, długość gwintu DIN 931 i praktyczny wymiar pod klucz. Do obliczenia nośności, momentu, trwałości zmęczeniowej oraz tolerowanych średnic podziałowych potrzebne są kolejne dane. Jeżeli kompletujesz własny zestaw warsztatowych tablic, zobacz też [rowki pod pierścienie Segera](/wiedza/rowki-pod-pierscienie-osadcze-seger/), gdzie w ten sam sposób rozdzielam wymiar nominalny od wymiaru, który rzeczywiście trzeba wykonać."
+    }
+  ],
+  "faq": [
+    {
+      "pytanie": "Jaki skok ma gwint M12?",
+      "odpowiedz": "Zwykły gwint M12 ma skok 1,75 mm. W tabeli jako spotykane warianty drobnozwojne są podane M12x1,5, M12x1,25 oraz M12x1. Pełny wykaz wariantów trzeba sprawdzić w ISO 261 lub DIN 13."
+    },
+    {
+      "pytanie": "Jaki klucz pasuje do M10?",
+      "odpowiedz": "W tabeli dla M10 widnieje klucz 17 mm, bo taki wymiar realnie często spotkasz w warsztacie. Nakrętka M10 według ISO 4032 ma jednak szerokość 16 mm, więc przed zakupem narzędzia sprawdź normę albo kartę producenta."
+    },
+    {
+      "pytanie": "Ile wynosi długość gwintu śruby M16 o długości 100 mm?",
+      "odpowiedz": "Dla śruby M16 o długości 100 mm stosuje się wzór z pierwszego zakresu: b = 2 × 16 + 6. Długość części gwintowanej wynosi więc 38 mm według DIN 931."
+    },
+    {
+      "pytanie": "Czym różni się gwint drobnozwojny od zwykłego?",
+      "odpowiedz": "Gwint drobnozwojny ma mniejszy skok, czyli wykonuje mniejszy przesuw osiowy na 1 obrót. Dla M12 skok zwykły wynosi 1,75 mm, a praktyczne skoki drobne z tabeli to 1,5, 1,25 i 1 mm. Drobny zarys daje dokładniejszą regulację, ale jest płytszy i bardziej wrażliwy na uszkodzenie."
+    },
+    {
+      "pytanie": "Jaki jest kąt zarysu gwintu metrycznego?",
+      "odpowiedz": "Kąt zarysu gwintu metrycznego wynosi 60 stopni. Wartość jest taka sama dla gwintu o skoku zwykłym i drobnozwojnym, więc zmiana skoku nie zmienia kąta 60 stopni."
+    },
+    {
+      "pytanie": "Co oznacza kreska w kolumnie długości gwintu?",
+      "odpowiedz": "Kreska oznacza, że wariant nie istnieje, a nie że brakuje danych. Dla M64 w zakresie do 125 mm wzór daje 134 mm gwintu, czyli więcej niż maksymalna długość całej śruby w tym zakresie."
+    },
+    {
+      "pytanie": "Co oznacza pierwszy, drugi i trzeci wybór średnicy gwintu?",
+      "odpowiedz": "To kolejność z ISO 261. Norma każe sięgać najpierw po średnice pierwszego wyboru, jak M6, M8, M10 czy M12, a po drugi i trzeci dopiero wtedy, gdy jest powód. W tabeli jest 25 średnic pierwszego wyboru, 17 drugiego i jedna trzeciego, czyli M9. Chodzi o dostępność śrub, gwintowników i sprawdzianów, a nie o jakość samego gwintu."
+    }
+  ]
+}

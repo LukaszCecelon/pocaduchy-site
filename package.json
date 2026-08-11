@@ -9,6 +9,7 @@
     "build:content": "node scripts/build-content-pages.mjs",
     "sprawdz:pierscienie": "node scripts/sprawdz-pierscienie.mjs",
     "test:jednostki": "node --test src/lib/jednostki/oblicz.test.mjs",
+    "test:gwinty": "node --test src/lib/gwinty/dane.test.mjs",
     "prestart": "node scripts/fetch-episodes.mjs && node scripts/fetch-subscribers.mjs && node scripts/build-image-sizes.mjs && node scripts/build-content-pages.mjs",
     "prebuild": "node scripts/fetch-episodes.mjs && node scripts/fetch-subscribers.mjs && node scripts/build-image-sizes.mjs && node scripts/build-content-pages.mjs",
     "start": "docusaurus start",
