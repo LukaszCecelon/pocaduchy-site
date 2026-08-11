@@ -582,3 +582,27 @@
   color: var(--pc-text-faint);
   text-align: center !important;
 }
+
+/* ---------- tablica chropowatosci ---------- */
+
+.tabelaPierscieniWrap .tabelaChropowatosci {
+  min-width: 700px;
+}
+
+.tabelaChropowatosci tbody th[scope='row'] {
+  white-space: normal;
+  min-width: 190px;
+}
+
+/* Naglowek grupy technologicznej wewnatrz tabeli. Ma oddzielac, a nie
+   konkurowac z naglowkiem kolumn, wiec jest jasny, nie granatowy. */
+.grupaChropowatosci {
+  background: #f2f1ee !important;
+  color: var(--pc-navy) !important;
+  font-family: var(--font-mono);
+  font-size: 11px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700 !important;
+  text-align: left !important;
+}
