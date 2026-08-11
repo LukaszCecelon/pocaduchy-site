@@ -435,13 +435,18 @@ function TabelaGwintowBlock({podpis}) {
 /**
  * Tablica chropowatosci osiaganej roznymi metodami obrobki.
  *
- * Kreska znaczy "zrodlo nie podaje", a nie zero. Przy odlewaniu nikt nie mierzy
- * granicy metody przy obrobce dokladnej, bo takiej obrobki tam nie ma.
+ * Dwie osobne tabele, Ra u gory. Dwa powody, oba merytoryczne:
+ *
+ * 1. Na rysunku prawie zawsze pisze sie Ra, wiec Rz jest informacja
+ *    drugoplanowa i nie ma po co konkurowac o pierwsza kolumne.
+ * 2. Zakresy Ra i Rz pochodza z niezaleznych zestawien i nie opisuja tej samej
+ *    probki. Postawione obok siebie w jednym wierszu az sie prosza, zeby ktos
+ *    podzielil jedno przez drugie. Rozdzielone nie prosza sie o nic.
+ *
+ * Efekt uboczny jest taki, ze cztery kolumny miesczą sie na telefonie bez
+ * przewijania w bok, czego siedem nie robilo.
  */
-function TabelaChropowatosciBlock({podpis}) {
-  // Gwiazdka przy wartosci, dla ktorej dane trzymaja zastrzezenie. Klucz
-  // odpowiada kolumnie, wiec zastrzezenie siedzi dokladnie przy tej liczbie,
-  // ktorej dotyczy, a nie pod cala tabela.
+function TabelaJednegoParametru({parametr, tytul}) {
   const gwiazdka = (p, klucz) =>
     p.uwagi && p.uwagi[klucz] ? (
       <abbr className={styles.gwiazdkaKlucza} title={p.uwagi[klucz]}>
@@ -456,60 +461,70 @@ function TabelaChropowatosciBlock({podpis}) {
     </>
   );
 
+  // Wielokropek zamiast slowa "do": w waskiej kolumnie kazdy znak sie liczy,
+  // a taki zapis zakresu i tak jest w tablicach warsztatowych standardem.
   const zakres = (p, w, klucz) => (
     <>
-      {w.od === w.do ? pl(w.od) : `${pl(w.od)} do ${pl(w.do)}`}
+      {w.od === w.do ? pl(w.od) : `${pl(w.od)}\u2026${pl(w.do)}`}
       {gwiazdka(p, klucz)}
     </>
   );
 
   return (
-    <figure className={styles.tabelaPierscieni}>
-      <div className={styles.tabelaPierscieniWrap}>
-        <table className={styles.tabelaChropowatosci}>
-          <caption className={styles.tabelaPierscieniCaption}>
-            Chropowatość osiągana metodami obróbki, wartości w mikrometrach
-          </caption>
-          <thead>
+    <div className={styles.tabelaPierscieniWrap}>
+      <table className={styles.tabelaChropowatosci}>
+        <caption className={styles.tabelaPierscieniCaption}>{tytul}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Metoda obróbki</th>
+            <th scope="col">granica</th>
+            <th scope="col">zakres</th>
+            <th scope="col">zgrubnie</th>
+          </tr>
+        </thead>
+        {GRUPY_CHR.map((g) => (
+          <tbody key={g.id}>
             <tr>
-              <th scope="col" rowSpan={2}>Metoda obróbki</th>
-              <th scope="col" colSpan={3}>Rz</th>
-              <th scope="col" colSpan={3}>Ra</th>
+              <th scope="colgroup" colSpan={4} className={styles.grupaChropowatosci}>
+                {g.nazwa}
+              </th>
             </tr>
-            <tr>
-              <th scope="col">specjalnie</th>
-              <th scope="col">spotykany zakres</th>
-              <th scope="col">zgrubnie</th>
-              <th scope="col">specjalnie</th>
-              <th scope="col">spotykany zakres</th>
-              <th scope="col">zgrubnie</th>
-            </tr>
-          </thead>
-          {GRUPY_CHR.map((g) => (
-            <tbody key={g.id}>
-              <tr>
-                <th scope="colgroup" colSpan={7} className={styles.grupaChropowatosci}>
-                  {g.nazwa}
-                </th>
-              </tr>
-              {procesyGrupy(g.id).map((p) => (
+            {procesyGrupy(g.id).map((p) => {
+              const w = p[parametr];
+              return (
                 <tr key={pelnaNazwa(p)}>
                   <th scope="row">{pelnaNazwa(p)}</th>
-                  <td>{kom(p, p.rz, 'rz.min', 'min')}</td>
-                  <td>{zakres(p, p.rz, 'rz.zakres')}</td>
-                  <td>{kom(p, p.rz, 'rz.max', 'max')}</td>
-                  <td>{kom(p, p.ra, 'ra.min', 'min')}</td>
-                  <td>{zakres(p, p.ra, 'ra.zakres')}</td>
-                  <td>{kom(p, p.ra, 'ra.max', 'max')}</td>
+                  <td>{kom(p, w, `${parametr}.min`, 'min')}</td>
+                  <td>{zakres(p, w, `${parametr}.zakres`)}</td>
+                  <td>{kom(p, w, `${parametr}.max`, 'max')}</td>
                 </tr>
-              ))}
-            </tbody>
-          ))}
-        </table>
-      </div>
+              );
+            })}
+          </tbody>
+        ))}
+      </table>
+    </div>
+  );
+}
+
+function TabelaChropowatosciBlock({podpis}) {
+  return (
+    <figure className={styles.tabelaPierscieni}>
+      <TabelaJednegoParametru
+        parametr="ra"
+        tytul="Ra osiągane metodami obróbki, w mikrometrach"
+      />
+      <p className={styles.miedzyTabelami}>
+        Poniżej to samo w Rz. To osobne zestawienie, a nie przeliczenie tego,
+        co wyżej.
+      </p>
+      <TabelaJednegoParametru
+        parametr="rz"
+        tytul="Rz osiągane metodami obróbki, w mikrometrach"
+      />
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
-          'Wartości w mikrometrach. Specjalnie to granica osiągalna przy dobranym narzędziu i parametrach, spotykany zakres to wynik bez zabiegów specjalnych, zgrubnie to druga granica z zestawień. To nie są trzy klasy normowe. Kreska znaczy, że źródło nie podaje wartości, a nie że wynosi ona zero. Kolumny Ra i Rz pochodzą z niezależnych zestawień, więc nie opisują tej samej próbki i nie wolno dzielić jednej przez drugą ani przeliczać jednej na drugą. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią.'}
+          'Wartości w mikrometrach. Granica to wartość osiągalna przy dobranym narzędziu i parametrach, zakres to wynik spotykany bez zabiegów specjalnych, zgrubnie to druga granica z zestawień. To nie są trzy klasy normowe. Kreska znaczy, że źródło nie podaje wartości, a nie że wynosi ona zero. Obie tabele zebrano niezależnie, więc wiersz z jednej nie jest przeliczeniem wiersza z drugiej. Gwiazdka oznacza wartość z zastrzeżeniem, najedź na nią.'}
       </figcaption>
     </figure>
   );
