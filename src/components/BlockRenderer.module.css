@@ -156,6 +156,9 @@
 }
 .tabela :global(table) {
   width: 100%;
+  /* Na waskim ekranie tabela ma sie przewijac w swoim pudelku, a nie zwezac
+     kolumny do nieczytelnej szerokosci. */
+  min-width: min-content;
   border-collapse: collapse;
   font-family: var(--font-body);
   font-size: 14px;
