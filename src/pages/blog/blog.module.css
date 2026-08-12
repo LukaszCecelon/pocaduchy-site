@@ -176,6 +176,11 @@
   padding: 40px 32px 96px;
   max-width: 720px;
   margin: 0 auto;
+  /* Rodzic to kontener flex, a element flex domyslnie nie kurczy sie ponizej
+     szerokosci swojej zawartosci. Bez min-width: 0 najszersza tabela w tresci
+     rozpychala cala strone i telefon przewijal sie w bok. */
+  width: 100%;
+  min-width: 0;
 }
 .badge {
   display: inline-block;
@@ -474,6 +479,15 @@
   white-space: nowrap;
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
+/* Na telefonie odstepy zjadaly szerokosc potrzebna przyciskowi z nowrap. */
+@media (max-width: 480px) {
+  .articleWrap {
+    padding: 32px 18px 72px;
+  }
+  .discussBox {
+    padding: 24px 18px;
+  }
+}
 .discussBtn:hover {
   background: var(--pc-rust-hover);
   color: var(--pc-bg);
@@ -495,6 +509,10 @@
   .discussBtn {
     width: 100%;
     justify-content: center;
+    /* Bez tego napis w jednej linii trzymal przyciskowi 269 px szerokosci
+       i to on rozpychal strone na telefonie, mimo width: 100%. */
+    white-space: normal;
+    text-align: center;
   }
 }
 

@@ -472,8 +472,11 @@ function TabelaGwintowBlock({podpis}) {
             ))}
           </tbody>
         </table>
-        <ListaPrzypisow lista={przypisy.lista} prefiks={prefiks} />
       </div>
+      {/* Przypisy stoja poza przewijakiem. W srodku znikalyby z ekranu
+          dokladnie wtedy, gdy ktos przesuwa tabele, zeby odczytac wartosc,
+          do ktorej sie odnosza. */}
+      <ListaPrzypisow lista={przypisy.lista} prefiks={prefiks} />
       <figcaption className={styles.tabelaPierscieniPodpis}>
         {podpis ||
           'Wszystkie wymiary w milimetrach. Kąt zarysu gwintu metrycznego wynosi 60 stopni. Kolumna wyboru to kolejność z ISO 261: średnice pierwszego wyboru mają najlepszą dostępność śrub, gwintowników i sprawdzianów. Kreska w długości gwintu znaczy, że gwint byłby dłuższy od samej śruby albo że w tej średnicy nie ma śruby z łbem sześciokątnym. Długość gwintu jest wartością znormalizowaną, a nie deklaracją, że taka śruba leży na magazynie. Numer przy wartości odsyła do zastrzeżenia pod tabelą.'}
@@ -532,8 +535,10 @@ function TabelaJednegoParametru({parametr, tytul}) {
     </>
   );
 
+  // Przypisy poza przewijakiem, z tego samego powodu co przy gwintach.
   return (
-    <div className={styles.tabelaPierscieniWrap}>
+    <>
+      <div className={styles.tabelaPierscieniWrap}>
       <table className={styles.tabelaChropowatosci}>
         <caption className={styles.tabelaPierscieniCaption}>{tytul}</caption>
         <thead>
@@ -565,8 +570,9 @@ function TabelaJednegoParametru({parametr, tytul}) {
           </tbody>
         ))}
       </table>
+      </div>
       <ListaPrzypisow lista={przypisy.lista} prefiks={prefiks} />
-    </div>
+    </>
   );
 }
 
