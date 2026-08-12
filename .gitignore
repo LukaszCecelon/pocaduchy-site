@@ -27,3 +27,9 @@ next-app/out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Eksporty z Google Search Console. Repozytorium jest publiczne, a to sa dane
+# o ruchu na stronie: jakie zapytania ja znajduja i co klikaja ludzie.
+# Katalog zostaje lokalnie, do gita trafiaja tylko wnioski w analizy/.
+dane/search-console/*
+!dane/search-console/CZYTAJ-TO.md
