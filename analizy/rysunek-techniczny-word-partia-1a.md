@@ -1,51 +1,66 @@
 # Rysunek techniczny: dokumenty Word, partia 1A
 
-Data przygotowania: 2026-08-14
+Data przeróbki: 2026-08-14
 
-## Powstałe dokumenty
+## Dokumenty
 
-| Temat | Plik | Liczba słów | SVG | INVENTOR | ZDJĘCIE | Razem rysunków |
+| Temat | Ścieżka pliku | Liczba słów | SVG | INVENTOR | ZDJĘCIE | Razem rysunków |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Rodzaje linii: co pokazuje każda linia | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\01-linie-na-rysunku-technicznym\01-linie-na-rysunku-technicznym.docx` | 1996 | 4 | 1 | 1 | 6 |
-| Rzutowanie europejskie i amerykańskie: gdzie trafia widok | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\02-rzutowanie-pierwszego-i-trzeciego-kata\02-rzutowanie-pierwszego-i-trzeciego-kata.docx` | 1773 | 3 | 1 | 0 | 4 |
-| Widok główny i liczba rzutów: ile naprawdę potrzeba | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\03-widok-glowny-i-liczba-rzutow\03-widok-glowny-i-liczba-rzutow.docx` | 1886 | 2 | 2 | 0 | 4 |
-| **Razem** |  | **5655** | **9** | **4** | **1** | **14** |
+| Widok cząstkowy, miejscowy i szczegół w powiększeniu | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\07-widok-czastkowy-miejscowy-szczegol\07-widok-czastkowy-miejscowy-szczegol.docx` | 1826 | 3 | 1 | 0 | 4 |
+| Widok urwany: jak skrócić długi detal bez utraty wymiaru | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\08-widok-urwany-i-linie-przerwania\08-widok-urwany-i-linie-przerwania.docx` | 1761 | 2 | 1 | 0 | 3 |
+| Linie niewidoczne czy przekrój: co będzie czytelniejsze | `D:\poCADychy_STRONA\BAZA WIEDZY\SEKCJA-RYSUNEK TECHNICZNY\09-linie-niewidoczne-czy-przekroj\09-linie-niewidoczne-czy-przekroj.docx` | 1924 | 2 | 1 | 0 | 3 |
+| **Razem** |  | **5511** | **7** | **3** | **0** | **10** |
 
-Liczba słów obejmuje cały widoczny tekst dokumentu, w tym tabelę metadanych i tabele w treści.
+Liczba słów obejmuje cały widoczny tekst dokumentu, w tym metadane i tabele.
 
 ## Co Łukasz musi zrobić w Inventorze
 
-1. **Porównanie grubości linii na tulei schodkowej**
-   - Część: tuleja o długości 70 mm, średnicach zewnętrznych 40 i 28 mm, otworze przelotowym 16 mm, rowku szerokości 4 mm i fazach 1 x 45°.
-   - Arkusz: A3, podziałka 2:1; widok wzdłużny w półprzekroju, widok od czoła i widok końca.
-   - Opisać: 70, 40, 28, 16, szerokość rowka 4 i fazy 1 x 45°; baza długości od lewej powierzchni czołowej, baza średnic na osi.
-   - Przygotować dwa identyczne eksporty: wariant z liniami cienkimi 0,25 mm i grubymi 0,50 mm oraz wariant ze wszystkimi liniami 0,25 mm.
-   - Celowo pominąć tolerancje geometryczne, chropowatość i tabliczkę firmową. Obraz ma pokazać, że hierarchia grubości oddziela kontur części od wymiarów, osi i kreskowania.
-   - Nazwa pliku: `tuleja-porownanie-grubosci-linii.png`.
+1. **Pokazać szczegół A rowka na wsporniku płytowym.**
 
-2. **Ten sam wspornik w rzutowaniu pierwszego i trzeciego kąta**
-   - Część: niesymetryczny wspornik z podstawą 80 x 50 x 12 mm, uchem grubości 12 mm i wysokości 45 mm, otworem przelotowym 14 mm, kieszenią 20 x 12 x 5 mm po lewej i fazą 3 x 45° po prawej.
-   - Arkusze: dwa arkusze A3, podziałka 1:1, ten sam widok główny; jeden w first-angle, drugi w third-angle. Pokazać rzut z góry i widok z lewej.
-   - Opisać: gabaryty podstawy, wysokość ucha, średnicę i położenie osi otworu, położenie kieszeni oraz fazę; bazy A na spodzie, B na tylnej powierzchni i C na lewej powierzchni.
-   - Celowo pominąć tolerancje geometryczne, przekroje i widok izometryczny. Obraz ma dowodzić, że geometria i wymiary pozostają te same, a zmienia się wyłącznie położenie rzutów.
-   - Nazwa pliku: `wspornik-first-angle-third-angle.png`.
+   - Wymodelować wspornik 160 x 80 x 12 mm.
+   - Dodać otwór bazowy Ø20 H7.
+   - Przy prawym narożu wykonać rowek odciążający: szerokość 2,0 mm, głębokość 1,2 mm, promień dna R0,5.
+   - Przyjąć dolną krawędź jako bazę A, a lewą krawędź jako bazę B.
+   - Na arkuszu A3 umieścić widok główny w podziałce 1:2 oraz szczegół A w podziałce 5:1.
+   - Na widoku głównym podać 160, 80, 12 oraz położenie osi otworu i rowka od baz A i B.
+   - W szczególe podać tylko 2,0, 1,2 i R0,5.
+   - Nie pokazywać izometrii, linii niewidocznych ani powtórzonego położenia rowka.
+   - Obraz ma wykazać, że szczegół zwiększa czytelność bez zmiany wartości wymiaru i bazy.
+   - Zapisać obraz jako `07-widok-czastkowy-miejscowy-szczegol-inventor.png`.
 
-3. **Wspornik opisany dwoma wystarczającymi rzutami**
-   - Część: wspornik obrabiany z podstawą 100 x 60 x 12 mm, uchem grubości 12 mm i wysokości całkowitej 58 mm, otworem przelotowym 20 mm na wysokości 36 mm oraz dwoma otworami 9 mm w podstawie, po 15 mm od krótszych krawędzi i 12 mm od krawędzi tylnej.
-   - Arkusz: A3, podziałka 1:1; widok główny prostopadły do osi otworu 20 mm oraz rzut z góry.
-   - Opisać: wszystkie gabaryty, średnice i położenia osi; bazy A na spodzie, B na tylnej powierzchni i C na lewej powierzchni.
-   - Celowo pominąć widok z prawej, tolerancje geometryczne, chropowatość i izometrię. Obraz ma pokazać, że trzeci rzut nie wnosi nowej informacji wykonawczej.
-   - Nazwa pliku: `wspornik-dwa-rzuty-wystarcza.png`.
+2. **Wykonać widok urwany wału z kompletem wymiarów końcowych.**
 
-4. **Wspornik, w którym trzeci rzut staje się konieczny**
-   - Użyć części z poprzedniego zadania i dodać po prawej ślepą kieszeń 24 x 18 mm, głębokość 6 mm, z osią 30 mm nad bazą A i 20 mm od bazy B.
-   - Arkusz: A3, podziałka 1:1; przygotować dwa warianty. W pierwszym zostawić tylko widok główny i rzut z góry z liniami niewidocznymi. W drugim dodać widok z prawej albo przekrój, który jednoznacznie pokaże kieszeń.
-   - Opisać tylko wymiary nowej kieszeni i jej położenie względem baz A i B.
-   - Celowo pominąć izometrię, kolorowanie i dodatkowe oznaczenia. Porównanie ma pokazać, że dodatkowy rzut jest potrzebny dopiero wtedy, gdy usuwa realną niejednoznaczność.
-   - Nazwa pliku: `wspornik-kiedy-trzeci-rzut-potrzebny.png`.
+   - Wymodelować wał Ø30 o długości 900 mm.
+   - Przy lewym końcu dodać stopień Ø40 x 30 mm i rowek wpustowy 8 x 3,3 mm na długości 45 mm.
+   - Przy prawym końcu dodać gwint zewnętrzny M24 x 2 na długości 40 mm.
+   - Dodać otwór poprzeczny Ø8 z osią 25 mm od prawego czoła.
+   - Przyjąć lewe czoło jako bazę długości A, a oś wału jako bazę średnic B.
+   - Na arkuszu A3 wykonać widok boczny w podziałce 1:2.
+   - Umieścić przerwanie wyłącznie na gładkim odcinku Ø30.
+   - Podać pełną długość 900, długość stopnia 30, długość gwintu 40, położenie otworu 25 oraz wszystkie średnice.
+   - Nie pokazywać izometrii, nie ukrywać cechy w przerwaniu i nie zastępować wymiaru 900 długością obrazu.
+   - Obraz ma wykazać, że przerwanie zachowuje rzeczywiste wymiary i pokazuje oba funkcjonalne końce.
+   - Zapisać obraz jako `08-widok-urwany-i-linie-przerwania-inventor.png`.
 
-## Uwagi do partii
+3. **Porównać linie niewidoczne z pełnym przekrojem A-A bloku oprawy.**
 
-Nie odpuszczono żadnego z trzech tematów. Każdy odpowiada na inne pytanie wykonawcze: jak czytać linie, gdzie umieszczać rzuty i kiedy liczba rzutów jest wystarczająca.
+   - Wymodelować blok 120 x 70 x 50 mm.
+   - Ustawić oś głównego otworu 35 mm nad podstawą A i 60 mm od lewego czoła B.
+   - W osi wykonać gniazdo Ø32 H7 o głębokości 18 mm.
+   - Dalej wykonać otwór przelotowy Ø20.
+   - Od strony tylnej wykonać pogłębienie Ø40 o głębokości 8 mm.
+   - Zachować minimalną grubość ścianki 6 mm.
+   - Na arkuszu A3 w podziałce 1:1 zestawić widok boczny z liniami niewidocznymi i pełny przekrój A-A przez oś.
+   - Na przekroju podać Ø32 H7, 18, Ø20, Ø40, 8 i 6.
+   - Położenie osi 35 i 60 od baz A i B pozostawić na widoku bazowym.
+   - Nie pokazywać izometrii, cieniowania ani linii niewidocznych w przekroju.
+   - Obraz ma wykazać, że przekrój porządkuje trzy średnice, dwa dna i grubość ścianki bez dublowania baz.
+   - Zapisać obraz jako `09-linie-niewidoczne-czy-przekroj-inventor.png`.
 
-Najsłabszym ogniwem jest temat o widoku głównym i liczbie rzutów. Decyzja o wystarczającej liczbie widoków zależy od geometrii oraz celu dokumentacji, a szczegółowych reguł wyboru nie potwierdzono w pełnym, płatnym tekście aktualnej normy. Przed publikacją warto skonfrontować przykłady z praktyką Łukasza i z posiadanym dostępem do norm.
+## Zakres i ryzyko
+
+Nie odpuszczono żadnego z trzech tematów. Nie dodano znaczników `[ZDJĘCIE]`, ponieważ omawiane reguły wymagają schematu lub arkusza CAD, a fotografia przedmiotu nie pokazuje konwencji zapisu.
+
+Nie podano jako wartości normatywnych amplitudy linii przerwania, liczby zygzaków, minimalnego odstępu od cechy ani progu liczby krawędzi wymuszającego przekrój. Publiczne karty aktualnych norm nie zawierają tych danych, a pełne teksty PN nie były dostępne.
+
+Najsłabszym ogniwem partii pozostaje polskie rozróżnienie widoku cząstkowego i miejscowego oraz szczegółowe wyjątki dla linii niewidocznych w przekroju. Przed publikacją trzeba porównać te miejsca z egzemplarzem PN-EN ISO 128-3:2023-02 i PN-EN ISO 128-2:2023-05 dostępnym Łukaszowi.
