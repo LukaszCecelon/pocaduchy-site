@@ -9,6 +9,14 @@
 - **Nie** wymagaj od Łukasza obsługi narzędzi ani plików konfiguracyjnych — on wysyła materiał, Claude robi resztę.
 - Nie zasypuj pytaniami: podejmuj rozsądne decyzje projektowe samodzielnie, pytaj tylko gdy różne odczytania prowadzą do istotnie różnej pracy.
 
+## Weryfikacja przed publikacją (zasada bezwzględna)
+
+**Żadna treść merytoryczna nie trafia na pocaduchy.pl bez wcześniejszej akceptacji Łukasza.** Dotyczy tekstu pisanego przez Claude, przez Codeksa i przez kogokolwiek innego. Bez wyjątków, także gdy tekst przechodzi build, jest sprawdzony technicznie i wygląda dobrze.
+
+Ścieżka: nowy materiał kończy jako plik `.docx` w `D:\poCADychy_STRONA\BAZA WIEDZY`, w folderze na materiał, i **tam czeka**. Claude zgłasza, że jest gotowy. **Dopiero odesłanie zredagowanego pliku przez Łukasza jest zgodą na publikację.** Treść, która powstała bez tej ścieżki, trzymaj poza katalogami budowanymi przez `scripts/build-content-pages.mjs`, na przykład w `content/_poczekalnia/`.
+
+Poprawki w kodzie, SEO, układzie, wydajności i naprawy usterek tej ścieżki nie wymagają. Zasada dotyczy treści, którą czyta odbiorca strony. Przy wątpliwości pytaj **przed** publikacją, nie po.
+
 ## Głos Łukasza (czytaj PRZED pisaniem czegokolwiek)
 
 W katalogu **`styl/`** leżą dokumenty kalibracyjne opisujące, jak Łukasz pisze. To materiał od niego, oparty na analizie jego postów i artykułów. **Przeczytaj je przed napisaniem jakiejkolwiek treści na stronę** i streść ich wymagania w każdej specyfikacji zadania dla Codeksa, jeśli zadanie obejmuje pisanie tekstu.
