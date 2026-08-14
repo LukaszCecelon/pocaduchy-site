@@ -209,3 +209,79 @@
 .card:hover .znakLinia {
   stroke: var(--pc-rust);
 }
+
+/* SZUKAJKA I DZIALY */
+
+.szukajka {
+  margin-bottom: 44px;
+  max-width: 520px;
+}
+.szukajkaLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pc-text-faint);
+  margin-bottom: 8px;
+}
+.szukajkaPole {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--pc-navy);
+  background: #fff;
+  border: 1px solid var(--pc-border);
+  border-left: 3px solid var(--pc-rust);
+  padding: 12px 14px;
+}
+.szukajkaPole:focus {
+  outline: 2px solid var(--pc-rust);
+  outline-offset: 2px;
+}
+.szukajkaWynik {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--pc-text-faint);
+  margin: 8px 0 0;
+}
+
+.dzial {
+  margin-bottom: 56px;
+}
+.dzialGlowa {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--pc-border);
+  max-width: 720px;
+}
+.dzialNazwa {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--pc-navy);
+  margin: 0 0 6px;
+}
+.dzialOpis {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-text-muted);
+  margin: 0;
+}
+
+.brakWynikow {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--pc-text-muted);
+}
+/* Przycisk udaje link, bo to akcja na stronie, a nie przejscie pod adres. */
+.wyczysc {
+  font: inherit;
+  color: var(--pc-rust);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
