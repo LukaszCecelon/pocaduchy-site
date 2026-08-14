@@ -1,0 +1,25 @@
+{
+  "_opis": "Dzialy bazy wiedzy. Kolejnosc na stronie /wiedza/ jest taka jak tutaj. Artykul przypisuje sie do dzialu polem 'kategoria' w swoim pliku. Artykul bez kategorii trafia do dzialu 'inne'.",
+  "dzialy": [
+    {
+      "id": "rysunek-techniczny",
+      "nazwa": "Rysunek techniczny",
+      "opis": "Jak zapisać konstrukcję tak, żeby wykonawca zrobił to, o co chodziło. Wymiarowanie, tolerancje, symbole i arkusz."
+    },
+    {
+      "id": "elementy-i-polaczenia",
+      "nazwa": "Elementy i połączenia",
+      "opis": "Tablice i zasady doboru części, które wracają w każdym projekcie."
+    },
+    {
+      "id": "konstruowanie",
+      "nazwa": "Konstruowanie i technologia",
+      "opis": "Decyzje, które zapadają przy modelu i przy maszynie, zanim powstanie rysunek."
+    },
+    {
+      "id": "inne",
+      "nazwa": "Pozostałe",
+      "opis": "Materiały, które jeszcze nie mają swojego działu."
+    }
+  ]
+}

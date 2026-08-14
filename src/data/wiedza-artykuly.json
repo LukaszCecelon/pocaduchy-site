@@ -1,6 +1,18 @@
 [
   {
     "slug": "chropowatosc-powierzchni",
+    "kategoria": "konstruowanie",
+    "slowaKluczowe": [
+      "chropowatosc",
+      "Ra",
+      "Rz",
+      "struktura powierzchni",
+      "szlifowanie",
+      "toczenie",
+      "Simmering",
+      "gladkosc powierzchni",
+      "mikrometry"
+    ],
     "title": "Chropowatość powierzchni: tabela Ra i Rz dla obróbki i zastosowań",
     "seoTitle": "Chropowatość powierzchni: tabela Ra i Rz",
     "description": "Tabela chropowatości dla 29 metod obróbki oraz praktyczne wartości Ra dla łożysk, pasowań, uszczelnień, prowadnic, klejenia, powłok i bazowania.",
@@ -8,6 +20,19 @@
   },
   {
     "slug": "gwinty-metryczne-tabela",
+    "kategoria": "elementy-i-polaczenia",
+    "slowaKluczowe": [
+      "gwint metryczny",
+      "skok gwintu",
+      "M10",
+      "M12",
+      "klucz do sruby",
+      "DIN 931",
+      "ISO 261",
+      "dlugosc gwintu",
+      "gwint drobnozwojny",
+      "wymiar pod klucz"
+    ],
     "title": "Gwinty metryczne: tabela skoków, kluczy i długości gwintu DIN 931",
     "seoTitle": "Gwinty metryczne: skoki, klucze i DIN 931",
     "description": "Tabela gwintów metrycznych M1-M100: skoki zwykłe i drobnozwojne, klucze, różnice ISO i DIN oraz wzór długości gwintu śrub DIN 931 z objaśnieniami.",
@@ -15,6 +40,17 @@
   },
   {
     "slug": "rowki-pod-pierscienie-osadcze-seger",
+    "kategoria": "elementy-i-polaczenia",
+    "slowaKluczowe": [
+      "seger",
+      "pierscien Segera",
+      "pierscien osadczy",
+      "DIN 471",
+      "DIN 472",
+      "rowek na wale",
+      "zabezpieczenie osiowe",
+      "circlip"
+    ],
     "title": "Rowki pod pierścienie Segera według DIN 471 i DIN 472",
     "seoTitle": "Rowki pod Seger: tabela DIN 471 i DIN 472",
     "description": "Tablice rowków pod pierścienie Segera DIN 471 i DIN 472: średnica rowka d2, szerokość m, głębokość t, odległość n oraz klasy tolerancji h10 do H13.",
@@ -22,6 +58,16 @@
   },
   {
     "slug": "pozycjonowanie-czesci-w-maszynie",
+    "kategoria": "konstruowanie",
+    "slowaKluczowe": [
+      "kolek ustalajacy",
+      "kolek pozycjonujacy",
+      "bazowanie",
+      "kolek walcowy",
+      "kolek diamentowy",
+      "ustalenie czesci",
+      "powtarzalnosc montazu"
+    ],
     "title": "6 sposobów pozycjonowania części w budowie maszyn",
     "seoTitle": "Pozycjonowanie części w budowie maszyn",
     "description": "6 sposobów pozycjonowania części w maszynie: kołki walcowe, kołek diamentowy, śruby pasowane, tuleje ZBH-B, kształt i zderzaki.",

@@ -65,9 +65,12 @@ function cleanGenerated(pagesDir, expectedFiles) {
   }
 }
 
-// Wiedza jest na razie plaska: artykuly leza wprost w content/wiedza/ i maja
-// adresy /wiedza/<slug>. Dzialow nie ma swiadomie, bo przy kilku artykulach
-// kategoria niczego nie porzadkuje, a zakopuje tresc o jedno klikniecie glebiej.
+// Wiedza jest plaska w adresach: artykuly leza wprost w content/wiedza/ i maja
+// adresy /wiedza/<slug>. Dzialy istnieja tylko jako pole "kategoria" i sluza do
+// grupowania na hubie. To celowe: adres nie zmienia sie, gdy artykul przenosimy
+// miedzy dzialami, a raz zaindeksowany adres zostaje.
+//
+// Artykul bez pola "kategoria" trafia do dzialu "inne".
 function writeWiedza() {
   const contentDir = join(ROOT, 'content', 'wiedza');
   const pagesDir = join(ROOT, 'src', 'pages', 'wiedza');
@@ -108,6 +111,10 @@ export default function Page() {
   const manifest = articles
     .map((a) => ({
       slug: a.slug,
+      kategoria: a.kategoria || 'inne',
+      // Slowa, ktorych ludzie uzywaja szukajac tego materialu, a ktore nie
+      // musza padac w tytule. Zasilaja szukajke na /wiedza/.
+      slowaKluczowe: a.slowaKluczowe || [],
       title: a.title,
       seoTitle: a.seoTitle || null,
       description: a.description || '',

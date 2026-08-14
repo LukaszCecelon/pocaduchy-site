@@ -6,6 +6,7 @@ import Okruszki from '@site/src/components/Okruszki';
 import {absolutePageUrl, SITE_URL, formatLongDatePl} from '@site/src/lib/site';
 import styles from './wiedza.module.css';
 import artykuly from '@site/src/data/wiedza-artykuly.json';
+import dzialyTresc from '@site/content/wiedza-dzialy.json';
 
 const SCIEZKA = '/wiedza';
 const OPIS =
@@ -97,7 +98,58 @@ const ZNAKI = {
   'gwinty-metryczne-tabela': ZnakGwint,
 };
 
+// Szukanie ma dzialac tak, jak ludzie pisza: bez ogonkow, bez wielkich liter
+// i bez trafiania w odmiane. Dlatego porownujemy uproszczone formy, a nie
+// tekst wprost.
+const OGONKI = {ą: 'a', ć: 'c', ę: 'e', ł: 'l', ń: 'n', ó: 'o', ś: 's', ź: 'z', ż: 'z'};
+
+function uprosc(tekst) {
+  return (tekst || '')
+    .toLowerCase()
+    .replace(/[ąćęłńóśźż]/g, (z) => OGONKI[z])
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Polska liczba mnoga: 1 material, 2 do 4 materialy, reszta materialow.
+// Nastki lecza sie z ta regula, wiec 12 to materialow, nie materialy.
+function odmienMaterial(n) {
+  if (n === 1) return 'materiał';
+  const ost = n % 10;
+  const dwie = n % 100;
+  if (ost >= 2 && ost <= 4 && !(dwie >= 12 && dwie <= 14)) return 'materiały';
+  return 'materiałów';
+}
+
+function pasuje(artykul, fraza) {
+  if (!fraza) return true;
+  // Slowa kluczowe sa czescia stogu, bo tytul i opis nie zawieraja wszystkich
+  // okreslen, ktorych ludzie uzywaja. Ktos szuka "seger", a w tytule stoi
+  // "pierscienie osadcze".
+  const stog = uprosc(
+    `${artykul.title} ${artykul.description} ${(artykul.slowaKluczowe || []).join(' ')}`,
+  );
+  // Kazde slowo z zapytania musi gdzies byc. Dzieki temu "tolerancje gwintu"
+  // znajduje artykul, w ktorym te dwa slowa nie stoja obok siebie.
+  return uprosc(fraza)
+    .split(' ')
+    .every((slowo) => stog.includes(slowo));
+}
+
 export default function Wiedza() {
+  const [fraza, setFraza] = React.useState('');
+
+  // Dzialy trzymaja kolejnosc z pliku tresci, a nie z danych artykulow.
+  // Dzial bez trafien znika, zeby wynik szukania nie byl lista pustych naglowkow.
+  const grupy = dzialyTresc.dzialy
+    .map((d) => ({
+      ...d,
+      pozycje: artykuly.filter((a) => (a.kategoria || 'inne') === d.id && pasuje(a, fraza)),
+    }))
+    .filter((d) => d.pozycje.length > 0);
+
+  const znalezione = grupy.reduce((suma, d) => suma + d.pozycje.length, 0);
+
   return (
     <Layout
       title="Baza wiedzy dla konstruktorów maszyn"
@@ -123,33 +175,80 @@ export default function Wiedza() {
           </p>
         </div>
 
-        {/* Lista jest płaska. Dopóki artykułów jest kilka, dzielenie ich na
-            działy niczego nie porządkuje, a zakopuje treść o jedno kliknięcie
-            głębiej. Wrócimy do tego, gdy lista realnie urośnie. */}
+        {/* Szukajka filtruje po stronie przegladarki. Wszystkie artykuly sa
+            w statycznym HTML, wiec wyszukiwarka i czytnik ekranu widza cala
+            liste niezaleznie od tego, co wpisano w pole. */}
         {artykuly.length > 0 ? (
-          <div className={styles.grid}>
-            {artykuly.map((a, i) => {
-              const Znak = ZNAKI[a.slug];
-              return (
-              <Link
-                key={a.slug}
-                to={`${SCIEZKA}/${a.slug}`}
-                className={`${styles.card} pc-cut-card`}>
-                <span className={styles.cardGora}>
-                  <span className={styles.cardN}>{String(i + 1).padStart(2, '0')}</span>
-                  {Znak ? <Znak /> : null}
-                </span>
-                <h2 className={styles.cardTitle}>{a.title}</h2>
-                <p className={styles.cardBody}>{a.description}</p>
-                {a.date ? (
-                  <div className={styles.cardFooter}>
-                    <span className={styles.soonTag}>{formatLongDatePl(a.date)}</span>
-                  </div>
-                ) : null}
-              </Link>
-              );
-            })}
+          <div className={styles.szukajka}>
+            <label className={styles.szukajkaLabel} htmlFor="szukaj-w-wiedzy">
+              Szukaj w bazie wiedzy
+            </label>
+            <input
+              id="szukaj-w-wiedzy"
+              type="search"
+              className={styles.szukajkaPole}
+              placeholder="np. tolerancja, gwint, chropowatość"
+              value={fraza}
+              onChange={(e) => setFraza(e.target.value)}
+              autoComplete="off"
+            />
+            <p className={styles.szukajkaWynik} role="status">
+              {fraza
+                ? `${znalezione} z ${artykuly.length}`
+                : `${artykuly.length} ${odmienMaterial(artykuly.length)}`}
+            </p>
           </div>
+        ) : null}
+
+        {artykuly.length > 0 ? (
+          grupy.length > 0 ? (
+            grupy.map((dzial) => (
+              <section key={dzial.id} className={styles.dzial}>
+                <div className={styles.dzialGlowa}>
+                  <h2 className={styles.dzialNazwa}>{dzial.nazwa}</h2>
+                  <p className={styles.dzialOpis}>{dzial.opis}</p>
+                </div>
+                <div className={styles.grid}>
+                  {dzial.pozycje.map((a, i) => {
+                    const Znak = ZNAKI[a.slug];
+                    return (
+                      <Link
+                        key={a.slug}
+                        to={`${SCIEZKA}/${a.slug}/`}
+                        className={`${styles.card} pc-cut-card`}>
+                        <span className={styles.cardGora}>
+                          <span className={styles.cardN}>
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          {Znak ? <Znak /> : null}
+                        </span>
+                        <h3 className={styles.cardTitle}>{a.title}</h3>
+                        <p className={styles.cardBody}>{a.description}</p>
+                        {a.date ? (
+                          <div className={styles.cardFooter}>
+                            <span className={styles.soonTag}>
+                              {formatLongDatePl(a.date)}
+                            </span>
+                          </div>
+                        ) : null}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </section>
+            ))
+          ) : (
+            <p className={styles.brakWynikow}>
+              Nic nie pasuje do „{fraza}". Spróbuj krótszego słowa albo{' '}
+              <button
+                type="button"
+                className={styles.wyczysc}
+                onClick={() => setFraza('')}>
+                pokaż wszystko
+              </button>
+              .
+            </p>
+          )
         ) : (
           <div className={`${styles.empty} pc-cut-card`}>
             <h2 className={styles.emptyTitle}>Baza wiedzy w budowie</h2>
