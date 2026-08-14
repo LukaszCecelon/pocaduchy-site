@@ -359,7 +359,7 @@ const config = {
         },
         items: [
           {to: '/', label: 'Główna', position: 'left'},
-          {to: '/wiedza/', label: 'Wiedza', position: 'left'},
+          {type: 'custom-menuWiedzy', position: 'left'},
           {to: '/narzedzia/', label: 'Narzędzia', position: 'left'},
           {to: '/blog/', label: 'Artykuły', position: 'left'},
           {to: '/odcinki/', label: 'Odcinki', position: 'left'},

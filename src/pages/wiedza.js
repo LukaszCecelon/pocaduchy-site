@@ -138,6 +138,33 @@ function pasuje(artykul, fraza) {
 
 export default function Wiedza() {
   const [fraza, setFraza] = React.useState('');
+  // Dzialy sa domyslnie zwiniete: przy kilkudziesieciu materialach lista
+  // naglowkow jest szybsza do ogarniecia niz sciana kafelkow. Szukanie
+  // rozwija wszystko, bo wtedy interesuje nas wynik, a nie porzadek.
+  const [otwarte, setOtwarte] = React.useState([]);
+
+  const przelacz = (id) =>
+    setOtwarte((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
+
+  // Wejscie z menu prowadzi pod /wiedza/#rysunek-techniczny. Sam skok do
+  // kotwicy nie wystarczy, bo dzial jest zwiniety i czytelnik zobaczylby
+  // zamkniety naglowek. Otwieramy go i dopiero wtedy przewijamy.
+  React.useEffect(() => {
+    const zHasza = () => {
+      const id = window.location.hash.replace('#', '');
+      if (!id) return;
+      if (!dzialyTresc.dzialy.some((d) => d.id === id)) return;
+      setOtwarte((p) => (p.includes(id) ? p : [...p, id]));
+      // Po otwarciu wysokosc strony sie zmienia, wiec przewijamy w nastepnej
+      // klatce, gdy uklad jest juz przeliczony.
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({block: 'start'});
+      });
+    };
+    zHasza();
+    window.addEventListener('hashchange', zHasza);
+    return () => window.removeEventListener('hashchange', zHasza);
+  }, []);
 
   // Dzialy trzymaja kolejnosc z pliku tresci, a nie z danych artykulow.
   // Dzial bez trafien znika, zeby wynik szukania nie byl lista pustych naglowkow.
@@ -203,11 +230,29 @@ export default function Wiedza() {
         {artykuly.length > 0 ? (
           grupy.length > 0 ? (
             grupy.map((dzial) => (
-              <section key={dzial.id} className={styles.dzial}>
-                <div className={styles.dzialGlowa}>
-                  <h2 className={styles.dzialNazwa}>{dzial.nazwa}</h2>
-                  <p className={styles.dzialOpis}>{dzial.opis}</p>
-                </div>
+              // details, a nie wlasny rozwijak na stanie: tresc zostaje
+              // w HTML, wiec wyszukiwarka i czytnik ekranu widza ja nawet
+              // gdy dzial jest zwiniety, a klawiatura dziala bez naszego kodu.
+              <details
+                key={dzial.id}
+                id={dzial.id}
+                className={styles.dzial}
+                open={Boolean(fraza) || otwarte.includes(dzial.id)}
+                onToggle={(e) => {
+                  if (fraza) return;
+                  const czyOtwarty = e.currentTarget.open;
+                  if (czyOtwarty !== otwarte.includes(dzial.id)) przelacz(dzial.id);
+                }}>
+                <summary className={styles.dzialGlowa}>
+                  <span className={styles.dzialStrzalka} aria-hidden="true" />
+                  <span className={styles.dzialTekst}>
+                    <h2 className={styles.dzialNazwa}>
+                      {dzial.nazwa}
+                      <span className={styles.dzialLicznik}>{dzial.pozycje.length}</span>
+                    </h2>
+                    <span className={styles.dzialOpis}>{dzial.opis}</span>
+                  </span>
+                </summary>
                 <div className={styles.grid}>
                   {dzial.pozycje.map((a, i) => {
                     const Znak = ZNAKI[a.slug];
@@ -235,7 +280,7 @@ export default function Wiedza() {
                     );
                   })}
                 </div>
-              </section>
+              </details>
             ))
           ) : (
             <p className={styles.brakWynikow}>

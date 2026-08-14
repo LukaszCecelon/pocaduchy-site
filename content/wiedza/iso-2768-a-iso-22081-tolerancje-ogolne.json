@@ -1,0 +1,133 @@
+{
+    "slug":  "iso-2768-a-iso-22081-tolerancje-ogolne",
+    "kategoria":  "rysunek-techniczny",
+    "title":  "ISO 2768-mK i ISO 22081: jak zapisać tolerancje ogólne",
+    "seoTitle":  "ISO 2768-mK i ISO 22081 bez starej K",
+    "description":  "Co dziś oznacza ISO 2768-mK, która część normy została wycofana i jak przejść do ISO 22081 bez mechanicznej podmiany zapisu w tabelce na arkuszu.",
+    "date":  "2026-08-12",
+    "blocks":  [
+                   {
+                       "type":  "tekst",
+                       "body":  "Zapis `ISO 2768-mK` składał się z dwóch niezależnych wymagań: małe `m` odsyłało do tolerancji ogólnych wymiarów według ISO 2768-1, a duże `K` do tolerancji ogólnych geometrii według ISO 2768-2. **ISO 2768-2 jest wycofana i zastąpiona przez ISO 22081:2021, natomiast ISO 2768-1:1989 nadal figuruje w katalogu ISO jako opublikowana.** Nie zamieniaj więc tekstu na `ISO 22081-K`. W ISO 22081 nie ma klasy K, którą można przepisać bez ponownego określenia wymagań."
+                   },
+                   {
+                       "type":  "rysunek",
+                       "svg":  "\u003csvg viewBox=\"0 0 360 245\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003ctitle\u003eRozdzielenie zapisu ISO 2768-mK na dwie części\u003c/title\u003e\u003cg fill=\"none\" stroke=\"var(--pc-navy)\" stroke-width=\"1.8\"\u003e\u003crect x=\"70\" y=\"20\" width=\"220\" height=\"38\" rx=\"3\"/\u003e\u003cpath d=\"M180 58v31M180 89H88v27M180 89h92v27\"/\u003e\u003crect x=\"18\" y=\"116\" width=\"140\" height=\"49\" rx=\"3\"/\u003e\u003crect x=\"202\" y=\"116\" width=\"140\" height=\"49\" rx=\"3\"/\u003e\u003cpath d=\"M88 165v29M272 165v29\"/\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-navy)\" font-family=\"var(--font-mono)\" font-size=\"13\" text-anchor=\"middle\"\u003e\u003ctext x=\"180\" y=\"44\"\u003eISO 2768-mK\u003c/text\u003e\u003ctext x=\"88\" y=\"137\"\u003em: ISO 2768-1\u003c/text\u003e\u003ctext x=\"88\" y=\"154\"\u003ewymiary\u003c/text\u003e\u003ctext x=\"272\" y=\"137\"\u003eK: ISO 2768-2\u003c/text\u003e\u003ctext x=\"272\" y=\"154\"\u003egeometria\u003c/text\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-text-muted)\" font-family=\"var(--font-mono)\" font-size=\"11.5\" text-anchor=\"middle\"\u003e\u003ctext x=\"88\" y=\"212\"\u003enadal opublikowana\u003c/text\u003e\u003ctext x=\"272\" y=\"212\"\u003ewycofana\u003c/text\u003e\u003ctext x=\"272\" y=\"230\"\u003enastępca: ISO 22081\u003c/text\u003e\u003c/g\u003e\u003cpath d=\"M28 190h120\" stroke=\"var(--pc-navy-soft)\" stroke-width=\"1.4\"/\u003e\u003cpath d=\"M212 190h120\" stroke=\"var(--pc-rust)\" stroke-width=\"2.2\"/\u003e\u003c/svg\u003e",
+                       "podpis":  "Stare mK nie było jedną klasą. Małe m dotyczyło wymiarów z ISO 2768-1, a duże K geometrii z wycofanej ISO 2768-2. Następcą części geometrycznej jest ISO 22081, ale nie przenosi ona klasy K."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Co dziś oznacza zapis ISO 2768-mK\n\nNa istniejącym rysunku `ISO 2768-mK` nadal trzeba odczytać historycznie jako dwa odesłania, a nie uznać cały zapis za nieważny. Część wymiarowa `m` może nadal określać tolerancje wymiarów bez indywidualnej odchyłki. Część geometryczna `K` wskazuje normę wycofaną, więc przy nowym wydaniu lub kontrolowanej aktualizacji dokumentu wymaga przeglądu i zastąpienia świadomie określoną specyfikacją.\n\nNie poprawiaj starego PDF po cichu. Jeżeli detal był latami odbierany według klasy K, zmiana sposobu tolerowania geometrii może zmienić zgodność części, plan kontroli i koszt obróbki. Taka korekta jest zmianą wymagania technicznego, a nie porządkowaniem stopki."
+                   },
+                   {
+                       "type":  "tabela",
+                       "markdown":  "**Tabela 1. Status części zapisu ISO 2768-mK, sprawdzony 14.08.2026**\n\n| Fragment zapisu | Zakres | Status normy ISO | Co robić na rysunku |\n| --- | --- | --- | --- |\n| `m` | ogólne tolerancje wymiarów liniowych i kątowych bez indywidualnego zapisu | ISO 2768-1:1989 nadal opublikowana; następne wydanie było na etapie publikacji 60.00 | można stosować po sprawdzeniu zakresu i wymagań kontraktu; przed publikacją kolejnej rewizji ponownie sprawdzić status |\n| `K` | ogólne tolerancje geometryczne według ISO 2768-2 | ISO 2768-2:1989 wycofana | nie przenosić do nowego rysunku bez przeglądu wymagań |\n| ISO 22081 | ogólne specyfikacje geometryczne oraz ogólne specyfikacje wymiaru | ISO 22081:2021 opublikowana, zastępuje ISO 2768-2 | określić zakres i wartości według posiadanego tekstu normy oraz reguł firmowych; nie dopisywać klasy K |"
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Czy ISO 2768-1 jest wycofana\n\nNie. W dniu sprawdzenia, 14 sierpnia 2026 r., katalog ISO podawał **ISO 2768-1:1989 jako normę opublikowaną**, a jej następcę jako dokument na etapie 60.00. To ważne rozróżnienie: wycofano część 2, nie cały numer 2768.\n\nStatus jest jednak w ruchu. Jeżeli czytasz tę stronę przy wydawaniu nowej rewizji, sprawdź [kartę ISO 2768-1](https://www.iso.org/standard/7748.html) i wymagania klienta. Data `1989` nie dowodzi wycofania, ale etap 60.00 następcy oznacza, że gotowy proces firmowy powinien przewidywać ponowną weryfikację przed zamrożeniem szablonu."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Co dokładnie daje klasa m z ISO 2768-1\n\nKlasa `m` przypisuje ogólne odchyłki wymiarom objętym zakresem ISO 2768-1, gdy przy danym wymiarze nie wpisano tolerancji indywidualnej. Dla typowych wymiarów liniowych wartość zależy od przedziału wymiaru nominalnego. To mechanizm zapasowy dla cech mniej krytycznych, nie skrót zwalniający z tolerowania powierzchni współpracujących.\n\nPoniższa tabela jest szybkim odczytem klasy `m` dla wymiarów liniowych. Przed użyciem na rysunku kontraktowym sprawdź pełny zakres normy, zwłaszcza przypadki promieni, faz, kątów, półfabrykatów i wymiary wyłączone z zastosowania."
+                   },
+                   {
+                       "type":  "tabela",
+                       "markdown":  "**Tabela 2. Ogólne odchyłki wymiarów liniowych w klasie m według ISO 2768-1:1989**\n\n| Zakres wymiaru nominalnego [mm] | Odchyłka klasy m [mm] | Przykładowy zapis wynikowy [mm] |\n| ---: | ---: | --- |\n| od 0,5 do 3 | ±0,1 | `2 ±0,1` |\n| powyżej 3 do 6 | ±0,1 | `5 ±0,1` |\n| powyżej 6 do 30 | ±0,2 | `20 ±0,2` |\n| powyżej 30 do 120 | ±0,3 | `80 ±0,3` |\n| powyżej 120 do 400 | ±0,5 | `250 ±0,5` |\n| powyżej 400 do 1000 | ±0,8 | `600 ±0,8` |\n| powyżej 1000 do 2000 | ±1,2 | `1500 ±1,2` |\n| powyżej 2000 do 4000 | ±2,0 | `2500 ±2,0` |\n\nZakres zapisano jako przedziały następujące po sobie. Dla wymiarów poniżej 0,5 mm odchyłkę należy podać bezpośrednio przy wymiarze."
+                   },
+                   {
+                       "type":  "rysunek",
+                       "svg":  "\u003csvg viewBox=\"0 0 360 245\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003ctitle\u003eWymiar ogólny i wymiar tolerowany indywidualnie\u003c/title\u003e\u003cdefs\u003e\u003cmarker id=\"a2768\" markerWidth=\"7\" markerHeight=\"7\" refX=\"3.5\" refY=\"3.5\" orient=\"auto-start-reverse\"\u003e\u003cpath d=\"M0 0L7 3.5L0 7z\" fill=\"var(--pc-navy)\"/\u003e\u003c/marker\u003e\u003c/defs\u003e\u003cg fill=\"none\"\u003e\u003cpath d=\"M42 64h276v74H42z\" stroke=\"var(--pc-navy)\" stroke-width=\"2.4\"/\u003e\u003cpath d=\"M42 143v35M318 143v35M42 166h276\" stroke=\"var(--pc-navy-soft)\" stroke-width=\"1.3\" marker-start=\"url(#a2768)\" marker-end=\"url(#a2768)\"/\u003e\u003cpath d=\"M90 59V30M270 59V30M90 42h180\" stroke=\"var(--pc-navy-soft)\" stroke-width=\"1.3\" marker-start=\"url(#a2768)\" marker-end=\"url(#a2768)\"/\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-navy)\" font-family=\"var(--font-mono)\" font-size=\"13\" text-anchor=\"middle\"\u003e\u003ctext x=\"180\" y=\"35\"\u003e180 ±0,10\u003c/text\u003e\u003ctext x=\"180\" y=\"160\"\u003e250\u003c/text\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-text-muted)\" font-family=\"var(--font-mono)\" font-size=\"11.5\"\u003e\u003ctext x=\"20\" y=\"205\"\u003e180 ma tolerancję indywidualną\u003c/text\u003e\u003ctext x=\"20\" y=\"226\"\u003e250 korzysta z ogólnej klasy m: ±0,5 mm\u003c/text\u003e\u003c/g\u003e\u003cpath d=\"M89 49h182\" stroke=\"var(--pc-rust)\" stroke-width=\"2\"/\u003e\u003c/svg\u003e",
+                       "podpis":  "Na wymiarze 180 mm wpisano indywidualne ±0,10 mm, więc zapis ogólny go nie zastępuje. Wymiar 250 mm bez odchyłki otrzymuje w klasie m ogólną tolerancję ±0,5 mm, jeśli mieści się w zakresie normy."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Dlaczego ISO 22081 nie jest nową klasą K\n\nISO 22081:2021 zastępuje ISO 2768-2, ale **nie zawiera klas H, K i L jako gotowych zestawów wartości**. Zapis `ISO 22081-K` tworzy więc klasę, której ta norma nie definiuje. Kontrola jakości nie dostaje z niego liczbowego wymagania, a dostawca może przyjąć inną interpretację niż autor tabelki.\n\nISO 22081 daje reguły tworzenia ogólnych specyfikacji geometrycznych i ogólnych specyfikacji wymiaru. Żeby użyć jej na rysunku, trzeba ustalić, do jakich cech odnosi się zapis, jakie charakterystyki i wartości obowiązują oraz gdzie są zdefiniowane wyjątki. Szczegółową postać noty należy zweryfikować w posiadanym egzemplarzu normy i w standardzie firmowym. Sam numer normy nie odtwarza dawnej klasy K."
+                   },
+                   {
+                       "type":  "rysunek",
+                       "svg":  "\u003csvg viewBox=\"0 0 360 266\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003ctitle\u003eBłędna podmiana ISO 2768-mK i właściwe rozdzielenie wymagań\u003c/title\u003e\u003cg fill=\"none\" stroke=\"var(--pc-navy)\" stroke-width=\"1.7\"\u003e\u003crect x=\"18\" y=\"26\" width=\"324\" height=\"62\" rx=\"3\"/\u003e\u003crect x=\"18\" y=\"150\" width=\"324\" height=\"90\" rx=\"3\"/\u003e\u003cpath d=\"M49 105l13 13 26-31\" stroke=\"var(--pc-rust)\" stroke-width=\"2.4\"/\u003e\u003cpath d=\"M49 43l30 30M79 43L49 73\" stroke=\"var(--pc-rust)\" stroke-width=\"2.4\"/\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-navy)\" font-family=\"var(--font-mono)\" font-size=\"12.5\"\u003e\u003ctext x=\"100\" y=\"53\"\u003eISO 22081-K\u003c/text\u003e\u003ctext x=\"100\" y=\"73\"\u003ebrak zdefiniowanej klasy K\u003c/text\u003e\u003ctext x=\"36\" y=\"178\"\u003ewymiary ogólne: ISO 2768-1, klasa m\u003c/text\u003e\u003ctext x=\"36\" y=\"202\"\u003egeometria ogólna: wymagania i wartości\u003c/text\u003e\u003ctext x=\"36\" y=\"224\"\u003eokreślone zgodnie z ISO 22081\u003c/text\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-text-muted)\" font-family=\"var(--font-mono)\" font-size=\"11.5\"\u003e\u003ctext x=\"18\" y=\"131\"\u003eDwa zakresy trzeba rozdzielić, nie skleić nowym numerem.\u003c/text\u003e\u003ctext x=\"18\" y=\"259\"\u003eBrzmienie noty sprawdź w normie i standardzie firmowym.\u003c/text\u003e\u003c/g\u003e\u003c/svg\u003e",
+                       "podpis":  "Mechaniczna podmiana `ISO 2768-mK` na `ISO 22081-K` jest błędna. Wymiary i geometrię trzeba rozdzielić, a część geometryczną zdefiniować wartościami i zakresem zgodnymi z ISO 22081."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Jak zaktualizować starą tabelkę bez zgadywania\n\nNajpierw zinwentaryzuj, które wymagania na rysunku zależały od `m`, a które od `K`. Potem pozostaw lub zaktualizuj część wymiarową na podstawie aktualnego statusu ISO 2768-1, natomiast dla geometrii określ wymagania funkcjonalne od nowa zgodnie z ISO 22081 i zasadami GPS. Dopiero na końcu zmień notę i rewizję dokumentu.\n\nPraktyczny sygnał ostrzegawczy jest prosty: jeżeli po zmianie noty nie potrafisz podać liczbowej tolerancji płaskości, prostopadłości albo innej cechy na konkretnym przykładzie, nowy zapis nie jest jeszcze gotowy do wydania."
+                   },
+                   {
+                       "type":  "tabela",
+                       "markdown":  "**Tabela 3. Procedura zmiany rysunku z ISO 2768-mK na aktualny zapis**\n\n| Krok | Pytanie kontrolne | Wynik, który ma zostać w dokumentacji |\n| ---: | --- | --- |\n| 1 | Które wymiary nie mają tolerancji indywidualnej? | lista cech korzystających z części wymiarowej |\n| 2 | Które cechy geometrii odbierano według klasy K? | lista charakterystyk i wartości używanych przy odbiorze |\n| 3 | Które wymagania wynikają z montażu, uszczelnienia lub obróbki? | tolerancje indywidualne przy cechach krytycznych |\n| 4 | Jaki zakres ma mieć nowa specyfikacja ogólna? | jawna lista cech objętych i wyłączonych |\n| 5 | Gdzie zapisano wartości i regułę pierwszeństwa? | zweryfikowana nota według ISO 22081 oraz standardu firmowego |\n| 6 | Czy plan kontroli daje ten sam wynik zgodności? | uzgodniona metoda oceny albo udokumentowana zmiana |\n| 7 | Jak śledzimy zmianę? | nowa rewizja rysunku, opis zmiany i powiązane wydanie BOM |"
+                   },
+                   {
+                       "type":  "rysunek",
+                       "svg":  "\u003csvg viewBox=\"0 0 360 264\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003ctitle\u003ePrzepływ aktualizacji tolerancji ogólnych\u003c/title\u003e\u003cdefs\u003e\u003cmarker id=\"flow2768\" markerWidth=\"7\" markerHeight=\"7\" refX=\"6\" refY=\"3.5\" orient=\"auto\"\u003e\u003cpath d=\"M0 0L7 3.5L0 7z\" fill=\"var(--pc-navy-soft)\"/\u003e\u003c/marker\u003e\u003c/defs\u003e\u003cg fill=\"none\" stroke=\"var(--pc-navy)\" stroke-width=\"1.7\"\u003e\u003crect x=\"55\" y=\"18\" width=\"250\" height=\"36\" rx=\"3\"/\u003e\u003crect x=\"55\" y=\"82\" width=\"250\" height=\"45\" rx=\"3\"/\u003e\u003crect x=\"55\" y=\"155\" width=\"250\" height=\"45\" rx=\"3\"/\u003e\u003crect x=\"55\" y=\"228\" width=\"250\" height=\"28\" rx=\"3\"/\u003e\u003c/g\u003e\u003cg stroke=\"var(--pc-navy-soft)\" stroke-width=\"1.4\" marker-end=\"url(#flow2768)\"\u003e\u003cpath d=\"M180 54v25\"/\u003e\u003cpath d=\"M180 127v25\"/\u003e\u003cpath d=\"M180 200v25\"/\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-navy)\" font-family=\"var(--font-mono)\" font-size=\"12\" text-anchor=\"middle\"\u003e\u003ctext x=\"180\" y=\"41\"\u003erozbij mK na wymiary i geometrię\u003c/text\u003e\u003ctext x=\"180\" y=\"101\"\u003eustal cechy funkcjonalne\u003c/text\u003e\u003ctext x=\"180\" y=\"118\"\u003eoraz używane wartości odbiorcze\u003c/text\u003e\u003ctext x=\"180\" y=\"174\"\u003ezapisz zakres i wartości\u003c/text\u003e\u003ctext x=\"180\" y=\"191\"\u003ezgodnie z ISO 22081\u003c/text\u003e\u003ctext x=\"180\" y=\"247\"\u003ewydaj rewizję i plan kontroli\u003c/text\u003e\u003c/g\u003e\u003cpath d=\"M50 218h260\" stroke=\"var(--pc-rust)\" stroke-width=\"2\"/\u003e\u003c/svg\u003e",
+                       "podpis":  "Aktualizacja zaczyna się od odtworzenia wymagań, nie od edycji numeru normy. Nowa nota jest wynikiem przeglądu cech, wartości i planu kontroli."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Co ma pierwszeństwo: tolerancja lokalna czy ogólna\n\nTolerancja podana bezpośrednio przy wymiarze lub w ramce przy konkretnej cesze steruje tą cechą i nie jest zastępowana luźniejszym zapisem ogólnym. Nota ogólna działa tam, gdzie spełniony jest jej zakres i nie ma odpowiedniej specyfikacji indywidualnej. Na rysunku warto zapisać kolejność stosowania wymagań tak, żeby nie zależała od domysłu odbiorcy.\n\nPrzykład: wymiar `180 ±0,10` pozostaje ±0,10 mm nawet wtedy, gdy klasa `m` dla tego przedziału dawałaby ±0,5 mm. Z kolei wymiar teoretycznie dokładny w ramce, czyli TED, nie dostaje odchyłki z tabeli klasy `m`; dopuszczalne położenie wynika z powiązanej tolerancji geometrycznej."
+                   },
+                   {
+                       "type":  "rysunek",
+                       "svg":  "\u003csvg viewBox=\"0 0 360 258\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003ctitle\u003eHierarchia tolerancji indywidualnej i ogólnej\u003c/title\u003e\u003cg fill=\"none\" stroke=\"var(--pc-navy)\" stroke-width=\"1.8\"\u003e\u003crect x=\"28\" y=\"24\" width=\"304\" height=\"46\" rx=\"3\"/\u003e\u003crect x=\"50\" y=\"96\" width=\"260\" height=\"46\" rx=\"3\"/\u003e\u003crect x=\"52\" y=\"168\" width=\"256\" height=\"52\" rx=\"3\"/\u003e\u003cpath d=\"M180 70v26M180 142v26\" stroke=\"var(--pc-navy-soft)\" stroke-width=\"1.4\"/\u003e\u003c/g\u003e\u003cg fill=\"var(--pc-navy)\" font-family=\"var(--font-mono)\" font-size=\"12.5\" text-anchor=\"middle\"\u003e\u003ctext x=\"180\" y=\"44\"\u003e1. tolerancja indywidualna\u003c/text\u003e\u003ctext x=\"180\" y=\"61\"\u003eprzy wymiarze lub w ramce\u003c/text\u003e\u003ctext x=\"180\" y=\"116\"\u003e2. specyfikacja ogólna\u003c/text\u003e\u003ctext x=\"180\" y=\"133\"\u003etylko w swoim zakresie\u003c/text\u003e\u003ctext x=\"180\" y=\"188\"\u003e3. brak wymagania\u003c/text\u003e\u003ctext x=\"180\" y=\"205\"\u003enie oznacza tolerancji z CAD\u003c/text\u003e\u003c/g\u003e\u003cpath d=\"M28 79h304\" stroke=\"var(--pc-rust)\" stroke-width=\"2\"/\u003e\u003ctext x=\"180\" y=\"248\" fill=\"var(--pc-text-muted)\" font-family=\"var(--font-mono)\" font-size=\"11.5\" text-anchor=\"middle\"\u003eNajpierw sprawdź zapis przy cesze.\u003c/text\u003e\u003c/svg\u003e",
+                       "podpis":  "Najpierw obowiązuje wymaganie indywidualne przy cesze. Specyfikacja ogólna obejmuje tylko cechy pozostawione w jej zakresie. Brak obu zapisów nie upoważnia do przyjęcia tolerancji z ustawień programu CAD."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Których wymiarów nie przepuszczać automatycznie przez klasę m\n\nNie przypisuj klasy `m` każdej liczbie widocznej na arkuszu. Osobno potraktuj wymiary z tolerancją indywidualną, wymiary pomocnicze w nawiasie, TED w prostokątnej ramce, wymiary gwintów oraz cechy z własną normą lub dokumentacją wyrobu. Dla surowego odlewu, profilu hutniczego albo elementu kupowanego źródłem wymagań może być norma półfabrykatu lub specyfikacja dostawcy.\n\nTak samo nota ogólna nie naprawi niepełnego zapisu cechy specjalnej. Głębokość gwintu i otworu dobierasz razem z wymaganiem funkcjonalnym, a wymiary nominalne sprawdzisz w [tabeli gwintów metrycznych](/wiedza/gwinty-metryczne-tabela/). Rowek pod pierścień ma własne zależności, dlatego prowadzi do [tabeli rowków pod pierścienie Segera](/wiedza/rowki-pod-pierscienie-osadcze-seger/), a nie do klasy `m` jako jedynego kryterium odbioru."
+                   },
+                   {
+                       "type":  "tabela",
+                       "markdown":  "**Tabela 4. Czy liczba na rysunku korzysta z ogólnej tolerancji wymiarowej**\n\n| Przypadek | Czy stosować klasę m automatycznie? | Co sprawdzić |\n| --- | --- | --- |\n| wymiar liniowy bez odchyłki | tak, jeśli jest w zakresie ISO 2768-1 i noty rysunkowej | przedział nominalny oraz wyjątki |\n| wymiar z `±`, odchyłkami lub granicami | nie | tolerancję indywidualną przy cesze |\n| wymiar pomocniczy w nawiasie | nie jako wymaganie wykonawcze | wymiary źródłowe, z których go obliczono |\n| wymiar TED w prostokątnej ramce | nie | powiązaną ramkę tolerancji geometrycznej |\n| oznaczenie gwintu | nie przez samą tabelę wymiarów liniowych | normę gwintu, klasę tolerancji i pełny odnośnik |\n| wymiar rowka normalnego | nie bez sprawdzenia | normę lub tabelę właściwą dla rowka |\n| wymiar półfabrykatu | nie bez sprawdzenia | normę materiału, stan dostawy i zakres obróbki |\n| wymiar w calach na rysunku w mm | nie przed ustaleniem jednostki nadrzędnej | notę jednostek i zasadę przeliczenia |"
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Czy tolerancja ogólna obejmuje chropowatość, pasowanie i gwint\n\nNie. Tolerancja ogólna wymiaru albo geometrii nie zastępuje wymagania struktury powierzchni, pola tolerancji pasowania ani pełnego oznaczenia gwintu. To trzy inne decyzje techniczne, choć stoją na tym samym arkuszu.\n\nJeżeli czop ma współpracować z łożyskiem, dobierz i zapisz pole tolerancji, a wartości graniczne sprawdź w [kalkulatorze pasowań](/narzedzia/pasowania/). Jeżeli powierzchnia ma uszczelniać lub pracować ślizgowo, użyj właściwego zapisu struktury powierzchni i porównaj go z [tabelą chropowatości](/wiedza/chropowatosc-powierzchni/). Przy dokumentacji calowej najpierw ustal jednostkę nadrzędną; [przelicznik jednostek](/przelicznik/) pomaga policzyć wartość, ale nie wybiera za konstruktora sposobu zaokrąglenia ani tolerancji po konwersji."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Jak potraktować stary rysunek z ISO 2768-mK\n\nStarego rysunku nie odrzucaj tylko dlatego, że odsyła do wycofanej części 2. Ustal jego datę, rewizję, normę obowiązującą w kontrakcie i sposób, według którego dotychczas odbierano części. Do produkcji seryjnej potrzebujesz jednej uzgodnionej interpretacji, a nie dwóch poprawek wykonanych niezależnie przez dostawcę i kontrolę wejściową.\n\nJeżeli rysunek ma być tylko odtworzony bez zmiany konstrukcji, zapisz uzgodnienie interpretacyjne w kontrolowanym miejscu. Jeżeli wydajesz nową rewizję, potraktuj migrację jak zmianę techniczną: przegląd cech, wartości, planu kontroli i zgodności części już znajdujących się w magazynie."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Co sprawdzić przed wydaniem rysunku\n\n1. Rozdziel wymagania wymiarowe od geometrycznych.\n2. Sprawdź aktualny status ISO 2768-1 w dniu wydania.\n3. Nie używaj `ISO 22081-K` ani innej wymyślonej klasy.\n4. Wpisz indywidualne tolerancje przy cechach funkcjonalnych.\n5. Określ zakres, wartości i wyjątki specyfikacji ogólnej.\n6. Zweryfikuj zapis ISO 22081 w posiadanym egzemplarzu normy i standardzie firmowym.\n7. Sprawdź, czy produkcja i kontrola potrafią z noty wyprowadzić tę samą wartość liczbową.\n8. Wydaj zmianę z rewizją i zaktualizuj plan kontroli.\n\nJeśli punkt 7 nie przechodzi na losowo wybranym wymiarze i powierzchni, tabelka nadal nie jest jednoznaczna."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Które normy sprawdzić przy tym zapisie\n\nPunktem wyjścia są **ISO 2768-1:1989** dla tolerancji ogólnych wymiarów, **ISO 22081:2021** dla ogólnych specyfikacji geometrycznych i wymiarowych oraz **ISO 8015:2011** dla podstawowych reguł systemu ISO GPS. [ISO 2768-2:1989](https://www.iso.org/standard/7749.html) jest wycofana, a jej karta wskazuje [ISO 22081:2021](https://www.iso.org/standard/72514.html) jako następcę.\n\nStatus sprawdzono 14.08.2026. Artykuł wyjaśnia decyzję na rysunku, ale nie publikuje kompletnej treści normy ani gotowej noty zakładowej. ISO 2768-1 była wtedy nadal opublikowana, lecz jej następca znajdował się na etapie 60.00. Przed zatwierdzeniem szablonu sprawdź katalog ponownie i uwzględnij wymagania klienta."
+                   },
+                   {
+                       "type":  "tekst",
+                       "body":  "## Gdzie będzie pełny przykład na arkuszu\n\nDo tej strony zamówiono dwa warianty tego samego arkusza A3: starszy z notą `ISO 2768-mK` oraz wariant po kontrolowanej aktualizacji, z rozdzieloną częścią wymiarową i geometryczną. Specyfikacja znajduje się w `analizy/rysunek-techniczny-obrazy.md`. Obraz zostanie dodany dopiero po wykonaniu w Inventorze i sprawdzeniu, czy widoczne wartości odpowiadają zatwierdzonej nocie firmowej."
+                   }
+               ],
+    "faq":  [
+                {
+                    "pytanie":  "Czy norma ISO 2768 jest wycofana?",
+                    "odpowiedz":  "Nie w całości. ISO 2768-2:1989 dotycząca ogólnych tolerancji geometrycznych jest wycofana i zastąpiona przez ISO 22081:2021. ISO 2768-1:1989 nadal była opublikowana w katalogu ISO 14.08.2026, choć jej następca był już na etapie 60.00."
+                },
+                {
+                    "pytanie":  "Co oznacza zapis ISO 2768-mK?",
+                    "odpowiedz":  "Małe m oznacza klasę tolerancji ogólnych wymiarów według ISO 2768-1. Duże K oznaczało klasę tolerancji ogólnych geometrii według wycofanej ISO 2768-2. To dwa odwołania połączone w jednej nocie, nie jedna klasa mK."
+                },
+                {
+                    "pytanie":  "Co zastępuje ISO 2768-2?",
+                    "odpowiedz":  "Katalog ISO wskazuje ISO 22081:2021 jako następcę ISO 2768-2:1989. Nowa norma opisuje ogólne specyfikacje geometryczne i wymiarowe, ale nie przenosi klas H, K i L."
+                },
+                {
+                    "pytanie":  "Czy można wpisać ISO 22081-K?",
+                    "odpowiedz":  "Nie jako prosty zamiennik dawnej klasy K. ISO 22081 nie definiuje klasy K, więc taki zapis nie daje odbiorcy wartości liczbowej. Zakres, charakterystyki i wartości trzeba określić zgodnie z pełnym tekstem normy i przyjętym standardem firmowym."
+                },
+                {
+                    "pytanie":  "Czy klasa m obowiązuje każdy wymiar bez tolerancji?",
+                    "odpowiedz":  "Tylko wymiar objęty zakresem ISO 2768-1 i noty na rysunku. Nie nakładaj jej automatycznie na TED, wymiary pomocnicze, gwinty, cechy z indywidualną tolerancją ani wymiary regulowane inną specyfikacją."
+                },
+                {
+                    "pytanie":  "Co ma pierwszeństwo przed tolerancją ogólną?",
+                    "odpowiedz":  "Wymaganie indywidualne podane przy cesze, na przykład `80 ±0,10`, granice wymiaru, pole tolerancji pasowania albo ramka tolerancji geometrycznej. Nota ogólna działa tylko w swoim zadeklarowanym zakresie."
+                },
+                {
+                    "pytanie":  "Czy stary rysunek z ISO 2768-mK można nadal produkować?",
+                    "odpowiedz":  "Najpierw sprawdź umowę, rewizję i dotychczasową zasadę odbioru. Wycofane odesłanie nie powinno być interpretowane jednostronnie przez dostawcę. Przy nowej rewizji przeprowadź kontrolowaną migrację wymagań i planu kontroli."
+                }
+            ]
+}

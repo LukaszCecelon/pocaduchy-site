@@ -1,0 +1,95 @@
+.kotwica {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 200;
+  min-width: 620px;
+  background: var(--pc-bg);
+  border: 1px solid var(--pc-border);
+  border-top: 3px solid var(--pc-rust);
+  box-shadow: 0 18px 40px rgba(43, 47, 76, 0.14);
+  padding: 22px 24px 8px;
+  /* Ukryty panel nie lapie kursora i nie jest w kolejnosci tabulacji, ale
+     zostaje w drzewie dokumentu, wiec wyszukiwarka widzi wszystkie odnosniki. */
+  transition: opacity 0.14s ease, transform 0.14s ease, visibility 0.14s;
+}
+
+.kolumny {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px 28px;
+}
+.kolumna {
+  min-width: 0;
+}
+
+.dzial {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+  padding-bottom: 7px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid var(--pc-border);
+}
+.dzial:hover {
+  color: var(--pc-rust);
+  text-decoration: underline;
+}
+
+.lista {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+.lista li {
+  margin-bottom: 7px;
+}
+
+.temat {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--pc-navy);
+  display: block;
+}
+.temat:hover {
+  color: var(--pc-rust);
+  text-decoration: none;
+}
+
+.wiecej {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--pc-text-faint);
+}
+
+.stopka {
+  display: block;
+  margin: 4px -24px 0;
+  padding: 13px 24px;
+  border-top: 1px solid var(--pc-border);
+  background: #f4f4f7;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--pc-navy);
+}
+.stopka:hover {
+  color: var(--pc-rust);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}

@@ -247,27 +247,83 @@
 }
 
 .dzial {
-  margin-bottom: 56px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--pc-border);
 }
 .dzialGlowa {
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--pc-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px 4px;
+  cursor: pointer;
+  list-style: none;
+}
+/* Domyslny trojkat przegladarki znika, bo rysujemy wlasny. */
+.dzialGlowa::-webkit-details-marker {
+  display: none;
+}
+.dzialGlowa:hover .dzialNazwa {
+  color: var(--pc-rust);
+}
+.dzial summary:focus-visible {
+  outline: 2px solid var(--pc-rust);
+  outline-offset: 2px;
+}
+
+/* Strzalka obraca sie o cwierc obrotu, gdy dzial jest otwarty. */
+.dzialStrzalka {
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  margin-top: 9px;
+  border-left: 7px solid var(--pc-rust);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  transition: transform 0.15s ease;
+}
+.dzial[open] .dzialStrzalka {
+  transform: rotate(90deg);
+}
+
+.dzialTekst {
+  display: block;
   max-width: 720px;
 }
 .dzialNazwa {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 26px;
   color: var(--pc-navy);
-  margin: 0 0 6px;
+  margin: 0 0 4px;
+  transition: color 0.15s ease;
+}
+.dzialLicznik {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--pc-text-faint);
+  border: 1px solid var(--pc-border);
+  padding: 1px 7px;
 }
 .dzialOpis {
+  display: block;
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
   color: var(--pc-text-muted);
   margin: 0;
+}
+.dzial[open] .grid {
+  padding: 4px 0 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dzialStrzalka {
+    transition: none;
+  }
 }
 
 .brakWynikow {
