@@ -1,5 +1,32 @@
 [
   {
+    "slug": "bazy-tolerancji-geometrycznych",
+    "kategoria": "rysunek-techniczny",
+    "slowaKluczowe": [],
+    "title": "Bazy A, B i C w tolerancjach geometrycznych: jak ustalić detal",
+    "seoTitle": "Bazy A, B i C w tolerancjach geometrycznych",
+    "description": "Jak czytać i wybierać bazy A, B, C: element bazowy, baza, kolejność ustalenia, układ 3-2-1, baza osi otworu i typowe błędy pomiaru w praktyce.",
+    "date": "2026-08-12"
+  },
+  {
+    "slug": "iso-2768-a-iso-22081-tolerancje-ogolne",
+    "kategoria": "rysunek-techniczny",
+    "slowaKluczowe": [],
+    "title": "ISO 2768-mK i ISO 22081: jak zapisać tolerancje ogólne",
+    "seoTitle": "ISO 2768-mK i ISO 22081 bez starej K",
+    "description": "Co dziś oznacza ISO 2768-mK, która część normy została wycofana i jak przejść do ISO 22081 bez mechanicznej podmiany zapisu w tabelce na arkuszu.",
+    "date": "2026-08-12"
+  },
+  {
+    "slug": "ramka-tolerancji-geometrycznej",
+    "kategoria": "rysunek-techniczny",
+    "slowaKluczowe": [],
+    "title": "Ramka tolerancji geometrycznej: jak czytać każde pole",
+    "seoTitle": "Ramka tolerancji geometrycznej bez zgadywania",
+    "description": "Jak czytać ramkę tolerancji geometrycznej: symbol, pole tolerancji, wartość, modyfikator i bazy A, B, C. Przykłady pozycji i płaskości na rysunku.",
+    "date": "2026-08-12"
+  },
+  {
     "slug": "chropowatosc-powierzchni",
     "kategoria": "konstruowanie",
     "slowaKluczowe": [
