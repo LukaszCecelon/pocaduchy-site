@@ -1,0 +1,78 @@
+{
+  "videoId": "gOeAH94KNVI",
+  "title": "Gwint: dwa tysiące lat inżynierii zamknięte w genialnej geometrii",
+  "seoTitle": "Gwinty: historia, rodzaje i metody wytwarzania",
+  "description": "Skąd wziął się gwint, dlaczego profile są różne i jak się je wykonuje: gwintownik, narzynka, tokarka, frezowanie oraz walcowanie zupełnie bez wióra.",
+  "czasTrwania": "14 min",
+  "lead": "Rozejrzyj się dookoła, a na pewno w zasięgu wzroku masz jakiś gwint. To dzięki niemu ktoś podnosi samochód, zaciska detal w imadle i zakręca słoik. To wideo pokazuje, skąd wzięła się idea helisy i jak rozwinęła się na przestrzeni lat.",
+  "czegoSieDowiesz": [
+    "Skąd wziął się gwint i co ma z nim wspólnego śruba Archimedesa",
+    "Co oznacza zapis M10x1,5 i po co przy nim tolerancje",
+    "Czym różnią się gwinty: metryczny, trapezowy, rurowy i kulowy",
+    "Jak wytwarza się gwinty, od gwintownika po walcowanie"
+  ],
+  "sekcje": [
+    {
+      "tytul": "Skąd wziął się gwint: śruba Archimedesa",
+      "akapity": [
+        "Wszystko wyrosło z helisy, czyli spirali nawiniętej na walec. Najstarszym udokumentowanym zastosowaniem tego pomysłu jest śruba Archimedesa: spirala w cylindrze, która przy obracaniu transportuje wodę do góry. Używano jej do nawadniania, osuszania tuneli i usuwania wody ze statków.",
+        "Mechanizm przypisuje się Archimedesowi, choć nie ma pewności, że był jedynym wynalazcą. To nie był jeszcze gwint w dzisiejszym rozumieniu, bo brakowało pary śruba i nakrętka. Była za to idea ważniejsza od konstrukcji: zamiana obrotu na kontrolowany ruch liniowy."
+      ]
+    },
+    {
+      "tytul": "Jak gwint zamienia moment obrotowy na siłę",
+      "akapity": [
+        "Rzymskie prasy do winogron i oliwek opierały się na belkach, dźwigniach i klinach. Wymagały masywnych elementów, a śruba pozwoliła to uprościć: opuszczała belkę albo wprost dociskała płytę prasy.",
+        "Tu widać najważniejszą właściwość gwintu. Jeden obrót korby daje niewielki ruch wzdłuż osi, ale właśnie dlatego rozsądny moment obrotowy zamienia się w duży nacisk. Tak samo działa imadło: szczęka przesuwa się powoli, a siła rośnie szybko. Sama spirala już jednak nie wystarcza, bo potrzebne są dwie współpracujące powierzchnie: śruby i nakrętki."
+      ]
+    },
+    {
+      "tytul": "Powtarzalne wykonanie gwintu i problem kury i jajka",
+      "akapity": [
+        "Gwinty wykonywano ręcznie gwintownikami i narzynkami, a także na tokarkach, głównie w drewnie. Zachowała się rycina z 1578 roku pokazująca maszynę nacinającą gwint. Henry Maudslay nie wynalazł więc tokarki do gwintów. Około 1800 roku dopracował powtarzalność.",
+        "Trudność polega na zsynchronizowaniu dwóch ruchów. Przedmiot obraca się we wrzecionie, a nóż przesuwa wzdłuż osi. Jeżeli na każdy obrót nóż przejedzie o wartość skoku, powstaje linia śrubowa. Żeby to zadziałało, w tokarce musi już być dokładna para śruba i nakrętka. Maudslay obszedł to, tworząc wzorce w miękkim materiale, a z nich dokładniejsze śruby stalowe."
+      ]
+    },
+    {
+      "tytul": "Standaryzacja gwintów: Whitworth i Sellers",
+      "akapity": [
+        "Jeden warsztat wykonywał już elementy pasujące do siebie, ale śruba z jednego nie pasowała do nakrętki z drugiego. Każdy miał własny profil i skok.",
+        "W 1841 roku Joseph Whitworth zebrał gwinty z brytyjskich warsztatów i zaproponował jeden system: profil o kącie 55 stopni, zaokrąglone wierzchołki i dna oraz ustalone skoki dla kolejnych średnic. Kilkadziesiąt lat później William Sellers zaproponował w Stanach profil 60 stopni ze spłaszczonymi wierzchołkami, łatwiejszy w wykonaniu i kontroli. Dlatego dziś śruba jednego producenta pasuje do nakrętki innego, o ile obie wykonano według tej samej normy."
+      ]
+    },
+    {
+      "tytul": "Co oznacza gwint M10x1,5",
+      "akapity": [
+        "Za kilkoma znakami stoi konkretna geometria. Pierwsza rzecz to profil: po przecięciu śruby wzdłuż osi widać wierzchołki, dna wrębów i boki zwojów. W gwincie metrycznym, oznaczanym literą M, boki tworzą kąt 60 stopni.",
+        "Druga to skok gwintu, formalnie podziałka. Tutaj 1,5 mm, czyli tyle dzieli sąsiednie zwoje i o tyle przesunie się element po jednym obrocie. Trzecia to kierunek. Większość gwintów jest prawoskrętna, ale gwint lewy ma swoje zastosowania: nakrętka szlifierki kątowej bywa lewa, żeby obrót tarczy jej nie poluzował.",
+        "Zostają tolerancje. M10x1,5 opisuje geometrię idealną, a takiej śruby nie da się wykonać, więc norma mówi też, jak duże odchyłki wolno dopuścić."
+      ]
+    },
+    {
+      "tytul": "Rodzaje gwintów: metryczny, trapezowy, rurowy i kulowy",
+      "akapity": [
+        "Gwint metryczny łączy elementy i utrzymuje docisk. Nachylone boki zwoju, tarcie i mały skok dobrze się do tego nadają. Gdyby jednak przesuwać po nim nakrętkę tysiące razy, sporo energii poszłoby w tarcie. Dlatego w imadłach i śrubach pociągowych stosuje się profil trapezowy: ma duże powierzchnie robocze i lepiej przenosi siłę.",
+        "Osobną rodziną są gwinty rurowe i tu łatwo o kosztowną pomyłkę, bo nie każdy z nich uszczelnia. Gwinty stożkowe, jak BSPT w Europie i NPT w Stanach, mogą tworzyć szczelne połączenie w strefie gwintu. Gwint równoległy BSPP, oznaczany literą G, przede wszystkim skręca, a szczelność zapewnia podkładka, oring albo pasta. Rozmiary podaje się w calach.",
+        "Czwarty przypadek to śruba kulowa. Między śrubą a nakrętką biegną kulki, które zamiast ślizgać się po zwojach toczą się w bieżniach i wracają kanałem recyrkulacyjnym."
+      ]
+    },
+    {
+      "tytul": "Metody wytwarzania gwintów: od gwintownika do walcowania",
+      "akapity": [
+        "Najprostsze narzędzia to gwintownik i narzynka. Otwór pod gwint wierci się na średnicę nominalną pomniejszoną o skok, czyli 8,5 mm dla M10. Narzynką wykonuje się gwint zewnętrzny na wałku nieco cieńszym od nominału, a przy pracy ręcznej warto robić dwa obroty w przód i pół w tył, żeby łamać wiór.",
+        "Na tokarce nóż wykonuje kilka przejść, za każdym razem trafiając w tę samą linię śrubową. Pozwala to wykonać duże gwinty i inne profile, na przykład trapezowy. Gwint można też wyfrezować: frez obraca się wokół własnej osi, obiega otwór i przesuwa wzdłuż niego, czyli sam zatacza helisę. Przydaje się przy dużych otworach, elementach nieobrotowych i drogich detalach, w których nie chcemy urwać gwintownika.",
+        "Wszystkie te metody usuwają materiał, ale gwint da się wykonać bez ani jednego wióra. Przy kuciu na zimno z kuźniarki wypada prawie gotowa śruba, a walcarka formuje gwint dwiema szczękami albo zestawem obracających się walców. Wygniatanie zmienia strukturę materiału, więc gwint wychodzi utwardzony i wytrzymalszy. Wymaga jednak odpowiedniego półfabrykatu i drogich matryc, a przy pojedynczej sztuce toczenie ma więcej sensu."
+      ]
+    }
+  ],
+  "wnioski": [
+    "Gwint to nie jeden wynalazek, tylko ciąg rozwiązań: od idei helisy, przez parę śruba i nakrętka, po powtarzalne wykonanie i wspólną normę.",
+    "Profil dobiera się do zadania: metryczny łączy, trapezowy przenosi ruch, rurowy stożkowy uszczelnia, kulowy pozycjonuje.",
+    "Metoda wykonania to decyzja ekonomiczna. Walcowanie daje mocniejszy gwint, ale opłaca się przy serii."
+  ],
+  "narzedzia": [],
+  "related": [
+    "elementy-znormalizowane-handlowki",
+    "polaczenie-wal-piasta"
+  ]
+}

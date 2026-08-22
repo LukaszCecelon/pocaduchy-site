@@ -3,6 +3,15 @@
   "channelId": "UCatuUJWhqiOAiXhvb72wKOw",
   "episodes": [
     {
+      "id": "gOeAH94KNVI",
+      "title": "GWINT - DWA TYSIĄCE LAT INŻYNIERII ZAMKNIĘTE W GENIALNEJ GEOMETRII",
+      "published": "2026-08-21T18:34:41.000Z",
+      "url": "https://www.youtube.com/watch?v=gOeAH94KNVI",
+      "thumbnail": "https://i.ytimg.com/vi/gOeAH94KNVI/hqdefault.jpg",
+      "isShort": false,
+      "zrodlo": "wpisane recznie 2026-08-22, bo RSS kanalu zwraca blad; zostanie nadpisane, gdy fetch-episodes znowu zadziala"
+    },
+    {
       "id": "Y7yfAalcC-w",
       "title": "Spinamy system poCADuchów w całość 🤙 #strona #www #pocaduchy #praca #engineering #community",
       "url": "https://www.youtube.com/watch?v=Y7yfAalcC-w",
