@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import GithubSlugger from 'github-slugger';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -38,10 +39,49 @@ const MD_COMPONENTS = {
 
 const imageSizeAttrs = wymiaryObrazu;
 
+// Kotwice przy srodtytulach. Dzieki nim da sie linkowac do konkretnej
+// odpowiedzi w dlugim artykule, a Google i wyszukiwarki AI moga wskazac
+// wprost sekcje. Slugger jest jeden na caly artykul, bo tekst jest
+// rozbity na wiele blokow i te same naglowki moga sie powtorzyc.
+// Identyfikatory sa ASCII, zeby adres z kotwica nie puchl od kodowania.
+const SluggerContext = React.createContext(null);
+
+function tekstWezla(wezel) {
+  if (wezel == null || typeof wezel === 'boolean') return '';
+  if (typeof wezel === 'string' || typeof wezel === 'number') return String(wezel);
+  if (Array.isArray(wezel)) return wezel.map(tekstWezla).join('');
+  return tekstWezla(wezel.props?.children);
+}
+
+function kotwica(slugger, children) {
+  const ascii = tekstWezla(children)
+    .replace(/ł/g, 'l')
+    .replace(/Ł/g, 'L')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  return slugger ? slugger.slug(ascii) : undefined;
+}
+
+function Naglowek({poziom, children, node, ...props}) {
+  const slugger = React.useContext(SluggerContext);
+  const Tag = `h${poziom}`;
+  return (
+    <Tag id={kotwica(slugger, children)} {...props}>
+      {children}
+    </Tag>
+  );
+}
+
+const MD_TEKST = {
+  ...MD_COMPONENTS,
+  h2: (p) => <Naglowek poziom={2} {...p} />,
+  h3: (p) => <Naglowek poziom={3} {...p} />,
+};
+
 function TekstBlock({body}) {
   return (
     <div className={styles.tekst}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_COMPONENTS}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={MD_TEKST}>
         {body}
       </ReactMarkdown>
     </div>
@@ -619,13 +659,16 @@ const BLOCK_COMPONENTS = {
 export default function BlockRenderer({blocks}) {
   const items = Array.isArray(blocks) ? blocks : [];
   const firstImageIndex = items.findIndex((block) => block?.type === 'obraz');
+  const slugger = new GithubSlugger();
   return (
-    <div className={styles.wrap}>
-      {items.map((block, i) => {
-        const Component = BLOCK_COMPONENTS[block?.type];
-        if (!Component) return null;
-        return <Component key={i} {...block} priorytet={i === firstImageIndex} />;
-      })}
-    </div>
+    <SluggerContext.Provider value={slugger}>
+      <div className={styles.wrap}>
+        {items.map((block, i) => {
+          const Component = BLOCK_COMPONENTS[block?.type];
+          if (!Component) return null;
+          return <Component key={i} {...block} priorytet={i === firstImageIndex} />;
+        })}
+      </div>
+    </SluggerContext.Provider>
   );
 }

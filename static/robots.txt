@@ -2,15 +2,22 @@
 # Treść jest publiczna i chcemy, żeby była indeksowana oraz cytowana
 # — zarówno przez wyszukiwarki, jak i przez modele AI.
 
+# Panel CMS-a /admin zostal usuniety w sierpniu 2026. Google zna ten adres
+# z czasow, gdy istnial. Robot czyta tylko najbardziej szczegolowa grupe, ktora
+# go dotyczy, wiec zakaz musi stac takze w grupie Googlebota i Bingbota,
+# a nie w osobnej grupie * na koncu pliku.
 User-agent: *
 Allow: /
+Disallow: /admin
 
 # --- Wyszukiwarki ---
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
 
 # --- Roboty AI (świadomie dopuszczone: chcemy być źródłem cytowanym
 #     w odpowiedziach asystentów AI) ---
@@ -58,12 +65,5 @@ Allow: /
 
 User-agent: cohere-ai
 Allow: /
-
-# --- Nieistniejace juz sciezki ---
-# Panel CMS-a zostal usuniety w sierpniu 2026. Google zna ten adres z czasow,
-# gdy istnial, i przy kazdym obejsciu zglasza go jako blad 404. Zakaz
-# odwiedzania konczy te probe.
-User-agent: *
-Disallow: /admin
 
 Sitemap: https://pocaduchy.pl/sitemap.xml

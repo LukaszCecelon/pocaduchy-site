@@ -2,7 +2,7 @@
 
 > Polski serwis Łukasza Cecelona o konstruowaniu maszyn: CAD, dokumentacja techniczna, dobór elementów, produkcja, montaż i praktyczne narzędzia inżynierskie.
 >
-> Ostatnia aktualizacja: 2026-08-11.
+> Ostatnia aktualizacja: 2026-09-13.
 
 Treść jest po polsku i jest kierowana do konstruktorów, inżynierów mechaników, technologów oraz studentów. Artykuły łączą praktykę projektową autora z danymi producentów i publicznymi podglądami norm. Tablice i kalkulatory pomagają w doborze, ale nie zastępują aktualnej normy, karty konkretnego produktu ani obliczeń nośności.
 
@@ -16,7 +16,7 @@ Treść jest po polsku i jest kierowana do konstruktorów, inżynierów mechanik
 
 ## Narzędzia
 
-- [Narzędzia inżyniera](https://pocaduchy.pl/narzedzia/): wejście do kalkulatora pasowań ISO 286 i kalkulatora rowków pod pierścienie.
+- [Narzędzia inżyniera](https://pocaduchy.pl/narzedzia/): wejście do kalkulatora pasowań ISO 286, kalkulatora rowków pod pierścienie DIN 471/472 i przelicznika jednostek.
 - [Kalkulator pasowań ISO 286](https://pocaduchy.pl/narzedzia/pasowania/): zakres 1-500 mm, pola A-Z i a-z oraz IT4-IT13. Liczy odchyłki, wymiary graniczne, luz lub wcisk i proponuje pasowania, ale nie liczy nośności połączenia.
 - [Kalkulator pierścieni osadczych DIN 471/472](https://pocaduchy.pl/narzedzia/pierscienie-osadcze/): zwraca wymiary rowka, tolerancje, głębokość, odległość od czoła i luz osiowy. Nie oblicza dopuszczalnego obciążenia osiowego.
 
@@ -33,7 +33,7 @@ Treść jest po polsku i jest kierowana do konstruktorów, inżynierów mechanik
 ## Artykuły
 
 - [Archiwum artykułów](https://pocaduchy.pl/blog/): wszystkie teksty o pracy konstruktora, CAD, doborze elementów i organizacji projektu.
-- [Jak dobrać sprzęgło](https://pocaduchy.pl/blog/dobor-sprzegla-do-aplikacji/): pięć typów sprzęgieł spotykanych w 90-95% aplikacji automatyzacji oraz cztery kryteria doboru.
+- [Jak dobrać sprzęgło](https://pocaduchy.pl/blog/dobor-sprzegla-do-aplikacji/): pięć typów sprzęgieł, które według autora obejmują zdecydowaną większość aplikacji automatyzacji, oraz cztery kryteria doboru.
 - [Standaryzacja w biurze konstrukcyjnym](https://pocaduchy.pl/blog/standaryzacja-w-biurze-konstrukcyjnym/): propozycja 5 godzin tygodniowo na standardy i przykład, w którym 10 osób traci łącznie 300 minut na ten sam dobór.
 - [Kick-off projektu konstrukcyjnego](https://pocaduchy.pl/blog/kick-off-projektu-konstrukcyjnego/): przygotowanie 30-40 minut, agenda techniczna, budżet, harmonogram i podział ról.
 - [Szacowanie czasu projektowania](https://pocaduchy.pl/blog/szacowanie-czasu-projektowania/): ocena ekspercka, analogia, estymacja parametryczna i PERT ze wzorem `E = (a + 4m + b) / 6`.
@@ -66,6 +66,7 @@ Materiały poniżej są przydatne jako kontekst o autorze, działalności serwis
 - [Bazy na stole obrotowym](https://pocaduchy.pl/odcinki/bazy-na-stole-obrotowym/): magnesy, złącze obrotowe, identyfikacja baz i połączenie części spawanych z frezowanymi.
 - [Chwytak robota i tool changer](https://pocaduchy.pl/odcinki/chwytak-robota-tool-changer/): błąd, przez który czujnik wskazywał próżnię nieobecną na ssawkach.
 - [Czym zajmuje się konstruktor](https://pocaduchy.pl/odcinki/czym-zajmuje-sie-konstruktor/): różnice między konstruktorem produktu, form wtryskowych, maszyn i konstrukcji stalowych.
+- [Gwinty: historia, rodzaje i wytwarzanie](https://pocaduchy.pl/odcinki/gwinty-historia-i-wytwarzanie/): od śruby Archimedesa przez Maudslaya i normę Whitwortha z 1841 roku po profile metryczny, trapezowy, rurowy i kulowy oraz gwintowanie, toczenie, frezowanie i walcowanie.
 - [Kalibracja Bambu Lab H2S](https://pocaduchy.pl/odcinki/kalibracja-bambulab-h2s/): cztery problemy druku mechanicznego, w tym wymiar 99,6 zamiast 100 mm, nitkowanie i jakość powierzchni.
 - [Ruchomy model robota w Inventorze](https://pocaduchy.pl/odcinki/ruchomy-model-robota-ilogic/): formularz iLogic z suwakami osi oraz ocena, kiedy jego przygotowanie ma sens.
 - [Polityka prywatności](https://pocaduchy.pl/polityka-prywatnosci/): informacje o przetwarzaniu danych i plikach cookies.

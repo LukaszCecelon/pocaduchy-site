@@ -80,6 +80,10 @@ export default function OdcinekTemplate({
             daneStrukturalne({videoId, title, description, permalink, kanal, czasTrwania}),
           )}
         </script>
+        {/* Miniatura filmu zamiast ogolnej grafiki strony: przy udostepnieniu
+            odcinka link ma pokazywac ten konkretny film. */}
+        {kanal ? <meta property="og:image" content={kanal.thumbnail} /> : null}
+        {kanal ? <meta name="twitter:image" content={kanal.thumbnail} /> : null}
       </Head>
 
       <div className={styles.wrap}>

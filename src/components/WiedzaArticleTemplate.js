@@ -3,13 +3,14 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
+import TekstInline, {bezZnacznikow} from './TekstInline';
 import {SITE_URL, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
 import styles from './WiedzaArticleTemplate.module.css';
 
 // Dane strukturalne artykułu: TechArticle (treść techniczna) + ścieżka
 // okruszków. Dzięki temu Google i modele AI wiedzą, że to artykuł
 // merytoryczny, kto jest autorem i gdzie leży w strukturze serwisu.
-function articleJsonLd({title, description, date, permalink, faq}) {
+function articleJsonLd({title, description, date, dateModified, permalink, faq}) {
   const url = absolutePageUrl(permalink || '/');
   const pytania = Array.isArray(faq) ? faq : [];
   return {
@@ -24,7 +25,9 @@ function articleJsonLd({title, description, date, permalink, faq}) {
         url,
         mainEntityOfPage: url,
         image: `${SITE_URL}/img/og-pocaduchy.jpg`,
-        ...(date ? {datePublished: date, dateModified: date} : {}),
+        // dateModified to data redakcji tresci wpisana w pliku artykulu, nie data
+        // buildu. Nocny build nie zmienia tekstu, wiec nie moze odswiezac daty.
+        ...(date ? {datePublished: date, dateModified: dateModified || date} : {}),
         author: {'@id': `${SITE_URL}/#lukasz`},
         publisher: {'@id': `${SITE_URL}/#organizacja`},
         isPartOf: {'@id': `${SITE_URL}/#strona`},
@@ -44,7 +47,7 @@ function articleJsonLd({title, description, date, permalink, faq}) {
               mainEntity: pytania.map((p) => ({
                 '@type': 'Question',
                 name: p.pytanie,
-                acceptedAnswer: {'@type': 'Answer', text: p.odpowiedz},
+                acceptedAnswer: {'@type': 'Answer', text: bezZnacznikow(p.odpowiedz)},
               })),
             },
           ]
@@ -69,6 +72,7 @@ export default function WiedzaArticleTemplate({
   seoTitle,
   description,
   date,
+  dateModified,
   permalink,
   linkedinUrl,
   blocks,
@@ -79,9 +83,10 @@ export default function WiedzaArticleTemplate({
       <Head>
         <meta property="og:type" content="article" />
         {date ? <meta property="article:published_time" content={date} /> : null}
+        {dateModified ? <meta property="article:modified_time" content={dateModified} /> : null}
         <meta property="article:author" content="Łukasz Cecelon" />
         <script type="application/ld+json">
-          {JSON.stringify(articleJsonLd({title, description, date, permalink, faq}))}
+          {JSON.stringify(articleJsonLd({title, description, date, dateModified, permalink, faq}))}
         </script>
       </Head>
 
@@ -107,7 +112,9 @@ export default function WiedzaArticleTemplate({
                 {faq.map((p) => (
                   <div key={p.pytanie}>
                     <h3 className={styles.faqPytanie}>{p.pytanie}</h3>
-                    <p className={styles.faqOdpowiedz}>{p.odpowiedz}</p>
+                    <p className={styles.faqOdpowiedz}>
+                      <TekstInline tekst={p.odpowiedz} />
+                    </p>
                   </div>
                 ))}
               </section>

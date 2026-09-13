@@ -37,6 +37,15 @@ function writeOut(episodes) {
   );
 }
 
+function wczytajArchiwum() {
+  if (!existsSync(OUT_FILE)) return [];
+  try {
+    return JSON.parse(readFileSync(OUT_FILE, 'utf8')).episodes || [];
+  } catch {
+    return [];
+  }
+}
+
 function decodeXml(s) {
   return s
     .replace(/&amp;/g, '&')
@@ -99,12 +108,21 @@ async function main() {
     });
   }
 
-  episodes.sort((a, b) => new Date(b.published) - new Date(a.published));
-  writeOut(episodes);
+  // RSS YouTube zwraca tylko kilkanaście najnowszych filmów. Starsze wypadają
+  // z feedu, ale ich strony odcinków nadal istnieją i biorą stąd datę oraz
+  // miniaturę do danych strukturalnych. Dlatego nie nadpisujemy archiwum,
+  // tylko je aktualizujemy: to, co jest w feedzie, zastępuje zapisany rekord,
+  // a to, czego w feedzie już nie ma, zostaje.
+  const zFeedu = new Set(episodes.map((e) => e.id));
+  const archiwum = wczytajArchiwum().filter((e) => e && e.id && !zFeedu.has(e.id));
+  const wszystkie = [...episodes, ...archiwum];
 
-  const full = episodes.filter((e) => !e.isShort).length;
+  wszystkie.sort((a, b) => new Date(b.published) - new Date(a.published));
+  writeOut(wszystkie);
+
+  const full = wszystkie.filter((e) => !e.isShort).length;
   console.log(
-    `[fetch-episodes] OK: ${episodes.length} filmów (${full} odcinków, ${episodes.length - full} shortsów` +
+    `[fetch-episodes] OK: ${wszystkie.length} filmów, w tym ${archiwum.length} z archiwum (${full} odcinków, ${wszystkie.length - full} shortsów` +
       `${pominieteTransmisje ? `, pominięto ${pominieteTransmisje} transmisji na żywo` : ''})`,
   );
 }

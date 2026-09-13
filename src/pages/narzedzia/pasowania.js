@@ -12,28 +12,10 @@ import styles from './pasowania.module.css';
 const SCIEZKA = '/narzedzia/pasowania';
 const PAGE_URL = absolutePageUrl(SCIEZKA);
 
-// Odpowiedz do danych strukturalnych bierzemy po TYTULE sekcji, a nie po jej
-// numerze. Sekcje sa trescia edytowalna w pliku JSON, wiec usuniecie albo
-// przestawienie jednej z nich nie moze wywracac strony.
-function opisZasadyStalegoOtworu() {
-  const sekcja = tresc.sekcje.find((s) => s.tytul === 'Dwie zasady doboru');
-  const akapit = sekcja && sekcja.akapity && sekcja.akapity[0];
-  return akapit
-    ? akapit.replace(/\*\*/g, '')
-    : 'Otwór ma zawsze pole H, czyli odchyłkę dolną równą zeru, a pasowanie dobiera się odchyłkami wałka.';
-}
-
-function odpowiedzFaq(pytanie) {
-  if (pytanie.odpowiedz) return pytanie.odpowiedz;
-
-  const sekcja = tresc.sekcje.find((s) => s.tytul === pytanie.odpowiedzSekcja);
-  const akapit = sekcja && sekcja.akapity && sekcja.akapity[pytanie.odpowiedzAkapit || 0];
-  return akapit ? akapit.replace(/\*\*/g, '') : opisZasadyStalegoOtworu();
-}
-
 // Dane strukturalne. Kalkulator sam w sobie jest dla wyszukiwarki niewidoczny,
-// bo tresc powstaje po interakcji, wiec opisujemy strone jako artykul
-// z pytaniami, a nie jako aplikacje.
+// bo tresc powstaje po interakcji, wiec opisujemy strone jako artykul, a nie
+// jako aplikacje. Bez FAQPage: pytania z pliku tresci nie sa wyswietlane na
+// tej stronie, a dane strukturalne musza odpowiadac widocznej tresci.
 function daneStrukturalne() {
   return {
     '@context': 'https://schema.org',
@@ -47,18 +29,6 @@ function daneStrukturalne() {
         author: {'@id': `${SITE_URL}/#lukasz`},
         publisher: {'@id': `${SITE_URL}/#organizacja`},
         isPartOf: {'@id': `${SITE_URL}/#strona`},
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${PAGE_URL}#pytania`,
-        mainEntity: tresc.faq.map((pytanie) => ({
-          '@type': 'Question',
-          name: pytanie.pytanie,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: odpowiedzFaq(pytanie),
-          },
-        })),
       },
     ],
   };

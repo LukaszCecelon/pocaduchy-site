@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
-import {SITE_URL, formatLongDatePl} from '@site/src/lib/site';
+import {SITE_URL, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
 import {wymiaryObrazu} from '@site/src/lib/obrazy';
 import styles from './blog.module.css';
 import posts from '@site/src/data/blog-posts.json';
@@ -12,17 +12,20 @@ import posts from '@site/src/data/blog-posts.json';
 const BLOG_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  '@id': `${SITE_URL}/blog#blog`,
+  '@id': `${absolutePageUrl('/blog')}#blog`,
   name: 'Artykuły o konstruowaniu - poCADuchy',
-  url: `${SITE_URL}/blog`,
+  url: absolutePageUrl('/blog'),
   inLanguage: 'pl-PL',
   publisher: {'@id': `${SITE_URL}/#organizacja`},
   isPartOf: {'@id': `${SITE_URL}/#strona`},
   blogPost: posts.map((p) => ({
     '@type': 'BlogPosting',
+    // Ten sam @id co na stronie wpisu, zeby Google skleil oba opisy w jeden
+    // obiekt. Adres z ukosnikiem, zgodnie z canonical i sitemapa.
+    '@id': `${absolutePageUrl(`/blog/${p.slug}`)}#artykul`,
     headline: p.title,
     description: p.description,
-    url: `${SITE_URL}/blog/${p.slug}`,
+    url: absolutePageUrl(`/blog/${p.slug}`),
     ...(p.date ? {datePublished: p.date} : {}),
     author: {'@id': `${SITE_URL}/#lukasz`},
   })),

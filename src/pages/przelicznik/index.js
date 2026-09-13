@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
 import TekstZOdnosnikami from '@site/src/components/TekstZOdnosnikami';
+import TekstInline, {bezZnacznikow} from '@site/src/components/TekstInline';
 import Przelicznik from '@site/src/components/Przelicznik';
 import {STRONY_WYMIAROW} from '@site/src/components/PrzelicznikWymiarTemplate';
 import {WYMIARY, PLASKA} from '@site/src/lib/jednostki/oblicz';
@@ -39,7 +40,7 @@ function daneStrukturalne() {
         mainEntity: tresc.faq.map((p) => ({
           '@type': 'Question',
           name: p.pytanie,
-          acceptedAnswer: {'@type': 'Answer', text: p.odpowiedz},
+          acceptedAnswer: {'@type': 'Answer', text: bezZnacznikow(p.odpowiedz)},
         })),
       },
     ],
@@ -76,7 +77,7 @@ export default function PrzelicznikHub() {
         <section className={styles.sekcja}>
           {tresc.wstep.map((akapit) => (
             <p key={akapit} className={styles.tekst}>
-              {akapit}
+              <TekstInline tekst={akapit} />
             </p>
           ))}
         </section>
@@ -105,7 +106,9 @@ export default function PrzelicznikHub() {
           {tresc.faq.map((p) => (
             <div key={p.pytanie}>
               <h3 className={styles.h3}>{p.pytanie}</h3>
-              <p className={styles.tekst}>{p.odpowiedz}</p>
+              <p className={styles.tekst}>
+                <TekstInline tekst={p.odpowiedz} />
+              </p>
             </div>
           ))}
         </section>
