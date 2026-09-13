@@ -3,9 +3,12 @@ name: Deploy (GitHub Pages)
 on:
   push:
     branches: [main]
-  # Nocne przebudowanie — fetch-episodes zaciąga świeże odcinki z YouTube
+  # Cotygodniowe przebudowanie, w poniedzialek o 4:00 UTC: fetch-episodes
+  # i fetch-subscribers zaciagaja swieze odcinki i licznik z YouTube.
+  # Wczesniej codziennie; Lukasz poprosil o rzadsze aktualizacje (2026-09-13).
+  # Kazda publikacja zmian i tak pobiera dane na nowo.
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 4 * * 1'
   workflow_dispatch:
 
 # Domyślnie nic. Uprawnienia nadajemy osobno każdemu zadaniu, bo zadanie
