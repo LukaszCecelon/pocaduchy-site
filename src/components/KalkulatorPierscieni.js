@@ -52,12 +52,20 @@ function Wymiar({glowny, gora, dol}) {
 // Etykieta zaczepiona za krawedz, nie za srodek. Punkt zaczepienia odpowiada
 // rogowi pola tekstowego z oryginalnego rysunku, wiec etykieta rosnie zawsze
 // w strone wolnego miejsca i nigdy nie wchodzi na linie wymiarowa ani na groty.
-function Etykieta({zaczep, wejscie, children}) {
-  const klasy = [styles.et, styles[zaczep.typ], wejscie ? styles.wejscie : ''].join(' ');
+function Etykieta({zaczep, wejscie, pulsuje, children}) {
+  const klasy = [
+    styles.et,
+    styles[zaczep.typ],
+    wejscie ? styles.wejscie : '',
+    pulsuje ? styles.pulsuje : '',
+  ].join(' ');
+  // Pole wpisu jest etykieta formularza, wiec klikniecie w znak srednicy
+  // tez ustawia kursor w polu.
+  const Znacznik = wejscie ? 'label' : 'div';
   return (
-    <div className={klasy} style={{left: `${zaczep.x}%`, top: `${zaczep.y}%`}}>
+    <Znacznik className={klasy} style={{left: `${zaczep.x}%`, top: `${zaczep.y}%`}}>
       {children}
-    </div>
+    </Znacznik>
   );
 }
 
@@ -67,6 +75,8 @@ export default function KalkulatorPierscieni() {
   const [typ, setTyp] = useState('walek');
   const [wpisane, setWpisane] = useState(String(SREDNICA_STARTOWA));
   const [skopiowano, setSkopiowano] = useState(false);
+  // Pole pulsuje, dopoki uzytkownik go nie dotknie. Potem juz wie, gdzie jest.
+  const [ruszone, setRuszone] = useState(false);
 
   const puste = wpisane.trim() === '';
   const srednica = puste ? null : Number(wpisane);
@@ -128,7 +138,7 @@ export default function KalkulatorPierscieni() {
               aria-label={walek ? UI.rysunekWalek : UI.rysunekOtwor}
             />
 
-            <Etykieta zaczep={zaczepy.d1} wejscie>
+            <Etykieta zaczep={zaczepy.d1} wejscie pulsuje={!ruszone}>
               <span className={styles.polePrzed} aria-hidden="true">⌀</span>
               <input
                 className={styles.wpis}
@@ -137,11 +147,21 @@ export default function KalkulatorPierscieni() {
                 step="1"
                 min="3"
                 value={wpisane}
+                onFocus={() => setRuszone(true)}
                 onChange={(e) => setWpisane(e.target.value)}
                 aria-label={walek ? UI.etykietaSrednicyWalek : UI.etykietaSrednicyOtwor}
                 style={{width: `${Math.max(2.2, wpisane.length + 0.7)}ch`}}
               />
             </Etykieta>
+
+            {/* Dymek pod rysunkiem, grotem pod polem wpisu. */}
+            <p
+              className={styles.dymek}
+              style={{left: `calc(${zaczepy.d1.x}% - var(--pc-srodek-pola))`}}
+              aria-hidden="true"
+            >
+              {walek ? UI.podpowiedzWalek : UI.podpowiedzOtwor}
+            </p>
 
             <Etykieta zaczep={zaczepy.d2}>
               {rowek ? (
