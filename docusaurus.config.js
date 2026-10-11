@@ -1,5 +1,16 @@
 // @ts-check
 import {themes as prismThemes} from 'prism-react-renderer';
+import {readFileSync, existsSync} from 'node:fs';
+
+// Daty zmian stron z indeksu, ktory generuje scripts/build-content-pages.mjs
+// (hook prebuild). Sitemapa bierze z nich <lastmod>. Strony bez daty w pliku
+// tresci (narzedzia, huby) wychodza bez lastmod: lepiej nic niz zgadywanie.
+const INDEKS_STRON = new URL('./src/data/strony-indeks.json', import.meta.url);
+const DATY_ZMIAN = new Map(
+  (existsSync(INDEKS_STRON) ? JSON.parse(readFileSync(INDEKS_STRON, 'utf8')) : [])
+    .filter((s) => s.zmiana)
+    .map((s) => [s.url, s.zmiana]),
+);
 
 // Identyfikator Google Analytics 4 w formacie G-XXXXXXXXXX.
 // Dopoki jest pusty, zaden skrypt analityczny sie nie laduje i strona dziala
@@ -317,6 +328,21 @@ const config = {
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
+        },
+        // Jednakowe priority i changefreq na kazdym adresie nic nie mowia,
+        // a Google i tak je pomija. Zostaje sam adres i data zmiany.
+        sitemap: {
+          lastmod: null,
+          changefreq: null,
+          priority: null,
+          createSitemapItems: async ({defaultCreateSitemapItems, ...reszta}) => {
+            const pozycje = await defaultCreateSitemapItems(reszta);
+            return pozycje.map((p) => {
+              const sciezka = new URL(p.url).pathname;
+              const data = DATY_ZMIAN.get(sciezka);
+              return data ? {...p, lastmod: data} : p;
+            });
+          },
         },
       }),
     ],

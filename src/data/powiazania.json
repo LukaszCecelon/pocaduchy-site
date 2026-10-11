@@ -1,0 +1,82 @@
+{
+  "/wiedza/gwinty-metryczne-tabela/": [
+    "/odcinki/gwinty-historia-i-wytwarzanie/"
+  ],
+  "/odcinki/gwinty-historia-i-wytwarzanie/": [
+    "/wiedza/gwinty-metryczne-tabela/"
+  ],
+  "/wiedza/pozycjonowanie-czesci-w-maszynie/": [
+    "/odcinki/bazy-na-stole-obrotowym/",
+    "/odcinki/baza-pod-hot-stamping-maly-detal/",
+    "/blog/projektowanie-wielobrylowe-case-study/"
+  ],
+  "/odcinki/bazy-na-stole-obrotowym/": [
+    "/wiedza/pozycjonowanie-czesci-w-maszynie/"
+  ],
+  "/odcinki/baza-pod-hot-stamping-maly-detal/": [
+    "/wiedza/pozycjonowanie-czesci-w-maszynie/"
+  ],
+  "/blog/projektowanie-wielobrylowe-case-study/": [
+    "/wiedza/pozycjonowanie-czesci-w-maszynie/",
+    "/odcinki/bazy-na-stole-obrotowym/"
+  ],
+  "/blog/elektrozawory-pneumatyczne-dobor/": [
+    "/przelicznik/cisnienie/",
+    "/odcinki/chwytak-robota-tool-changer/"
+  ],
+  "/przelicznik/cisnienie/": [
+    "/blog/elektrozawory-pneumatyczne-dobor/"
+  ],
+  "/blog/dobor-sprzegla-do-aplikacji/": [
+    "/przelicznik/moment-obrotowy/"
+  ],
+  "/przelicznik/moment-obrotowy/": [
+    "/blog/dobor-sprzegla-do-aplikacji/"
+  ],
+  "/narzedzia/pasowania/": [
+    "/wiedza/chropowatosc-powierzchni/",
+    "/odcinki/baza-pod-hot-stamping-maly-detal/",
+    "/odcinki/bazy-na-stole-obrotowym/",
+    "/odcinki/chwytak-robota-tool-changer/"
+  ],
+  "/wiedza/chropowatosc-powierzchni/": [
+    "/narzedzia/pasowania/"
+  ],
+  "/blog/weryfikacja-cad-przed-produkcja/": [
+    "/blog/bledy-w-projekcie-konstrukcyjnym/",
+    "/odcinki/baza-pod-hot-stamping-maly-detal/"
+  ],
+  "/blog/bledy-w-projekcie-konstrukcyjnym/": [
+    "/blog/weryfikacja-cad-przed-produkcja/"
+  ],
+  "/blog/narzedzia-pracy-konstruktora/": [
+    "/odcinki/aplikacja-dla-firmy-bez-programowania/",
+    "/odcinki/kalibracja-bambulab-h2s/",
+    "/odcinki/ruchomy-model-robota-ilogic/"
+  ],
+  "/blog/onenote-notes-projektu/": [
+    "/odcinki/aplikacja-dla-firmy-bez-programowania/"
+  ],
+  "/blog/projektowanie-wielobrylowe-czesc-1/": [
+    "/odcinki/baza-pod-hot-stamping-maly-detal/"
+  ],
+  "/blog/pozornie-latwe-miejsca-projektu/": [
+    "/odcinki/bazy-na-stole-obrotowym/"
+  ],
+  "/blog/elementy-znormalizowane-handlowki/": [
+    "/odcinki/chwytak-robota-tool-changer/",
+    "/odcinki/gwinty-historia-i-wytwarzanie/"
+  ],
+  "/blog/umiejetnosci-poczatkujacego-konstruktora/": [
+    "/odcinki/czym-zajmuje-sie-konstruktor/"
+  ],
+  "/blog/kick-off-projektu-konstrukcyjnego/": [
+    "/odcinki/czym-zajmuje-sie-konstruktor/"
+  ],
+  "/blog/polaczenie-wal-piasta/": [
+    "/odcinki/gwinty-historia-i-wytwarzanie/"
+  ],
+  "/blog/standaryzacja-w-biurze-konstrukcyjnym/": [
+    "/odcinki/ruchomy-model-robota-ilogic/"
+  ]
+}

@@ -95,6 +95,7 @@ export default function Page() {
       title={data.title}
       seoTitle={data.seoTitle}
       description={data.description}
+      seoDescription={data.seoDescription}
       date={data.date}
       dateModified={data.dateModified}
       permalink="/wiedza/${a.slug}"
@@ -244,12 +245,143 @@ export default function Page() {
   return manifest.length;
 }
 
+function readJson(path, fallback) {
+  if (!existsSync(path)) return fallback;
+  return JSON.parse(readFileSync(path, 'utf8'));
+}
+
+// Strony przelicznika maja wlasne adresy, ktore nie zawsze pokrywaja sie
+// z nazwa pliku tresci. Ta sama lista co STRONY_WYMIAROW w szablonie.
+const PRZELICZNIK_SLUGI = {
+  cisnienie: 'cisnienie',
+  dlugosc: 'dlugosc',
+  moment: 'moment-obrotowy',
+  sila: 'sila',
+  temperatura: 'temperatura',
+  moc: 'moc',
+};
+
+// Strony zbiorcze. Potrzebne tylko podpowiedziom na stronie 404, zeby ktos,
+// kto wpisal np. /narzedzie/, trafil na liste narzedzi.
+const HUBY = [
+  {url: '/wiedza/', tytul: 'Baza wiedzy'},
+  {url: '/narzedzia/', tytul: 'Narzędzia'},
+  {url: '/przelicznik/', tytul: 'Przelicznik jednostek'},
+  {url: '/blog/', tytul: 'Artykuły'},
+  {url: '/odcinki/', tytul: 'Odcinki'},
+  {url: '/uslugi/', tytul: 'Usługi'},
+  {url: '/o-mnie/', tytul: 'O mnie'},
+];
+
+// Jeden indeks wszystkich stron z trescia: adres, typ, tytul i data ostatniej
+// zmiany. Korzystaja z niego blok "Powiazane", strona 404 (podpowiedz
+// najblizszego adresu) i sitemapa (lastmod).
+function writeIndeksStron() {
+  const strony = [];
+
+  for (const p of readJsonFiles(join(ROOT, 'content', 'blog'))) {
+    strony.push({
+      url: `/blog/${p.slug}/`,
+      typ: 'artykul',
+      tytul: p.seoTitle || p.title,
+      zmiana: p.dateModified || p.date || null,
+    });
+  }
+  for (const a of readJsonFiles(join(ROOT, 'content', 'wiedza'))) {
+    strony.push({
+      url: `/wiedza/${a.slug}/`,
+      typ: 'wiedza',
+      tytul: a.title,
+      zmiana: a.dateModified || a.date || null,
+    });
+  }
+
+  // Odcinek bez wlasnej daty zmiany dostaje date publikacji filmu.
+  const filmy = readJson(join(ROOT, 'src', 'data', 'episodes.json'), {episodes: []}).episodes || [];
+  for (const o of readJsonFiles(join(ROOT, 'content', 'odcinki'))) {
+    const film = filmy.find((e) => e.id === o.videoId);
+    strony.push({
+      url: `/odcinki/${o.slug}/`,
+      typ: 'odcinek',
+      tytul: o.title,
+      zmiana: o.dateModified || (film ? film.published.slice(0, 10) : null),
+    });
+  }
+
+  const narzedzia = readJson(join(ROOT, 'content', 'narzedzia.json'), {narzedzia: []});
+  for (const n of narzedzia.narzedzia || []) {
+    strony.push({url: n.url, typ: 'narzedzie', tytul: n.tytul, tag: n.tag, dane: n.dane, zmiana: null});
+  }
+
+  for (const [plik, slug] of Object.entries(PRZELICZNIK_SLUGI)) {
+    const t = readJson(join(ROOT, 'content', 'przelicznik', `${plik}.json`), null);
+    if (!t) continue;
+    strony.push({url: `/przelicznik/${slug}/`, typ: 'przelicznik', tytul: t.meta.tytul, zmiana: null});
+  }
+
+  for (const h of HUBY) {
+    if (!strony.some((s) => s.url === h.url)) strony.push({...h, typ: 'hub', zmiana: null});
+  }
+
+  writeFileSync(
+    join(ROOT, 'src', 'data', 'strony-indeks.json'),
+    JSON.stringify(strony, null, 2) + '\n',
+  );
+  return strony;
+}
+
+// Graf powiazan miedzy stronami roznych typow. Zrodla:
+//  1. pary wpisane recznie w content/powiazania.json,
+//  2. pola "related" i "narzedzia" odcinkow, odwrocone: odcinek linkuje do
+//     artykulu, wiec artykul dostaje link zwrotny do odcinka.
+// Wynik: adres -> lista adresow partnerow. Szablon sam pomija partnerow,
+// ktorych juz pokazuje w innym bloku.
+function writePowiazania(strony) {
+  const znane = new Set(strony.map((s) => s.url));
+  const graf = {};
+  const dodaj = (a, b) => {
+    if (a === b) return;
+    graf[a] = graf[a] || [];
+    if (!graf[a].includes(b)) graf[a].push(b);
+  };
+
+  const plik = readJson(join(ROOT, 'content', 'powiazania.json'), {pary: []});
+  for (const para of plik.pary || []) {
+    for (const url of para) {
+      if (!znane.has(url)) {
+        throw new Error(`[build-content-pages] content/powiazania.json: nieznany adres ${url}`);
+      }
+    }
+    dodaj(para[0], para[1]);
+    dodaj(para[1], para[0]);
+  }
+
+  for (const o of readJsonFiles(join(ROOT, 'content', 'odcinki'))) {
+    const odcinek = `/odcinki/${o.slug}/`;
+    for (const slug of o.related || []) {
+      const url = `/blog/${slug}/`;
+      if (znane.has(url)) dodaj(url, odcinek);
+    }
+    for (const url of o.narzedzia || []) {
+      if (znane.has(url)) dodaj(url, odcinek);
+    }
+  }
+
+  writeFileSync(
+    join(ROOT, 'src', 'data', 'powiazania.json'),
+    JSON.stringify(graf, null, 2) + '\n',
+  );
+  return Object.keys(graf).length;
+}
+
 const counts = {
   wiedza: writeWiedza(),
   blog: writeBlog(),
   odcinki: writeOdcinki(),
 };
+const strony = writeIndeksStron();
+const powiazane = writePowiazania(strony);
 
 console.log(
-  `[build-content-pages] OK: wiedza=${counts.wiedza}, blog=${counts.blog}, odcinki=${counts.odcinki}`,
+  `[build-content-pages] OK: wiedza=${counts.wiedza}, blog=${counts.blog}, odcinki=${counts.odcinki}, indeks=${strony.length}, powiazania=${powiazane}`,
 );

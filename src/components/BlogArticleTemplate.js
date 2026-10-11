@@ -3,6 +3,9 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
+import Powiazane from './Powiazane';
+import {powiazaneDla} from '@site/src/lib/powiazania';
+import {powiazaneDla} from '@site/src/lib/powiazania';
 import posts from '@site/src/data/blog-posts.json';
 import oMnie from '@site/content/o-mnie.json';
 import narzedziaTresc from '@site/content/narzedzia.json';
@@ -159,13 +162,17 @@ function Autor() {
   );
 }
 
-// Powiązane artykuły. Kolejność: najpierw ręcznie wskazane w polu "related",
-// potem uzupełnienie po wspólnych tagach, żeby sekcja nigdy nie była pusta.
+// Powiązane artykuły. Kolejność: najpierw pary z content/powiazania.json
+// (wybrane pod linkowanie w obie strony), potem pole "related", na koniec
+// uzupełnienie po wspólnych tagach, żeby sekcja nigdy nie była pusta.
 function powiazane(slug, related, tags) {
   const inne = posts.filter((p) => p.slug !== slug);
   const wybrane = [];
+  const zPar = powiazaneDla(`/blog/${slug}/`, {typy: ['artykul']}).map((p) =>
+    p.url.replace(/^\/blog\/|\/$/g, ''),
+  );
 
-  for (const s of related || []) {
+  for (const s of [...zPar, ...(related || [])]) {
     const p = inne.find((x) => x.slug === s);
     if (p && !wybrane.includes(p)) wybrane.push(p);
   }
@@ -289,40 +296,46 @@ export default function BlogArticleTemplate({
           <Link to="/blog/">Artykuły</Link> / <span>{title}</span>
         </div>
 
-        <h1 className={styles.articleTitle}>{title}</h1>
+        {/* <article> obejmuje sam tekst wpisu. Czytniki i narzedzia AI
+            wyciagaja z niego tresc bez nawigacji, biogramu i polecanych. */}
+        <article>
+          <h1 className={styles.articleTitle}>{title}</h1>
 
-        <div className={styles.metaRow}>
-          {date ? (
-            <span className={styles.metaDate}>
-              <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
-            </span>
-          ) : null}
-          {linkedinUrl ? (
-            <a
-              href={linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.metaLink}>
-              Pierwotnie na LinkedIn ↗
-            </a>
-          ) : null}
-        </div>
-
-        {tags && tags.length ? (
-          <div className={styles.tagRow}>
-            {tags.map((t) => (
-              <span key={t} className={styles.tag}>
-                {t}
+          <div className={styles.metaRow}>
+            {date ? (
+              <span className={styles.metaDate}>
+                <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
               </span>
-            ))}
+            ) : null}
+            {linkedinUrl ? (
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.metaLink}>
+                Pierwotnie na LinkedIn ↗
+              </a>
+            ) : null}
           </div>
-        ) : null}
 
-        <BlockRenderer blocks={blocks} />
+          {tags && tags.length ? (
+            <div className={styles.tagRow}>
+              {tags.map((t) => (
+                <span key={t} className={styles.tag}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          ) : null}
 
-        <NarzedziaDoTematu narzedzia={narzedzia} />
+          <BlockRenderer blocks={blocks} />
 
-        <Pytania faq={faq} />
+          <NarzedziaDoTematu narzedzia={narzedzia} />
+
+          <Pytania faq={faq} />
+        </article>
+
+        <Powiazane url={permalink} pomin={narzedzia} typy={['wiedza', 'odcinek', 'przelicznik', 'narzedzie']} />
 
         {/* Dyskusja toczy się pod oryginalnym postem na LinkedIn — pokazujemy
             przycisk tylko wtedy, gdy artykuł ma podany link. */}

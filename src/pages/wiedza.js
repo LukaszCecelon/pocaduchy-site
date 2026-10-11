@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
+import useBrokenLinks from '@docusaurus/useBrokenLinks';
 import Okruszki from '@site/src/components/Okruszki';
 import {absolutePageUrl, SITE_URL, formatLongDatePl} from '@site/src/lib/site';
 import styles from './wiedza.module.css';
@@ -174,6 +175,11 @@ export default function Wiedza() {
       pozycje: artykuly.filter((a) => (a.kategoria || 'inne') === d.id && pasuje(a, fraza)),
     }))
     .filter((d) => d.pozycje.length > 0);
+
+  // Sprawdzanie kotwic w buildzie widzi tylko id zgloszone wprost. Bez tego
+  // kazdy link z menu pod /wiedza/#dzial liczyl sie jako zepsuty.
+  const linki = useBrokenLinks();
+  grupy.forEach((d) => linki.collectAnchor(d.id));
 
   const znalezione = grupy.reduce((suma, d) => suma + d.pozycje.length, 0);
 

@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      adresy: ${{ steps.indexnow.outputs.adresy }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,6 +35,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build # prebuild odpala scripts/fetch-episodes.mjs
+      # Lista adresow do IndexNow liczona teraz, poki na produkcji stoi
+      # jeszcze poprzednia sitemapa. Wysylka dopiero po wdrozeniu.
+      - id: indexnow
+        run: node scripts/indexnow.mjs lista
       # Komplet akcji Pages w wersjach natywnych dla Node 24. Starsze majory
       # celowaly w Node 20 i runner uruchamial je na Node 24 na sile, przez co
       # odpytywanie o status publikacji nigdy nie widzialo sukcesu.
@@ -60,3 +66,23 @@ jobs:
         # przekracza ten czas, akcja ANULUJE gotowy deployment. Wtedy jedyne
         # wyjście to ponowne uruchomienie albo zmiana sposobu publikacji.
         uses: actions/deploy-pages@v5
+
+  # Zgloszenie zmienionych adresow do IndexNow (Bing i inne). Osobne zadanie
+  # z samym odczytem repo (na skrypt), a jego blad nie cofa juz opublikowanej
+  # strony.
+  indexnow:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/indexnow.mjs wyslij
+        env:
+          ADRESY: ${{ needs.build.outputs.adresy }}

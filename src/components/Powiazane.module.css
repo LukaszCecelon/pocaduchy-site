@@ -1,0 +1,58 @@
+.sekcja {
+  margin: 40px 0 32px;
+}
+
+.tytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.25;
+  color: var(--pc-navy);
+  margin: 0 0 14px;
+  padding-top: 12px;
+  border-top: 2px solid var(--pc-rust);
+}
+
+.kafle {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.kafel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid var(--pc-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.kafel:hover {
+  border-color: var(--pc-navy);
+  text-decoration: none;
+  color: inherit;
+}
+
+.kafelTag {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pc-rust);
+  font-weight: 700;
+}
+
+.kafelTytul {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.kafelDane {
+  font-size: 12.5px;
+  color: var(--pc-text-muted);
+}

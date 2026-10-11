@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import ReactMarkdown from 'react-markdown';
 import Okruszki from '@site/src/components/Okruszki';
 import KalkulatorPasowan from '@site/src/components/KalkulatorPasowan';
+import Powiazane from '@site/src/components/Powiazane';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/wiedza-pasowania.json';
 import styles from './pasowania.module.css';
@@ -69,6 +70,8 @@ export default function Pasowania() {
             ))}
           </section>
         ))}
+
+        <Powiazane url={SCIEZKA} />
 
         <section className={styles.sekcja}>
           <h2 className={styles.h2}>{tresc.zobaczTez.tytul}</h2>

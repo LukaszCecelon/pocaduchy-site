@@ -7,6 +7,7 @@ import {SITE_URL, absolutePageUrl, formatShortDatePl} from '@site/src/lib/site';
 import epizody from '@site/src/data/episodes.json';
 import narzedziaTresc from '@site/content/narzedzia.json';
 import postyBloga from '@site/src/data/blog-posts.json';
+import {powiazaneDla} from '@site/src/lib/powiazania';
 import styles from './OdcinekTemplate.module.css';
 
 // Data publikacji, miniatura i adres na YouTube pochodza z kanalu, wiec bierzemy
@@ -71,6 +72,10 @@ export default function OdcinekTemplate({
   const powiazaneArtykuly = (related || [])
     .map((slug) => (postyBloga || []).find((p) => p.slug === slug))
     .filter(Boolean);
+  // Tablice z Wiedzy i inne strony sparowane z odcinkiem w content/powiazania.json.
+  const zPar = powiazaneDla(permalink, {
+    pomin: [...(narzedzia || []), ...(related || []).map((s) => `/blog/${s}/`)],
+  });
 
   return (
     <Layout title={seoTitle || title} description={description}>
@@ -94,64 +99,73 @@ export default function OdcinekTemplate({
           ]}
         />
 
-        <header className={styles.hero}>
-          <h1 className={styles.title}>{title}</h1>
-          <p className={styles.meta}>
-            {kanal ? <span>{formatShortDatePl(kanal.published)}</span> : null}
-            {czasTrwania ? <span>{czasTrwania}</span> : null}
-          </p>
-          {lead ? <p className={styles.lead}>{lead}</p> : null}
-        </header>
+        <article>
+          <header className={styles.hero}>
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.meta}>
+              {kanal ? <span>{formatShortDatePl(kanal.published)}</span> : null}
+              {czasTrwania ? <span>{czasTrwania}</span> : null}
+            </p>
+            {lead ? <p className={styles.lead}>{lead}</p> : null}
+          </header>
 
-        {/* youtube-nocookie: odtwarzacz nie zaklada ciasteczek dopoki widz
-            nie kliknie odtwarzania, wiec zgoda na statystyki go nie dotyczy */}
-        <div className={styles.odtwarzacz}>
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-            title={title}
-            loading="lazy"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
+          {/* youtube-nocookie: odtwarzacz nie zaklada ciasteczek dopoki widz
+              nie kliknie odtwarzania, wiec zgoda na statystyki go nie dotyczy */}
+          <div className={styles.odtwarzacz}>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+              title={title}
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
 
-        {czegoSieDowiesz.length > 0 && (
-          <section className={styles.sekcja}>
-            <h2 className={styles.h2}>Czego dotyczy ten odcinek</h2>
-            <ul className={styles.lista}>
-              {czegoSieDowiesz.map((p) => (
-                <li key={p.slice(0, 40)}>{p}</li>
+          {czegoSieDowiesz.length > 0 && (
+            <section className={styles.sekcja}>
+              <h2 className={styles.h2}>Czego dotyczy ten odcinek</h2>
+              <ul className={styles.lista}>
+                {czegoSieDowiesz.map((p) => (
+                  <li key={p.slice(0, 40)}>{p}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {sekcje.map((s) => (
+            <section key={s.tytul} className={styles.sekcja}>
+              <h2 className={styles.h2}>{s.tytul}</h2>
+              {s.akapity.map((a) => (
+                <p key={a.slice(0, 40)} className={styles.tekst}>
+                  {a}
+                </p>
               ))}
-            </ul>
-          </section>
-        )}
+            </section>
+          ))}
 
-        {sekcje.map((s) => (
-          <section key={s.tytul} className={styles.sekcja}>
-            <h2 className={styles.h2}>{s.tytul}</h2>
-            {s.akapity.map((a) => (
-              <p key={a.slice(0, 40)} className={styles.tekst}>
-                {a}
-              </p>
-            ))}
-          </section>
-        ))}
+          {wnioski.length > 0 && (
+            <section className={styles.sekcja}>
+              <h2 className={styles.h2}>Co z tego wynika</h2>
+              <ul className={styles.wnioski}>
+                {wnioski.map((w) => (
+                  <li key={w.slice(0, 40)}>{w}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </article>
 
-        {wnioski.length > 0 && (
-          <section className={styles.sekcja}>
-            <h2 className={styles.h2}>Co z tego wynika</h2>
-            <ul className={styles.wnioski}>
-              {wnioski.map((w) => (
-                <li key={w.slice(0, 40)}>{w}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {(powiazaneNarzedzia.length > 0 || powiazaneArtykuly.length > 0) && (
+        {(powiazaneNarzedzia.length > 0 || powiazaneArtykuly.length > 0 || zPar.length > 0) && (
           <section className={styles.sekcja}>
             <h2 className={styles.h2}>Policz albo doczytaj</h2>
             <div className={styles.kafle}>
+              {zPar.map((s) => (
+                <Link key={s.url} to={s.url} className={styles.kafel}>
+                  <span className={styles.kafelTag}>{s.etykieta}</span>
+                  <span className={styles.kafelTytul}>{s.tytul}</span>
+                  {s.dane ? <span className={styles.kafelDane}>{s.dane}</span> : null}
+                </Link>
+              ))}
               {powiazaneNarzedzia.map((n) => (
                 <Link key={n.url} to={n.url} className={styles.kafel}>
                   <span className={styles.kafelTag}>{n.tag}</span>

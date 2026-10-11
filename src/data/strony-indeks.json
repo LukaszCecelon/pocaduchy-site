@@ -1,0 +1,284 @@
+[
+  {
+    "url": "/blog/bledy-w-projekcie-konstrukcyjnym/",
+    "typ": "artykul",
+    "tytul": "Błędy w projekcie konstrukcyjnym: co robić?",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/design-for-maintenance-przezbrojenia/",
+    "typ": "artykul",
+    "tytul": "Design for maintenance: przezbrojenia maszyn",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/dobor-sprzegla-do-aplikacji/",
+    "typ": "artykul",
+    "tytul": "Jak dobrać sprzęgło: rodzaje i kryteria",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/elektrozawory-pneumatyczne-dobor/",
+    "typ": "artykul",
+    "tytul": "Elektrozawory 3/2, 5/2 i 5/3: rodzaje",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/elementy-znormalizowane-handlowki/",
+    "typ": "artykul",
+    "tytul": "Elementy znormalizowane: handlówki w maszynach",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/kick-off-projektu-konstrukcyjnego/",
+    "typ": "artykul",
+    "tytul": "Kick-off projektu konstrukcyjnego: agenda i role",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/koszty-a-jakosc-w-projektowaniu-maszyn/",
+    "typ": "artykul",
+    "tytul": "Koszty w projekcie maszyny: gdzie oszczędzać",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/narzedzia-pracy-konstruktora/",
+    "typ": "artykul",
+    "tytul": "Narzędzia pracy konstruktora: CAD i sprzęt",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/onenote-notes-projektu/",
+    "typ": "artykul",
+    "tytul": "OneNote w projekcie konstrukcyjnym",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/polaczenie-wal-piasta/",
+    "typ": "artykul",
+    "tytul": "Połączenie wał-piasta: przegląd rozwiązań",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/pozornie-latwe-miejsca-projektu/",
+    "typ": "artykul",
+    "tytul": "Pozornie łatwe miejsca w projekcie maszyny",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/projektowanie-wielobrylowe-case-study/",
+    "typ": "artykul",
+    "tytul": "Projektowanie wielobryłowe w CAD: case study",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/projektowanie-wielobrylowe-czesc-1/",
+    "typ": "artykul",
+    "tytul": "Projektowanie wielobryłowe w CAD: część 1",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/projektowanie-z-niepelnymi-danymi/",
+    "typ": "artykul",
+    "tytul": "Projektowanie z niepełnymi danymi: 6 praktyk",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/standaryzacja-w-biurze-konstrukcyjnym/",
+    "typ": "artykul",
+    "tytul": "Standaryzacja w biurze konstrukcyjnym",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/szacowanie-czasu-projektowania/",
+    "typ": "artykul",
+    "tytul": "Jak oszacować czas projektowania? Cztery metody",
+    "zmiana": "2026-08-02"
+  },
+  {
+    "url": "/blog/tuleje-taper-lock-dobor/",
+    "typ": "artykul",
+    "tytul": "Tuleje Taper Lock: dobór i montaż",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/umiejetnosci-poczatkujacego-konstruktora/",
+    "typ": "artykul",
+    "tytul": "Umiejętności początkującego konstruktora maszyn",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/blog/weryfikacja-cad-przed-produkcja/",
+    "typ": "artykul",
+    "tytul": "Weryfikacja CAD: checklista przed produkcją",
+    "zmiana": "2026-08-04"
+  },
+  {
+    "url": "/wiedza/chropowatosc-powierzchni/",
+    "typ": "wiedza",
+    "tytul": "Chropowatość powierzchni: tabela Ra i Rz dla obróbki i zastosowań",
+    "zmiana": "2026-08-11"
+  },
+  {
+    "url": "/wiedza/gwinty-metryczne-tabela/",
+    "typ": "wiedza",
+    "tytul": "Gwinty metryczne: tabela skoków, kluczy i długości gwintu DIN 931",
+    "zmiana": "2026-08-11"
+  },
+  {
+    "url": "/wiedza/pozycjonowanie-czesci-w-maszynie/",
+    "typ": "wiedza",
+    "tytul": "6 sposobów pozycjonowania części w budowie maszyn",
+    "zmiana": "2026-08-07"
+  },
+  {
+    "url": "/wiedza/rowki-pod-pierscienie-osadcze-seger/",
+    "typ": "wiedza",
+    "tytul": "Rowki pod pierścienie Segera według DIN 471 i DIN 472",
+    "zmiana": "2026-08-11"
+  },
+  {
+    "url": "/odcinki/aplikacja-dla-firmy-bez-programowania/",
+    "typ": "odcinek",
+    "tytul": "Aplikacja do raportów zrobiona przez konstruktora, nie programistę",
+    "zmiana": "2026-06-21"
+  },
+  {
+    "url": "/odcinki/baza-pod-hot-stamping-maly-detal/",
+    "typ": "odcinek",
+    "tytul": "Bazowanie detalu bez osi symetrii: trzy pomysły, jeden wdrożony",
+    "zmiana": "2026-04-12"
+  },
+  {
+    "url": "/odcinki/bazy-na-stole-obrotowym/",
+    "typ": "odcinek",
+    "tytul": "Bazy na stole obrotowym: cztery wyzwania i jedna pułapka",
+    "zmiana": "2026-03-22"
+  },
+  {
+    "url": "/odcinki/chwytak-robota-tool-changer/",
+    "typ": "odcinek",
+    "tytul": "Chwytak robota: jak system wymiany narzędzia oszukał czujnik próżni",
+    "zmiana": "2026-04-19"
+  },
+  {
+    "url": "/odcinki/czym-zajmuje-sie-konstruktor/",
+    "typ": "odcinek",
+    "tytul": "Czym zajmuje się konstruktor i czym różnią się jego specjalizacje",
+    "zmiana": "2026-06-07"
+  },
+  {
+    "url": "/odcinki/gwinty-historia-i-wytwarzanie/",
+    "typ": "odcinek",
+    "tytul": "Gwint: dwa tysiące lat inżynierii zamknięte w genialnej geometrii",
+    "zmiana": "2026-08-21"
+  },
+  {
+    "url": "/odcinki/kalibracja-bambulab-h2s/",
+    "typ": "odcinek",
+    "tytul": "Bambu Lab H2S: cztery rzeczy do skalibrowania, zanim wydruk się nada",
+    "zmiana": "2026-04-05"
+  },
+  {
+    "url": "/odcinki/ruchomy-model-robota-ilogic/",
+    "typ": "odcinek",
+    "tytul": "Ruchomy model robota w Inventorze: kiedy się opłaca i jak go zrobić",
+    "zmiana": "2026-07-27"
+  },
+  {
+    "url": "/narzedzia/pasowania/",
+    "typ": "narzedzie",
+    "tytul": "Pasowania: luz i wcisk",
+    "tag": "Kalkulator",
+    "dane": "ISO 286, 1 do 500 mm",
+    "zmiana": null
+  },
+  {
+    "url": "/narzedzia/pierscienie-osadcze/",
+    "typ": "narzedzie",
+    "tytul": "Rowek pod pierścień osadczy",
+    "tag": "Kalkulator",
+    "dane": "DIN 471 i 472, 3 do 100 mm",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/",
+    "typ": "narzedzie",
+    "tytul": "Przelicznik jednostek dla konstruktora",
+    "tag": "Przelicznik",
+    "dane": "157 jednostek, 20 wielkości",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/cisnienie/",
+    "typ": "przelicznik",
+    "tytul": "Ciśnienie: przelicznik jednostek",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/dlugosc/",
+    "typ": "przelicznik",
+    "tytul": "Długość: przelicznik jednostek",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/moment-obrotowy/",
+    "typ": "przelicznik",
+    "tytul": "Moment obrotowy: przelicznik jednostek",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/sila/",
+    "typ": "przelicznik",
+    "tytul": "Siła: przelicznik jednostek",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/temperatura/",
+    "typ": "przelicznik",
+    "tytul": "Temperatura: przelicznik °C, K, °F i °R",
+    "zmiana": null
+  },
+  {
+    "url": "/przelicznik/moc/",
+    "typ": "przelicznik",
+    "tytul": "Moc: przelicznik W, kW, KM, hp i BTU/h",
+    "zmiana": null
+  },
+  {
+    "url": "/wiedza/",
+    "tytul": "Baza wiedzy",
+    "typ": "hub",
+    "zmiana": null
+  },
+  {
+    "url": "/narzedzia/",
+    "tytul": "Narzędzia",
+    "typ": "hub",
+    "zmiana": null
+  },
+  {
+    "url": "/blog/",
+    "tytul": "Artykuły",
+    "typ": "hub",
+    "zmiana": null
+  },
+  {
+    "url": "/odcinki/",
+    "tytul": "Odcinki",
+    "typ": "hub",
+    "zmiana": null
+  },
+  {
+    "url": "/uslugi/",
+    "tytul": "Usługi",
+    "typ": "hub",
+    "zmiana": null
+  },
+  {
+    "url": "/o-mnie/",
+    "tytul": "O mnie",
+    "typ": "hub",
+    "zmiana": null
+  }
+]

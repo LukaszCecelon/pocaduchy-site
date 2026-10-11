@@ -9,6 +9,7 @@ export default function Page() {
       title={data.title}
       seoTitle={data.seoTitle}
       description={data.description}
+      seoDescription={data.seoDescription}
       date={data.date}
       dateModified={data.dateModified}
       permalink="/wiedza/rowki-pod-pierscienie-osadcze-seger"

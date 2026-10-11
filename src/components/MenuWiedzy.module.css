@@ -4,6 +4,15 @@
   align-items: center;
 }
 
+/* Ponizej 997 px motyw chowa link "Wiedza" w pasku (menu przechodzi do
+   panelu bocznego), ale nie ten kontener. Niewidoczny panel o szerokosci
+   620 px rozpychal wtedy strone i telefon przewijal sie w bok. */
+@media (max-width: 996px) {
+  .kotwica {
+    display: none;
+  }
+}
+
 .panel {
   position: absolute;
   top: 100%;

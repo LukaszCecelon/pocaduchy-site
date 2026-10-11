@@ -8,6 +8,9 @@ import {wymiaryMiniaturyYt} from '@site/src/lib/obrazy';
 import Zebatka3D from '@site/src/components/Zebatka3D';
 import styles from './index.module.css';
 import blogPosts from '../data/blog-posts.json';
+import wiedzaArtykuly from '@site/src/data/wiedza-artykuly.json';
+import narzedziaTresc from '@site/content/narzedzia.json';
+import stronaGlowna from '@site/content/strona-glowna.json';
 
 // Manifest jest posortowany od najnowszego, wiec pierwszy wpis to ostatni artykul.
 const NAJNOWSZY = blogPosts[0];
@@ -463,6 +466,55 @@ function LatestEpisode() {
   );
 }
 
+// Tablice z Wiedzy i kalkulatory: strony, ktore realnie przyprowadzaja ludzi
+// z wyszukiwarki. Karty biora tytuly i opisy z tych samych plikow co same
+// strony, wiec zmiana tytulu w jednym miejscu poprawia go tez tutaj.
+function TabliceIKalkulatory() {
+  const t = stronaGlowna.tablice;
+  const tablice = t.wiedza
+    .map((slug) => wiedzaArtykuly.find((a) => a.slug === slug))
+    .filter(Boolean)
+    .map((a) => ({
+      url: `/wiedza/${a.slug}/`,
+      etykieta: t.etykietaTablicy,
+      tytul: a.title,
+      opis: a.description,
+    }));
+  const kalkulatory = narzedziaTresc.narzedzia.map((n) => ({
+    url: n.url,
+    etykieta: n.tag,
+    tytul: n.tytul,
+    opis: n.dane,
+  }));
+
+  return (
+    <section className={styles.tablice}>
+      <div className={styles.latestHead}>
+        <span className={styles.latestBar} />
+        <h2 className={styles.latestLabel}>{t.naglowek}</h2>
+      </div>
+      <div className={styles.tabliceGrid}>
+        {[...tablice, ...kalkulatory].map((k, i) => (
+          <Link
+            key={k.url}
+            to={k.url}
+            data-reveal
+            style={{transitionDelay: `${(i % 3) * 90}ms`}}
+            className={`${styles.tablicaKarta} ${styles.revealItem} pc-cut-card`}>
+            <span className={styles.cardEyebrow}>{k.etykieta}</span>
+            <h3 className={styles.tablicaTytul}>{k.tytul}</h3>
+            <p className={styles.cardBody}>{k.opis}</p>
+          </Link>
+        ))}
+      </div>
+      <p className={styles.tabliceLinki}>
+        <Link to="/wiedza/">{t.linkWiedza}</Link>
+        <Link to="/narzedzia/">{t.linkNarzedzia}</Link>
+      </p>
+    </section>
+  );
+}
+
 function Teasers() {
   const cards = [
     {
@@ -541,6 +593,7 @@ export default function Home() {
       <div ref={rootRef}>
         <Hero />
         <LatestEpisode />
+        <TabliceIKalkulatory />
         <Teasers />
         <CtaBand />
       </div>

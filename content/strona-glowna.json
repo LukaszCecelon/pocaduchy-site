@@ -1,0 +1,14 @@
+{
+  "_opis": "Teksty bloku z tablicami i kalkulatorami na stronie głównej. Tytuły i opisy kart biorą się z plików Wiedzy i z content/narzedzia.json, tu są tylko etykiety i wybór tablic (slugi z content/wiedza).",
+  "tablice": {
+    "naglowek": "Tablice i kalkulatory",
+    "etykietaTablicy": "Tablica",
+    "wiedza": [
+      "rowki-pod-pierscienie-osadcze-seger",
+      "chropowatosc-powierzchni",
+      "gwinty-metryczne-tabela"
+    ],
+    "linkWiedza": "Cała baza wiedzy →",
+    "linkNarzedzia": "Wszystkie narzędzia →"
+  }
+}

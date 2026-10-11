@@ -1,0 +1,20 @@
+{
+  "_opis": "Pary stron, które linkują do siebie nawzajem w bloku Powiązane. Adres zawsze z ukośnikiem na końcu, kolejność w parze bez znaczenia. Odcinki dostają też linki zwrotne same, z pól related i narzedzia w swoich plikach. Nieznany adres zatrzymuje build.",
+  "tytul": "Powiązane",
+  "etykiety": {
+    "artykul": "Artykuł",
+    "wiedza": "Baza wiedzy",
+    "odcinek": "Odcinek",
+    "przelicznik": "Przelicznik"
+  },
+  "pary": [
+    ["/wiedza/gwinty-metryczne-tabela/", "/odcinki/gwinty-historia-i-wytwarzanie/"],
+    ["/wiedza/pozycjonowanie-czesci-w-maszynie/", "/odcinki/bazy-na-stole-obrotowym/"],
+    ["/wiedza/pozycjonowanie-czesci-w-maszynie/", "/odcinki/baza-pod-hot-stamping-maly-detal/"],
+    ["/wiedza/pozycjonowanie-czesci-w-maszynie/", "/blog/projektowanie-wielobrylowe-case-study/"],
+    ["/blog/elektrozawory-pneumatyczne-dobor/", "/przelicznik/cisnienie/"],
+    ["/blog/dobor-sprzegla-do-aplikacji/", "/przelicznik/moment-obrotowy/"],
+    ["/narzedzia/pasowania/", "/wiedza/chropowatosc-powierzchni/"],
+    ["/blog/weryfikacja-cad-przed-produkcja/", "/blog/bledy-w-projekcie-konstrukcyjnym/"]
+  ]
+}

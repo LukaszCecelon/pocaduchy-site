@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
+import Powiazane from './Powiazane';
 import TekstInline, {bezZnacznikow} from './TekstInline';
 import {SITE_URL, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
 import styles from './WiedzaArticleTemplate.module.css';
@@ -71,6 +72,7 @@ export default function WiedzaArticleTemplate({
   title,
   seoTitle,
   description,
+  seoDescription,
   date,
   dateModified,
   permalink,
@@ -78,8 +80,10 @@ export default function WiedzaArticleTemplate({
   blocks,
   faq,
 }) {
+  // seoDescription idzie tylko do wyniku wyszukiwania. Akapit pod tytulem
+  // zostaje opisem z pliku, czyli tekstem zatwierdzonym przez autora.
   return (
-    <Layout title={seoTitle || title} description={description}>
+    <Layout title={seoTitle || title} description={seoDescription || description}>
       <Head>
         <meta property="og:type" content="article" />
         {date ? <meta property="article:published_time" content={date} /> : null}
@@ -97,28 +101,32 @@ export default function WiedzaArticleTemplate({
 
         <div className={styles.layout}>
           <div>
-            <h1 className={styles.title}>{title}</h1>
-            {description ? <p className={styles.lead}>{description}</p> : null}
-            {date ? (
-              <p className={styles.meta}>
-                <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
-              </p>
-            ) : null}
-            <BlockRenderer blocks={blocks} />
+            <article>
+              <h1 className={styles.title}>{title}</h1>
+              {description ? <p className={styles.lead}>{description}</p> : null}
+              {date ? (
+                <p className={styles.meta}>
+                  <time dateTime={date}>{formatLongDatePl(date)}</time> · Łukasz Cecelon
+                </p>
+              ) : null}
+              <BlockRenderer blocks={blocks} />
 
-            {Array.isArray(faq) && faq.length > 0 ? (
-              <section className={styles.faq}>
-                <h2 className={styles.faqTytul}>Najczęstsze pytania</h2>
-                {faq.map((p) => (
-                  <div key={p.pytanie}>
-                    <h3 className={styles.faqPytanie}>{p.pytanie}</h3>
-                    <p className={styles.faqOdpowiedz}>
-                      <TekstInline tekst={p.odpowiedz} />
-                    </p>
-                  </div>
-                ))}
-              </section>
-            ) : null}
+              {Array.isArray(faq) && faq.length > 0 ? (
+                <section className={styles.faq}>
+                  <h2 className={styles.faqTytul}>Najczęstsze pytania</h2>
+                  {faq.map((p) => (
+                    <div key={p.pytanie}>
+                      <h3 className={styles.faqPytanie}>{p.pytanie}</h3>
+                      <p className={styles.faqOdpowiedz}>
+                        <TekstInline tekst={p.odpowiedz} />
+                      </p>
+                    </div>
+                  ))}
+                </section>
+              ) : null}
+            </article>
+
+            <Powiazane url={permalink} />
 
             {/* Materiał ukazał się najpierw na LinkedIn. Odnośnik do oryginału
                 stoi pod treścią, żeby nie wyprowadzał czytelnika ze strony,

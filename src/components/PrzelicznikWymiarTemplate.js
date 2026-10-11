@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
 import Przelicznik from '@site/src/components/Przelicznik';
+import Powiazane from '@site/src/components/Powiazane';
 import {wymiar as znajdzWymiar, przelicz, formatuj} from '@site/src/lib/jednostki/oblicz';
 import {DEFINICJE} from '@site/src/lib/jednostki/definicje';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
@@ -208,6 +209,8 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
             </div>
           ))}
         </section>
+
+        <Powiazane url={sciezka} />
 
         <section className={styles.sekcja}>
           <h2 className={styles.h2}>Pozostałe wymiary</h2>

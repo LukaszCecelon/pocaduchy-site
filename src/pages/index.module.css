@@ -455,6 +455,56 @@
   margin-top: 4px;
 }
 
+/* TABLICE I KALKULATORY */
+.tablice {
+  padding: 72px 32px 0;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.tabliceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.tablicaKarta {
+  text-decoration: none;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid var(--pc-border);
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tablicaKarta:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--pc-rust);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(43, 47, 76, 0.1);
+}
+.tablicaTytul {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--pc-navy);
+  margin: 0;
+}
+.tabliceLinki {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 22px 0 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+}
+.tabliceLinki a {
+  color: var(--pc-rust);
+}
+
 /* NAJNOWSZY ODCINEK */
 .latest {
   padding: 72px 32px 0;
@@ -634,7 +684,8 @@
   .heroTitle {
     font-size: 40px;
   }
-  .teasersGrid {
+  .teasersGrid,
+  .tabliceGrid {
     grid-template-columns: 1fr;
   }
   .latestCard {
