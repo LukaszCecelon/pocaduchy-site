@@ -41,15 +41,15 @@
       "akapity": [
         "Projektując części frezowane przyzwyczajamy się, że model jest na zero, a różnice zbiera tolerancja. Przy maszynie hybrydowej, gdzie spawana rama styka się z frezowaną płytą, to przyzwyczajenie robi krzywdę.",
         "Zostawiłem 3 mm szpary między elementem a sufitem konstrukcji. Wyszło na styk. Dostawca zrobił środkowy słupek ramy odrobinę dłuższy, więc środek wyszedł wyżej niż narożniki. Trzeba było podłożyć podkładki pod płytę, żeby odzyskać równoległość względem głowicy, a te podkładki zjadły całe 3 mm.",
-        "Uratowała nas przestrzeń zostawiona na spoinę, bo obeszło się bez szlifowania spoiny w gotowej maszynie. Wniosek na przyszłość: przy takim styku 5 albo 6 mm i jest spokój.",
+        "Uratowała nas przestrzeń zostawiona na spoinę, bo obeszło się bez szlifowania spoiny w gotowej maszynie. Lekcja na przyszłość: przy 5 mm coś by jeszcze zostało, przy 6 bylibyśmy na luzie. Tylko że nie lubię maszyn, w których nagle pojawiają się duże prześwity. Spawanie ma większe odchyłki niż frezowanie, więc trzeba znaleźć balans między dociskaniem dostawcy a zapasem w projekcie.",
         "My nie modelujemy spoin w 3D, ale zostawiamy im miejsce wszędzie tam, gdzie występują. Element w środku jest po prostu krótszy, a w narożnikach są wycięcia omijające spoinę."
       ]
     }
   ],
   "wnioski": [
     "Bazę pod hot stamping projektuj od płaszczyzny stempla, nie od detalu. Równoległość wychodzi wtedy z konstrukcji, a nie z pilnowania wymiaru.",
-    "Aluminiowa baza współpracująca z plastikiem po kilku tysiącach cykli zaczyna się wycierać. Anodowanie albo stal przeznaczona do azotowania rozwiązuje temat na starcie.",
-    "Przy styku części spawanych i frezowanych planuj szparę z zapasem. Tolerancje spawania są z innej ligi niż frezowania.",
+    "Na innych maszynach aluminiowe bazy pracujące z plastikiem zaczęły się wycierać po kilku tysiącach cykli. Dlatego tu w planie jest anodowanie aluminium albo stal do azotowania.",
+    "Przy styku części spawanych i frezowanych planuj szparę z zapasem. A Wy: cisnąć dostawcę o większą precyzję czy projektować z większymi szparami?",
     "Generator próżni bliżej odbiornika to mniej spadków na linii niż prowadzenie gotowej próżni przez pół maszyny."
   ],
   "narzedzia": [

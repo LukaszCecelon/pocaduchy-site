@@ -17,7 +17,7 @@
       "akapity": [
         "U mnie automatyk był dostępny dopiero za dwa miesiące. Chciałem wcześniej sprawdzić, czy nie ma kolizji z ramą, czy robot dosięga tam, gdzie trzeba, i zasymulować punkty krytyczne, w których pobiera detal i musi być w konkretnej pozycji.",
         "Jeśli natomiast wiesz, że robot ma pełno miejsca, a chwytak będzie prosty, to raczej przerost formy nad treścią. Wyjątkiem jest sytuacja, gdy pokazujesz klientowi na spotkaniu, jak to sięga i jak wygląda z chwytakiem.",
-        "Kluczowa jest prostota wykonania. Chodzi o to, żeby cyknąć model w dwadzieścia minut, a nie siedzieć nad nim trzy godziny. Stosunek kosztu do efektu musi być korzystny, inaczej cała zabawa traci sens."
+        "Kluczowa jest prostota wykonania. Chodzi o to, żeby cyknąć model w 20 minut i mieć gotowca do projektu, a nie siedzieć nad nim dwie, trzy godziny. Kosztem jest tu czas, więc stosunek czasu do efektu ma być bardzo korzystny."
       ]
     },
     {
@@ -45,8 +45,8 @@
     }
   ],
   "wnioski": [
-    "To nie jest rocket science, tylko kilka funkcji formularza iLogic i parametrów złożenia.",
-    "Zanim zrobisz model ruchomy, sprawdź, czy w tym projekcie odpowiada na realne pytanie. Czasem odpowiada, czasem nie.",
+    "Czy to rocket science? Nie. Kilka funkcji formularza iLogic i parametrów złożenia.",
+    "Czy się opłaca? To zależy. Tu model sprawdzał kolizje z ramą, zasięg i pozycje przy pobieraniu detalu, zanim automatyk był dostępny. Przy robocie z dużą ilością miejsca i prostym chwytakiem to przerost formy nad treścią.",
     "Dodawanie parametru użytkownika do parametru wiązania oszczędza całą matematykę z zakresami.",
     "Zakresy osi bierz z manuala producenta, łącznie z ograniczeniami zależnymi od pozycji innej osi."
   ],

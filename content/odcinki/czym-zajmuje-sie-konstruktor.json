@@ -32,7 +32,7 @@
       "akapity": [
         "Dzięki nim produkty w ogóle trafiają na półki w masowych ilościach. Branże są różne: spożywcza, metalowa, kosmetyczna, farmaceutyczna.",
         "Pierwsze pytanie brzmi zawsze tak samo: jak obsłużyć dany detal. Jak go podawać, orientować, transportować w obrębie urządzenia. Potem dobór napędów, siłowników, czujników, łożysk i sprzęgieł. Na koniec montaż, obsługa i serwis, które mają być wygodne i przede wszystkim bezpieczne.",
-        "To jest obszar, w którym sam się obracam: maszyny montażowe i takie, które obsługują wtryskarki. Nie projektuję rzeczy, które widzicie na półce, tylko maszyny, dzięki którym jest ich tam wystarczająco dużo."
+        "To jest obszar, w którym sam się obracam: maszyny montażowe i takie, które obsługują wtryskarki. Zdarzył mi się też romans z paletyzacją worków. Nie projektuję rzeczy, które widzicie na półce, tylko maszyny, dzięki którym jest ich tam wystarczająco dużo. I to daje mega satysfakcję: zaczynasz od białej kartki, a potem w fabryce klienta widzisz, jak z maszyny spada milionowa zmontowana sztuka."
       ]
     },
     {
@@ -45,9 +45,9 @@
     }
   ],
   "wnioski": [
-    "Praca każdego konstruktora sprowadza się do rozwiązywania problemów, niezależnie od specjalizacji.",
+    "Czasem problem brzmi: chcemy nowy produkt. Czasem: trzeba to produkować szybciej, detal musi trzymać wymiar albo konstrukcja ma latami przenosić duże obciążenia. Rozwiązywanie takich problemów łączy wszystkie specjalizacje.",
     "Drugi wspólny mianownik to podejmowanie decyzji w zbiorze ograniczeń: koszt, termin, materiał, bezpieczeństwo, miejsce, możliwości produkcji.",
-    "Nie ma przycisku zrób tak, żeby było dobrze, choć przełożeni czasem tego oczekują. Tym przyciskiem jest konstruktor.",
+    "Nie ma przycisku „zrób tak, żeby było dobrze”, choć przełożeni często tego wymagają. W sumie konstruktor sam jest takim przyciskiem: w tych ograniczeniach wybiera rozwiązanie i zapisuje decyzję jako model 3D, dokumentację i listę części.",
     "Trzecia wspólna cecha: na końcu przychodzi rzeczywistość i mówi sprawdzam."
   ],
   "narzedzia": [],

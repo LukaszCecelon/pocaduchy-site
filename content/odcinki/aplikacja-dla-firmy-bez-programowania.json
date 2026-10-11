@@ -46,10 +46,10 @@
     }
   ],
   "wnioski": [
-    "Złe pytanie brzmi: czy AI zaprojektuje za mnie maszynę. Dobre: jakie usprawnienie w mojej pracy mogę dzięki niej wprowadzić.",
-    "Kto umie precyzyjnie opisać problem, ma dziś dużą przewagę. Opis problemu jest trudniejszy niż napisanie kodu.",
+    "Konstruktor nie musi się zastanawiać, czy AI zaprojektuje za niego maszynę. Lepsze pytanie: jakie usprawnienie w mojej pracy albo w dziale mogę dziś wprowadzić, a parę lat temu było nie do przeskoczenia.",
+    "Kto umie dobrze opisać problem, ma dużo większe szanse zrobić narzędzie, które go rozwiązuje. Tu na start wystarczyły trzy raporty opisane w kilku zdaniach każdy.",
     "Narzędzie nie musi być produkcyjne ani rozbudowane. Musi wejść do użycia szybko.",
-    "Test u ludzi, którzy naprawdę tego używają, wykrywa więcej niż tydzień poprawiania przy biurku."
+    "Za dużo klikania, brak edycji dodanego zatrzymania, poprawki w PDF: to wyszło dopiero u monterów na uruchomieniu i serwisie. Przy biurku tego nie widać."
   ],
   "narzedzia": [],
   "related": [

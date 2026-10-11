@@ -43,9 +43,8 @@
     }
   ],
   "wnioski": [
-    "Drukarka z górnej półki nie zwalnia z nauki. Dobry produkt w rękach laika działa dobrze dopiero po kalibracji.",
     "Skurcz kalibruje się per filament, nie per drukarka. Zmiana dostawcy oznacza powtórkę z testów.",
-    "Jeśli wydruk ma pracować jako baza albo przymiar, kosmetyczne wady przestają być kosmetyczne."
+    "Gdy wydruk pracuje jako baza, gródka na obrysie to miejsce, w którym detal może się przywiesić. Tu winna była za krótka retrakcja PETG."
   ],
   "narzedzia": [],
   "related": [

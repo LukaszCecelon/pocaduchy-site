@@ -40,10 +40,10 @@
     }
   ],
   "wnioski": [
-    "Mały system wymiany narzędzia to nie tylko mechanika. Jego kanały pneumatyczne potrafią zmienić odczyt czujnika.",
-    "Jeśli czujnik kłamie, przepnij przewód z pominięciem podejrzanego elementu. Diagnostyka na dwie minuty.",
-    "Dołożenie taniego czujnika z nastawą bywa tańsze niż wymiana generatora, zwłaszcza gdy maszyn jest kilka.",
-    "Model ssawki w wersji rozłożonej mówi o skoku więcej niż karta katalogowa."
+    "W małym systemie wymiany narzędzia kanały podciśnienia mają małe przekroje. Spadek na tej linii czujnik generatora odczytał jako złapany detal.",
+    "Jeśli czujnik pokazuje detal, którego nie ma, przepnij przewód z pominięciem podejrzanego elementu. Tu wystarczyło podpiąć chwytak bezpośrednio, bez tool changera.",
+    "Osobny czujnik podciśnienia z nastawą kosztował mniej niż nowy generator, a generatory trzeba by wymienić w trzech maszynach.",
+    "Model ssawki pobierz też w wersji rozłożonej. Widać na nim skok, czyli czy ssawka dociągnie detal do bazy, czy tylko go dotknie."
   ],
   "narzedzia": [
     "/narzedzia/pasowania/"

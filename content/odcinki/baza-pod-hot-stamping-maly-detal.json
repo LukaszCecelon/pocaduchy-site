@@ -45,10 +45,10 @@
     }
   ],
   "wnioski": [
-    "Bazuj na tym, co rysunek klienta faktycznie toleruje. Ładna powierzchnia bez tolerancji to nie jest baza.",
-    "Zapytaj o technologię, zanim uznasz bazowanie za zamknięte. Promień freza potrafi zabrać cały kierunek.",
-    "Wydruk 3D prototypu bazy kosztuje kilka godzin i wyłapuje rzeczy, których model nie pokaże.",
-    "Każda dziwna powierzchnia na gotowej bazie ma swój powód. Widać go dopiero, gdy przejdzie się cały proces."
+    "Bazuj na tym, co rysunek klienta faktycznie toleruje. Tu odpadły otworki i wieżyczki, bo ich rozstaw nie miał tolerancji. Zostały klipsy, których rozstaw jest wymiarem teoretycznie idealnym.",
+    "Zapytaj frezera, zanim uznasz bazowanie za zamknięte. Tu ulżenia i promienie pod frez 3 mm zabrały pozycjonowanie przód-tył.",
+    "Dopiero wydrukowany prototyp pokazał, że detal przechyla się przy nacisku z boku, bo podparcie było za skromne.",
+    "Ktoś spojrzy na gotową bazę i zapyta, po co tyle frezowania dziwnych powierzchni. Każda ma swój powód, a ich wymyślenie, wydruki i testy zajęły dobrych parę dni."
   ],
   "narzedzia": [
     "/narzedzia/pasowania/"
