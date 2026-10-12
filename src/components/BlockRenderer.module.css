@@ -715,3 +715,81 @@
   font-weight: 700 !important;
   text-align: left !important;
 }
+
+/* ---------- tablice rowkow pod O-ringi ---------- */
+
+/* Podstawa: wartosci nie zawijaja sie, a naglowki tak. Dwupoziomowy naglowek
+   z "statycznie" i "dynamicznie" nie moze rozpychac kolumn do szerokosci
+   najdluzszego slowa w jednej linii. */
+.tabelaPierscieniWrap .tabelaOringow {
+  min-width: 0;
+}
+
+.tabelaOringow thead th {
+  white-space: normal;
+  line-height: 1.3;
+  text-align: center;
+  /* Bez wersalikow: d2, b1, mm i µm to symbole, wielka litera zmienia ich
+     sens (D2 to nie d2), a µ po zamianie na wersalik staje sie grecka Μ. */
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.tabelaOringow caption {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.tabelaOringow thead tr:first-child th {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Dziewiec kolumn albo pieciokrotne "T / C / P" nie miesci sie na telefonie.
+   Przewija sie tabela, a pierwsza kolumna (przekroj d2) zostaje na miejscu,
+   zeby przy przesunieciu bylo wiadomo, do ktorego O-ringa naleza liczby. */
+.tabelaPierscieniWrap .oringSzeroka {
+  min-width: 700px;
+}
+
+.oringSzeroka th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 1px solid var(--pc-border);
+}
+
+.oringSzeroka tbody th:first-child {
+  background: #ffffff;
+}
+
+/* Chropowatosc: w komorce stoi "Ra 0,4, Rz 1,6", a nazwa powierzchni jest
+   dluga. Zawijamy jedno i drugie, a spacja nierozdzielna miedzy parametrem
+   i liczba trzyma je razem. */
+.oringZwijana tbody th[scope='row'],
+.oringZwijana tbody td {
+  white-space: normal;
+}
+
+.oringZwijana tbody th[scope='row'] {
+  hyphens: auto;
+}
+
+.oringZwijana tbody td {
+  text-align: left;
+}
+
+@media (max-width: 560px) {
+  .tabelaOringow {
+    font-size: 13px;
+  }
+
+  .tabelaOringow th,
+  .tabelaOringow td {
+    padding: 6px 8px;
+  }
+
+  .tabelaOringow thead th {
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+}

@@ -462,9 +462,9 @@ function gniazdo(we) {
   }
   const ra = (nazwa) => dane.chropowatosc.wiersze.find((w) => w.powierzchnia === nazwa).T;
   wynik.chropowatosc = {
-    wspolpracujaca: ra(ruch === "dyn" ? "Powierzchnia wspolpracujaca, dynamicznie" : "Powierzchnia wspolpracujaca, statycznie"),
+    wspolpracujaca: ra(ruch === "dyn" ? "Powierzchnia współpracująca, dynamicznie" : "Powierzchnia współpracująca, statycznie"),
     rowek: ra("Dno i boki rowka"),
-    fazowanie: czolowy ? null : ra("Fazowanie wejsciowe"),
+    fazowanie: czolowy ? null : ra("Fazowanie wejściowe"),
   };
   return wynik;
 }

@@ -104,12 +104,12 @@
   "chropowatosc": {
     "_opis": "Ra / Rz w um, wartosci najwieksze. Parker tab. 2.2 (uszczelnienie spoczynkowe, promieniowe): dno i boki rowka Ra 3,2 / Rmax 12,5 bez pulsacji, Ra 1,6 / Rmax 6,3 z pulsacja; fazowanie Ra 3,2.",
     "wiersze": [
-      { "powierzchnia": "Powierzchnia wspolpracujaca, dynamicznie", "T": { "Ra": 0.4, "Rz": 1.6 }, "C": { "Ra": 0.4, "Rz": 1.6 }, "P": { "Ra": 0.4 } },
-      { "powierzchnia": "Powierzchnia wspolpracujaca, statycznie", "T": { "Ra": 1.6, "Rz": 6.3 }, "C": { "Ra": 1.6, "Rz": 6.3 }, "P": { "Ra": 1.6 } },
-      { "powierzchnia": "Powierzchnia wspolpracujaca, statycznie z pulsacja cisnienia", "P": { "Ra": 0.8 } },
+      { "powierzchnia": "Powierzchnia współpracująca, dynamicznie", "T": { "Ra": 0.4, "Rz": 1.6 }, "C": { "Ra": 0.4, "Rz": 1.6 }, "P": { "Ra": 0.4 } },
+      { "powierzchnia": "Powierzchnia współpracująca, statycznie", "T": { "Ra": 1.6, "Rz": 6.3 }, "C": { "Ra": 1.6, "Rz": 6.3 }, "P": { "Ra": 1.6 } },
+      { "powierzchnia": "Powierzchnia współpracująca, statycznie z pulsacją ciśnienia", "P": { "Ra": 0.8 } },
       { "powierzchnia": "Dno i boki rowka", "T": { "Ra": 1.6, "Rz": 6.3 }, "C": { "Ra": 1.6, "Rz": 6.3 }, "P": { "Ra": 3.2 } },
-      { "powierzchnia": "Dno i boki rowka, z pulsacja cisnienia", "P": { "Ra": 1.6 } },
-      { "powierzchnia": "Fazowanie wejsciowe", "T": { "Ra": 0.8, "Rz": 6.3 } }
+      { "powierzchnia": "Dno i boki rowka, z pulsacją ciśnienia", "P": { "Ra": 1.6 } },
+      { "powierzchnia": "Fazowanie wejściowe", "T": { "Ra": 0.8, "Rz": 6.3 } }
     ],
     "uwagi": "T: powierzchnia dynamiczna szlifowana bez skretu; dno i boki rowka statycznie dopuszcza Rz 10. C: udzial nosny Rmr 50-70%."
   },

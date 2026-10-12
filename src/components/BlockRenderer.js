@@ -12,6 +12,7 @@ import WidokOtwor from '@site/src/components/pierscienie/widok-otwor.svg';
 import pozycje from '@site/src/components/pierscienie/pozycje.json';
 import {GWINTY, DLUGOSC_GWINTU, dlugoscGwintu} from '@site/src/lib/gwinty/dane';
 import {GRUPY as GRUPY_CHR, procesyGrupy, pelnaNazwa} from '@site/src/lib/chropowatosc/dane';
+import {dane as oringi, wierszePrzekrojow, fazowaniePrzyjete} from '@site/src/lib/oringi/oblicz';
 import styles from './BlockRenderer.module.css';
 
 const ALIGN_CLASS = {
@@ -639,6 +640,247 @@ function TabelaChropowatosciBlock({podpis}) {
   );
 }
 
+/**
+ * Tablice rowkow pod O-ringi, liczone z src/lib/oringi/dane.json: tego
+ * samego pliku, z ktorego czyta kalkulator i generator Worda. Kolumny
+ * i podzial na tablice sa takie same jak w Wordzie, ktory akceptuje Lukasz
+ * (scripts/eksport-do-word.py, tabela_oringow), wiec odeslane poprawki liczb
+ * ida do jednego miejsca.
+ */
+
+// Wymiary rowkow pisze sie na rysunku z ta sama liczba miejsc: 2,00, a nie 2.
+// pl() obcina zera, co przy glebokosci gniazda wygladaloby jak blad odczytu.
+function stale(x, miejsca = 2) {
+  if (x === null || x === undefined) return '–';
+  if (Array.isArray(x)) return x.map((v) => stale(v, miejsca)).join('-');
+  return x.toFixed(miejsca).replace('.', ',');
+}
+
+const sciskTekst = (d2, t) => (t === null ? '–' : `${stale(((d2 - t) / d2) * 100, 1)}%`);
+
+// Kolejnosc producentow w komorkach porownania: Trelleborg, COG, Parker.
+const PRODUCENCI = ['T', 'C', 'P'];
+
+function specTablicyOringow(wariant) {
+  const tol = oringi.przekroje.tolerancje;
+  const wiersze = wierszePrzekrojow();
+  const h = (t, opcje = {}) => ({t, ...opcje});
+
+  if (wariant === 'promieniowy') {
+    return {
+      tytul: 'Rowek promieniowy: głębokość, szerokość i ścisk',
+      szeroka: true,
+      kolumny: 9,
+      naglowek: [
+        [
+          h('d2 [mm]', {rs: 2}),
+          h('ISO 3601-1 [mm]', {rs: 2}),
+          h('tol. d2 [mm]', {rs: 2}),
+          h('statycznie', {cs: 2}),
+          h('dynamicznie', {cs: 2}),
+          h(`b1 (${tol.b1}) [mm]`, {rs: 2}),
+          h('r [mm]', {rs: 2}),
+        ],
+        [h('t [mm]'), h('ścisk'), h('t [mm]'), h('ścisk')],
+      ],
+      grupy: [
+        {
+          wiersze: wiersze.map((r) => [
+            stale(r.d2),
+            stale(r.iso),
+            r.tolD2 === null ? '–' : `±${stale(r.tolD2)}`,
+            stale(r.tStat),
+            sciskTekst(r.d2, r.tStat),
+            stale(r.tDyn),
+            sciskTekst(r.d2, r.tDyn),
+            stale(r.b1),
+            stale(r.r, 1),
+          ]),
+        },
+      ],
+      podpis:
+        'Źródło: Trelleborg, rozdział B.2.7, tolerancje przekroju d2 według ISO 3601-1, klasa B (tab. 26). Wymiary w milimetrach. t to głębokość od dna rowka do powierzchni współpracującej, razem ze szczeliną, b1 szerokość rowka, r promień dna. Ścisk policzony z nominałów jako (d2 - t) / d2, bez rozciągnięcia i bez pęcznienia. Kolumna ISO 3601-1 to metryczny odpowiednik przekroju, jeśli istnieje.',
+    };
+  }
+
+  if (wariant === 'czolowy') {
+    return {
+      tytul: 'Rowek czołowy: głębokość, szerokość i ścisk',
+      kolumny: 5,
+      naglowek: [
+        [
+          h('d2 [mm]'),
+          h(`h (${tol.h}) [mm]`),
+          h('ścisk'),
+          h(`b4 (${tol.b4}) [mm]`),
+          h('r [mm]'),
+        ],
+      ],
+      grupy: [
+        {
+          wiersze: wiersze.map((r) => [
+            stale(r.d2),
+            stale(r.h),
+            sciskTekst(r.d2, r.h),
+            stale(r.b4),
+            stale(r.r, 1),
+          ]),
+        },
+      ],
+      podpis:
+        'Źródło: Trelleborg, rozdział B.2.7. Wymiary w milimetrach. h to głębokość rowka, taka sama jak statyczne t w rowku promieniowym, b4 szerokość rowka, r promień dna. Ścisk policzony z nominałów jako (d2 - h) / d2.',
+    };
+  }
+
+  if (wariant === 'porownanie') {
+    const pola = [
+      ['tStat', 't stat.'],
+      ['tDyn', 't dyn. hydr.'],
+      ['b1', 'b1'],
+      ['h', 'h'],
+      ['b4', 'b4'],
+    ];
+    const zrodla = Object.values(oringi.zrodla)
+      .map((z) => `${z.nazwa}: ${z.dokument}`)
+      .join('. ');
+    return {
+      tytul: 'Pięć przekrojów, trzy katalogi',
+      szeroka: true,
+      kolumny: pola.length + 1,
+      naglowek: [
+        [h('d2 [mm]', {rs: 2}), ...pola.map(([, nazwa]) => h(`${nazwa} [mm]`))],
+        pola.map(() => h('T / C / P')),
+      ],
+      grupy: [
+        {
+          wiersze: oringi.porownanie.wiersze.map((r) => [
+            stale(r.d2),
+            ...pola.map(([klucz]) => PRODUCENCI.map((z) => stale(r[klucz][z])).join(' / ')),
+          ]),
+        },
+      ],
+      podpis: `W każdej komórce trzy wartości w kolejności: T Trelleborg, C COG, P Parker. Tam, gdzie producent podaje zakres, jest zapis od-do. Wymiary w milimetrach. t dyn. hydr. to uszczelnienie dynamiczne w hydraulice. Źródła. ${zrodla}.`,
+    };
+  }
+
+  if (wariant === 'szczelina') {
+    const s = oringi.szczelina;
+    return {
+      tytul: 'Największa dopuszczalna szczelina promieniowa S [mm]',
+      kolumny: s.zakresyD2.length + 1,
+      naglowek: [
+        [h('ciśnienie do', {rs: 2}), h('przekrój d2 [mm]', {cs: s.zakresyD2.length})],
+        s.zakresyD2.map((z) => h(z)),
+      ],
+      grupy: ['70', '90'].map((tw) => ({
+        nazwa: `Twardość ${tw} Sh A`,
+        wiersze: s[tw].map((r) => [`${pl(r.mpa)} MPa`, ...r.s.map((v) => stale(v))]),
+      })),
+      podpis:
+        'Źródło: Trelleborg, tab. 17. Największa dopuszczalna szczelina promieniowa S w milimetrach, dla elementów współosiowych, bez rozszerzania się detalu pod ciśnieniem. Kolumny to zakresy przekroju d2 w milimetrach.',
+    };
+  }
+
+  if (wariant === 'chropowatosc') {
+    const komorka = (v) =>
+      v
+        ? Object.entries(v)
+            .map(([parametr, x]) => `${parametr} ${stale(x, 1)}`)
+            .join(', ')
+        : '–';
+    return {
+      tytul: 'Chropowatość powierzchni, wartości najwyższe [µm]',
+      zwijana: true,
+      kolumny: 4,
+      naglowek: [[h('Powierzchnia'), h('Trelleborg'), h('COG'), h('Parker')]],
+      grupy: [
+        {
+          wiersze: oringi.chropowatosc.wiersze.map((r) => [
+            r.powierzchnia,
+            komorka(r.T),
+            komorka(r.C),
+            komorka(r.P),
+          ]),
+        },
+      ],
+      podpis:
+        'Wartości najwyższe dopuszczalne, w mikrometrach. Trelleborg i COG podają Ra i Rz, Parker tylko Ra. Kreska znaczy, że producent tej pozycji nie podaje.',
+    };
+  }
+
+  if (wariant === 'fazowanie') {
+    return {
+      tytul: 'Fazowanie wejściowe: najmniejsza długość fazy z',
+      kolumny: 3,
+      naglowek: [[h('przekrój d2 [mm]'), h('z przy 15° [mm]'), h('z przy 20° [mm]')]],
+      grupy: [
+        {
+          wiersze: fazowaniePrzyjete().map((r) => [
+            r.d2Do === null ? 'ponad 7,00' : `do ${stale(r.d2Do)}`,
+            stale(r.z15, 1),
+            stale(r.z20, 1),
+          ]),
+        },
+      ],
+      podpis:
+        'Źródło: Trelleborg, tab. 15. Najmniejsza długość fazy z w milimetrach, zależna od kąta fazy (15° albo 20°) i od przekroju O-ringa d2. Przedział przekroju kończy się na podanej wartości.',
+    };
+  }
+
+  return null;
+}
+
+function TabelaOringowBlock({wariant, podpis}) {
+  const spec = specTablicyOringow(wariant);
+  // Literowka w wariancie ma zatrzymac build, a nie po cichu zgubic tablice.
+  if (!spec) throw new Error(`tabelaOringow: nieznany wariant "${wariant}"`);
+
+  const klasy = [styles.tabelaOringow];
+  if (spec.szeroka) klasy.push(styles.oringSzeroka);
+  if (spec.zwijana) klasy.push(styles.oringZwijana);
+
+  return (
+    <figure className={styles.tabelaPierscieni}>
+      <div className={styles.tabelaPierscieniWrap}>
+        <table className={klasy.join(' ')}>
+          <caption className={styles.tabelaPierscieniCaption}>{spec.tytul}</caption>
+          <thead>
+            {spec.naglowek.map((rzad, i) => (
+              <tr key={i}>
+                {rzad.map((kol, j) => (
+                  <th key={j} scope="col" rowSpan={kol.rs} colSpan={kol.cs}>
+                    {kol.t}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          {spec.grupy.map((g, gi) => (
+            <tbody key={gi}>
+              {g.nazwa ? (
+                <tr>
+                  <th scope="colgroup" colSpan={spec.kolumny} className={styles.grupaChropowatosci}>
+                    {g.nazwa}
+                  </th>
+                </tr>
+              ) : null}
+              {g.wiersze.map((w, i) => (
+                <tr key={i}>
+                  <th scope="row">{w[0]}</th>
+                  {w.slice(1).map((kom, j) => (
+                    <td key={j}>{kom}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          ))}
+        </table>
+      </div>
+      <figcaption className={styles.tabelaPierscieniPodpis}>{podpis || spec.podpis}</figcaption>
+    </figure>
+  );
+}
+
 const BLOCK_COMPONENTS = {
   tekst: TekstBlock,
   obraz: ObrazBlock,
@@ -651,6 +893,7 @@ const BLOCK_COMPONENTS = {
   tabelaPierscieni: TabelaPierscieniBlock,
   tabelaGwintow: TabelaGwintowBlock,
   tabelaChropowatosci: TabelaChropowatosciBlock,
+  tabelaOringow: TabelaOringowBlock,
 };
 
 // Renderuje artykuł z CMS-a: tablica bloków (tekst/obraz/galeria/tabela/wzor)
