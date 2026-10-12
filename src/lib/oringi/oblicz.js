@@ -191,8 +191,10 @@ function podpowiedzOringi(d2, zakres) {
   return kandydaci.sort((a, b) => odl(a) - odl(b)).slice(0, 3).map((k) => ({ ...k, wZakresie: false }));
 }
 
+// Szczegoly ida pierwsze: przy BRAK_ORINGA to czesciowy wynik z ok: true,
+// ktory nie moze nadpisac flagi bledu.
 function blad(kod, szczegoly) {
-  return { ok: false, blad: kod, ...szczegoly };
+  return { ...szczegoly, ok: false, blad: kod };
 }
 
 // Gniazdo pod O-ring z tolerancjami. Wejscie:
