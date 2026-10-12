@@ -15,11 +15,13 @@ function sciskProc(d2, t) {
 }
 
 // Spadek przekroju d2 po rozciagnieciu srednicy wewnetrznej o S %,
-// wzor Trelleborga (dwa zakresy). Zwraca R w %.
+// wzor Trelleborga (dwa zakresy). Zwraca R w %. Granica jak w artykule:
+// ponizej 3% wzor dolny, od 3% gorny (na samej granicy roznia sie o 0,001).
+// Bez rozciagniecia zwraca 0, choc dolny wzor dalby 0,01.
 function spadekPrzekroju(rozciagnieciePro) {
   const s = rozciagnieciePro;
   if (s <= 0) return 0;
-  if (s <= 3) return 0.01 + 1.06 * s - 0.1 * s * s;
+  if (s < 3) return 0.01 + 1.06 * s - 0.1 * s * s;
   if (s <= 25) return 0.56 + 0.59 * s - 0.0046 * s * s;
   return null;
 }
@@ -30,12 +32,15 @@ function rozciagnieciePro(d1, d3) {
 }
 
 // Scisk graniczny w gniezdzie z tolerancjami. tMin/tMax to skrajne
-// glebokosci gniazda z tolerancji srednic, spadek to R w %.
-function sciskGraniczny({ d2, tMin, tMax, spadek = 0 }) {
+// glebokosci gniazda z tolerancji srednic, spadek to R w %. Osobny spadek
+// dla kazdej granicy, bo najglebsze gniazdo (najmniejsze dno rowka) daje
+// tez najmniejsze rozciagniecie. Brak danych (przekroj poza tablica
+// tolerancji, rozciagniecie ponad 25%) zwraca null, a nie zero.
+function sciskGraniczny({ d2, tMin, tMax, spadek = 0, spadekMin = spadek, spadekMax = spadek }) {
   const tol = tolerancjaD2(d2);
-  const k = 1 - spadek / 100;
-  const d2Min = (d2 - tol) * k;
-  const d2Max = (d2 + tol) * k;
+  if (tol == null || spadekMin == null || spadekMax == null) return null;
+  const d2Min = (d2 - tol) * (1 - spadekMin / 100);
+  const d2Max = (d2 + tol) * (1 - spadekMax / 100);
   return {
     min: sciskProc(d2Min, tMax),
     max: sciskProc(d2Max, tMin),

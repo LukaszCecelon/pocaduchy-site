@@ -23,7 +23,7 @@
   "przekroje": {
     "_opis": "Trelleborg tab. 23 i tab. 15. t = promieniowa glebokosc gniazda od dna rowka do powierzchni wspolpracujacej (ze szczelina). h = glebokosc rowka czolowego, rowna tStat. b1 = szerokosc rowka promieniowego, b4 = szerokosc rowka czolowego, r = promien dna. Wartosci t dla nominalnego d2, bez wplywu rozciagniecia O-ringa. Przy pierscieniu oporowym r = 0,25 +-0,2. iso = odpowiednik metryczny z szeregu zalecanego ISO 3601-1.",
     "zrodlo": "T",
-    "tolerancje": { "b1": "+0,25", "h": "+0,1", "b4": "+0,2", "r": "+-0,2" },
+    "tolerancje": { "b1": "+0,25", "h": "+0,1", "b4": "+0,2", "r": "+-0,2", "otwor": "H8", "dnoRowkaNaWalku": "h9 (T tab. 74 i nastepne, tez P; C: h11)" },
     "wiersze": [
       { "d2": 1.00, "tDyn": null, "tStat": 0.70, "b1": 1.40, "b4": 1.40, "r": 0.2 },
       { "d2": 1.50, "tDyn": 1.25, "tStat": 1.10, "b1": 2.00, "b4": 2.10, "r": 0.3 },
@@ -45,7 +45,14 @@
     ]
   },
   "porownanie": {
-    "_opis": "Piec przekrojow zalecanych, trzech producentow. Pary [od, do] tam, gdzie producent podaje zakres.",
+    "_opis": "Piec przekrojow zalecanych, trzech producentow. Pary [od, do] tam, gdzie producent podaje zakres. tDyn Parkera to hydraulika; pneumatyke Parker podaje osobno (parkerPneumatyka). Tolerancje szerokosci: T b1 +0,25, C b +0,25, P b +0,20.",
+    "parkerPneumatyka": [
+      { "d2": 1.78, "tDyn": 1.55, "b": 2.30 },
+      { "d2": 2.62, "tDyn": 2.35, "b": 3.10 },
+      { "d2": 3.53, "tDyn": 3.15, "b": 4.20 },
+      { "d2": 5.33, "tDyn": 4.85, "b": 6.40 },
+      { "d2": 6.99, "tDyn": 6.40, "b": 8.40 }
+    ],
     "wiersze": [
       { "d2": 1.78, "tStat": { "T": 1.30, "C": 1.30, "P": 1.40 }, "tDyn": { "T": 1.45, "C": 1.40, "P": 1.45 }, "b1": { "T": 2.40, "C": 2.53, "P": 2.40 }, "h": { "T": 1.30, "C": 1.30, "P": 1.30 }, "b4": { "T": 2.60, "C": 3.20, "P": 2.40 } },
       { "d2": 2.62, "tStat": { "T": 2.00, "C": 2.00, "P": 2.10 }, "tDyn": { "T": 2.25, "C": 2.10, "P": 2.20 }, "b1": { "T": 3.60, "C": 3.51, "P": 3.60 }, "h": { "T": 2.00, "C": 2.00, "P": 2.10 }, "b4": { "T": 3.80, "C": 4.00, "P": 3.60 } },
@@ -55,7 +62,7 @@
     ]
   },
   "tolerancjaD2": {
-    "_opis": "ISO 3601-1 klasa B, za Trelleborg tab. 26. Przedzial (od, do], odchylka +-.",
+    "_opis": "ISO 3601-1 klasa B, za Trelleborg tab. 26. Odchylka +-. Zrodlo zapisuje przedzialy lacznikami (0,80-2,25, 2,25-3,15...); domkniecie (od, do] przyjelismy sami: punkt styku nalezy do nizszego przedzialu, d2 = 0,80 poza tablica (najmniejszy przekroj w danych to 1,00).",
     "zrodlo": "T",
     "przedzialy": [
       [0.80, 2.25, 0.08],
@@ -71,7 +78,8 @@
     "T": { "promieniowyDyn": [6, 27], "promieniowyStat": [10, 35], "osiowyStat": [13, 36], "uwaga": "Zakresy z wykresow, zalezne od d2." },
     "C": { "stat": [15, 30], "dyn": [6, 20] },
     "P": { "hydraulikaDynSrednio": [10, 15], "hydraulikaDynMin": 8, "pneumatykaMin": [4, 7], "wzor": "(d2min - tmax) / d2min" },
-    "wypelnienieMax": 85
+    "wypelnienieMax": 85,
+    "wypelnienieMaxZrodla": ["T", "C"]
   },
   "szczelina": {
     "_opis": "Trelleborg tab. 17. Najwieksza dopuszczalna szczelina promieniowa S w mm, elementy wspolosiowe, bez rozszerzania pod cisnieniem. Kolumny: zakresy d2.",
@@ -94,7 +102,7 @@
     "silikon": "szczelina o 50% mniejsza (P)"
   },
   "chropowatosc": {
-    "_opis": "Ra / Rz w um, wartosci najwieksze.",
+    "_opis": "Ra / Rz w um, wartosci najwieksze. Parker tab. 2.2 (uszczelnienie spoczynkowe, promieniowe): dno i boki rowka Ra 3,2 / Rmax 12,5 bez pulsacji, Ra 1,6 / Rmax 6,3 z pulsacja; fazowanie Ra 3,2.",
     "wiersze": [
       { "powierzchnia": "Powierzchnia wspolpracujaca, dynamicznie", "T": { "Ra": 0.4, "Rz": 1.6 }, "C": { "Ra": 0.4, "Rz": 1.6 }, "P": { "Ra": 0.4 } },
       { "powierzchnia": "Powierzchnia wspolpracujaca, statycznie", "T": { "Ra": 1.6, "Rz": 6.3 }, "C": { "Ra": 1.6, "Rz": 6.3 }, "P": { "Ra": 1.6 } },
