@@ -33,3 +33,6 @@ yarn-error.log*
 # Katalog zostaje lokalnie, do gita trafiaja tylko wnioski w analizy/.
 dane/search-console/*
 !dane/search-console/CZYTAJ-TO.md
+
+# Cache Pythona ze skryptow w scripts/
+__pycache__/
