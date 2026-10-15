@@ -539,7 +539,7 @@ function Teasers() {
       n: '03',
       eyebrow: 'WSPÓŁPRACA',
       title: 'Usługi',
-      body: 'Projektowanie konstrukcji, druk 3D i konsultacje dla firm produkcyjnych oraz biur konstrukcyjnych.',
+      body: 'Projektowanie maszyn i stanowisk zrobotyzowanych. Wykonam też maszyny od A do Z, z dostawą.',
       cta: 'Zobacz zakres →',
       href: '/uslugi',
     },

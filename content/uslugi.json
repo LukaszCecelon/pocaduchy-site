@@ -1,40 +1,41 @@
 {
   "_opis": "Wszystkie teksty zakladki /uslugi. Edytujesz tutaj, nie w kodzie.",
   "meta": {
-    "tytul": "Projektowanie maszyn i druk 3D",
-    "opis": "Projektowanie konstrukcji maszyn w 3D, dokumentacja wykonawcza, druk 3D prototypów i audyty pracy działów konstrukcyjnych."
+    "tytul": "Projektowanie maszyn i stanowisk zrobotyzowanych",
+    "opis": "Projektowanie maszyn, urządzeń i stanowisk zrobotyzowanych w Inventorze, dokumentacja wykonawcza, wykonanie maszyny od A do Z z dostawą."
   },
   "hero": {
     "eyebrow": "Usługi",
     "naglowek": "Współpraca przy projektach maszyn",
-    "lead": "Projektowanie, prototypowanie i konsultacje dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych. Pracuję zarówno przy pojedynczych podzespołach, jak i przy całych urządzeniach: od koncepcji po dokumentację i uruchomienie."
+    "lead": "Projektuję maszyny, urządzenia i stanowiska zrobotyzowane dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych. Od pojedynczego podzespołu po całe urządzenie. Mogę też wykonać maszynę od A do Z i dostarczyć ją na miejsce. Każde takie zlecenie oceniam indywidualnie.",
+    "przycisk": "Opisz swój projekt"
   },
   "services": [
     {
-      "title": "Projektowanie",
-      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D – Autodesk Inventor, Fusion 360 oraz SOLIDWORKS",
+      "title": "Projektowanie maszyn i stanowisk",
+      "body": "Maszyny, urządzenia i stanowiska zrobotyzowane w 3D: Autodesk Inventor, Fusion 360 oraz SOLIDWORKS.",
       "items": [
-        "Modelowanie 3D i złożenia",
-        "Dokumentacja wykonawcza",
-        "Dobór materiałów i tolerancji"
+        "Koncepcja i układ",
+        "Model 3D i złożenia",
+        "Dokumentacja wykonawcza"
       ]
     },
     {
-      "title": "Druk 3D",
-      "body": "Wydruki prototypów i elementów funkcjonalnych - sprawdzenie geometrii i montażu przed produkcją seryjną.",
+      "title": "Maszyna od A do Z",
+      "body": "Małą maszynę albo stanowisko wykonam w całości: projekt, części, montaż i dostawa do Ciebie.",
+      "items": [
+        "Projekt i dokumentacja",
+        "Wykonanie części i montaż",
+        "Dostawa na miejsce"
+      ]
+    },
+    {
+      "title": "Druk 3D i konsultacje",
+      "body": "Prototypy z druku 3D do sprawdzenia geometrii i montażu oraz konsultacje dla biur konstrukcyjnych: standardy i procesy.",
       "items": [
         "Prototypy funkcjonalne",
         "Elementy jednostkowe",
-        "Dobór technologii i materiału"
-      ]
-    },
-    {
-      "title": "Konsultacje i audyty",
-      "body": "Konsultacje dotyczące optymalizacji i uporządkowania pracy biur konstrukcyjnych. Standaryzacja, procesy i workflow",
-      "items": [
-        "Audyt standardów i procesów",
-        "Pomoc w usprawnieniu organizacji pracy",
-        "Wsparcie we wdrożeniu"
+        "Audyt standardów i procesów"
       ]
     }
   ],
@@ -71,6 +72,10 @@
       "odpowiedz": "Dla firm produkcyjnych, integratorów automatyki i biur konstrukcyjnych, które potrzebują dołożyć moce projektowe do konkretnego tematu albo potrzebują drugiej pary oczu przy dokumentacji. Pracuję zarówno przy pojedynczych podzespołach, jak i przy całych urządzeniach."
     },
     {
+      "pytanie": "Gdzie pracujesz?",
+      "odpowiedz": "Projektuję zdalnie dla firm z całej Polski. Na pomiary, montaż i odbiory dojeżdżam."
+    },
+    {
       "pytanie": "W jakim oprogramowaniu pracujesz?",
       "odpowiedz": "Autodesk Inventor, Fusion 360 oraz SOLIDWORKS. Dokumentację przekazuję w formatach uzgodnionych na starcie, łącznie z neutralnymi (STEP, PDF), żeby dało się z niej korzystać niezależnie od Waszego systemu CAD."
     },
@@ -89,7 +94,45 @@
   ],
   "cta": {
     "naglowek": "Masz projekt do skonsultowania?",
-    "tresc": "Napisz, co potrzebujesz zaprojektować. Odpowiadam konkretnie: czy się tego podejmę, w jakim terminie i za ile.",
-    "przycisk": "Napisz w sprawie projektu"
+    "tresc": "Napisz, co potrzebujesz zaprojektować. Idealnie jeśli podasz:",
+    "przycisk": "Napisz w sprawie projektu",
+    "podpowiedzi": [
+      "co urządzenie ma robić i z jakim detalem (wymiary, masa, wydajność),",
+      "co już jest: szkic, model, layout linii, zdjęcia stanowiska,",
+      "termin i czy chodzi o sam projekt, czy o wykonanie maszyny."
+    ],
+    "mail": {
+      "temat": "Zapytanie: projekt maszyny lub stanowiska",
+      "tresc": [
+        "Co urządzenie ma robić:",
+        "Detal (wymiary, masa, wydajność):",
+        "Co już mamy (szkic, model, layout, zdjęcia):",
+        "Zakres: sam projekt / projekt z wykonaniem",
+        "Termin:",
+        "Lokalizacja:"
+      ]
+    }
+  },
+  "przebieg": {
+    "naglowek": "Jak wygląda współpraca?",
+    "lead": "",
+    "kroki": [
+      {
+        "krok": "Zapytanie",
+        "tresc": "Piszesz, co urządzenie ma robić, z jakim detalem i na kiedy."
+      },
+      {
+        "krok": "Ustalenie zakresu",
+        "tresc": "Zbieramy wymagania i dane wejściowe: detal, wydajność, layout, to, co już jest. Na tej podstawie podaję termin i cenę."
+      },
+      {
+        "krok": "Projekt wykonujemy etapami",
+        "tresc": "Najpierw koncepcja, potem szczegółowy model 3D, dokumentacja i wsparcie przy montażu."
+      },
+      {
+        "krok": "Przekazanie",
+        "tresc": "Dokumentacja w formatach uzgodnionych na starcie. Przy maszynie od A do Z: wykonanie, montaż i dostawa."
+      }
+    ]
   }
 }

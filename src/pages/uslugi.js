@@ -133,7 +133,7 @@ export default function Uslugi() {
         {przebieg?.kroki?.length ? (
           <section className={styles.sekcja}>
             <h2 className={styles.h2}>{przebieg.naglowek}</h2>
-            <p className={styles.sekcjaLead}>{przebieg.lead}</p>
+            {przebieg.lead ? <p className={styles.sekcjaLead}>{przebieg.lead}</p> : null}
             <ol className={styles.kroki}>
               {przebieg.kroki.map((k, i) => (
                 <li key={k.krok} className={styles.krok}>
