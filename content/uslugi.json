@@ -12,7 +12,7 @@
   "services": [
     {
       "title": "Projektowanie",
-      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D – Autodesk, Fusion 360 oraz Solidworks",
+      "body": "Projektowanie konstrukcji maszyn i elementów maszynowych w 3D – Autodesk Inventor, Fusion 360 oraz SOLIDWORKS",
       "items": [
         "Modelowanie 3D i złożenia",
         "Dokumentacja wykonawcza",
@@ -72,7 +72,7 @@
     },
     {
       "pytanie": "W jakim oprogramowaniu pracujesz?",
-      "odpowiedz": "Autodesk, Fusion 360 oraz Solidworks. Dokumentację przekazuję w formatach uzgodnionych na starcie, łącznie z neutralnymi (STEP, PDF), żeby dało się z niej korzystać niezależnie od Waszego systemu CAD."
+      "odpowiedz": "Autodesk Inventor, Fusion 360 oraz SOLIDWORKS. Dokumentację przekazuję w formatach uzgodnionych na starcie, łącznie z neutralnymi (STEP, PDF), żeby dało się z niej korzystać niezależnie od Waszego systemu CAD."
     },
     {
       "pytanie": "Ile trwa zaprojektowanie urządzenia?",
