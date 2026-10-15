@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import BlockRenderer from './BlockRenderer';
 import Powiazane from './Powiazane';
+import PasekWspolpracy from './PasekWspolpracy';
 import TekstInline, {bezZnacznikow} from './TekstInline';
 import {SITE_URL, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
 import styles from './WiedzaArticleTemplate.module.css';
@@ -139,6 +140,8 @@ export default function WiedzaArticleTemplate({
                 </a>
               </p>
             ) : null}
+
+            <PasekWspolpracy miejsce="wiedza" />
           </div>
 
           <div className={`${styles.sidebar} pc-cut-card`}>

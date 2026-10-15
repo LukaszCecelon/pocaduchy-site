@@ -96,6 +96,48 @@
   background: var(--pc-rust);
   padding: 56px 32px;
   text-align: center;
+  /* przycisk z naglowka przewija tutaj; pasek menu jest przyklejony */
+  scroll-margin-top: var(--ifm-navbar-height);
+}
+.ctaPodpowiedzi {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 28px;
+  max-width: 520px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pc-bg);
+}
+.ctaPodpowiedzi li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 6px;
+}
+.ctaPodpowiedzi li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 10px;
+  height: 2px;
+  background: var(--pc-bg);
+}
+.heroButton {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--pc-bg);
+  background: var(--pc-rust);
+  padding: 13px 26px;
+  display: inline-block;
+  margin-top: 24px;
+}
+.heroButton:hover {
+  text-decoration: none;
+  color: var(--pc-bg);
+  background: var(--pc-rust-hover);
 }
 .ctaTitle {
   font-family: var(--font-display);

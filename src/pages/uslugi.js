@@ -15,6 +15,17 @@ const FAQ = uslugiData.faq || [];
 // gdy domena i poczta zostaną skonfigurowane.
 const CONTACT_EMAIL = 'RA-Engineering@outlook.com';
 
+// Szablon wiadomosci z content/uslugi.json (cta.mail): temat i linie tresci,
+// zeby piszacy od razu wiedzial, co podac. Brak szablonu = goly adres.
+function mailtoHref(mail) {
+  const parametry = [];
+  if (mail?.temat) parametry.push(`subject=${encodeURIComponent(mail.temat)}`);
+  if (mail?.tresc?.length) {
+    parametry.push(`body=${encodeURIComponent(mail.tresc.join('\r\n'))}`);
+  }
+  return `mailto:${CONTACT_EMAIL}${parametry.length ? `?${parametry.join('&')}` : ''}`;
+}
+
 // Dane strukturalne oferty - katalog usług, żeby wyszukiwarki i modele AI
 // wiedziały, co konkretnie oferujemy i komu. Sekcja pytań idzie osobno jako
 // FAQPage; jej treść jest widoczna na stronie, tak jak wymaga tego Google.
@@ -90,6 +101,15 @@ export default function Uslugi() {
           </div>
           <h1 className={styles.title}>{hero.naglowek}</h1>
           <p className={styles.lead}>{hero.lead}</p>
+          {hero.przycisk ? (
+            <a
+              href="#kontakt"
+              data-zdarzenie="kontakt_przewin"
+              data-miejsce="uslugi_hero"
+              className={`${styles.heroButton} pc-cut`}>
+              {hero.przycisk}
+            </a>
+          ) : null}
         </div>
 
         <div className={styles.grid}>
@@ -157,10 +177,20 @@ export default function Uslugi() {
         ) : null}
       </div>
 
-      <div className={styles.ctaBand}>
+      <div id="kontakt" className={styles.ctaBand}>
         <h2 className={styles.ctaTitle}>{cta.naglowek}</h2>
         <p className={styles.ctaBody}>{cta.tresc}</p>
-        <a href={`mailto:${CONTACT_EMAIL}`} className={`${styles.ctaButton} pc-cut`}>
+        {cta.podpowiedzi?.length ? (
+          <ul className={styles.ctaPodpowiedzi}>
+            {cta.podpowiedzi.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        ) : null}
+        <a
+          href={mailtoHref(cta.mail)}
+          data-miejsce="uslugi_kontakt"
+          className={`${styles.ctaButton} pc-cut`}>
           {cta.przycisk}
         </a>
       </div>

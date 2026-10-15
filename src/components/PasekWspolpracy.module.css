@@ -1,0 +1,32 @@
+.pasek {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  margin: 36px 0 0;
+  padding: 16px 20px;
+  border: 1px solid var(--pc-border);
+  border-left: 4px solid var(--pc-rust);
+  background: #fff;
+}
+
+.tekst {
+  margin: 0;
+  flex: 1 1 280px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--pc-navy);
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pc-rust);
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--pc-rust-hover);
+}

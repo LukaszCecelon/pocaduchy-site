@@ -24,6 +24,24 @@ function poOdrysowaniu(akcja) {
   setTimeout(raz, 300);
 }
 
+// Klikniecia, ktore mowia o zainteresowaniu wspolpraca: kazdy link mailto
+// (zdarzenie kontakt_mail) i elementy z atrybutem data-zdarzenie. Miejsce na
+// stronie idzie z data-miejsce. Jeden nasluch na calym dokumencie, wiec nowe
+// przyciski wystarczy oznaczyc atrybutem, bez osobnego kodu.
+if (typeof document !== 'undefined') {
+  document.addEventListener('click', (e) => {
+    if (typeof window.gtag !== 'function') return;
+    const el = e.target instanceof Element
+      ? e.target.closest('[data-zdarzenie], a[href^="mailto:"]')
+      : null;
+    if (!el) return;
+    window.gtag('event', el.dataset.zdarzenie || 'kontakt_mail', {
+      miejsce: el.dataset.miejsce || 'brak',
+      page_path: window.location.pathname,
+    });
+  });
+}
+
 export function onRouteDidUpdate({location, previousLocation}) {
   // Pierwsze wywolanie po zaladowaniu strony pomijamy: ta odslona poszla juz
   // z konfiguracji gtag. previousLocation jest wtedy puste.

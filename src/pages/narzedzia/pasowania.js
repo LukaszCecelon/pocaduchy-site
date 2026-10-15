@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import ReactMarkdown from 'react-markdown';
 import Okruszki from '@site/src/components/Okruszki';
+import PasekWspolpracy from '@site/src/components/PasekWspolpracy';
 import KalkulatorPasowan from '@site/src/components/KalkulatorPasowan';
 import Powiazane from '@site/src/components/Powiazane';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
@@ -85,6 +86,8 @@ export default function Pasowania() {
             .
           </p>
         </section>
+
+        <PasekWspolpracy miejsce="narzedzia_pasowania" />
       </div>
     </Layout>
   );

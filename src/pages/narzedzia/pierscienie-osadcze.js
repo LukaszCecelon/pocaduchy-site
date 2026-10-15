@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Okruszki from '@site/src/components/Okruszki';
+import PasekWspolpracy from '@site/src/components/PasekWspolpracy';
 import KalkulatorPierscieni from '@site/src/components/KalkulatorPierscieni';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import tresc from '@site/content/narzedzia-pierscienie.json';
@@ -84,6 +85,8 @@ export default function PierscienieOsadcze() {
             .
           </p>
         </section>
+
+        <PasekWspolpracy miejsce="narzedzia_pierscienie" />
       </div>
     </Layout>
   );
