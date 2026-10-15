@@ -22,11 +22,11 @@
     },
     {
       "title": "Maszyna od A do Z",
-      "body": "Małą maszynę albo stanowisko wykonam w całości: projekt, części, montaż i dostawa do Ciebie.",
+      "body": "Małą maszynę albo stanowisko wykonam w całości: projekt, części, montaż, dostawa i uruchomienie u Ciebie, z dokumentacją CE.",
       "items": [
         "Projekt i dokumentacja",
         "Wykonanie części i montaż",
-        "Dostawa na miejsce"
+        "Dostawa, uruchomienie i dokumentacja CE"
       ]
     },
     {
@@ -131,7 +131,7 @@
       },
       {
         "krok": "Przekazanie",
-        "tresc": "Dokumentacja w formatach uzgodnionych na starcie. Przy maszynie od A do Z: wykonanie, montaż i dostawa."
+        "tresc": "Dokumentacja w formatach uzgodnionych na starcie. Przy maszynie od A do Z: wykonanie, montaż, dostawa, uruchomienie i dokumentacja CE."
       }
     ]
   }
