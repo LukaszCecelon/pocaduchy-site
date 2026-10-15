@@ -28,6 +28,8 @@ function poOdrysowaniu(akcja) {
 // (zdarzenie kontakt_mail) i elementy z atrybutem data-zdarzenie. Miejsce na
 // stronie idzie z data-miejsce. Jeden nasluch na calym dokumencie, wiec nowe
 // przyciski wystarczy oznaczyc atrybutem, bez osobnego kodu.
+// Faza capture: wewnetrzny Link zmienia trase w swoim onClick, wiec w fazie
+// bubble location.pathname byloby juz adresem docelowym, a nie zrodlowym.
 if (typeof document !== 'undefined') {
   document.addEventListener('click', (e) => {
     if (typeof window.gtag !== 'function') return;
@@ -39,7 +41,7 @@ if (typeof document !== 'undefined') {
       miejsce: el.dataset.miejsce || 'brak',
       page_path: window.location.pathname,
     });
-  });
+  }, true);
 }
 
 export function onRouteDidUpdate({location, previousLocation}) {
