@@ -389,12 +389,14 @@ const config = {
         title: 'poCADuchy',
         logo: {
           alt: 'poCADuchy',
-          src: 'img/pocaduchy-logo.png',
+          // Kopia 96 px (logo w pasku ma 32 px, zapas na ekrany 3x).
+          // Pelny plik 504 px zostaje jako favicon i logo w danych strukturalnych.
+          src: 'img/pocaduchy-logo-96.png',
           // Kwadratowe proporcje pliku zrodlowego. Wysokosc i tak narzuca
           // pasek nawigacji, ale zadeklarowane wymiary rezerwuja miejsce,
           // zanim obraz sie wczyta.
-          width: 504,
-          height: 504,
+          width: 96,
+          height: 96,
         },
         items: [
           {to: '/', label: 'Główna', position: 'left'},
