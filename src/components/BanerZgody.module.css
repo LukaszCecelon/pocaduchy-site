@@ -120,10 +120,13 @@
   /* Dwa przyciski w jednej linii, ten sam rozmiar (odmowa tak samo dostepna jak zgoda). */
   .przyciski {
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 8px;
   }
+  /* Przy powiekszonym tekscie przyciski zawijaja sie do kolumny, zamiast wyjsc poza ekran. */
   .przycisk {
-    flex: 1 1 0;
+    flex: 1 1 130px;
+    white-space: normal;
     padding: 11px 10px;
     min-height: 44px;
   }
