@@ -1,15 +1,22 @@
 {
-  "fetchedAt": "2026-08-14T04:52:09.468Z",
+  "fetchedAt": "2026-10-21T14:05:35.408Z",
   "channelId": "UCatuUJWhqiOAiXhvb72wKOw",
   "episodes": [
     {
+      "id": "M30dX5HM0JQ",
+      "title": "ZAMKI / WPUSTY SPAWALNICZE #Autodesk #Inventor #Welding #CAD #engineering  #pocaduchy",
+      "url": "https://www.youtube.com/watch?v=M30dX5HM0JQ",
+      "published": "2026-09-02T17:18:09+00:00",
+      "thumbnail": "https://i.ytimg.com/vi/M30dX5HM0JQ/hqdefault.jpg",
+      "isShort": true
+    },
+    {
       "id": "gOeAH94KNVI",
       "title": "GWINT - DWA TYSIĄCE LAT INŻYNIERII ZAMKNIĘTE W GENIALNEJ GEOMETRII",
-      "published": "2026-08-21T18:34:41.000Z",
       "url": "https://www.youtube.com/watch?v=gOeAH94KNVI",
+      "published": "2026-08-21T18:34:41+00:00",
       "thumbnail": "https://i.ytimg.com/vi/gOeAH94KNVI/hqdefault.jpg",
-      "isShort": false,
-      "zrodlo": "wpisane recznie 2026-08-22, bo RSS kanalu zwraca blad; zostanie nadpisane, gdy fetch-episodes znowu zadziala"
+      "isShort": false
     },
     {
       "id": "Y7yfAalcC-w",
