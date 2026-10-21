@@ -194,6 +194,10 @@ function odchylkiOtworu({ srednica, litera, klasa }) {
     } else if (["m", "n"].includes(mala)) {
       if (mala === "m" && klasa === 6 && srednica > 250 && srednica <= 315) {
         ES = -9;
+      } else if (mala === "n" && klasa > 8 && srednica > 3) {
+        // ISO 286-1 tab. 3, kolumna "> IT8": N ma ES = 0 (do 3 mm zostaje -4 = -ei walka n).
+        // M > IT8 to -ei walka m, wiec idzie galezia ogolna.
+        ES = 0;
       } else {
         ES = klasa <= 8 ? -eiWalka + delta(srednica, klasa) : -eiWalka;
       }
