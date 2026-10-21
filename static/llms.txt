@@ -2,7 +2,7 @@
 
 > Polski serwis Łukasza Cecelona o konstruowaniu maszyn: CAD, dokumentacja techniczna, dobór elementów, produkcja, montaż i praktyczne narzędzia inżynierskie.
 >
-> Ostatnia aktualizacja: 2026-09-13.
+> Ostatnia aktualizacja: 2026-10-21.
 
 Treść jest po polsku i jest kierowana do konstruktorów, inżynierów mechaników, technologów oraz studentów. Artykuły łączą praktykę projektową autora z danymi producentów i publicznymi podglądami norm. Tablice i kalkulatory pomagają w doborze, ale nie zastępują aktualnej normy, karty konkretnego produktu ani obliczeń nośności.
 
@@ -59,7 +59,7 @@ Materiały poniżej są przydatne jako kontekst o autorze, działalności serwis
 
 - [Strona główna](https://pocaduchy.pl/): skróty do najnowszych treści i głównych działów.
 - [O mnie](https://pocaduchy.pl/o-mnie/): doświadczenie i specjalizacje Łukasza Cecelona oraz kanały kontaktu.
-- [Usługi](https://pocaduchy.pl/uslugi/): projektowanie maszyn i dokumentacji, druk 3D, konsultacje oraz audyty dokumentacji.
+- [Usługi](https://pocaduchy.pl/uslugi/): projektowanie maszyn i stanowisk zrobotyzowanych w Inventorze, dokumentacja wykonawcza, wykonanie maszyny od A do Z (dostawa, uruchomienie, dokumentacja CE), druk 3D prototypów oraz konsultacje i audyty standardów.
 - [Odcinki](https://pocaduchy.pl/odcinki/): archiwum kanału YouTube.
 - [Aplikacja do raportów z AI](https://pocaduchy.pl/odcinki/aplikacja-dla-firmy-bez-programowania/): narzędzie porządkujące raporty z serwisu i uruchomień, zbudowane przez konstruktora i sprawdzone z monterami.
 - [Baza pod hot stamping](https://pocaduchy.pl/odcinki/baza-pod-hot-stamping-maly-detal/): trzy koncepcje bazowania małego detalu bez osi symetrii i wybór powierzchni bazowych.
