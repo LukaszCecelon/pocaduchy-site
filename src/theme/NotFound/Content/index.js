@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import Heading from '@theme/Heading';
@@ -32,6 +33,9 @@ export default function NotFoundContent({className}) {
 
   return (
     <div className={clsx('container margin-vert--xl', className)}>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <div className="row">
         <div className="col col--6 col--offset-3">
           <Heading as="h1" className="hero__title">
@@ -39,11 +43,7 @@ export default function NotFoundContent({className}) {
               Page Not Found
             </Translate>
           </Heading>
-          <p>
-            <Translate id="theme.NotFound.p1" description="The first paragraph of the 404 page">
-              We could not find what you were looking for.
-            </Translate>
-          </p>
+          <p>{nawigacja.strona404.opis}</p>
 
           {podpowiedzi.length > 0 ? (
             <>
