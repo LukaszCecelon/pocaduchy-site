@@ -6,6 +6,7 @@ import {readFileSync, existsSync} from 'node:fs';
 // (hook prebuild). Sitemapa bierze z nich <lastmod>. Strony bez daty w pliku
 // tresci (narzedzia, huby) wychodza bez lastmod: lepiej nic niz zgadywanie.
 const INDEKS_STRON = new URL('./src/data/strony-indeks.json', import.meta.url);
+const PLIK_ODCINKOW = new URL('./src/data/episodes.json', import.meta.url);
 const STRONY_Z_INDEKSU = existsSync(INDEKS_STRON) ? JSON.parse(readFileSync(INDEKS_STRON, 'utf8')) : [];
 const DATY_ZMIAN = new Map(STRONY_Z_INDEKSU.filter((s) => s.zmiana).map((s) => [s.url, s.zmiana]));
 
@@ -22,7 +23,18 @@ for (const [hub, typ] of [
     .map((s) => s.zmiana)
     .sort()
     .pop();
-  if (najnowsza && !DATY_ZMIAN.has(hub)) DATY_ZMIAN.set(hub, najnowsza);
+  const daty = najnowsza ? [najnowsza] : [];
+  // Lista odcinkow pokazuje tez filmy z RSS bez wlasnej strony opisu: liczy sie
+  // najnowszy pelny film (bez shortsow), nie tylko opisane odcinki.
+  if (hub === '/odcinki/' && existsSync(PLIK_ODCINKOW)) {
+    try {
+      for (const e of JSON.parse(readFileSync(PLIK_ODCINKOW, 'utf8')).episodes || []) {
+        if (!e.isShort && e.published) daty.push(e.published.slice(0, 10));
+      }
+    } catch {}
+  }
+  const wynik = daty.sort().pop();
+  if (wynik && !DATY_ZMIAN.has(hub)) DATY_ZMIAN.set(hub, wynik);
 }
 
 // Identyfikator Google Analytics 4 w formacie G-XXXXXXXXXX.
