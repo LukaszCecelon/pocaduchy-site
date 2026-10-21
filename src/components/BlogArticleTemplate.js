@@ -11,7 +11,7 @@ import oMnie from '@site/content/o-mnie.json';
 import narzedziaTresc from '@site/content/narzedzia.json';
 import nawigacja from '@site/content/nawigacja.json';
 import {SITE_URL, absoluteSiteUrl, absolutePageUrl, formatLongDatePl} from '@site/src/lib/site';
-import {wymiaryObrazu} from '@site/src/lib/obrazy';
+import {atrybutyOkladki, wymiaryObrazu} from '@site/src/lib/obrazy';
 import styles from '@site/src/pages/blog/blog.module.css';
 
 // Dane strukturalne wpisu: BlogPosting + ścieżka okruszków, a gdy artykuł ma
@@ -229,7 +229,7 @@ function PrzeczytajTez({slug, related, tags}) {
             className={`${styles.relatedCard} pc-cut-card`}>
             {p.image ? (
               <span className={styles.relatedThumb}>
-                <img src={p.image} alt="" loading="lazy" {...wymiaryObrazu(p.image)} />
+                <img alt="" loading="lazy" {...atrybutyOkladki(p.image, '(max-width: 700px) 92vw, 260px')} />
               </span>
             ) : null}
             <span className={styles.relatedName}>{p.seoTitle || p.title}</span>

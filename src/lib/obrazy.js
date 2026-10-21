@@ -9,6 +9,22 @@ export function wymiaryObrazu(src) {
   return size ? {width: size.w, height: size.h} : {};
 }
 
+// Okladki blogow maja obok pelnego pliku kopie 640 px (`-okladka-640.jpg`).
+// Gdy kopia istnieje, karta w kolumnie ok. 300-400 px dostaje srcset i nie
+// pobiera obrazu 1280 px. Bez kopii zwracamy sam adres, jak dotad.
+export function atrybutyOkladki(src, sizes = '(max-width: 700px) 92vw, 400px') {
+  if (!src) return {};
+  const kopia = src.replace(/-okladka\.jpg$/, '-okladka-640.jpg');
+  const pelny = imageSizes[src];
+  if (kopia === src || !imageSizes[kopia] || !pelny) return {src, ...wymiaryObrazu(src)};
+  return {
+    src,
+    srcSet: `${kopia} 640w, ${src} ${pelny.w}w`,
+    sizes,
+    ...wymiaryObrazu(src),
+  };
+}
+
 // Miniatury z YouTube nie sa w repozytorium, wiec mierzymy je z nazwy pliku.
 // Wszystkie warianty maja stale wymiary opisane przez API YouTube.
 const MINIATURY_YT = {

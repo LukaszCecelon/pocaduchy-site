@@ -6,11 +6,24 @@ import {readFileSync, existsSync} from 'node:fs';
 // (hook prebuild). Sitemapa bierze z nich <lastmod>. Strony bez daty w pliku
 // tresci (narzedzia, huby) wychodza bez lastmod: lepiej nic niz zgadywanie.
 const INDEKS_STRON = new URL('./src/data/strony-indeks.json', import.meta.url);
-const DATY_ZMIAN = new Map(
-  (existsSync(INDEKS_STRON) ? JSON.parse(readFileSync(INDEKS_STRON, 'utf8')) : [])
-    .filter((s) => s.zmiana)
-    .map((s) => [s.url, s.zmiana]),
-);
+const STRONY_Z_INDEKSU = existsSync(INDEKS_STRON) ? JSON.parse(readFileSync(INDEKS_STRON, 'utf8')) : [];
+const DATY_ZMIAN = new Map(STRONY_Z_INDEKSU.filter((s) => s.zmiana).map((s) => [s.url, s.zmiana]));
+
+// Huby, ktorych cala tresc to lista stron danego typu: ich uczciwa data zmiany
+// to data najnowszej pozycji na liscie (nowy wpis zmienia hub). Pozostale huby
+// (glowna, Uslugi, O mnie, narzedzia, przeliczniki) nie maja takiej daty,
+// wiec zostaja bez lastmod.
+for (const [hub, typ] of [
+  ['/blog/', 'artykul'],
+  ['/wiedza/', 'wiedza'],
+  ['/odcinki/', 'odcinek'],
+]) {
+  const najnowsza = STRONY_Z_INDEKSU.filter((s) => s.typ === typ && s.zmiana)
+    .map((s) => s.zmiana)
+    .sort()
+    .pop();
+  if (najnowsza && !DATY_ZMIAN.has(hub)) DATY_ZMIAN.set(hub, najnowsza);
+}
 
 // Identyfikator Google Analytics 4 w formacie G-XXXXXXXXXX.
 // Dopoki jest pusty, zaden skrypt analityczny sie nie laduje i strona dziala

@@ -1,4 +1,8 @@
 {
+  "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/bledy-w-projekcie-konstrukcyjnym-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -6,6 +10,10 @@
   "/img/blog/design-for-maintenance-przezbrojenia-konstruktor-na-hali.jpg": {
     "w": 1488,
     "h": 990
+  },
+  "/img/blog/design-for-maintenance-przezbrojenia-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/design-for-maintenance-przezbrojenia-okladka.jpg": {
     "w": 1280,
@@ -18,6 +26,10 @@
   "/img/blog/design-for-maintenance-przezbrojenia-wymiana-modulu.jpg": {
     "w": 1412,
     "h": 1000
+  },
+  "/img/blog/elektrozawory-pneumatyczne-dobor-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/elektrozawory-pneumatyczne-dobor-okladka.jpg": {
     "w": 1280,
@@ -51,6 +63,10 @@
     "w": 1062,
     "h": 776
   },
+  "/img/blog/kick-off-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/kick-off-okladka.jpg": {
     "w": 1024,
     "h": 576
@@ -58,6 +74,10 @@
   "/img/blog/kick-off-priorytety.jpg": {
     "w": 1000,
     "h": 1000
+  },
+  "/img/blog/koszty-a-jakosc-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/koszty-a-jakosc-okladka.jpg": {
     "w": 1280,
@@ -70,6 +90,10 @@
   "/img/blog/narzedzia-konstruktora-cad.jpg": {
     "w": 1280,
     "h": 720
+  },
+  "/img/blog/narzedzia-konstruktora-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/narzedzia-konstruktora-okladka.jpg": {
     "w": 1280,
@@ -87,6 +111,10 @@
     "w": 1192,
     "h": 258
   },
+  "/img/blog/onenote-notes-projektu-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/onenote-notes-projektu-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -98,6 +126,10 @@
   "/img/blog/polaczenie-wal-piasta-kolo-z-otworami-dociskowymi.jpg": {
     "w": 156,
     "h": 147
+  },
+  "/img/blog/polaczenie-wal-piasta-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/polaczenie-wal-piasta-okladka.jpg": {
     "w": 1280,
@@ -122,6 +154,10 @@
   "/img/blog/polaczenie-wal-piasta-wpust-zabezpieczenie.png": {
     "w": 900,
     "h": 417
+  },
+  "/img/blog/pozornie-latwe-miejsca-projektu-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/pozornie-latwe-miejsca-projektu-okladka.jpg": {
     "w": 1280,
@@ -151,6 +187,10 @@
     "w": 778,
     "h": 650
   },
+  "/img/blog/projektowanie-wielobrylowe-case-study-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/projektowanie-wielobrylowe-case-study-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -170,6 +210,10 @@
   "/img/blog/projektowanie-wielobrylowe-czesc-1-nowa-bryla-inventor.png": {
     "w": 1119,
     "h": 1000
+  },
+  "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/projektowanie-wielobrylowe-czesc-1-okladka.jpg": {
     "w": 1280,
@@ -191,6 +235,10 @@
     "w": 885,
     "h": 232
   },
+  "/img/blog/projektowanie-z-niepelnymi-danymi-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/projektowanie-z-niepelnymi-danymi-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -206,6 +254,10 @@
   "/img/blog/sprzeglo-mieszkowe.png": {
     "w": 315,
     "h": 222
+  },
+  "/img/blog/sprzeglo-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/sprzeglo-okladka.jpg": {
     "w": 1280,
@@ -223,6 +275,10 @@
     "w": 1280,
     "h": 391
   },
+  "/img/blog/standaryzacja-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/standaryzacja-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -231,9 +287,17 @@
     "w": 1280,
     "h": 720
   },
+  "/img/blog/szacowanie-czasu-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/szacowanie-czasu-okladka.jpg": {
     "w": 1280,
     "h": 720
+  },
+  "/img/blog/tuleje-taper-lock-dobor-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/tuleje-taper-lock-dobor-okladka.jpg": {
     "w": 1280,
@@ -255,6 +319,10 @@
     "w": 913,
     "h": 193
   },
+  "/img/blog/umiejetnosci-poczatkujacego-konstruktora-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
+  },
   "/img/blog/umiejetnosci-poczatkujacego-konstruktora-okladka.jpg": {
     "w": 1280,
     "h": 720
@@ -266,6 +334,10 @@
   "/img/blog/weryfikacja-cad-przed-produkcja-mnozniki-kosztow-bledow.png": {
     "w": 1200,
     "h": 665
+  },
+  "/img/blog/weryfikacja-cad-przed-produkcja-okladka-640.jpg": {
+    "w": 640,
+    "h": 360
   },
   "/img/blog/weryfikacja-cad-przed-produkcja-okladka.jpg": {
     "w": 1280,
@@ -290,6 +362,10 @@
   "/img/pierscien-din472.png": {
     "w": 531,
     "h": 515
+  },
+  "/img/pocaduchy-logo-96.png": {
+    "w": 96,
+    "h": 96
   },
   "/img/pocaduchy-logo-transparent.png": {
     "w": 504,
