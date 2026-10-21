@@ -58,6 +58,34 @@ function decodeXml(s) {
 // Tytuły transmisji na żywo. Łukasz nie chce ich w archiwum odcinków.
 const JEST_TRANSMISJA = /transmisja na żywo|na żywo|live|livestream/i;
 
+// Feed YouTube bywa chwilowo niedostepny (404/429/5xx) albo odrzuca zapytania bez
+// naglowka User-Agent. Ponawiamy z rosnacym odstepem; po wyczerpaniu prob dziala
+// dotychczasowy fallback (zostaje poprzedni episodes.json).
+const PROBY = 4;
+const ODSTEP_MS = 1500;
+const USER_AGENT = 'Mozilla/5.0 (compatible; pocaduchy-site-build; +https://pocaduchy.pl)';
+const uspij = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function pobierzFeed() {
+  let ostatni = 'brak odpowiedzi';
+  for (let proba = 1; proba <= PROBY; proba++) {
+    try {
+      const res = await fetch(FEED_URL, {
+        headers: {'user-agent': USER_AGENT, accept: 'application/atom+xml, application/xml;q=0.9, */*;q=0.5'},
+      });
+      if (res.ok) return {xml: await res.text()};
+      ostatni = `RSS HTTP ${res.status}`;
+    } catch (e) {
+      ostatni = `brak sieci (${e.message})`;
+    }
+    if (proba < PROBY) {
+      console.warn(`[fetch-episodes] ${ostatni}, próba ${proba}/${PROBY}, ponawiam`);
+      await uspij(ODSTEP_MS * 2 ** (proba - 1));
+    }
+  }
+  return {blad: ostatni};
+}
+
 async function isShort(videoId) {
   try {
     const res = await fetch(`https://www.youtube.com/shorts/${videoId}`, {
@@ -73,14 +101,8 @@ async function isShort(videoId) {
 }
 
 async function main() {
-  let xml;
-  try {
-    const res = await fetch(FEED_URL);
-    if (!res.ok) return fail(`RSS HTTP ${res.status}`);
-    xml = await res.text();
-  } catch (e) {
-    return fail(`brak sieci (${e.message})`);
-  }
+  const {xml, blad} = await pobierzFeed();
+  if (blad) return fail(`${blad} po ${PROBY} próbach`);
 
   const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
   if (entries.length === 0) return fail('feed bez wpisów');
