@@ -110,11 +110,11 @@
   },
   {
    "d1": 9,
-   "s": 0.8,
+   "s": 1.0,
    "d3": 8.4,
    "b": 1.7,
    "d2": 8.6,
-   "m": 0.9,
+   "m": 1.1,
    "n": 0.6,
    "a": 3.3,
    "dp": 1.2
@@ -789,8 +789,5 @@
    "m": 3.15,
    "n": 5.3
   }
- ],
- "_korekty": [
-  "walek d1=9: grubosc s poprawiona z 1,00 na 0,80. Tabela zrodlowa podawala s=1,00 przy m=0,90, co jest niemozliwe (pierscien grubszy od rowka). W calej normie m = s + 0,1 dla tego zakresu, a rozmiar 8 ma s=0,80."
  ]
 }
