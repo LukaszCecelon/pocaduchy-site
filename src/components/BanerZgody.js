@@ -101,7 +101,13 @@ export default function BanerZgody() {
     // Pokazujemy sie tylko wtedy, gdy brakuje decyzji w ktorejkolwiek
     // kategorii. Samo przywrocenie wczesniejszej zgody robi skrypt w <head>,
     // zeby zdazyl przed konfiguracja GA4.
+    // Pola startuja od zapisanego stanu (np. zgoda na statystyki z wersji 1),
+    // zeby "Zapisz wybor" po cichu jej nie wycofal; bez decyzji = odznaczone.
     const zgoda = odczytajZgode();
+    setWybor({
+      statystyki: zgoda.statystyki === 'granted',
+      reklamy: zgoda.reklamy === 'granted',
+    });
     if (zgoda.statystyki === null || zgoda.reklamy === null) setWidoczny(true);
 
     // Z polityki prywatnosci otwieramy od razu pola z obecnym stanem, zeby
@@ -159,7 +165,8 @@ export default function BanerZgody() {
           )}
         </p>
 
-        {/* Pola startuja odznaczone: RODO nie uznaje zaznaczonej z gory zgody. */}
+        {/* Bez wczesniejszej decyzji pola sa odznaczone: RODO nie uznaje
+            zaznaczonej z gory zgody. */}
         {szczegoly && (
           <div className={styles.pola}>
             {[
