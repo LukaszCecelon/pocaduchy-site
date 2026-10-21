@@ -3,12 +3,12 @@ import Link from '@docusaurus/Link';
 import prawne from '@site/content/prawne.json';
 import styles from './BanerZgody.module.css';
 
-// Wlasny baner zgody na analityke.
+// Wlasny baner zgody na statystyki i na reklamy, kazda z osobna.
 //
-// Powstal, bo baner Google (Funding Choices) pokazuje sie dopiero po
-// zatwierdzeniu witryny w AdSense, a do tego czasu Consent Mode stoi na
-// domyslnej odmowie i GA4 nie zbiera nic. Ten baner obsluguje wylacznie
-// analityke. Zgody reklamowe zostaja po stronie Google, bo tego wymaga.
+// Bez zgody na reklamy skrypt AdSense w ogole nie trafia na strone: laduje go
+// dopiero window.pcReklamy (zdefiniowane w <head>, docusaurus.config.js).
+// Consent Mode v2 startuje z odmowa wszystkiego, a baner podnosi tylko te
+// kategorie, na ktore czytelnik sie zgodzil.
 //
 // Decyzja zyje w localStorage, nie w cookie: sama zgoda nie potrzebuje
 // cookie, a dzieki temu przed zgoda strona nie zapisuje zadnego.
@@ -16,38 +16,68 @@ import styles from './BanerZgody.module.css';
 const KLUCZ = 'pc-zgoda-analityka';
 // Podbicie wersji uniewaznia wczesniejsze decyzje i pokazuje baner ponownie.
 // Robimy to tylko wtedy, gdy zmienia sie zakres przetwarzania danych.
-const WERSJA = 1;
+// Wersja 2 doszla ze zgoda na reklamy; zapis z wersji 1 (sama zgoda na
+// statystyki) dalej obowiazuje dla statystyk, a o reklamy pytamy od nowa.
+const WERSJA = 2;
 
+function decyzja(wartosc) {
+  if (wartosc === 'granted') return 'granted';
+  if (wartosc === 'denied') return 'denied';
+  return null;
+}
+
+// Zwraca {statystyki, reklamy}; null w polu = jeszcze bez decyzji.
 export function odczytajZgode() {
-  if (typeof window === 'undefined') return null;
+  const brak = {statystyki: null, reklamy: null};
+  if (typeof window === 'undefined') return brak;
   try {
     const zapis = JSON.parse(window.localStorage.getItem(KLUCZ) || 'null');
-    if (!zapis || zapis.wersja !== WERSJA) return null;
-    return zapis.decyzja === 'granted' ? 'granted' : 'denied';
+    if (!zapis) return brak;
+    if (zapis.wersja === WERSJA) {
+      return {statystyki: decyzja(zapis.statystyki), reklamy: decyzja(zapis.reklamy)};
+    }
+    if (zapis.wersja === 1) return {statystyki: decyzja(zapis.decyzja), reklamy: null};
+    return brak;
   } catch {
     // Prywatny tryb przegladarki potrafi rzucic wyjatkiem przy odczycie.
-    return null;
+    return brak;
   }
 }
 
-function zapiszZgode(decyzja) {
+function zapiszZgode({statystyki, reklamy}) {
   try {
     window.localStorage.setItem(
       KLUCZ,
-      JSON.stringify({decyzja, wersja: WERSJA, data: new Date().toISOString()}),
+      JSON.stringify({statystyki, reklamy, wersja: WERSJA, data: new Date().toISOString()}),
     );
   } catch {
     // Brak zapisu oznacza tylko, ze baner pokaze sie znowu przy nastepnej wizycie.
   }
 }
 
-function przekazDoGoogle(decyzja) {
-  if (typeof window === 'undefined') return;
+function przekazDoGoogle({statystyki, reklamy}) {
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     window.dataLayer.push(arguments);
   }
-  gtag('consent', 'update', {analytics_storage: decyzja});
+  gtag('consent', 'update', {
+    analytics_storage: statystyki,
+    ad_storage: reklamy,
+    ad_user_data: reklamy,
+    ad_personalization: reklamy,
+  });
+}
+
+function wlaczReklamy({reklamy}) {
+  const zaladowane = Boolean(document.getElementById('pc-adsense'));
+  if (reklamy === 'granted') {
+    if (typeof window.pcReklamy === 'function') window.pcReklamy();
+    return;
+  }
+  // Wycofanie zgody, gdy skrypt reklam juz dziala: skryptu nie da sie
+  // wyladowac, wiec przeladowujemy strone. Po przeladowaniu <head> nie
+  // zaladuje go ponownie, bo zapis mowi juz "denied".
+  if (zaladowane) window.location.reload();
 }
 
 // Otwarcie banera z zewnatrz, np. z przycisku w polityce prywatnosci.
@@ -62,24 +92,46 @@ export function otworzBanerZgody() {
 
 export default function BanerZgody() {
   const [widoczny, setWidoczny] = React.useState(false);
+  // Widok szczegolowy: osobne pola na statystyki i reklamy.
+  const [szczegoly, setSzczegoly] = React.useState(false);
+  const [wybor, setWybor] = React.useState({statystyki: false, reklamy: false});
   const {baner} = prawne;
 
   React.useEffect(() => {
-    // Pokazujemy sie tylko wtedy, gdy uzytkownik jeszcze nie zdecydowal.
-    // Samo przywrocenie wczesniejszej zgody robi skrypt w <head>, zeby zdazyl
-    // przed konfiguracja GA4.
-    if (odczytajZgode() === null) setWidoczny(true);
+    // Pokazujemy sie tylko wtedy, gdy brakuje decyzji w ktorejkolwiek
+    // kategorii. Samo przywrocenie wczesniejszej zgody robi skrypt w <head>,
+    // zeby zdazyl przed konfiguracja GA4.
+    const zgoda = odczytajZgode();
+    if (zgoda.statystyki === null || zgoda.reklamy === null) setWidoczny(true);
 
-    const otworz = () => setWidoczny(true);
+    // Z polityki prywatnosci otwieramy od razu pola z obecnym stanem, zeby
+    // wycofanie jednej zgody bylo jednym kliknieciem w pole i jednym w Zapisz.
+    const otworz = () => {
+      const obecna = odczytajZgode();
+      setWybor({
+        statystyki: obecna.statystyki === 'granted',
+        reklamy: obecna.reklamy === 'granted',
+      });
+      setSzczegoly(true);
+      setWidoczny(true);
+    };
     window.addEventListener(ZDARZENIE_OTWARCIA, otworz);
     return () => window.removeEventListener(ZDARZENIE_OTWARCIA, otworz);
   }, []);
 
-  function zdecyduj(decyzja) {
-    zapiszZgode(decyzja);
-    przekazDoGoogle(decyzja);
+  function zdecyduj(zgoda) {
+    zapiszZgode(zgoda);
+    przekazDoGoogle(zgoda);
+    wlaczReklamy(zgoda);
     setWidoczny(false);
+    setSzczegoly(false);
   }
+
+  const wszystko = (wartosc) => ({statystyki: wartosc, reklamy: wartosc});
+  const zWyboru = () => ({
+    statystyki: wybor.statystyki ? 'granted' : 'denied',
+    reklamy: wybor.reklamy ? 'granted' : 'denied',
+  });
 
   if (!widoczny) return null;
 
@@ -96,8 +148,35 @@ export default function BanerZgody() {
           <Link to={baner.linkUrl} className={styles.link}>
             {baner.linkTekst}
           </Link>
-          .
+          .{' '}
+          {!szczegoly && (
+            <button
+              type="button"
+              onClick={() => setSzczegoly(true)}
+              className={styles.wybor}>
+              {baner.przyciskWybor}
+            </button>
+          )}
         </p>
+
+        {/* Pola startuja odznaczone: RODO nie uznaje zaznaczonej z gory zgody. */}
+        {szczegoly && (
+          <div className={styles.pola}>
+            {[
+              ['statystyki', baner.zgodaStatystyki],
+              ['reklamy', baner.zgodaReklamy],
+            ].map(([klucz, etykieta]) => (
+              <label key={klucz} className={styles.pole}>
+                <input
+                  type="checkbox"
+                  checked={wybor[klucz]}
+                  onChange={(e) => setWybor({...wybor, [klucz]: e.target.checked})}
+                />
+                <span>{etykieta}</span>
+              </label>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Oba przyciski maja te sama wage wizualna: RODO wymaga, zeby odmowa
@@ -105,15 +184,15 @@ export default function BanerZgody() {
       <div className={styles.przyciski}>
         <button
           type="button"
-          onClick={() => zdecyduj('denied')}
+          onClick={() => zdecyduj(wszystko('denied'))}
           className={`${styles.przycisk} ${styles.odmowa} pc-cut`}>
           {baner.przyciskOdmowa}
         </button>
         <button
           type="button"
-          onClick={() => zdecyduj('granted')}
+          onClick={() => zdecyduj(szczegoly ? zWyboru() : wszystko('granted'))}
           className={`${styles.przycisk} ${styles.zgoda} pc-cut`}>
-          {baner.przyciskZgoda}
+          {szczegoly ? baner.przyciskZapisz : baner.przyciskZgoda}
         </button>
       </div>
     </div>

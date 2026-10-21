@@ -43,6 +43,12 @@ for (const [hub, typ] of [
 // z panelu GA4, zeby wlaczyc zbieranie danych.
 const GA4_ID = 'G-JJ9Q0WW43T';
 
+// Wydawca Google AdSense. Skrypt reklam nie jest juz wpiety na sztywno:
+// laduje go dopiero zgoda na reklamy w banerze (src/components/BanerZgody.js,
+// funkcja window.pcReklamy z <head>). Weryfikacje witryny w AdSense
+// zapewnia meta google-adsense-account oraz static/ads.txt.
+const ADSENSE_CLIENT = 'ca-pub-5245798413568501';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'poCADuchy',
@@ -123,14 +129,12 @@ const config = {
         content: 'strict-origin-when-cross-origin',
       },
     },
-  ],
-
-  // Google AdSense — ładowany na każdej stronie (weryfikacja + auto ads).
-  scripts: [
     {
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5245798413568501',
-      async: true,
-      crossorigin: 'anonymous',
+      tagName: 'meta',
+      attributes: {
+        name: 'google-adsense-account',
+        content: ADSENSE_CLIENT,
+      },
     },
   ],
 
@@ -247,10 +251,10 @@ const config = {
       };
     },
 
-    // Google Consent Mode v2: przed załadowaniem skryptów reklamowych
-    // deklarujemy brak zgód (RODO-safe default). Zgody reklamowe aktualizuje
-    // CMP Google (panel AdSense, Prywatność i wiadomości), a zgodę na
-    // statystyki nasz własny baner (src/components/BanerZgody.js).
+    // Google Consent Mode v2: na starcie deklarujemy brak wszystkich zgód
+    // (RODO-safe default). Zgody na statystyki i na reklamy aktualizuje nasz
+    // własny baner (src/components/BanerZgody.js); bez zgody na reklamy
+    // skrypt AdSense w ogóle się nie ładuje.
     function consentModeDefaults() {
       return {
         name: 'consent-mode-defaults',
@@ -275,8 +279,16 @@ const config = {
     // Przywrocenie wczesniejszej decyzji uzytkownika. Musi wykonac sie
     // w <head>, miedzy domyslna odmowa a konfiguracja GA4: gdyby czekalo na
     // Reacta, pierwsza odslona kazdej wizyty leciałaby bez zgody, mimo ze
-    // uzytkownik dawno ja wyrazil. Klucz i wersja jak w BanerZgody.js.
+    // uzytkownik dawno ja wyrazil. Klucz i wersje jak w BanerZgody.js.
+    //
+    // Tu tez zyje jedyny loader skryptu AdSense (window.pcReklamy). Wola go
+    // ten skrypt przy zapisanej zgodzie na reklamy i baner w chwili zgody.
+    // Bez zgody skrypt reklam nie trafia na strone wcale. window.pcBezReklam
+    // blokuje loader na stronie bledu (wstawia go scripts/strip-ads-from-404.mjs).
+    // Zapis w wersji 1 (sama zgoda na statystyki) dalej wlacza statystyki;
+    // o reklamy baner zapyta ponownie.
     function consentStored() {
+      const src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
       return {
         name: 'consent-stored',
         injectHtmlTags() {
@@ -285,13 +297,22 @@ const config = {
               {
                 tagName: 'script',
                 innerHTML:
-                  'try{' +
-                  "var z=JSON.parse(localStorage.getItem('pc-zgoda-analityka')||'null');" +
-                  "if(z&&z.wersja===1&&z.decyzja==='granted'){" +
                   'window.dataLayer=window.dataLayer||[];' +
-                  'function gtag(){dataLayer.push(arguments);}' +
-                  "gtag('consent','update',{analytics_storage:'granted'});" +
-                  '}}catch(e){}',
+                  'window.pcReklamy=function(){' +
+                  "if(window.pcBezReklam||document.getElementById('pc-adsense'))return;" +
+                  "var s=document.createElement('script');" +
+                  "s.id='pc-adsense';s.async=true;s.crossOrigin='anonymous';" +
+                  `s.src='${src}';` +
+                  'document.head.appendChild(s);};' +
+                  'try{' +
+                  'var g=function(){dataLayer.push(arguments);};' +
+                  "var z=JSON.parse(localStorage.getItem('pc-zgoda-analityka')||'null');" +
+                  "var st=z&&(z.wersja===2?z.statystyki:z.wersja===1?z.decyzja:null);" +
+                  "if(st==='granted')g('consent','update',{analytics_storage:'granted'});" +
+                  "if(z&&z.wersja===2&&z.reklamy==='granted'){" +
+                  "g('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});" +
+                  'window.pcReklamy();}' +
+                  '}catch(e){}',
               },
             ],
           };
@@ -301,8 +322,8 @@ const config = {
 
     // Google Analytics 4. Laduje sie dopiero, gdy GA4_ID jest uzupelniony.
     // Consent Mode v2 jest zadeklarowany wyzej z domyslna odmowa, wiec do
-    // czasu zgody GA4 wysyla wylacznie sygnaly bez cookies. Zgode na
-    // statystyki daje wlasny baner, zgody reklamowe CMP Google.
+    // czasu zgody GA4 wysyla wylacznie sygnaly bez cookies. Obie zgody
+    // (statystyki i reklamy) daje wlasny baner.
     function googleAnalytics() {
       return {
         name: 'google-analytics-4',

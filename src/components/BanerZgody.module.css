@@ -1,5 +1,5 @@
-/* Pasek zgody przyklejony do dolu okna. Celowo nie blokuje strony: dotyczy
-   wylacznie statystyk, wiec czytanie tresci nie wymaga zadnej decyzji. */
+/* Pasek zgody przyklejony do dolu okna. Celowo nie blokuje strony: bez
+   zgody nie ma tylko statystyk i reklam, czytanie tresci nie wymaga decyzji. */
 .baner {
   position: fixed;
   left: 16px;
@@ -63,6 +63,43 @@
   color: #ffffff;
 }
 
+/* "Wybierz osobno": wyglada jak link, bo to dodatkowa opcja, nie trzeci
+   rownorzedny przycisk; min-height jak inne cele dotykowe (WCAG 2.5.8). */
+.wybor {
+  font: inherit;
+  color: #ffffff;
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: 24px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.pola {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+  margin-top: 8px;
+}
+.pole {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: 14px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.pole input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--pc-rust);
+  cursor: pointer;
+}
+
 .przyciski {
   display: flex;
   gap: 10px;
@@ -116,6 +153,12 @@
   .opis {
     font-size: 13px;
     line-height: 1.45;
+  }
+  .pola {
+    margin-top: 4px;
+  }
+  .pole {
+    font-size: 13px;
   }
   /* Dwa przyciski w jednej linii, ten sam rozmiar (odmowa tak samo dostepna jak zgoda). */
   .przyciski {
