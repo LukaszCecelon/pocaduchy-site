@@ -6,11 +6,15 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-bottom: 26px;
+  margin-bottom: 23px;
 }
 .okruszki a {
   color: var(--pc-text-faint);
   text-decoration: none;
+  /* cel dotykowy min. 24 px (WCAG 2.5.8) */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 .okruszki a:hover {
   color: var(--pc-rust);

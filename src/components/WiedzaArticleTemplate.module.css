@@ -11,11 +11,15 @@
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--pc-text-faint);
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 }
 .breadcrumb a {
   text-decoration: none;
   color: var(--pc-text-faint);
+  /* Cel dotykowy min. 24 px (WCAG 2.5.8); margines kontenera pomniejszony o dodana wysokosc. */
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
 }
 .breadcrumb span {
   color: var(--pc-navy);

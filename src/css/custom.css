@@ -89,3 +89,12 @@ h1, h2, h3, h4, h5, h6 {
 .pc-cut-card {
   clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px);
 }
+
+/* Cel dotykowy min. 24 px (WCAG 2.5.8): przycisk zamykania panelu nawigacji na telefonie. */
+.navbar-sidebar__close {
+  min-width: 28px;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

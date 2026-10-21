@@ -503,6 +503,10 @@
 }
 .tabliceLinki a {
   color: var(--pc-rust);
+  /* cel dotykowy min. 24 px (WCAG 2.5.8) */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 
 /* NAJNOWSZY ODCINEK */
