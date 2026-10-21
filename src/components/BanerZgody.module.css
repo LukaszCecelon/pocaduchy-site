@@ -104,17 +104,27 @@
   .baner {
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    padding: 18px 20px;
+    gap: 10px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 12px 14px;
   }
+  .naglowek {
+    margin-bottom: 3px;
+  }
+  .opis {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  /* Dwa przyciski w jednej linii, ten sam rozmiar (odmowa tak samo dostepna jak zgoda). */
   .przyciski {
-    flex-direction: column-reverse;
+    flex-direction: row;
+    gap: 8px;
   }
   .przycisk {
-    width: 100%;
-    padding: 14px 20px;
+    flex: 1 1 0;
+    padding: 11px 10px;
+    min-height: 44px;
   }
 }
