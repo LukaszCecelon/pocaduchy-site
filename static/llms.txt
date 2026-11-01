@@ -25,7 +25,7 @@ Treść jest po polsku i jest kierowana do konstruktorów, inżynierów mechanik
 - [Przelicznik jednostek](https://pocaduchy.pl/przelicznik/): 157 jednostek w 20 wielkościach. Część współczynników jest dokładna z definicji, na przykład cal, funt, bar i standardowe `g₀`; wartości kątowe zawierające π mają dziesiętne przybliżenia. Opisy jednostek są autorskim objaśnieniem, nie cytatem z normy.
 - [Ciśnienie i naprężenie](https://pocaduchy.pl/przelicznik/cisnienie/): Pa, bar, MPa, N/mm², at, atm, psi i jednostki słupa cieczy; 1 bar i 1 at nie są równe.
 - [Długość](https://pocaduchy.pl/przelicznik/dlugosc/): jednostki metryczne i imperialne, w tym dokładne `1 cal = 25,4 mm` oraz `1 mil = 0,0254 mm`.
-- [Moment obrotowy](https://pocaduchy.pl/przelicznik/moment-obrotowy/): N·m, N·mm, kgf·m, lbf·ft i lbf·in, z rozróżnieniem momentu od energii.
+- [Moment obrotowy](https://pocaduchy.pl/przelicznik/moment-obrotowy/): N·m, N·mm, kgf·m, lbf·ft i lbf·in.
 - [Siła](https://pocaduchy.pl/przelicznik/sila/): N, kN, kgf, kG, lbf, ozf i kip; `1 kgf = 9,80665 N`.
 - [Temperatura](https://pocaduchy.pl/przelicznik/temperatura/): °C, K, °F i °R, osobno dla temperatury oraz różnicy temperatur.
 - [Moc](https://pocaduchy.pl/przelicznik/moc/): W, kW, MW, KM, hp, BTU/h i kcal/h; KM i hp nie są tą samą jednostką.
