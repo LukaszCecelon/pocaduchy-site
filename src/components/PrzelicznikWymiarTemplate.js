@@ -6,7 +6,6 @@ import Okruszki from '@site/src/components/Okruszki';
 import Przelicznik from '@site/src/components/Przelicznik';
 import Powiazane from '@site/src/components/Powiazane';
 import {wymiar as znajdzWymiar, przelicz, formatuj} from '@site/src/lib/jednostki/oblicz';
-import {DEFINICJE} from '@site/src/lib/jednostki/definicje';
 import {absolutePageUrl, SITE_URL} from '@site/src/lib/site';
 import hub from '@site/content/przelicznik.json';
 import styles from './PrzelicznikWymiarTemplate.module.css';
@@ -58,7 +57,6 @@ function tabela(idWymiaru) {
 }
 
 export default function PrzelicznikWymiarTemplate({tresc}) {
-  const w = znajdzWymiar(tresc.wymiar);
   const strona = STRONY_WYMIAROW.find((s) => s.id === tresc.wymiar);
   const sciezka = `/przelicznik/${strona.slug}`;
   const adres = absolutePageUrl(sciezka);
@@ -82,15 +80,6 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
         author: {'@id': `${SITE_URL}/#lukasz`},
         publisher: {'@id': `${SITE_URL}/#organizacja`},
         isPartOf: {'@id': `${SITE_URL}/#strona`},
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${adres}#pytania`,
-        mainEntity: tresc.faq.map((p) => ({
-          '@type': 'Question',
-          name: p.pytanie,
-          acceptedAnswer: {'@type': 'Answer', text: p.odpowiedz},
-        })),
       },
     ],
   };
@@ -124,33 +113,7 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
         />
 
         <section className={styles.sekcja}>
-          {tresc.wstep.map((akapit) => (
-            <p key={akapit} className={styles.tekst}>
-              {akapit}
-            </p>
-          ))}
-        </section>
-
-        <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Na czym się przewracamy</h2>
-          {tresc.pulapki.map((p) => (
-            <div key={p.tytul} className={styles.pulapka}>
-              <h3 className={styles.h3}>{p.tytul}</h3>
-              <p className={styles.tekst}>{p.tresc}</p>
-            </div>
-          ))}
-        </section>
-
-        <section className={styles.sekcja}>
           <h2 className={styles.h2}>Tabela przeliczeń</h2>
-          {/* Ten sam opis pojawia sie dwa razy. Widoczny akapit stoi nad
-              przewijakiem, zeby na telefonie nie trzeba bylo przewijac w bok,
-              zeby go doczytac. Podpis w tabeli jest niewidoczny, ale zostaje
-              przy niej, gdy tabele wytnie czytnik ekranu albo model jezykowy.
-              Akapit jest wtedy zbedny, wiec chowamy go przed czytnikiem. */}
-          <p className={styles.tekstMaly} aria-hidden="true">
-            {opisTabeli}
-          </p>
           <div className={styles.przewijak}>
             <table className={styles.tabela}>
               <caption className={styles.tabelaPodpisUkryty}>{opisTabeli}</caption>
@@ -182,30 +145,11 @@ export default function PrzelicznikWymiarTemplate({tresc}) {
         </section>
 
         <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Skąd się biorą te jednostki</h2>
-          <div className={styles.definicje}>
-            {w.jednostki.map((j) => {
-              const d = DEFINICJE[`${w.id}|${j.s}`];
-              if (!d) return null;
-              return (
-                <article key={j.s} className={styles.def}>
-                  <h3 className={styles.defTytul}>
-                    {j.s} <small>{j.n}</small>
-                  </h3>
-                  <p>{d.d}</p>
-                  <p className={styles.gdzie}>{d.g}</p>
-                </article>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className={styles.sekcja}>
-          <h2 className={styles.h2}>Najczęstsze pytania</h2>
-          {tresc.faq.map((p) => (
-            <div key={p.pytanie}>
-              <h3 className={styles.h3}>{p.pytanie}</h3>
-              <p className={styles.tekst}>{p.odpowiedz}</p>
+          <h2 className={styles.h2}>Na czym się przewracamy</h2>
+          {tresc.pulapki.map((p) => (
+            <div key={p.tytul} className={styles.pulapka}>
+              <h3 className={styles.h3}>{p.tytul}</h3>
+              <p className={styles.tekst}>{p.tresc}</p>
             </div>
           ))}
         </section>

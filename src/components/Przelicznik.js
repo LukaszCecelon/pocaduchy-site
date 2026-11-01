@@ -276,24 +276,13 @@ export default function Przelicznik({wymiarStaly = null, odStart, naStart, warto
         </div>
       )}
 
-      {/* Na stronie wymiaru definicje wszystkich jednostek sa nizej, wiec
-          w samym narzedziu bylyby drugim takim samym naglowkiem. Notka
-          o cisnieniu zostaje, bo dotyczy wyboru z listy, a nie jednostki. */}
-      {!wymiarStaly && (
-        <div className={styles.sekcja}>
-          <h2 className={styles.sekcjaTytul}>{UI.definicjeTytul}</h2>
-          <KartaDefinicji klucz={od} />
-          {zgodne && od !== na && <KartaDefinicji klucz={na} />}
-        </div>
-      )}
-
-      {/* Cisnienie i naprezenie maja ten sam wymiar fizyczny, wiec siedza
-          w jednej liscie. Roznica jest realna, ale nie dotyczy przeliczania. */}
-      {jOd.wymiar === 'cisnienie' && (
-        <div className={styles.uwaga}>
-          <b>{UI.notaCisnienieTytul}</b> {UI.notaCisnienie}
-        </div>
-      )}
+      {/* Definicje tylko wybranych jednostek i zwiniete: narzedzie ma liczyc,
+          a nie zaslaniac wyniku tekstem. Kto chce, rozwinie. */}
+      <details className={`${styles.sekcja} ${styles.definicje}`}>
+        <summary className={styles.sekcjaTytul}>{UI.definicjeTytul}</summary>
+        <KartaDefinicji klucz={od} />
+        {zgodne && od !== na && <KartaDefinicji klucz={na} />}
+      </details>
     </div>
   );
 }

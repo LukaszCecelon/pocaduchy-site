@@ -43,13 +43,6 @@
   border-top: 2px solid var(--pc-rust);
 }
 
-.h3 {
-  font-size: 17px;
-  font-weight: 700;
-  margin: 22px 0 6px;
-  color: var(--pc-navy);
-}
-
 .tekst {
   font-size: 16.5px;
   line-height: 1.72;
@@ -60,14 +53,6 @@
 
 .tekst a {
   color: var(--pc-rust);
-}
-
-.tekstMaly {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--pc-text-faint);
-  max-width: 70ch;
-  margin: 14px 0 0;
 }
 
 .kafelki {

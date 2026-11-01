@@ -6,11 +6,6 @@
   },
   "naglowek": "Temperatura: przelicznik °C, K, °F i °R",
   "lead": "Temperatura ma przesunięte skale, więc tu zwykłe mnożenie potrafi zepsuć obliczenia rozszerzalności cieplnej.",
-  "wstep": [
-    "Temperatura różni się od większości jednostek w przeliczniku. Przy długości albo sile zwykle wystarczy mnożnik. Tutaj dochodzi przesunięcie zera, dlatego wartość temperatury i różnica temperatur muszą być liczone osobno.",
-    "Najczęstszy przypadek z dokumentacji to °C kontra °F. Amerykańska karta podaje temperaturę pracy, europejski arkusz liczy rozszerzalność w kelwinach, a ktoś po drodze wpisuje tylko 1,8. Dla różnicy temperatur to ma sens, dla wartości na termometrze już nie.",
-    "Kelwin jest najwygodniejszy w obliczeniach, bo startuje od zera bezwzględnego. Celsjusz jest najwygodniejszy na hali, bo tak działa większość czujników i ludzi."
-  ],
   "pulapki": [
     {
       "tytul": "Wartość temperatury to nie różnica temperatur",
@@ -23,20 +18,6 @@
     {
       "tytul": "Rankine wygląda egzotycznie, ale ma prostą logikę",
       "tresc": "Skala Rankine startuje od zera bezwzględnego jak kelwin, ale ma krok Fahrenheita. 1 °R to 5/9 K. Pojawia się w amerykańskiej termodynamice i HVAC, zwykle tam, gdzie i tak jest dużo jednostek imperialnych."
-    }
-  ],
-  "faq": [
-    {
-      "pytanie": "Ile °F ma 20 °C?",
-      "odpowiedz": "20 °C to 68 °F. Liczy się to jako 20 razy 1,8 plus 32, bo skala Fahrenheita ma inne zero."
-    },
-    {
-      "pytanie": "Ile K ma 0 °C?",
-      "odpowiedz": "0 °C to dokładnie 273,15 K. Różnica temperatur 0 °C nie oznacza jednak 273,15 K różnicy, tylko brak przyrostu."
-    },
-    {
-      "pytanie": "Ile °F ma różnica 10 °C?",
-      "odpowiedz": "Różnica 10 °C to różnica 18 °F. Nie dodaje się wtedy 32, bo przeliczamy przyrost, a nie wartość na skali."
     }
   ]
 }

@@ -6,11 +6,6 @@
   },
   "naglowek": "Moc: przelicznik W, kW, KM, hp i BTU/h",
   "lead": "Kilowat na tabliczce silnika jest prosty. Schody zaczynają się przy KM, hp i chłodzeniu opisanym w BTU/h.",
-  "wstep": [
-    "Moc w maszynach siedzi na styku mechaniki, elektryki i cieplnych strat. Silnik ma kW, stary opis napędu ma KM, pompa z USA ma hp, a klimatyzator w szafie sterowniczej potrafi przyjść w BTU/h. Jeden wymiar, kilka branżowych nawyków.",
-    "Najbardziej znana pułapka to koń mechaniczny. Metryczny KM ma 735,49875 W, a brytyjsko-amerykański hp ma około 745,7 W. Różnica nie brzmi dramatycznie, ale przy przepisywaniu tabliczek i ofert robi niepotrzebny bałagan.",
-    "Druga rzecz to rozdzielenie mocy od energii. kW mówi, jak szybko maszyna pobiera albo oddaje energię. kWh mówi, ile tej energii poszło przez godzinę pracy. Niby oczywiste, a w arkuszach kosztowych potrafi wracać jak błąd po kopiuj-wklej."
-  ],
   "pulapki": [
     {
       "tytul": "KM i hp to dwa różne konie",
@@ -23,20 +18,6 @@
     {
       "tytul": "kW i kWh nie są zamienne",
       "tresc": "Silnik 5 kW pracujący przez 2 h zużyje teoretycznie 10 kWh energii, pomijając sprawność i profil obciążenia. kW to tempo, kWh to ilość. W kosztach pracy maszyny ta różnica jest podstawowa."
-    }
-  ],
-  "faq": [
-    {
-      "pytanie": "Ile watów ma 1 KM?",
-      "odpowiedz": "1 KM ma dokładnie 735,49875 W. Definicja metryczna bierze 75 kgf·m/s, więc wartość wynika z kgf równego 9,80665 N."
-    },
-    {
-      "pytanie": "Ile watów ma 1 hp?",
-      "odpowiedz": "1 hp ma około 745,7 W. To 550 lbf·ft/s, czyli inna definicja niż metryczny KM."
-    },
-    {
-      "pytanie": "Ile kW ma 12 000 BTU/h?",
-      "odpowiedz": "12 000 BTU/h to około 3,517 kW. W chłodnictwie i klimatyzacji to bardzo typowa wartość z kart katalogowych."
     }
   ]
 }

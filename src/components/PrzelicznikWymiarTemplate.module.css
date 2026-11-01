@@ -61,14 +61,6 @@
   margin: 0 0 14px;
 }
 
-.tekstMaly {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--pc-text-faint);
-  max-width: 70ch;
-  margin: 0 0 14px;
-}
-
 /* Podpis zostaje w drzewie dokumentu i w drzewie dostepnosci, znika tylko
    z widoku. Ten sam tekst widac w akapicie nad tabela. */
 .tabelaPodpisUkryty {
@@ -159,50 +151,6 @@
 }
 
 /* ---------- definicje ---------- */
-
-.definicje {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 10px;
-}
-
-.def {
-  border: 1px solid var(--pc-border);
-  border-radius: 11px;
-  padding: 14px 16px;
-  background: #fff;
-}
-
-.defTytul {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--pc-navy);
-}
-
-.defTytul small {
-  font-weight: 400;
-  color: var(--pc-text-muted);
-  font-size: 13px;
-  margin-left: 6px;
-}
-
-.def p {
-  margin: 0 0 7px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--pc-text-muted);
-}
-
-.def p:last-child {
-  margin-bottom: 0;
-}
-
-.gdzie::before {
-  content: 'Gdzie to spotkasz: ';
-  font-weight: 600;
-  color: var(--pc-navy);
-}
 
 /* ---------- linki na dole ---------- */
 
