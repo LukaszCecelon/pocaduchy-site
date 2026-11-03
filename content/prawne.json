@@ -6,11 +6,11 @@
     "email": "RA-Engineering@outlook.com",
     "opisDzialalnosci": "usługi inżynierskie, projektowanie konstrukcji maszyn"
   },
-  "dataAktualizacji": "2026-10-21",
+  "dataAktualizacji": "2026-11-03",
   "baner": {
     "_opis": "Teksty paska zgody na statystyki i reklamy, ktory pokazuje sie przy pierwszej wizycie.",
     "naglowek": "Zgoda na statystyki i reklamy",
-    "tresc": "Chcę wiedzieć, które materiały są dla Was przydatne, więc zbieram anonimowe statystyki odwiedzin. Za osobną zgodą pokazuję też reklamy Google, które utrzymują serwis. Bez zgody strona działa tak samo, tylko bez reklam.",
+    "tresc": "Chcę wiedzieć, które materiały są dla Was przydatne, więc zbieram anonimowe statystyki odwiedzin. Za osobną zgodą pokazuję też reklamy Google, które utrzymują serwis, i sprawdzam, czy moja reklama w ChatGPT kogoś tu przyprowadziła. Bez zgody strona działa tak samo, tylko bez reklam i bez tego pomiaru.",
     "linkTekst": "Szczegóły w polityce prywatności",
     "linkUrl": "/polityka-prywatnosci",
     "przyciskZgoda": "Zgadzam się",
@@ -18,12 +18,12 @@
     "przyciskWybor": "Wybierz osobno",
     "przyciskZapisz": "Zapisz wybór",
     "zgodaStatystyki": "Statystyki odwiedzin",
-    "zgodaReklamy": "Reklamy Google"
+    "zgodaReklamy": "Reklamy Google i pomiar reklamy w ChatGPT"
   },
   "prywatnosc": {
     "meta": {
       "tytul": "Polityka prywatności i cookies",
-      "opis": "Kto administruje danymi na pocaduchy.pl, jakie dane są zbierane, po co, na jakiej podstawie oraz jak działają cookies i reklamy Google."
+      "opis": "Kto administruje danymi na pocaduchy.pl, jakie dane są zbierane, po co, na jakiej podstawie oraz jak działają cookies i reklamy."
     },
     "naglowek": "Polityka prywatności i cookies",
     "lead": "Krótko i konkretnie: co się dzieje z danymi, kiedy odwiedzasz pocaduchy.pl. Bez prawniczej waty, ale z wszystkim, co wymaga RODO.",
@@ -44,20 +44,21 @@
         "lista": [
           "**Kiedy piszesz do mnie e-mail.** Dostaję wtedy Twój adres, treść wiadomości i to, co sam podasz. Używam tego wyłącznie do odpowiedzi i prowadzenia sprawy.",
           "**Logi serwera.** Serwis stoi na infrastrukturze GitHub Pages, która w celach technicznych i bezpieczeństwa rejestruje standardowe informacje o żądaniach, w tym adres IP. Nie mam dostępu do tych logów ani ich nie analizuję.",
-          "**Pliki cookies reklamowe Google.** Opisane szczegółowo w sekcji o cookies poniżej. To jedyne dane, które są zbierane w celu innym niż techniczny."
+          "**Pliki cookies reklamowe Google i OpenAI.** Opisane szczegółowo w sekcji o cookies poniżej. To jedyne dane, które są zbierane w celu innym niż techniczny."
         ]
       },
       {
         "tytul": "W jakim celu i na jakiej podstawie",
-        "tabela": "| Cel | Podstawa prawna | Okres |\n| --- | --- | --- |\n| Odpowiedź na wiadomość e-mail i prowadzenie korespondencji | art. 6 ust. 1 lit. b lub f RODO: wykonanie umowy albo mój prawnie uzasadniony interes | Przez czas sprawy, potem do 3 lat na wypadek roszczeń |\n| Zapewnienie działania i bezpieczeństwa serwisu | art. 6 ust. 1 lit. f RODO: prawnie uzasadniony interes | Zgodnie z polityką dostawcy infrastruktury |\n| Analityka ruchu: ile osób odwiedza serwis, które treści czytają, skąd przychodzą | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody, dane w Google Analytics do 14 miesięcy |\n| Wyświetlanie reklam, w tym spersonalizowanych | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody lub wygaśnięcia cookies |\n| Rozliczenie usług, jeśli nawiążemy współpracę | art. 6 ust. 1 lit. c RODO: obowiązek prawny | 5 lat od końca roku podatkowego |"
+        "tabela": "| Cel | Podstawa prawna | Okres |\n| --- | --- | --- |\n| Odpowiedź na wiadomość e-mail i prowadzenie korespondencji | art. 6 ust. 1 lit. b lub f RODO: wykonanie umowy albo mój prawnie uzasadniony interes | Przez czas sprawy, potem do 3 lat na wypadek roszczeń |\n| Zapewnienie działania i bezpieczeństwa serwisu | art. 6 ust. 1 lit. f RODO: prawnie uzasadniony interes | Zgodnie z polityką dostawcy infrastruktury |\n| Analityka ruchu: ile osób odwiedza serwis, które treści czytają, skąd przychodzą | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody, dane w Google Analytics do 14 miesięcy |\n| Wyświetlanie reklam, w tym spersonalizowanych | art. 6 ust. 1 lit. a RODO: Twoja zgoda wyrażona w banerze | Do czasu wycofania zgody lub wygaśnięcia cookies |\n| Pomiar skuteczności mojej reklamy w ChatGPT: czy osoba, która ją kliknęła, przeczytała coś na stronie i napisała do mnie | art. 6 ust. 1 lit. a RODO: Twoja zgoda na reklamy wyrażona w banerze | Do czasu wycofania zgody, cookies OpenAI do 30 albo 365 dni |\n| Rozliczenie usług, jeśli nawiążemy współpracę | art. 6 ust. 1 lit. c RODO: obowiązek prawny | 5 lat od końca roku podatkowego |"
       },
       {
         "tytul": "Komu dane są przekazywane",
         "akapity": [
-          "Nie sprzedaję ani nie udostępniam danych nikomu w celach marketingowych. Dane mogą trafić wyłącznie do podmiotów, które są niezbędne do działania serwisu:"
+          "Nie sprzedaję danych. Dane mogą trafić wyłącznie do podmiotów, które są niezbędne do działania serwisu, a do dostawców reklam tylko za Twoją zgodą:"
         ],
         "lista": [
           "**Google Ireland Limited i Google LLC** jako dostawca reklam AdSense, narzędzia zbierania zgód oraz statystyk Google Analytics. Google jest w tym zakresie odrębnym administratorem danych i stosuje własną politykę.",
+          "**OpenAI Ireland Limited** jako dostawca reklam w ChatGPT i narzędzia do pomiaru ich skuteczności (piksel OpenAI). Dostaje informację, że wizyta przyszła z mojej reklamy, które strony zostały otwarte i czy kliknięto adres e-mail. OpenAI jest w tym zakresie odrębnym administratorem danych i stosuje własną politykę.",
           "**GitHub, Inc.** jako dostawca hostingu, na którym stoi serwis.",
           "**Dostawca poczty e-mail**, jeśli napiszesz do mnie wiadomość."
         ],
@@ -82,18 +83,18 @@
       {
         "tytul": "Pliki cookies",
         "akapity": [
-          "Cookies to małe pliki tekstowe zapisywane przez przeglądarkę. Serwis pocaduchy.pl nie stosuje własnych cookies. Wszystkie, które mogą się pojawić, pochodzą od Google i wymagają Twojej zgody, poza jednym, który tę zgodę zapamiętuje.",
+          "Cookies to małe pliki tekstowe zapisywane przez przeglądarkę. Serwis pocaduchy.pl nie stosuje własnych cookies. Wszystkie, które mogą się pojawić, pochodzą od Google albo OpenAI i wymagają Twojej zgody, poza jednym, który tę zgodę zapamiętuje.",
           "Cookies, które faktycznie mogą pojawić się na Twoim urządzeniu:"
         ],
-        "tabela": "| Cookie | Kto ustawia | Do czego służy | Zgoda |\n| --- | --- | --- | --- |\n| `FCCDCF` | Google | Zapamiętuje Twój wybór w banerze zgody, żeby nie pytać przy każdej wizycie | Niezbędne do obsługi zgody |\n| Cookies Google Analytics (`_ga`, `_ga_*`) | Google | Statystyka odwiedzin: liczba użytkowników, czytane strony, źródło wejścia. Nie służą do identyfikacji osoby | Wymagana Twoja zgoda |\n| Cookies Google AdSense | Google | Wyświetlanie reklam, ograniczanie ich powtarzalności, pomiar skuteczności, personalizacja | Wymagana Twoja zgoda |",
-        "poTabeli": "Do momentu wyrażenia zgody na reklamy skrypt reklam Google w ogóle się nie ładuje, a statystyki nie zapisują cookies. Serwis ma domyślnie ustawioną odmowę dla wszystkich kategorii zgód i zmienia to dopiero po Twojej decyzji w banerze. W Google Analytics adres IP jest dodatkowo skracany."
+        "tabela": "| Cookie | Kto ustawia | Do czego służy | Zgoda |\n| --- | --- | --- | --- |\n| `FCCDCF` | Google | Zapamiętuje Twój wybór w banerze zgody, żeby nie pytać przy każdej wizycie | Niezbędne do obsługi zgody |\n| Cookies Google Analytics (`_ga`, `_ga_*`) | Google | Statystyka odwiedzin: liczba użytkowników, czytane strony, źródło wejścia. Nie służą do identyfikacji osoby | Wymagana Twoja zgoda |\n| Cookies Google AdSense | Google | Wyświetlanie reklam, ograniczanie ich powtarzalności, pomiar skuteczności, personalizacja | Wymagana Twoja zgoda |\n| `__oppref`, `__obref` | OpenAI | Pomiar skuteczności mojej reklamy w ChatGPT: `__oppref` zapamiętuje kliknięcie w reklamę (do 30 dni), `__obref` to losowy identyfikator przeglądarki (do 365 dni) | Wymagana Twoja zgoda |\n| `__oaiq_consent` | OpenAI | Zapamiętuje Twoją decyzję w sprawie piksela, żeby po wycofaniu zgody nic nie wysyłał | Niezbędne do obsługi zgody |",
+        "poTabeli": "Do momentu wyrażenia zgody na reklamy skrypt reklam Google i piksel OpenAI w ogóle się nie ładują, a statystyki nie zapisują cookies. Serwis ma domyślnie ustawioną odmowę dla wszystkich kategorii zgód i zmienia to dopiero po Twojej decyzji w banerze. W Google Analytics adres IP jest dodatkowo skracany."
       },
       {
         "tytul": "Jak zmienić lub wycofać zgodę",
         "akapity": [
           "Przy pierwszej wizycie pokazuje się pasek z pytaniem o zgodę na statystyki i na reklamy; każdą z nich możesz wybrać osobno. Twoja decyzja zapisuje się w pamięci przeglądarki (localStorage), a nie w pliku cookie. Zanim ją podejmiesz, serwis nie zapisuje żadnego cookie analitycznego ani reklamowego. Techniczne cookie mechanizmu zgód Google (FCCDCF) może się pojawić dopiero po zgodzie na reklamy, razem ze skryptem reklam, i służy wyłącznie do zapamiętania, czy i jaki komunikat o zgodzie już Ci pokazano.",
           "Zgodę możesz zmienić w każdej chwili i jest to równie łatwe, jak jej udzielenie. Użyj przycisku poniżej, żeby ponownie otworzyć okno wyboru.",
-          "Zgodę na reklamy zmieniasz w tym samym pasku. Jeśli po zgodzie Google pokaże także własne okno zgód reklamowych, ten sam przycisk otworzy również je.",
+          "Zgodę na reklamy zmieniasz w tym samym pasku; jej wycofanie usuwa też cookies OpenAI. Jeśli po zgodzie Google pokaże także własne okno zgód reklamowych, ten sam przycisk otworzy również je.",
           "Niezależnie od tego możesz zarządzać cookies w ustawieniach swojej przeglądarki: zablokować je, usunąć albo ustawić pytanie przy każdej próbie zapisu. Zablokowanie cookies nie utrudni czytania treści, bo serwis do działania ich nie potrzebuje."
         ],
         "przyciskZgody": true

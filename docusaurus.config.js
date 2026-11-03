@@ -49,6 +49,13 @@ const GA4_ID = 'G-JJ9Q0WW43T';
 // zapewnia meta google-adsense-account oraz static/ads.txt.
 const ADSENSE_CLIENT = 'ca-pub-5245798413568501';
 
+// Piksel OpenAI: pomiar kampanii reklamowej w ChatGPT (kto przyszedl z reklamy
+// i czy napisal maila). Jak AdSense laduje go dopiero zgoda na reklamy
+// (window.pcPikselOpenAI z <head>). DEBUG wypisuje dzialanie SDK w konsoli:
+// tylko na czas testu kampanii, potem false.
+const OPENAI_PIXEL_ID = '7qstBawaiCSN9L4tT7trc8';
+const OPENAI_PIXEL_DEBUG = true;
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'poCADuchy',
@@ -287,8 +294,15 @@ const config = {
     // blokuje loader na stronie bledu (wstawia go scripts/strip-ads-from-404.mjs).
     // Zapis w wersji 1 (sama zgoda na statystyki) dalej wlacza statystyki;
     // o reklamy baner zapyta ponownie.
+    //
+    // Obok zyje loader piksela OpenAI (window.pcPikselOpenAI), wolany przy tej
+    // samej zgodzie na reklamy. Kolejka oaiq to fragment kodu instalacyjnego
+    // OpenAI; po inicjalizacji od razu idzie odslona strony wejscia, kolejne
+    // zglasza src/clientModules/analityka.js. Strony bledu nie blokujemy:
+    // zakaz reklam na 404 dotyczy wyswietlania reklam, nie pomiaru.
     function consentStored() {
       const src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+      const piksel = {pixelId: OPENAI_PIXEL_ID, debug: OPENAI_PIXEL_DEBUG};
       return {
         name: 'consent-stored',
         injectHtmlTags() {
@@ -304,6 +318,17 @@ const config = {
                   "s.id='pc-adsense';s.async=true;s.crossOrigin='anonymous';" +
                   `s.src='${src}';` +
                   'document.head.appendChild(s);};' +
+                  'window.pcPikselOpenAI=function(){' +
+                  'if(window.oaiq)return;' +
+                  'var q=function(){q.q.push(arguments);};q.q=[];window.oaiq=q;' +
+                  "var p=document.createElement('script');" +
+                  "p.async=true;p.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';" +
+                  'document.head.appendChild(p);' +
+                  // Po wycofaniu zgody SDK zapamietuje odmowe (__oaiq_consent)
+                  // i bez jawnego consent=true milczaloby po ponownej zgodzie.
+                  "q('consent',true);" +
+                  `q('init',${JSON.stringify(piksel)});` +
+                  "q('measure','page_viewed',{type:'contents',contents:[{id:location.pathname,name:document.title,content_type:'page'}]});};" +
                   'try{' +
                   'var g=function(){dataLayer.push(arguments);};' +
                   "var z=JSON.parse(localStorage.getItem('pc-zgoda-analityka')||'null');" +
@@ -311,7 +336,7 @@ const config = {
                   "if(st==='granted')g('consent','update',{analytics_storage:'granted'});" +
                   "if(z&&z.wersja===2&&z.reklamy==='granted'){" +
                   "g('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});" +
-                  'window.pcReklamy();}' +
+                  'window.pcReklamy();window.pcPikselOpenAI();}' +
                   '}catch(e){}',
               },
             ],

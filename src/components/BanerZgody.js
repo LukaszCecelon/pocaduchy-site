@@ -5,8 +5,9 @@ import styles from './BanerZgody.module.css';
 
 // Wlasny baner zgody na statystyki i na reklamy, kazda z osobna.
 //
-// Bez zgody na reklamy skrypt AdSense w ogole nie trafia na strone: laduje go
-// dopiero window.pcReklamy (zdefiniowane w <head>, docusaurus.config.js).
+// Bez zgody na reklamy skrypt AdSense ani piksel OpenAI w ogole nie trafiaja na
+// strone: laduja je dopiero window.pcReklamy i window.pcPikselOpenAI
+// (zdefiniowane w <head>, docusaurus.config.js).
 // Consent Mode v2 startuje z odmowa wszystkiego, a baner podnosi tylko te
 // kategorie, na ktore czytelnik sie zgodzil.
 //
@@ -68,15 +69,32 @@ function przekazDoGoogle({statystyki, reklamy}) {
   });
 }
 
+// Cookies piksela OpenAI: identyfikator klikniecia w reklame i przegladarki.
+const COOKIES_OPENAI = ['__oppref', '__obref'];
+
+function usunCookiesOpenAI() {
+  // Piksel sam kasuje swoje cookies przy consent=false, ale tylko gdy SDK
+  // zdazylo sie wczytac; kasujemy je wiec takze recznie, w obu wariantach
+  // domeny, bo nie wiemy, ktorego uzylo SDK.
+  if (typeof window.oaiq === 'function') window.oaiq('consent', false);
+  const domena = window.location.hostname.replace(/^www\./, '');
+  for (const nazwa of COOKIES_OPENAI) {
+    document.cookie = `${nazwa}=; Max-Age=0; path=/`;
+    document.cookie = `${nazwa}=; Max-Age=0; path=/; domain=.${domena}`;
+  }
+}
+
 function wlaczReklamy({reklamy}) {
-  const zaladowane = Boolean(document.getElementById('pc-adsense'));
+  const zaladowane = Boolean(document.getElementById('pc-adsense')) || Boolean(window.oaiq);
   if (reklamy === 'granted') {
     if (typeof window.pcReklamy === 'function') window.pcReklamy();
+    if (typeof window.pcPikselOpenAI === 'function') window.pcPikselOpenAI();
     return;
   }
-  // Wycofanie zgody, gdy skrypt reklam juz dziala: skryptu nie da sie
-  // wyladowac, wiec przeladowujemy strone. Po przeladowaniu <head> nie
-  // zaladuje go ponownie, bo zapis mowi juz "denied".
+  // Wycofanie zgody, gdy skrypt reklam albo piksel juz dziala: skryptu nie da
+  // sie wyladowac, wiec przeladowujemy strone. Po przeladowaniu <head> nie
+  // zaladuje ich ponownie, bo zapis mowi juz "denied".
+  usunCookiesOpenAI();
   if (zaladowane) window.location.reload();
 }
 

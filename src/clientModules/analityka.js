@@ -30,32 +30,48 @@ function poOdrysowaniu(akcja) {
 // przyciski wystarczy oznaczyc atrybutem, bez osobnego kodu.
 // Faza capture: wewnetrzny Link zmienia trase w swoim onClick, wiec w fazie
 // bubble location.pathname byloby juz adresem docelowym, a nie zrodlowym.
+//
+// Piksel OpenAI (window.oaiq) istnieje tylko po zgodzie na reklamy. Mail to
+// dla kampanii w ChatGPT konwersja, wiec idzie tam jako lead_created; pozostale
+// klikniecia zostaja tylko w GA4.
 if (typeof document !== 'undefined') {
   document.addEventListener('click', (e) => {
-    if (typeof window.gtag !== 'function') return;
     const el = e.target instanceof Element
       ? e.target.closest('[data-zdarzenie], a[href^="mailto:"]')
       : null;
     if (!el) return;
-    window.gtag('event', el.dataset.zdarzenie || 'kontakt_mail', {
-      miejsce: el.dataset.miejsce || 'brak',
-      page_path: window.location.pathname,
-    });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', el.dataset.zdarzenie || 'kontakt_mail', {
+        miejsce: el.dataset.miejsce || 'brak',
+        page_path: window.location.pathname,
+      });
+    }
+    if (typeof window.oaiq === 'function' && el.matches('a[href^="mailto:"]')) {
+      window.oaiq('measure', 'lead_created', {type: 'customer_action'});
+    }
   }, true);
 }
 
 export function onRouteDidUpdate({location, previousLocation}) {
   // Pierwsze wywolanie po zaladowaniu strony pomijamy: ta odslona poszla juz
-  // z konfiguracji gtag. previousLocation jest wtedy puste.
+  // z konfiguracji gtag i z loadera piksela. previousLocation jest wtedy puste.
   if (!previousLocation) return;
   if (previousLocation.pathname === location.pathname) return;
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  if (typeof window === 'undefined') return;
 
   poOdrysowaniu(() => {
-    window.gtag('event', 'page_view', {
-      page_path: location.pathname + location.search,
-      page_location: window.location.href,
-      page_title: document.title,
-    });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+    if (typeof window.oaiq === 'function') {
+      window.oaiq('measure', 'page_viewed', {
+        type: 'contents',
+        contents: [{id: location.pathname, name: document.title, content_type: 'page'}],
+      });
+    }
   });
 }
