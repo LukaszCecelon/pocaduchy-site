@@ -53,6 +53,13 @@ function zapiszZgode({statystyki, reklamy}) {
     );
   } catch {
     // Brak zapisu oznacza tylko, ze baner pokaze sie znowu przy nastepnej wizycie.
+    // Stary zapis kasujemy, zeby po przeladowaniu <head> nie wlaczyl reklam
+    // i piksela z dawnej zgody, ktora czytelnik wlasnie wycofal (uwaga Codexa).
+    try {
+      window.localStorage.removeItem(KLUCZ);
+    } catch {
+      // Nie da sie ani zapisac, ani usunac: przegladarka blokuje pamiec strony.
+    }
   }
 }
 

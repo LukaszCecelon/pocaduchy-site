@@ -318,8 +318,15 @@ const config = {
                   "s.id='pc-adsense';s.async=true;s.crossOrigin='anonymous';" +
                   `s.src='${src}';` +
                   'document.head.appendChild(s);};' +
+                  // Identyfikator klikniecia w reklame (oppref) jest tylko w
+                  // adresie strony wejscia, a nawigacja SPA go gubi. Trzymamy go
+                  // w pamieci strony (nic nie zapisujemy przed zgoda) i po
+                  // zgodzie oddajemy SDK przez jego wlasne cookie __oppref.
+                  "window.pcOppref=(location.search.match(/[?&]oppref=([^&#]+)/)||[])[1]||null;" +
                   'window.pcPikselOpenAI=function(){' +
                   'if(window.oaiq)return;' +
+                  "if(window.pcOppref&&!/[?&]oppref=/.test(location.search))" +
+                  "document.cookie='__oppref='+window.pcOppref+'; Max-Age=2592000; path=/; SameSite=Lax';" +
                   'var q=function(){q.q.push(arguments);};q.q=[];window.oaiq=q;' +
                   "var p=document.createElement('script');" +
                   "p.async=true;p.src='https://bzrcdn.openai.com/sdk/oaiq.min.js';" +
