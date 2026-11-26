@@ -55,7 +55,7 @@
     },
     {
       "type": "tekst",
-      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jeśli ktoś nie czuje się dobrze w projektowaniu standardów - może podziałać z [handlówkami](/blog/elementy-znormalizowane-handlowki/), żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
+      "body": "Co z ludźmi? Czy serio nie ma komu standaryzować? Szczerze mówiąc, ciężko mi wyobrazić sobie sytuację, w której konstruktor nie mógłby poświęcić np. 5 godzin tygodniowo na standaryzację jakiegoś modułu. Jak zaplanować taki czas w tygodniu całego zespołu, pokazuję w artykule [o liderze zespołu konstrukcyjnego, który dalej projektuje](/blog/lider-zespolu-konstrukcyjnego/). Jeśli ktoś nie czuje się dobrze w projektowaniu standardów - może podziałać z [handlówkami](/blog/elementy-znormalizowane-handlowki/), żeby maszyny były wykonywane spójnie. Swoją drogą posiadanie ustandaryzowanego wyboru handlówek również ma bardzo poważną zaletę, o czym niżej."
     },
     {
       "type": "obraz",
