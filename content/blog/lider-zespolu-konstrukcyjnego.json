@@ -1,0 +1,169 @@
+{
+  "title": "Konstruktor, który został liderem. I dalej projektuje.",
+  "seoTitle": "Lider zespołu konstrukcyjnego: jak pogodzić role?",
+  "description": "Jak pogodzić projektowanie z prowadzeniem zespołu konstruktorów? Priorytety, budżet czasu, konsultacje i kontrola jakości. Pobierz PDF oraz aplikację EMOS.",
+  "date": "2026-11-26",
+  "image": "/img/blog/lider-zespolu-konstrukcyjnego-emos-aplikacja.png",
+  "tags": [
+    "zarządzanie projektem",
+    "praca konstruktora",
+    "zarządzanie zespołem"
+  ],
+  "related": [
+    "szacowanie-czasu-projektowania",
+    "weryfikacja-cad-przed-produkcja",
+    "standaryzacja-w-biurze-konstrukcyjnym"
+  ],
+  "faq": [
+    {
+      "pytanie": "Jak pogodzić projektowanie z kierowaniem zespołem konstruktorów?",
+      "odpowiedz": "Podziel tydzień na bloki własnej pracy w CAD, okna konsultacji i czas na prowadzenie projektów. Ustal priorytety zgłoszeń i zakres decyzji, które konstruktorzy podejmują sami. Proporcje zmieniaj razem z fazą projektów."
+    },
+    {
+      "pytanie": "Jak ograniczyć przerywanie pracy lidera i konstruktorów?",
+      "odpowiedz": "Ustal, które sprawy wymagają reakcji od razu (bezpieczeństwo, blokada montażu lub zamówienia), a które czekają na okno konsultacyjne albo odprawę. Zgłoszenie powinno zawierać rozpatrywane warianty, ograniczenia i konkretne wątpliwości."
+    },
+    {
+      "pytanie": "Czy lider powinien sprawdzać każdy rysunek wykonawczy?",
+      "odpowiedz": "Nie. Zakres kontroli powinien wynikać z ryzyka i kompetencji konstruktora. Inaczej sprawdza się wspornik czujnika, inaczej mechanizm podnoszenia ciężkiego detalu. Samodzielność nie zastępuje wymaganych obliczeń, weryfikacji ani walidacji."
+    }
+  ],
+  "linkedinUrl": "https://www.linkedin.com/pulse/konstruktor-kt%C3%B3ry-zosta%C5%82-liderem-i-dalej-projektuje-%C5%82ukasz-cecelon-oapnf",
+  "blocks": [
+    {
+      "type": "tekst",
+      "body": "Obejrzałem ostatnio arcyciekawy [materiał Szymona Negacza o zarządzaniu zespołem w 2027 roku](https://www.youtube.com/watch?v=SPm4R4AgjAw), po którym zaświeciła mi się lampka: MUSZĘ przełożyć tę wiedzę na pracę zespołów inżynierskich. Czyli na lidera zespołu konstrukcyjnego, który dalej sam siedzi w CAD.\n\nSzczególnie że sam mierzę się z wieloma wyzwaniami opisanymi w wideo Szymona. Także no... zapraszam do lektury 🤓\n\nNa końcu artykułu są dwa pliki do pobrania: PDF z zasadami do wydruku i interaktywna aplikacja HTML, w której możesz policzyć własny tydzień."
+    },
+    {
+      "type": "tekst",
+      "body": "## Dwie, a czasami trzy role\n\nW materiale Szymona padło rozróżnienie na dwa typy menedżerów: „grających” i „pełnoetatowych”. W tym artykule skupimy się na tych pierwszych. Po pierwsze, taki model funkcjonuje w wielu biurach konstrukcyjnych. Po drugie, tego typu lider jest przyklejony do rzeczywistości zespołu, którym zarządza (wiem, co mówię, przeżyłem kilku „zarządzaczy”, którym wydawało się, że konstruktor ma w szufladzie przy biurku gotowe modele 3D 🙃).\n\nOczywiście jest też druga strona medalu. „Grający” lider musi się naprawdę napocić, żeby spiąć swoje zadania i nie być wąskim gardłem zespołu: własne zadania konstrukcyjne, konsultacje z zespołem, prowadzenie projektów, pilnowanie terminów, a po drodze jeszcze różnego rodzaju wrzutki od klientów czy przełożonych."
+    },
+    {
+      "type": "tekst",
+      "body": "## Ciągłe wrzutki i attention residue\n\nJak się dobrze zagłębić w opracowania naukowe, to istnieje coś takiego jak attention residue (opisane w 2009 r. przez Sophie Leroy). Mówiąc najogólniej: kiedy zaczynamy nowe zadanie, część naszej uwagi obraca się wokół poprzedniego, niedokończonego.\n\nMyślę, że wielu z Was zna sytuację, w której wracacie do kompa po konsultacji dotyczącej zupełnie innej maszyny i próbujecie sobie przypomnieć, na czym właściwie skończyliście. W moim przypadku takie oderwanie w momencie, kiedy np. dopasowuję dwie części do siebie, czasem kończyło się niepasującymi otworami 😐\n\nTylko że przecież te wszystkie konsultacje, przeglądy projektów czy rozwijanie kompetencji konstruktorów to też moja robota. No właśnie, jak to sobie sensownie poukładać?\n\nPo tym przydługawym wstępie chcę pokazać Wam mój pomysł na adaptację zasad przedstawionych przez Szymona, ale dla działów konstrukcyjno-technologicznych."
+    },
+    {
+      "type": "tekst",
+      "body": "## Reguły gry: priorytety P0 do P3\n\nJednym z ciekawszych punktów jest temat ustalenia jasnych „reguł gry” w zespole. Szczególnie przypadło mi do gustu zdanie „dobry menedżer produkuje jasność”.\n\nPatrząc z perspektywy „grającego” lidera, wyobraźcie sobie taką sytuację. Gość siedzi i próbuje rozklepać koncepcję jakiegoś mechanizmu. W międzyczasie jeden z konstruktorów potrzebuje konsultacji dotyczącej sposobu mocowania czujnika, drugi czeka na decyzję w sprawie doboru motoreduktora, a trzeci ma pomysł na usprawnienie szablonu rysunkowego w Inventorze.\n\nCzy każdy z tych tematów powinien oderwać lidera od jego aktualnego zadania? NIE.\n\nAle skąd konstruktor ma wiedzieć, z którym tematem powinien przyjść od razu, a z którym może chwilę poczekać? Noi tutaj pojawia się przestrzeń do ustalenia pewnych zasad. Spróbowałem podzielić tego typu tematy na cztery kategorie:"
+    },
+    {
+      "type": "tabela",
+      "markdown": "| Poziom | Kryterium i przykłady | Reakcja |\n|---|---|---|\n| P0, krytyczny | Zagrożenie bezpieczeństwa, zatrzymanie linii, ryzyko nieodwracalnej szkody. | Natychmiast zabezpieczyć sytuację i eskalować. |\n| P1, pilny | Blokada pracy lub zamówienia z realnym wpływem na termin. | Decyzja przed terminem krytycznym; w razie potrzeby przerwać blok CAD. |\n| P2, standard | Konsultacja rozwiązania, dokumentacji, doboru komponentu. | Najbliższe okno konsultacyjne. |\n| P3, rozwój | Pomysł na standard, bibliotekę, automatyzację. | Odprawa lub retrospektywa. |"
+    },
+    {
+      "type": "tekst",
+      "body": "Oczywiście sposób mocowania czujnika nie zawsze będzie tematem P2, jeżeli od tego czujnika zależy bezpieczeństwo pracy maszyny. Liczą się konsekwencje braku decyzji, a nie sam rodzaj komponentu.\n\nDruga kwestia to sposób zgłaszania problemów. Czym innym jest przyjście do lidera z informacją „nie wiem, jaki siłownik dobrać”, a czym innym przedstawienie mu dwóch rozpatrywanych wariantów wraz z informacją, jakie mamy ograniczenia i co konkretnie budzi nasze wątpliwości.\n\nWarto ustalić, jakie decyzje konstruktor może podejmować samodzielnie, kiedy potrzebuje wsparcia i w jaki sposób może je uzyskać."
+    },
+    {
+      "type": "tekst",
+      "body": "## Budżet czasu i kalendarz „grającego” lidera\n\nProjektując maszynę, analizujemy jej wydajność, czasy cyklu i potencjalne wąskie gardła. Spróbujmy podobnie popatrzeć na czas pracy naszego lidera.\n\nDo dyspozycji ma 40 godzin tygodniowo. Przykładowy podział mógłby wyglądać następująco:"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/lider-zespolu-konstrukcyjnego-budzet-czasu.png",
+      "alt": "Suwaki podziału 40 godzin tygodnia lidera na role: konstruktor 50 procent, team leader 17,5 procent, project manager 25 procent, bufor 7,5 procent.",
+      "podpis": "Przykładowa dystrybucja czasu „grającego” lidera.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Oczywiście proporcje będą się zmieniać w zależności od fazy realizowanych projektów. Sam budżet godzin lidera to ta sama gra co [szacowanie czasu projektowania](/blog/szacowanie-czasu-projektowania/): jak nie zostawisz rezerwy, rezerwę zrobi za Ciebie kolejna wrzutka."
+    },
+    {
+      "type": "tekst",
+      "body": "## Lider jako wąskie gardło: przybliżenie Kingmana\n\nPrzy okazji trafiłem na dosyć ciekawe zagadnienie z teorii kolejek: przybliżenie Kingmana. Oczywiście musiałem pokminić to trochę z ej ajem, ale jak zrozumiałem, to myślę, że powinniśmy poznać tę zależność 🤓\n\nGeneralnie mówi ono, że jeśli mamy zmienny napływ zadań i zmienny czas ich realizacji, to przy zbliżaniu się do obciążenia 100% czas oczekiwania zadań w kolejce rośnie nieproporcjonalnie:"
+    },
+    {
+      "type": "wzor",
+      "latex": "W_q \\approx \\frac{C_a^2 + C_s^2}{2} \\cdot \\frac{\\rho}{1-\\rho} \\cdot t_s"
+    },
+    {
+      "type": "tekst",
+      "body": "Ca i Cs to współczynniki zmienności odstępów między zgłoszeniami i czasu obsługi, ρ to wykorzystanie zasobu (tu: lidera), ts to średni czas obsługi. Najwięcej robi środkowy człon. Przy 80% obciążenia ρ/(1−ρ) = 4, przy 95% już 19."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/lider-zespolu-konstrukcyjnego-kingman-wykres.png",
+      "alt": "Wykres współczynnika obciążenia rho/(1-rho) w funkcji wykorzystania zasobu: łagodny wzrost do około 80 procent, gdzie wartość wynosi 4, potem gwałtowny wzrost.",
+      "podpis": "Poglądowy wykres wzrostu czasu oczekiwania od obłożenia.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Biuro konstrukcyjne nie jest idealnym „systemem kolejkowym”, ale możemy zastosować tutaj pewną analogię. Jeżeli lider ma szczelnie zaplanowany tydzień własnymi zadaniami konstrukcyjnymi, to kiedy pozostali konstruktorzy uzyskają od niego potrzebne wsparcie?\n\nPodoba mi się zaproponowany przez Szymona rytm pracy zespołu. Po przełożeniu go na nasze konstrukcyjne podwórko i uzupełnieniu o bloki pracy w CAD mogłoby to wyglądać mniej więcej tak:"
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/lider-zespolu-konstrukcyjnego-kalendarz-tygodnia.jpg",
+      "alt": "Przykładowy tygodniowy kalendarz lidera od poniedziałku do piątku: plan dnia, bloki Deep Work CAD, codzienne okno konsultacyjne 10:30 do 11:00, bloki PM, 1:1 w środę, przegląd tygodnia i retrospektywa w piątek.",
+      "podpis": "Przykładowy kalendarz „grającego” lidera.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "## Odprawy i priorytety\n\nSamo przekazanie zespołowi informacji, że musimy skończyć projekt maszyny do końca miesiąca, niewiele nam jeszcze daje.\n\nCo konkretnie musimy zrobić w tym tygodniu? Zatwierdzić koncepcję chwytaka? Dobrać komponenty o długim terminie dostawy? Zwolnić dokumentację ramy do produkcji? To właśnie tego typu rzeczy, wraz z identyfikacją problemów blokujących pracę konstruktorów, chciałbym ustalać podczas cotygodniowej odprawy.\n\nSzymon zwraca też uwagę na zapewnianie jasności w relacjach z przełożonymi. Jeżeli w środku tygodnia projekt B staje się ultra pilny i przesuwamy do niego 40 godzin pracy konstruktorów z projektu A, to warto pokazać konsekwencje tej decyzji.\n\nZmiana priorytetu nie generuje dodatkowych roboczogodzin 😉"
+    },
+    {
+      "type": "tekst",
+      "body": "## Jak nie stać się wąskim gardłem własnego zespołu?\n\nBardzo spodobał mi się przytoczony przez Szymona przykład urlopu lidera. Czy pod jego nieobecność zespół nadal dobrze funkcjonuje? 🏖️\n\nPewnie niejeden z Was spotkał się z sytuacją, w której sam byłby w stanie wykonać jakieś zadanie szybciej, niż zajęłoby mu wytłumaczenie sposobu jego wykonania innemu konstruktorowi.\n\nStaram się świadomie nie przejmować takich zadań. Wolę wskazać, co można zrobić lepiej, pokazać szybszy sposób modelowania czy podpowiedzieć, jak podejść do danego problemu. Być może przy kolejnym podobnym zadaniu moja pomoc nie będzie już potrzebna."
+    },
+    {
+      "type": "tekst",
+      "body": "## Spotkania 1:1 z konstruktorami\n\nW naszej branży podczas codziennych rozmów chyba zdecydowanie częściej skupiamy się na problemach technicznych niż na rozwoju samych konstruktorów.\n\nA gdyby tak raz na dwa tygodnie znaleźć 30 minut na rozmowę z każdym z nich? Co poszło dobrze? Gdzie utknął? Czego potrzebuje ode mnie jako lidera? W jakim kierunku chciałby się rozwijać?\n\nByć może jeden konstruktor chciałby lepiej ogarnąć obliczenia wytrzymałościowe, drugi dobór napędów, a trzeci automatyzację pracy w Inventorze. Warto wyjść z takiego spotkania z konkretnymi ustaleniami i wrócić do nich podczas kolejnej rozmowy. Mamy wtedy coraz bardziej przejrzysty obraz zespołu i wiemy, w jakich zadaniach ludzie czują się najlepiej."
+    },
+    {
+      "type": "tekst",
+      "body": "## Samodzielność zespołu a jakość projektu\n\nCzy lider powinien osobiście sprawdzać każdy rysunek wykonawczy? Inaczej przecież podejdziemy do weryfikacji niekrytycznego wspornika czujnika, a inaczej do mechanizmu podnoszenia kilkusetkilogramowego detalu (o samym sprawdzaniu pisałem w tekście o [weryfikacji CAD przed produkcją](/blog/weryfikacja-cad-przed-produkcja/)).\n\nZakres kontroli powinien wynikać z ryzyka i kompetencji konstruktorów. Samodzielność zespołu nie może odbywać się kosztem wymaganych obliczeń, weryfikacji czy walidacji. A po czym poznać, że zespół rzeczywiście staje się bardziej samodzielny?\n\nDobrym sygnałem może być malejąca liczba konsultacji wymagających udziału lidera, połączona ze zmniejszaniem się liczby problemów konstrukcyjnych ujawnianych podczas montażu i uruchomienia maszyn."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/lider-zespolu-konstrukcyjnego-macierz-rozwoju.png",
+      "alt": "Macierz dwa na dwa: oś pozioma to konsultacje wymagające udziału lidera, oś pionowa to problemy na montażu i uruchomieniu. Ćwiartki: pozorna samodzielność, potrzeba wsparcia, docelowy kierunek, zależność od lidera.",
+      "podpis": "Przykładowa macierz rozwoju zespołu.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "tekst",
+      "body": "Jeżeli konstruktorzy przestają zadawać pytania, ale na montażu przybywa problemów, to być może wcale nie stali się bardziej samodzielni, a jedynie przestali zgłaszać swoje wątpliwości."
+    },
+    {
+      "type": "tekst",
+      "body": "## Usprawnienia w biurze konstrukcyjnym\n\nIle razy podczas projektowania czy montażu maszyny dochodzimy do wniosku, że przydałoby się zmienić jakiś standard projektowania, poprawić szablon rysunkowy, zautomatyzować powtarzalną czynność w CAD albo opracować bibliotekę podzespołów?\n\nA później rusza kolejny projekt i temat umiera 🙃\n\nTutaj bardzo podoba mi się pomysł Szymona, żeby np. raz w miesiącu usiąść z całym zespołem, przeanalizować problemy, wybrać konkretne usprawnienie do przetestowania i na kolejnym spotkaniu sprawdzić jego efekty. Przy okazji warto korzystać z doświadczeń ludzi pracujących na produkcji, montażu czy uruchomieniach.\n\nTrochę takie konstrukcyjne R&D, tylko że zamiast mechanizmu usprawniamy sposób naszej pracy. Wybrane usprawnienie dobrze potem zamienić w standard, o czym więcej w [standaryzacji w biurze konstrukcyjnym](/blog/standaryzacja-w-biurze-konstrukcyjnym/)."
+    },
+    {
+      "type": "tekst",
+      "body": "## EMOS 1.2: PDF i aplikacja do pobrania\n\nStwierdziłem, że krok po kroku przeanalizuję moją pracę przez pryzmat tego, co powiedział Szymon, a następnie spróbuję „narysować niedokładne koło”. Razem z moim „JARVISEM” dość długo dyskutowałem, jak mogę wdrożyć pewne rozwiązania w codziennej pracy. Noi tak...\n\nTak powstał EMOS (Engineering Management Operating System), a dokładnie interaktywna aplikacja (coś na zasadzie MVP), żeby mieć ogląd z lotu ptaka na rzeczy do wdrożenia. Sporo w niej AI-owego opisu różnych rzeczy, ale co do zasady chciałem mieć właśnie takie coś. Do tego PDF z tymi samymi zasadami w wersji do wydruku."
+    },
+    {
+      "type": "obraz",
+      "src": "/img/blog/lider-zespolu-konstrukcyjnego-emos-aplikacja.png",
+      "alt": "Zrzut ekranu aplikacji EMOS: menu z sekcjami Diagnoza, Budżet czasu, Rytm tygodnia, Eskalacja, Priorytety, Godziny, Jakość, oraz pulpit z liczbą projektów, odchyleniem godzin i planem wdrożenia.",
+      "podpis": "Okładka aplikacji HTML powstałej z analizy wdrażania zasad z materiału Szymona Negacza w biurze konstrukcyjnym.",
+      "wyrownanie": "pelna-szerokosc"
+    },
+    {
+      "type": "plik",
+      "src": "/pliki/lider-zespolu-konstrukcyjnego-emos-1-2.pdf",
+      "tytul": "EMOS 1.2: Niedokładnie narysowane kółko (PDF)",
+      "opis": "Zasady z artykułu w wersji do wydruku: role, przerwania, Kingman, budżet czasu, P0 do P3, pakiety prac, EAC, jakość, bramki projektu, 4 szablony.",
+      "format": "PDF, 17 stron",
+      "waga": "165 KB"
+    },
+    {
+      "type": "plik",
+      "src": "/pliki/lider-zespolu-konstrukcyjnego-emos-1-2-aplikacja.zip",
+      "tytul": "EMOS 1.2 Community Edition (aplikacja HTML)",
+      "opis": "Spakowany plik HTML: rozpakuj i otwórz w Chrome, Edge albo Firefoxie, działa bez internetu: budżet czasu, planer tygodnia, kalkulator Kingmana, rejestr godzin projektów, checklisty Design Review. Dane zostają w Twojej przeglądarce.",
+      "format": "ZIP z plikiem HTML",
+      "waga": "35 KB"
+    },
+    {
+      "type": "tekst",
+      "body": "Oba pliki to wydanie pilotażowe. Przykłady liczbowe są fikcyjne, a progi to propozycje do sprawdzenia we własnym biurze, nie normy. Aplikacja trzyma dane tylko w Twojej przeglądarce, więc nie wpisuj do niej tajemnic klientów ani notatek z rozmów 1:1.\n\nJeśli coś z tego przetestujecie, napiszcie, co faktycznie zadziałało, a co okazało się zbędne. To materiał do dalszej pracy, nie zamknięty produkt."
+    },
+    {
+      "type": "tekst",
+      "body": "## Źródła\n\n- Szymon Negacz, [materiał o zarządzaniu zespołem w 2027 roku](https://www.youtube.com/watch?v=SPm4R4AgjAw), YouTube.\n- Leroy, S. (2009). [Why is it so hard to do my work? The challenge of attention residue when switching between work tasks](https://doi.org/10.1016/j.obhdp.2009.04.002). Organizational Behavior and Human Decision Processes, 109(2), 168–181.\n- Leroy, S., Glomb, T. M. (2018). [Tasks Interrupted: How Anticipating Time Pressure on Resumption of an Interrupted Task Causes Attention Residue and Low Performance on Interrupting Tasks](https://doi.org/10.1287/orsc.2017.1184). Organization Science, 29(3), 380–397.\n- Kingman, J. F. C. (1961). [The single server queue in heavy traffic](https://doi.org/10.1017/S0305004100036094). Mathematical Proceedings of the Cambridge Philosophical Society, 57(4), 902–904.\n- Pierwsza wersja artykułu: [LinkedIn, 25.11.2026](https://www.linkedin.com/pulse/konstruktor-kt%C3%B3ry-zosta%C5%82-liderem-i-dalej-projektuje-%C5%82ukasz-cecelon-oapnf)."
+    }
+  ]
+}
